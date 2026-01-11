@@ -460,70 +460,113 @@ st.markdown("""
        ================================================================= */
     @media (max-width: 768px) {
         .main-header {
-            padding: 1.25rem 1.5rem;
+            padding: 1rem 1.25rem;
         }
         
         .main-header h1 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
         
+        .main-header p {
+            font-size: 0.85rem;
+        }
+        
+        /* Progress bar compacte - icônes seulement */
         .progress-container {
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding: 0.75rem;
+            flex-wrap: nowrap;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            justify-content: space-around;
         }
         
         .progress-connector {
-            display: none;
+            width: 20px;
         }
         
         .progress-step {
-            padding: 0.5rem 0.75rem;
-            font-size: 0.8rem;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.75rem;
+        }
+        
+        .progress-step span:last-child {
+            display: none; /* Masque le texte, garde le numéro */
         }
         
         .kholleur-msg, .student-msg {
             max-width: 95%;
+            padding: 1rem;
+            font-size: 0.95rem;
         }
         
         .kholleur-msg::before {
             display: none;
         }
         
-        /* Améliorer les touch targets pour mobile */
+        /* Touch targets améliorés */
         .stSelectbox > div > div {
-            min-height: 48px !important;
-        }
-        
-        .stButton > button {
-            min-height: 48px !important;
+            min-height: 52px !important;
             font-size: 1rem !important;
         }
         
-        /* File uploader mobile-friendly */
+        .stButton > button {
+            min-height: 52px !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+        }
+        
+        /* File uploader PROÉMINENT pour mobile */
         .stFileUploader {
-            min-height: 100px;
+            min-height: 140px !important;
+            border: 3px dashed var(--color-primary) !important;
+            border-radius: 16px !important;
+            background: rgba(44, 62, 135, 0.05) !important;
         }
         
         .stFileUploader section {
+            padding: 1.5rem !important;
+            min-height: 120px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        .stFileUploader section > div {
+            font-size: 1rem !important;
+        }
+        
+        .stFileUploader small {
+            font-size: 0.9rem !important;
+        }
+        
+        /* Radio buttons de difficulté */
+        .stRadio > div {
+            flex-wrap: wrap !important;
+            gap: 0.5rem !important;
+        }
+        
+        .stRadio label {
+            padding: 0.6rem 0.8rem !important;
+            font-size: 0.85rem !important;
+        }
+        
+        /* Textarea adapté mobile */
+        .stTextArea textarea {
+            font-size: 16px !important; /* Empêche le zoom iOS */
+            min-height: 80px !important;
+        }
+        
+        /* Cards plus compactes */
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker),
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) {
             padding: 1rem !important;
         }
         
-        /* Colonnes empilées sur mobile */
-        [data-testid="column"] {
-            width: 100% !important;
-            flex: 1 1 100% !important;
-        }
-        
-        /* Textarea plus grand pour faciliter la saisie */
-        .stTextArea textarea {
-            font-size: 16px !important; /* Empêche le zoom iOS */
-            min-height: 120px !important;
-        }
-        
-        /* Form submit button full width */
+        /* Form submit button full width et proéminent */
         .stForm [data-testid="baseButton-primary"] {
             width: 100% !important;
+            min-height: 52px !important;
+            font-size: 1.1rem !important;
         }
     }
     
@@ -688,6 +731,78 @@ def reset_kholle():
 
 
 # =============================================================================
+# PHASE: SETUP MOBILE-FIRST
+# =============================================================================
+
+def render_setup_mobile():
+    """Écran d'accueil optimisé mobile avec sélection chapitre/difficulté."""
+    
+    # Message d'accueil compact
+    st.markdown("""
+    <div style="text-align: center; padding: 1rem 0;">
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); margin: 0;">
+            Prêt pour ta khôlle ? 🎯
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Sélection du chapitre
+    chapters = get_chapters()
+    chapter_options = {f"{ch['title']} ({ch['question_count']}q)": ch['id'] for ch in chapters}
+    
+    selected_chapter = st.selectbox(
+        "📖 Choisis ton chapitre",
+        options=list(chapter_options.keys()),
+        index=0 if chapter_options else None,
+        key="mobile_chapter_select"
+    )
+    
+    if selected_chapter:
+        st.session_state.chapter_id = chapter_options[selected_chapter]
+    
+    # Sélection de la difficulté avec boutons radio visuels
+    st.markdown("##### 📊 Difficulté")
+    
+    difficulty_labels = {
+        1: "⭐ Facile",
+        2: "⭐⭐ Accessible", 
+        3: "⭐⭐⭐ Standard",
+        4: "⭐⭐⭐⭐ Difficile",
+        5: "⭐⭐⭐⭐⭐ Expert"
+    }
+    
+    selected_difficulty = st.radio(
+        "Niveau",
+        options=[1, 2, 3, 4, 5],
+        format_func=lambda x: difficulty_labels[x],
+        index=st.session_state.difficulty - 1,
+        horizontal=True,
+        label_visibility="collapsed",
+        key="mobile_difficulty_select"
+    )
+    st.session_state.difficulty = selected_difficulty
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Grand bouton de lancement
+    if st.button(
+        "🚀 Lancer la khôlle",
+        type="primary",
+        use_container_width=True,
+        key="mobile_start_btn"
+    ):
+        start_new_kholle()
+        st.rerun()
+    
+    # Info discrète
+    st.markdown("""
+    <div style="text-align: center; padding: 1.5rem 0 0 0; opacity: 0.6;">
+        <small>📝 Question de cours → 📐 Exercice → 🎉 Résultats</small>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+# =============================================================================
 # PHASE: QUESTION DE COURS
 # =============================================================================
 
@@ -783,36 +898,48 @@ def render_question_cours():
     if not st.session_state.question_validated:
         st.markdown("### Ta réponse")
         
-        # Utiliser un formulaire pour permettre Enter
+        # Layout photo-first pour mobile
         with st.form(key="question_form", clear_on_submit=True):
-            col1, col2 = st.columns([3, 1])
+            # 1. Zone photo proéminente
+            st.markdown("""
+            <div style="text-align: center; padding: 0.5rem 0;">
+                <span style="font-size: 1.2rem;">📷 Photo de ton brouillon</span>
+            </div>
+            """, unsafe_allow_html=True)
             
-            with col1:
-                answer = st.text_area(
-                    "Écris ta réponse ici",
-                    height=150,
-                    placeholder="Appuie sur Entrée ou clique sur Valider pour envoyer...",
-                    label_visibility="collapsed",
-                    key="question_answer_input"
-                )
+            uploaded_file = st.file_uploader(
+                "Prends en photo ton brouillon",
+                type=["jpg", "jpeg", "png", "heic"],
+                help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
+                label_visibility="collapsed",
+                key="question_photo_input"
+            )
             
-            with col2:
-                # File uploader avec capture caméra pour mobile
-                st.markdown("##### 📷 Photo")
-                uploaded_file = st.file_uploader(
-                    "Photo de brouillon",
-                    type=["jpg", "jpeg", "png"],
-                    help="Prends une photo de ton brouillon (fonctionne sur téléphone)",
-                    label_visibility="collapsed",
-                    key="question_photo_input"
-                )
-                
-                if uploaded_file:
-                    st.image(uploaded_file, width=120)
+            if uploaded_file:
+                st.image(uploaded_file, use_container_width=True)
+                st.success("📸 Photo prête !")
             
-            # Bouton de soumission du formulaire (Enter fonctionne aussi)
+            # 2. Séparateur visuel
+            st.markdown("""
+            <div style="display: flex; align-items: center; margin: 1rem 0; opacity: 0.5;">
+                <div style="flex: 1; height: 1px; background: currentColor;"></div>
+                <span style="padding: 0 1rem; font-size: 0.85rem;">ou écris ta réponse</span>
+                <div style="flex: 1; height: 1px; background: currentColor;"></div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # 3. Textarea secondaire
+            answer = st.text_area(
+                "Écris ta réponse",
+                height=100,
+                placeholder="Si tu es bloqué, décris où tu en es...",
+                label_visibility="collapsed",
+                key="question_answer_input"
+            )
+            
+            # 4. Bouton de validation
             submitted = st.form_submit_button(
-                "✅ Valider ma réponse", 
+                "✅ Valider",
                 type="primary",
                 use_container_width=True
             )
@@ -940,39 +1067,52 @@ def render_exercice():
             with st.chat_message("assistant", avatar="📐"):
                 st.markdown(msg['content'])
     
-    # Zone de réponse avec formulaire (Enter pour soumettre)
+    # Zone de réponse photo-first
     st.markdown("### Ton travail")
     
     with st.form(key="exercise_form", clear_on_submit=True):
-        col1, col2 = st.columns([3, 1])
+        # 1. Zone photo proéminente
+        st.markdown("""
+        <div style="text-align: center; padding: 0.5rem 0;">
+            <span style="font-size: 1.2rem;">📷 Photo de ton travail</span>
+        </div>
+        """, unsafe_allow_html=True)
         
-        with col1:
-            message = st.text_area(
-                "Écris ici",
-                height=120,
-                placeholder="Décris ton approche, pose une question, ou montre ton avancement... (Entrée pour envoyer)",
-                label_visibility="collapsed",
-                key="exercise_input_form"
-            )
+        uploaded_file = st.file_uploader(
+            "Prends en photo ton travail",
+            type=["jpg", "jpeg", "png", "heic"],
+            help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
+            label_visibility="collapsed",
+            key="exercise_photo_form"
+        )
         
-        with col2:
-            st.markdown("##### 📷 Photo")
-            uploaded_file = st.file_uploader(
-                "Photo",
-                type=["jpg", "jpeg", "png"],
-                help="Prends une photo de ton travail",
-                label_visibility="collapsed",
-                key="exercise_photo_form"
-            )
-            
-            if uploaded_file:
-                st.image(uploaded_file, width=120)
+        if uploaded_file:
+            st.image(uploaded_file, use_container_width=True)
+            st.success("� Photo prête !")
         
-        # Boutons en ligne
+        # 2. Séparateur visuel
+        st.markdown("""
+        <div style="display: flex; align-items: center; margin: 1rem 0; opacity: 0.5;">
+            <div style="flex: 1; height: 1px; background: currentColor;"></div>
+            <span style="padding: 0 1rem; font-size: 0.85rem;">ou écris un message</span>
+            <div style="flex: 1; height: 1px; background: currentColor;"></div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # 3. Textarea secondaire  
+        message = st.text_area(
+            "Écris ici",
+            height=100,
+            placeholder="Décris ton approche, pose une question, ou montre ton avancement...",
+            label_visibility="collapsed",
+            key="exercise_input_form"
+        )
+        
+        # 4. Boutons d'action
         col_send, col_end = st.columns([3, 1])
         with col_send:
             submitted = st.form_submit_button(
-                "💬 Envoyer", 
+                "💬 Envoyer",
                 type="primary",
                 use_container_width=True
             )
@@ -1086,24 +1226,7 @@ def main():
     
     # Contenu principal selon la phase
     if st.session_state.phase == PHASE_SETUP:
-        st.markdown("""
-        ### Bienvenue !
-        
-        Je suis ton khôlleur virtuel. Je vais te poser des **questions de cours** puis te proposer un **exercice** adapté à ton niveau.
-        
-        **Comment ça marche :**
-        1. Choisis un chapitre dans la sidebar
-        2. Règle la difficulté souhaitée
-        3. Clique sur "Nouvelle khôlle"
-        4. Réponds aux questions (texte ou photo de brouillon)
-        5. Je te donne un feedback et te guide si tu bloques
-        
-        **Mon style :** Je suis exigeant mais bienveillant. Je ne te donne pas les réponses, je te fais réfléchir ! 🧠
-        
-        ---
-        
-        *Prêt ? Choisis un chapitre et lance-toi !*
-        """)
+        render_setup_mobile()
         
     elif st.session_state.phase == PHASE_QUESTION:
         render_question_cours()
