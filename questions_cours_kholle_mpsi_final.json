@@ -1,0 +1,2692 @@
+{
+  "metadata": {
+    "version": "2.1",
+    "description": "Banque complète de questions de cours type khôlle MPSI - LaTeX nettoyé",
+    "source": "Programme officiel MPSI 2021",
+    "last_update": "2026-01-06",
+    "total_chapitres": 20,
+    "types_questions": [
+      "definition",
+      "theoreme_enonce",
+      "theoreme_demo",
+      "exemple",
+      "contre_exemple",
+      "cours_piege",
+      "methode",
+      "calcul_cours",
+      "application_directe"
+    ],
+    "total_questions": 127,
+    "validation_PO": {
+      "date_validation": "2026-01-03",
+      "source": "Programme officiel MPSI 2021 (BO)",
+      "corrections_appliquees": 7,
+      "notes": [
+        "Démonstrations non exigibles identifiées et types corrigés",
+        "Notes PO ajoutées aux questions concernées",
+        "Vérification hors programme effectuée"
+      ]
+    }
+  },
+  "LOGIQUE_ENS": {
+    "id": "LOGIQUE_ENS",
+    "titre": "Raisonnement et vocabulaire ensembliste",
+    "questions_cours": [
+      {
+        "id": "LOGIQUE_ENS_001",
+        "question": "Soit $P(n)$ une propriété dépendant d'un entier $n \\geq 0$. Énoncer le principe de récurrence. Quelle est la différence avec la récurrence forte ?",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Récurrence simple : $P(0)$ vraie (initialisation) et $\\forall n, P(n) \\Rightarrow P(n+1)$ (hérédité) implique $\\forall n, P(n)$",
+          "Récurrence forte : on suppose $P(0), P(1), \\ldots, P(n)$ toutes vraies pour montrer $P(n+1)$",
+          "Équivalence des deux principes, mais parfois l'un est plus commode"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'initialisation",
+          "Confondre 'supposons $P(n)$' et 'montrons $P(n)$'"
+        ],
+        "relances_prof": [
+          "Donnez un exemple où la récurrence forte est indispensable.",
+          "Peut-on faire une récurrence à partir d'un rang $n_0 \\neq 0$ ?",
+          "Qu'est-ce qu'une récurrence double ? Donnez un exemple avec Fibonacci."
+        ]
+      },
+      {
+        "id": "LOGIQUE_ENS_002",
+        "question": "Soit $f : E \\to F$ une application. Donner la définition de $f$ injective, $f$ surjective, $f$ bijective. Que dire de la composée de deux injections ?",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Injective : $\\forall x, x' \\in E, f(x) = f(x') \\Rightarrow x = x'$",
+          "Surjective : $\\forall y \\in F, \\exists x \\in E, f(x) = y$",
+          "Bijective : injective ET surjective",
+          "La composée de deux injections est injective"
+        ],
+        "erreurs_frequentes": [
+          "Confondre le sens de l'implication pour l'injectivité",
+          "Oublier de quantifier correctement"
+        ],
+        "relances_prof": [
+          "Si $g \\circ f$ est injective, que peut-on dire de $f$ ? Et de $g$ ?",
+          "Si $g \\circ f$ est surjective, que peut-on dire de $g$ ? Et de $f$ ?",
+          "Donner un exemple où $g \\circ f$ est bijective mais ni $f$ ni $g$ ne le sont."
+        ]
+      },
+      {
+        "id": "LOGIQUE_ENS_003",
+        "question": "Soit $f : E \\to F$ et $A \\subset E$, $B \\subset F$. Définir l'image directe $f(A)$ et l'image réciproque $f^{-1}(B)$. A-t-on toujours $f(f^{-1}(B)) = B$ ?",
+        "type": "definition",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$f(A) = \\{f(x) \\mid x \\in A\\} = \\{y \\in F \\mid \\exists x \\in A, f(x) = y\\}$",
+          "$f^{-1}(B) = \\{x \\in E \\mid f(x) \\in B\\}$",
+          "Non ! On a $f(f^{-1}(B)) \\subset B$, avec égalité si $f$ surjective",
+          "Contre-exemple : $f : \\mathbb{R} \\to \\mathbb{R}, x \\mapsto x^2$, $B = \\mathbb{R}$, $f^{-1}(B) = \\mathbb{R}$, $f(f^{-1}(B)) = \\mathbb{R}_+ \\neq \\mathbb{R}$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre $f^{-1}(B)$ avec la bijection réciproque",
+          "Penser que $f(f^{-1}(B)) = B$ toujours"
+        ],
+        "relances_prof": [
+          "Et pour $A \\subset f^{-1}(f(A))$, c'est vrai ou faux ?",
+          "Sous quelle condition a-t-on $f^{-1}(f(A)) = A$ ?",
+          "Montrer que $f^{-1}(B_1 \\cap B_2) = f^{-1}(B_1) \\cap f^{-1}(B_2)$. Et pour l'image directe ?"
+        ]
+      },
+      {
+        "id": "LOGIQUE_ENS_004",
+        "question": "Écrire la négation de la proposition : « $\\forall \\varepsilon > 0, \\exists N \\in \\mathbb{N}, \\forall n \\geq N, |u_n - \\ell| < \\varepsilon$ ». Que reconnaissez-vous ?",
+        "type": "cours_piege",
+        "difficulte": 2,
+        "temps_estime_min": 2,
+        "attendus": [
+          "Négation : $\\exists \\varepsilon > 0, \\forall N \\in \\mathbb{N}, \\exists n \\geq N, |u_n - \\ell| \\geq \\varepsilon$",
+          "La proposition initiale est la définition de $u_n \\to \\ell$",
+          "La négation dit que $(u_n)$ ne converge pas vers $\\ell$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas inverser tous les quantificateurs",
+          "Oublier de changer $<$ en $\\geq$"
+        ],
+        "relances_prof": [
+          "Cette négation signifie-t-elle que $(u_n)$ diverge ?",
+          "Écrire la négation de « $f$ continue en $a$ ».",
+          "Écrire « $(u_n)$ non bornée » avec des quantificateurs."
+        ]
+      },
+      {
+        "id": "LOGIQUE_ENS_005",
+        "question": "Qu'est-ce qu'une relation d'équivalence sur un ensemble $E$ ? Donner un exemple. Que forment les classes d'équivalence ?",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Relation binaire $\\mathcal{R}$ réflexive ($x\\mathcal{R}x$), symétrique ($x\\mathcal{R}y \\Rightarrow y\\mathcal{R}x$), transitive ($x\\mathcal{R}y$ et $y\\mathcal{R}z \\Rightarrow x\\mathcal{R}z$)",
+          "Exemple : congruence modulo $n$ sur $\\mathbb{Z}$, ou égalité des parties fractionnaires sur $\\mathbb{R}$",
+          "Les classes d'équivalence forment une partition de $E$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'une des trois propriétés",
+          "Ne pas vérifier la transitivité correctement"
+        ],
+        "relances_prof": [
+          "Combien y a-t-il de classes pour la congruence modulo 3 sur $\\mathbb{Z}$ ?",
+          "Donnez un exemple de relation réflexive et symétrique mais pas transitive.",
+          "La relation « a le même signe que » est-elle une relation d'équivalence sur $\\mathbb{R}$ ?"
+        ]
+      },
+      {
+        "id": "LOGIQUE_ENS_006",
+        "question": "Expliquer le raisonnement par analyse-synthèse. Dans quel type de problème l'utilise-t-on ?",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Analyse : on suppose qu'une solution $x$ existe et on en déduit des conditions nécessaires",
+          "Synthèse : on vérifie que les candidats trouvés sont bien solutions",
+          "Utilisé pour les problèmes d'existence et unicité, équations fonctionnelles"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la synthèse (on a trouvé des conditions nécessaires, pas suffisantes)",
+          "Confondre condition nécessaire et suffisante"
+        ],
+        "relances_prof": [
+          "Trouver toutes les fonctions $f : \\mathbb{R} \\to \\mathbb{R}$ continues vérifiant $f(x + y) = f(x) + f(y)$.",
+          "Pourquoi la synthèse est-elle indispensable ?",
+          "Donner un exemple où l'analyse donne des candidats qui ne marchent pas tous."
+        ]
+      }
+    ]
+  },
+  "CALC_ALG": {
+    "id": "CALC_ALG",
+    "titre": "Compléments de calcul algébrique et de trigonométrie",
+    "questions_cours": [
+      {
+        "id": "CALC_ALG_001",
+        "question": "Énoncer et démontrer la formule du binôme de Newton pour $(a + b)^n$ avec $a, b$ réels et $n \\in \\mathbb{N}$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Formule : $(a + b)^n = \\sum_{k=0}^n \\binom{n}{k} a^{n-k}b^k$",
+          "Démonstration par récurrence sur $n$",
+          "Utilisation de la formule de Pascal : $\\binom{n}{k} + \\binom{n}{k-1} = \\binom{n+1}{k}$"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans les indices",
+          "Oublier le cas $k = 0$ ou $k = n$ dans la récurrence"
+        ],
+        "relances_prof": [
+          "Calculer $\\sum_{k=0}^n \\binom{n}{k}$ et $\\sum_{k=0}^n (-1)^k\\binom{n}{k}$.",
+          "Que vaut $\\sum_{k=0}^n k\\binom{n}{k}$ ? Indication : dériver.",
+          "La formule s'étend-elle à des exposants non entiers ?"
+        ]
+      },
+      {
+        "id": "CALC_ALG_002",
+        "question": "Calculer la somme $S_n = \\sum_{k=1}^n k^2$ en utilisant une somme télescopique avec $(k+1)^3 - k^3$.",
+        "type": "calcul_cours",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Développer $(k+1)^3 - k^3 = 3k^2 + 3k + 1$",
+          "Sommer de $k = 1$ à $n$ : $(n+1)^3 - 1 = 3\\sum k^2 + 3\\sum k + n$",
+          "Utiliser $\\sum k = \\frac{n(n+1)}{2}$",
+          "Résultat : $\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur dans le développement de $(k+1)^3 - k^3$",
+          "Oublier le terme $-1$ à gauche"
+        ],
+        "relances_prof": [
+          "Calculer $\\sum_{k=1}^n k^3$ par une méthode similaire.",
+          "Connaissez-vous une autre méthode pour $\\sum k^2$ ?",
+          "Donner un équivalent de $\\sum_{k=1}^n k^2$ quand $n \\to +\\infty$."
+        ]
+      },
+      {
+        "id": "CALC_ALG_003",
+        "question": "Soit $q \\neq 1$. Calculer $S_n = \\sum_{k=0}^n q^k$. Qu'obtient-on si $|q| < 1$ et $n \\to +\\infty$ ?",
+        "type": "calcul_cours",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$\\sum_{k=0}^n q^k = \\frac{1 - q^{n+1}}{1 - q}$",
+          "Démonstration : $S_n - qS_n = 1 - q^{n+1}$",
+          "Si $|q| < 1$, $q^{n+1} \\to 0$ donc $\\sum_{k=0}^{\\infty} q^k = \\frac{1}{1-q}$"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper entre $q^n$ et $q^{n+1}$",
+          "Oublier la condition $q \\neq 1$"
+        ],
+        "relances_prof": [
+          "Calculer $\\sum_{k=0}^n kq^k$. Indication : dériver par rapport à $q$.",
+          "Factoriser $a^n - b^n$ en utilisant cette somme.",
+          "Calculer $\\sum_{k=0}^n \\frac{q^k}{k!}$ (série entière de l'exponentielle)."
+        ]
+      },
+      {
+        "id": "CALC_ALG_004",
+        "question": "Démontrer les formules d'addition : $\\cos(a + b)$ et $\\sin(a + b)$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Via les exponentielles complexes : $e^{i(a+b)} = e^{ia} \\cdot e^{ib}$",
+          "Développer les deux côtés et identifier parties réelles/imaginaires",
+          "$\\cos(a+b) = \\cos a \\cos b - \\sin a \\sin b$",
+          "$\\sin(a+b) = \\sin a \\cos b + \\cos a \\sin b$"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans les signes",
+          "Confondre $\\cos(a+b)$ et $\\cos(a-b)$"
+        ],
+        "relances_prof": [
+          "En déduire $\\cos(2a)$, $\\sin(2a)$, $\\tan(2a)$.",
+          "Linéariser $\\cos^2(x)$ et $\\sin^2(x)$.",
+          "Transformer $\\cos(p) + \\cos(q)$ en produit."
+        ]
+      },
+      {
+        "id": "CALC_ALG_005",
+        "question": "Résoudre le système linéaire par pivot de Gauss : $x + 2y - z = 1$, $2x + y + z = 0$, $x - y + 2z = -1$.",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Matrice augmentée $[A|B]$",
+          "$L_2 \\leftarrow L_2 - 2L_1$, $L_3 \\leftarrow L_3 - L_1$ pour éliminer $x$",
+          "Continuer l'échelonnement",
+          "Remontée pour trouver $x, y, z$"
+        ],
+        "erreurs_frequentes": [
+          "Erreurs de calcul dans les combinaisons linéaires",
+          "Oublier d'appliquer l'opération au second membre"
+        ],
+        "relances_prof": [
+          "Le système admet-il toujours une unique solution ?",
+          "Comment voit-on qu'un système n'a pas de solution ?",
+          "Interprétation géométrique : qu'est-ce que ces 3 équations représentent dans $\\mathbb{R}^3$ ?"
+        ]
+      },
+      {
+        "id": "CALC_ALG_006",
+        "question": "Montrer l'inégalité triangulaire $|x + y| \\leq |x| + |y|$ pour $x, y \\in \\mathbb{R}$. Quand a-t-on égalité ?",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Partir de $-|x| \\leq x \\leq |x|$ et $-|y| \\leq y \\leq |y|$",
+          "Sommer : $-(|x| + |y|) \\leq x + y \\leq |x| + |y|$",
+          "Donc $|x + y| \\leq |x| + |y|$",
+          "Égalité ssi $x$ et $y$ de même signe (ou l'un nul)"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier le cas d'égalité",
+          "Confondre avec l'inégalité triangulaire inverse"
+        ],
+        "relances_prof": [
+          "Montrer $||x| - |y|| \\leq |x - y|$ (inégalité triangulaire inverse).",
+          "Généraliser à $n$ termes : $|\\sum x_i| \\leq \\sum |x_i|$.",
+          "Dans $\\mathbb{C}$, montrer $|z + w| \\leq |z| + |w|$."
+        ]
+      },
+      {
+        "id": "CALC_ALG_007",
+        "question": "Exprimer $\\cos(x)$ et $\\sin(x)$ en fonction de $t = \\tan(x/2)$ pour $x \\in ]-\\pi, \\pi[$.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$\\cos(x) = \\frac{1 - t^2}{1 + t^2}$",
+          "$\\sin(x) = \\frac{2t}{1 + t^2}$",
+          "Démonstration via $\\cos(x) = \\cos^2(x/2) - \\sin^2(x/2)$ et diviser par $\\cos^2(x/2)$",
+          "$\\tan(x) = \\frac{2t}{1 - t^2}$"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans les signes ou les facteurs",
+          "Oublier les conditions sur $x$"
+        ],
+        "relances_prof": [
+          "À quoi servent ces formules en pratique ?",
+          "Calculer $\\int \\frac{1}{2 + \\cos(x)} dx$ par ce changement de variable.",
+          "Cette substitution est-elle toujours valide ?"
+        ]
+      }
+    ]
+  },
+  "COMPLEXES": {
+    "id": "COMPLEXES",
+    "titre": "Nombres complexes",
+    "questions_cours": [
+      {
+        "id": "COMPLEXES_001",
+        "question": "Énoncer et démontrer la formule de Moivre. Application : exprimer $\\cos(3\\theta)$ en fonction de $\\cos(\\theta)$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Formule : $(\\cos \\theta + i \\sin \\theta)^n = \\cos(n\\theta) + i \\sin(n\\theta)$",
+          "Démonstration via $(e^{i\\theta})^n = e^{in\\theta}$",
+          "Pour $\\cos(3\\theta)$ : développer $(\\cos \\theta + i \\sin \\theta)^3$ et identifier la partie réelle",
+          "$\\cos(3\\theta) = 4\\cos^3\\theta - 3\\cos \\theta$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur de signe dans le développement",
+          "Oublier de remplacer $\\sin^2\\theta$ par $1 - \\cos^2\\theta$"
+        ],
+        "relances_prof": [
+          "Exprimer $\\sin(3\\theta)$ en fonction de $\\sin(\\theta)$.",
+          "Résoudre $\\cos(3\\theta) = 0$.",
+          "Linéariser $\\cos^3(\\theta)$ : faire l'opération inverse."
+        ]
+      },
+      {
+        "id": "COMPLEXES_002",
+        "question": "Déterminer les racines $n$-ièmes de l'unité. Les représenter pour $n = 6$.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$z^n = 1 \\Leftrightarrow z = e^{2ik\\pi/n}$ pour $k \\in \\{0, 1, \\ldots, n-1\\}$",
+          "Il y a exactement $n$ racines $n$-ièmes de l'unité",
+          "Ce sont les sommets d'un polygone régulier inscrit dans le cercle unité",
+          "Pour $n = 6$ : $1, e^{i\\pi/3}, e^{2i\\pi/3}, -1, e^{4i\\pi/3}, e^{5i\\pi/3}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la racine $z = 1$",
+          "Se tromper dans les arguments"
+        ],
+        "relances_prof": [
+          "Calculer la somme des racines $n$-ièmes de l'unité.",
+          "Calculer leur produit.",
+          "Factoriser $X^n - 1$ dans $\\mathbb{C}[X]$."
+        ]
+      },
+      {
+        "id": "COMPLEXES_003",
+        "question": "Calculer les racines carrées de $z = 3 + 4i$ sous forme algébrique.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Chercher $w = a + ib$ tel que $w^2 = z$",
+          "Système : $a^2 - b^2 = 3$, $2ab = 4$, $a^2 + b^2 = |z| = 5$",
+          "De (1) et (3) : $a^2 = 4$ donc $a = \\pm 2$",
+          "De $ab = 2$ : si $a = 2$ alors $b = 1$",
+          "Racines : $\\pm(2 + i)$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier d'utiliser $|w|^2 = |z|$",
+          "Ne trouver qu'une seule racine"
+        ],
+        "relances_prof": [
+          "Résoudre $z^2 - (1+i)z + i = 0$.",
+          "Calculer les racines carrées de $i$.",
+          "Méthode alternative avec la forme exponentielle ?"
+        ]
+      },
+      {
+        "id": "COMPLEXES_004",
+        "question": "Énoncer les formules d'Euler. Calculer $S_n = \\sum_{k=0}^n \\cos(k\\theta)$ pour $\\theta \\notin 2\\pi\\mathbb{Z}$.",
+        "type": "calcul_cours",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Formules d'Euler : $\\cos \\theta = \\frac{e^{i\\theta} + e^{-i\\theta}}{2}$, $\\sin \\theta = \\frac{e^{i\\theta} - e^{-i\\theta}}{2i}$",
+          "$S_n = \\text{Re}\\left(\\sum_{k=0}^n e^{ik\\theta}\\right) = \\text{Re}\\left(\\frac{1 - e^{i(n+1)\\theta}}{1 - e^{i\\theta}}\\right)$",
+          "Factoriser par l'angle moitié",
+          "$S_n = \\frac{\\sin((n+1)\\theta/2) \\cdot \\cos(n\\theta/2)}{\\sin(\\theta/2)}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la condition $\\theta \\notin 2\\pi\\mathbb{Z}$",
+          "Erreur dans la factorisation par l'angle moitié"
+        ],
+        "relances_prof": [
+          "Calculer $\\sum_{k=0}^n \\sin(k\\theta)$.",
+          "Que vaut $S_n$ si $\\theta = 2\\pi/(n+1)$ ?",
+          "Linéariser $\\cos^2(\\theta)$ à l'aide d'Euler."
+        ]
+      },
+      {
+        "id": "COMPLEXES_005",
+        "question": "Soient $A, B, C$ trois points du plan d'affixes $a, b, c$. Donner une condition sur les affixes pour que $ABC$ soit rectangle en $A$.",
+        "type": "application_directe",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Rectangle en $A$ $\\Leftrightarrow$ les vecteurs $\\vec{AB}$ et $\\vec{AC}$ sont orthogonaux",
+          "$\\Leftrightarrow \\frac{c-a}{b-a}$ est imaginaire pur",
+          "$\\Leftrightarrow \\text{Re}\\left(\\frac{c-a}{b-a}\\right) = 0$",
+          "$\\Leftrightarrow \\frac{c-a}{b-a} + \\overline{\\frac{c-a}{b-a}} = 0$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre angle droit en $A$ et angle droit quelconque",
+          "Erreur sur la condition d'orthogonalité"
+        ],
+        "relances_prof": [
+          "Et si $ABC$ est isocèle en $A$ ?",
+          "Condition pour que $A, B, C$ soient alignés ?",
+          "Condition pour que $ABC$ soit équilatéral ?"
+        ]
+      },
+      {
+        "id": "COMPLEXES_006",
+        "question": "Résoudre dans $\\mathbb{C}$ l'équation $e^z = 1 + i$.",
+        "type": "calcul_cours",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Écrire $1 + i = \\sqrt{2} \\cdot e^{i\\pi/4}$",
+          "$e^z = e^{x+iy} = e^x \\cdot e^{iy}$",
+          "Donc $e^x = \\sqrt{2}$, soit $x = \\frac{1}{2}\\ln(2)$",
+          "Et $y \\equiv \\pi/4 \\pmod{2\\pi}$",
+          "Solutions : $z = \\frac{1}{2}\\ln(2) + i(\\pi/4 + 2k\\pi)$, $k \\in \\mathbb{Z}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'infinité de solutions",
+          "Erreur sur le module de $1+i$"
+        ],
+        "relances_prof": [
+          "Résoudre $e^z = -1$.",
+          "L'exponentielle complexe est-elle injective ? surjective ?",
+          "Résoudre $e^{2z} = e^z + 2$."
+        ]
+      },
+      {
+        "id": "COMPLEXES_007",
+        "question": "Décrire géométriquement l'application $z \\mapsto az + b$ pour $a, b \\in \\mathbb{C}$ avec $a \\neq 0$. Cas particuliers.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "C'est une similitude directe de rapport $|a|$ et d'angle $\\arg(a)$",
+          "Si $|a| = 1$, c'est une isométrie (rotation si $a \\neq 1$, translation si $a = 1$)",
+          "Si $a \\in \\mathbb{R}_+^*$, c'est une homothétie composée avec une translation",
+          "Centre : point fixe $\\omega = \\frac{b}{1-a}$ si $a \\neq 1$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre similitude directe et indirecte",
+          "Oublier le cas $a = 1$"
+        ],
+        "relances_prof": [
+          "Déterminer $a$ et $b$ pour la rotation de centre $1+i$ et d'angle $\\pi/3$.",
+          "Quelle transformation représente $z \\mapsto \\bar{z}$ ?",
+          "Et $z \\mapsto 1/\\bar{z}$ ?"
+        ]
+      }
+    ]
+  },
+  "ARITH_Z": {
+    "id": "ARITH_Z",
+    "titre": "Arithmétique dans l'ensemble des entiers relatifs",
+    "questions_cours": [
+      {
+        "id": "ARITH_Z_001",
+        "question": "Énoncer et démontrer le théorème de Bézout.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Énoncé : $a$ et $b$ sont premiers entre eux ssi $\\exists u, v \\in \\mathbb{Z}, au + bv = 1$",
+          "$\\Leftarrow$ : si $d \\mid a$ et $d \\mid b$, alors $d \\mid (au + bv) = 1$, donc $d = \\pm 1$",
+          "$\\Rightarrow$ : par l'algorithme d'Euclide étendu, on remonte pour trouver $u, v$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre avec '$a \\wedge b = au + bv$' (faux en général)",
+          "Ne pas savoir faire la remontée de l'algorithme d'Euclide"
+        ],
+        "relances_prof": [
+          "Trouver $u, v$ tels que $17u + 13v = 1$.",
+          "Généraliser : si $a \\wedge b = d$, alors $\\exists u, v, au + bv = d$.",
+          "Résoudre $17x \\equiv 1 \\pmod{13}$."
+        ]
+      },
+      {
+        "id": "ARITH_Z_002",
+        "question": "Énoncer et démontrer le lemme de Gauss.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Énoncé : si $a \\mid bc$ et $a \\wedge b = 1$, alors $a \\mid c$",
+          "Démonstration : par Bézout, $\\exists u, v, au + bv = 1$",
+          "Multiplier par $c$ : $acu + bcv = c$",
+          "Or $a \\mid acu$ et $a \\mid bcv$ (car $a \\mid bc$), donc $a \\mid c$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'hypothèse $a \\wedge b = 1$",
+          "Ne pas utiliser Bézout"
+        ],
+        "relances_prof": [
+          "Si $p$ premier divise $ab$, alors $p \\mid a$ ou $p \\mid b$. Démontrer.",
+          "Montrer que $\\sqrt{2}$ est irrationnel en utilisant Gauss.",
+          "Application : si $n^2$ est pair, alors $n$ est pair."
+        ]
+      },
+      {
+        "id": "ARITH_Z_003",
+        "question": "Calculer $252 \\wedge 180$ par l'algorithme d'Euclide. En déduire des coefficients de Bézout.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$252 = 180 \\times 1 + 72$",
+          "$180 = 72 \\times 2 + 36$",
+          "$72 = 36 \\times 2 + 0$",
+          "Donc $252 \\wedge 180 = 36$",
+          "Remontée : $36 = 180 - 72 \\times 2 = 180 - (252 - 180) \\times 2 = 3 \\times 180 - 2 \\times 252$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur dans les divisions euclidiennes",
+          "Erreur de signe dans la remontée"
+        ],
+        "relances_prof": [
+          "Vérifier que $-2 \\times 252 + 3 \\times 180 = 36$.",
+          "Calculer $252 \\vee 180$.",
+          "Les coefficients de Bézout sont-ils uniques ?"
+        ]
+      },
+      {
+        "id": "ARITH_Z_004",
+        "question": "Énoncer le théorème fondamental de l'arithmétique. Démontrer l'unicité.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Tout entier $n \\geq 2$ s'écrit de façon unique comme produit de nombres premiers",
+          "Unicité : supposons $n = p_1 \\cdots p_r = q_1 \\cdots q_s$ deux décompositions",
+          "$p_1 \\mid n$ donc $p_1 \\mid q_1 \\cdots q_s$, par Gauss répété $p_1 \\mid q_j$ pour un $j$",
+          "Comme $q_j$ premier, $p_1 = q_j$. Simplifier et récurrence."
+        ],
+        "erreurs_frequentes": [
+          "Ne pas distinguer existence et unicité",
+          "Oublier 'à l'ordre près'"
+        ],
+        "relances_prof": [
+          "Décomposer 2520 en facteurs premiers.",
+          "Exprimer $a \\wedge b$ et $a \\vee b$ avec les valuations $p$-adiques.",
+          "Combien $100!$ a-t-il de zéros terminaux ?"
+        ]
+      },
+      {
+        "id": "ARITH_Z_005",
+        "question": "Énoncer et démontrer le petit théorème de Fermat.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Énoncé : si $p$ est premier et $p \\nmid a$, alors $a^{p-1} \\equiv 1 \\pmod{p}$",
+          "Considérer $a, 2a, \\ldots, (p-1)a$ mod $p$ : ce sont $1, 2, \\ldots, p-1$ permutés",
+          "Donc $a \\times 2a \\times \\cdots \\times (p-1)a \\equiv (p-1)! \\pmod{p}$",
+          "$a^{p-1}(p-1)! \\equiv (p-1)! \\pmod{p}$, et $p \\nmid (p-1)!$ donc $a^{p-1} \\equiv 1 \\pmod{p}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la condition $p \\nmid a$",
+          "Ne pas justifier que les $ka$ sont distincts mod $p$"
+        ],
+        "relances_prof": [
+          "Calculer $2^{100} \\mod 7$.",
+          "Ce théorème donne-t-il un test de primalité ?",
+          "Énoncer le théorème d'Euler (généralisation)."
+        ]
+      },
+      {
+        "id": "ARITH_Z_006",
+        "question": "Résoudre $3x \\equiv 5 \\pmod{7}$.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Trouver l'inverse de 3 modulo 7",
+          "$3 \\times 5 = 15 \\equiv 1 \\pmod{7}$, donc $3^{-1} \\equiv 5 \\pmod{7}$",
+          "$x \\equiv 5 \\times 5 \\equiv 25 \\equiv 4 \\pmod{7}$",
+          "Solutions : $x \\in 4 + 7\\mathbb{Z}$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas vérifier que $3 \\wedge 7 = 1$",
+          "Oublier de multiplier les deux membres"
+        ],
+        "relances_prof": [
+          "Résoudre $6x \\equiv 4 \\pmod{8}$. Attention : $6 \\wedge 8 \\neq 1$.",
+          "Résoudre le système $x \\equiv 2 \\pmod{3}$, $x \\equiv 3 \\pmod{5}$.",
+          "Combien de solutions a $ax \\equiv b \\pmod{n}$ en général ?"
+        ]
+      }
+    ]
+  },
+  "STRUC_ALG": {
+    "id": "STRUC_ALG",
+    "titre": "Structures algébriques usuelles",
+    "questions_cours": [
+      {
+        "id": "STRUC_ALG_001",
+        "question": "Donner la définition d'un groupe. Citer trois exemples.",
+        "type": "definition",
+        "difficulte": 1,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Un groupe $(G, \\cdot)$ : ensemble $G$ muni d'une loi $\\cdot$ vérifiant",
+          "1) Associativité : $(a \\cdot b) \\cdot c = a \\cdot (b \\cdot c)$",
+          "2) Élément neutre : $\\exists e, \\forall a, a \\cdot e = e \\cdot a = a$",
+          "3) Inversibilité : $\\forall a, \\exists a^{-1}, a \\cdot a^{-1} = a^{-1} \\cdot a = e$",
+          "Exemples : $(\\mathbb{Z}, +)$, $(\\mathbb{R}^*, \\times)$, $(S_n, \\circ)$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'associativité",
+          "Confondre groupe et anneau"
+        ],
+        "relances_prof": [
+          "$(\\mathbb{N}, +)$ est-il un groupe ?",
+          "$(\\mathbb{Z}, \\times)$ est-il un groupe ?",
+          "Qu'est-ce qu'un groupe abélien ?"
+        ]
+      },
+      {
+        "id": "STRUC_ALG_002",
+        "question": "Soit $H \\subset G$ où $(G, \\cdot)$ est un groupe. Donner une caractérisation pour que $H$ soit un sous-groupe.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$H$ sous-groupe de $G$ ssi :",
+          "1) $H \\neq \\emptyset$",
+          "2) $\\forall a, b \\in H, a \\cdot b \\in H$",
+          "3) $\\forall a \\in H, a^{-1} \\in H$",
+          "Ou : $H \\neq \\emptyset$ et $\\forall a, b \\in H, a \\cdot b^{-1} \\in H$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que $H$ doit être non vide",
+          "Oublier la stabilité par inverse"
+        ],
+        "relances_prof": [
+          "Montrer que $2\\mathbb{Z}$ est un sous-groupe de $(\\mathbb{Z}, +)$.",
+          "$\\ker f$ est-il un sous-groupe si $f$ est un morphisme de groupes ?",
+          "$n\\mathbb{Z}$ est-il un sous-groupe de $(\\mathbb{Z}, +)$ pour tout $n$ ?"
+        ]
+      },
+      {
+        "id": "STRUC_ALG_003",
+        "question": "Soit $f : G \\to H$ un morphisme de groupes. Montrer que $\\ker f$ est un sous-groupe de $G$ et que $f$ injective $\\Leftrightarrow \\ker f = \\{e\\}$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$\\ker f = \\{g \\in G \\mid f(g) = e_H\\}$",
+          "$e_G \\in \\ker f$ car $f(e_G) = e_H$",
+          "Si $a, b \\in \\ker f$ : $f(ab^{-1}) = f(a)f(b)^{-1} = e_H \\cdot e_H^{-1} = e_H$",
+          "$f$ injective $\\Rightarrow \\ker f = \\{e_G\\}$ : évident",
+          "Réciproquement : $f(a) = f(b) \\Rightarrow f(ab^{-1}) = e_H \\Rightarrow ab^{-1} = e_G \\Rightarrow a = b$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier que $f(e_G) = e_H$",
+          "Oublier une des deux implications"
+        ],
+        "relances_prof": [
+          "$\\text{Im } f$ est-il un sous-groupe de $H$ ?",
+          "Donner un exemple de morphisme non injectif.",
+          "Montrer que $\\det : GL_n(\\mathbb{R}) \\to \\mathbb{R}^*$ est un morphisme."
+        ]
+      },
+      {
+        "id": "STRUC_ALG_004",
+        "question": "Donner la définition d'un anneau, d'un anneau intègre, d'un corps.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Anneau $(A, +, \\times)$ : $(A, +)$ groupe abélien, $\\times$ associative avec neutre $1$, $\\times$ distributive sur $+$",
+          "Intègre : commutatif et sans diviseurs de zéro ($ab = 0 \\Rightarrow a = 0$ ou $b = 0$)",
+          "Corps : tout élément non nul est inversible (et commutatif par convention)"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que les corps sont commutatifs",
+          "Confondre intègre et commutatif"
+        ],
+        "relances_prof": [
+          "$\\mathbb{Z}$ est-il intègre ? Un corps ?",
+          "$M_n(\\mathbb{R})$ est-il intègre pour $n \\geq 2$ ?",
+          "Donner un diviseur de zéro dans $M_2(\\mathbb{R})$."
+        ]
+      },
+      {
+        "id": "STRUC_ALG_005",
+        "question": "Montrer que dans un anneau, si $ab = ba$, alors $(a + b)^n = \\sum_{k=0}^n \\binom{n}{k} a^k b^{n-k}$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Récurrence sur $n$, même démonstration que dans $\\mathbb{R}$",
+          "L'hypothèse $ab = ba$ est CRUCIALE pour écrire $a^k b^{n-k}$ sans ambiguïté",
+          "Et pour avoir $(a+b) \\cdot a^k b^{n-k} = a^{k+1} b^{n-k} + a^k b^{n+1-k}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'hypothèse de commutativité",
+          "Ne pas voir pourquoi elle est nécessaire"
+        ],
+        "relances_prof": [
+          "Donner un exemple dans $M_2(\\mathbb{R})$ où $(A + B)^2 \\neq A^2 + 2AB + B^2$.",
+          "Factoriser $A^n - B^n$ si $AB = BA$.",
+          "Calculer $(I + N)^n$ si $N$ est nilpotente."
+        ]
+      }
+    ]
+  },
+  "CALC_MAT": {
+    "id": "CALC_MAT",
+    "titre": "Calcul matriciel et systèmes linéaires",
+    "questions_cours": [
+      {
+        "id": "CALC_MAT_001",
+        "question": "Soit $A \\in M_n(K)$ inversible. Montrer que $(A^T)^{-1} = (A^{-1})^T$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$AA^{-1} = I_n$",
+          "Transposer : $(A^{-1})^T A^T = I_n$ (car $(AB)^T = B^T A^T$)",
+          "Donc $A^T$ est inversible d'inverse $(A^{-1})^T$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que $(AB)^T = B^T A^T$",
+          "Écrire $(AB)^T = A^T B^T$"
+        ],
+        "relances_prof": [
+          "Si $A$ symétrique inversible, $A^{-1}$ est-elle symétrique ?",
+          "Et si $A$ antisymétrique inversible ?",
+          "Montrer $(ABC)^T = C^T B^T A^T$."
+        ]
+      },
+      {
+        "id": "CALC_MAT_002",
+        "question": "Caractériser les matrices triangulaires inversibles.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$A$ triangulaire supérieure inversible $\\Leftrightarrow$ tous ses coefficients diagonaux sont non nuls",
+          "$\\Rightarrow$ : $\\det(A) = \\prod a_{ii} \\neq 0$",
+          "$\\Leftarrow$ : résolution par remontée, solution unique",
+          "L'inverse est aussi triangulaire supérieure"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier que l'inverse reste triangulaire",
+          "Oublier d'utiliser le déterminant"
+        ],
+        "relances_prof": [
+          "Calculer l'inverse de $\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$.",
+          "Les matrices triangulaires inversibles forment-elles un groupe ?",
+          "Et les matrices diagonales inversibles ?"
+        ]
+      },
+      {
+        "id": "CALC_MAT_003",
+        "question": "Donner un exemple de matrices $A, B$ avec $AB = 0$ mais $A \\neq 0$ et $B \\neq 0$.",
+        "type": "contre_exemple",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$, $B = \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}$",
+          "Ou $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$, $B = \\begin{pmatrix} 1 & -1 \\\\ -1 & 1 \\end{pmatrix}$",
+          "Vérifier $AB = 0$"
+        ],
+        "erreurs_frequentes": [
+          "Proposer des matrices où $AB \\neq 0$",
+          "Ne pas vérifier"
+        ],
+        "relances_prof": [
+          "Comment appelle-t-on $A$ et $B$ ?",
+          "$M_n(\\mathbb{R})$ est-il intègre ?",
+          "Trouver $A \\neq 0$ avec $A^2 = 0$."
+        ]
+      },
+      {
+        "id": "CALC_MAT_004",
+        "question": "Si $AB = I_n$ avec $A, B \\in M_n(K)$, montrer que $A$ et $B$ sont inversibles.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$AB = I \\Rightarrow A$ surjective (car $AX = Y$ a solution $X = BY$)",
+          "En dimension finie, surjective $\\Rightarrow$ bijective $\\Rightarrow$ inversible",
+          "Alors $A^{-1} = B$, et $BA = I$ aussi"
+        ],
+        "erreurs_frequentes": [
+          "Affirmer $AB = I \\Rightarrow BA = I$ sans justification",
+          "Oublier qu'on est en dimension finie"
+        ],
+        "relances_prof": [
+          "Ce résultat est-il vrai en dimension infinie ?",
+          "Contre-exemple : opérateur de décalage.",
+          "Application : inverse à droite $\\Rightarrow$ inversible."
+        ]
+      },
+      {
+        "id": "CALC_MAT_005",
+        "question": "Calculer $A^n$ pour $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Écrire $A = I + N$ avec $N = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$",
+          "$N^2 = 0$",
+          "$A^n = (I + N)^n = I + nN = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas reconnaître $I + N$ nilpotent",
+          "Faire une récurrence inutile"
+        ],
+        "relances_prof": [
+          "Calculer $A^n$ pour $A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix}$.",
+          "Et pour une matrice triangulaire $3 \\times 3$ ?",
+          "Lien avec la diagonalisation ?"
+        ]
+      },
+      {
+        "id": "CALC_MAT_006",
+        "question": "Écrire matriciellement le système $2x + y = 3$, $x - y = 0$. Résoudre.",
+        "type": "methode",
+        "difficulte": 1,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$AX = B$ avec $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & -1 \\end{pmatrix}$, $X = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$, $B = \\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix}$",
+          "$\\det(A) = -3 \\neq 0$, système de Cramer",
+          "$x = 1$, $y = 1$ (par pivot ou formules de Cramer)"
+        ],
+        "erreurs_frequentes": [
+          "Erreur dans l'écriture matricielle",
+          "Erreur de calcul"
+        ],
+        "relances_prof": [
+          "Résoudre par la méthode de Cramer.",
+          "Que se passe-t-il si $\\det(A) = 0$ ?",
+          "Interpréter géométriquement."
+        ]
+      }
+    ]
+  },
+  "POLYNOMES": {
+    "id": "POLYNOMES",
+    "titre": "Polynômes et fractions rationnelles",
+    "questions_cours": [
+      {
+        "id": "POLYNOMES_001",
+        "question": "Énoncer et démontrer la formule de Taylor polynomiale.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Si $P \\in K[X]$ et $a \\in K$, alors $P(X) = \\sum_{k=0}^n \\frac{P^{(k)}(a)}{k!} (X - a)^k$",
+          "Poser $Q(X) = P(X + a)$, développer $Q$ en puissances de $X$",
+          "$c_k = Q^{(k)}(0)/k! = P^{(k)}(a)/k!$",
+          "Substituer $X - a$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre avec Taylor-Young",
+          "Oublier le $k!$"
+        ],
+        "relances_prof": [
+          "Développer $(X + 1)^4$ selon les puissances de $(X - 1)$.",
+          "Lien avec la multiplicité d'une racine ?",
+          "Si $P(a) = P'(a) = 0$, que dire de $a$ ?"
+        ]
+      },
+      {
+        "id": "POLYNOMES_002",
+        "question": "Énoncer le théorème de d'Alembert-Gauss. En déduire les polynômes irréductibles de $\\mathbb{C}[X]$.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Tout polynôme non constant de $\\mathbb{C}[X]$ admet au moins une racine dans $\\mathbb{C}$",
+          "Conséquence : les irréductibles de $\\mathbb{C}[X]$ sont exactement les polynômes de degré 1",
+          "Factorisation : $P = \\lambda \\prod (X - z_i)^{m_i}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier le coefficient dominant",
+          "Confondre racine et facteur"
+        ],
+        "relances_prof": [
+          "Factoriser $X^4 - 1$ dans $\\mathbb{C}[X]$.",
+          "Et dans $\\mathbb{R}[X]$ ?",
+          "Quels sont les irréductibles de $\\mathbb{R}[X]$ ?"
+        ]
+      },
+      {
+        "id": "POLYNOMES_003",
+        "question": "Soit $P \\in \\mathbb{R}[X]$. Montrer que si $z$ est racine de $P$, alors $\\bar{z}$ aussi, avec même multiplicité.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$P(z) = 0$ avec $P$ à coefficients réels",
+          "Conjuguer : $\\overline{P(z)} = P(\\bar{z}) = \\bar{0} = 0$",
+          "Car pour $P = \\sum a_k z^k$ avec $a_k \\in \\mathbb{R}$ : $\\overline{P(z)} = \\sum \\bar{a}_k \\bar{z}^k = \\sum a_k \\bar{z}^k$",
+          "Multiplicité : même argument avec les dérivées"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier que les coefficients sont réels",
+          "Oublier la multiplicité"
+        ],
+        "relances_prof": [
+          "En déduire la forme des irréductibles de $\\mathbb{R}[X]$.",
+          "Factoriser $X^4 + 1$ dans $\\mathbb{R}[X]$.",
+          "Un polynôme de degré impair à coefficients réels a-t-il toujours une racine réelle ?"
+        ]
+      },
+      {
+        "id": "POLYNOMES_004",
+        "question": "Énoncer la formule d'interpolation de Lagrange. À quoi sert-elle ?",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Si $x_1, \\ldots, x_n$ distincts et $y_1, \\ldots, y_n$ donnés, il existe un unique $P \\in K_{n-1}[X]$ tel que $P(x_i) = y_i$",
+          "$P = \\sum_i y_i L_i$ où $L_i(X) = \\prod_{j \\neq i} \\frac{X - x_j}{x_i - x_j}$",
+          "Sert à l'interpolation de données"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans les indices",
+          "Oublier la condition d'unicité"
+        ],
+        "relances_prof": [
+          "Trouver $P \\in \\mathbb{R}_2[X]$ tel que $P(0) = 1$, $P(1) = 2$, $P(2) = 5$.",
+          "Vérifier que $L_i(x_j) = \\delta_{ij}$.",
+          "Lien avec le déterminant de Vandermonde ?"
+        ]
+      },
+      {
+        "id": "POLYNOMES_005",
+        "question": "Décomposer en éléments simples dans $\\mathbb{R}(X)$ : $F(X) = \\frac{1}{X^2 - 1}$.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$X^2 - 1 = (X-1)(X+1)$, pôles simples en $1$ et $-1$",
+          "$F = \\frac{a}{X-1} + \\frac{b}{X+1}$",
+          "$a = \\lim_{X \\to 1} (X-1)F(X) = 1/2$",
+          "$b = \\lim_{X \\to -1} (X+1)F(X) = -1/2$",
+          "$F = \\frac{1}{2(X-1)} - \\frac{1}{2(X+1)}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier de factoriser le dénominateur",
+          "Erreur de signe"
+        ],
+        "relances_prof": [
+          "Décomposer $\\frac{1}{X^2 + 1}$ dans $\\mathbb{R}(X)$.",
+          "Décomposer $\\frac{1}{X(X-1)^2}$.",
+          "En déduire une primitive de $\\frac{1}{x^2 - 1}$."
+        ]
+      },
+      {
+        "id": "POLYNOMES_006",
+        "question": "Soit $P \\in K[X]$. Montrer que $a$ est racine de multiplicité $\\geq 2$ ssi $P(a) = P'(a) = 0$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$a$ racine de multiplicité $m \\geq 2$ $\\Leftrightarrow$ $P = (X-a)^2 Q$",
+          "$\\Rightarrow$ $P(a) = 0$ évident, $P'(a) = 2(X-a)Q + (X-a)^2 Q'$ évalué en $a$ donne $0$",
+          "$\\Leftarrow$ $P(a) = 0$ donc $P = (X-a)Q$, $P'(a) = Q(a) = 0$ donc $Q = (X-a)R$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre racine simple et multiple",
+          "Oublier de dériver correctement"
+        ],
+        "relances_prof": [
+          "Généraliser : $a$ est de multiplicité $\\geq k$ ssi $P(a) = \\cdots = P^{(k-1)}(a) = 0$.",
+          "Application : $P$ et $P'$ ont une racine commune ssi $P$ a une racine multiple.",
+          "Lien avec $P \\wedge P'$ ?"
+        ]
+      }
+    ]
+  },
+  "TECH_ANA": {
+    "id": "TECH_ANA",
+    "titre": "Techniques fondamentales de calcul différentiel et intégral",
+    "questions_cours": [
+      {
+        "id": "TECH_ANA_001",
+        "question": "Donner les variations, le graphe et les limites de la fonction $\\arctan$. Quelle est sa dérivée ?",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\arctan : \\mathbb{R} \\to ]-\\frac{\\pi}{2}, \\frac{\\pi}{2}[$, strictement croissante",
+          "$\\lim_{x \\to +\\infty} \\arctan(x) = \\frac{\\pi}{2}$, $\\lim_{x \\to -\\infty} = -\\frac{\\pi}{2}$",
+          "$\\arctan(1) = \\frac{\\pi}{4}$",
+          "$\\arctan'(x) = \\frac{1}{1 + x^2}$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre domaine et image",
+          "Se tromper sur les limites"
+        ],
+        "relances_prof": [
+          "Montrer $\\arctan(x) + \\arctan(1/x) = \\frac{\\pi}{2}$ pour $x > 0$.",
+          "Calculer $\\arctan(1) + \\arctan(2) + \\arctan(3)$."
+        ]
+      },
+      {
+        "id": "TECH_ANA_002",
+        "question": "Rappeler les croissances comparées en $+\\infty$. Démontrer $\\lim_{x \\to +\\infty} \\frac{\\ln(x)}{x} = 0$.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$\\ln(x) = o(x^\\alpha)$ pour $\\alpha > 0$, $x^\\beta = o(e^x)$",
+          "Poser $x = e^t$ : $\\frac{\\ln(x)}{x} = \\frac{t}{e^t} \\to 0$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas savoir démontrer",
+          "Confondre $0^+$ et $+\\infty$"
+        ],
+        "relances_prof": [
+          "Limite de $x^x$ en $0^+$ ?",
+          "Montrer $(\\ln x)^{100} = o(x)$."
+        ]
+      },
+      {
+        "id": "TECH_ANA_003",
+        "question": "Montrer que $e^x \\geq 1 + x$ pour tout $x \\in \\mathbb{R}$. Cas d'égalité ?",
+        "type": "theoreme_demo",
+        "difficulte": 1,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$g(x) = e^x - 1 - x$, $g'(x) = e^x - 1$",
+          "Min en $0$, $g(0) = 0$",
+          "Égalité ssi $x = 0$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier le cas d'égalité"
+        ],
+        "relances_prof": [
+          "En déduire $\\ln(1+x) \\leq x$.",
+          "Interprétation : tangente à $\\exp$."
+        ]
+      },
+      {
+        "id": "TECH_ANA_004",
+        "question": "Calculer $\\int x e^x \\, dx$ par IPP.",
+        "type": "calcul_cours",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$u' = e^x$, $v = x$",
+          "$= xe^x - e^x + C = e^x(x-1) + C$"
+        ],
+        "erreurs_frequentes": [
+          "Mauvais choix $u/v$",
+          "Oublier constante"
+        ],
+        "relances_prof": [
+          "$\\int x^2 e^x \\, dx$ ?",
+          "$\\int \\ln(x) \\, dx$ ?"
+        ]
+      },
+      {
+        "id": "TECH_ANA_005",
+        "question": "Résoudre $y' + 2y = e^{-x}$ sur $\\mathbb{R}$.",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Homogène : $y_h = Ce^{-2x}$",
+          "Particulière $y_p = e^{-x}$",
+          "$y = e^{-x} + Ce^{-2x}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'homogène",
+          "Mauvaise forme si même exposant"
+        ],
+        "relances_prof": [
+          "Second membre $e^{-2x}$ ?",
+          "Variation de la constante."
+        ]
+      },
+      {
+        "id": "TECH_ANA_006",
+        "question": "Résoudre $y'' - 3y' + 2y = 0$.",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$r^2 - 3r + 2 = 0$, $r = 1$ ou $2$",
+          "$y = Ae^x + Be^{2x}$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur équation caractéristique"
+        ],
+        "relances_prof": [
+          "Racine double ?",
+          "Racines complexes ?"
+        ]
+      },
+      {
+        "id": "TECH_ANA_007",
+        "question": "Primitives de $\\frac{1}{1+x^2}$ et $\\frac{1}{\\sqrt{1-x^2}}$.",
+        "type": "calcul_cours",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$\\arctan(x) + C$",
+          "$\\arcsin(x) + C$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre $\\arcsin/\\arccos$"
+        ],
+        "relances_prof": [
+          "$\\int \\frac{1}{4+x^2} \\, dx$ ?"
+        ]
+      },
+      {
+        "id": "TECH_ANA_008",
+        "question": "Définir $\\cosh$ et $\\sinh$. Montrer $\\cosh^2 - \\sinh^2 = 1$.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\cosh x = \\frac{e^x + e^{-x}}{2}$, $\\sinh x = \\frac{e^x - e^{-x}}{2}$",
+          "Développer : $= 1$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre avec $\\cos/\\sin$"
+        ],
+        "relances_prof": [
+          "$\\cosh'$, $\\sinh'$ ?",
+          "Comparer avec $\\cos^2 + \\sin^2 = 1$."
+        ]
+      }
+    ]
+  },
+  "SUITES": {
+    "id": "SUITES",
+    "titre": "Nombres réels et suites numériques",
+    "questions_cours": [
+      {
+        "id": "SUITES_001",
+        "question": "Énoncer la propriété de la borne supérieure. Pourquoi $\\mathbb{Q}$ ne la vérifie-t-il pas ?",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Toute partie non vide majorée de $\\mathbb{R}$ a une borne sup",
+          "$A = \\{x \\in \\mathbb{Q} \\mid x^2 < 2\\}$ : $\\sup = \\sqrt{2} \\notin \\mathbb{Q}$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier 'non vide majorée'"
+        ],
+        "relances_prof": [
+          "Montrer $\\sqrt{2} \\notin \\mathbb{Q}$.",
+          "Borne inf ?"
+        ]
+      },
+      {
+        "id": "SUITES_002",
+        "question": "Soit $(u_n)$ convergente. Montrer qu'elle est bornée. Réciproque ?",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Pour $\\varepsilon = 1$, $|u_n - \\ell| < 1$ à partir d'un rang $N$",
+          "$M = \\max(|u_0|, \\ldots, |u_{N-1}|, |\\ell| + 1)$",
+          "Réciproque fausse : $((-1)^n)$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier les premiers termes"
+        ],
+        "relances_prof": [
+          "Extraire une suite convergente d'une bornée ?",
+          "Bolzano-Weierstrass."
+        ]
+      },
+      {
+        "id": "SUITES_003",
+        "question": "Énoncer et démontrer le théorème des suites adjacentes.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$(a_n) \\nearrow$, $(b_n) \\searrow$, $b_n - a_n \\to 0$ $\\Rightarrow$ même limite",
+          "$(a_n)$ majorée par $b_0$, donc converge",
+          "$\\ell' - \\ell = \\lim(b_n - a_n) = 0$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier de majorer"
+        ],
+        "relances_prof": [
+          "Application : $e = \\sum \\frac{1}{n!}$.",
+          "Encadrer $e$."
+        ]
+      },
+      {
+        "id": "SUITES_004",
+        "question": "Énoncer Bolzano-Weierstrass. Idée de la preuve par dichotomie.",
+        "type": "theoreme_enonce",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "De toute suite bornée on extrait une convergente",
+          "Dichotomie : segments emboîtés de longueur $\\to 0$",
+          "⚠️ NOTE PO: Seule l'idée de la preuve par dichotomie est exigible"
+        ],
+        "erreurs_frequentes": [
+          "Construction non rigoureuse"
+        ],
+        "relances_prof": [
+          "Vrai dans $\\mathbb{Q}$ ?",
+          "Suites complexes ?"
+        ]
+      },
+      {
+        "id": "SUITES_005",
+        "question": "Soit $u_0 \\in [0,2]$, $u_{n+1} = \\sqrt{2u_n}$. Étudier $(u_n)$.",
+        "type": "application_directe",
+        "difficulte": 3,
+        "temps_estime_min": 6,
+        "attendus": [
+          "$[0,2]$ stable",
+          "$f(x) - x > 0$ sur $]0,2[$",
+          "Croissante, majorée $\\to$ converge vers $2$"
+        ],
+        "erreurs_frequentes": [
+          "$f(\\ell) = \\ell$ avant convergence prouvée"
+        ],
+        "relances_prof": [
+          "Si $u_0 > 2$ ?",
+          "Vitesse : étudier $2 - u_n$."
+        ]
+      },
+      {
+        "id": "SUITES_006",
+        "question": "Résoudre $u_{n+2} - 5u_{n+1} + 6u_n = 0$.",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$r^2 - 5r + 6 = 0$, $r = 2, 3$",
+          "$u_n = A \\cdot 2^n + B \\cdot 3^n$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur équation caractéristique"
+        ],
+        "relances_prof": [
+          "Racine double ?",
+          "CI $u_0 = 0$, $u_1 = 1$ ?"
+        ]
+      },
+      {
+        "id": "SUITES_007",
+        "question": "Montrer que $\\mathbb{Q}$ est dense dans $\\mathbb{R}$.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Pour $a < b$, prendre $n$ : $1/n < b - a$",
+          "$m = \\min\\{k \\in \\mathbb{Z} \\mid k/n > a\\}$",
+          "$a < m/n < b$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier l'existence de $n$"
+        ],
+        "relances_prof": [
+          "$\\mathbb{R} \\setminus \\mathbb{Q}$ dense ?",
+          "Suite de rationnels $\\to \\sqrt{2}$."
+        ]
+      }
+    ]
+  },
+  "FONC_REELLE": {
+    "id": "FONC_REELLE",
+    "titre": "Fonctions réelles : limites, continuité, dérivabilité, convexité",
+    "questions_cours": [
+      {
+        "id": "FONC_REELLE_001",
+        "question": "Énoncer le TVI. Application.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$f continue sur [a,b], y entre f(a) et f(b) \\Rightarrow \\exists c, f(c)=y$",
+          "x^3+x-1=0 a une solution dans ]0,1["
+        ],
+        "erreurs_frequentes": [
+          "Oublier continuité"
+        ],
+        "relances_prof": [
+          "Unicité ?",
+          "Polynôme degré impair a une racine réelle."
+        ]
+      },
+      {
+        "id": "FONC_REELLE_002",
+        "question": "Énoncer le théorème des bornes atteintes. Contre-exemple sur intervalle ouvert.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "f continue sur [a,b] est bornée et atteint ses bornes",
+          "Sur ]0,1[ : 1/x non bornée, ou x n'atteint pas 0,1"
+        ],
+        "erreurs_frequentes": [
+          "Segment fermé borné obligatoire"
+        ],
+        "relances_prof": [
+          "$Sur [a,+\\infty[ ?$",
+          "Image d'un segment ?"
+        ]
+      },
+      {
+        "id": "FONC_REELLE_003",
+        "question": "Énoncer et démontrer le théorème de Rolle.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$f continue [a,b], dérivable ]a,b[, f(a)=f(b) \\Rightarrow \\exists c, f'(c)=0$",
+          "Si constante : ok. Sinon extremum intérieur."
+        ],
+        "erreurs_frequentes": [
+          "Oublier f(a)=f(b)"
+        ],
+        "relances_prof": [
+          "Pourquoi f'(c)=0 en extremum intérieur ?",
+          "Entre deux racines de P..."
+        ]
+      },
+      {
+        "id": "FONC_REELLE_004",
+        "question": "Énoncer le TAF. Application : $|sin b - \\sin a| \\leq |b-a|.$",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$\\exists c, f(b)-f(a) = f'(c)(b-a)$",
+          "$Pour \\sin : |cos c| \\leq 1$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre égalité/inégalité AF"
+        ],
+        "relances_prof": [
+          "$\\sin(x) < x pour x > 0.$",
+          "Inégalité des AF."
+        ]
+      },
+      {
+        "id": "FONC_REELLE_005",
+        "question": "f' > 0 sur I \\Rightarrow f strictement croissante. Démontrer.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "TAF : f(b)-f(a) = f'(c)(b-a) > 0 si a < b"
+        ],
+        "erreurs_frequentes": [
+          "$f' \\geq 0 n'implique pas strict croissante$"
+        ],
+        "relances_prof": [
+          "f(x)=x^3, f'(0)=0 mais strictement croissante.",
+          "Réciproque ?"
+        ]
+      },
+      {
+        "id": "FONC_REELLE_006",
+        "question": "Définir fonction convexe. Caractérisation si f deux fois dérivable.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$f((1-\\lambda)x + \\lambday) \\leq (1-\\lambda)f(x) + \\lambdaf(y)$",
+          "$f convexe \\Leftrightarrow f'' \\geq 0$"
+        ],
+        "erreurs_frequentes": [
+          "Sens de l'inégalité"
+        ],
+        "relances_prof": [
+          "Inégalité de Jensen.",
+          "exp convexe ?",
+          "Position par rapport aux tangentes."
+        ]
+      },
+      {
+        "id": "FONC_REELLE_007",
+        "question": "f continue strictement monotone sur I est bijective sur f(I), et f^{-1} continue. Expliquer.",
+        "type": "theoreme_enonce",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$Strictement monotone \\Rightarrow injective$",
+          "f(I) intervalle (image continue d'intervalle)",
+          "Continuité de f^{-1} admise ou par caractérisation séquentielle",
+          "⚠️ NOTE PO: La démonstration de la continuité de f^{-1} n'est pas exigible (PO)"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que f(I) est un intervalle"
+        ],
+        "relances_prof": [
+          "f^{-1} dérivable ?",
+          "Réciproque de exp."
+        ]
+      },
+      {
+        "id": "FONC_REELLE_008",
+        "question": "Énoncer la formule de Leibniz. Application : dérivée n-ième de x^2eˣ.",
+        "type": "theoreme_enonce",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$(fg)(^n) = \\sum \\binom{n}{k} f(^k)g(^{n-k})$",
+          "$f=x^2, f''=2, f(^k)=0 pour k\\geq 3$",
+          "(x^2eˣ)(^n) = eˣ(x^2 + 2nx + n(n-1))"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier que dérivées d'ordre \\geq 3 de x^2 sont nulles$"
+        ],
+        "relances_prof": [
+          "Dérivée n-ième de xeˣ ?",
+          "Démontrer par récurrence."
+        ]
+      }
+    ]
+  },
+  "ASYMPT": {
+    "id": "ASYMPT",
+    "titre": "Analyse asymptotique",
+    "questions_cours": [
+      {
+        "id": "ASYMPT_001",
+        "question": "Définir f = o(g), f = O(g), f ~ g au voisinage de a. Liens entre ces relations.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "f = o(g) : $f/g \\to 0$",
+          "f = O(g) : |f/g| bornée",
+          "f ~ g : $f/g \\to 1, équivalent à f = g + o(g)$",
+          "$o(g) \\subset O(g), f ~ g \\Rightarrow f = O(g)$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre O et o",
+          "Oublier que ~ est une relation d'équivalence"
+        ],
+        "relances_prof": [
+          "xsin(1/x) = o(1) en 0 ? = O(1) ?",
+          "$\\ln(1+x) ~ x en 0 ?$"
+        ]
+      },
+      {
+        "id": "ASYMPT_002",
+        "question": "Pourquoi ne peut-on pas additionner des équivalents ? Donner un contre-exemple.",
+        "type": "cours_piege",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Si f ~ g et f' ~ g', on n'a PAS f+f' ~ g+g' en général",
+          "Contre-exemple : x+1 ~ x et -x ~ -x, mais (x+1)+(-x) = 1 ≁ 0",
+          "Problème : les restes peuvent ne pas se compenser"
+        ],
+        "erreurs_frequentes": [
+          "Croire qu'on peut toujours additionner"
+        ],
+        "relances_prof": [
+          "Peut-on multiplier des équivalents ?",
+          "Et composer à gauche ?",
+          "Et à droite ?"
+        ]
+      },
+      {
+        "id": "ASYMPT_003",
+        "question": "Donner le DL à l'ordre 3 de eˣ, \\sin(x), \\cos(x), \\ln(1+x), 1/(1-x) en 0.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "eˣ = 1 + x + x^2/2 + x^3/6 + o(x^3)",
+          "$\\sin(x) = x - x^3/6 + o(x^3)$",
+          "$\\cos(x) = 1 - x^2/2 + o(x^3)$",
+          "$\\ln(1+x) = x - x^2/2 + x^3/3 + o(x^3)$",
+          "1/(1-x) = 1 + x + x^2 + x^3 + o(x^3)"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans les coefficients",
+          "Oublier le o(x^3)"
+        ],
+        "relances_prof": [
+          "$DL de \\tan à l'ordre 3 ?$",
+          "DL de (1+x)ᵅ ?",
+          "$DL de \\arctan ?$"
+        ]
+      },
+      {
+        "id": "ASYMPT_004",
+        "question": "Donner le DL à l'ordre 2 de \\sqrt(1+x) en 0. Application : équivalent de \\sqrt(1+x) - 1 - x/2.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "(1+x)^{1/2} = 1 + x/2 - x^2/8 + o(x^2)",
+          "$\\sqrt(1+x) - 1 - x/2 = -x^2/8 + o(x^2) ~ -x^2/8$"
+        ],
+        "erreurs_frequentes": [
+          "Erreur dans les coefficients binomiaux généralisés"
+        ],
+        "relances_prof": [
+          "$DL de 1/\\sqrt(1+x) ?$",
+          "$Limite de (\\sqrt(1+x)-1-x/2)/x^2 quand x\\to 0 ?$"
+        ]
+      },
+      {
+        "id": "ASYMPT_005",
+        "question": "Énoncer la formule de Taylor-Young. Application : obtenir le DL de eˣ à tout ordre.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$Si f de classe C^n, f(a+h) = \\sum_{k=0}^n f(^k)(a)/k! h^k + o(h^n)$",
+          "Pour eˣ : toutes les dérivées valent eˣ, en 0 valent 1",
+          "$eˣ = \\sum_{k=0}^n x^k/k! + o(x^n)$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre Taylor-Young (local) et Taylor avec reste (global)"
+        ],
+        "relances_prof": [
+          "Hypothèses sur f ?",
+          "$DL de \\cos à tout ordre ?$",
+          "Différence avec Taylor-Lagrange ?"
+        ]
+      },
+      {
+        "id": "ASYMPT_006",
+        "question": "Soit f(x) = (eˣ - 1 - x)/x^2. Calculer lim_{x\\to 0} f(x) par DL.",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "eˣ = 1 + x + x^2/2 + o(x^2)",
+          "eˣ - 1 - x = x^2/2 + o(x^2)",
+          "$(eˣ - 1 - x)/x^2 = 1/2 + o(1) \\to 1/2$"
+        ],
+        "erreurs_frequentes": [
+          "DL pas assez poussé",
+          "Erreur en simplifiant"
+        ],
+        "relances_prof": [
+          "Limite de (sin x - x)/x^3 ?",
+          "$Limite de (1 - \\cos x)/x^2 ?$"
+        ]
+      },
+      {
+        "id": "ASYMPT_007",
+        "question": "Énoncer la formule de Stirling. Comment l'utilise-t-on ?",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$n! ~ \\sqrt(2\\pin)(n/e)^n quand n \\to +\\infty$",
+          "Équivalent : $\\ln(n!) ~ n \\ln(n) - n + ½ln(2\\pin)$",
+          "Utile pour étudier des suites avec factorielles"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier le \\sqrt(2\\pin)$"
+        ],
+        "relances_prof": [
+          "Équivalent de (2n)!/(n!)^2 ?",
+          "Encadrer n! avec des intégrales ?"
+        ]
+      },
+      {
+        "id": "ASYMPT_008",
+        "question": "Étudier la position de la courbe y = xeˣ par rapport à sa tangente en 0.",
+        "type": "application_directe",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "f(x) = xeˣ, f(0) = 0, f'(x) = (1+x)eˣ, f'(0) = 1",
+          "Tangente : y = x",
+          "f(x) - x = xeˣ - x = x(eˣ - 1) = x(x + x^2/2 + o(x^2)) = x^2 + o(x^2)",
+          "$f(x) - x ~ x^2 > 0 pour x \\neq 0$ : courbe au-dessus de la tangente"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas aller assez loin dans le DL"
+        ],
+        "relances_prof": [
+          "Point d'inflexion ?",
+          "Position par rapport à la tangente en un autre point ?"
+        ]
+      }
+    ]
+  },
+  "EV": {
+    "id": "EV",
+    "titre": "Espaces vectoriels et applications linéaires",
+    "questions_cours": [
+      {
+        "id": "EV_001",
+        "question": "Donner une caractérisation d'un sous-espace vectoriel de E.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$F \\subset E est un sev ssi : F \\neq \\emptyset (ou 0 \\in F)$",
+          "$\\forall x, y \\in F, x + y \\in F$",
+          "$\\forall \\lambda \\in K, \\forall x \\in F, \\lambdax \\in F$",
+          "Ou : F non vide et stable par combinaison linéaire"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier F \\neq \\emptyset$",
+          "Oublier stabilité par multiplication scalaire"
+        ],
+        "relances_prof": [
+          "L'ensemble des solutions d'un système homogène est-il un sev ?",
+          "Et d'un système non homogène ?"
+        ]
+      },
+      {
+        "id": "EV_002",
+        "question": "Définir famille libre, famille génératrice, base. Lien avec la dimension.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Libre : $\\sum\\lambda_ix_i = 0 \\Rightarrow tous les \\lambda_i = 0$",
+          "Génératrice : tout vecteur est CL des x_i",
+          "Base : libre et génératrice",
+          "dim E = cardinal d'une base (indépendant du choix)"
+        ],
+        "erreurs_frequentes": [
+          "Confondre libre et génératrice"
+        ],
+        "relances_prof": [
+          "$Une famille de n+1 vecteurs dans un espace de \\dim n est-elle libre ?$",
+          "Théorème de la base incomplète ?"
+        ]
+      },
+      {
+        "id": "EV_003",
+        "question": "Énoncer et démontrer le théorème du rang.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Si u : $E \\to F linéaire avec E de \\dim finie, alors \\dim E = \\dim Ker u + rg u$",
+          "Prendre base de Ker u, compléter en base de E",
+          "Les images des vecteurs ajoutés forment une base de Im u"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que E doit être de dimension finie"
+        ],
+        "relances_prof": [
+          "$Si E et F de même dimension, injectif \\Leftrightarrow surjectif \\Leftrightarrow bijectif.$",
+          "Application : rang d'une matrice."
+        ]
+      },
+      {
+        "id": "EV_004",
+        "question": "Soit u : $E \\to F linéaire. Montrer que u injective \\Leftrightarrow Ker u = {0}.$",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\Rightarrow$ : si u(x) = 0 = u(0) et u injective, alors x = 0",
+          "$\\Leftarrow : si u(x) = u(y), alors u(x-y) = 0, donc x-y \\in Ker u = {0}, donc x = y$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier de traiter les deux sens"
+        ],
+        "relances_prof": [
+          "Condition sur le rang pour l'injectivité ?",
+          "Et pour la surjectivité ?"
+        ]
+      },
+      {
+        "id": "EV_005",
+        "question": "Définir somme directe de deux sev. Caractérisation par l'intersection.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$F + G somme directe si tout x \\in F + G s'écrit de façon unique x = f + g$",
+          "Notation F ⊕ G",
+          "Caractérisation : $F + G directe \\Leftrightarrow F \\cap G = {0}$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre F + G et F ⊕ G"
+        ],
+        "relances_prof": [
+          "En dimension finie : $\\dim(F ⊕ G) = \\dim F + \\dim G.$",
+          "F et G supplémentaires ?",
+          "Formule de Grassmann."
+        ]
+      },
+      {
+        "id": "EV_006",
+        "question": "Énoncer la formule de Grassmann. Application : $si \\dim F + \\dim G > \\dim E, alors F \\cap G \\neq {0}.$",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\dim(F + G) = \\dim F + \\dim G - \\dim(F \\cap G)$",
+          "$Si \\dim F + \\dim G > \\dim E, alors \\dim(F \\cap G) = \\dim F + \\dim G - \\dim(F+G) \\geq \\dim F + \\dim G - \\dim E > 0$"
+        ],
+        "erreurs_frequentes": [
+          "$Confondre avec \\dim(F ⊕ G)$"
+        ],
+        "relances_prof": [
+          "$Deux plans de \\mathbb{R}^3 se coupent toujours.$",
+          "Application aux hyperplans."
+        ]
+      },
+      {
+        "id": "EV_007",
+        "question": "Définir un projecteur. Caractérisation par p^2 = p.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "p projecteur sur F parallèlement à G si E = F ⊕ G et p(f+g) = f",
+          "p^2 = p (idempotent)",
+          "Ker p = G, Im p = F"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que E = F ⊕ G"
+        ],
+        "relances_prof": [
+          "Caractériser les symétries par s^2 = id.",
+          "Si p projecteur, que dire de id - p ?"
+        ]
+      },
+      {
+        "id": "EV_008",
+        "question": "Qu'est-ce qu'un hyperplan ? Caractérisations.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$H hyperplan de E ssi H = Ker \\varphi pour une forme linéaire \\varphi \\neq 0$",
+          "$Équivalent en \\dim finie : \\dim H = \\dim E - 1$",
+          "H admet une droite comme supplémentaire"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier que \\varphi doit être non nulle$"
+        ],
+        "relances_prof": [
+          "Intersection de m hyperplans : dimension ?",
+          "Équation d'un hyperplan dans une base ?"
+        ]
+      }
+    ]
+  },
+  "MAT_LIN": {
+    "id": "MAT_LIN",
+    "titre": "Matrices et applications linéaires",
+    "questions_cours": [
+      {
+        "id": "MAT_LIN_001",
+        "question": "Comment change la matrice d'une application linéaire lors d'un changement de bases ?",
+        "type": "theoreme_enonce",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Si M = Mat_{B,C}(u), après changement B' = BP et C' = CQ",
+          "Mat_{B',C'}(u) = Q^{-1}MP",
+          "Cas endomorphisme, même base : M' = P^{-1}MP"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper entre P et P^{-1}"
+        ],
+        "relances_prof": [
+          "Matrices semblables : définition ?",
+          "Que conserve la similitude ?"
+        ]
+      },
+      {
+        "id": "MAT_LIN_002",
+        "question": "Définir le rang d'une matrice. Lien avec le rang de l'application linéaire associée.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$Rang de A = \\dim Im(x \\mapsto Ax) = \\dim Vect(colonnes de A)$",
+          "= rang de l'application linéaire canoniquement associée",
+          "Invariant par changement de base"
+        ],
+        "erreurs_frequentes": [
+          "Confondre rang ligne et rang colonne (ils sont égaux)"
+        ],
+        "relances_prof": [
+          "Comment calculer le rang par pivot ?",
+          "$Rang(A) = n \\Leftrightarrow A inversible (si A carrée).$"
+        ]
+      },
+      {
+        "id": "MAT_LIN_003",
+        "question": "Définir la trace d'une matrice. Montrer que tr(AB) = tr(BA).",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$tr(A) = \\sum_i a_i_i$",
+          "$tr(AB) = \\sum_i (AB)_i_i = \\sum_i \\sum_j a_i_jb_j_i$",
+          "$tr(BA) = \\sum_j \\sum_i b_j_ia_i_j = même somme$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier l'interversion des sommes"
+        ],
+        "relances_prof": [
+          "tr(ABC) = tr(BAC) ? Non !",
+          "La trace est invariante par similitude.",
+          "Trace d'un projecteur ?"
+        ]
+      },
+      {
+        "id": "MAT_LIN_004",
+        "question": "Une matrice est de rang r ssi elle est équivalente à Jᵣ. Expliquer.",
+        "type": "theoreme_enonce",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Jᵣ = diag(1,...,1,0,...,0) avec r fois 1",
+          "$A équivalente à B ssi \\exists P,Q inversibles, B = QAP^{-1}$",
+          "Interprétation : même rang = même forme réduite"
+        ],
+        "erreurs_frequentes": [
+          "Confondre équivalence et similitude"
+        ],
+        "relances_prof": [
+          "Classification des matrices par équivalence.",
+          "Et par similitude ?"
+        ]
+      },
+      {
+        "id": "MAT_LIN_005",
+        "question": "Soit A \\in M_n(K). Montrer que A inversible \\Leftrightarrow Ker A = {0} \\Leftrightarrow rg A = n.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$A inversible \\Leftrightarrow x \\mapsto Ax bijective$",
+          "$Bijective \\Leftrightarrow injective (en \\dim finie) \\Leftrightarrow Ker = {0}$",
+          "Par th. du rang : $\\dim Ker = 0 \\Leftrightarrow rg = n$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier qu'on est en dimension finie"
+        ],
+        "relances_prof": [
+          "$Colonnes de A forment une base \\Leftrightarrow A inversible.$",
+          "Critère avec le déterminant ?"
+        ]
+      }
+    ]
+  },
+  "GROUPE_DET": {
+    "id": "GROUPE_DET",
+    "titre": "Groupe symétrique et déterminants",
+    "questions_cours": [
+      {
+        "id": "GROUPE_DET_001",
+        "question": "Définir la signature d'une permutation. Propriétés.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\varepsilon(\\sigma) = (-1)^{nombre d'inversions} ou produit de transpositions$",
+          "$\\varepsilon : S_n \\to {-1, 1} unique morphisme de groupes$",
+          "$\\varepsilon(\\sigmaτ) = \\varepsilon(\\sigma)\\varepsilon(τ), \\varepsilon(transposition) = -1$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre signature et parité du nombre de cycles"
+        ],
+        "relances_prof": [
+          "Signature d'un cycle de longueur k ?",
+          "Permutations paires forment-elles un groupe ?"
+        ]
+      },
+      {
+        "id": "GROUPE_DET_002",
+        "question": "Définir le déterminant d'une matrice carrée. Propriétés fondamentales.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "det : $M_n(K) \\to K, unique forme n-linéaire alternée valant 1 sur I_n$",
+          "$\\det(AB) = \\det(A)det(B)$",
+          "$A inversible \\Leftrightarrow \\det(A) \\neq 0$",
+          "$\\det(\\lambdaA) = \\lambda^ndet(A)$"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier le \\lambda^n$"
+        ],
+        "relances_prof": [
+          "$\\det(A^T) ?$",
+          "$\\det(A^{-1}) ?$",
+          "Déterminant et opérations élémentaires ?"
+        ]
+      },
+      {
+        "id": "GROUPE_DET_003",
+        "question": "Calculer le déterminant de Vandermonde V(x_1,...,x_n).",
+        "type": "calcul_cours",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$V = det[x_jⁱ^{-1}] = \\prod_{i<j}(x_j - x_i)$",
+          "Méthode : C_j ← C_j - x_1C_j₋_1 pour factoriser",
+          "Ou par récurrence"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans l'ordre des indices"
+        ],
+        "relances_prof": [
+          "$V = 0 \\Leftrightarrow deux x_i égaux.$",
+          "Lien avec l'interpolation de Lagrange ?"
+        ]
+      },
+      {
+        "id": "GROUPE_DET_004",
+        "question": "Énoncer la formule de développement par rapport à une ligne.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\det(A) = \\sum_j a_i_jC_i_j où C_i_j = (-1)^{i+j}det(A_i_j)$",
+          "A_i_j = matrice privée de ligne i et colonne j",
+          "Développement par colonne : même formule"
+        ],
+        "erreurs_frequentes": [
+          "Oublier le (-1)^{i+j}"
+        ],
+        "relances_prof": [
+          "Calculer \\det([[1,2,3],[4,5,6],[7,8,9]]) par développement.",
+          "Comatrice et inverse ?"
+        ]
+      },
+      {
+        "id": "GROUPE_DET_005",
+        "question": "Soit A inversible. Exprimer A^{-1} en fonction de la comatrice.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$A \\cdot Com(A)^T = \\det(A) \\cdot I_n$",
+          "Donc A^{-1} = (1/det(A)) Com(A)^T"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la transposition"
+        ],
+        "relances_prof": [
+          "Calculer l'inverse de [[1,2],[3,4]] par cette méthode.",
+          "Formules de Cramer ?"
+        ]
+      }
+    ]
+  },
+  "INTEGRATION": {
+    "id": "INTEGRATION",
+    "titre": "Intégration sur un segment",
+    "questions_cours": [
+      {
+        "id": "INTEGRATION_001",
+        "question": "Énoncer le théorème fondamental de l'analyse (dérivée d'une intégrale à borne variable).",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Si f continue sur [a,b], alors F : $x \\mapsto \\int_aˣ f(t)dt est dérivable$",
+          "F'(x) = f(x)",
+          "Donc toute fonction continue admet des primitives"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'hypothèse de continuité"
+        ],
+        "relances_prof": [
+          "$Dérivée de x \\mapsto \\int_0^{x^2} f(t)dt ?$",
+          "Et si la borne inf dépend de x ?"
+        ]
+      },
+      {
+        "id": "INTEGRATION_002",
+        "question": "Soit f continue positive sur [a,b] avec \\int_aᵇ f = 0. Montrer que f = 0.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Par l'absurde : si f(c) > 0 pour un c",
+          "$Par continuité, f \\geq f(c)/2 > 0 sur un intervalle [c-\\varepsilon, c+\\varepsilon]$",
+          "$\\intf \\geq \\varepsilon\\cdot f(c)/2 > 0, contradiction$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas utiliser la continuité"
+        ],
+        "relances_prof": [
+          "Et si f seulement continue par morceaux ?",
+          "$Hypothèse f \\geq 0 indispensable ?$"
+        ]
+      },
+      {
+        "id": "INTEGRATION_003",
+        "question": "Énoncer la formule de Taylor avec reste intégral.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Si f de classe C^n^+^1 sur [a,b], alors",
+          "$f(b) = \\sum_{k=0}^n f(^k)(a)/k! (b-a)^k + \\int_aᵇ f(^n^+^1)(t)(b-t)^n/n! dt$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre avec Taylor-Young"
+        ],
+        "relances_prof": [
+          "En déduire l'inégalité de Taylor-Lagrange.",
+          "Application : majoration de l'erreur d'un DL."
+        ]
+      },
+      {
+        "id": "INTEGRATION_004",
+        "question": "Soit f continue sur [a,b]. Montrer que (b-a)/n \\sum_{k=0}^n^{-1} f(a + k(b-a)/n) \\to \\int_aᵇ f quand n \\to +\\infty.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "Somme de Riemann avec subdivision régulière",
+          "Convergence car f continue (donc uniformément continue sur [a,b])",
+          "Pour f lipschitzienne : $|erreur| \\leq K(b-a)^2/n$",
+          "⚠️ NOTE PO: Démonstration exigible UNIQUEMENT pour f lipschitzienne (PO)"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier la convergence"
+        ],
+        "relances_prof": [
+          "Calculer \\lim \\sum_{k=1}^n 1/(n+k) par somme de Riemann.",
+          "Méthode des trapèzes ?"
+        ]
+      },
+      {
+        "id": "INTEGRATION_005",
+        "question": "Montrer l'inégalité |\\int_aᵇ f| \\leq \\int_aᵇ |f| pour f continue par morceaux.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$-|f| \\leq f \\leq |f|$",
+          "Intégrer : $-\\int|f| \\leq \\intf \\leq \\int|f|$",
+          "$Donc |\\intf| \\leq \\int|f|$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier le passage aux intégrales"
+        ],
+        "relances_prof": [
+          "Cas d'égalité ?",
+          "Application aux fonctions complexes."
+        ]
+      }
+    ]
+  },
+  "DENOMB": {
+    "id": "DENOMB",
+    "titre": "Dénombrement",
+    "questions_cours": [
+      {
+        "id": "DENOMB_001",
+        "question": "Donner le nombre de p-listes, d'arrangements, de combinaisons d'un ensemble à n éléments.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "p-listes (avec répétition) : n^p",
+          "Arrangements (sans répétition) : n!/(n-p)! = A_n^p",
+          "Combinaisons : n!/((n-p)!p!) = (n p)"
+        ],
+        "erreurs_frequentes": [
+          "Confondre arrangement et combinaison",
+          "$Oublier la condition p \\leq n pour arrangements$"
+        ],
+        "relances_prof": [
+          "Ordre important : liste/arrangement. Ordre non important : combinaison.",
+          "Démontrer (n p) = (n n-p)."
+        ]
+      },
+      {
+        "id": "DENOMB_002",
+        "question": "Démontrer la formule de Pascal par un argument combinatoire.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "(n+1 p) = (n p) + (n p-1)",
+          "Choisir p éléments parmi n+1 :",
+          "- soit on prend le (n+1)-ème : reste p-1 à choisir parmi n",
+          "- soit on ne le prend pas : p à choisir parmi n"
+        ],
+        "erreurs_frequentes": [
+          "Faire une preuve calculatoire au lieu de combinatoire"
+        ],
+        "relances_prof": [
+          "En déduire les coefficients du binôme.",
+          "Triangle de Pascal."
+        ]
+      },
+      {
+        "id": "DENOMB_003",
+        "question": "Montrer que |P(E)| = 2^n si |E| = n.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Bijection : $A \\subset E ↔ (1_A(e_1), ..., 1_A(e_n)) \\in {0,1}^n$",
+          "Donc |P(E)| = |{0,1}^n| = 2^n",
+          "Alternative : $|P(E)| = \\sum_{k=0}^n \\binom{n}{k} = 2^n$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier la bijection"
+        ],
+        "relances_prof": [
+          "$\\sum_{k=0}^n \\binom{n}{k} = 2^n par binôme.$",
+          "Nombre de parties à k éléments ?"
+        ]
+      },
+      {
+        "id": "DENOMB_004",
+        "question": "Soit f : $E \\to F avec |E| = |F| = n. Montrer que f bijective \\Leftrightarrow f injective \\Leftrightarrow f surjective.$",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$Bijective \\Rightarrow injective et surjective$ : évident",
+          "$Injective \\Rightarrow |f(E)| = |E| = n = |F| donc f(E) = F$ : surjective",
+          "$Surjective \\Rightarrow chaque élément de F a au moins un antécédent, donc exactement un (sinon trop d'éléments)$"
+        ],
+        "erreurs_frequentes": [
+          "Ne pas justifier correctement"
+        ],
+        "relances_prof": [
+          "Ce résultat est-il vrai en dimension infinie ?",
+          "Application aux endomorphismes."
+        ]
+      }
+    ]
+  },
+  "PROBA": {
+    "id": "PROBA",
+    "titre": "Probabilités sur un univers fini",
+    "questions_cours": [
+      {
+        "id": "PROBA_001",
+        "question": "Énoncer et démontrer la formule des probabilités totales.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$Si (A_i) partition de \\Omega avec P(A_i) > 0, alors P(B) = \\sum_i P(B|A_i)P(A_i)$",
+          "Preuve : $B = ⋃(B \\cap A_i) union disjointe$",
+          "$P(B) = \\sum P(B \\cap A_i) = \\sum P(B|A_i)P(A_i)$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que les A_i forment une partition",
+          "Oublier P(A_i) > 0"
+        ],
+        "relances_prof": [
+          "Application avec un arbre de probabilités.",
+          "Formule de Bayes ?"
+        ]
+      },
+      {
+        "id": "PROBA_002",
+        "question": "Énoncer la formule de Bayes. Donner un exemple d'application.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$P(A_j|B) = P(B|A_j)P(A_j) / \\sum_i P(B|A_i)P(A_i)$",
+          "Exemple : test médical, P(malade|test+)",
+          "= P(test+|malade)P(malade) / P(test+)"
+        ],
+        "erreurs_frequentes": [
+          "Confondre P(A|B) et P(B|A)"
+        ],
+        "relances_prof": [
+          "Paradoxe du test médical : beaucoup de faux positifs si maladie rare.",
+          "Intuition de Bayes."
+        ]
+      },
+      {
+        "id": "PROBA_003",
+        "question": "Définir l'indépendance de deux événements, de deux variables aléatoires.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "A et B indépendants : $P(A \\cap B) = P(A)P(B)$",
+          "X et Y indépendantes : pour tous x, y, P(X=x, Y=y) = P(X=x)P(Y=y)",
+          "Équivalent : $pour tous A, B, les événements (X \\in A) et (Y \\in B) sont indépendants$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre indépendant et incompatible"
+        ],
+        "relances_prof": [
+          "Indépendance 2 à 2 n'implique pas indépendance mutuelle.",
+          "Si X ⟂ Y alors E(XY) = E(X)E(Y)."
+        ]
+      },
+      {
+        "id": "PROBA_004",
+        "question": "Soit X ~ B(n,p). Donner E(X) et V(X).",
+        "type": "calcul_cours",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "X = X_1 + ... + X_n où X_i ~ B(p) indépendantes",
+          "E(X_i) = p, V(X_i) = p(1-p)",
+          "E(X) = np, V(X) = np(1-p) (par indépendance)"
+        ],
+        "erreurs_frequentes": [
+          "Se lancer dans un calcul direct au lieu d'utiliser la décomposition"
+        ],
+        "relances_prof": [
+          "Formule directe avec \\binom{n}{k} ?",
+          "$Loi de X sachant X \\geq 1 ?$"
+        ]
+      },
+      {
+        "id": "PROBA_005",
+        "question": "Énoncer et démontrer l'inégalité de Markov.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$Si X \\geq 0 et a > 0, alors P(X \\geq a) \\leq E(X)/a$",
+          "Preuve : $E(X) = \\sum x\\cdot P(X=x) \\geq \\sum_{x\\geq a} x\\cdot P(X=x) \\geq a\\cdot \\sum_{x\\geq a} P(X=x) = a\\cdot P(X\\geq a)$"
+        ],
+        "erreurs_frequentes": [
+          "$Oublier X \\geq 0$"
+        ],
+        "relances_prof": [
+          "En déduire Bienaymé-Tchebychev.",
+          "Applications aux inégalités de concentration."
+        ]
+      },
+      {
+        "id": "PROBA_006",
+        "question": "Énoncer l'inégalité de Bienaymé-Tchebychev. Application à la loi des grands nombres.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$P(|X - E(X)| \\geq \\varepsilon) \\leq V(X)/\\varepsilon^2$",
+          "Application : $S_n = (X_1+...+X_n)/n, X_i iid de variance \\sigma^2$",
+          "$V(S_n) = \\sigma^2/n, donc P(|S_n - \\mu| \\geq \\varepsilon) \\leq \\sigma^2/(n\\varepsilon^2) \\to 0$"
+        ],
+        "erreurs_frequentes": [
+          "Se tromper dans l'application"
+        ],
+        "relances_prof": [
+          "C'est la loi faible des grands nombres.",
+          "Interprétation fréquentiste des probabilités."
+        ]
+      },
+      {
+        "id": "PROBA_007",
+        "question": "Définir la covariance. Montrer que si X, Y indépendantes, Cov(X,Y) = 0.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Cov(X,Y) = E((X-E(X))(Y-E(Y))) = E(XY) - E(X)E(Y)",
+          "Si X ⟂ Y : E(XY) = E(X)E(Y) donc Cov = 0"
+        ],
+        "erreurs_frequentes": [
+          "La réciproque est fausse : Cov = 0 n'implique pas indépendance"
+        ],
+        "relances_prof": [
+          "Contre-exemple : X uniforme sur {-1,0,1}, Y = X^2.",
+          "V(X+Y) = V(X) + V(Y) + 2Cov(X,Y)."
+        ]
+      }
+    ]
+  },
+  "PREHILB": {
+    "id": "PREHILB",
+    "titre": "Espaces préhilbertiens réels",
+    "questions_cours": [
+      {
+        "id": "PREHILB_001",
+        "question": "Définir un produit scalaire sur un \\mathbb{R}-espace vectoriel E.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Forme bilinéaire symétrique définie positive",
+          "$\\langle \\cdot ,\\cdot \\rangle : E \\times E \\to \\mathbb{R}$",
+          "Bilinéaire : linéaire en chaque variable",
+          "Symétrique : $\\langle x,y\\rangle = \\langle y,x\\rangle$",
+          "Définie positive : $\\langle x,x\\rangle \\geq 0 et = 0 ssi x = 0$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier 'définie' (pas seulement positive)"
+        ],
+        "relances_prof": [
+          "Exemples : $produit scalaire canonique sur \\mathbb{R}^n, \\langle f,g\\rangle = \\intfg.$",
+          "Qu'est-ce qu'un espace euclidien ?"
+        ]
+      },
+      {
+        "id": "PREHILB_002",
+        "question": "Énoncer et démontrer l'inégalité de Cauchy-Schwarz.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$|\\langle x,y\\rangle | \\leq \\|x\\|\\cdot \\|y\\|, avec égalité ssi x et y colinéaires$",
+          "Preuve : $pour t \\in \\mathbb{R}, \\langle x+ty, x+ty\\rangle \\geq 0$",
+          "$Polynôme en t de discriminant \\leq 0 : \\langle x,y\\rangle ^2 - \\|x\\|^2\\|y\\|^2 \\leq 0$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier le cas d'égalité"
+        ],
+        "relances_prof": [
+          "Application : $(\\suma_ib_i)^2 \\leq (\\suma_i^2)(\\sumb_i^2).$",
+          "Inégalité triangulaire pour la norme ?"
+        ]
+      },
+      {
+        "id": "PREHILB_003",
+        "question": "Décrire l'algorithme d'orthonormalisation de Gram-Schmidt.",
+        "type": "methode",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Entrée : (v_1,...,v_n) libre. Sortie : (e_1,...,e_n) orthonormée, même Vect.",
+          "$e_1 = v_1/\\|v_1\\|$",
+          "$Pour k \\geq 2 : w_k = v_k - \\sum_j=_1^{k-1}\\langle v_k,e_j\\rangle e_j, puis e_k = w_k/\\|w_k\\|$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier de normaliser"
+        ],
+        "relances_prof": [
+          "$Orthonormaliser (1, X, X^2) pour \\langle P,Q\\rangle = \\int_0^1 PQ.$",
+          "Lien avec les polynômes de Legendre ?"
+        ]
+      },
+      {
+        "id": "PREHILB_004",
+        "question": "Soit F un sev de dimension finie d'un espace préhilbertien E. Définir la projection orthogonale sur F.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$E = F ⊕ F^\\perp , p_F = projection sur F parallèlement à F^\\perp $",
+          "Si (e_1,...,eᵣ) base orthonormée de F : $p_F(x) = \\sum_i \\langle x,e_i\\rangle e_i$",
+          "$p_F(x) est l'unique élément de F minimisant \\|x - f\\| pour f \\in F$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier que la base doit être orthonormée pour la formule simple"
+        ],
+        "relances_prof": [
+          "Distance de x à F ?",
+          "Formule si base non orthonormée ?"
+        ]
+      },
+      {
+        "id": "PREHILB_005",
+        "question": "Soit x \\in E et F sev de \\dim finie. Montrer que d(x,F) = \\|x - p_F(x)\\|.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$d(x,F) = inf{\\|x-f\\| | f \\in F}$",
+          "$Pour f \\in F : \\|x-f\\|^2 = \\|x-p_F(x) + p_F(x)-f\\|^2$",
+          "$= \\|x-p_F(x)\\|^2 + \\|p_F(x)-f\\|^2 (Pythagore, car x-p_F(x) \\perp F)$",
+          "Minimum atteint pour f = p_F(x)"
+        ],
+        "erreurs_frequentes": [
+          "Oublier d'utiliser Pythagore"
+        ],
+        "relances_prof": [
+          "Le projeté orthogonal réalise la distance.",
+          "Application : droite des moindres carrés."
+        ]
+      },
+      {
+        "id": "PREHILB_006",
+        "question": "Énoncer le théorème de Pythagore dans un espace préhilbertien.",
+        "type": "theoreme_enonce",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$Si x \\perp y, alors \\|x + y\\|^2 = \\|x\\|^2 + \\|y\\|^2$",
+          "Preuve : $\\|x+y\\|^2 = \\langle x+y,x+y\\rangle = \\|x\\|^2 + 2\\langle x,y\\rangle + \\|y\\|^2 = \\|x\\|^2 + \\|y\\|^2$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier l'hypothèse d'orthogonalité"
+        ],
+        "relances_prof": [
+          "Généralisation à n vecteurs orthogonaux.",
+          "Réciproque ?"
+        ]
+      }
+    ]
+  },
+  "SERIES": {
+    "id": "SERIES",
+    "titre": "Séries numériques et familles sommables",
+    "questions_cours": [
+      {
+        "id": "SERIES_001",
+        "question": "Qu'appelle-t-on divergence grossière d'une série ?",
+        "type": "definition",
+        "difficulte": 1,
+        "temps_estime_min": 2,
+        "attendus": [
+          "$Si \\sumu_n converge, alors u_n \\to 0$",
+          "Contraposée : $si u_n ↛ 0, \\sumu_n diverge (divergence grossière)$",
+          "Attention : $u_n \\to 0 n'implique PAS la convergence (ex: série harmonique)$"
+        ],
+        "erreurs_frequentes": [
+          "$Croire que u_n \\to 0 suffit pour la convergence$"
+        ],
+        "relances_prof": [
+          "$\\sum1/n diverge alors que 1/n \\to 0.$",
+          "$\\sum(-1)^n diverge grossièrement.$"
+        ]
+      },
+      {
+        "id": "SERIES_002",
+        "question": "Énoncer le critère de comparaison pour les séries à termes positifs.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$Si 0 \\leq u_n \\leq v_n et \\sumv_n converge, alors \\sumu_n converge$",
+          "$Si 0 \\leq u_n \\leq v_n et \\sumu_n diverge, alors \\sumv_n diverge$",
+          "Variante avec équivalents : $u_n ~ v_n > 0 \\Rightarrow même nature$"
+        ],
+        "erreurs_frequentes": [
+          "Appliquer aux séries non positives"
+        ],
+        "relances_prof": [
+          "$\\sum1/n^2 converge (comparer à \\sum1/n(n-1)).$",
+          "Séries de Riemann."
+        ]
+      },
+      {
+        "id": "SERIES_003",
+        "question": "$Pour quelles valeurs de \\alpha la série \\sum1/nᵅ converge-t-elle ?$",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\sum1/nᵅ converge ssi \\alpha > 1$",
+          "$Pour \\alpha \\leq 1 : 1/nᵅ \\geq 1/n, et \\sum1/n diverge$",
+          "$Pour \\alpha > 1 : comparaison intégrale, \\int1/xᵅ converge$"
+        ],
+        "erreurs_frequentes": [
+          "$Se tromper sur la valeur critique \\alpha = 1$"
+        ],
+        "relances_prof": [
+          "Série harmonique : $\\sum1/n ~ \\ln(n).$",
+          "$\\sum1/(n \\ln n) ?$"
+        ]
+      },
+      {
+        "id": "SERIES_004",
+        "question": "Définir série absolument convergente. Lien avec la convergence.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\sumu_n absolument convergente si \\sum|u_n| converge$",
+          "$Absolument convergente \\Rightarrow convergente$",
+          "Réciproque fausse : $\\sum(-1)^n/n converge mais pas absolument$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre convergence et convergence absolue"
+        ],
+        "relances_prof": [
+          "Série semi-convergente : définition.",
+          "Série alternée."
+        ]
+      },
+      {
+        "id": "SERIES_005",
+        "question": "Énoncer le théorème des séries alternées (critère de Leibniz).",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$Si (a_n) décroissante vers 0, alors \\sum(-1)^na_n converge$",
+          "De plus : le reste R_n est du signe de son premier terme",
+          "$Et |R_n| \\leq a_n₊_1$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier la décroissance"
+        ],
+        "relances_prof": [
+          "$\\sum(-1)^n/n converge vers \\ln(2).$",
+          "Vitesse de convergence ?"
+        ]
+      },
+      {
+        "id": "SERIES_006",
+        "question": "Définir famille sommable. Énoncer le théorème de Fubini pour les familles sommables.",
+        "type": "definition",
+        "difficulte": 3,
+        "temps_estime_min": 4,
+        "attendus": [
+          "$(u_i)_{i\\in I} sommable si \\sum|u_i| < +\\infty$",
+          "$Si I = J \\times K et (u_{j,k}) sommable : \\sum_{(j,k)} u_{j,k} = \\sum_j(\\sum_k u_{j,k}) = \\sum_k(\\sum_j u_{j,k})$",
+          "On peut sommer dans n'importe quel ordre"
+        ],
+        "erreurs_frequentes": [
+          "Appliquer Fubini sans vérifier la sommabilité"
+        ],
+        "relances_prof": [
+          "Produit de Cauchy de deux séries absolument convergentes.",
+          "$\\sum_n \\sum_{k=0}^n 1/k!n! ?$"
+        ]
+      },
+      {
+        "id": "SERIES_007",
+        "question": "Montrer que eˣeʸ = eˣ^+ʸ en utilisant le produit de Cauchy.",
+        "type": "theoreme_demo",
+        "difficulte": 3,
+        "temps_estime_min": 5,
+        "attendus": [
+          "$eˣ = \\sum x^n/n!, eʸ = \\sum y^n/n!, absolument convergentes$",
+          "Produit de Cauchy : $(\\suma_n)(\\sumb_n) = \\sumc_n avec c_n = \\sum_{k=0}^n a_kb_n₋_k$",
+          "$c_n = \\sum_{k=0}^n x^k/k! \\cdot y^{n-k}/(n-k)! = (1/n!) \\sum_{k=0}^n \\binom{n}{k} x^ky^{n-k} = (x+y)^n/n!$"
+        ],
+        "erreurs_frequentes": [
+          "Oublier de vérifier la convergence absolue"
+        ],
+        "relances_prof": [
+          "exp : $(\\mathbb{C},+) \\to (\\mathbb{C}*,\\times ) est un morphisme.$",
+          "Application : $formule d'Euler eⁱᶿ = \\cos \\theta + i \\sin \\theta.$"
+        ]
+      }
+    ]
+  },
+  "FONC_2VAR": {
+    "id": "FONC_2VAR",
+    "titre": "Fonctions de deux variables",
+    "questions_cours": [
+      {
+        "id": "FONC_2VAR_001",
+        "question": "Définir les dérivées partielles \\partial f/\\partial x et \\partial f/\\partial y d'une fonction f(x,y).",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$\\partial f/\\partial x(a,b) = lim_{h\\to 0} [f(a+h,b) - f(a,b)]/h$",
+          "$= dérivée de t \\mapsto f(t,b) en t = a$",
+          "$Idem pour \\partial f/\\partial y$ : on dérive par rapport à y en fixant x"
+        ],
+        "erreurs_frequentes": [
+          "L'existence des dérivées partielles N'IMPLIQUE PAS la continuité"
+        ],
+        "relances_prof": [
+          "Exemple : $f(x,y) = xy/(x^2+y^2) si (x,y)\\neq (0,0), f(0,0)=0.$",
+          "Gradient ?"
+        ]
+      },
+      {
+        "id": "FONC_2VAR_002",
+        "question": "Définir le gradient de f. Quelle est son interprétation géométrique ?",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$∇f(a,b) = (\\partial f/\\partial x(a,b), \\partial f/\\partial y(a,b))$",
+          "Direction de plus grande pente de f au point (a,b)",
+          "∇f est orthogonal aux lignes de niveau de f"
+        ],
+        "erreurs_frequentes": [
+          "Confondre gradient et dérivée directionnelle"
+        ],
+        "relances_prof": [
+          "Dérivée selon un vecteur u ?",
+          "$\\langle ∇f, u\\rangle = dérivée directionnelle.$"
+        ]
+      },
+      {
+        "id": "FONC_2VAR_003",
+        "question": "Énoncer la règle de la chaîne pour f(x(t), y(t)).",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$Si f de classe C^1 et x, y de classe C^1, alors t \\mapsto f(x(t),y(t)) est C^1$",
+          "$d/dt f(x(t),y(t)) = \\partial f/\\partial x \\cdot x'(t) + \\partial f/\\partial y \\cdot y'(t)$",
+          "$= \\langle ∇f, (x'(t), y'(t))\\rangle $"
+        ],
+        "erreurs_frequentes": [
+          "Oublier un des deux termes"
+        ],
+        "relances_prof": [
+          "Dérivée de f le long d'une courbe.",
+          "Application aux coordonnées polaires."
+        ]
+      },
+      {
+        "id": "FONC_2VAR_004",
+        "question": "Qu'est-ce qu'un point critique de f ? Condition nécessaire pour un extremum local.",
+        "type": "definition",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "Point critique : $∇f(a,b) = 0, i.e., \\partial f/\\partial x = \\partial f/\\partial y = 0$",
+          "Si f admet un extremum local en (a,b) intérieur au domaine, alors (a,b) est critique",
+          "Attention : $point critique \\neq extremum (point selle possible)$"
+        ],
+        "erreurs_frequentes": [
+          "Confondre condition nécessaire et suffisante"
+        ],
+        "relances_prof": [
+          "f(x,y) = x^2 - y^2 : point selle en (0,0).",
+          "Comment détecter un maximum/minimum ?"
+        ]
+      },
+      {
+        "id": "FONC_2VAR_005",
+        "question": "Donner le DL à l'ordre 1 de f(x,y) au point (a,b) si f est C^1. Interprétation.",
+        "type": "theoreme_enonce",
+        "difficulte": 2,
+        "temps_estime_min": 3,
+        "attendus": [
+          "$f(a+h, b+k) = f(a,b) + h\\cdot \\partial f/\\partial x(a,b) + k\\cdot \\partial f/\\partial y(a,b) + o(\\|(h,k)\\|)$",
+          "$= f(a,b) + \\langle ∇f(a,b), (h,k)\\rangle + o(\\|(h,k)\\|)$",
+          "$Le plan tangent à z = f(x,y) en (a,b) a pour équation z - f(a,b) = \\langle ∇f, (x-a, y-b)\\rangle $"
+        ],
+        "erreurs_frequentes": [
+          "Oublier le terme d'erreur o(...)"
+        ],
+        "relances_prof": [
+          "Équation du plan tangent.",
+          "Approximation linéaire."
+        ]
+      },
+      {
+        "id": "FONC_2VAR_006",
+        "question": "Montrer que ∇f est orthogonal aux lignes de niveau de f.",
+        "type": "theoreme_demo",
+        "difficulte": 2,
+        "temps_estime_min": 4,
+        "attendus": [
+          "Ligne de niveau : {(x,y) | f(x,y) = c}",
+          "Soit \\gamma(t) = (x(t), y(t)) une courbe sur cette ligne : f(\\gamma(t)) = c",
+          "Dériver : $\\langle ∇f(\\gamma(t)), \\gamma'(t)\\rangle = 0$",
+          "$Donc ∇f \\perp vecteur tangent à la ligne de niveau$"
+        ],
+        "erreurs_frequentes": [
+          "$Ne pas justifier que \\gamma' est tangent à la ligne de niveau$"
+        ],
+        "relances_prof": [
+          "Application : trouver la direction de plus grande pente.",
+          "Interprétation pour une carte topographique."
+        ]
+      }
+    ]
+  }
+}
