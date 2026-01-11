@@ -17,7 +17,7 @@ st.set_page_config(
     page_title="Khôlleur AI",
     page_icon="📐",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 from data.query import (
@@ -460,15 +460,17 @@ st.markdown("""
        ================================================================= */
     @media (max-width: 768px) {
         .main-header {
-            padding: 1rem 1.25rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
         }
         
         .main-header h1 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
+            margin: 0;
         }
         
         .main-header p {
-            font-size: 0.85rem;
+            display: none; /* Masquer la description sur mobile pour gagner de la place */
         }
         
         /* Progress bar compacte - icônes seulement */
@@ -567,6 +569,11 @@ st.markdown("""
             width: 100% !important;
             min-height: 52px !important;
             font-size: 1.1rem !important;
+        }
+        
+        /* Réduire l'espace des diviseurs */
+        hr {
+            margin: 1rem 0 !important;
         }
     }
     
