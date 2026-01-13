@@ -36,14 +36,6 @@ from services.gemini_service import (
 from components.rag_debug import render_rag_debug_panel
 
 
-def format_latex_text(text: str) -> str:
-    """
-    Formate le texte pour l'affichage.
-    Nettoyage basique sans modifier le LaTeX.
-    """
-    if not text:
-        return text
-    return text.strip()
 
 
 # =============================================================================
@@ -863,8 +855,6 @@ def render_question_cours():
     render_progress_bar(PHASE_QUESTION)
     
     # Question avec rendu LaTeX supporté (st.container + marker CSS)
-    question_text = format_latex_text(q['question_raw'])
-    
     with st.container(border=True):
         st.markdown('<div class="card-marker"></div>', unsafe_allow_html=True)
         st.markdown(f"""
@@ -875,7 +865,7 @@ def render_question_cours():
         """, unsafe_allow_html=True)
         
         # Le texte de la question est rendu par st.markdown pour supporter LaTeX
-        st.markdown(question_text)
+        st.markdown(q['question_raw'])
     
     st.divider()
     
@@ -883,10 +873,10 @@ def render_question_cours():
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(format_latex_text(msg['content']))
+                st.markdown(msg['content'])
         else:
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(format_latex_text(msg['content']))
+                st.markdown(msg['content'])
     
     # Panneau RAG Debug (si activé et chunks disponibles)
     if st.session_state.rag_debug_mode and st.session_state.rag_chunks:
@@ -1080,10 +1070,10 @@ def render_exercice():
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(format_latex_text(msg['content']))
+                st.markdown(msg['content'])
         else:
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(format_latex_text(msg['content']))
+                st.markdown(msg['content'])
     
     # Zone de réponse photo-first
     st.markdown("### Ton travail")
