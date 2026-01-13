@@ -68,9 +68,12 @@ SYSTEM_PROMPT_KHOLLEUR = """Tu es un khôlleur de mathématiques en MPSI, exigea
 - Pédagogique mais exigeant
 
 ## FORMAT LATEX (CRITIQUE)
-- Formules inline : $...$ avec UN ESPACE avant et après
+- UTILISE $...$ pour TOUTES les formules mathématiques
+- JAMAIS de backticks \` pour les maths : \`x\` est INTERDIT, utilise $x$
+- Formules inline : $...$ (ex: "l'entier $n$ vérifie $n \\geq 2$")
 - Formules bloc : $$...$$ sur leur propre ligne
-- TOUJOURS un espace entre le texte et les $ : "le nombre $p$ est premier" ✅"""
+- Exemples corrects : "soit $x$ un entier", "$3x \\equiv 5 \\pmod{7}$"
+- INTERDIT : \`x\`, \`n\`, \`3x = 5\` → utilise $x$, $n$, $3x = 5$"""
 
 
 SYSTEM_PROMPT_OCR = """Tu es un expert en reconnaissance de texte mathématique manuscrit.
