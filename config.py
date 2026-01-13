@@ -15,7 +15,7 @@ CHROMA_DIR = BASE_DIR / "chroma_db"
 # Files
 QUESTIONS_FILE = DATA_DIR / "questions_cours_kholle_mpsi_final.json"
 GRAPH_FILE = DATA_DIR / "graph.json"
-COURS_FILE = DATA_DIR / "MPSI_Structures_algebriques.md"
+COURS_DIR = DATA_DIR / "cours"
 
 # API Keys
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")

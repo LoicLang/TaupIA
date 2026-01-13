@@ -39,7 +39,7 @@ from components.rag_debug import render_rag_debug_panel
 def format_latex_text(text: str) -> str:
     """
     Formate le texte pour l'affichage.
-    Le JSON est maintenant propre, cette fonction fait juste un nettoyage basique.
+    Nettoyage basique sans modifier le LaTeX.
     """
     if not text:
         return text
@@ -883,10 +883,10 @@ def render_question_cours():
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(msg['content'])
+                st.markdown(format_latex_text(msg['content']))
         else:
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(msg['content'])
+                st.markdown(format_latex_text(msg['content']))
     
     # Panneau RAG Debug (si activé et chunks disponibles)
     if st.session_state.rag_debug_mode and st.session_state.rag_chunks:
@@ -1002,10 +1002,18 @@ def render_question_cours():
                         conversation_history=st.session_state.conversation_history[:-1]
                     )
                     
+                    # Vérifier que le feedback n'est pas vide
+                    feedback = result.get("feedback", "")
+                    if not feedback or not feedback.strip():
+                        st.error("❌ Le khôlleur n'a pas pu répondre. Réessaie.")
+                        if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
+                            st.session_state.conversation_history.pop()
+                        st.stop()
+                    
                     # Ajouter le feedback à l'historique
                     st.session_state.conversation_history.append({
                         "role": "assistant",
-                        "content": result["feedback"]
+                        "content": feedback
                     })
                     
                     # Stocker le score
@@ -1017,6 +1025,9 @@ def render_question_cours():
                     
                 except Exception as e:
                     st.error(f"❌ Erreur lors de l'évaluation : {e}")
+                    if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
+                        st.session_state.conversation_history.pop()
+                    st.stop()
             
             st.rerun()
 
@@ -1069,10 +1080,10 @@ def render_exercice():
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(msg['content'])
+                st.markdown(format_latex_text(msg['content']))
         else:
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(msg['content'])
+                st.markdown(format_latex_text(msg['content']))
     
     # Zone de réponse photo-first
     st.markdown("### Ton travail")
@@ -1168,12 +1179,24 @@ def render_exercice():
                     conversation_history=st.session_state.conversation_history[:-1]
                 )
                 
+                # Vérifier que la réponse n'est pas vide
+                if not response or not response.strip():
+                    st.error("❌ Le khôlleur n'a pas pu répondre. Réessaie.")
+                    # Retirer le message utilisateur qui n'a pas eu de réponse
+                    if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
+                        st.session_state.conversation_history.pop()
+                    st.stop()
+                
                 st.session_state.conversation_history.append({
                     "role": "assistant",
                     "content": response
                 })
             except Exception as e:
-                st.error(f"Erreur : {e}")
+                st.error(f"❌ Erreur : {e}")
+                # Retirer le message utilisateur qui n'a pas eu de réponse
+                if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
+                    st.session_state.conversation_history.pop()
+                st.stop()
         
         st.rerun()
 

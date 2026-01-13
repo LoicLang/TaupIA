@@ -27,7 +27,7 @@ from config import (
     QUESTIONS_FILE,
     GRAPH_FILE,
     EXERCICES_DIR,
-    COURS_FILE,
+    COURS_DIR,
     COLLECTION_QUESTIONS,
     COLLECTION_EXERCICES,
     COLLECTION_COURS,
@@ -274,15 +274,17 @@ def ingest_exercices(chroma_client: chromadb.PersistentClient, force: bool = Fal
     ids = []
     embeddings = []
     
-    # Parcourir les fichiers d'exercices
-    for md_file in EXERCICES_DIR.glob("*.md"):
+    # Parcourir les fichiers d'exercices (y compris dans les sous-dossiers)
+    for md_file in EXERCICES_DIR.glob("**/*.md"):
         print(f"  Processing {md_file.name}...")
         
         content = md_file.read_text(encoding='utf-8')
         frontmatter, body = parse_exercise_frontmatter(content)
         sections = extract_exercise_sections(body)
         
-        exercise_id = md_file.stem
+        # Inclure le dossier parent dans l'ID pour éviter les doublons
+        parent_folder = md_file.parent.name
+        exercise_id = f"{parent_folder}_{md_file.stem}"
         
         # Mapper le chapitre au format du graphe
         chapter_name = frontmatter.get("chapitre", "")
@@ -293,7 +295,7 @@ def ingest_exercices(chroma_client: chromadb.PersistentClient, force: bool = Fal
                 break
         
         # Document = énoncé pour le matching
-        doc_text = f"""Exercice: {exercise_id}
+        doc_text = f"""Exercice: {md_file.stem}
 Chapitre: {chapter_name}
 Notions: {', '.join(frontmatter.get('notions', [])) if isinstance(frontmatter.get('notions'), list) else frontmatter.get('notions', '')}
 
@@ -397,9 +399,10 @@ def chunk_markdown(content: str, chunk_size: int = 1500, overlap: int = 200) -> 
 
 def ingest_cours(chroma_client: chromadb.PersistentClient, force: bool = False):
     """
-    Ingère le cours de référence dans ChromaDB.
+    Ingère tous les fichiers de cours dans ChromaDB.
     
     Métadonnées par chunk :
+    - source_file : Nom du fichier source
     - section : Section principale (ex: "III Groupes")
     - subsection : Sous-section (ex: "III.1 Axiomatique")
     - chunk_index : Index du chunk dans le document
@@ -416,51 +419,58 @@ def ingest_cours(chroma_client: chromadb.PersistentClient, force: bool = False):
     
     collection = chroma_client.get_or_create_collection(
         name=COLLECTION_COURS,
-        metadata={"description": "Cours de référence MPSI - Structures algébriques"}
+        metadata={"description": "Cours de référence MPSI"}
     )
     
     if collection.count() > 0 and not force:
         print(f"Collection '{COLLECTION_COURS}' déjà peuplée ({collection.count()} documents)")
         return
     
-    # Lire le cours
-    content = COURS_FILE.read_text(encoding='utf-8')
-    chunks = chunk_markdown(content)
-    
     documents = []
     metadatas = []
     ids = []
     embeddings = []
     
-    for i, chunk in enumerate(chunks):
-        chunk_id = f"cours_chunk_{i:04d}"
-        text = chunk["text"]
+    chunk_counter = 0
+    
+    # Parcourir tous les fichiers de cours
+    for cours_file in COURS_DIR.glob("*.md"):
+        print(f"  Traitement de {cours_file.name}...")
+        content = cours_file.read_text(encoding='utf-8')
+        chunks = chunk_markdown(content)
         
-        # Détecter le type de contenu
-        text_lower = text.lower()
-        has_definition = "définition" in text_lower or "definition" in text_lower
-        has_theorem = "théorème" in text_lower or "proposition" in text_lower or "lemme" in text_lower
-        has_proof = "démonstration" in text_lower or "preuve" in text_lower
-        has_example = "exemple" in text_lower
-        
-        meta = {
-            "chunk_index": i,
-            "section": chunk["section"],
-            "subsection": chunk["subsection"],
-            "level": chunk["level"],
-            "has_definition": has_definition,
-            "has_theorem": has_theorem,
-            "has_proof": has_proof,
-            "has_example": has_example,
-            "char_count": len(text),
-        }
-        
-        documents.append(text)
-        metadatas.append(meta)
-        ids.append(chunk_id)
-        
-        print(f"  Embedding chunk {i+1}/{len(chunks)} ({chunk['section'][:30]}...)")
-        embeddings.append(get_embedding(text))
+        for chunk in chunks:
+            chunk_id = f"cours_chunk_{chunk_counter:04d}"
+            text = chunk["text"]
+            
+            # Détecter le type de contenu
+            text_lower = text.lower()
+            has_definition = "définition" in text_lower or "definition" in text_lower
+            has_theorem = "théorème" in text_lower or "proposition" in text_lower or "lemme" in text_lower
+            has_proof = "démonstration" in text_lower or "preuve" in text_lower
+            has_example = "exemple" in text_lower
+            
+            meta = {
+                "source_file": cours_file.name,
+                "chunk_index": chunk_counter,
+                "section": chunk["section"],
+                "subsection": chunk["subsection"],
+                "level": chunk["level"],
+                "has_definition": has_definition,
+                "has_theorem": has_theorem,
+                "has_proof": has_proof,
+                "has_example": has_example,
+                "char_count": len(text),
+            }
+            
+            documents.append(text)
+            metadatas.append(meta)
+            ids.append(chunk_id)
+            
+            section_preview = chunk['section'][:30] if chunk['section'] else cours_file.stem[:20]
+            print(f"    Embedding chunk {chunk_counter+1} ({section_preview}...)")
+            embeddings.append(get_embedding(text))
+            chunk_counter += 1
     
     if documents:
         collection.add(

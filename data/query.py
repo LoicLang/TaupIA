@@ -49,20 +49,70 @@ def get_query_embedding(text: str) -> list[float]:
 # =============================================================================
 
 def get_chapters() -> list[dict]:
-    """Retourne la liste des chapitres disponibles avec leurs stats."""
+    """
+    Retourne la liste des chapitres disponibles avec leurs stats.
+    Ne retourne que les chapitres qui ont des exercices ingérés.
+    """
     chroma_client = get_chroma_client()
-    collection = chroma_client.get_collection(COLLECTION_QUESTIONS)
+    questions_collection = chroma_client.get_collection(COLLECTION_QUESTIONS)
     
-    # Récupérer toutes les métadonnées
-    results = collection.get(include=["metadatas"])
+    # D'abord, récupérer les chapitres qui ont des exercices
+    try:
+        exercices_collection = chroma_client.get_collection(COLLECTION_EXERCICES)
+        exercice_results = exercices_collection.get(include=["metadatas"])
+        
+        # Collecter les noms de chapitres ET les chapter_ids des exercices
+        chapters_with_exercises = set()
+        chapter_ids_with_exercises = set()
+        for meta in exercice_results["metadatas"]:
+            chapter = meta.get("chapter", "")
+            chapter_id = meta.get("chapter_id", "")
+            if chapter:
+                chapters_with_exercises.add(chapter.lower())
+                # Ajouter aussi des mots-clés pour un meilleur matching
+                for word in chapter.lower().split():
+                    if len(word) > 3:  # Ignorer les mots courts
+                        chapters_with_exercises.add(word)
+            if chapter_id:
+                chapter_ids_with_exercises.add(chapter_id)
+    except Exception:
+        # Si pas d'exercices, retourner une liste vide
+        return []
+    
+    # Récupérer toutes les métadonnées des questions
+    results = questions_collection.get(include=["metadatas"])
     
     chapters = {}
     for meta in results["metadatas"]:
         cid = meta["chapter_id"]
+        title = meta["chapter_title"]
+        
+        # Vérifier si ce chapitre a des exercices
+        # 1. Vérifier par chapter_id
+        has_exercises = cid in chapter_ids_with_exercises
+        
+        # 2. Si pas trouvé par ID, vérifier par nom/mots-clés
+        if not has_exercises:
+            title_lower = title.lower()
+            # Vérifier si un mot-clé du titre matche
+            for word in title_lower.split():
+                if len(word) > 3 and word in chapters_with_exercises:
+                    has_exercises = True
+                    break
+            # Ou vérifier une inclusion plus directe
+            if not has_exercises:
+                has_exercises = any(
+                    ex_chapter in title_lower or title_lower in ex_chapter
+                    for ex_chapter in chapters_with_exercises
+                )
+        
+        if not has_exercises:
+            continue
+        
         if cid not in chapters:
             chapters[cid] = {
                 "id": cid,
-                "title": meta["chapter_title"],
+                "title": title,
                 "semestre": meta["semestre"],
                 "importance": meta["chapter_importance"],
                 "question_count": 0,
@@ -209,7 +259,7 @@ def get_exercise_by_difficulty(
     3. N'importe quelle difficulté (seulement si aucun dans la plage)
     
     Args:
-        chapter_id: ID du chapitre (optionnel)
+        chapter_id: ID du chapitre (ex: "ARITH_Z", "STRUC_ALG")
         difficulty: Niveau souhaité (1-5)
         exclude_ids: Exercices déjà faits
     """
@@ -218,72 +268,76 @@ def get_exercise_by_difficulty(
     chroma_client = get_chroma_client()
     collection = chroma_client.get_collection(COLLECTION_EXERCICES)
     
-    def build_filter(diff_filter: dict) -> dict:
-        """Construit le filtre avec la condition de difficulté donnée."""
-        where_clauses = [diff_filter]
-        if chapter_id:
-            where_clauses.append({"chapter_id": chapter_id})
-        return {"$and": where_clauses} if len(where_clauses) > 1 else where_clauses[0]
+    # Mapping des chapter_id vers les mots-clés du nom de chapitre
+    # Utilisé pour filtrer car les exercices stockent le nom, pas l'ID
+    chapter_keywords = {
+        "ARITH_Z": "arithmétique",
+        "STRUC_ALG": "structures",
+        # Ajouter d'autres mappings au fur et à mesure
+    }
     
-    def filter_and_pick(results: dict) -> Optional[dict]:
-        """Filtre les exclusions et retourne un exercice au hasard."""
+    def filter_by_chapter(results: dict) -> list:
+        """Filtre les résultats par chapitre et exclusions."""
         if not results["ids"]:
-            return None
+            return []
         
         candidates = []
+        keyword = chapter_keywords.get(chapter_id, "").lower() if chapter_id else None
+        
         for i, eid in enumerate(results["ids"]):
             if exclude_ids and eid in exclude_ids:
                 continue
+            
+            meta = results["metadatas"][i]
+            chapter_name = meta.get("chapter", "").lower()
+            
+            # Si on a un chapitre spécifié, vérifier que l'exercice correspond
+            if keyword and keyword not in chapter_name:
+                continue
+            
             candidates.append({
                 "id": eid,
                 "document": results["documents"][i],
-                **results["metadatas"][i]
+                **meta
             })
         
+        return candidates
+    
+    def pick_random(candidates: list) -> Optional[dict]:
+        """Retourne un exercice au hasard parmi les candidats."""
         if not candidates:
             return None
-        
         return random.choice(candidates)
     
     # 1. Chercher difficulté EXACTE
-    exact_filter = build_filter({"difficulty": difficulty})
     results = collection.get(
-        where=exact_filter,
+        where={"difficulty": difficulty},
         include=["metadatas", "documents"]
     )
-    exercise = filter_and_pick(results)
+    candidates = filter_by_chapter(results)
+    exercise = pick_random(candidates)
     if exercise:
         return exercise
     
     # 2. Fallback: difficulté ±1
-    nearby_filter = build_filter({
-        "$and": [
-            {"difficulty": {"$gte": max(1, difficulty - 1)}},
-            {"difficulty": {"$lte": min(5, difficulty + 1)}}
-        ]
-    })
     results = collection.get(
-        where=nearby_filter,
+        where={
+            "$and": [
+                {"difficulty": {"$gte": max(1, difficulty - 1)}},
+                {"difficulty": {"$lte": min(5, difficulty + 1)}}
+            ]
+        },
         include=["metadatas", "documents"]
     )
-    exercise = filter_and_pick(results)
+    candidates = filter_by_chapter(results)
+    exercise = pick_random(candidates)
     if exercise:
         return exercise
     
     # 3. Fallback ultime: n'importe quel exercice du chapitre
-    if chapter_id:
-        chapter_filter = {"chapter_id": chapter_id}
-        results = collection.get(
-            where=chapter_filter,
-            include=["metadatas", "documents"]
-        )
-        exercise = filter_and_pick(results)
-        if exercise:
-            return exercise
-    
-    # 4. Dernier recours: n'importe quel exercice
     results = collection.get(include=["metadatas", "documents"])
-    return filter_and_pick(results)
+    candidates = filter_by_chapter(results)
+    return pick_random(candidates)
 
 
 def search_exercises_by_notion(notion: str, n_results: int = 5) -> list[dict]:
