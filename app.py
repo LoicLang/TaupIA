@@ -45,268 +45,211 @@ from components.rag_debug import render_rag_debug_panel
 st.markdown("""
 <style>
     /* =================================================================
-       KHÔLLEUR AI - STYLES CSS v2.0
-       Palette: Bleu académique (#2C3E87) + Orange chaleureux (#FF6B35)
+       KHÔLLEUR AI - ENGINEERING PRECISION v3.0
+       Inspired by SpaceX / Tesla UI
        ================================================================= */
-    
-    /* Variables CSS */
+
     :root {
-        --color-primary: #2C3E87;
-        --color-accent: #FF6B35;
-        --color-success: #2E7D32;
-        --color-warning: #F57C00;
-        --color-error: #c62828;
-        --color-bg-dark: #1a1a2e;
-        --color-bg-light: #f8f9fa;
-        --color-text: #1a1a1a;
-        --color-text-muted: #666;
-        --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
-        --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-        --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-        --radius-full: 9999px;
+        --color-primary: #000000;
+        --color-accent: #000000;
+        --color-bg: #FFFFFF;
+        --color-border: #BFBFBF;
+        --color-border-strong: #000000;
+        --color-text: #000000;
+        --color-text-muted: #555555;
+        --radius-refined: 2px;
+        --font-main: 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
     }
-    
-    /* Police principale */
-    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-    
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
     html, body, [class*="css"] {
-        font-family: 'Source Serif 4', Georgia, serif;
+        font-family: var(--font-main);
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        -webkit-font-smoothing: antialiased;
     }
-    
-    code, pre, .stCode {
-        font-family: 'JetBrains Mono', monospace !important;
+
+    /* Force light mode on main content */
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
     }
-    
+
+    .stMainBlockContainer, [data-testid="stVerticalBlock"] {
+        background-color: #FFFFFF !important;
+    }
+
     /* =================================================================
-       HEADER PRINCIPAL
+       GLOBAL TEXT COLOR RESET (Dark Mode Override)
+       ================================================================= */
+    p, span, label, div, h1, h2, h3, h4, h5, h6, li, td, th {
+        color: #000000;
+    }
+
+    /* Streamlit specific text elements */
+    [data-testid="stMarkdownContainer"],
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] span,
+    [data-testid="stMarkdownContainer"] li,
+    [data-testid="stText"],
+    .stMarkdown, .stMarkdown p {
+        color: #000000 !important;
+    }
+
+    code, pre, .stCode, .step-number, .score-gauge-value {
+        font-family: var(--font-mono) !important;
+    }
+
+    /* =================================================================
+       HEADER - MINIMALIST PRECISION
        ================================================================= */
     .main-header {
-        background: linear-gradient(135deg, var(--color-primary) 0%, #1a2a5e 100%);
-        padding: 1.75rem 2rem;
-        border-radius: var(--radius-lg);
+        background: var(--color-primary);
+        padding: 1.25rem 1.5rem;
+        border-radius: 0;
         margin-bottom: 2rem;
-        border-left: 5px solid var(--color-accent);
-        box-shadow: var(--shadow-lg);
+        border-bottom: 1px solid var(--color-border-strong);
         position: relative;
-        overflow: hidden;
     }
-    
-    .main-header::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
-        border-radius: 50%;
-    }
-    
+
     .main-header h1 {
         color: #fff;
         margin: 0;
-        font-size: 2.2rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
     }
-    
+
     .main-header p {
-        color: rgba(255,255,255,0.8);
-        margin: 0.5rem 0 0 0;
-        font-size: 1rem;
-        font-family: 'Inter', sans-serif;
+        color: #AAAAAA !important;
+        margin: 0.25rem 0 0 0;
+        font-size: 0.7rem;
+        font-family: var(--font-mono);
+        text-transform: uppercase;
     }
-    
+
     /* =================================================================
-       PROGRESS BAR (Setup → Question → Exercice → Résultats)
+       PROGRESS BAR - INSTRUMENT SCALE
        ================================================================= */
     .progress-container {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 0;
-        margin: 1.5rem 0 2rem 0;
-        padding: 1rem;
-        background: white;
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .progress-step {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-        font-weight: 500;
-        font-family: 'Inter', sans-serif;
-        color: var(--color-text-muted);
-        transition: all 0.3s ease;
-    }
-    
-    .progress-step .step-number {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
-        font-weight: 600;
-        background: #e0e0e0;
-        color: #999;
-        transition: all 0.3s ease;
-    }
-    
-    .progress-step.active .step-number {
-        background: var(--color-primary);
-        color: white;
-        box-shadow: 0 0 0 4px rgba(44, 62, 135, 0.2);
-    }
-    
-    .progress-step.completed .step-number {
-        background: var(--color-success);
-        color: white;
-    }
-    
-    .progress-step.active {
-        color: var(--color-primary);
-        font-weight: 600;
-    }
-    
-    .progress-step.completed {
-        color: var(--color-success);
-    }
-    
-    .progress-connector {
-        width: 40px;
-        height: 3px;
-        background: #e0e0e0;
-        border-radius: 2px;
-        transition: background 0.3s ease;
-    }
-    
-    .progress-connector.completed {
-        background: var(--color-success);
-    }
-    
-    /* =================================================================
-       CARDS DE CONTENU
-       ================================================================= */
-    .question-card, .styled-card {
-        background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        border-radius: var(--radius-md);
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-left: 5px solid var(--color-primary);
-        box-shadow: var(--shadow-sm);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        color: var(--color-text) !important;
-    }
-    
-    /* Ciblage du conteneur Streamlit via le marker (Question) */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) {
-        background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        border-radius: var(--radius-md);
-        border-left: 5px solid var(--color-primary) !important;
-        box-shadow: var(--shadow-sm);
-        color: var(--color-text) !important;
+        justify-content: space-between;
+        margin: 1.5rem 0;
+        padding: 0.75rem 0;
+        background: transparent;
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
     }
 
-    /* Ciblage du conteneur Streamlit via le marker (Exercice) */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) {
-        background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
-        border-radius: var(--radius-md);
-        border-left: 5px solid var(--color-accent) !important;
-        box-shadow: var(--shadow-sm);
-        color: var(--color-text) !important;
+    .progress-step {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #555555 !important;
+        letter-spacing: 0.05em;
+    }
+
+    .progress-step span {
+        color: #555555 !important;
+    }
+
+    .progress-step .step-number {
+        font-size: 0.65rem;
+        color: #555555 !important;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+    }
+
+    .progress-step.active .step-number {
+        color: #000000 !important;
+        border-bottom-color: #000000;
+    }
+
+    .progress-step.active span {
+        color: #000000 !important;
+    }
+
+    .progress-step.completed .step-number {
+        color: #000000 !important;
+        border-bottom-color: #DDD;
+    }
+
+    .progress-step.completed span {
+        color: #000000 !important;
+    }
+
+    .progress-connector {
+        flex-grow: 1;
+        height: 1px;
+        background: var(--color-border);
+        margin: 0 1rem;
+    }
+
+    /* =================================================================
+       CARDS - TECHNICAL PANELS
+       ================================================================= */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker),
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker),
+    .question-card, .exercise-card, .feedback-card {
+        background: transparent !important;
+        border-radius: var(--radius-refined) !important;
+        border: 1px solid var(--color-border) !important;
+        box-shadow: none !important;
+        padding: 1.25rem !important;
+        margin: 1rem 0 !important;
+        transition: border-color 0.2s ease;
+    }
+
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker):hover,
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker):hover {
+        border-color: var(--color-border-strong) !important;
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"] p,
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) [data-testid="stMarkdownContainer"] p {
         color: var(--color-text) !important;
-        font-size: 1.25rem;
-        line-height: 1.6;
-        font-weight: 500;
+        font-size: 0.95rem !important;
+        line-height: 1.5;
+        font-weight: 400;
     }
-    
-    .question-card:hover, div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker):hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .exercise-card {
-        background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
-        border-radius: var(--radius-md);
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-left: 5px solid var(--color-accent);
-        box-shadow: var(--shadow-sm);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        color: var(--color-text);
-    }
-    
-    .exercise-card:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .feedback-card {
-        background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%);
-        border-radius: var(--radius-md);
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-left: 5px solid var(--color-success);
-        box-shadow: var(--shadow-sm);
-        color: var(--color-text);
-    }
-    
-    .feedback-card.warning {
-        background: linear-gradient(135deg, #fff3e0 0%, #fff 100%);
-        border-left-color: var(--color-warning);
-        color: var(--color-text);
-    }
-    
+
     /* =================================================================
-       MESSAGES CHAT (Kholleur & Étudiant)
+       MESSAGES - CLEAN LOGS
        ================================================================= */
     .kholleur-msg {
-        background: linear-gradient(135deg, var(--color-primary) 0%, #1a2a5e 100%);
-        color: white;
-        padding: 1.25rem 1.5rem;
-        border-radius: 16px 16px 16px 4px;
-        margin: 0.75rem 0;
-        max-width: 85%;
-        box-shadow: var(--shadow-md);
-        position: relative;
-    }
-    
-    .kholleur-msg::before {
-        content: '📐';
-        position: absolute;
-        left: -35px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-    }
-    
-    .student-msg {
-        background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+        background: #F5F5F5;
         color: var(--color-text);
-        padding: 1.25rem 1.5rem;
-        border-radius: 16px 16px 4px 16px;
+        padding: 1rem;
+        border-radius: var(--radius-refined);
+        border-left: 3px solid var(--color-primary);
         margin: 0.75rem 0;
-        margin-left: auto;
-        max-width: 85%;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(44, 62, 135, 0.1);
+        max-width: 90%;
+        font-size: 0.85rem;
     }
-    
+
+    .kholleur-msg::before { display: none; }
+
+    .student-msg {
+        background: transparent;
+        color: var(--color-text);
+        padding: 1rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-refined);
+        margin: 0.75rem 0 0.75rem auto;
+        max-width: 90%;
+        font-size: 0.85rem;
+    }
+
     /* =================================================================
-       SCORE GAUGE CIRCULAIRE
+       GAUGE - ANALYTICAL READOUT
        ================================================================= */
     .score-gauge-container {
         display: flex;
@@ -314,276 +257,460 @@ st.markdown("""
         align-items: center;
         gap: 0.5rem;
     }
-    
+
     .score-gauge-circle {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
+        border: 1px solid var(--color-border);
         border-radius: 50%;
-        background: conic-gradient(
-            var(--gauge-color, var(--color-primary)) calc(var(--score, 0) * 3.6deg),
-            #e0e0e0 0deg
-        );
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        animation: gaugeAnimation 1s ease-out forwards;
+        background: transparent;
     }
-    
-    .score-gauge-circle::before {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        background: white;
-        border-radius: 50%;
-    }
-    
+
+    .score-gauge-circle::before { display: none; }
+
     .score-gauge-value {
-        position: relative;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--gauge-color, var(--color-primary));
-        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--color-primary);
     }
-    
+
     .score-gauge-label {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
         color: var(--color-text-muted);
-        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
-    
-    @keyframes gaugeAnimation {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-    }
-    
-    /* =================================================================
-       SCORE BADGE INLINE
-       ================================================================= */
+
     .score-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.35rem 0.85rem;
-        border-radius: var(--radius-full);
-        font-weight: 600;
-        font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border: 1px solid var(--color-border-strong);
+        border-radius: var(--radius-refined);
+        text-transform: uppercase;
     }
-    
-    .score-high { 
-        background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%); 
-        color: var(--color-success); 
-    }
-    .score-medium { 
-        background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%); 
-        color: var(--color-warning); 
-    }
-    .score-low { 
-        background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%); 
-        color: var(--color-error); 
-    }
-    
+
+    .score-high { background: #000; color: #FFF; }
+    .score-medium { background: #555; color: #FFF; }
+    .score-low { background: #CCC; color: #000; }
+
     /* =================================================================
-       PHASE INDICATOR (legacy, gardé pour compatibilité)
+       CONTROLS - PRECISION INPUTS
+       ================================================================= */
+    .stButton > button,
+    .stButton > button[kind="primary"],
+    .stButton > button[kind="secondary"],
+    [data-testid="stBaseButton-primary"],
+    [data-testid="stBaseButton-secondary"],
+    [data-testid="baseButton-primary"],
+    [data-testid="baseButton-secondary"] {
+        border-radius: 2px !important;
+        border: 1px solid #000000 !important;
+        background-color: #000000 !important;
+        color: #FFFFFF !important;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
+        padding: 0.5rem 1rem !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .stButton > button:hover,
+    [data-testid="stBaseButton-primary"]:hover,
+    [data-testid="stBaseButton-secondary"]:hover,
+    [data-testid="baseButton-primary"]:hover,
+    [data-testid="baseButton-secondary"]:hover {
+        background-color: #333333 !important;
+        border-color: #333333 !important;
+        color: #FFFFFF !important;
+    }
+
+    .stButton > button p,
+    [data-testid="stBaseButton-primary"] p,
+    [data-testid="baseButton-primary"] p {
+        color: #FFFFFF !important;
+    }
+
+    /* Selectbox - Complete styling */
+    .stSelectbox label,
+    .stSelectbox [data-baseweb="select"] span,
+    .stSelectbox [data-baseweb="select"] div {
+        color: #000000 !important;
+    }
+
+    .stSelectbox > div > div {
+        border: 1px solid #BFBFBF !important;
+        border-radius: 2px !important;
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        font-size: 0.8rem !important;
+    }
+
+    .stSelectbox [data-baseweb="select"] {
+        background-color: #FFFFFF !important;
+    }
+
+    .stSelectbox [data-baseweb="popover"],
+    .stSelectbox [data-baseweb="menu"],
+    [data-baseweb="popover"],
+    [data-baseweb="menu"],
+    [data-baseweb="list"],
+    [data-baseweb="listbox"] {
+        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
+    }
+
+    /* Dropdown list items */
+    .stSelectbox [data-baseweb="menu"] li,
+    [data-baseweb="menu"] li,
+    [data-baseweb="menu"] [role="option"],
+    [data-baseweb="list"] li,
+    [data-baseweb="listbox"] li,
+    [role="listbox"] [role="option"],
+    [data-baseweb="select"] [role="option"],
+    ul[role="listbox"] li {
+        color: #000000 !important;
+        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
+    }
+
+    /* Dropdown list item text */
+    [data-baseweb="menu"] li *,
+    [data-baseweb="list"] li *,
+    [data-baseweb="listbox"] li *,
+    [role="listbox"] [role="option"] *,
+    ul[role="listbox"] li * {
+        color: #000000 !important;
+    }
+
+    [data-baseweb="menu"] li:hover,
+    [data-baseweb="menu"] [role="option"]:hover,
+    [data-baseweb="list"] li:hover,
+    [role="listbox"] [role="option"]:hover,
+    [role="option"][aria-selected="true"] {
+        background-color: #F0F0F0 !important;
+        background: #F0F0F0 !important;
+    }
+
+    /* Popover container */
+    [data-baseweb="popover"] > div,
+    [data-baseweb="popover"] [data-baseweb="menu"],
+    div[data-baseweb="popover"] {
+        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
+        border: 1px solid #BFBFBF !important;
+    }
+
+    /* Radio buttons */
+    .stRadio label,
+    .stRadio [data-baseweb="radio"] label,
+    .stRadio span,
+    .stRadio p {
+        color: #000000 !important;
+    }
+
+    .stRadio > div {
+        background-color: transparent !important;
+    }
+
+    .stRadio [data-baseweb="radio"] {
+        background-color: #FFFFFF !important;
+    }
+
+    /* Textarea - Complete styling */
+    .stTextArea label {
+        color: #000000 !important;
+    }
+
+    .stTextArea textarea {
+        border: 1px solid #BFBFBF !important;
+        border-radius: 2px !important;
+        font-size: 0.85rem !important;
+        color: #000000 !important;
+        background-color: #FFFFFF !important;
+    }
+
+    .stTextArea textarea::placeholder {
+        color: #888888 !important;
+    }
+
+    .difficulty {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: var(--color-primary);
+    }
+
+    /* =================================================================
+       ADDITIONAL COMPONENTS - DARK MODE OVERRIDE
+       ================================================================= */
+
+    /* Slider */
+    .stSlider label,
+    .stSlider [data-baseweb="slider"] div,
+    .stSlider span {
+        color: #000000 !important;
+    }
+
+    .stSlider [data-testid="stTickBarMin"],
+    .stSlider [data-testid="stTickBarMax"] {
+        color: #555555 !important;
+    }
+
+    /* Metrics */
+    [data-testid="stMetric"],
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricDelta"] {
+        color: #000000 !important;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #000000 !important;
+        font-weight: 600;
+    }
+
+    /* Chat messages */
+    [data-testid="stChatMessage"],
+    [data-testid="stChatMessageContent"],
+    .stChatMessage {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    [data-testid="stChatMessage"] p,
+    [data-testid="stChatMessage"] span,
+    [data-testid="stChatMessage"] div {
+        color: #000000 !important;
+    }
+
+    /* User message styling */
+    [data-testid="stChatMessage"][data-testid*="user"] {
+        background-color: #F5F5F5 !important;
+    }
+
+    /* Expander */
+    .streamlit-expanderHeader,
+    [data-testid="stExpander"] summary,
+    [data-testid="stExpander"] summary span {
+        color: #000000 !important;
+        background-color: #FFFFFF !important;
+    }
+
+    [data-testid="stExpander"] [data-testid="stMarkdownContainer"] {
+        color: #000000 !important;
+    }
+
+    /* File uploader */
+    .stFileUploader,
+    .stFileUploader label,
+    .stFileUploader span,
+    .stFileUploader p,
+    .stFileUploader [data-testid="stFileUploaderDropzone"] {
+        color: #000000 !important;
+    }
+
+    .stFileUploader [data-testid="stFileUploaderDropzone"] {
+        background-color: #FFFFFF !important;
+        border: 1px dashed #BFBFBF !important;
+    }
+
+    .stFileUploader small {
+        color: #555555 !important;
+    }
+
+    /* Captions and small text */
+    .stCaption, small, .stCaption p {
+        color: #555555 !important;
+    }
+
+    /* Alert boxes */
+    .stSuccess, .stWarning, .stError, .stInfo,
+    [data-testid="stAlert"] {
+        color: #000000 !important;
+    }
+
+    [data-testid="stAlert"] p {
+        color: #000000 !important;
+    }
+
+    /* Divider */
+    .stDivider, hr {
+        border-color: #BFBFBF !important;
+        background-color: #BFBFBF !important;
+    }
+
+    /* Toggle */
+    .stToggle label,
+    .stToggle span {
+        color: #000000 !important;
+    }
+
+    /* =================================================================
+       PHASE INDICATOR - LEGACY
        ================================================================= */
     .phase-indicator {
         display: flex;
         gap: 1rem;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
-    
+
     .phase {
-        padding: 0.5rem 1rem;
-        border-radius: var(--radius-full);
-        font-size: 0.85rem;
-        font-weight: 500;
-        font-family: 'Inter', sans-serif;
-        transition: all 0.3s ease;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--color-border);
     }
-    
+
     .phase.active {
         background: var(--color-primary);
         color: white;
-        box-shadow: 0 2px 8px rgba(44, 62, 135, 0.3);
+        border-color: var(--color-primary);
     }
-    
+
     .phase.completed {
-        background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
-        color: var(--color-success);
+        background: #F5F5F5;
+        color: var(--color-text);
     }
-    
+
     .phase.pending {
-        background: #e0e0e0;
-        color: #757575;
+        background: transparent;
+        color: var(--color-text-muted);
     }
-    
+
     /* =================================================================
-       SIDEBAR
+       SIDEBAR - CLEAN PANEL
        ================================================================= */
-    .difficulty {
-        color: var(--color-accent);
-        font-size: 1.3rem;
-        letter-spacing: 2px;
+    [data-testid="stSidebar"],
+    [data-testid="stSidebar"] > div,
+    [data-testid="stSidebarContent"] {
+        border-right: 1px solid #BFBFBF;
+        background: #FFFFFF !important;
+        background-color: #FFFFFF !important;
     }
-    
+
+    [data-testid="stSidebar"] * {
+        color: #000000 !important;
+    }
+
+    [data-testid="stSidebar"] .stButton > button {
+        background-color: #000000 !important;
+        color: #FFFFFF !important;
+    }
+
+    [data-testid="stSidebar"] .stButton > button p {
+        color: #FFFFFF !important;
+    }
+
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] .stMarkdown h1,
+    [data-testid="stSidebar"] .stMarkdown h2,
+    [data-testid="stSidebar"] .stMarkdown h3,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .stSelectbox label,
+    [data-testid="stSidebar"] .stSlider label {
+        color: var(--color-text) !important;
+    }
+
+    [data-testid="stSidebar"] .stCaption {
+        color: var(--color-text-muted) !important;
+    }
+
+    hr {
+        border-color: var(--color-border) !important;
+    }
+
     /* =================================================================
-       ANIMATIONS
+       ANIMATIONS - SUBTLE
        ================================================================= */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(15px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-    
+
     .question-card, .exercise-card, .feedback-card {
-        animation: fadeInUp 0.4s ease forwards;
+        animation: fadeIn 0.3s ease forwards;
     }
-    
+
     /* =================================================================
-       RESPONSIVE
+       RESPONSIVE - MOBILE PRECISION
        ================================================================= */
     @media (max-width: 768px) {
         .main-header {
             padding: 0.75rem 1rem;
             margin-bottom: 1rem;
         }
-        
+
         .main-header h1 {
-            font-size: 1.2rem;
-            margin: 0;
+            font-size: 0.9rem;
         }
-        
+
         .main-header p {
-            display: none; /* Masquer la description sur mobile pour gagner de la place */
-        }
-        
-        /* Progress bar compacte - icônes seulement */
-        .progress-container {
-            flex-wrap: nowrap;
-            gap: 0.25rem;
-            padding: 0.5rem;
-            justify-content: space-around;
-        }
-        
-        .progress-connector {
-            width: 20px;
-        }
-        
-        .progress-step {
-            padding: 0.4rem 0.6rem;
-            font-size: 0.75rem;
-        }
-        
-        .progress-step span:last-child {
-            display: none; /* Masque le texte, garde le numéro */
-        }
-        
-        .kholleur-msg, .student-msg {
-            max-width: 95%;
-            padding: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .kholleur-msg::before {
             display: none;
         }
-        
-        /* Touch targets améliorés */
+
+        .progress-container {
+            padding: 0.5rem 0;
+        }
+
+        .progress-step {
+            font-size: 0.6rem;
+        }
+
+        .progress-step span:last-child {
+            display: none;
+        }
+
+        .kholleur-msg, .student-msg {
+            max-width: 95%;
+            padding: 0.75rem;
+            font-size: 0.8rem;
+        }
+
         .stSelectbox > div > div {
-            min-height: 52px !important;
-            font-size: 1rem !important;
+            min-height: 48px !important;
         }
-        
+
         .stButton > button {
-            min-height: 52px !important;
-            font-size: 1.1rem !important;
-            font-weight: 600 !important;
+            min-height: 48px !important;
+            font-size: 0.7rem !important;
         }
-        
-        /* File uploader PROÉMINENT pour mobile */
+
         .stFileUploader {
-            min-height: 140px !important;
-            border: 3px dashed var(--color-primary) !important;
-            border-radius: 16px !important;
-            background: rgba(44, 62, 135, 0.05) !important;
+            border: 1px dashed var(--color-border) !important;
+            border-radius: var(--radius-refined) !important;
+            background: transparent !important;
         }
-        
-        .stFileUploader section {
-            padding: 1.5rem !important;
-            min-height: 120px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-        }
-        
-        .stFileUploader section > div {
-            font-size: 1rem !important;
-        }
-        
-        .stFileUploader small {
-            font-size: 0.9rem !important;
-        }
-        
-        /* Radio buttons de difficulté */
-        .stRadio > div {
-            flex-wrap: wrap !important;
-            gap: 0.5rem !important;
-        }
-        
-        .stRadio label {
-            padding: 0.6rem 0.8rem !important;
-            font-size: 0.85rem !important;
-        }
-        
-        /* Textarea adapté mobile */
+
         .stTextArea textarea {
-            font-size: 16px !important; /* Empêche le zoom iOS */
-            min-height: 80px !important;
+            font-size: 16px !important;
         }
-        
-        /* Cards plus compactes */
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker),
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) {
-            padding: 1rem !important;
-        }
-        
-        /* Form submit button full width et proéminent */
+
         .stForm [data-testid="baseButton-primary"] {
             width: 100% !important;
-            min-height: 52px !important;
-            font-size: 1.1rem !important;
-        }
-        
-        /* Réduire l'espace des diviseurs */
-        hr {
-            margin: 1rem 0 !important;
+            min-height: 48px !important;
         }
     }
-    
-    /* Améliorer le dropdown pour éviter les bugs de clic */
+
     .stSelectbox {
         z-index: 100;
     }
-    
+
     .stSelectbox > div > div {
         cursor: pointer;
     }
-    
-    /* Assurer que le formulaire est bien visible */
+
     .stForm {
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 12px;
+        background: transparent;
+        border-radius: var(--radius-refined);
         padding: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -629,12 +756,12 @@ init_session_state()
 def render_sidebar():
     """Affiche la sidebar avec les options."""
     with st.sidebar:
-        st.markdown("## ⚙️ Configuration")
+        st.markdown("## Configuration")
         
         # Stats
         try:
             stats = get_collection_stats()
-            st.caption(f"📚 {stats['questions_cours']['count']} questions · {stats['exercices']['count']} exercices")
+            st.caption(f"{stats['questions_cours']['count']} questions · {stats['exercices']['count']} exercices")
         except:
             pass
         
@@ -645,10 +772,10 @@ def render_sidebar():
         chapter_options = {f"{ch['title']} ({ch['question_count']}q)": ch['id'] for ch in chapters}
         
         selected_chapter = st.selectbox(
-            "📖 Chapitre",
+            "Chapitre",
             options=list(chapter_options.keys()),
             index=0 if chapter_options else None,
-            help="Choisis le chapitre sur lequel tu veux être interrogé"
+            help="Sélectionner le chapitre"
         )
         
         if selected_chapter:
@@ -658,11 +785,11 @@ def render_sidebar():
         
         # Difficulté
         st.session_state.difficulty = st.slider(
-            "📊 Difficulté",
+            "Niveau",
             min_value=1,
             max_value=5,
             value=st.session_state.difficulty,
-            help="1 = Facile, 5 = Très difficile"
+            help="1 = Facile, 5 = Expert"
         )
         
         # Afficher les étoiles
@@ -672,27 +799,27 @@ def render_sidebar():
         st.divider()
         
         # Actions
-        if st.button("🎯 Nouvelle khôlle", use_container_width=True, type="primary"):
+        if st.button("Nouvelle session", use_container_width=True, type="primary"):
             start_new_kholle()
-        
+
         if st.session_state.phase != PHASE_SETUP:
-            if st.button("🔄 Recommencer", use_container_width=True):
+            if st.button("Reset", use_container_width=True):
                 reset_kholle()
         
         # Scores
         if st.session_state.scores:
             st.divider()
-            st.markdown("### 📈 Tes scores")
+            st.markdown("### Statistiques")
             avg_score = sum(st.session_state.scores) / len(st.session_state.scores)
-            st.metric("Moyenne", f"{avg_score:.0f}/100")
+            st.metric("Score moyen", f"{avg_score:.0f}/100")
         
         # RAG Debug Mode
         st.divider()
-        st.markdown("### 🔧 Options avancées")
+        st.markdown("### Avancé")
         st.session_state.rag_debug_mode = st.toggle(
-            "🔍 Mode Debug RAG",
+            "Mode Debug RAG",
             value=st.session_state.rag_debug_mode,
-            help="Affiche les chunks de contexte utilisés pour générer les réponses"
+            help="Affiche les chunks de contexte utilisés"
         )
 
 
@@ -738,9 +865,9 @@ def render_setup_mobile():
     
     # Message d'accueil compact
     st.markdown("""
-    <div style="text-align: center; padding: 1rem 0;">
-        <p style="font-size: 1.1rem; color: var(--color-text-muted); margin: 0;">
-            Prêt pour ta khôlle ? 🎯
+    <div style="text-align: center; padding: 1.5rem 0;">
+        <p style="font-size: 0.8rem; color: #888; margin: 0; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif;">
+            Initialiser une session
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -750,7 +877,7 @@ def render_setup_mobile():
     chapter_options = {f"{ch['title']} ({ch['question_count']}q)": ch['id'] for ch in chapters}
     
     selected_chapter = st.selectbox(
-        "📖 Choisis ton chapitre",
+        "Chapitre",
         options=list(chapter_options.keys()),
         index=0 if chapter_options else None,
         key="mobile_chapter_select"
@@ -760,14 +887,14 @@ def render_setup_mobile():
         st.session_state.chapter_id = chapter_options[selected_chapter]
     
     # Sélection de la difficulté avec boutons radio visuels
-    st.markdown("##### 📊 Difficulté")
+    st.markdown("##### Niveau")
     
     difficulty_labels = {
-        1: "⭐ Facile",
-        2: "⭐⭐ Accessible", 
-        3: "⭐⭐⭐ Standard",
-        4: "⭐⭐⭐⭐ Difficile",
-        5: "⭐⭐⭐⭐⭐ Expert"
+        1: "01 · Facile",
+        2: "02 · Accessible",
+        3: "03 · Standard",
+        4: "04 · Difficile",
+        5: "05 · Expert"
     }
     
     selected_difficulty = st.radio(
@@ -785,7 +912,7 @@ def render_setup_mobile():
     
     # Grand bouton de lancement
     if st.button(
-        "🚀 Lancer la khôlle",
+        "Démarrer",
         type="primary",
         use_container_width=True,
         key="mobile_start_btn"
@@ -795,8 +922,10 @@ def render_setup_mobile():
     
     # Info discrète
     st.markdown("""
-    <div style="text-align: center; padding: 1.5rem 0 0 0; opacity: 0.6;">
-        <small>📝 Question de cours → 📐 Exercice → 🎉 Résultats</small>
+    <div style="text-align: center; padding: 2rem 0 0 0;">
+        <small style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;">
+            Question → Exercice → Résultats
+        </small>
     </div>
     """, unsafe_allow_html=True)
 
@@ -808,10 +937,10 @@ def render_setup_mobile():
 def render_progress_bar(current_phase: str):
     """Affiche la progress bar visuelle selon la phase actuelle."""
     phases = [
-        ("setup", "Configuration", "⚙️"),
-        ("question_cours", "Question", "📝"),
-        ("exercice", "Exercice", "📐"),
-        ("finished", "Résultats", "🎉")
+        ("setup", "Configuration", "01"),
+        ("question_cours", "Question", "02"),
+        ("exercice", "Exercice", "03"),
+        ("finished", "Résultats", "04")
     ]
     
     phase_order = [p[0] for p in phases]
@@ -858,10 +987,10 @@ def render_question_cours():
     with st.container(border=True):
         st.markdown('<div class="card-marker"></div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <p style="color: #666; margin-bottom: 0.5rem; font-size: 0.85rem; font-family: 'Inter', sans-serif;">
-            {q['chapter_title']} · Difficulté {q['difficulty']}/5 · ~{q['temps_estime_min']} min
+        <p style="color: #888; margin-bottom: 0.5rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
+            {q['chapter_title']} · Niveau {q['difficulty']}/5 · {q['temps_estime_min']} min
         </p>
-        <h3 style="margin: 0 0 1rem 0; color: var(--color-primary); font-family: 'Source Serif 4', serif;">📝 Question de cours</h3>
+        <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Question de cours</h3>
         """, unsafe_allow_html=True)
         
         # Le texte de la question est rendu par st.markdown pour supporter LaTeX
@@ -880,13 +1009,13 @@ def render_question_cours():
     
     # Panneau RAG Debug (si activé et chunks disponibles)
     if st.session_state.rag_debug_mode and st.session_state.rag_chunks:
-        with st.expander("🔍 Contexte RAG utilisé", expanded=False):
+        with st.expander("Contexte RAG", expanded=False):
             render_rag_debug_panel(st.session_state.rag_chunks)
     
     # Bouton pour passer à l'exercice (affiché en premier si validé)
     if st.session_state.question_validated:
-        st.success("🎉 Question validée ! Tu peux passer à l'exercice.")
-        if st.button("➡️ Passer à l'exercice", type="primary", key="btn_pass_exercise"):
+        st.success("Question validée. Passage à l'exercice disponible.")
+        if st.button("Continuer", type="primary", key="btn_pass_exercise"):
             start_exercise()
             st.rerun()
         st.divider()
@@ -900,7 +1029,7 @@ def render_question_cours():
             # 1. Zone photo proéminente
             st.markdown("""
             <div style="text-align: center; padding: 0.5rem 0;">
-                <span style="font-size: 1.2rem;">📷 Photo de ton brouillon</span>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload brouillon</span>
             </div>
             """, unsafe_allow_html=True)
             
@@ -914,14 +1043,14 @@ def render_question_cours():
             
             if uploaded_file:
                 st.image(uploaded_file, use_container_width=True)
-                st.success("📸 Photo prête !")
+                st.success("Image chargée")
             
             # 2. Séparateur visuel
             st.markdown("""
-            <div style="display: flex; align-items: center; margin: 1rem 0; opacity: 0.5;">
-                <div style="flex: 1; height: 1px; background: currentColor;"></div>
-                <span style="padding: 0 1rem; font-size: 0.85rem;">ou écris ta réponse</span>
-                <div style="flex: 1; height: 1px; background: currentColor;"></div>
+            <div style="display: flex; align-items: center; margin: 1.5rem 0;">
+                <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
+                <span style="padding: 0 1rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa;">ou</span>
+                <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
             </div>
             """, unsafe_allow_html=True)
             
@@ -936,7 +1065,7 @@ def render_question_cours():
             
             # 4. Bouton de validation
             submitted = st.form_submit_button(
-                "✅ Valider",
+                "Valider",
                 type="primary",
                 use_container_width=True
             )
@@ -946,13 +1075,13 @@ def render_question_cours():
             
             # Transcrire l'image si présente et pas de texte
             if uploaded_file and not final_answer:
-                with st.spinner("🔍 Transcription de l'image en cours..."):
+                with st.spinner("Transcription en cours..."):
                     try:
                         image_bytes = uploaded_file.getvalue()
                         transcription = transcribe_image(image_bytes, uploaded_file.type)
                         final_answer = transcription
-                        st.success("✅ Transcription réussie !")
-                        with st.expander("📝 Voir la transcription", expanded=True):
+                        st.success("Transcription terminée")
+                        with st.expander("Voir la transcription", expanded=True):
                             st.markdown(transcription)
                     except Exception as e:
                         st.error(f"Erreur de transcription : {e}")
@@ -969,7 +1098,7 @@ def render_question_cours():
             })
             
             # Évaluer
-            with st.spinner("🤔 Le khôlleur réfléchit..."):
+            with st.spinner("Analyse en cours..."):
                 try:
                     attendus = json.loads(q.get("attendus_json", "[]"))
                     erreurs = json.loads(q.get("erreurs_frequentes_json", "[]"))
@@ -995,7 +1124,7 @@ def render_question_cours():
                     # Vérifier que le feedback n'est pas vide
                     feedback = result.get("feedback", "")
                     if not feedback or not feedback.strip():
-                        st.error("❌ Le khôlleur n'a pas pu répondre. Réessaie.")
+                        st.error("Erreur: aucune réponse générée. Réessayer.")
                         if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
                             st.session_state.conversation_history.pop()
                         st.stop()
@@ -1014,7 +1143,7 @@ def render_question_cours():
                         st.session_state.question_validated = True
                     
                 except Exception as e:
-                    st.error(f"❌ Erreur lors de l'évaluation : {e}")
+                    st.error(f"Erreur: {e}")
                     if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
                         st.session_state.conversation_history.pop()
                     st.stop()
@@ -1055,10 +1184,10 @@ def render_exercice():
     with st.container(border=True):
         st.markdown('<div class="exercise-marker"></div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <p style="color: #666; margin-bottom: 0.5rem; font-size: 0.85rem; font-family: 'Inter', sans-serif;">
-            {ex['chapter']} · Difficulté {ex['difficulty']}/5
+        <p style="color: #888; margin-bottom: 0.5rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
+            {ex['chapter']} · Niveau {ex['difficulty']}/5
         </p>
-        <h3 style="margin: 0 0 1rem 0; color: var(--color-accent); font-family: 'Source Serif 4', serif;">📐 Exercice</h3>
+        <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Exercice</h3>
         """, unsafe_allow_html=True)
         
         # Enoncé rendu par st.markdown pour supporter LaTeX
@@ -1082,7 +1211,7 @@ def render_exercice():
         # 1. Zone photo proéminente
         st.markdown("""
         <div style="text-align: center; padding: 0.5rem 0;">
-            <span style="font-size: 1.2rem;">📷 Photo de ton travail</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload travail</span>
         </div>
         """, unsafe_allow_html=True)
         
@@ -1096,14 +1225,14 @@ def render_exercice():
         
         if uploaded_file:
             st.image(uploaded_file, use_container_width=True)
-            st.success("� Photo prête !")
+            st.success("Image chargée")
         
         # 2. Séparateur visuel
         st.markdown("""
-        <div style="display: flex; align-items: center; margin: 1rem 0; opacity: 0.5;">
-            <div style="flex: 1; height: 1px; background: currentColor;"></div>
-            <span style="padding: 0 1rem; font-size: 0.85rem;">ou écris un message</span>
-            <div style="flex: 1; height: 1px; background: currentColor;"></div>
+        <div style="display: flex; align-items: center; margin: 1.5rem 0;">
+            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
+            <span style="padding: 0 1rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa;">ou</span>
+            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -1120,13 +1249,13 @@ def render_exercice():
         col_send, col_end = st.columns([3, 1])
         with col_send:
             submitted = st.form_submit_button(
-                "💬 Envoyer",
+                "Envoyer",
                 type="primary",
                 use_container_width=True
             )
         with col_end:
             end_clicked = st.form_submit_button(
-                "🏁 Fin",
+                "Fin",
                 use_container_width=True
             )
     
@@ -1139,7 +1268,7 @@ def render_exercice():
         
         # Transcrire l'image si présente et pas de texte
         if uploaded_file and not final_message:
-            with st.spinner("🔍 Transcription de l'image..."):
+            with st.spinner("Transcription en cours..."):
                 try:
                     image_bytes = uploaded_file.getvalue()
                     transcription = transcribe_image(image_bytes, uploaded_file.type)
@@ -1159,7 +1288,7 @@ def render_exercice():
             "content": final_message
         })
         
-        with st.spinner("🤔 Le khôlleur réfléchit..."):
+        with st.spinner("Analyse en cours..."):
             try:
                 response = guide_exercise(
                     exercise_statement=ex.get("enonce", ""),
@@ -1168,10 +1297,10 @@ def render_exercice():
                     solution=ex.get("correction", ""),
                     conversation_history=st.session_state.conversation_history[:-1]
                 )
-                
+
                 # Vérifier que la réponse n'est pas vide
                 if not response or not response.strip():
-                    st.error("❌ Le khôlleur n'a pas pu répondre. Réessaie.")
+                    st.error("Erreur: aucune réponse générée. Réessayer.")
                     # Retirer le message utilisateur qui n'a pas eu de réponse
                     if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
                         st.session_state.conversation_history.pop()
@@ -1182,7 +1311,7 @@ def render_exercice():
                     "content": response
                 })
             except Exception as e:
-                st.error(f"❌ Erreur : {e}")
+                st.error(f"Erreur: {e}")
                 # Retirer le message utilisateur qui n'a pas eu de réponse
                 if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
                     st.session_state.conversation_history.pop()
@@ -1199,8 +1328,8 @@ def render_finished():
     """Affiche l'écran de fin."""
     # Progress bar
     render_progress_bar(PHASE_FINISHED)
-    
-    st.markdown("## 🎉 Khôlle terminée !")
+
+    st.markdown("## Session terminée")
     
     if st.session_state.scores:
         avg = sum(st.session_state.scores) / len(st.session_state.scores)
@@ -1215,13 +1344,13 @@ def render_finished():
         
         # Feedback global
         if avg >= 80:
-            st.success("Excellent travail ! Tu maîtrises bien ce chapitre. 🌟")
+            st.success("Performance excellente. Maîtrise confirmée.")
         elif avg >= 60:
-            st.info("Bon travail ! Quelques points à revoir mais tu es sur la bonne voie. 📚")
+            st.info("Performance correcte. Points d'amélioration identifiés.")
         else:
-            st.warning("Il y a encore du travail, mais c'est en forgeant qu'on devient forgeron ! 💪")
-    
-    if st.button("🔄 Nouvelle khôlle", type="primary"):
+            st.warning("Performance insuffisante. Révision recommandée.")
+
+    if st.button("Nouvelle session", type="primary"):
         reset_kholle()
         st.rerun()
 
@@ -1236,8 +1365,8 @@ def main():
     # Header
     st.markdown("""
     <div class="main-header">
-        <h1>📐 Khôlleur AI</h1>
-        <p>Ton sparring partner pour les khôlles de maths MPSI</p>
+        <h1>Khôlleur AI</h1>
+        <p>MPSI · Oral Mathematics Training System</p>
     </div>
     """, unsafe_allow_html=True)
     
