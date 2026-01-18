@@ -124,11 +124,19 @@ st.markdown("""
     }
 
     .main-header p {
-        color: #AAAAAA !important;
+        color: #FFFFFF !important;
         margin: 0.25rem 0 0 0;
         font-size: 0.7rem;
         font-family: var(--font-mono);
         text-transform: uppercase;
+        opacity: 0.7;
+    }
+
+    .logo-header {
+        height: 32px;
+        width: auto;
+        margin-right: 1rem;
+        filter: brightness(0) invert(1);
     }
 
     /* =================================================================
@@ -769,7 +777,7 @@ def render_sidebar():
         
         # Choix du chapitre
         chapters = get_chapters()
-        chapter_options = {f"{ch['title']} ({ch['question_count']}q)": ch['id'] for ch in chapters}
+        chapter_options = {ch['title']: ch['id'] for ch in chapters}
         
         selected_chapter = st.selectbox(
             "Chapitre",
@@ -874,7 +882,7 @@ def render_setup_mobile():
     
     # Sélection du chapitre
     chapters = get_chapters()
-    chapter_options = {f"{ch['title']} ({ch['question_count']}q)": ch['id'] for ch in chapters}
+    chapter_options = {ch['title']: ch['id'] for ch in chapters}
     
     selected_chapter = st.selectbox(
         "Chapitre",
@@ -992,9 +1000,17 @@ def render_question_cours():
         </p>
         <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Question de cours</h3>
         """, unsafe_allow_html=True)
-        
-        # Le texte de la question est rendu par st.markdown pour supporter LaTeX
-        st.markdown(q['question_raw'])
+
+        st.markdown("---")
+
+        # Le texte de la question est rendu par st.markdown pour supporter LaTeX avec plus de prominence
+        st.markdown(f"""
+        <div style="padding: 1rem 0; font-size: 1.1rem; line-height: 1.8; font-weight: 500;">
+
+{q['question_raw']}
+
+        </div>
+        """, unsafe_allow_html=True)
     
     st.divider()
     
@@ -1361,14 +1377,30 @@ def render_finished():
 
 def main():
     """Point d'entrée principal."""
-    
-    # Header
-    st.markdown("""
-    <div class="main-header">
-        <h1>Khôlleur AI</h1>
-        <p>MPSI · Oral Mathematics Training System</p>
-    </div>
-    """, unsafe_allow_html=True)
+
+    # Header avec logo
+    # Logo TauIA - pour ajouter le logo, placer le fichier dans assets/logo.png
+    import os
+    logo_path = "assets/logo.png"
+
+    if os.path.exists(logo_path):
+        col_logo, col_text = st.columns([1, 5])
+        with col_logo:
+            st.image(logo_path, width=40)
+        with col_text:
+            st.markdown("""
+            <div class="main-header" style="margin-top: -1rem;">
+                <h1>Khôlleur AI</h1>
+                <p>MPSI · Oral Mathematics Training System</p>
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div class="main-header">
+            <h1>Khôlleur AI</h1>
+            <p>MPSI · Oral Mathematics Training System</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     # Sidebar
     render_sidebar()
