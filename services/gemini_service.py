@@ -58,8 +58,30 @@ SYSTEM_PROMPT_KHOLLEUR = """Tu es un khôlleur de mathématiques en MPSI, exigea
 
 ## Exemples de MAUVAISES réponses (trop d'aide) :
 ❌ "C'est une récurrence, commence par l'initialisation"
-❌ "Tu devrais utiliser le binôme de Newton"  
+❌ "Tu devrais utiliser le binôme de Newton"
 ❌ "Pose P(n) la propriété, vérifie P(0)..."
+
+## VALIDATION RÉALISTE (COMME EN KHÔLLE RÉELLE)
+En khôlle, on ne rédige pas tout au tableau ! Tu dois marquer COMPLET: OUI si l'étudiant a :
+1. Montré qu'il COMPREND le raisonnement (même si pas tout rédigé)
+2. Donné les ÉTAPES CLÉS et la STRUCTURE de la démonstration
+3. Utilisé les BONS OUTILS mathématiques (théorèmes, définitions)
+4. Pas d'erreur conceptuelle grave
+
+IMPORTANT : Si le raisonnement est BON et que l'étudiant sait QUOI FAIRE, même sans tout rédiger → COMPLET: OUI
+
+Tu dois marquer COMPLET: NON seulement si :
+- Raisonnement faux ou incomplet
+- Confusion sur les concepts clés
+- Ne sait pas quelle méthode utiliser
+
+IMPORTANT : Si tu marques COMPLET: OUI, termine par une FÉLICITATION et dis "Tu peux passer à l'exercice." SANS poser de nouvelle question.
+
+Score :
+- 85-100 : Raisonnement solide, comprend bien → COMPLET: OUI
+- 70-84 : Raisonnement correct mais lacunes mineures → COMPLET: OUI si >75
+- 60-69 : Raisonnement incomplet ou confus → COMPLET: NON
+- <60 : Raisonnement faux ou manque de base → COMPLET: NON
 
 ## Ton style
 - Tutoiement
@@ -67,13 +89,24 @@ SYSTEM_PROMPT_KHOLLEUR = """Tu es un khôlleur de mathématiques en MPSI, exigea
 - Pose UNE question par message, pas plus
 - Pédagogique mais exigeant
 
-## FORMAT LATEX (CRITIQUE)
-- UTILISE $...$ pour TOUTES les formules mathématiques
-- JAMAIS de backticks \` pour les maths : \`x\` est INTERDIT, utilise $x$
-- Formules inline : $...$ (ex: "l'entier $n$ vérifie $n \\geq 2$")
-- Formules bloc : $$...$$ sur leur propre ligne
-- Exemples corrects : "soit $x$ un entier", "$3x \\equiv 5 \\pmod{7}$"
-- INTERDIT : \`x\`, \`n\`, \`3x = 5\` → utilise $x$, $n$, $3x = 5$"""
+## FORMAT LATEX (ABSOLUMENT CRITIQUE - AUCUNE EXCEPTION)
+RÈGLE ABSOLUE : TOUT symbole mathématique DOIT être entre $...$ ou $$...$$
+
+✅ CORRECT :
+- "soit $n$ un entier"
+- "on a $p_1 \\mid n$"
+- "l'entier $n \\geq 2$"
+- "$3x \\equiv 5 \\pmod{7}$"
+- "$$n = p_1 p_2 \\cdots p_m$$"
+
+❌ INTERDIT (tu dois TOUJOURS corriger) :
+- "soit n un entier" → FAUX, écris "soit $n$ un entier"
+- "p_1 divise n" → FAUX, écris "$p_1$ divise $n$"
+- "\mid" seul → FAUX, écris "$\\mid$"
+- Backticks \`n\` → INTERDIT, utilise $n$
+
+VÉRIFIE CHAQUE LIGNE : Si tu vois une variable ou symbole math SANS $, c'est une ERREUR.
+Relis ta réponse avant de l'envoyer et entoure TOUS les symboles de $...$"""
 
 
 SYSTEM_PROMPT_OCR = """Tu es un expert en reconnaissance de texte mathématique manuscrit.
@@ -164,7 +197,7 @@ def evaluate_answer(
 ) -> dict:
     """
     Évalue la réponse d'un étudiant à une question de cours.
-    
+
     Args:
         question: La question posée
         expected: Liste des points attendus dans la réponse
@@ -172,7 +205,7 @@ def evaluate_answer(
         common_errors: Erreurs fréquentes à surveiller
         follow_up_questions: Questions de relance possibles
         conversation_history: Historique de la conversation
-    
+
     Returns:
         dict avec:
         - feedback: Retour du khôlleur
@@ -182,7 +215,7 @@ def evaluate_answer(
     """
     # Récupérer le contexte RAG
     rag_context = get_context_for_evaluation(question, student_answer)
-    
+
     # Construire le prompt
     prompt = f"""## Question posée
 {question}
@@ -207,15 +240,17 @@ def evaluate_answer(
 - COMPLET: OUI/NON
 - MANQUE: liste des points manquants séparés par des virgules (ou "rien" si complet)"""
 
-    # Construire l'historique
+    # Construire l'historique (limité aux 20 derniers messages pour éviter la troncature)
     messages = []
     if conversation_history:
-        for msg in conversation_history:
+        # Garder seulement les 20 derniers messages (10 échanges)
+        recent_history = conversation_history[-20:] if len(conversation_history) > 20 else conversation_history
+        for msg in recent_history:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
             ))
-    
+
     messages.append(types.Content(
         role="user",
         parts=[types.Part(text=prompt)]
@@ -227,10 +262,19 @@ def evaluate_answer(
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT_KHOLLEUR,
             temperature=0.7,
-            max_output_tokens=1500,
+            max_output_tokens=3000,  # Augmenté pour éviter les réponses tronquées
         )
     )
-    
+
+    # Vérifier que la réponse n'est pas vide
+    if not response.text:
+        return {
+            "feedback": "Désolé, je n'ai pas pu générer de réponse. Peux-tu reformuler ta réponse ?",
+            "is_complete": False,
+            "missing_points": [],
+            "score": 0,
+        }
+
     text = response.text
     
     # Parser les métadonnées de la réponse
@@ -278,14 +322,14 @@ def guide_exercise(
 ) -> str:
     """
     Guide l'étudiant sur un exercice de manière socratique.
-    
+
     Args:
         exercise_statement: Énoncé de l'exercice
         student_message: Message/question de l'étudiant
         hints: Indices disponibles
         solution: Solution (pour vérification, pas à donner)
         conversation_history: Historique de la conversation
-    
+
     Returns:
         Réponse du khôlleur (guidage, pas solution)
     """
@@ -308,27 +352,33 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
 
     messages = []
     if conversation_history:
-        for msg in conversation_history:
+        # Garder seulement les 30 derniers messages (15 échanges)
+        recent_history = conversation_history[-30:] if len(conversation_history) > 30 else conversation_history
+        for msg in recent_history:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
             ))
-    
+
     messages.append(types.Content(
         role="user",
         parts=[types.Part(text=prompt)]
     ))
-    
+
     response = client.models.generate_content(
         model=GEMINI_MODEL,
         contents=messages,
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT_KHOLLEUR,
             temperature=0.8,
-            max_output_tokens=1000,
+            max_output_tokens=2500,  # Augmenté pour réponses complètes
         )
     )
-    
+
+    # Vérifier que la réponse n'est pas vide
+    if not response.text:
+        return "Désolé, je n'ai pas pu générer de réponse. Peux-tu reformuler ta question ?"
+
     return response.text
 
 
@@ -343,42 +393,48 @@ def chat(
 ) -> str:
     """
     Chat libre avec le khôlleur.
-    
+
     Args:
         user_message: Message de l'utilisateur
         context: Contexte additionnel
         conversation_history: Historique
-    
+
     Returns:
         Réponse du khôlleur
     """
     prompt = user_message
     if context:
         prompt = f"Contexte: {context}\n\n{user_message}"
-    
+
     messages = []
     if conversation_history:
-        for msg in conversation_history:
+        # Garder seulement les 30 derniers messages (15 échanges)
+        recent_history = conversation_history[-30:] if len(conversation_history) > 30 else conversation_history
+        for msg in recent_history:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
             ))
-    
+
     messages.append(types.Content(
         role="user",
         parts=[types.Part(text=prompt)]
     ))
-    
+
     response = client.models.generate_content(
         model=GEMINI_MODEL,
         contents=messages,
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT_KHOLLEUR,
             temperature=0.8,
-            max_output_tokens=1000,
+            max_output_tokens=2500,  # Augmenté pour réponses complètes
         )
     )
-    
+
+    # Vérifier que la réponse n'est pas vide
+    if not response.text:
+        return "Désolé, je n'ai pas pu générer de réponse. Peux-tu reformuler ?"
+
     return response.text
 
 

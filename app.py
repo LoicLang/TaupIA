@@ -224,9 +224,15 @@ st.markdown("""
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"] p,
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) [data-testid="stMarkdownContainer"] p {
         color: var(--color-text) !important;
-        font-size: 0.95rem !important;
-        line-height: 1.5;
-        font-weight: 400;
+        font-size: 1.1rem !important;
+        line-height: 1.75;
+        font-weight: 450;
+    }
+
+    /* Style pour le contenu LaTeX dans les questions/exercices */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"],
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) [data-testid="stMarkdownContainer"] {
+        font-size: 1.1rem !important;
     }
 
     /* =================================================================
@@ -720,6 +726,36 @@ st.markdown("""
         padding: 1rem;
         border: 1px solid var(--color-border);
     }
+
+    /* Ensure form submit buttons have proper styling */
+    .stForm button,
+    .stForm button[kind="primary"],
+    .stForm [data-testid="baseButton-primary"],
+    .stForm [data-testid="baseButton-secondary"],
+    .stForm [type="submit"] {
+        background-color: #000000 !important;
+        color: #FFFFFF !important;
+        border: 1px solid #000000 !important;
+    }
+
+    .stForm button p,
+    .stForm button span,
+    .stForm button[kind="primary"] p,
+    .stForm button[kind="primary"] span,
+    .stForm [data-testid="baseButton-primary"] p,
+    .stForm [data-testid="baseButton-primary"] span,
+    .stForm [data-testid="baseButton-secondary"] p,
+    .stForm [data-testid="baseButton-secondary"] span,
+    .stForm [type="submit"] p,
+    .stForm [type="submit"] span {
+        color: #FFFFFF !important;
+    }
+
+    /* Force white text on all form buttons */
+    .stForm button *,
+    .stForm [data-testid^="baseButton"] * {
+        color: #FFFFFF !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -995,22 +1031,14 @@ def render_question_cours():
     with st.container(border=True):
         st.markdown('<div class="card-marker"></div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <p style="color: #888; margin-bottom: 0.5rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
+        <p style="color: #888; margin-bottom: 0.75rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
             {q['chapter_title']} · Niveau {q['difficulty']}/5 · {q['temps_estime_min']} min
         </p>
-        <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Question de cours</h3>
+        <h3 style="margin: 0 0 1.5rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Question de cours</h3>
         """, unsafe_allow_html=True)
 
-        st.markdown("---")
-
-        # Le texte de la question est rendu par st.markdown pour supporter LaTeX avec plus de prominence
-        st.markdown(f"""
-        <div style="padding: 1rem 0; font-size: 1.1rem; line-height: 1.8; font-weight: 500;">
-
-{q['question_raw']}
-
-        </div>
-        """, unsafe_allow_html=True)
+        # Le texte de la question est rendu par st.markdown pour supporter LaTeX
+        st.markdown(q['question_raw'])
     
     st.divider()
     
@@ -1028,10 +1056,29 @@ def render_question_cours():
         with st.expander("Contexte RAG", expanded=False):
             render_rag_debug_panel(st.session_state.rag_chunks)
     
-    # Bouton pour passer à l'exercice (affiché en premier si validé)
+    # Affichage de la validation si question validée
     if st.session_state.question_validated:
-        st.success("Question validée. Passage à l'exercice disponible.")
-        if st.button("Continuer", type="primary", key="btn_pass_exercise"):
+        # Récapitulatif de validation
+        st.markdown("""
+        <div style="background: #F0FFF0; border: 2px solid #000; border-radius: 2px; padding: 1.5rem; margin: 1rem 0;">
+            <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">✓ Question validée</h3>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Afficher le score
+        score = st.session_state.get("validation_score", 0)
+        col_score, col_status = st.columns([1, 2])
+        with col_score:
+            st.metric("Score", f"{score}/100")
+        with col_status:
+            st.markdown(f"""
+            <p style="color: #000; font-size: 0.9rem; padding-top: 1rem;">
+                Réponse complète et rigoureuse
+            </p>
+            """, unsafe_allow_html=True)
+
+        # Bouton pour passer à l'exercice
+        if st.button("Passer à l'exercice", type="primary", use_container_width=True, key="btn_pass_exercise"):
             start_exercise()
             st.rerun()
         st.divider()
@@ -1151,12 +1198,21 @@ def render_question_cours():
                         "content": feedback
                     })
                     
-                    # Stocker le score
+                    # Stocker le score et les détails de validation
                     st.session_state.scores.append(result["score"])
-                    
-                    # Si complet, passer à l'exercice
-                    if result["is_complete"] or result["score"] >= 80:
+
+                    # Validation réaliste (comme en khôlle) :
+                    # - is_complete doit être True (l'IA a jugé que le raisonnement est compris)
+                    # - Score >= 75 (raisonnement correct, même si pas tout rédigé)
+                    # - Pas d'erreur conceptuelle grave
+                    if (result["is_complete"] and
+                        result["score"] >= 75):
                         st.session_state.question_validated = True
+                        st.session_state.validation_score = result["score"]
+                        st.session_state.validation_details = {
+                            "score": result["score"],
+                            "missing_points": result["missing_points"]
+                        }
                     
                 except Exception as e:
                     st.error(f"Erreur: {e}")
@@ -1200,12 +1256,12 @@ def render_exercice():
     with st.container(border=True):
         st.markdown('<div class="exercise-marker"></div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <p style="color: #888; margin-bottom: 0.5rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
+        <p style="color: #888; margin-bottom: 0.75rem; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">
             {ex['chapter']} · Niveau {ex['difficulty']}/5
         </p>
-        <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Exercice</h3>
+        <h3 style="margin: 0 0 1.5rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Exercice</h3>
         """, unsafe_allow_html=True)
-        
+
         # Enoncé rendu par st.markdown pour supporter LaTeX
         st.markdown(ex.get("enonce", "Énoncé non disponible"))
     
@@ -1378,29 +1434,32 @@ def render_finished():
 def main():
     """Point d'entrée principal."""
 
-    # Header avec logo
-    # Logo TauIA - pour ajouter le logo, placer le fichier dans assets/logo.png
+    # Header avec logo TaupIA
     import os
-    logo_path = "assets/logo.png"
+    logo_path = "Logo.png"
 
     if os.path.exists(logo_path):
-        col_logo, col_text = st.columns([1, 5])
+        col_logo, col_title = st.columns([1, 6], gap="medium")
+
         with col_logo:
-            st.image(logo_path, width=40)
-        with col_text:
+            st.image(logo_path, width=100)
+
+        with col_title:
             st.markdown("""
-            <div class="main-header" style="margin-top: -1rem;">
-                <h1>Khôlleur AI</h1>
-                <p>MPSI · Oral Mathematics Training System</p>
+            <div style="padding-top: 0.5rem;">
+                <h1 style="font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: 0.05em; color: #000;">TAUP<span style="font-weight: 400; color: #666;">IA</span></h1>
+                <p style="margin: 0.25rem 0 0 0; font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace;">MPSI · Oral Mathematics Training System</p>
             </div>
             """, unsafe_allow_html=True)
     else:
         st.markdown("""
-        <div class="main-header">
-            <h1>Khôlleur AI</h1>
-            <p>MPSI · Oral Mathematics Training System</p>
+        <div style="padding: 1rem 0;">
+            <h1 style="font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: 0.05em; color: #000;">TaupIA</h1>
+            <p style="margin: 0.25rem 0 0 0; font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace;">MPSI · Oral Mathematics Training System</p>
         </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("---")
     
     # Sidebar
     render_sidebar()
