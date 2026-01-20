@@ -9,10 +9,12 @@ Gère :
 """
 
 import base64
+import time
 from pathlib import Path
 from typing import Optional
 from google import genai
 from google.genai import types
+from google.api_core import exceptions as google_exceptions
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -23,6 +25,68 @@ from data.query import get_context_for_evaluation
 
 # Client Gemini
 client = genai.Client(api_key=GOOGLE_API_KEY)
+
+
+# =============================================================================
+# RETRY LOGIC POUR GÉRER LES ERREURS 503
+# =============================================================================
+
+def call_gemini_with_retry(func, max_retries=3, initial_delay=2):
+    """
+    Wrapper pour appeler Gemini avec retry et backoff exponentiel.
+
+    Args:
+        func: Fonction lambda qui fait l'appel à Gemini
+        max_retries: Nombre maximum de tentatives
+        initial_delay: Délai initial en secondes (doublé à chaque retry)
+
+    Returns:
+        Réponse de l'API Gemini
+
+    Raises:
+        Exception: Si toutes les tentatives échouent
+    """
+    delay = initial_delay
+    last_exception = None
+
+    for attempt in range(max_retries):
+        try:
+            return func()
+        except Exception as e:
+            last_exception = e
+            error_str = str(e)
+
+            # Vérifier si c'est une erreur temporaire (503 ou 500)
+            is_retryable = (
+                "503" in error_str or
+                "500" in error_str or
+                "overloaded" in error_str.lower() or
+                "internal" in error_str.lower()
+            )
+
+            if is_retryable:
+                if attempt < max_retries - 1:
+                    # Message adapté selon le type d'erreur
+                    if "503" in error_str or "overloaded" in error_str.lower():
+                        msg = f"⚠️ Gemini surchargé, nouvelle tentative dans {delay}s... (tentative {attempt + 1}/{max_retries})"
+                    else:
+                        msg = f"⚠️ Erreur serveur Gemini, nouvelle tentative dans {delay}s... (tentative {attempt + 1}/{max_retries})"
+                    print(msg)
+                    time.sleep(delay)
+                    delay *= 2  # Backoff exponentiel
+                    continue
+                else:
+                    # Dernière tentative échouée
+                    raise Exception(
+                        f"Gemini a rencontré des erreurs après {max_retries} tentatives. "
+                        f"Réessaie dans quelques minutes."
+                    ) from e
+            else:
+                # Autre type d'erreur, ne pas retry
+                raise e
+
+    # Si on arrive ici, toutes les tentatives ont échoué
+    raise last_exception
 
 
 # =============================================================================
@@ -136,35 +200,80 @@ Retourne la transcription avec le texte en français et les maths en LaTeX entre
 # OCR - TRANSCRIPTION DE PHOTOS
 # =============================================================================
 
+def _resize_image_if_needed(image_data: bytes, mime_type: str, max_size_mb: float = 4.0) -> bytes:
+    """
+    Redimensionne l'image si elle dépasse la taille max (pour éviter erreurs API).
+
+    Args:
+        image_data: Bytes de l'image originale
+        mime_type: Type MIME
+        max_size_mb: Taille max en MB (default: 4MB, limite safe pour Gemini)
+
+    Returns:
+        Bytes de l'image (redimensionnée si nécessaire)
+    """
+    from PIL import Image
+    import io
+
+    size_mb = len(image_data) / (1024 * 1024)
+    if size_mb <= max_size_mb:
+        return image_data
+
+    # Image trop grande, la redimensionner
+    img = Image.open(io.BytesIO(image_data))
+
+    # Calculer le ratio de réduction nécessaire
+    reduction_ratio = (max_size_mb / size_mb) ** 0.5  # Racine carrée car surface
+
+    new_width = int(img.width * reduction_ratio)
+    new_height = int(img.height * reduction_ratio)
+
+    img_resized = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+
+    # Sauvegarder dans un buffer
+    buffer = io.BytesIO()
+    if mime_type == "image/png":
+        img_resized.save(buffer, format="PNG", optimize=True)
+    else:
+        img_resized.save(buffer, format="JPEG", quality=85, optimize=True)
+
+    return buffer.getvalue()
+
+
 def transcribe_image(image_data: bytes, mime_type: str = "image/jpeg") -> str:
     """
     Transcrit une photo de brouillon en LaTeX.
-    
+
     Args:
         image_data: Bytes de l'image
         mime_type: Type MIME de l'image
-    
+
     Returns:
         Transcription LaTeX du contenu
     """
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=[
-            types.Content(
-                role="user",
-                parts=[
-                    types.Part.from_bytes(data=image_data, mime_type=mime_type),
-                    types.Part(text="Transcris ce brouillon mathématique en LaTeX.")
-                ]
+    # Redimensionner si nécessaire pour éviter erreurs API
+    image_data = _resize_image_if_needed(image_data, mime_type)
+
+    def _call():
+        return client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=[
+                types.Content(
+                    role="user",
+                    parts=[
+                        types.Part.from_bytes(data=image_data, mime_type=mime_type),
+                        types.Part(text="Transcris ce brouillon mathématique en LaTeX.")
+                    ]
+                )
+            ],
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT_OCR,
+                temperature=0.1,  # Faible pour être fidèle
+                max_output_tokens=2000,
             )
-        ],
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT_OCR,
-            temperature=0.1,  # Faible pour être fidèle
-            max_output_tokens=2000,
         )
-    )
-    
+
+    response = call_gemini_with_retry(_call)
     return response.text
 
 
@@ -240,12 +349,24 @@ def evaluate_answer(
 - COMPLET: OUI/NON
 - MANQUE: liste des points manquants séparés par des virgules (ou "rien" si complet)"""
 
-    # Construire l'historique (limité aux 20 derniers messages pour éviter la troncature)
+    # Construire l'historique (limité pour éviter de surcharger l'API)
     messages = []
     if conversation_history:
-        # Garder seulement les 20 derniers messages (10 échanges)
+        # Limiter en nombre de messages ET en tokens approximatifs
+        max_history_chars = 4000  # ~1000 tokens
         recent_history = conversation_history[-20:] if len(conversation_history) > 20 else conversation_history
-        for msg in recent_history:
+
+        # Compter les caractères et prendre uniquement ce qui rentre
+        total_chars = 0
+        messages_to_add = []
+        for msg in reversed(recent_history):  # Partir de la fin (plus récent)
+            msg_length = len(msg["content"])
+            if total_chars + msg_length > max_history_chars:
+                break
+            messages_to_add.insert(0, msg)  # Insérer au début pour garder l'ordre
+            total_chars += msg_length
+
+        for msg in messages_to_add:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
@@ -255,16 +376,19 @@ def evaluate_answer(
         role="user",
         parts=[types.Part(text=prompt)]
     ))
-    
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=messages,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT_KHOLLEUR,
-            temperature=0.7,
-            max_output_tokens=3000,  # Augmenté pour éviter les réponses tronquées
+
+    def _call():
+        return client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=messages,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+                temperature=0.7,
+                max_output_tokens=4096,  # Maximum pour éviter troncature
+            )
         )
-    )
+
+    response = call_gemini_with_retry(_call)
 
     # Vérifier que la réponse n'est pas vide
     if not response.text:
@@ -352,9 +476,21 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
 
     messages = []
     if conversation_history:
-        # Garder seulement les 30 derniers messages (15 échanges)
+        # Limiter en nombre de messages ET en tokens approximatifs
+        max_history_chars = 6000  # ~1500 tokens (exercices peuvent être plus longs)
         recent_history = conversation_history[-30:] if len(conversation_history) > 30 else conversation_history
-        for msg in recent_history:
+
+        # Compter les caractères et prendre uniquement ce qui rentre
+        total_chars = 0
+        messages_to_add = []
+        for msg in reversed(recent_history):  # Partir de la fin (plus récent)
+            msg_length = len(msg["content"])
+            if total_chars + msg_length > max_history_chars:
+                break
+            messages_to_add.insert(0, msg)  # Insérer au début pour garder l'ordre
+            total_chars += msg_length
+
+        for msg in messages_to_add:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
@@ -365,15 +501,18 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
         parts=[types.Part(text=prompt)]
     ))
 
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=messages,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT_KHOLLEUR,
-            temperature=0.8,
-            max_output_tokens=2500,  # Augmenté pour réponses complètes
+    def _call():
+        return client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=messages,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+                temperature=0.8,
+                max_output_tokens=4096,  # Maximum pour éviter troncature
+            )
         )
-    )
+
+    response = call_gemini_with_retry(_call)
 
     # Vérifier que la réponse n'est pas vide
     if not response.text:
@@ -408,9 +547,21 @@ def chat(
 
     messages = []
     if conversation_history:
-        # Garder seulement les 30 derniers messages (15 échanges)
+        # Limiter en nombre de messages ET en tokens approximatifs
+        max_history_chars = 6000  # ~1500 tokens (exercices peuvent être plus longs)
         recent_history = conversation_history[-30:] if len(conversation_history) > 30 else conversation_history
-        for msg in recent_history:
+
+        # Compter les caractères et prendre uniquement ce qui rentre
+        total_chars = 0
+        messages_to_add = []
+        for msg in reversed(recent_history):  # Partir de la fin (plus récent)
+            msg_length = len(msg["content"])
+            if total_chars + msg_length > max_history_chars:
+                break
+            messages_to_add.insert(0, msg)  # Insérer au début pour garder l'ordre
+            total_chars += msg_length
+
+        for msg in messages_to_add:
             messages.append(types.Content(
                 role=msg["role"],
                 parts=[types.Part(text=msg["content"])]
@@ -421,15 +572,18 @@ def chat(
         parts=[types.Part(text=prompt)]
     ))
 
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=messages,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT_KHOLLEUR,
-            temperature=0.8,
-            max_output_tokens=2500,  # Augmenté pour réponses complètes
+    def _call():
+        return client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=messages,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+                temperature=0.8,
+                max_output_tokens=4096,  # Maximum pour éviter troncature
+            )
         )
-    )
+
+    response = call_gemini_with_retry(_call)
 
     # Vérifier que la réponse n'est pas vide
     if not response.text:

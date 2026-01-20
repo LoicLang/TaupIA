@@ -14,10 +14,15 @@ from typing import Optional
 
 # Configuration de la page (DOIT être en premier)
 st.set_page_config(
-    page_title="Khôlleur AI",
+    page_title="TaupIA - Khôlleur AI",
     page_icon="📐",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': "TaupIA - Simulateur de khôlles MPSI"
+    }
 )
 
 from data.query import (
@@ -50,14 +55,36 @@ st.markdown("""
        ================================================================= */
 
     :root {
-        --color-primary: #000000;
-        --color-accent: #000000;
-        --color-bg: #FFFFFF;
-        --color-border: #BFBFBF;
-        --color-border-strong: #000000;
-        --color-text: #000000;
-        --color-text-muted: #555555;
-        --radius-refined: 2px;
+        /* EdTech Modern Palette */
+        --color-primary: #4f46e5;
+        --color-primary-hover: #4338ca;
+        --color-accent: #8b5cf6;
+        --color-success: #10b981;
+        --color-bg: #f8fafc;
+        --color-card-bg: #ffffff;
+        --color-border: #e2e8f0;
+        --color-border-strong: #4f46e5;
+        --color-text: #1e293b;
+        --color-text-main: #1e293b;
+        --color-text-muted: #64748b;
+        --color-user-bubble: #4f46e5;
+        --color-tutor-bubble: #ffffff;
+
+        /* Spacing & Radii */
+        --radius-refined: 8px;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+        /* Transitions */
+        --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Fonts */
         --font-main: 'Inter', sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
     }
@@ -66,26 +93,32 @@ st.markdown("""
 
     html, body, [class*="css"] {
         font-family: var(--font-main);
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
+        background-color: var(--color-bg) !important;
+        color: var(--color-text) !important;
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Force light mode on main content */
+    /* Modern light mode with subtle gradient */
     .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
+        background-color: var(--color-bg) !important;
+        color: var(--color-text) !important;
     }
 
     .stMainBlockContainer, [data-testid="stVerticalBlock"] {
-        background-color: #FFFFFF !important;
+        background-color: transparent !important;
     }
 
     /* =================================================================
-       GLOBAL TEXT COLOR RESET (Dark Mode Override)
+       GLOBAL TEXT COLOR - Modern Edtech
        ================================================================= */
-    p, span, label, div, h1, h2, h3, h4, h5, h6, li, td, th {
-        color: #000000;
+    p, span, label, div, li, td, th {
+        color: var(--color-text);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--color-text-main);
+        font-weight: 700 !important;
+        letter-spacing: -0.02em;
     }
 
     /* Streamlit specific text elements */
@@ -95,7 +128,7 @@ st.markdown("""
     [data-testid="stMarkdownContainer"] li,
     [data-testid="stText"],
     .stMarkdown, .stMarkdown p {
-        color: #000000 !important;
+        color: var(--color-text) !important;
     }
 
     code, pre, .stCode, .step-number, .score-gauge-value {
@@ -103,33 +136,32 @@ st.markdown("""
     }
 
     /* =================================================================
-       HEADER - MINIMALIST PRECISION
+       HEADER - Modern & Clean
        ================================================================= */
     .main-header {
-        background: var(--color-primary);
-        padding: 1.25rem 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+        padding: 1.5rem 2rem;
         border-radius: 0;
         margin-bottom: 2rem;
-        border-bottom: 1px solid var(--color-border-strong);
+        box-shadow: var(--shadow-md);
         position: relative;
     }
 
     .main-header h1 {
         color: #fff;
         margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: -0.02em;
     }
 
     .main-header p {
-        color: #FFFFFF !important;
-        margin: 0.25rem 0 0 0;
-        font-size: 0.7rem;
-        font-family: var(--font-mono);
-        text-transform: uppercase;
-        opacity: 0.7;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin: 0.5rem 0 0 0;
+        font-size: 0.875rem;
+        font-family: var(--font-main);
+        text-transform: none;
     }
 
     .logo-header {
@@ -137,88 +169,109 @@ st.markdown("""
         width: auto;
         margin-right: 1rem;
         filter: brightness(0) invert(1);
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    /* Logo dans le main content (pas dans header) */
+    img[alt="Logo"] {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        image-rendering: high-quality;
     }
 
     /* =================================================================
-       PROGRESS BAR - INSTRUMENT SCALE
+       PROGRESS BAR - Visual & Progressive
        ================================================================= */
     .progress-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 1.5rem 0;
-        padding: 0.75rem 0;
-        background: transparent;
-        border-top: 1px solid var(--color-border);
-        border-bottom: 1px solid var(--color-border);
+        padding: 1rem;
+        background: var(--color-card-bg);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
     }
 
     .progress-step {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.4rem;
-        font-size: 0.65rem;
+        gap: 0.5rem;
+        font-size: 0.7rem;
         font-weight: 600;
         text-transform: uppercase;
-        color: #555555 !important;
+        color: var(--color-text-muted) !important;
         letter-spacing: 0.05em;
+        transition: var(--transition-fast);
     }
 
     .progress-step span {
-        color: #555555 !important;
+        color: var(--color-text-muted) !important;
     }
 
     .progress-step .step-number {
-        font-size: 0.65rem;
-        color: #555555 !important;
-        padding-bottom: 2px;
-        border-bottom: 2px solid transparent;
+        font-size: 0.7rem;
+        color: var(--color-text-muted) !important;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: var(--color-bg);
+        transition: var(--transition-fast);
     }
 
     .progress-step.active .step-number {
-        color: #000000 !important;
-        border-bottom-color: #000000;
+        color: #FFFFFF !important;
+        background: var(--color-primary);
+        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
     }
 
     .progress-step.active span {
-        color: #000000 !important;
+        color: var(--color-primary) !important;
     }
 
     .progress-step.completed .step-number {
-        color: #000000 !important;
-        border-bottom-color: #DDD;
+        color: #FFFFFF !important;
+        background: var(--color-success);
     }
 
     .progress-step.completed span {
-        color: #000000 !important;
+        color: var(--color-text) !important;
     }
 
     .progress-connector {
         flex-grow: 1;
-        height: 1px;
+        height: 2px;
         background: var(--color-border);
         margin: 0 1rem;
+        border-radius: 2px;
+        transition: var(--transition-fast);
+    }
+
+    .progress-connector.completed {
+        background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
     }
 
     /* =================================================================
-       CARDS - TECHNICAL PANELS
+       CARDS - Modern & Elevated
        ================================================================= */
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker),
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker),
     .question-card, .exercise-card, .feedback-card {
-        background: transparent !important;
-        border-radius: var(--radius-refined) !important;
+        background: var(--color-card-bg) !important;
+        border-radius: var(--radius-md) !important;
         border: 1px solid var(--color-border) !important;
-        box-shadow: none !important;
-        padding: 1.25rem !important;
+        box-shadow: var(--shadow-sm) !important;
+        padding: 1.5rem !important;
         margin: 1rem 0 !important;
-        transition: border-color 0.2s ease;
+        transition: var(--transition-fast);
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker):hover,
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker):hover {
-        border-color: var(--color-border-strong) !important;
+        border-color: var(--color-accent) !important;
+        box-shadow: var(--shadow-md) !important;
+        transform: translateY(-2px);
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"] p,
@@ -301,18 +354,30 @@ st.markdown("""
     .score-badge {
         font-family: var(--font-mono);
         font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
-        border: 1px solid var(--color-border-strong);
-        border-radius: var(--radius-refined);
+        padding: 0.3rem 0.6rem;
+        border: none;
+        border-radius: var(--radius-sm);
         text-transform: uppercase;
+        font-weight: 600;
     }
 
-    .score-high { background: #000; color: #FFF; }
-    .score-medium { background: #555; color: #FFF; }
-    .score-low { background: #CCC; color: #000; }
+    .score-high {
+        background: var(--color-success);
+        color: #FFF;
+    }
+
+    .score-medium {
+        background: var(--color-accent);
+        color: #FFF;
+    }
+
+    .score-low {
+        background: var(--color-text-muted);
+        color: #FFF;
+    }
 
     /* =================================================================
-       CONTROLS - PRECISION INPUTS
+       BUTTONS - Modern & Tactile
        ================================================================= */
     .stButton > button,
     .stButton > button[kind="primary"],
@@ -321,16 +386,16 @@ st.markdown("""
     [data-testid="stBaseButton-secondary"],
     [data-testid="baseButton-primary"],
     [data-testid="baseButton-secondary"] {
-        border-radius: 2px !important;
-        border: 1px solid #000000 !important;
-        background-color: #000000 !important;
+        border-radius: var(--radius-md) !important;
+        border: none !important;
+        background-color: var(--color-primary) !important;
         color: #FFFFFF !important;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 0.75rem !important;
+        text-transform: none;
+        letter-spacing: normal;
+        font-size: 0.875rem !important;
         font-weight: 600 !important;
-        padding: 0.5rem 1rem !important;
-        transition: all 0.2s ease !important;
+        padding: 0.625rem 1.5rem !important;
+        transition: var(--transition-fast) !important;
     }
 
     .stButton > button:hover,
@@ -338,8 +403,9 @@ st.markdown("""
     [data-testid="stBaseButton-secondary"]:hover,
     [data-testid="baseButton-primary"]:hover,
     [data-testid="baseButton-secondary"]:hover {
-        background-color: #333333 !important;
-        border-color: #333333 !important;
+        background-color: var(--color-primary-hover) !important;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+        transform: translateY(-1px);
         color: #FFFFFF !important;
     }
 
@@ -357,11 +423,16 @@ st.markdown("""
     }
 
     .stSelectbox > div > div {
-        border: 1px solid #BFBFBF !important;
-        border-radius: 2px !important;
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        font-size: 0.8rem !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: var(--radius-md) !important;
+        background-color: var(--color-card-bg) !important;
+        color: var(--color-text) !important;
+        font-size: 0.875rem !important;
+        transition: var(--transition-fast) !important;
+    }
+
+    .stSelectbox > div > div:hover {
+        border-color: var(--color-primary) !important;
     }
 
     .stSelectbox [data-baseweb="select"] {
@@ -435,21 +506,30 @@ st.markdown("""
         background-color: #FFFFFF !important;
     }
 
-    /* Textarea - Complete styling */
+    /* Textarea - Modern with focus states */
     .stTextArea label {
-        color: #000000 !important;
+        color: var(--color-text) !important;
+        font-weight: 500;
     }
 
     .stTextArea textarea {
-        border: 1px solid #BFBFBF !important;
-        border-radius: 2px !important;
-        font-size: 0.85rem !important;
-        color: #000000 !important;
-        background-color: #FFFFFF !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: var(--radius-md) !important;
+        font-size: 0.9rem !important;
+        color: var(--color-text) !important;
+        background-color: var(--color-card-bg) !important;
+        padding: 12px 16px !important;
+        transition: var(--transition-fast) !important;
+    }
+
+    .stTextArea textarea:focus {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+        outline: none !important;
     }
 
     .stTextArea textarea::placeholder {
-        color: #888888 !important;
+        color: var(--color-text-muted) !important;
     }
 
     .difficulty {
@@ -488,23 +568,90 @@ st.markdown("""
         font-weight: 600;
     }
 
-    /* Chat messages */
+    /* Chat messages - Modern bubbles */
     [data-testid="stChatMessage"],
     [data-testid="stChatMessageContent"],
     .stChatMessage {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
+        background-color: transparent !important;
+        border-radius: var(--radius-lg) !important;
+        padding: 1rem !important;
+        margin: 0.75rem 0 !important;
+        animation: fadeIn 0.4s ease-out forwards;
+        box-shadow: var(--shadow-sm);
+        max-height: none !important;
+        overflow: visible !important;
     }
 
     [data-testid="stChatMessage"] p,
-    [data-testid="stChatMessage"] span,
-    [data-testid="stChatMessage"] div {
-        color: #000000 !important;
+    [data-testid="stChatMessage"] span:not(.katex):not(.katex *),
+    [data-testid="stChatMessage"] div:not(.katex-display):not(.katex *) {
+        line-height: 1.6;
+        max-height: none !important;
+        overflow: visible !important;
+        white-space: normal !important;
     }
 
-    /* User message styling */
+    /* Ne pas casser les formules LaTeX */
+    [data-testid="stChatMessage"] .katex,
+    [data-testid="stChatMessage"] .katex *,
+    [data-testid="stChatMessage"] .katex-display,
+    [data-testid="stChatMessage"] code {
+        word-wrap: normal !important;
+        word-break: normal !important;
+        white-space: nowrap !important;
+    }
+
+    /* User message styling - À DROITE, couleur indigo */
     [data-testid="stChatMessage"][data-testid*="user"] {
-        background-color: #F5F5F5 !important;
+        background-color: var(--color-user-bubble) !important;
+        border: none !important;
+        border-bottom-right-radius: 4px !important;
+        box-shadow: var(--shadow-md) !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        max-width: 85% !important;
+    }
+
+    [data-testid="stChatMessage"][data-testid*="user"] p,
+    [data-testid="stChatMessage"][data-testid*="user"] span,
+    [data-testid="stChatMessage"][data-testid*="user"] div {
+        color: #FFFFFF !important;
+    }
+
+    /* Assistant message styling - À GAUCHE, fond blanc */
+    [data-testid="stChatMessage"][data-testid*="assistant"] {
+        background-color: var(--color-tutor-bubble) !important;
+        border: 1px solid var(--color-border) !important;
+        border-left: 3px solid var(--color-primary) !important;
+        border-bottom-left-radius: 4px !important;
+        box-shadow: var(--shadow-sm) !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        max-width: 85% !important;
+    }
+
+    [data-testid="stChatMessage"][data-testid*="assistant"] p,
+    [data-testid="stChatMessage"][data-testid*="assistant"] span,
+    [data-testid="stChatMessage"][data-testid*="assistant"] div {
+        color: var(--color-text) !important;
+    }
+
+    /* Transcription message - mise en valeur spéciale */
+    .transcription-message {
+        background: #F8F8F8 !important;
+        border: 1px solid #000000 !important;
+        border-radius: 2px !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+    }
+
+    .transcription-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #555555 !important;
+        margin-bottom: 0.5rem;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     /* Expander */
@@ -529,8 +676,15 @@ st.markdown("""
     }
 
     .stFileUploader [data-testid="stFileUploaderDropzone"] {
-        background-color: #FFFFFF !important;
-        border: 1px dashed #BFBFBF !important;
+        background-color: var(--color-card-bg) !important;
+        border: 2px dashed var(--color-border) !important;
+        border-radius: var(--radius-md) !important;
+        transition: var(--transition-fast) !important;
+    }
+
+    .stFileUploader [data-testid="stFileUploaderDropzone"]:hover {
+        border-color: var(--color-primary) !important;
+        background-color: rgba(79, 70, 229, 0.02) !important;
     }
 
     .stFileUploader small {
@@ -542,20 +696,54 @@ st.markdown("""
         color: #555555 !important;
     }
 
-    /* Alert boxes */
+    /* Alert boxes - Modern with rounded corners */
     .stSuccess, .stWarning, .stError, .stInfo,
     [data-testid="stAlert"] {
-        color: #000000 !important;
+        border-radius: var(--radius-md) !important;
+        border: none !important;
+        box-shadow: var(--shadow-sm) !important;
     }
 
     [data-testid="stAlert"] p {
-        color: #000000 !important;
+        color: inherit !important;
     }
 
-    /* Divider */
+    .stSuccess {
+        background-color: rgba(16, 185, 129, 0.1) !important;
+        color: #059669 !important;
+    }
+
+    .stInfo {
+        background-color: rgba(79, 70, 229, 0.1) !important;
+        color: var(--color-primary) !important;
+    }
+
+    .stWarning {
+        background-color: rgba(245, 158, 11, 0.1) !important;
+        color: #d97706 !important;
+    }
+
+    .stError {
+        background-color: rgba(239, 68, 68, 0.1) !important;
+        color: #dc2626 !important;
+    }
+
+    /* Divider - Subtle */
     .stDivider, hr {
-        border-color: #BFBFBF !important;
-        background-color: #BFBFBF !important;
+        border: 0;
+        border-top: 1px solid var(--color-border);
+        margin: 2rem 0;
+    }
+
+    /* Header Backdrop avec dégradé progressif */
+    [data-testid="stHeader"] {
+        background: linear-gradient(180deg,
+            rgba(248, 250, 252, 0.95) 0%,
+            rgba(248, 250, 252, 0.8) 70%,
+            rgba(248, 250, 252, 0) 100%) !important;
+        backdrop-filter: blur(8px);
+        -webkit-mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
+        mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
     }
 
     /* Toggle */
@@ -599,27 +787,31 @@ st.markdown("""
     }
 
     /* =================================================================
-       SIDEBAR - CLEAN PANEL
+       SIDEBAR - Modern Panel
        ================================================================= */
     [data-testid="stSidebar"],
     [data-testid="stSidebar"] > div,
     [data-testid="stSidebarContent"] {
-        border-right: 1px solid #BFBFBF;
-        background: #FFFFFF !important;
-        background-color: #FFFFFF !important;
+        border-right: 1px solid var(--color-border);
+        background: var(--color-card-bg) !important;
+        background-color: var(--color-card-bg) !important;
     }
 
     [data-testid="stSidebar"] * {
-        color: #000000 !important;
+        color: var(--color-text) !important;
     }
 
     [data-testid="stSidebar"] .stButton > button {
-        background-color: #000000 !important;
+        background-color: var(--color-primary) !important;
         color: #FFFFFF !important;
     }
 
     [data-testid="stSidebar"] .stButton > button p {
         color: #FFFFFF !important;
+    }
+
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background-color: var(--color-primary-hover) !important;
     }
 
     [data-testid="stSidebar"] .stMarkdown p,
@@ -641,15 +833,59 @@ st.markdown("""
     }
 
     /* =================================================================
-       ANIMATIONS - SUBTLE
+       ANIMATIONS - Smooth & Engaging
        ================================================================= */
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .question-card, .exercise-card, .feedback-card {
-        animation: fadeIn 0.3s ease forwards;
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* =================================================================
+       LAYOUT OPTIMIZATION - REDUCE WHITESPACE
+       ================================================================= */
+
+    /* Réduire l'espace en haut de la page */
+    .main .block-container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* Cacher le footer Streamlit */
+    footer {
+        visibility: hidden;
+        height: 0;
+    }
+
+    footer:after {
+        content: '';
+        visibility: visible;
+        display: block;
+        position: relative;
+        padding: 0.5rem;
+    }
+
+    /* Cacher le menu hamburger en haut à droite */
+    #MainMenu {
+        visibility: hidden;
+    }
+
+    /* Réduire l'espace au-dessus du header */
+    header {
+        background: transparent !important;
+    }
+
+    .stApp header {
+        background-color: transparent !important;
     }
 
     /* =================================================================
@@ -727,15 +963,28 @@ st.markdown("""
         border: 1px solid var(--color-border);
     }
 
-    /* Ensure form submit buttons have proper styling */
+    /* Ensure form submit buttons have modern edtech styling */
     .stForm button,
     .stForm button[kind="primary"],
     .stForm [data-testid="baseButton-primary"],
     .stForm [data-testid="baseButton-secondary"],
     .stForm [type="submit"] {
-        background-color: #000000 !important;
+        background-color: var(--color-primary) !important;
         color: #FFFFFF !important;
-        border: 1px solid #000000 !important;
+        border: none !important;
+        border-radius: var(--radius-md) !important;
+        padding: 0.625rem 1.5rem !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .stForm button:hover,
+    .stForm button[kind="primary"]:hover,
+    .stForm [data-testid="baseButton-primary"]:hover,
+    .stForm [data-testid="baseButton-secondary"]:hover,
+    .stForm [type="submit"]:hover {
+        background-color: var(--color-primary-hover) !important;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+        transform: translateY(-1px);
     }
 
     .stForm button p,
@@ -758,6 +1007,17 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+
+# =============================================================================
+# UTILITY FUNCTIONS
+# =============================================================================
+
+def get_base64_image(image_path: str) -> str:
+    """Encode une image en base64 pour l'afficher en HTML."""
+    import base64
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
 
 
 # =============================================================================
@@ -788,6 +1048,8 @@ def init_session_state():
         # RAG Debug mode
         st.session_state.rag_debug_mode = False
         st.session_state.rag_chunks = []
+        # UI state management pour éviter doubles soumissions
+        st.session_state.is_processing = False
 
 
 init_session_state()
@@ -1023,10 +1285,10 @@ def render_progress_bar(current_phase: str):
 def render_question_cours():
     """Affiche la phase de question de cours."""
     q = st.session_state.current_question
-    
+
     # Progress bar
     render_progress_bar(PHASE_QUESTION)
-    
+
     # Question avec rendu LaTeX supporté (st.container + marker CSS)
     with st.container(border=True):
         st.markdown('<div class="card-marker"></div>', unsafe_allow_html=True)
@@ -1039,29 +1301,98 @@ def render_question_cours():
 
         # Le texte de la question est rendu par st.markdown pour supporter LaTeX
         st.markdown(q['question_raw'])
-    
+
     st.divider()
-    
-    # Historique de conversation
+
+    # Historique de conversation avec séquencement
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(msg['content'])
+                st.markdown(msg['content'], unsafe_allow_html=True)
         else:
+            # Message assistant s'affiche après le message user
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(msg['content'])
-    
+                st.markdown(msg['content'], unsafe_allow_html=True)
+
     # Panneau RAG Debug (si activé et chunks disponibles)
     if st.session_state.rag_debug_mode and st.session_state.rag_chunks:
         with st.expander("Contexte RAG", expanded=False):
             render_rag_debug_panel(st.session_state.rag_chunks)
-    
+
+    # ÉTAPE 2 : Spinner pour génération de réponse (AVANT zone de formulaire)
+    if (not st.session_state.question_validated and
+        st.session_state.is_processing and
+        st.session_state.conversation_history and
+        st.session_state.conversation_history[-1]["role"] == "user"):
+
+        # Évaluer avec spinner visible
+        with st.spinner("Le khôlleur analyse votre réponse..."):
+            try:
+                final_answer = st.session_state.conversation_history[-1]["content"]
+                attendus = json.loads(q.get("attendus_json", "[]"))
+                erreurs = json.loads(q.get("erreurs_frequentes_json", "[]"))
+                relances = json.loads(q.get("relances_prof_json", "[]"))
+
+                # Récupérer le contexte RAG pour le debug
+                rag_chunks = get_rag_context(
+                    question=q["question_raw"],
+                    chapter_id=st.session_state.chapter_id,
+                    top_k=3
+                )
+                st.session_state.rag_chunks = rag_chunks
+
+                result = evaluate_answer(
+                    question=q["question_raw"],
+                    expected=attendus,
+                    student_answer=final_answer,
+                    common_errors=erreurs,
+                    follow_up_questions=relances,
+                    conversation_history=st.session_state.conversation_history[:-1]
+                )
+
+                # Vérifier que le feedback n'est pas vide
+                feedback = result.get("feedback", "")
+                if not feedback or not feedback.strip():
+                    st.error("Erreur: aucune réponse générée. Réessayer.")
+                    st.session_state.conversation_history.pop()
+                    st.session_state.is_processing = False
+                    st.stop()
+
+                # Ajouter le feedback à l'historique
+                st.session_state.conversation_history.append({
+                    "role": "assistant",
+                    "content": feedback
+                })
+
+                # Stocker le score et les détails de validation
+                st.session_state.scores.append(result["score"])
+
+                # Validation réaliste (comme en khôlle)
+                if (result["is_complete"] and result["score"] >= 75):
+                    st.session_state.question_validated = True
+                    st.session_state.validation_score = result["score"]
+                    st.session_state.validation_details = {
+                        "score": result["score"],
+                        "missing_points": result["missing_points"]
+                    }
+
+                st.session_state.is_processing = False
+
+            except Exception as e:
+                st.error(f"Erreur: {e}")
+                if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
+                    st.session_state.conversation_history.pop()
+                st.session_state.is_processing = False
+                st.stop()
+
+        st.rerun()
+
     # Affichage de la validation si question validée
     if st.session_state.question_validated:
-        # Récapitulatif de validation
+        # Récapitulatif de validation avec style moderne
         st.markdown("""
-        <div style="background: #F0FFF0; border: 2px solid #000; border-radius: 2px; padding: 1.5rem; margin: 1rem 0;">
-            <h3 style="margin: 0 0 1rem 0; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">✓ Question validée</h3>
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-left: 4px solid #10b981; border-radius: 12px; padding: 1.5rem; margin: 1rem 0;">
+            <h3 style="margin: 0 0 1rem 0; color: #10b981; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;">✓ Question validée</h3>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1072,7 +1403,7 @@ def render_question_cours():
             st.metric("Score", f"{score}/100")
         with col_status:
             st.markdown(f"""
-            <p style="color: #000; font-size: 0.9rem; padding-top: 1rem;">
+            <p style="color: var(--color-text); font-size: 0.9rem; padding-top: 1rem;">
                 Réponse complète et rigoureuse
             </p>
             """, unsafe_allow_html=True)
@@ -1086,28 +1417,19 @@ def render_question_cours():
     # Zone de réponse (désactivée si question validée)
     if not st.session_state.question_validated:
         st.markdown("### Ta réponse")
-        
-        # Layout photo-first pour mobile
+
+        # Layout text-first (texte prioritaire sur photo)
         with st.form(key="question_form", clear_on_submit=True):
-            # 1. Zone photo proéminente
-            st.markdown("""
-            <div style="text-align: center; padding: 0.5rem 0;">
-                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload brouillon</span>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            uploaded_file = st.file_uploader(
-                "Prends en photo ton brouillon",
-                type=["jpg", "jpeg", "png", "heic"],
-                help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
+            # 1. Textarea PRINCIPALE en premier
+            answer = st.text_area(
+                "Écris ta réponse",
+                height=120,
+                placeholder="Si tu es bloqué, décris où tu en es...",
                 label_visibility="collapsed",
-                key="question_photo_input"
+                key="question_answer_input",
+                disabled=st.session_state.is_processing
             )
-            
-            if uploaded_file:
-                st.image(uploaded_file, use_container_width=True)
-                st.success("Image chargée")
-            
+
             # 2. Séparateur visuel
             st.markdown("""
             <div style="display: flex; align-items: center; margin: 1.5rem 0;">
@@ -1116,110 +1438,67 @@ def render_question_cours():
                 <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
             </div>
             """, unsafe_allow_html=True)
-            
-            # 3. Textarea secondaire
-            answer = st.text_area(
-                "Écris ta réponse",
-                height=100,
-                placeholder="Si tu es bloqué, décris où tu en es...",
+
+            # 3. Zone photo SECONDAIRE
+            st.markdown("""
+            <div style="text-align: center; padding: 0.5rem 0;">
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload brouillon</span>
+            </div>
+            """, unsafe_allow_html=True)
+
+            uploaded_file = st.file_uploader(
+                "Prends en photo ton brouillon",
+                type=["jpg", "jpeg", "png", "heic"],
+                help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
                 label_visibility="collapsed",
-                key="question_answer_input"
+                key="question_photo_input"
             )
-            
+
+            # IMAGE MASQUÉE dans un expander collapsed
+            if uploaded_file:
+                with st.expander("📎 Image uploadée (cliquer pour voir)", expanded=False):
+                    st.image(uploaded_file, width=300)
+
             # 4. Bouton de validation
             submitted = st.form_submit_button(
                 "Valider",
                 type="primary",
-                use_container_width=True
+                use_container_width=True,
+                disabled=st.session_state.is_processing
             )
         
         if submitted:
+            if st.session_state.is_processing:
+                st.warning("Traitement en cours, veuillez patienter...")
+                st.stop()
+
+            st.session_state.is_processing = True
             final_answer = answer.strip() if answer else ""
-            
+
             # Transcrire l'image si présente et pas de texte
             if uploaded_file and not final_answer:
-                with st.spinner("Transcription en cours..."):
+                with st.spinner("Lecture de votre écriture..."):
                     try:
                         image_bytes = uploaded_file.getvalue()
                         transcription = transcribe_image(image_bytes, uploaded_file.type)
                         final_answer = transcription
-                        st.success("Transcription terminée")
-                        with st.expander("Voir la transcription", expanded=True):
-                            st.markdown(transcription)
                     except Exception as e:
                         st.error(f"Erreur de transcription : {e}")
+                        st.session_state.is_processing = False
                         st.stop()
-            
+
             if not final_answer:
                 st.warning("Écris une réponse ou upload une photo.")
+                st.session_state.is_processing = False
                 st.stop()
-            
-            # Ajouter à l'historique
+
+            # ÉTAPE 1 : Afficher d'abord le message utilisateur seul
             st.session_state.conversation_history.append({
                 "role": "user",
                 "content": final_answer
             })
-            
-            # Évaluer
-            with st.spinner("Analyse en cours..."):
-                try:
-                    attendus = json.loads(q.get("attendus_json", "[]"))
-                    erreurs = json.loads(q.get("erreurs_frequentes_json", "[]"))
-                    relances = json.loads(q.get("relances_prof_json", "[]"))
-                    
-                    # Récupérer le contexte RAG pour le debug
-                    rag_chunks = get_rag_context(
-                        question=q["question_raw"],
-                        chapter_id=st.session_state.chapter_id,
-                        top_k=3
-                    )
-                    st.session_state.rag_chunks = rag_chunks
-                    
-                    result = evaluate_answer(
-                        question=q["question_raw"],
-                        expected=attendus,
-                        student_answer=final_answer,
-                        common_errors=erreurs,
-                        follow_up_questions=relances,
-                        conversation_history=st.session_state.conversation_history[:-1]
-                    )
-                    
-                    # Vérifier que le feedback n'est pas vide
-                    feedback = result.get("feedback", "")
-                    if not feedback or not feedback.strip():
-                        st.error("Erreur: aucune réponse générée. Réessayer.")
-                        if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
-                            st.session_state.conversation_history.pop()
-                        st.stop()
-                    
-                    # Ajouter le feedback à l'historique
-                    st.session_state.conversation_history.append({
-                        "role": "assistant",
-                        "content": feedback
-                    })
-                    
-                    # Stocker le score et les détails de validation
-                    st.session_state.scores.append(result["score"])
 
-                    # Validation réaliste (comme en khôlle) :
-                    # - is_complete doit être True (l'IA a jugé que le raisonnement est compris)
-                    # - Score >= 75 (raisonnement correct, même si pas tout rédigé)
-                    # - Pas d'erreur conceptuelle grave
-                    if (result["is_complete"] and
-                        result["score"] >= 75):
-                        st.session_state.question_validated = True
-                        st.session_state.validation_score = result["score"]
-                        st.session_state.validation_details = {
-                            "score": result["score"],
-                            "missing_points": result["missing_points"]
-                        }
-                    
-                except Exception as e:
-                    st.error(f"Erreur: {e}")
-                    if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
-                        st.session_state.conversation_history.pop()
-                    st.stop()
-            
+            # Forcer le rerun pour afficher le message user AVANT la génération
             st.rerun()
 
 
@@ -1271,97 +1550,19 @@ def render_exercice():
     for msg in st.session_state.conversation_history:
         if msg["role"] == "user":
             with st.chat_message("user"):
-                st.markdown(msg['content'])
+                st.markdown(msg['content'], unsafe_allow_html=True)
         else:
             with st.chat_message("assistant", avatar="📐"):
-                st.markdown(msg['content'])
-    
-    # Zone de réponse photo-first
-    st.markdown("### Ton travail")
-    
-    with st.form(key="exercise_form", clear_on_submit=True):
-        # 1. Zone photo proéminente
-        st.markdown("""
-        <div style="text-align: center; padding: 0.5rem 0;">
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload travail</span>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        uploaded_file = st.file_uploader(
-            "Prends en photo ton travail",
-            type=["jpg", "jpeg", "png", "heic"],
-            help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
-            label_visibility="collapsed",
-            key="exercise_photo_form"
-        )
-        
-        if uploaded_file:
-            st.image(uploaded_file, use_container_width=True)
-            st.success("Image chargée")
-        
-        # 2. Séparateur visuel
-        st.markdown("""
-        <div style="display: flex; align-items: center; margin: 1.5rem 0;">
-            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
-            <span style="padding: 0 1rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa;">ou</span>
-            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # 3. Textarea secondaire  
-        message = st.text_area(
-            "Écris ici",
-            height=100,
-            placeholder="Décris ton approche, pose une question, ou montre ton avancement...",
-            label_visibility="collapsed",
-            key="exercise_input_form"
-        )
-        
-        # 4. Boutons d'action
-        col_send, col_end = st.columns([3, 1])
-        with col_send:
-            submitted = st.form_submit_button(
-                "Envoyer",
-                type="primary",
-                use_container_width=True
-            )
-        with col_end:
-            end_clicked = st.form_submit_button(
-                "Fin",
-                use_container_width=True
-            )
-    
-    if end_clicked:
-        st.session_state.phase = PHASE_FINISHED
-        st.rerun()
-    
-    if submitted:
-        final_message = message.strip() if message else ""
-        
-        # Transcrire l'image si présente et pas de texte
-        if uploaded_file and not final_message:
-            with st.spinner("Transcription en cours..."):
-                try:
-                    image_bytes = uploaded_file.getvalue()
-                    transcription = transcribe_image(image_bytes, uploaded_file.type)
-                    final_message = transcription
-                    with st.expander("Voir la transcription"):
-                        st.markdown(transcription)
-                except Exception as e:
-                    st.error(f"Erreur de transcription : {e}")
-                    st.stop()
-        
-        if not final_message:
-            st.warning("Écris un message ou upload une photo.")
-            st.stop()
-        
-        st.session_state.conversation_history.append({
-            "role": "user",
-            "content": final_message
-        })
-        
-        with st.spinner("Analyse en cours..."):
+                st.markdown(msg['content'], unsafe_allow_html=True)
+
+    # ÉTAPE 2 : Spinner pour génération de réponse (AVANT zone de formulaire)
+    if (st.session_state.is_processing and
+        st.session_state.conversation_history and
+        st.session_state.conversation_history[-1]["role"] == "user"):
+
+        with st.spinner("Le khôlleur réfléchit..."):
             try:
+                final_message = st.session_state.conversation_history[-1]["content"]
                 response = guide_exercise(
                     exercise_statement=ex.get("enonce", ""),
                     student_message=final_message,
@@ -1373,22 +1574,122 @@ def render_exercice():
                 # Vérifier que la réponse n'est pas vide
                 if not response or not response.strip():
                     st.error("Erreur: aucune réponse générée. Réessayer.")
-                    # Retirer le message utilisateur qui n'a pas eu de réponse
-                    if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
-                        st.session_state.conversation_history.pop()
+                    st.session_state.conversation_history.pop()
+                    st.session_state.is_processing = False
                     st.stop()
-                
+
                 st.session_state.conversation_history.append({
                     "role": "assistant",
                     "content": response
                 })
+
+                st.session_state.is_processing = False
+
             except Exception as e:
                 st.error(f"Erreur: {e}")
-                # Retirer le message utilisateur qui n'a pas eu de réponse
                 if st.session_state.conversation_history and st.session_state.conversation_history[-1]["role"] == "user":
                     st.session_state.conversation_history.pop()
+                st.session_state.is_processing = False
                 st.stop()
-        
+
+        st.rerun()
+
+    # Zone de réponse photo-first
+    st.markdown("### Ton travail")
+
+    with st.form(key="exercise_form", clear_on_submit=True):
+        # 1. Textarea PRINCIPALE en premier
+        message = st.text_area(
+            "Écris ici",
+            height=120,
+            placeholder="Décris ton approche, pose une question, ou montre ton avancement...",
+            label_visibility="collapsed",
+            key="exercise_input_form",
+            disabled=st.session_state.is_processing
+        )
+
+        # 2. Séparateur visuel
+        st.markdown("""
+        <div style="display: flex; align-items: center; margin: 1.5rem 0;">
+            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
+            <span style="padding: 0 1rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa;">ou</span>
+            <div style="flex: 1; height: 1px; background: #E5E5E5;"></div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # 3. Zone photo SECONDAIRE
+        st.markdown("""
+        <div style="text-align: center; padding: 0.5rem 0;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">Upload travail</span>
+        </div>
+        """, unsafe_allow_html=True)
+
+        uploaded_file = st.file_uploader(
+            "Prends en photo ton travail",
+            type=["jpg", "jpeg", "png", "heic"],
+            help="Clique pour prendre une photo ou sélectionner depuis ta galerie",
+            label_visibility="collapsed",
+            key="exercise_photo_form"
+        )
+
+        # IMAGE MASQUÉE dans un expander collapsed
+        if uploaded_file:
+            with st.expander("📎 Image uploadée (cliquer pour voir)", expanded=False):
+                st.image(uploaded_file, width=300)
+
+        # 4. Boutons d'action
+        col_send, col_end = st.columns([3, 1])
+        with col_send:
+            submitted = st.form_submit_button(
+                "Envoyer",
+                type="primary",
+                use_container_width=True,
+                disabled=st.session_state.is_processing
+            )
+        with col_end:
+            end_clicked = st.form_submit_button(
+                "Fin",
+                use_container_width=True,
+                disabled=st.session_state.is_processing
+            )
+    
+    if end_clicked:
+        st.session_state.phase = PHASE_FINISHED
+        st.session_state.is_processing = False
+        st.rerun()
+
+    if submitted:
+        if st.session_state.is_processing:
+            st.warning("Traitement en cours, veuillez patienter...")
+            st.stop()
+
+        st.session_state.is_processing = True
+        final_message = message.strip() if message else ""
+
+        # Transcrire l'image si présente et pas de texte
+        if uploaded_file and not final_message:
+            with st.spinner("Lecture de votre écriture..."):
+                try:
+                    image_bytes = uploaded_file.getvalue()
+                    transcription = transcribe_image(image_bytes, uploaded_file.type)
+                    final_message = transcription
+                except Exception as e:
+                    st.error(f"Erreur de transcription : {e}")
+                    st.session_state.is_processing = False
+                    st.stop()
+
+        if not final_message:
+            st.warning("Écris un message ou upload une photo.")
+            st.session_state.is_processing = False
+            st.stop()
+
+        # ÉTAPE 1 : Afficher d'abord le message utilisateur seul
+        st.session_state.conversation_history.append({
+            "role": "user",
+            "content": final_message
+        })
+
+        # Forcer le rerun pour afficher le message user AVANT la génération
         st.rerun()
 
 
@@ -1442,7 +1743,15 @@ def main():
         col_logo, col_title = st.columns([1, 6], gap="medium")
 
         with col_logo:
-            st.image(logo_path, width=100)
+            st.markdown(f"""
+            <img src="data:image/png;base64,{get_base64_image(logo_path)}"
+                 style="width: 100px; height: auto;
+                        image-rendering: -webkit-optimize-contrast;
+                        image-rendering: crisp-edges;
+                        image-rendering: high-quality;
+                        -ms-interpolation-mode: nearest-neighbor;"
+                 alt="Logo TaupIA">
+            """, unsafe_allow_html=True)
 
         with col_title:
             st.markdown("""

@@ -515,28 +515,50 @@ def get_rag_context(
     return rag_chunks
 
 
-def get_context_for_evaluation(question: str, student_answer: str, n_chunks: int = 3) -> str:
+def get_context_for_evaluation(question: str, student_answer: str, n_chunks: int = 3, max_chars: int = 3000) -> str:
     """
     Construit le contexte RAG pour évaluer une réponse.
-    
+
     Combine la question et la réponse pour trouver le contexte le plus pertinent.
+    Limite la taille totale pour éviter de surcharger l'API.
+
+    Args:
+        question: Question posée
+        student_answer: Réponse de l'étudiant
+        n_chunks: Nombre max de chunks (default: 3)
+        max_chars: Nombre max de caractères au total (default: 3000)
     """
     # Recherche basée sur la question
     query = f"{question}\n\nRéponse de l'étudiant: {student_answer}"
     chunks = search_cours(query, n_results=n_chunks)
-    
+
     if not chunks:
         return ""
-    
+
     context_parts = []
+    total_chars = 0
+
     for chunk in chunks:
         section_info = f"[{chunk['section']}"
         if chunk.get('subsection'):
             section_info += f" > {chunk['subsection']}"
         section_info += "]"
-        
-        context_parts.append(f"{section_info}\n{chunk['text']}")
-    
+
+        chunk_text = f"{section_info}\n{chunk['text']}"
+        chunk_length = len(chunk_text)
+
+        # Vérifier si on peut ajouter ce chunk sans dépasser la limite
+        if total_chars + chunk_length + 10 > max_chars:  # +10 pour les séparateurs
+            # Ajouter partiellement si on a encore de la place
+            remaining = max_chars - total_chars - 10
+            if remaining > 200:  # Seulement si suffisamment de place pour du contenu utile
+                chunk_text = chunk_text[:remaining] + "..."
+                context_parts.append(chunk_text)
+            break
+
+        context_parts.append(chunk_text)
+        total_chars += chunk_length + 10
+
     return "\n\n---\n\n".join(context_parts)
 
 

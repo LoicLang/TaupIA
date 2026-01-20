@@ -44,48 +44,54 @@ components/
 - `exercices`: Exercises with solutions
 - `cours_chunks`: Course reference chunks
 
-## Design System: Engineering Precision
+## Design System: Modern EdTech
 
-Vibe inspirée de **SpaceX / Tesla UI** — minimaliste, noir et blanc, précision instrumentale.
+Vibe inspirée de **Duolingo / Khan Academy / Notion** — moderne, coloré mais professionnel, interface accueillante.
 
 ### Palette de couleurs
 ```css
---color-primary: #000000      /* Noir pur */
---color-accent: #000000       /* Noir (pas de couleur d'accent) */
---color-bg: #FFFFFF           /* Blanc pur */
---color-border: #E5E5E5       /* Gris clair pour bordures */
---color-border-strong: #000000 /* Noir pour bordures actives */
---color-text: #000000         /* Texte principal */
---color-text-muted: #888888   /* Texte secondaire */
+--color-primary: #4f46e5      /* Indigo */
+--color-primary-hover: #4338ca
+--color-accent: #8b5cf6       /* Purple */
+--color-success: #10b981      /* Green */
+--color-bg: #f8fafc           /* Light blue-gray */
+--color-card-bg: #ffffff
+--color-border: #e2e8f0       /* Light gray */
+--color-text: #1e293b         /* Dark slate */
+--color-text-muted: #888888
+--color-user-bubble: #4f46e5  /* Indigo pour messages user */
+--color-tutor-bubble: #ffffff /* Blanc pour messages assistant */
 ```
 
 ### Typographie
 - **Police principale**: Inter (sans-serif)
 - **Police monospace**: JetBrains Mono
-- **Style**: Uppercase avec letter-spacing pour les labels et boutons
+- **Style**: Texte normal (pas de uppercase systématique), letter-spacing subtil pour les labels
 
 ### Principes de design
-- **Pas d'emojis** dans l'interface
-- **Pas d'ombres** — utiliser des bordures fines (1px)
-- **Coins quasi-carrés** (border-radius: 2px)
+- **Pas d'emojis excessifs** (utilisés avec parcimonie uniquement quand pertinent)
+- **Ombres douces** — box-shadow subtiles pour profondeur
+- **Coins arrondis** (border-radius: 8-20px selon l'élément)
 - **Texte sobre et technique** en français
-- **Labels uppercase** avec letter-spacing: 0.05em à 0.1em
-- **Animations subtiles** (fade uniquement, pas de translate)
+- **Transitions fluides** pour les interactions
+- **Glassmorphism subtil** pour le header (backdrop-filter: blur)
 
 ### Composants
 | Élément | Style |
 |---------|-------|
-| Header | Fond noir, texte blanc uppercase |
-| Boutons | Fond noir, texte blanc, uppercase, letter-spacing |
-| Cards | Bordure 1px gris, fond transparent, hover = bordure noire |
-| Inputs | Bordure 1px gris, fond transparent |
-| Messages | Bordure gauche noire (assistant) ou bordure complète (user) |
+| Header | Fond blanc transparent avec blur, dégradé progressif vers transparent |
+| Boutons | Fond indigo, coins arrondis 12px, hover avec ombre indigo + translateY |
+| Cards | Bordure légère, coins arrondis, fond blanc, ombres subtiles |
+| Inputs | Bordure grise, coins arrondis, fond transparent |
+| Messages User | À droite, fond indigo, texte blanc, coins arrondis |
+| Messages Assistant | À gauche, fond blanc, bordure gauche indigo, texte noir |
 
-### Exemples de texte
-- ❌ "🚀 Lancer la khôlle"  →  ✅ "Démarrer"
-- ❌ "📝 Question de cours"  →  ✅ "QUESTION DE COURS"
-- ❌ "🎉 Khôlle terminée !"  →  ✅ "Session terminée"
-- ❌ "🤔 Le khôlleur réfléchit..."  →  ✅ "Analyse en cours..."
+### UX/UI Rules
+- **Temporal sequencing**: Message user apparaît d'abord, puis spinner, puis réponse AI
+- **Image upload**: Cachée dans expander collapsed après upload (max 300px width)
+- **Form order**: Textarea FIRST (prioritaire), puis photo upload SECOND
+- **Spinner location**: Entre le chat history et le formulaire (pas en dessous du form)
+- **No message truncation**: max-height: none, overflow: visible pour tous les messages
 
 ## Code Rules (from context.md)
 
@@ -115,6 +121,15 @@ Vibe inspirée de **SpaceX / Tesla UI** — minimaliste, noir et blanc, précisi
 - ChromaDB (persistent vector database in `chroma_db/`)
 - Environment: API key in `.env` as `GOOGLE_API_KEY`
 
+## API Error Handling
+
+**Gemini 503 Errors (Overloaded):**
+- All Gemini API calls use `call_gemini_with_retry()` wrapper
+- Automatic retry with exponential backoff: 2s → 4s → 8s
+- Max 3 attempts before showing error to user
+- `max_output_tokens` set to 4096 to prevent response truncation
+- Located in `services/gemini_service.py`
+
 # MCP Gemini Design - MANDATORY FOR FRONTEND
 
 ## ⛔ ABSOLUTE RULE - NEVER IGNORE
@@ -138,13 +153,15 @@ Gemini is your frontend developer. You are NOT allowed to create visual componen
 ## MANDATORY Workflow
 
 ### Current project status: Design ESTABLISHED
-The project uses **"Engineering Precision"** vibe (SpaceX/Tesla inspired).
-See "Design System: Engineering Precision" section above for guidelines.
+The project uses **"Modern EdTech"** vibe (Duolingo/Khan Academy/Notion inspired).
+See "Design System: Modern EdTech" section above for guidelines.
 
 ### When modifying UI:
 ```
-ALWAYS pass the CSS from app.py (lines 45-250) in the `context` parameter
-ALWAYS follow the Engineering Precision guidelines
+ALWAYS pass the CSS from app.py (lines 45-1000) in the `context` parameter
+ALWAYS follow the Modern EdTech guidelines
+Respect indigo color scheme and rounded corners
+Ensure temporal sequencing and proper message display
 ```
 
 ### For new projects without existing design
