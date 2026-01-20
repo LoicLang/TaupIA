@@ -12,9 +12,7 @@ import base64
 import time
 from pathlib import Path
 from typing import Optional
-from google import genai
-from google.genai import types
-from google.api_core import exceptions as google_exceptions
+import google.generativeai as genai
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -23,8 +21,8 @@ from config import GOOGLE_API_KEY, GEMINI_MODEL
 from data.query import get_context_for_evaluation
 
 
-# Client Gemini
-client = genai.Client(api_key=GOOGLE_API_KEY)
+# Configure Gemini
+genai.configure(api_key=GOOGLE_API_KEY)
 
 
 # =============================================================================
@@ -254,21 +252,19 @@ def transcribe_image(image_data: bytes, mime_type: str = "image/jpeg") -> str:
     # Redimensionner si nécessaire pour éviter erreurs API
     image_data = _resize_image_if_needed(image_data, mime_type)
 
+    from PIL import Image
+    import io
+    img = Image.open(io.BytesIO(image_data))
+
     def _call():
-        return client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=[
-                types.Content(
-                    role="user",
-                    parts=[
-                        types.Part.from_bytes(data=image_data, mime_type=mime_type),
-                        types.Part(text="Transcris ce brouillon mathématique en LaTeX.")
-                    ]
-                )
-            ],
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT_OCR,
-                temperature=0.1,  # Faible pour être fidèle
+        model = genai.GenerativeModel(
+            model_name=GEMINI_MODEL,
+            system_instruction=SYSTEM_PROMPT_OCR
+        )
+        return model.generate_content(
+            [img, "Transcris ce brouillon mathématique en LaTeX."],
+            generation_config=genai.types.GenerationConfig(
+                temperature=0.1,
                 max_output_tokens=2000,
             )
         )
@@ -367,24 +363,26 @@ def evaluate_answer(
             total_chars += msg_length
 
         for msg in messages_to_add:
-            messages.append(types.Content(
-                role=msg["role"],
-                parts=[types.Part(text=msg["content"])]
-            ))
+            messages.append({
+                "role": msg["role"],
+                "parts": [msg["content"]]
+            })
 
-    messages.append(types.Content(
-        role="user",
-        parts=[types.Part(text=prompt)]
-    ))
+    messages.append({
+        "role": "user",
+        "parts": [prompt]
+    })
 
     def _call():
-        return client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=messages,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+        model = genai.GenerativeModel(
+            model_name=GEMINI_MODEL,
+            system_instruction=SYSTEM_PROMPT_KHOLLEUR
+        )
+        return model.generate_content(
+            messages,
+            generation_config=genai.types.GenerationConfig(
                 temperature=0.7,
-                max_output_tokens=4096,  # Maximum pour éviter troncature
+                max_output_tokens=4096,
             )
         )
 
@@ -491,24 +489,26 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
             total_chars += msg_length
 
         for msg in messages_to_add:
-            messages.append(types.Content(
-                role=msg["role"],
-                parts=[types.Part(text=msg["content"])]
-            ))
+            messages.append({
+                "role": msg["role"],
+                "parts": [msg["content"]]
+            })
 
-    messages.append(types.Content(
-        role="user",
-        parts=[types.Part(text=prompt)]
-    ))
+    messages.append({
+        "role": "user",
+        "parts": [prompt]
+    })
 
     def _call():
-        return client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=messages,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+        model = genai.GenerativeModel(
+            model_name=GEMINI_MODEL,
+            system_instruction=SYSTEM_PROMPT_KHOLLEUR
+        )
+        return model.generate_content(
+            messages,
+            generation_config=genai.types.GenerationConfig(
                 temperature=0.8,
-                max_output_tokens=4096,  # Maximum pour éviter troncature
+                max_output_tokens=4096,
             )
         )
 
@@ -562,24 +562,26 @@ def chat(
             total_chars += msg_length
 
         for msg in messages_to_add:
-            messages.append(types.Content(
-                role=msg["role"],
-                parts=[types.Part(text=msg["content"])]
-            ))
+            messages.append({
+                "role": msg["role"],
+                "parts": [msg["content"]]
+            })
 
-    messages.append(types.Content(
-        role="user",
-        parts=[types.Part(text=prompt)]
-    ))
+    messages.append({
+        "role": "user",
+        "parts": [prompt]
+    })
 
     def _call():
-        return client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=messages,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT_KHOLLEUR,
+        model = genai.GenerativeModel(
+            model_name=GEMINI_MODEL,
+            system_instruction=SYSTEM_PROMPT_KHOLLEUR
+        )
+        return model.generate_content(
+            messages,
+            generation_config=genai.types.GenerationConfig(
                 temperature=0.8,
-                max_output_tokens=4096,  # Maximum pour éviter troncature
+                max_output_tokens=4096,
             )
         )
 

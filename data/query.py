@@ -11,7 +11,7 @@ import json
 from typing import Optional, List, Dict
 
 import chromadb
-from google import genai
+import google.generativeai as genai
 
 import sys
 from pathlib import Path
@@ -26,8 +26,8 @@ from config import (
     EMBEDDING_MODEL,
 )
 
-# Configure Gemini client
-client = genai.Client(api_key=GOOGLE_API_KEY)
+# Configure Gemini
+genai.configure(api_key=GOOGLE_API_KEY)
 
 
 def get_chroma_client() -> chromadb.PersistentClient:
@@ -37,11 +37,11 @@ def get_chroma_client() -> chromadb.PersistentClient:
 
 def get_query_embedding(text: str) -> list[float]:
     """Génère un embedding pour une requête."""
-    result = client.models.embed_content(
+    result = genai.embed_content(
         model=EMBEDDING_MODEL,
-        contents=text,
+        content=text,
     )
-    return result.embeddings[0].values
+    return result['embedding']
 
 
 # =============================================================================

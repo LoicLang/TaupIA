@@ -16,7 +16,7 @@ from typing import Optional
 
 import chromadb
 from chromadb.config import Settings
-from google import genai
+import google.generativeai as genai
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -35,8 +35,8 @@ from config import (
 )
 
 
-# Configure Gemini client
-client = genai.Client(api_key=GOOGLE_API_KEY)
+# Configure Gemini
+genai.configure(api_key=GOOGLE_API_KEY)
 
 
 def get_chroma_client() -> chromadb.PersistentClient:
@@ -50,11 +50,11 @@ def get_chroma_client() -> chromadb.PersistentClient:
 
 def get_embedding(text: str) -> list[float]:
     """Génère un embedding via Gemini."""
-    result = client.models.embed_content(
+    result = genai.embed_content(
         model=EMBEDDING_MODEL,
-        contents=text,
+        content=text,
     )
-    return result.embeddings[0].values
+    return result['embedding']
 
 
 def load_graph() -> dict:
