@@ -1,0 +1,579 @@
+{
+  "chapter_official_id": "CALC_MAT",
+  "source_document": "Matrices.pdf",
+  "exercises": [
+    {
+      "id": "calc_mat_td_14_01",
+      "source_number": "14.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "produit matriciel",
+          "calcul"
+        ]
+      },
+      "content": {
+        "statement_latex": "On considère les matrices suivantes :\n$$A=\\begin{pmatrix}1&-2&3\\\\ 2&0&-4\\\\ 1&1&2\\end{pmatrix}, \\quad B=\\begin{pmatrix}2&0&2\\\\ 0&1&-3\\\\ -1&3&1\\end{pmatrix}, \\quad C=\\begin{pmatrix}1&1\\\\ 0&4\\\\ 2&5\\end{pmatrix}, \\quad D=\\begin{pmatrix}1&2&3\\\\ 4&5&6\\end{pmatrix}$$\nCalculer les produits $AB$, $AC$, $BC$, $DA$, $CD$ et $DC$.",
+        "hint_latex": null,
+        "solution_latex": null
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Produit matriciel : bilinéarité, associativité",
+          "Ensemble M_{n,p}(K) des matrices à n lignes et p colonnes"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_02",
+      "source_number": "14.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "nilpotence",
+          "commutation"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que si $A, B$ sont deux matrices nilpotentes de $\\mathcal{M}_{n}(K)$, qui commutent, alors $A+B$ et $AB$ sont encore nilpotentes.",
+        "hint_latex": null,
+        "solution_latex": "Soient $A$ et $B$ deux matrices de $\\mathcal{M}_{n}(K)$ qui commutent, d'indices de nilpotence respectifs $p$ et $q$.\nAlors puisque $A$ et $B$ commutent, $(AB)^{p}=A^{p}B^{p}=0_{n}$. Donc $AB$ est nilpotente.\nPuisque $A$ et $B$ commutent, par la formule du binôme, on a pour tout $m\\in \\mathbb{N}$ :\n$$(A+B)^{m}=\\sum_{k=0}^{m}\\binom{m}{k}A^{k}B^{m-k}$$\nPour $m=p+q$, il vient :\n$$(A+B)^{p+q}=\\sum_{k=0}^{p-1}\\binom{p+q}{k}A^{k}\\underbrace{B^{p+q-k}}_{=0_{n}}+\\sum_{k=p}^{p+q}\\binom{p+q}{k}\\underbrace{A^{k}}_{=0_{n}}B^{p+q-k}=0_{n}$$\nDonc $A+B$ est nilpotente."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Exemples de diviseurs de zéro, d'éléments nilpotents",
+          "Formule du binôme (si AB = BA), application au calcul de puissances"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_03",
+      "source_number": "14.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "matrices élémentaires",
+          "multiplication"
+        ]
+      },
+      "content": {
+        "statement_latex": "Multiplication par une matrice élémentaire\nSoit $n\\in \\mathbb{N}^{*}$. On rappelle que pour $(i,j)\\in[[1,n]]^{2}$ on note $E_{i,j}$ la matrice de $\\mathcal{M}_{n}(K)$ dont tous les coefficients sont nuls, à l'exception de celui de la $i^{\\text{ème}}$ ligne et $j^{\\text{ème}}$ colonne qui vaut 1.\n1. Soit $A=(a_{i,j})_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(K)$. Pour tout $(i,j,k,l)\\in[[1,n]]^{4}$, calculer $[AE_{i,j}]_{k,l}$ et $[E_{i,j}A]_{k,l}$. Comment décrivez-vous en termes simples les matrices $AE_{i,j}$ et $E_{i,j}A$ ?\n2. En déduire la matrice $E_{i,j}E_{k,l}$. On pourra être amenés à distinguer plusieurs cas.",
+        "hint_latex": null,
+        "solution_latex": "1. Toutes les colonnes de $AE_{i,j}$ sont nulles, sauf la $j^{\\text{ème}}$, égale à la $i^{\\text{ème}}$ colonne de $A$. De même, toutes les lignes de $E_{i,j}A$ sont nulles, à l'exception de la $i^{\\text{ème}}$ qui est la $j^{\\text{ème}}$ ligne de $A$.\nCalcul formel : $[AE_{i,j}]_{k,l} = a_{k,i}$ si $l=j$ et $0$ sinon. $[E_{i,j}A]_{k,l} = a_{j,l}$ si $k=i$ et $0$ sinon.\n2. $E_{i,j}E_{k,l}=\\delta_{j,k}E_{i,l}$ où $\\delta_{j,k}$ est le symbole de Kronecker."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrices élémentaires E_{i,j}",
+          "Produit de matrices élémentaires"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_04",
+      "source_number": "14.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "matrices diagonales",
+          "centre",
+          "commutant"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Soit $D\\in\\mathcal{M}_{n}(K)$ une matrice diagonale dont les coefficients diagonaux sont deux à deux distincts. Montrer qu'une matrice $A\\in\\mathcal{M}_{n}(K)$ commute avec $D$ si et seulement si elle est diagonale.\n2. Déterminer $\\{M\\in\\mathcal{M}_{n}(K) \\mid \\forall A\\in\\mathcal{M}_{n}(K), AM=MA\\}$, l'ensemble des matrices de $\\mathcal{M}_{n}(K)$ qui commutent à toutes les autres matrices (ensemble appelé le centre de $\\mathcal{M}_{n}(K)$).",
+        "hint_latex": null,
+        "solution_latex": "1. $[AD]_{i,j} = a_{i,j}\\lambda_j$ et $[DA]_{i,j} = \\lambda_i a_{i,j}$. Si $AD=DA$, alors $(\\lambda_i - \\lambda_j)a_{i,j} = 0$. Pour $i \\neq j$, $\\lambda_i \\neq \\lambda_j$ implique $a_{i,j}=0$. Donc $A$ est diagonale.\n2. Le centre est $\\{\\lambda I_n, \\lambda \\in K\\}$, l'ensemble des matrices scalaires. On utilise le résultat précédent (doit commuter avec une diagonale à coeffs distincts) et la commutation avec la matrice dont tous les coeffs valent 1 pour montrer l'égalité des termes diagonaux."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Produit de matrices diagonales, de matrices triangulaires",
+          "Matrice identité I_n, matrices scalaires"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_05",
+      "source_number": "14.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "matrices triangulaires",
+          "nilpotence"
+        ]
+      },
+      "content": {
+        "statement_latex": "Nilpotence des matrices triangulaires strictes\nSoit $n\\in \\mathbb{N}^{*}$. Pour $k\\ge0$, on note $\\mathcal{T}_{k}^{+}(K)$ l'ensemble des matrices $A=(a_{i,j})\\in\\mathcal{M}_{n}(K)$ telles que $\\forall(i,j)\\in[[1,n]]^{2}$, $i+k>j\\Rightarrow a_{i,j}=0$.\n1. Montrer que pour $k, l\\ge0$, si $A\\in\\mathcal{T}_{k}^{+}(K)$ et $B\\in\\mathcal{T}_{l}^{+}(K)$, alors $AB\\in\\mathcal{T}_{k+l}^{+}(K)$.\n2. En déduire qu'une matrice triangulaire (supérieure ou inférieure), à coefficients diagonaux nuls est nilpotente d'indice de nilpotence inférieur ou égal à $n$.",
+        "hint_latex": null,
+        "solution_latex": "1. $[AB]_{i,j} = \\sum_{p=1}^n a_{i,p}b_{p,j}$. Si $i+k+l > j$, les termes de la somme sont nuls (coupure à $p < i+k$ pour $a$ et $p > j-l$ pour $b$). Donc $AB \\in \\mathcal{T}_{k+l}^+(K)$.\n2. Une matrice triangulaire supérieure stricte est dans $\\mathcal{T}_1^+$. Donc $A^n \\in \\mathcal{T}_n^+$, qui ne contient que la matrice nulle. De même pour triangulaire inférieure par transposition."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Produit de matrices diagonales, de matrices triangulaires",
+          "Exemples de diviseurs de zéro, d'éléments nilpotents"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_06",
+      "source_number": "14.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "puissances",
+          "anticommutation"
+        ]
+      },
+      "content": {
+        "statement_latex": "(Oral X PC) Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{R})$ telles que $AB=-BA$. Pour $k\\in \\mathbb{N}$ donner une expression de $(A+B)^{k}$.",
+        "hint_latex": null,
+        "solution_latex": "On a $A^2B^2 = A(AB)B = A(-BA)B = -ABAB = ABBA = -BABA = B^2A^2$. Donc $A^2$ et $B^2$ commutent. On montre que $(A+B)^{2p} = \\sum_{k=0}^p \\binom{p}{k} A^{2k}B^{2p-2k}$ et $(A+B)^{2p+1} = \\sum_{k=0}^p \\binom{p}{k} (A^{2k+1}B^{2p-2k} + A^{2k}B^{2p-2k+1})$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul des puissances de matrices"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_07",
+      "source_number": "14.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "puissances",
+          "récurrence"
+        ]
+      },
+      "content": {
+        "statement_latex": "Calculer les puissances des matrices suivantes :\n1. $\\begin{pmatrix}\\cos \\theta&-\\sin \\theta\\\\ \\sin \\theta&\\cos \\theta\\end{pmatrix}$\n2. $\\begin{pmatrix}0&1\\\\ 2&0\\end{pmatrix}$\n3. $\\begin{pmatrix}3&1&3\\\\ 0&3&4\\\\ 0&0&3\\end{pmatrix}$\n4. $\\begin{pmatrix}1&1&\\cdots&1\\\\ 0&1&\\cdots&1\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ 0&0&\\cdots&1\\end{pmatrix}$",
+        "hint_latex": null,
+        "solution_latex": "1. $A^n = \\begin{pmatrix}\\cos(n\\theta)&-\\sin(n\\theta)\\\\ \\sin(n\\theta)&\\cos(n\\theta)\\end{pmatrix}$.\n2. $A^2 = 2I_2$. $A^{2n} = 2^n I_2$, $A^{2n+1} = 2^n A$.\n3. $A=3I_3 + T$ avec $T$ nilpotente ($T^3=0$). Binôme : $A^n = 3^n I_3 + n 3^{n-1} T + \\frac{n(n-1)}{2} 3^{n-2} T^2$.\n4. $A^{2k} = (n-1)^{k-1}A^2$ et $A^{2k+1} = (n-1)^k A$ (pour la matrice spécifique de la correction, sinon adaptation)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul des puissances de matrices",
+          "Formule du binôme (si AB = BA), application au calcul de puissances"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_08",
+      "source_number": "14.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "matrice J",
+          "puissances"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $J$ la matrice de $\\mathcal{M}_{n}(K)$ dont tous les coefficients valent 1.\n1. Calculer $J^{2}$. En déduire $J^{k}$, pour tout $k\\in \\mathbb{N}$.\n2. En déduire $(J+\\lambda I_{n})^{k}$, pour $\\lambda\\in K$ et $k\\in \\mathbb{N}$.\n3. Calculer les puissances de $A=\\begin{pmatrix}5&2&2\\\\ 2&5&2\\\\ 2&2&5\\end{pmatrix}$.",
+        "hint_latex": null,
+        "solution_latex": "1. $J^2 = nJ$. Par récurrence, $J^k = n^{k-1}J$ pour $k \\ge 1$.\n2. Binôme : $(J+\\lambda I_n)^k = \\lambda^k I_n + \\frac{1}{n}((n+\\lambda)^k - \\lambda^k)J$.\n3. $A = 2(J + \\frac{3}{2}I_3)$ (avec $n=3$). Application de la formule."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul des puissances de matrices",
+          "Formule du binôme (si AB = BA), application au calcul de puissances"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_09",
+      "source_number": "14.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "TD",
+        "difficulty_score": 5,
+        "tags": [
+          "suites récurrentes",
+          "puissances"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A=\\begin{pmatrix}2\\cos(\\theta)&-1\\\\ 1&0\\end{pmatrix}$, avec $\\theta\\in]0,\\pi[$.\n1. Montrer que $A^{2}=2\\cos(\\theta)A-I$.\n2. En déduire qu'il existe deux suites $(a_{n})$ et $(b_{n})$ telles que $\\forall n\\in \\mathbb{N}$, $A^{n}=a_{n}A+b_{n}I$. Donner l'expression de $a_{n+1}$ et de $b_{n+1}$ en fonction de $a_{n}$ et $b_{n}$.\n3. Montrer que $(a_{n})$ est linéaire récurrente d'ordre 2, déterminer son terme général et en déduire l'expression de $A^{n}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Calcul direct.\n2. $a_{n+1} = 2\\cos(\\theta)a_n + b_n$ et $b_{n+1} = -a_n$.\n3. $a_{n+1} = 2\\cos(\\theta)a_n - a_{n-1}$. Équation caractéristique $r^2 - 2\\cos(\\theta)r + 1 = 0$, racines $e^{\\pm i\\theta}$. $a_n = \\frac{\\sin(n\\theta)}{\\sin(\\theta)}$.\n$A^n = \\frac{1}{\\sin \\theta} \\begin{pmatrix} \\sin((n+1)\\theta) & -\\sin(n\\theta) \\\\ \\sin(n\\theta) & -\\sin((n-1)\\theta) \\end{pmatrix}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul des puissances de matrices",
+          "Suites récurrentes linéaires d'ordre 2 à coefficients constants"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_10",
+      "source_number": "14.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "matrices symétriques",
+          "transposée"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A, B\\in\\mathcal{S}_{n}(\\mathbb{R})$. Montrer que $AB$ est symétrique si et seulement si $AB=BA$.",
+        "hint_latex": null,
+        "solution_latex": "$(AB)^T = B^T A^T = BA$ (car $A, B$ symétriques). Donc $AB$ symétrique $\\iff (AB)^T = AB \\iff BA = AB$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrices symétriques S_n(K), antisymétriques A_n(K)",
+          "Transposée d'une matrice (notation A^T)"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_11",
+      "source_number": "14.11",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "trace",
+          "transposée"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{R})$. Montrer que $\\text{tr}(A^{\\top}A)=0$ si et seulement si $A=0_{n}$.",
+        "hint_latex": null,
+        "solution_latex": "$\\text{tr}(A^T A) = \\sum_{i,j} a_{j,i}^2$. C'est une somme de carrés de réels. Elle est nulle ssi tous les termes sont nuls, donc $A=0_n$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Trace d'une matrice carrée (notation tr A)",
+          "Produit scalaire canonique sur M_{n,p}(R) : tr(A^T B)"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_12",
+      "source_number": "14.12",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "trace",
+          "commutateur"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer qu'il n'existe pas de couple $(A,B)\\in\\mathcal{M}_{n}(K)^{2}$ tel que $AB-BA=I_{n}$.",
+        "hint_latex": null,
+        "solution_latex": "$\\text{tr}(AB-BA) = \\text{tr}(AB) - \\text{tr}(BA) = 0$. Or $\\text{tr}(I_n) = n$. Donc $0 \\neq n$ (dans $K=\\mathbb{R}$ ou $\\mathbb{C}$), impossible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Trace d'une matrice carrée (notation tr A)",
+          "Relation tr(AB) = tr(BA)"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_13",
+      "source_number": "14.13",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "trace",
+          "matrices élémentaires"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(K)$ telles que pour tout $M\\in\\mathcal{M}_{n}(K)$, $\\text{tr}(AM)=\\text{tr}(BM)$. Montrer que $A=B$.",
+        "hint_latex": null,
+        "solution_latex": "En prenant $M=E_{i,j}$, on a $\\text{tr}(AE_{i,j}) = a_{j,i}$ et $\\text{tr}(BE_{i,j}) = b_{j,i}$. L'égalité pour tout $i,j$ implique $A=B$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Trace d'une matrice carrée (notation tr A)",
+          "Matrices élémentaires E_{i,j}"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_14",
+      "source_number": "14.14",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "symétrique",
+          "antisymétrique",
+          "analyse-synthèse"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer par analyse-synthèse que toute matrice de $\\mathcal{M}_{n}(K)$ s'écrit de manière unique comme la somme d'une matrice symétrique et d'une matrice antisymétrique.",
+        "hint_latex": null,
+        "solution_latex": "Analyse : Si $M=S+A$, alors $M^T = S-A$. On déduit $S = \\frac{M+M^T}{2}$ et $A = \\frac{M-M^T}{2}$.\nSynthèse : On vérifie que $S$ est symétrique, $A$ antisymétrique et $S+A=M$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrices symétriques S_n(K), antisymétriques A_n(K)"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_15",
+      "source_number": "14.15",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "trace",
+          "inégalité",
+          "matrices symétriques"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{R})$ deux matrices symétriques.\n1. Montrer que $\\text{tr}(A^{2})\\ge0$.\n2. En étudiant la fonction $\\lambda\\mapsto \\text{tr}((\\lambda A+B)^{2})$, prouver que $\\text{tr}(AB)^{2}\\le \\text{tr}(A^{2})\\text{tr}(B^{2})$.",
+        "hint_latex": null,
+        "solution_latex": "1. $\\text{tr}(A^2) = \\sum_{i,j} a_{i,j}a_{j,i} = \\sum_{i,j} a_{i,j}^2 \\ge 0$.\n2. $P(\\lambda) = \\text{tr}((\\lambda A+B)^2) = \\lambda^2 \\text{tr}(A^2) + 2\\lambda \\text{tr}(AB) + \\text{tr}(B^2)$. Ce polynôme est positif pour tout $\\lambda$, donc son discriminant est négatif ou nul : $(2\\text{tr}(AB))^2 - 4\\text{tr}(A^2)\\text{tr}(B^2) \\le 0$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Trace d'une matrice carrée (notation tr A)",
+          "Matrices symétriques S_n(K), antisymétriques A_n(K)"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_16",
+      "source_number": "14.16",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "trace",
+          "puissances"
+        ]
+      },
+      "content": {
+        "statement_latex": "(Oral Mines 2023) Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{C})$ telles que $AB=0_{n}$. Montrer que pour tout $k\\ge1$, $\\text{tr}((A+B)^{k})=\\text{tr}(A^{k})+\\text{tr}(B^{k})$.",
+        "hint_latex": null,
+        "solution_latex": "On prouve par récurrence que $(A+B)^k = \\sum_{i=0}^k B^i A^{k-i}$. $\\text{tr}((A+B)^k) = \\sum_{i=0}^k \\text{tr}(B^i A^{k-i})$. Pour $1 \\le i \\le k-1$, $\\text{tr}(B^i A^{k-i}) = \\text{tr}(A B^i A^{k-i-1}) = \\text{tr}(0) = 0$ car $AB=0$. Restent les termes $i=0$ ($A^k$) et $i=k$ ($B^k$)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Trace d'une matrice carrée (notation tr A)",
+          "Calcul des puissances de matrices"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_17",
+      "source_number": "14.17",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "inversibilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(K)$ deux matrices non nulles telles que $AB=0_{n}$. Montrer que ni $A$ ni $B$ ne sont inversibles.",
+        "hint_latex": null,
+        "solution_latex": "Si $A$ inversible, $A^{-1}AB = A^{-1}0 \\Rightarrow B=0$, absurde. De même pour $B$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrice inversible, inverse",
+          "Critères d'inversibilité d'une matrice : noyau nul, colonnes génèrent K^n, rang = n"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_18",
+      "source_number": "14.18",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "calcul d'inverse",
+          "systèmes linéaires"
+        ]
+      },
+      "content": {
+        "statement_latex": "Déterminer si les matrices suivantes sont inversibles, et le cas échéant, calculer leur inverse :\n$$A=\\begin{pmatrix}1+i&i\\\\ i&1\\end{pmatrix}, \\quad B=\\begin{pmatrix}1&-1&0\\\\ 0&1&4\\\\ -1&0&-3\\end{pmatrix}, \\quad C=\\begin{pmatrix}0&-1&1\\\\ 2&-3&4\\\\ 1&-1&2\\end{pmatrix}, \\quad D=\\begin{pmatrix}1&-1&-2&2\\\\ -1&-1&0&2\\\\ 0&2&2&-4\\\\ 0&1&1&-2\\end{pmatrix}$$",
+        "hint_latex": null,
+        "solution_latex": "1. $\\det(A) = 2+i \\neq 0$, inversible. $A^{-1} = \\frac{1}{2+i}\\begin{pmatrix}1&-i\\\\-i&1+i\\end{pmatrix}$.\n2. $B$ inversible, $B^{-1}=\\begin{pmatrix}-3&-3&-4\\\\-4&-3&-4\\\\1&1&1\\end{pmatrix}$.\n3. $C$ inversible, $C^{-1}=\\begin{pmatrix}-2&1&-1\\\\0&-1&2\\\\1&-1&2\\end{pmatrix}$.\n4. $D$ non inversible (système lié, $L_3 - 2L_4$ donne relation)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul de l'inverse par opérations élémentaires ou par résolution de AX = Y"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_19",
+      "source_number": "14.19",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "polynôme annulateur",
+          "inversibilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Inversibilité à l'aide d'un polynôme annulateur\nSoit $A\\in\\mathcal{M}_{n}(K)$. On suppose qu'il existe des scalaires $\\lambda_{0},\\lambda_{1},\\dots,\\lambda_{p}$, avec $\\lambda_{0}\\ne0$ tels que $\\lambda_{0}I_{n}+\\lambda_{1}A+\\lambda_{2}A^{2}+\\dots+\\lambda_{p}A^{p}=0_{n}$.\nMontrer que $A$ est inversible, et exprimer son inverse en fonction des $A^{k}$, $0\\le k\\le p-1$.",
+        "hint_latex": null,
+        "solution_latex": "On isole $\\lambda_0 I_n$ et on factorise par $A$ : $A(-\\frac{1}{\\lambda_0}(\\sum_{k=1}^p \\lambda_k A^{k-1})) = I_n$. L'inverse est donc $-\\frac{1}{\\lambda_0}\\sum_{k=1}^p \\lambda_k A^{k-1}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrice inversible, inverse"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_20",
+      "source_number": "14.20",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "matrices par blocs",
+          "inversibilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Inverse d'une matrice triangulaire par blocs\nSoit $A\\in GL_{n}(K)$, $C\\in GL_{p}(K)$ et $B\\in\\mathcal{M}_{n,p}(K)$. Montrer que la matrice par blocs $\\begin{pmatrix}A&B\\\\ 0_{p,n}&C\\end{pmatrix}\\in\\mathcal{M}_{n+p}(K)$ est inversible, et déterminer son inverse.",
+        "hint_latex": null,
+        "solution_latex": "En résolvant le système ou par identification par blocs, l'inverse est $\\begin{pmatrix}A^{-1}&-A^{-1}BC^{-1}\\\\ 0_{p,n}&C^{-1}\\end{pmatrix}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrice inversible, inverse"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_21",
+      "source_number": "14.21",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "factorisation",
+          "nilpotence",
+          "inversibilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que si $A, B\\in\\mathcal{M}_{n}(K)$ sont deux matrices qui commutent, alors pour tout $p\\in \\mathbb{N}$, $A^{p}-B^{p}=(A-B)(\\sum_{k=0}^{p-1}A^{k}B^{p-1-k})$.\n2. En déduire que si $N$ est nilpotente, alors $I_{n}+N$ est inversible, et donner son inverse.",
+        "hint_latex": null,
+        "solution_latex": "1. Développement classique (télescopique) valide car $A$ et $B$ commutent.\n2. Si $N^p=0$, alors $I_n - (-N)^p = I_n$. On utilise la formule avec $A=I_n$ et $B=-N$. L'inverse est $\\sum_{k=0}^{p-1} (-N)^k$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Formule du binôme (si AB = BA), application au calcul de puissances",
+          "Matrice inversible, inverse"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_22",
+      "source_number": "14.22",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "inversibilité",
+          "nilpotence"
+        ]
+      },
+      "content": {
+        "statement_latex": "(Oral Centrale 2014) Soit $A, B\\in\\mathcal{M}_{n}(\\mathbb{C})$ deux matrices qui commutent, avec $B$ nilpotente. Montrer que $A$ est inversible si et seulement si $A+B$ est inversible.",
+        "hint_latex": null,
+        "solution_latex": "Si $A$ inversible, $A+B = A(I + A^{-1}B)$. $A^{-1}B$ est nilpotente (car $B$ l'est et commute avec $A^{-1}$), donc $I+A^{-1}B$ est inversible. Inversement, si $A+B$ inversible, $A = (A+B) - B$ est inversible car $-B$ nilpotente commute avec $A+B$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrice inversible, inverse"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_23",
+      "source_number": "14.23",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "opérations élémentaires",
+          "suites de Fibonacci"
+        ]
+      },
+      "content": {
+        "statement_latex": "Les matrices suivantes sont-elles inversibles ? Si oui calculer leur inverse\n1. $A=(\\min(i,j))_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(\\mathbb{R})$\n2. $B=(F_{i+j})_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(\\mathbb{R})$ où $F_{0}=0$, $F_{1}=1$ et $\\forall n\\in \\mathbb{N}$, $F_{n+2}=F_{n+1}+F_{n}$.",
+        "hint_latex": null,
+        "solution_latex": "1. $A$ est inversible. L'inverse est une matrice tridiagonale avec des 2, -1 sur la diagonale/sur-diagonale, sauf aux coins.\n2. Pour $n=2$, inversible. Pour $n\\ge 3$, non inversible car $L_3 = L_1 + L_2$ par propriété de Fibonacci."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Calcul de l'inverse par opérations élémentaires ou par résolution de AX = Y",
+          "Opérations élémentaires sur les lignes et colonnes"
+        ]
+      }
+    },
+    {
+      "id": "calc_mat_td_14_24",
+      "source_number": "14.24",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "diagonale dominante",
+          "noyau"
+        ]
+      },
+      "content": {
+        "statement_latex": "Théorème d'Hadamard sur les matrices à diagonale dominante\nSoit $A=(a_{i,j})\\in\\mathcal{M}_{n}(\\mathbb{R})$ telle que $\\forall i\\in[[1,n]]$, $|a_{i,i}|>\\sum_{j\\ne i}|a_{i,j}|$.\nSoit $X\\in\\mathcal{M}_{n,1}(\\mathbb{R})$ tel que $AX=0_{n,1}$, et soit $i_{0}\\in[[1,n]]$ tel que $|x_{i_{0}}|=\\max_{i}|x_{i}|$. Montrer que $x_{i_{0}}=0$ et en déduire que $A$ est inversible.",
+        "hint_latex": null,
+        "solution_latex": "Si $x_{i_0} \\neq 0$, $|a_{i_0, i_0} x_{i_0}| = |\\sum_{j \\neq i_0} a_{i_0, j} x_j| \\le \\sum |a_{i_0, j}| |x_{i_0}|$, d'où $|a_{i_0, i_0}| \\le \\sum_{j \\neq i_0} |a_{i_0, j}|$, contradiction. Donc $X=0$, $\\text{Ker}(A)=\\{0\\}$, $A$ inversible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Matrice inversible, inverse",
+          "Noyau, caractérisation de l'injectivité"
+        ]
+      }
+    }
+  ]
+}

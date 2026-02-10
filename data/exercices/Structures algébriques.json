@@ -1,0 +1,894 @@
+{
+  "chapter_official_id": "STRUC_ALG",
+  "source_document": "Structures algébriques.pdf",
+  "exercises": [
+    {
+      "id": "struc_alg_td_15_01",
+      "source_number": "15.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Loi de composition interne",
+          "Associativité",
+          "Commutativité",
+          "Élément neutre",
+          "Inversibilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $(E, \\le)$ un ensemble totalement ordonné. Pour tout $(x,y) \\in E^2$, $\\max(x,y)$ est bien défini.\nOn définit ainsi une loi de composition interne, notée $\\max$ sur $E$.\n1. Montrer que la loi $\\max$ est associative et commutative.\n2. Donner une condition nécessaire et suffisante pour que $(E, \\max)$ possède un élément neutre.\n3. Lorsque cette condition est vérifiée, quels sont les éléments inversibles de $E$ ?",
+        "hint_latex": null,
+        "solution_latex": "1. La commutativité est triviale : $\\max(x,y) = \\max(y,x)$. Pour l'associativité : $\\max(x, \\max(y,z)) = \\max(x,y,z) = \\max(\\max(x,y), z)$.\n2. Supposons que $E$ contienne un élément neutre $e$ pour $\\max$. Alors $\\forall x \\in E, \\max(x,e) = x$, donc $e \\le x$. Un élément neutre est forcément un minorant de $E$, et étant dans $E$, c'est le plus petit élément de $E$. Inversement, si $E$ possède un plus petit élément $e$, alors $\\forall x \\in E, \\max(x,e) = x$. Donc $(E, \\max)$ possède un élément neutre si et seulement si $E$ possède un plus petit élément.\n3. L'élément neutre $e$ est inversible (son inverse est lui-même). Soit $x \\in E$ inversible. Il existe $y \\in E$ tel que $\\max(x,y) = e$. Comme $e$ est le plus petit élément, cela implique $x=e$ et $y=e$. Donc $e$ est l'unique élément inversible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Loi de composition interne",
+          "Associativité",
+          "Commutativité",
+          "Élément neutre",
+          "Inversibilité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_02",
+      "source_number": "15.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Loi de composition interne",
+          "Élément régulier",
+          "Injection, surjection, bijection",
+          "Composition d'applications"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $E$ un ensemble muni d'une loi de composition interne $*$, associative, et possédant un élément neutre $e$.\nUn élément $x \\in E$ est dit régulier à gauche si $\\forall (y,z) \\in E^2$, $x*y=x*z \\Rightarrow y=z$, et régulier à droite si $\\forall (y,z) \\in E^2$, $y*x=z*x \\Rightarrow y=z$.\n1. Quels sont les éléments réguliers (à droite ou à gauche) de $(\\mathbb{Z}, \\times)$ ?\n2. Soit $A$ un ensemble. Montrer que dans $(\\mathcal{F}(A,A), \\circ)$, un élément $f$ est régulier à droite si et seulement si $f$ est surjective.\n3. Donner une condition nécessaire et suffisante pour que $f$ soit régulier à gauche.",
+        "hint_latex": null,
+        "solution_latex": "1. Dans $(\\mathbb{Z}, \\times)$, l'anneau est commutatif donc régulier à gauche équivaut à régulier à droite. $x(y-z)=0 \\Rightarrow x=0$ ou $y=z$. Si $x \\neq 0$, $x$ est régulier. 0 n'est pas régulier.\n2. Régulier à droite dans $(\\mathcal{F}(A,A), \\circ)$ : $g \\circ f = h \\circ f \\Rightarrow g=h$. Si $f$ est surjective, pour tout $y \\in A$, $\\exists x, y=f(x)$, donc $g(y)=h(y)$ implique $g=h$. Si $f$ non surjective, il existe $y \\notin \\text{Im}(f)$, on peut construire $g, h$ différant seulement en $y$ mais égales sur l'image de $f$, donc $f$ non régulier.\n3. $f$ est régulier à gauche ($f \\circ g = f \\circ h \\Rightarrow g=h$) si et seulement si $f$ est injective."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Loi de composition interne",
+          "Application d'un ensemble dans un ensemble",
+          "Injection, surjection, bijection"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_03",
+      "source_number": "15.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Loi de composition interne",
+          "Inversibilité",
+          "Groupe"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $E$ un ensemble muni d'une loi de composition interne associative, commutative et possédant un élément neutre $e$.\nSoient $x, y \\in E$ tels que $x*y$ soit inversible. Montrer que $x$ et $y$ sont inversibles.",
+        "hint_latex": null,
+        "solution_latex": "Soit $z = (x*y)^{-1}$. Alors $(x*y)*z = e$. Par associativité et commutativité, $x*(y*z) = e$ et $(y*z)*x = e$. Donc $x$ est inversible d'inverse $y*z$. De même, $y$ est inversible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Associativité",
+          "Commutativité",
+          "Inversibilité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_04",
+      "source_number": "15.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Groupe",
+          "Groupe commutatif",
+          "Loi de composition interne"
+        ]
+      },
+      "content": {
+        "statement_latex": "On définit une loi de composition interne sur $\\mathbb{R}$ par : $\\forall (x,y) \\in \\mathbb{R}^2$, $x*y = \\sqrt[3]{x^3+y^3}$.\nMontrer que $(\\mathbb{R}, *)$ est un groupe abélien.",
+        "hint_latex": null,
+        "solution_latex": "Associativité : $(x*y)*z = \\sqrt[3]{(x^3+y^3)+z^3} = x*(y*z)$.\nCommutativité : claire car $x^3+y^3 = y^3+x^3$.\nÉlément neutre : $x*0 = \\sqrt[3]{x^3} = x$, donc $e=0$.\nInverse : $x*(-x) = \\sqrt[3]{x^3-x^3} = 0$, donc $x^{-1} = -x$.\nC'est un groupe abélien."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Associativité",
+          "Commutativité",
+          "Élément neutre",
+          "Inversibilité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_05",
+      "source_number": "15.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Groupe",
+          "Groupe commutatif"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $E$ un ensemble muni d'une loi de composition interne associative, possédant un élément neutre $e$, et telle que $\\forall x \\in E, x*x=e$.\nProuver que $(E,*)$ est un groupe commutatif.",
+        "hint_latex": null,
+        "solution_latex": "Tout élément est son propre inverse ($x*x=e$). $(E,*)$ est donc un groupe.\nCommutativité : Soient $x,y \\in E$. $xy = (xy)^{-1} = y^{-1}x^{-1} = yx$ (car $x^{-1}=x$ et $y^{-1}=y$). Donc le groupe est commutatif."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Associativité",
+          "Inversibilité",
+          "Commutativité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_06",
+      "source_number": "15.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Groupe",
+          "Sous-groupe",
+          "Centre d'un groupe",
+          "Groupe produit"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe. On appelle centre de $G$ l'ensemble $\\mathcal{Z}(G) = \\{ x \\in G \\mid \\forall y \\in G, xy=yx \\}$ des éléments commutant avec tous les éléments de $G$.\n1. Montrer que $\\mathcal{Z}(G)$ est un sous-groupe de $G$. À quelle condition a-t-on $\\mathcal{Z}(G)=G$ ?\n2. Si $(G_1, *)$ et $(G_2, \\cdot)$ sont deux groupes, montrer que $\\mathcal{Z}(G_1 \\times G_2) = \\mathcal{Z}(G_1) \\times \\mathcal{Z}(G_2)$.",
+        "hint_latex": null,
+        "solution_latex": "1. $e \\in \\mathcal{Z}(G)$. Si $g, h \\in \\mathcal{Z}(G)$, $(gh)x = g(hx) = g(xh) = (gx)h = x(gh)$, donc $gh \\in \\mathcal{Z}(G)$. Si $g \\in \\mathcal{Z}(G)$, $gx=xg \\Rightarrow xg^{-1} = g^{-1}x$, donc $g^{-1} \\in \\mathcal{Z}(G)$. $\\mathcal{Z}(G)$ est un sous-groupe. $\\mathcal{Z}(G)=G$ ssi $G$ est abélien.\n2. $(x_1, x_2) \\in \\mathcal{Z}(G_1 \\times G_2) \\iff \\forall (y_1, y_2), (x_1 y_1, x_2 y_2) = (y_1 x_1, y_2 x_2) \\iff x_1 \\in \\mathcal{Z}(G_1) \\text{ et } x_2 \\in \\mathcal{Z}(G_2)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Sous-groupe",
+          "Groupe produit"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_07",
+      "source_number": "15.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Sous-groupe",
+          "Groupe linéaire",
+          "Groupe des permutations d'un ensemble",
+          "Racines n-ièmes de l'unité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Dans chacun des cas suivants, déterminer si $H$ est ou non un sous-groupe de $G$ (pour la loi usuelle).\n1. $G=\\mathbb{C}^*$, $H=\\bigcup_{n \\in \\mathbb{N}^*} \\mathbb{U}_n$.\n2. $G=\\mathcal{M}_n(\\mathbb{C})$, $H$ l'ensemble des matrices triangulaires supérieures de $G$.\n3. $G=GL_2(\\mathbb{R})$, $H$ l'ensemble des éléments de $G$ dont tous les coefficients sont dans $\\mathbb{Z}$.\n4. $G=GL_n(\\mathbb{R})$, $H$ l'ensemble des matrices triangulaires supérieures dont les coefficients diagonaux valent 1.\n5. $G=\\mathfrak{S}_n$, $H=\\{ \\sigma \\in \\mathfrak{S}_n \\mid \\sigma(1)=2 \\}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Oui. $1 \\in H$. Si $x,y \\in H$, $x^n=1, y^p=1 \\Rightarrow (xy)^{np}=1 \\Rightarrow xy \\in H$. Inverse ok.\n2. Oui (sous-groupe additif). Somme et opposé de triangulaires sont triangulaires.\n3. Non. L'inverse d'une matrice à coeff entiers n'a pas forcément des coeff entiers (ex: $\\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}^{-1} = \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1 \\end{pmatrix}$).\n4. Oui. $I_n \\in H$. Produit de telles matrices est triangulaire avec 1 sur la diagonale. Inverse aussi.\n5. Non. L'identité ne vérifie pas $\\sigma(1)=2$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-groupe",
+          "Groupe linéaire",
+          "Groupe des permutations d'un ensemble",
+          "Racines n-ièmes de l'unité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_08",
+      "source_number": "15.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe",
+          "Isomorphisme de groupes",
+          "Groupe produit",
+          "Racines n-ièmes de l'unité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Donner les tables de multiplication de $\\mathbb{U}_4$ et $\\mathbb{U}_2 \\times \\mathbb{U}_2$.\nProuver alors que ces deux groupes ne sont pas isomorphes, bien que de même cardinal.",
+        "hint_latex": null,
+        "solution_latex": "Dans $\\mathbb{U}_2 \\times \\mathbb{U}_2$, pour tout $x$, $x^2=e$. Dans $\\mathbb{U}_4$, $i^2 = -1 \\neq 1$. Un isomorphisme préserve l'ordre des éléments, donc impossible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Isomorphisme de groupes",
+          "Groupe produit",
+          "Racines n-ièmes de l'unité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_09",
+      "source_number": "15.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe",
+          "Sous-groupe",
+          "Groupe commutatif",
+          "Partie stable"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe non réduit à un élément tel que pour tout $g \\in G$, $g^2=e$.\n1. Montrer que tout élément est égal à son propre inverse. En déduire que $G$ est abélien.\n2. Montrer que $G$ possède au moins un sous-groupe de cardinal 2.\n3. On suppose que $G$ contient au moins trois éléments. Soit $H$ un sous-groupe fini de $G$, différent de $\\{e\\}$ ou de $G$, et soit $g \\in G \\setminus H$. On pose $gH = \\{ gh, h \\in H \\}$.\n(a) Montrer que $H \\cup gH$ est un sous-groupe de cardinal $2|H|$.\n(b) Montrer que si $G$ est fini, alors son cardinal est une puissance de 2.",
+        "hint_latex": null,
+        "solution_latex": "1. $g^2=e \\Rightarrow g=g^{-1}$. $xy = (xy)^{-1} = y^{-1}x^{-1} = yx$.\n2. Si $g \\neq e$, $\\{e, g\\}$ est un sous-groupe de cardinal 2.\n3.(a) Stable par produit et inverse (car $x^{-1}=x$). Disjonction : si $x \\in H \\cap gH$, $x=h=gh' \\Rightarrow g=hh'^{-1} \\in H$, absurde. Donc card est $2|H|$.\n3.(b) Récurrence ou itération : on double la taille des sous-groupes jusqu'à atteindre $G$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Sous-groupe",
+          "Associativité",
+          "Commutativité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_10",
+      "source_number": "15.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Groupe",
+          "Groupe commutatif",
+          "Bijection"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe commutatif fini, de cardinal $n$.\n1. Soit $g \\in G$. Montrer que $x \\mapsto gx$ est une bijection de $G$ sur lui-même.\n2. Soit $g \\in G$. En calculant de deux manières le produit $\\prod_{x \\in G} (gx)$, montrer que $g^n = 1_G$.\n3. Déterminer tous les sous-groupes finis de $(\\mathbb{C}^*, \\times)$.",
+        "hint_latex": null,
+        "solution_latex": "1. Translation bijective dans un groupe.\n2. $\\prod (gx) = g^n \\prod x$. Comme $x \\mapsto gx$ est bijective, $\\prod (gx) = \\prod x$. Simplification par $\\prod x$ (dans un groupe abélien) donne $g^n = e$.\n3. Sous-groupes de cardinal $n$ : $\\{ z \\in \\mathbb{C}^* \\mid z^n=1 \\} = \\mathbb{U}_n$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Bijection",
+          "Racines n-ièmes de l'unité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_11",
+      "source_number": "15.11",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Sous-groupe",
+          "Union de sous-groupes"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Donner un exemple de deux sous-groupes de $(\\mathbb{R}^*, \\times)$ dont l'union n'est pas un sous-groupe.\n2. Soit $G$ un groupe, $H$ et $K$ deux sous-groupes de $G$. Montrer que $H \\cup K$ est un sous-groupe si et seulement si $H \\subset K$ ou $K \\subset H$.\n3. Soit $(H_n)_{n \\in \\mathbb{N}}$ une suite croissante de sous-groupes de $G$. Montrer que $\\bigcup_{n \\in \\mathbb{N}} H_n$ est un sous-groupe de $G$.",
+        "hint_latex": null,
+        "solution_latex": "1. $\\{1, -1\\}$ et $\\mathbb{R}_+^*$. $-1 \\in H, 2 \\in K$, $-1 \\times 2 = -2 \\notin H \\cup K$.\n2. Si $H \\not\\subset K$ et $K \\not\\subset H$, $\\exists h \\in H \\setminus K, k \\in K \\setminus H$. Alors $hk \\notin H$ et $hk \\notin K$, donc $H \\cup K$ non stable.\n3. Stabilité par produit : $x \\in H_n, y \\in H_m$, $xy \\in H_{\\max(n,m)} \\subset \\cup H_k$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-groupe"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_12",
+      "source_number": "15.12",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Sous-groupe",
+          "Intersection",
+          "Groupe commutatif"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe, $H$ et $K$ deux sous-groupes de $G$. On note $HK = \\{ h \\cdot k, (h,k) \\in H \\times K \\}$.\n1. Montrer que $H \\cap K$ est un sous-groupe de $G$.\n2. Si $G$ est abélien, montrer que $HK$ est un sous-groupe de $G$.\n3. Prouver que $HK$ est un sous-groupe de $G$ si et seulement si $HK=KH$.",
+        "hint_latex": null,
+        "solution_latex": "1. Classique.\n2. Si abélien, $(h_1 k_1)(h_2 k_2)^{-1} = h_1 h_2^{-1} k_1 k_2^{-1} \\in HK$.\n3. Si $HK$ sous-groupe, $K \\subset HK$ et $H \\subset HK$, donc $KH \\subset HK$ (inverse). Si $HK=KH$, $(hk)(h'k')^{-1} = h k k'^{-1} h'^{-1}$. $k k'^{-1} h'^{-1} \\in KH = HK$, donc $\\dots \\in HK$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-groupe",
+          "Intersection",
+          "Groupe commutatif"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_13",
+      "source_number": "15.13",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe",
+          "Similitudes directes",
+          "Sous-groupe"
+        ]
+      },
+      "content": {
+        "statement_latex": "Dans cet exercice, on note $G$ l'ensemble des similitudes directes du plan, qu'on assimile à l'ensemble des fonctions $f : \\mathbb{C} \\to \\mathbb{C}$ telles qu'il existe $(a,b) \\in \\mathbb{C}^* \\times \\mathbb{C}$ tels que $\\forall z \\in \\mathbb{C}, f(z)=az+b$.\n1. Montrer que $(G, \\circ)$ est un groupe, et qu'il n'est pas abélien.\n2. Soit $z_0 \\in \\mathbb{C}$. On pose $G_{z_0} = \\{ g \\in G \\mid g(z_0)=z_0 \\}$. Montrer que $G_{z_0}$ est un sous-groupe de $G$, isomorphe à $\\mathbb{C}^*$. Est-il abélien ?",
+        "hint_latex": null,
+        "solution_latex": "1. Composition de $az+b$ et $a'z+b'$ donne $aa'z + (ab'+b)$. Inverse existe. Non abélien.\n2. Isomorphisme via $g \\mapsto a$ (la pente/rotation). $\\mathbb{C}^*$ est abélien, donc $G_{z_0}$ aussi."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Similitudes directes",
+          "Sous-groupe",
+          "Isomorphisme de groupes"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_14",
+      "source_number": "15.14",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe commutatif",
+          "Produit",
+          "Ordre d'un élément"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe abélien fini avec un seul élément d'ordre 2, c'est-à-dire tel que $f^2=e$ et $f \\neq e$.\nMontrer que $\\prod_{g \\in G} g = f$.",
+        "hint_latex": null,
+        "solution_latex": "Dans le produit, on regroupe chaque élément avec son inverse. Seuls restent ceux égaux à leur inverse ($x^2=e$). Il y a $e$ et $f$. Donc produit $= ef = f$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Associativité",
+          "Commutativité",
+          "Inversibilité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_15",
+      "source_number": "15.15",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe",
+          "Ordre d'un élément",
+          "Groupe commutatif"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe, et soit $x \\in G$. On dit que $x$ est d'ordre fini s'il existe $n \\in \\mathbb{N}^*$ tel que $x^n=e_G$.\n1. Montrer que si $G$ est abélien, et que $x$ et $y$ sont d'ordre fini, alors $xy$ est encore d'ordre fini.\n2. Le résultat de la question précédente reste-t-il vrai si $G$ n'est plus abélien ?",
+        "hint_latex": null,
+        "solution_latex": "1. $(xy)^{np} = (x^n)^p (y^p)^n = e$.\n2. Faux. Exemple : rotations/symétries qui composées donnent une translation (ordre infini)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Associativité",
+          "Commutativité"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_16",
+      "source_number": "15.16",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Groupe",
+          "Automorphisme",
+          "Morphisme de groupes",
+          "Groupe des permutations d'un ensemble"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe. Pour $a \\in G$, on pose $\\tau_a : G \\to G, g \\mapsto aga^{-1}$.\n1. Montrer que $\\tau_a$ est un morphisme bijectif de $G$ dans lui-même (on parle alors d'automorphisme).\n2. On pose $\\text{Int}(G) = \\{ \\tau_a, a \\in G \\}$. Montrer qu'il s'agit d'un sous-groupe de $(\\mathfrak{S}(G), \\circ)$.\n3. Montrer que l'application $\\varphi : G \\to \\mathfrak{S}(G)$ qui à $a \\in G$ associe $\\tau_a$ est un morphisme de groupes. Quel est son noyau ?",
+        "hint_latex": null,
+        "solution_latex": "1. $\\tau_a(gh) = aga^{-1} = ag a^{-1} a h a^{-1} = \\tau_a(g) \\tau_a(h)$. Bijectif car inverse $\\tau_{a^{-1}}$.\n2. $\\tau_a \\circ \\tau_b = \\tau_{ab}$. Stable.\n3. Noyau : $\\tau_a = \\text{id} \\iff \\forall g, aga^{-1}=g \\iff ag=ga \\iff a \\in \\mathcal{Z}(G)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Morphisme de groupes",
+          "Bijection",
+          "Sous-groupe",
+          "Groupe des permutations d'un ensemble"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_17",
+      "source_number": "15.17",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Morphisme de groupes",
+          "Image",
+          "Image réciproque",
+          "Sous-groupe"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f : G_1 \\to G_2$ un morphisme de groupes.\n1. Prouver que pour tout sous-groupe $H_1$ de $G_1$, $f(H_1)$ est un sous-groupe de $G_2$.\n2. Prouver que pour tout sous-groupe $H_2$ de $G_2$, $f^{-1}(H_2)$ est un sous-groupe de $G_1$. En déduire que $\\text{Ker } f$ est un sous-groupe de $G_1$.",
+        "hint_latex": null,
+        "solution_latex": "1. Cours.\n2. Cours. $\\text{Ker } f = f^{-1}(\\{e\\})$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Morphisme de groupes",
+          "Image et image réciproque d'un sous-groupe par un morphisme",
+          "Image et noyau d'un morphisme"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_18",
+      "source_number": "15.18",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Morphisme de groupes",
+          "Groupe",
+          "Anneau"
+        ]
+      },
+      "content": {
+        "statement_latex": "Déterminer tous les morphismes de groupe de $(\\mathbb{Z}, +)$ dans $(\\mathbb{Z}, +)$. De $(\\mathbb{Q}, +)$ dans $(\\mathbb{Z}, +)$.",
+        "hint_latex": null,
+        "solution_latex": "$\\mathbb{Z} \\to \\mathbb{Z}$ : $f(n) = n f(1)$. Forme $n \\mapsto kn$.\n$\\mathbb{Q} \\to \\mathbb{Z}$ : $f(r/n) = k$. $n f(r/n) = f(r)$. Divisibilité implique $f=0$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Morphisme de groupes",
+          "Groupe"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_19",
+      "source_number": "15.19",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Morphisme de groupes",
+          "Racines n-ièmes de l'unité",
+          "Noyau",
+          "Isomorphisme"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $m, n \\in \\mathbb{N}^*$. On note alors $f : \\mathbb{U}_{mn} \\to \\mathbb{U}_m \\times \\mathbb{U}_n, z \\mapsto (z^n, z^m)$.\n1. Montrer que $f$ est un morphisme de groupes.\n2. Déterminer un entier $k$ tel que $\\text{Ker } f = \\mathbb{U}_k$.\n3. Déterminer une condition nécessaire et suffisante pour que $f$ soit un isomorphisme.",
+        "hint_latex": null,
+        "solution_latex": "1. $f(zz') = f(z)f(z')$.\n2. $\\text{Ker } f = \\mathbb{U}_n \\cap \\mathbb{U}_m = \\mathbb{U}_{\\text{pgcd}(n,m)}$. Donc $k=\\text{pgcd}(n,m)$.\n3. Isomorphisme ssi noyau trivial ssi $\\text{pgcd}(n,m)=1$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Morphisme de groupes",
+          "Racines n-ièmes de l'unité",
+          "Isomorphisme de groupes"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_20",
+      "source_number": "15.20",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Groupe",
+          "Théorème de Cayley",
+          "Groupe des permutations d'un ensemble"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $(G, \\cdot)$ un groupe fini de cardinal $n$. En notant que pour tout $g \\in G$, l'application $\\varphi_g : x \\mapsto g \\cdot x$ réalise une bijection de $G$ sur lui-même, prouver que $G$ est isomorphe à un sous-groupe de $\\mathfrak{S}_n$.",
+        "hint_latex": null,
+        "solution_latex": "$g \\mapsto \\varphi_g$ est un morphisme injectif de $G$ dans $\\mathfrak{S}(G) \\cong \\mathfrak{S}_n$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Groupe des permutations d'un ensemble",
+          "Isomorphisme de groupes"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_21",
+      "source_number": "15.21",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Sous-groupe",
+          "Partie stable"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $(G, *)$ un groupe, et soit $A$ une partie non vide finie de $G$, stable par $*$.\nProuver que $A$ est un sous-groupe de $G$.",
+        "hint_latex": null,
+        "solution_latex": "L'application $x \\mapsto ax$ est injective dans $A$ fini, donc surjective. Donc $a$ a un antécédent, on retrouve $e$ et $a^{-1}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-groupe",
+          "Partie stable"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_22",
+      "source_number": "15.22",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Sous-groupe",
+          "Groupe",
+          "Nombre premier"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $G$ un groupe possédant exactement deux sous-groupes.\nMontrer qu'il existe $x \\in G$ tel que $G = \\langle x \\rangle$, que $G$ est fini, et que son cardinal est premier.",
+        "hint_latex": null,
+        "solution_latex": "Les sous-groupes sont $\\{e\\}$ et $G$. Si $x \\neq e$, $\\langle x \\rangle = G$. Donc cyclique. Si infini, $\\langle x^2 \\rangle$ est un sous-groupe strict non trivial, impossible. Donc fini d'ordre $p$. Si $p$ non premier, on a des sous-groupes."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Groupe",
+          "Sous-groupe"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_23",
+      "source_number": "15.23",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Anneau",
+          "Corps",
+          "Sous-anneau"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que $\\mathbb{Z}[\\sqrt{2}] = \\{ x+y\\sqrt{2}, (x,y) \\in \\mathbb{Z}^2 \\}$ est un anneau.\n2. Prouver que $\\mathbb{Q}(\\sqrt{2}) = \\{ x+y\\sqrt{2}, (x,y) \\in \\mathbb{Q}^2 \\}$ est un corps.\n3. Plus généralement, prouver que pour tout $d \\in \\mathbb{N}^*$, $\\mathbb{Q}(\\sqrt{d}) = \\{ a+b\\sqrt{d}, (a,b) \\in \\mathbb{Q}^2 \\}$ est un corps. Donner une condition nécessaire et suffisante pour que $\\mathbb{Q}(\\sqrt{d})=\\mathbb{Q}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Sous-anneau de $\\mathbb{R}$.\n2. Inverse via quantité conjuguée.\n3. Corps. $\\mathbb{Q}(\\sqrt{d})=\\mathbb{Q} \\iff \\sqrt{d} \\in \\mathbb{Q} \\iff d$ carré parfait."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau",
+          "Corps",
+          "Sous-anneau"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_24",
+      "source_number": "15.24",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Anneau",
+          "Nombres décimaux"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $\\mathbb{D}$ l'ensemble des nombres décimaux. Montrer que $(\\mathbb{D}, +, \\times)$ est un anneau. Est-ce un corps ?",
+        "hint_latex": null,
+        "solution_latex": "Sous-anneau de $\\mathbb{Q}$ (stable par somme, produit). Pas un corps (3 inversible dans $\\mathbb{Q}$ mais $1/3 \\notin \\mathbb{D}$)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau",
+          "Corps"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_25",
+      "source_number": "15.25",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Anneau",
+          "Anneau intègre"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $(A, +_A, \\times_A)$ et $(B, +_B, \\times_B)$ deux anneaux. On munit $A \\times B$ de deux lois de composition $\\oplus$ et $\\otimes$ définies par $(a,b) \\oplus (a',b') = (a+_A a', b+_B b')$ et $(a,b) \\otimes (a',b') = (a \\times_A a', b \\times_B b')$.\nMontrer que $(A \\times B, \\oplus, \\otimes)$ est un anneau, commutatif si $A$ et $B$ le sont. Cet anneau est-il intègre ?",
+        "hint_latex": null,
+        "solution_latex": "C'est un anneau (vérification axiomes). Non intègre car $(1_A, 0_B) \\otimes (0_A, 1_B) = (0_A, 0_B)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau",
+          "Anneau intègre"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_26",
+      "source_number": "15.26",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Sous-anneau",
+          "Suites numériques"
+        ]
+      },
+      "content": {
+        "statement_latex": "Parmi les ensembles suivants, lesquels sont des sous-anneaux de $\\mathbb{R}^{\\mathbb{N}}$, l'anneau des suites réelles ?\n1. l'ensemble des suites de limite nulle\n2. l'ensemble des suites croissantes\n3. l'ensemble des suites convergentes\n4. l'ensemble des suites divergentes\n5. l'ensemble des suites bornées\n6. l'ensemble des suites $(u_n)$ telles que $\\lim_{n \\to +\\infty} u_n = +\\infty$\n7. l'ensemble des suites stationnaires\n8. l'ensemble des suites nulles à partir d'un certain rang",
+        "hint_latex": null,
+        "solution_latex": "1. Non (pas 1).\n2. Non (opposé).\n3. Oui.\n4. Non (nulle pas divergente).\n5. Oui.\n6. Non.\n7. Oui.\n8. Non (pas 1)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-anneau",
+          "Anneau"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_27",
+      "source_number": "15.27",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Morphisme d'anneaux",
+          "Corps",
+          "Injectivité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $k, K$ deux corps, et soit $f : k \\to K$ un morphisme d'anneaux. Montrer que $f$ est injectif.",
+        "hint_latex": null,
+        "solution_latex": "Le noyau est un idéal. Dans un corps, les seuls idéaux sont $\\{0\\}$ et le corps. $f(1)=1 \\neq 0$ donc noyau $\\neq k$. Donc noyau $\\{0\\}$, donc injectif."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Morphisme d'anneaux",
+          "Corps",
+          "Image et noyau d'un morphisme"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_28",
+      "source_number": "15.28",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Anneau intègre",
+          "Anneau commutatif",
+          "Racine carrée"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $(A, +, \\times)$ un anneau commutatif. Pour $a \\in A$, on appelle racine carrée de $a$ tout élément dont le carré vaut $a$.\n1. Prouver que si $A$ est intègre, alors tout élément de $A$ admet au plus deux racines carrées.\n2. En revanche, prouver que dans $(\\mathcal{F}(\\mathbb{R}, \\mathbb{R}), +, \\times)$, la fonction constante $x \\mapsto 1$ possède une infinité de racines carrées.",
+        "hint_latex": null,
+        "solution_latex": "1. $x^2=a, y^2=a \\Rightarrow x^2-y^2=0 \\Rightarrow (x-y)(x+y)=0$. Intègre $\\Rightarrow x=y$ ou $x=-y$.\n2. Fonctions prenant la valeur 1 ou -1 arbitrairement."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau intègre",
+          "Anneau",
+          "Anneau commutatif"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_29",
+      "source_number": "15.29",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Anneau intègre",
+          "Fonctions",
+          "Anneau"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A$ un anneau commutatif et $E$ un ensemble non vide. À quelle condition $\\mathcal{F}(E,A)$ est-il intègre ?",
+        "hint_latex": null,
+        "solution_latex": "Ssi $E$ est un singleton et $A$ est intègre. Sinon on construit des diviseurs de zéro à supports disjoints."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau intègre",
+          "Anneau"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_30",
+      "source_number": "15.30",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Sous-anneau",
+          "Corps",
+          "Isomorphisme"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A = \\{ \\begin{pmatrix} a & b \\\\ -b & a \\end{pmatrix}, (a,b) \\in \\mathbb{R}^2 \\}$. Montrer que $A$ est un sous-anneau de $\\mathcal{M}_2(\\mathbb{R})$, isomorphe à $\\mathbb{C}$. En déduire que $A$ est un corps.",
+        "hint_latex": null,
+        "solution_latex": "Vérifier sous-anneau. Isomorphisme via $a+ib \\leftrightarrow M$. $\\mathbb{C}$ est un corps donc $A$ aussi."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Sous-anneau",
+          "Corps",
+          "Isomorphisme"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_31",
+      "source_number": "15.31",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Anneau",
+          "Éléments nilpotents",
+          "Formule du binôme"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $(A, +, \\times)$ un anneau. Un élément $a \\in A$ est dit nilpotent s'il existe $n \\in \\mathbb{N}$ tel que $a^n=0_A$.\n1. Soient $x, y$ deux éléments nilpotents de $A$, qui commutent. Montrer que $xy$ et $x+y$ sont nilpotents.\n2. Montrer que si $x \\in A$ est nilpotent, alors $1_A-x \\in A^\\times$.",
+        "hint_latex": null,
+        "solution_latex": "1. $(xy)^n = x^n y^n$. $(x+y)^{n+m}$ via binôme.\n2. $(1-x)(1+x+\\dots+x^{n-1}) = 1-x^n = 1$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau",
+          "Formule du binôme (si AB = BA), application au calcul de puissances"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_32",
+      "source_number": "15.32",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Anneau intègre",
+          "Corps",
+          "Finitude"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer qu'un anneau intègre fini est un corps.",
+        "hint_latex": null,
+        "solution_latex": "$x \\mapsto ax$ est injective (intégrité) donc bijective (fini). Donc $1$ a un antécédent, donc $a$ est inversible."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau intègre",
+          "Corps"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_33",
+      "source_number": "15.33",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Anneau commutatif",
+          "Idéal",
+          "Corps"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A$ un anneau commutatif non nul. On appelle idéal de $A$ tout sous-groupe $I$ de $(A,+)$ tel que $\\forall (a,x) \\in A \\times I, ax \\in I$.\n1. Montrer que pour tout $x \\in A$, $xA = \\{ ax, a \\in A \\}$ est un idéal de $A$.\n2. Un idéal $I$ est dit maximal si tout idéal de $A$, différent de $A$, et qui contient $I$ est égal à $I$ lui-même. Et un idéal $I$ différent de $A$ est dit premier si $\\forall (a,b) \\in A^2, ab \\in I \\Rightarrow a \\in I \\text{ ou } b \\in I$.\n(a) Montrer qu'un idéal $I$ est maximal si et seulement si pour tout $x \\in A \\setminus I$, $I+xA=A$.\n(b) Prouver qu'un idéal maximal est premier.\n3. Montrer que $A$ est un corps si et seulement si tout idéal de $A$ autre que $A$ est premier.",
+        "hint_latex": null,
+        "solution_latex": "1. Vérification axiomes.\n2. (a) Déf de maximal.\n(b) Si $ab \\in I$ et $a \\notin I$, alors $I+aA=A$, donc $1 = i + ax$, donc $b = ib + abx \\in I$.\n3. Corps ssi idéaux sont $\\{0\\}, A$. Si corps, $\\{0\\}$ premier (intègre). Réciproque : $x^2 A$ premier..."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Anneau",
+          "Sous-groupe",
+          "Corps"
+        ]
+      }
+    },
+    {
+      "id": "struc_alg_td_15_34",
+      "source_number": "15.34",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Morphisme d'anneaux",
+          "Identité",
+          "Densité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f : \\mathbb{R} \\to \\mathbb{R}$ un morphisme d'anneaux.\n1. Montrer que $f_{|\\mathbb{Q}} = \\text{id}_{\\mathbb{Q}}$.\n2. Prouver que $f$ est croissant.\n3. En déduire que $f = \\text{id}_{\\mathbb{R}}$.",
+        "hint_latex": null,
+        "solution_latex": "1. $f(1)=1 \\Rightarrow f(n)=n \\Rightarrow f(p/q)=p/q$.\n2. $y-x = \\sqrt{\\dots}^2 \\ge 0 \\Rightarrow f(y)-f(x) = f(\\sqrt{\\dots})^2 \\ge 0$.\n3. Densité de $\\mathbb{Q}$ et encadrement."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Morphisme d'anneaux",
+          "Partie dense de R"
+        ]
+      }
+    }
+  ]
+}

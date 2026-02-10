@@ -1,0 +1,751 @@
+{
+  "chapter_official_id": "FONC_REELLE",
+  "source_document": "Limites, continuité.pdf",
+  "exercises": [
+    {
+      "id": "fonc_reelle_td_17_01",
+      "source_number": "17.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "limites",
+          "composition"
+        ]
+      },
+      "content": {
+        "statement_latex": "(Re-)Prouver « à la main » (c'est-à-dire sans utiliser la notion de voisinage) que si $\\lim_{x\\to a}f(x)=b$ et $\\lim_{x\\to b}g(x)=l$, alors $\\lim_{x\\to a}(g\\circ f)(x)=l$ dans les cas suivants :\n1. $a=b=l=+\\infty$\n2. $a=-\\infty$, $b, l \\in \\mathbb{R}$\n3. $a \\in \\mathbb{R}$, $b=+\\infty$, $l=-\\infty$",
+        "hint_latex": null,
+        "solution_latex": "Cet exercice demande de revenir aux définitions quantifiées (avec des $\\epsilon$ et des $A$). Par exemple pour le cas 1 : Soit $A > 0$. Puisque $\\lim_{Y\\to +\\infty} g(Y) = +\\infty$, il existe $B > 0$ tel que $Y > B \\implies g(Y) > A$. Puisque $\\lim_{x\\to +\\infty} f(x) = +\\infty$, pour ce $B$, il existe $M > 0$ tel que $x > M \\implies f(x) > B$. En combinant les deux, si $x > M$, alors $f(x) > B$ donc $g(f(x)) > A$. Cqfd."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Limite finie ou infinie d'une fonction",
+          "Opérations sur les limites"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_02",
+      "source_number": "17.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "limites",
+          "suites",
+          "monotonie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}\\to \\mathbb{R}$ une fonction croissante telle que la suite $(f(n))_{n}$ diverge vers $+\\infty$. Montrer que $f(x)\\xrightarrow[x\\to+\\infty]{}+\\infty$.",
+        "hint_latex": null,
+        "solution_latex": "Soit $A \\in \\mathbb{R}$. Puisque $f(n) \\xrightarrow[n\\to+\\infty]{} +\\infty$, il existe $n_0 \\in \\mathbb{N}$ tel que pour $n \\in \\mathbb{N}$, $n \\ge n_0 \\implies f(n) > A$. Mais alors, pour $x$ réel supérieur ou égal à $n_0$, par croissance de $f$, $f(x) \\ge f(n_0) > A$. Et donc $f(x)\\xrightarrow[x\\to+\\infty]{}+\\infty$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la limite monotone",
+          "Caractérisation séquentielle de la limite"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_03",
+      "source_number": "17.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "limites",
+          "monotonie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}\\to \\mathbb{R}$ une fonction strictement croissante.\n1. On suppose que $\\lim_{x\\to+\\infty}f(x)=0$. Montrer que pour tout $x\\in \\mathbb{R}$, $f(x)<0$.\n2. Peut-on avoir $\\lim_{x\\to-\\infty}f(x)=+\\infty$ ?",
+        "hint_latex": null,
+        "solution_latex": "1. Soit $x \\in \\mathbb{R}$. Alors pour tout $t \\ge x+1$, $f(x) < f(x+1) \\le f(t)$. Et donc par passage à la limite lorsque $t\\to+\\infty$, $f(x) < f(x+1) \\le 0$. En particulier, on a bien $f(x) < 0$ (l'inégalité stricte $f(x) < f(x+1)$ est préservée car $f$ est strictement croissante).\n2. Supposons par l'absurde que $f(x)\\xrightarrow[x\\to-\\infty]{}+\\infty$. Notons $A=f(0)$. Alors il existe $B \\in \\mathbb{R}$ tel que pour tout $t \\le B$, $f(t) > f(0)$. Alors par stricte croissance de $f$, pour $t > B$, $f(t) > f(B) > f(0)$. Et donc pour tout $t \\in \\mathbb{R}$, $f(t) > f(0)$. En particulier $f(0) > f(0)$, ce qui est absurde."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la limite monotone",
+          "Monotonie (large et stricte)"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_04",
+      "source_number": "17.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "calcul de limites",
+          "équivalents",
+          "partie entière"
+        ]
+      },
+      "content": {
+        "statement_latex": "Déterminer les limites suivantes, lorsqu'elles existent :\n1. $\\lim_{x\\to+\\infty}\\sin(\\frac{1}{x})e^{\\cos x}$\n2. $\\lim_{x\\to+\\infty}\\sqrt{x}(\\sqrt{x+1}-\\sqrt{x-2})$\n3. $\\lim_{x\\to+\\infty}e^{x-\\sin(x)}$\n4. $\\lim_{x\\to+\\infty}(1+\\frac{2}{x})^{x}$\n5. $\\lim_{x\\to0}\\frac{\\lfloor x\\rfloor}{x}$\n6. $\\lim_{x\\to+\\infty}x-\\lfloor x\\rfloor$\n7. $\\lim_{x\\to0}x\\lfloor\\frac{1}{x}\\rfloor$\n8. $\\lim_{x\\to0}x^{2}\\lfloor\\frac{1}{x}\\rfloor$\n9. $\\lim_{x\\to0}\\cos(x+\\frac{1}{x})$\n10. $\\lim_{x\\to0}\\frac{\\sin(5x)}{\\sin(2x)}$",
+        "hint_latex": null,
+        "solution_latex": "1. Lorsque $x\\to+\\infty$, $\\frac{1}{x}\\to 0$. Puisque $\\sin(X) \\to 0$, par composition, $\\lim_{x\\to+\\infty}\\sin\\frac{1}{x}=0$. $e^{\\cos x}$ est bornée entre $e^{-1}$ et $e$. Par produit d'une fonction bornée par une qui tend vers 0, la limite est 0.\n2. Quantité conjuguée : $\\sqrt{x}(\\sqrt{x+1}-\\sqrt{x-2}) = \\frac{3\\sqrt{x}}{\\sqrt{x+1}+\\sqrt{x-2}} = \\frac{3}{\\sqrt{1+1/x}+\\sqrt{1-2/x}} \\to \\frac{3}{2}$.\n3. $x-\\sin x \\ge x-1 \\to +\\infty$. Donc la limite est $+\\infty$.\n4. $(1+\\frac{2}{x})^x = \\exp(x \\ln(1+\\frac{2}{x}))$. Avec $X=2/x$, $x \\ln(1+2/x) = 2 \\frac{\\ln(1+X)}{X} \\to 2$. Donc la limite est $e^2$.\n5. Pour $x \\in ]0,1[$, $\\lfloor x \\rfloor = 0$ donc limite $0^+$. Pour $x \\in ]-1,0[$, $\\lfloor x \\rfloor = -1$ donc limite $+\\infty$ en $0^-$. Pas de limite.\n6. Pas de limite (suite $n \\to 0$, suite $n+0.5 \\to 0.5$).\n7. Encadrement : $1/x - 1 < \\lfloor 1/x \\rfloor \\le 1/x$. En multipliant par $x$ (signe à considérer), on trouve 1 par gendarmes.\n8. Produit de limites : $x \\times (x\\lfloor 1/x \\rfloor) \\to 0 \\times 1 = 0$.\n9. Pas de limite (suites extractrices $x_n$ et $y_n$ donnent des limites 1 et -1).\n10. $\\frac{\\sin(5x)}{\\sin(2x)} = \\frac{\\sin(5x)}{5x} \\frac{2x}{\\sin(2x)} \\frac{5}{2} \\to 1 \\times 1 \\times 2.5 = 2.5$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Opérations sur les limites",
+          "Passage à la limite dans une inégalité large",
+          "Partie entière d'un nombre réel"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_05",
+      "source_number": "17.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "limites",
+          "trigonométrie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que la fonction $\\cos$ n'a pas de limite (finie ou infinie) en $+\\infty$.",
+        "hint_latex": null,
+        "solution_latex": "Utilisation de la caractérisation séquentielle. $u_n = 2n\\pi \\to +\\infty$ et $\\cos(u_n) = 1 \\to 1$. $v_n = 2n\\pi + \\pi/2 \\to +\\infty$ et $\\cos(v_n) = 0 \\to 0$. Les limites sont distinctes, donc pas de limite."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Caractérisation séquentielle de la limite",
+          "Fonctions circulaires"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_06",
+      "source_number": "17.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "limites",
+          "périodicité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}\\to \\mathbb{R}$ périodique. Donner une condition nécessaire et suffisante pour que $f$ possède une limite (finie ou non) en $+\\infty$.",
+        "hint_latex": null,
+        "solution_latex": "Si $f$ a une limite $l$, alors pour tout $x$, $f(x+nT) = f(x)$. Quand $n \\to +\\infty$, $x+nT \\to +\\infty$, donc $f(x+nT) \\to l$. Or la suite est constante égale à $f(x)$. Donc $f(x)=l$. $f$ doit être constante. Réciproquement si $f$ est constante, elle a une limite. CNS : $f$ est constante."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Parité, imparité, périodicité",
+          "Limite finie ou infinie d'une fonction"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_07",
+      "source_number": "17.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "limites",
+          "partie entière"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que la fonction définie sur $[1,+\\infty[$ par $f(x)=\\frac{x^{x}}{\\lfloor x\\rfloor^{\\lfloor x\\rfloor}}$ n'admet pas de limite en $+\\infty$.",
+        "hint_latex": null,
+        "solution_latex": "Pour $x_n = n$, $f(n) = n^n / n^n = 1$. Pour $y_n = n + 1/2$, $\\lfloor y_n \\rfloor = n$. $f(y_n) = \\frac{(n+1/2)^{n+1/2}}{n^n} = \\sqrt{n+1/2} (1 + 1/(2n))^n$. Le terme en puissance tend vers $e^{1/2}$, la racine vers $+\\infty$. Donc $f(y_n) \\to +\\infty$. Deux sous-suites, limites différentes."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie entière d'un nombre réel",
+          "Caractérisation séquentielle de la limite"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_08",
+      "source_number": "17.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "densité"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que la fonction $\\mathbf{1}_{\\mathbb{Q}}$ n'est continue en aucun point.\n2. Montrer que la fonction $x\\mapsto x^{2}\\mathbf{1}_{\\mathbb{Q}}(x)$ est continue en 0, mais n'est continue en aucun $a\\in \\mathbb{R}^{*}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Soit $a$. Densité de $\\mathbb{Q}$ : il existe $x_n \\in \\mathbb{Q} \\to a$, $\\mathbf{1}_{\\mathbb{Q}}(x_n)=1 \\to 1$. Densité de $\\mathbb{R}\\setminus\\mathbb{Q}$ : il existe $y_n \\notin \\mathbb{Q} \\to a$, $\\mathbf{1}_{\\mathbb{Q}}(y_n)=0 \\to 0$. Pas de limite, donc pas continu.\n2. En 0 : $0 \\le |x^2 \\mathbf{1}_{\\mathbb{Q}}(x)| \\le x^2$. Gendarmes $\\to 0 = f(0)$. Continu. En $a \\ne 0$ : $f(x) = x^2 \\mathbf{1}_{\\mathbb{Q}}(x)$. Si $f$ continue, $\\mathbf{1}_{\\mathbb{Q}}(x) = f(x)/x^2$ serait continue comme quotient, absurde d'après 1."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie dense de R",
+          "Caractérisation séquentielle de la continuité"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_09",
+      "source_number": "17.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "limites"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}_{+}\\to \\mathbb{R}$ une fonction bornée au voisinage de $+\\infty$ telle que $f(x+1)-f(x)\\xrightarrow[x\\to+\\infty]{}l\\in \\mathbb{R}$. Montrer que $l=0$.",
+        "hint_latex": null,
+        "solution_latex": "Somme télescopique : $f(x+n)-f(x) = \\sum_{k=0}^{n-1} (f(x+k+1)-f(x+k))$. Quand $x \\to +\\infty$, le terme de droite se comporte comme $n \\times l$. Or $f$ est bornée ($|f| \\le M$). Donc $|f(x+n)-f(x)| \\le 2M$. Si $l \\ne 0$, pour $n$ assez grand $|n l|$ dépassera $2M$, contradiction. Formalisation : $f(x+k)-f(x) \\to kl$. Bornitude $\\implies |kl| \\le 2M$. Vrai pour tout $k$, donc $l=0$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Limite finie ou infinie d'une fonction",
+          "Fonctions majorées, minorées, bornées"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_10",
+      "source_number": "17.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "monotonie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:[a,b]\\to \\mathbb{R}$ croissante et qui réalise une surjection de $[a, b]$ sur $[f(a),f(b)]$. Montrer que $f$ est continue.",
+        "hint_latex": null,
+        "solution_latex": "Théorème de la limite monotone : discontinuités de saut. Si $f$ saute en $c$, elle rate les valeurs entre $f(c^-)$ et $f(c^+)$. Or elle est surjective sur l'intervalle image, donc pas de trou. Donc continue."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la limite monotone",
+          "Image d'un segment par une fonction continue"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_11",
+      "source_number": "17.11",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "limites",
+          "moyenne de Cesàro"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}_{+}\\to \\mathbb{R}$ une fonction croissante telle que $\\lim_{x\\to+\\infty}(f(x+1)-f(x))=0$. Montrer que $\\lim_{x\\to+\\infty}\\frac{f(x)}{x}=0$.",
+        "hint_latex": "Du découpage d'e",
+        "solution_latex": "Fixons $\\epsilon$. Pour $x$ grand ($x \\ge A$), $f(x+1)-f(x) \\le \\epsilon$. Par télescopage discret sur la partie entière, $f(x) - f(x-n) \\le n\\epsilon$. On divise par $x$, on utilise la croissance pour borner le reste, et on montre que le rapport tend vers 0."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Limite finie ou infinie d'une fonction",
+          "Croissances comparées"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_12",
+      "source_number": "17.12",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "limites",
+          "monotonie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}_{+}^{*}\\to \\mathbb{R}$ croissante. On suppose qu'il existe $a>1$ tel que $\\lim_{x\\to+\\infty}\\frac{f(ax)}{f(x)}=1$. Montrer alors que pour tout $b>0$, $\\frac{f(bx)}{f(x)}\\xrightarrow[x\\to+\\infty]{}1$.",
+        "hint_latex": null,
+        "solution_latex": "On étend la propriété à $a^n$ par produit. Puis on encadre $b$ par des puissances de $a$ ($a^n \\le b < a^{n+1}$). Par croissance de $f$, on encadre le rapport et on utilise gendarmes."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Limite finie ou infinie d'une fonction",
+          "Monotonie (large et stricte)"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_13",
+      "source_number": "17.13",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "continuité",
+          "dénombrabilité"
+        ]
+      },
+      "content": {
+        "statement_latex": "On dit qu'un ensemble est au plus dénombrable s'il est équipotent à une partie de $\\mathbb{N}$. Montrer que si $f:\\mathbb{R}\\to \\mathbb{R}$ est croissante, alors l'ensemble des points de discontinuité de $f$ est au plus dénombrable.",
+        "hint_latex": null,
+        "solution_latex": "Les discontinuités sont des sauts (limite monotone). Pour chaque $n$, le nombre de sauts de hauteur $> 1/n$ dans un segment donné est fini (sinon la variation totale exploserait). L'union sur $n$ (dénombrable) d'ensembles finis (ou dénombrables) est dénombrable."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la limite monotone",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_14",
+      "source_number": "17.14",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "continuité",
+          "composition"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $f$ et $g$ les deux fonctions définies par :\n$f(x)=\\begin{cases}x+1&\\text{si }-1<x<1\\\\ 2-x&\\text{si }1\\le x\\le2\\end{cases}$\net $g(x)=\\begin{cases}1-x&\\text{si }0\\le x\\le1\\\\ x-2&\\text{si }1<x\\le2\\end{cases}$\nÉtudier la continuité des fonctions $f$, $g$, $g\\circ f$ et $f\\circ g$ sur $[0,2]$.",
+        "hint_latex": null,
+        "solution_latex": "$f$ discontinue en 1 ($2 \\ne 1$). $g$ discontinue en 1 ($0 \\ne -1$). $g \\circ f (x) = x-1$ continue. $f \\circ g$ discontinue en 1."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Continuité en un point, prolongement par continuité",
+          "Opérations sur les fonctions continues en un point"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_15",
+      "source_number": "17.15",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "valeur absolue"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f$ une fonction continue sur un intervalle $I$ et à valeurs réelles, telle que $|f|$ soit constante. Prouver que $f$ est constante.",
+        "hint_latex": null,
+        "solution_latex": "Si $|f| = C$. Si $C=0$, $f=0$. Si $C \\ne 0$, $f$ ne s'annule pas. Par TVI, $f$ ne change pas de signe. Donc $f = C$ ou $f = -C$ partout."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_16",
+      "source_number": "17.16",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "équation fonctionnelle"
+        ]
+      },
+      "content": {
+        "statement_latex": "Déterminer toutes les fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$, continues en 0 et telles que pour tout $x\\in \\mathbb{R}$, $f(2x)=f(x)$.",
+        "hint_latex": null,
+        "solution_latex": "Par récurrence $f(x) = f(x/2^n)$. Quand $n \\to +\\infty$, $x/2^n \\to 0$. Par continuité en 0, $f(x/2^n) \\to f(0)$. Donc $f(x) = f(0)$. Les fonctions constantes sont les seules solutions."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Continuité en un point, prolongement par continuité",
+          "Caractérisation séquentielle de la continuité"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_17",
+      "source_number": "17.17",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "polynômes",
+          "TVI"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}\\to \\mathbb{R}$ une fonction polynomiale de degré impair. Montrer que $f$ possède au moins une racine réelle. Ce résultat est-il encore vrai pour un polynôme de degré pair ?",
+        "hint_latex": null,
+        "solution_latex": "Limites en $\\pm \\infty$ sont de signes opposés (terme dominant impair). $f$ continue (polynôme). Par TVI, $f$ s'annule. Faux pour pair (ex: $x^2+1$). "
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Fonction polynomiale associée à un polynôme"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_18",
+      "source_number": "17.18",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "continuité",
+          "prolongement"
+        ]
+      },
+      "content": {
+        "statement_latex": "Déterminer si les fonctions suivantes peuvent se prolonger par continuité aux bornes de leur ensemble de définition :\n1. $f(x)=(1-x^{2})\\ln(\\frac{1+x}{1-x})$\n2. $g(x)=x \\sin(\\frac{1}{x})$\n3. $h(x)=e^{-\\frac{1}{x^{2}}}$\n4. $k(x)=e^{-\\frac{1}{x}}$",
+        "hint_latex": null,
+        "solution_latex": "1. En 1 : forme $(1-x)\\ln(1-x) \\to 0$. Prolongable. En -1 symétrique.\n2. En 0 : $|x\\sin(1/x)| \\le |x| \\to 0$. Prolongable par 0.\n3. En 0 : limite 0. Prolongable.\n4. En 0 : Limite à droite 0, limite à gauche $+\\infty$. Pas prolongable."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Continuité en un point, prolongement par continuité",
+          "Croissances comparées"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_19",
+      "source_number": "17.19",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "bornitude",
+          "composition"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $f:\\mathbb{R}\\to \\mathbb{R}$ bornée et $g:\\mathbb{R}\\to \\mathbb{R}$ continue. Prouver que $g\\circ f$ et $f\\circ g$ sont bornées sur $\\mathbb{R}$.",
+        "hint_latex": null,
+        "solution_latex": "$f$ bornée $\\implies f(\\mathbb{R}) \\subset [-M, M]$. $g$ continue sur le compact $[-M, M]$ est bornée. Donc $g \\circ f$ bornée. $g$ pas forcément bornée sur $\\mathbb{R}$, mais $f$ bornée partout, donc $f(g(x))$ reste dans l'image de $f$ qui est bornée. Donc $f \\circ g$ bornée."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Fonctions majorées, minorées, bornées",
+          "Image d'un segment par une fonction continue"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_20",
+      "source_number": "17.20",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "TVI"
+        ]
+      },
+      "content": {
+        "statement_latex": "Un (très bon) skieur de fond termine les 42km de la Foulée Blanche en 2h. Montrer qu'il existe un intervalle d'une heure dans lequel il a parcouru exactement 21 km.",
+        "hint_latex": null,
+        "solution_latex": "Poser $g(t) = f(t+1) - f(t)$ où $f$ est la distance parcourue. $g(0) + g(1) = f(2)-f(0) = 42$. Si l'un vaut 21, c'est bon. Sinon l'un est $>21$, l'autre $<21$. Par TVI sur $g$, il existe $t$ tel que $g(t)=21$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_21",
+      "source_number": "17.21",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "monotonie"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}_{+}^{*}\\to \\mathbb{R}$ croissante, et telle que $g:x\\mapsto\\frac{f(x)}{x}$ soit décroissante. Prouver que $f$ est continue.",
+        "hint_latex": null,
+        "solution_latex": "Limites à gauche et droite existent (monotonie). $f(a^-) \\le f(a) \\le f(a^+)$. Via $g$, relations inversées ou modifiées. $f(a^+) = a g(a^+) \\le a g(a^-) = f(a^-)$. Donc $f(a^+) = f(a^-)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la limite monotone",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_22",
+      "source_number": "17.22",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "point fixe",
+          "composition"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$. Montrer que $f$ admet un point fixe si et seulement si $f\\circ f$ admet un point fixe.",
+        "hint_latex": null,
+        "solution_latex": "$\"\\Rightarrow\"$ Trivial. $\"\\Leftarrow\"$ Supposons $f$ sans point fixe. Alors $f(x)-x$ garde un signe constant (TVI). Si $f(x) > x$ pour tout $x$, alors $f(f(x)) > f(x) > x$, donc $f \\circ f$ n'a pas de point fixe. Idem si $<$. Contraposée prouvée."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Composition d'applications"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_23",
+      "source_number": "17.23",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "lipschitzienne",
+          "point fixe"
+        ]
+      },
+      "content": {
+        "statement_latex": "Fonctions 1-lipschitziennes\nSoit $f:\\mathbb{R}\\to \\mathbb{R}$ telle que $\\forall(x,y)\\in \\mathbb{R}^{2}$, $|f(x)-f(y)|\\le|x-y|$ (on dit que $f$ est 1-lipschitzienne).\n1. Montrer que $f$ est continue sur $\\mathbb{R}$.\n2. Montrer que l'ensemble des points fixes de $f$ est soit vide, soit un intervalle de $\\mathbb{R}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Immédiat par définition (prendre $\\epsilon = \\eta$).\n2. Si $a < b$ sont points fixes. $|f(x)-a| \\le x-a \\implies f(x) \\le x$. $|f(x)-b| \\le b-x \\implies f(x) \\ge x$. Donc $f(x)=x$ sur $[a,b]$. L'ensemble est convexe (intervalle)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Fonction lipschitzienne",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_24",
+      "source_number": "17.24",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "périodicité",
+          "bornitude"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer qu'une fonction périodique et continue est bornée.",
+        "hint_latex": null,
+        "solution_latex": "Bornée sur une période (compact + continuité). Par périodicité, la borne est globale."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Image d'un segment par une fonction continue",
+          "Parité, imparité, périodicité"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_25",
+      "source_number": "17.25",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "point fixe",
+          "TVI"
+        ]
+      },
+      "content": {
+        "statement_latex": "Divers résultats d'existence de points fixes\n1. Soient $a<b$ deux réels, et soit $f:[a,b]\\to[a,b]$ une fonction continue. Montrer que $f$ possède au moins un point fixe.\n2. Soit $f:\\mathbb{R}\\to \\mathbb{R}$ continue et décroissante. Prouver que $f$ possède un unique point fixe.\n3. Soit $f:\\mathbb{R}\\to \\mathbb{R}$ continue. On suppose qu'il existe $a\\in \\mathbb{R}$ et $k\\in \\mathbb{N}^{*}$ tel que $f^{k}(a)=a$. Montrer que $f$ possède un point fixe.",
+        "hint_latex": null,
+        "solution_latex": "1. $g(x) = f(x)-x$. $g(a) \\ge 0$, $g(b) \\le 0$. TVI.\n2. $g(x) = f(x)-x$ strictement décroissante (somme de décroissante et strictement décroissante). Limites $\\pm \\infty$. Bijection de $\\mathbb{R}$ sur $\\mathbb{R}$ (TVI + monotonie). Zéro unique.\n3. Somme télescopique $g(a) + g(f(a)) + ... = 0$. Donc $g$ change de signe ou s'annule."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Théorème de la bijection"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_26",
+      "source_number": "17.26",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "extremum",
+          "coercivité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$. On suppose que $\\lim_{x\\to+\\infty}f(x)=\\lim_{x\\to-\\infty}f(x)=+\\infty$. Monter que $f$ possède un minimum.",
+        "hint_latex": null,
+        "solution_latex": "Découpage : en dehors d'un compact $[-A, A]$, $f(x) > f(0)$. Sur le compact, $f$ atteint un min $m$. Le minimum global est $\\min(m, f(x)_{|x|>A})$. Comme $f(x) > f(0) \\ge m$ dehors, $m$ est le min global."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des bornes atteintes sur un segment",
+          "Fonction majorée, minorée, bornée"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_27",
+      "source_number": "17.27",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "continuité",
+          "extremum"
+        ]
+      },
+      "content": {
+        "statement_latex": "Continuité du maximum\nSoit $f\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$. Pour tout $x\\in \\mathbb{R}_{+}$ on note $g(x)=\\max_{t\\in[0,x]}f(t)$. Montrer que $g$ est bien définie, croissante et continue.",
+        "hint_latex": null,
+        "solution_latex": "Bien définie (image d'un segment). Croissante (sup sur un ensemble plus grand). Continuité : cas par cas selon si $f(x) < g(x)$ ou $f(x)=g(x)$. Utiliser $\\epsilon$ et continuité uniforme ou locale."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Image d'un segment par une fonction continue",
+          "Continuité sur un intervalle"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_28",
+      "source_number": "17.28",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "densité",
+          "continuité"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Soit $f:\\mathbb{R}\\to \\mathbb{R}$ continue sur $\\mathbb{R}$ telle que pour tout $x\\in \\mathbb{Q}$, $f(x)=0$. Montrer que $f$ est la fonction nulle.\n2. Soient $f$ et $g$ deux fonctions continues sur $\\mathbb{R}$ qui coïncident sur $\\mathbb{Q}$. Montrer que $f=g$.",
+        "hint_latex": null,
+        "solution_latex": "1. Pour tout réel $x$, il existe une suite de rationnels tendant vers $x$. Par continuité $f(x) = \\lim f(q_n) = 0$.\n2. Appliquer 1 à $f-g$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie dense de R",
+          "Caractérisation séquentielle de la continuité"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_29",
+      "source_number": "17.29",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "bijection",
+          "coercivité"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f:\\mathbb{R}\\to \\mathbb{R}$ continue. On suppose qu'il existe $\\alpha>0$ tel que pour tout $x,y\\in \\mathbb{R}$, $\\alpha|x-y|\\le|f(x)-f(y)|$. Montrer que $f$ est bijective.",
+        "hint_latex": null,
+        "solution_latex": "Injectivité claire ($\\|f(x)-f(y)|=0 \\implies |x-y|=0$). Continue + injective $\\implies$ strictement monotone. Limites en $\\pm \\infty$ infinies par coercivité ($\\|f(x)-f(0)| \\ge \\alpha |x|$). TVI/Thm bijection $\\implies$ surjectivité."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème de la bijection",
+          "Image d'un intervalle par une fonction continue"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_30",
+      "source_number": "17.30",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "surjection",
+          "TVI"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$ surjective. Montrer que tout $y\\in \\mathbb{R}$ possède une infinité d'antécédents.",
+        "hint_latex": null,
+        "solution_latex": "Par l'absurde, si nombre fini d'antécédents, le dernier est $x_n$. Après $x_n$, $f(x)-y$ garde un signe constant. Si $f(x) > y$, $f$ a un min global sur $[0, x_n]$. Et ne descend jamais en dessous de $y$ après. Donc $f$ bornée inférieurement, contredit surjectivité (ne prend pas valeur $m-1$)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Théorème des valeurs intermédiaires (TVI)",
+          "Image d'un intervalle par une fonction continue"
+        ]
+      }
+    },
+    {
+      "id": "fonc_reelle_td_17_31",
+      "source_number": "17.31",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "TD",
+        "difficulty_score": 5,
+        "tags": [
+          "équation fonctionnelle",
+          "Oral Polytechnique"
+        ]
+      },
+      "content": {
+        "statement_latex": "Une équation fonctionnelle (Oral Polytechnique)\nDéterminer toutes les fonctions continues $f:\\mathbb{R}\\to \\mathbb{R}$ telles que pour tout $(x,y)\\in \\mathbb{R}^{2}$, $f(\\sqrt{x^{2}+y^{2}})=f(x)f(y)$.",
+        "hint_latex": null,
+        "solution_latex": "$f$ paire, $f(0)=1$ (ou $f=0$). $f(x) > 0$. On pose $g(t) = \\ln(f(\\sqrt{t}))$. $g(x^2+y^2) = g(x^2)+g(y^2)$. Linéarité (équation de Cauchy). $g(u) = au$. $f(x) = e^{ax^2}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Continuité sur un intervalle",
+          "Fonction exponentielle"
+        ]
+      }
+    }
+  ]
+}

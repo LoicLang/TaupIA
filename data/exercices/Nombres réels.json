@@ -1,0 +1,256 @@
+{
+  "chapter_official_id": "NOMBRES_REELS",
+  "source_document": "Nombres réels.pdf",
+  "exercises": [
+    {
+      "id": "td_suites_reels_12_01",
+      "source_number": "12.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Borne supérieure",
+          "Inclusion",
+          "Majorant"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A$ et $B$ deux parties de $\\mathbb{R}$, non vides, avec $B$ majorée et $A \\subset B$. Montrer que $A$ admet une borne supérieure, et que $\\sup(A) \\le \\sup(B)$.",
+        "hint_latex": null,
+        "solution_latex": "Soit $M = \\sup(B)$. Alors $M$ est un majorant de $B$. Comme $A \\subset B$, tout élément de $A$ est élément de $B$ et est donc inférieur ou égal à $M$. Ainsi, $M$ est un majorant de $A$. $A$ est une partie non vide et majorée de $\\mathbb{R}$, elle admet donc une borne supérieure. De plus, $\\sup(A)$ est le plus petit des majorants de $A$. Puisque $M$ est un majorant de $A$, on a nécessairement $\\sup(A) \\le M$, c'est-à-dire $\\sup(A) \\le \\sup(B)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Borne supérieure",
+          "Parties majorées"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_02",
+      "source_number": "12.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Borne supérieure",
+          "Borne inférieure",
+          "Calcul de bornes"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que les parties de $\\mathbb{R}$ suivantes sont bornées. Déterminer leurs bornes inférieures et supérieures :\n1. $A=\\{(-1)^{n}+\\frac{1}{n+1}, n \\in \\mathbb{N}\\}$\n2. $B=\\{\\frac{1}{n}-\\frac{1}{p}, (n,p) \\in \\mathbb{N}^{*} \\times \\mathbb{N}^{*}\\}$\n3. $C=\\{(-1)^{n}(1-\\frac{1}{n}), n \\in \\mathbb{N}^{*}\\}$",
+        "hint_latex": null,
+        "solution_latex": "**1. Pour A :**\nPour tout $n \\in \\mathbb{N}$, $-1 \\le (-1)^{n} + \\frac{1}{n+1} \\le 1 + 1 = 2$. $A$ est bornée. \nPour $n=0$, on obtient $2 \\in A$, c'est donc le maximum et $\\sup(A)=2$. \nMontrons que $\\inf(A) = -1$. $-1$ est un minorant. Soit $\\epsilon > 0$. On cherche $n$ impair tel que $-1 + \\frac{1}{n+1} < -1 + \\epsilon$, soit $\\frac{1}{n+1} < \\epsilon$. Il suffit de prendre $2k+1$ assez grand. Donc $\\inf(A)=-1$.\n\n**2. Pour B :**\nOn a $-1 < \\frac{1}{n} - \\frac{1}{p} < 1$. $\\sup(B)=1$ (en fixant $n=1$ et $p \\to \\infty$) et $\\inf(B)=-1$ (en fixant $p=1$ et $n \\to \\infty$). Les bornes ne sont pas atteintes.\n\n**3. Pour C :**\n$C$ est bornée par $-1$ et $1$. $\\sup(C)=1$ (limite pour $n$ pair) et $\\inf(C)=-1$ (limite pour $n$ impair)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Borne supérieure",
+          "Borne inférieure"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_03",
+      "source_number": "12.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Borne inférieure",
+          "Union",
+          "Intersection",
+          "Somme d'ensembles"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $A$ et $B$ deux parties non vides minorées de $\\mathbb{R}$.\n1. Montrer que $A \\cup B$ est minorée, et montrer que $\\inf(A \\cup B) = \\min(\\inf(A), \\inf(B))$.\n2. Montrer que si $A \\cap B \\ne \\emptyset$, alors $\\max(\\inf(A), \\inf(B)) \\le \\inf(A \\cap B)$. Est-ce toujours une égalité ?\n3. On pose $A+B = \\{a+b, (a,b) \\in A \\times B\\}$. Montrer que $A+B$ est minorée et que $\\inf(A+B) = \\inf(A) + \\inf(B)$.",
+        "hint_latex": null,
+        "solution_latex": "**1.** Soit $m = \\min(\\inf(A), \\inf(B))$. Pour tout $x \\in A \\cup B$, si $x \\in A$, $x \\ge \\inf(A) \\ge m$. Si $x \\in B$, $x \\ge \\inf(B) \\ge m$. Donc $m$ est un minorant. De plus, $\\inf(A \\cup B)$ doit être inférieur ou égal à $\\inf(A)$ (car $A \\subset A \\cup B$) et à $\\inf(B)$. Donc $\\inf(A \\cup B) \\le m$. D'où l'égalité.\n\n**2.** Si $x \\in A \\cap B$, $x \\ge \\inf(A)$ et $x \\ge \\inf(B)$, donc $x \\ge \\max(\\inf(A), \\inf(B))$. L'inégalité n'est pas toujours stricte : pour $A=\\{1,2\\}$ et $B=\\{0,2\\}$, $\\inf(A)=1, \\inf(B)=0$, $\\max=1$, mais $A \\cap B = \\{2\\}$ donc $\\inf(A \\cap B) = 2 \\ne 1$.\n\n**3.** $A+B$ est minorée par $\\inf(A)+\\inf(B)$. Montrons que c'est le plus grand minorant par la caractérisation $\\epsilon$. Soit $\\epsilon > 0$. Il existe $a \\in A$ tel que $a < \\inf(A) + \\epsilon/2$ et $b \\in B$ tel que $b < \\inf(B) + \\epsilon/2$. Alors $a+b < \\inf(A) + \\inf(B) + \\epsilon$. D'où $\\inf(A+B) = \\inf(A) + \\inf(B)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Opérations sur les ensembles",
+          "Borne inférieure"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_04",
+      "source_number": "12.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Parties adjacentes",
+          "Borne supérieure",
+          "Borne inférieure"
+        ]
+      },
+      "content": {
+        "statement_latex": "Parties adjacentes de $\\mathbb{R}$. Soient $A$ et $B$ deux parties non vides de $\\mathbb{R}$. On suppose que :\n$$\\forall (a,b) \\in A \\times B, \\quad a \\le b \\quad \\text{et} \\quad \\forall \\epsilon > 0, \\exists (a,b) \\in A \\times B, \\quad b-a < \\epsilon$$\nMontrer que $A$ admet une borne supérieure, $B$ admet une borne inférieure et $\\sup(A) = \\inf(B)$.",
+        "hint_latex": null,
+        "solution_latex": "Tout $b \\in B$ est un majorant de $A$, donc $\\sup(A)$ existe et $\\sup(A) \\le b$. Ceci étant vrai pour tout $b$, $\\sup(A)$ est un minorant de $B$, donc $\\inf(B)$ existe et $\\sup(A) \\le \\inf(B)$.\nSupposons par l'absurde $\\sup(A) < \\inf(B)$. Posons $\\epsilon = \\inf(B) - \\sup(A) > 0$. Par hypothèse, il existe $(a,b)$ tels que $b-a < \\epsilon$. Alors $b < a + \\epsilon \\le \\sup(A) + \\epsilon = \\inf(B)$, ce qui contredit la définition de l'infimum ($b$ ne peut pas être strictement plus petit que $\\inf(B)$). Donc $\\sup(A) = \\inf(B)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Borne supérieure",
+          "Parties adjacentes"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_05",
+      "source_number": "12.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Borne supérieure",
+          "Ensemble privé d'un point"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A$ une partie majorée de $\\mathbb{R}$ contenant au moins deux éléments. On suppose que $x \\in A$ et $x \\ne \\sup(A)$. Montrer que $\\sup(A \\setminus \\{x\\}) = \\sup(A)$.",
+        "hint_latex": null,
+        "solution_latex": "On a $A \\setminus \\{x\\} \\subset A$, donc $\\sup(A \\setminus \\{x\\}) \\le \\sup(A)$.\nSupposons l'inégalité stricte : $\\sup(A \\setminus \\{x\\}) < \\sup(A)$.\nSi $\\sup(A \\setminus \\{x\\}) \\le x$, alors pour tout $y \\in A \\setminus \\{x\\}$, $y \\le x$. Comme $x \\le x$, $x$ serait le plus grand élément de $A$, donc $x = \\sup(A)$, ce qui est exclu par hypothèse.\nDonc $x < \\sup(A \\setminus \\{x\\})$. Alors $\\sup(A \\setminus \\{x\\})$ majore $A \\setminus \\{x\\}$ et est supérieur à $x$, donc il majore $A \\cup \\{x\\} = A$. Ainsi $\\sup(A) \\le \\sup(A \\setminus \\{x\\})$, ce qui contredit l'hypothèse stricte.\nD'où l'égalité."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Borne supérieure"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_06",
+      "source_number": "12.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Fonctions bornées",
+          "Monotonie",
+          "Infimum",
+          "Supremum"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $f : \\mathbb{R} \\to \\mathbb{R}$ une fonction bornée. On définit deux fonctions $g$ et $h$ sur $\\mathbb{R}$ en posant, pour tout $x \\in \\mathbb{R}$ :\n$$g(x) = \\inf \\{f(y), y \\ge x\\} \\quad \\text{et} \\quad h(x) = \\sup \\{f(y), y \\ge x\\}$$\nMontrer que $g$ et $h$ sont bien définies, que $g \\le h$ et étudier les monotonies de $g$ et $h$.",
+        "hint_latex": null,
+        "solution_latex": "$f$ étant bornée, les ensembles sont bornés et non vides (contiennent $f(x)$), donc $g$ et $h$ sont bien définies.\nPour tout $y \\ge x$, $f(y) \\in \\{f(t), t \\ge x\\}$, donc $\\inf \\dots \\le \\sup \\dots$, soit $g(x) \\le h(x)$.\nSoit $x \\le x'$. Alors $\\{f(y), y \\ge x'\\} \\subset \\{f(y), y \\ge x\\}$.\nL'infimum sur un ensemble plus petit est plus grand : $g(x) \\le g(x')$ ($g$ est croissante).\nLe supremum sur un ensemble plus petit est plus petit : $h(x') \\le h(x)$ ($h$ est décroissante)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Fonction monotone",
+          "Borne supérieure"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_07",
+      "source_number": "12.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Densité",
+          "Nombres rationnels"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que $E = \\{r^3, r \\in \\mathbb{Q}\\}$ est dense dans $\\mathbb{R}$.",
+        "hint_latex": null,
+        "solution_latex": "Soient $a < b$ deux réels. La fonction racine cubique est strictement croissante, donc $\\sqrt[3]{a} < \\sqrt[3]{b}$. Par densité de $\\mathbb{Q}$ dans $\\mathbb{R}$, il existe $r \\in \\mathbb{Q}$ tel que $\\sqrt[3]{a} < r < \\sqrt[3]{b}$. En élevant au cube (fonction croissante), $a < r^3 < b$. Comme $r^3 \\in E$, $E$ est dense dans $\\mathbb{R}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Densité",
+          "Rationnels"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_08",
+      "source_number": "12.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Borne supérieure",
+          "Propriétés topologiques"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $A$ une partie majorée de $\\mathbb{R}$, et soit $M = \\sup(A)$. On suppose par ailleurs que $A$ ne possède pas de plus grand élément. Montrer que pour tout $\\epsilon > 0$, l'intervalle $]M-\\epsilon, M[$ contient une infinité d'éléments de $A$. Ce résultat reste-t-il vrai si $M \\in A$ ?",
+        "hint_latex": null,
+        "solution_latex": "Puisque $A$ n'a pas de max, $M \\notin A$. Par définition de la borne sup, pour tout $\\epsilon > 0$, l'intersection $]M-\\epsilon, M[ \\cap A$ est non vide.\nSupposons qu'elle soit finie. Notons $x$ son plus grand élément. On a $x < M$. Comme $x$ n'est pas majorant, il existe $y \\in A$ tel que $x < y \\le M$. Comme $M \\notin A$, $y < M$. Donc $y \\in ]M-\\epsilon, M[ \\cap A$ et $y > x$, ce qui contredit la maximalité de $x$ dans l'intersection finie.\nSi $M \\in A$, c'est faux (ex: $A = \\{0, 1\\}$, $M=1$, l'intersection peut être vide ou réduite à $M$ pour $\\epsilon$ petit)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Borne supérieure",
+          "Voisinage"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_09",
+      "source_number": "12.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Équation fonctionnelle",
+          "Densité",
+          "Morphisme"
+        ]
+      },
+      "content": {
+        "statement_latex": "Endomorphismes croissants de $(\\mathbb{R}, +)$. Soit $f : \\mathbb{R} \\to \\mathbb{R}$ telle que $\\forall (x,y) \\in \\mathbb{R}^2, f(x+y) = f(x) + f(y)$. On pose $\\alpha = f(1)$.\n1. Déterminer $f(0)$.\n2. Montrer que pour tout $n \\in \\mathbb{N}$, $f(n) = \\alpha n$.\n3. Montrer que pour tout $n \\in \\mathbb{Z}$, $f(n) = \\alpha n$.\n4. Montrer que pour tout $r \\in \\mathbb{Q}$, $f(r) = \\alpha r$.\n5. Soit $x \\in \\mathbb{R}$.\n   (a) Montrer qu'il existe deux suites $(a_n)$ et $(b_n)$, à valeurs rationnelles, de limite $x$, telles que $\\forall n \\in \\mathbb{N}, a_n \\le x \\le b_n$.\n   (b) On suppose $f$ croissante. Montrer que $f(x) = \\alpha x$.\n6. Déterminer toutes les applications croissantes $f : \\mathbb{R} \\to \\mathbb{R}$ telles que pour tout $(x,y) \\in \\mathbb{R}^2, f(x+y)=f(x)+f(y)$.",
+        "hint_latex": null,
+        "solution_latex": "1. $f(0) = f(0+0) = 2f(0) \\implies f(0)=0$.\n2. Récurrence: $f(n) = n f(1) = n \\alpha$.\n3. $f(n) + f(-n) = f(0) = 0 \\implies f(-n) = -f(n) = -n\\alpha$.\n4. Pour $r = p/q$, $q f(p/q) = f(p) = p \\alpha \\implies f(r) = \\alpha r$.\n5. (a) Densité de $\\mathbb{Q}$ (approx décimales par ex).\n   (b) $f(a_n) \\le f(x) \\le f(b_n) \\implies \\alpha a_n \\le f(x) \\le \\alpha b_n$. Par passage à la limite (gendarmes), $f(x) = \\alpha x$.\n6. Les applications linéaires $x \\mapsto \\alpha x$ avec $\\alpha \\ge 0$ (pour la croissance)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Densité",
+          "Rationnels",
+          "Monotonie",
+          "Suites"
+        ]
+      }
+    },
+    {
+      "id": "td_suites_reels_12_10",
+      "source_number": "12.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Densité",
+          "Intervalles",
+          "Dyadiques"
+        ]
+      },
+      "content": {
+        "statement_latex": "Un critère de densité. Soit $A$ une partie de $\\mathbb{R}$ telle que :\ni) $\\forall x \\in \\mathbb{R}, \\exists (a,b) \\in A^2, a < x < b$ (Prouver que $A$ est dense dans $\\mathbb{R}$ est une erreur dans l'énoncé original, c'est l'objectif final).\nii) $\\forall (a,b) \\in A^2, \\frac{a+b}{2} \\in A$.\nProuver que $A$ est dense dans $\\mathbb{R}$.",
+        "hint_latex": "Considérer les milieux successifs (nombres dyadiques).",
+        "solution_latex": "L'hypothèse (ii) implique que $A$ est stable par milieux. Soient $x < y$. On veut montrer que $A \\cap ]x, y[ \\ne \\emptyset$. D'après (i), il existe $a, b \\in A$ tels que $a < x < y < b$. En itérant la division par 2, on construit les nombres $x_k^{(n)} = a + k \\frac{b-a}{2^n}$. Ce sont des éléments de $A$. Pour $n$ assez grand, le pas $\\frac{b-a}{2^n}$ est inférieur à $y-x$, donc l'un des points tombe dans $]x,y[$. Donc $A$ est dense."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Densité",
+          "Partie dense"
+        ]
+      }
+    }
+  ]
+}

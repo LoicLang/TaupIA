@@ -1,0 +1,114 @@
+{
+  "chapter_official_id": "CALC_MAT",
+  "chapter_name": "Calcul Matriciel",
+  "source_document": "Matrices.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "def_matrice",
+      "type": "definition",
+      "title": "Matrice",
+      "content_latex": "Une matrice de taille $(n,p)$ à coefficients dans $\\mathbb{K}$ est une famille de scalaires $(a_{i,j})$ indexée par $\\llbracket 1, n \\rrbracket \\times \\llbracket 1, p \\rrbracket$. On note $\\mathcal{M}_{n,p}(\\mathbb{K})$ l'ensemble de ces matrices.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_operations_matricielles",
+      "type": "definition",
+      "title": "Opérations (Somme et Produit externe)",
+      "content_latex": "L'addition $A+B$ et la multiplication par un scalaire $\\lambda A$ se font terme à terme. $\\mathcal{M}_{n,p}(\\mathbb{K})$ muni de ces lois est un espace vectoriel.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_produit_matriciel",
+      "type": "definition",
+      "title": "Produit matriciel",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ et $B \\in \\mathcal{M}_{p,q}(\\mathbb{K})$. Le produit $C = AB \\in \\mathcal{M}_{n,q}(\\mathbb{K})$ est défini par $c_{i,j} = \\sum_{k=1}^p a_{i,k}b_{k,j}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_produit_non_commutatif",
+      "type": "property",
+      "title": "Non-commutativité du produit",
+      "content_latex": "Le produit matriciel n'est pas commutatif en général : même si les dimensions permettent le calcul, on a souvent $AB \\neq BA$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_transposee",
+      "type": "definition",
+      "title": "Transposée",
+      "content_latex": "La transposée de $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$, notée $A^T$ ou $^tA$, est la matrice de $\\mathcal{M}_{p,n}(\\mathbb{K})$ définie par $(A^T)_{i,j} = A_{j,i}$. On a $(AB)^T = B^T A^T$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_trace",
+      "type": "definition",
+      "title": "Trace",
+      "content_latex": "Pour $A \\in \\mathcal{M}_n(\\mathbb{K})$, la trace est la somme des coefficients diagonaux : $\\text{tr}(A) = \\sum_{i=1}^n a_{i,i}$. Elle vérifie $\\text{tr}(AB) = \\text{tr}(BA)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_matrices_particulieres",
+      "type": "definition",
+      "title": "Matrices particulières",
+      "content_latex": "- Diagonale : coefficients hors diagonale nuls.\\n- Triangulaire (sup/inf) : coefficients sous/sur la diagonale nuls.\\n- Symétrique : $A^T = A$.\\n- Antisymétrique : $A^T = -A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_inversibilite",
+      "type": "definition",
+      "title": "Matrice inversible",
+      "content_latex": "Une matrice carrée $A \\in \\mathcal{M}_n(\\mathbb{K})$ est inversible s'il existe $B$ telle que $AB = BA = I_n$. L'ensemble des matrices inversibles est noté $GL_n(\\mathbb{K})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_inverse_proprietes",
+      "type": "property",
+      "title": "Propriétés de l'inverse",
+      "content_latex": "L'inverse est unique. Si $A$ et $B$ sont inversibles, $AB$ l'est et $(AB)^{-1} = B^{-1}A^{-1}$. De même $(A^T)^{-1} = (A^{-1})^T$.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_binome_newton_matriciel",
+      "type": "theorem",
+      "title": "Binôme de Newton matriciel",
+      "content_latex": "Si $A$ et $B$ commutent ($AB=BA$), alors pour tout $n \\in \\mathbb{N}$, $(A+B)^n = \\sum_{k=0}^n \\binom{n}{k} A^k B^{n-k}$.",
+      "proof_latex": "Par récurrence sur $n$, en utilisant la commutativité pour regrouper les termes."
+    },
+    {
+      "id": "meth_resolution_systeme_inverse",
+      "type": "method",
+      "title": "Calcul de l'inverse par résolution de système",
+      "content_latex": "Pour inverser $A$, on résout le système linéaire $AX = Y$ d'inconnue $X$ et de paramètre $Y$. Si le système admet une unique solution pour tout $Y$, alors $A$ est inversible et la solution s'écrit $X = A^{-1}Y$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exo_matrice_nilpotente",
+      "statement_latex": "Soit $A = \\begin{pmatrix} 0 & 1 & 1 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$. Calculer $A^2$ et $A^3$. Que dire de la matrice $A$ ?",
+      "solution_latex": "On calcule $A^2 = \\begin{pmatrix} 0 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ et $A^3 = 0_3$. La matrice $A$ est nilpotente d'indice 3.",
+      "difficulty": 2,
+      "tags": ["calcul_matriciel", "nilpotence", "puissances"]
+    },
+    {
+      "id": "exo_puissance_binome",
+      "statement_latex": "Soit $A = \\begin{pmatrix} 3 & -1 \\\\ -1 & 3 \\end{pmatrix}$. Décomposer $A$ sous la forme $3I_2 + T$ et calculer $A^n$ à l'aide du binôme de Newton.",
+      "solution_latex": "On a $T = \\begin{pmatrix} 0 & -1 \\\\ -1 & 0 \\end{pmatrix}$. $T$ commute avec $3I_2$. On remarque que $T^2 = I_2$, donc $T^k$ vaut $I_2$ (k pair) ou $T$ (k impair). On applique la formule du binôme et on sépare les sommes paires et impaires.",
+      "difficulty": 3,
+      "tags": ["binome_newton", "puissances", "astuce"]
+    },
+    {
+      "id": "exo_inversion_systeme",
+      "statement_latex": "Montrer que la matrice $A = \\begin{pmatrix} 3 & -1 & 2 \\\\ -2 & -1 & 0 \\\\ 1 & -1 & 1 \\end{pmatrix}$ est inversible en résolvant le système $AX=Y$ pour $Y=(a,b,c)^T$.",
+      "solution_latex": "On écrit le système : $\\begin{cases} 3x - y + 2z = a \\\\ -2x - y = b \\\\ x - y + z = c \\end{cases}$. Par opérations élémentaires (pivot de Gauss), on échelonne le système pour exprimer $x,y,z$ en fonction de $a,b,c$. L'existence d'une unique solution prouve l'inversibilité.",
+      "difficulty": 3,
+      "tags": ["systeme_lineaire", "inversibilite", "pivot_gauss"]
+    },
+    {
+      "id": "exo_trace_antisymetrique",
+      "statement_latex": "Que vaut la trace d'une matrice antisymétrique ?",
+      "solution_latex": "Si $A$ est antisymétrique, $A^T = -A$, donc pour tout $i$, $a_{i,i} = -a_{i,i}$, ce qui implique $a_{i,i} = 0$. La trace, somme des coefficients diagonaux, est donc nulle.",
+      "difficulty": 1,
+      "tags": ["trace", "antisymetrie", "propriete"]
+    }
+  ]
+}

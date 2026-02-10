@@ -1,0 +1,282 @@
+{
+  "chapter_official_id": "TECH_ANA",
+  "chapter_name": "Calcul de primitives et d'intégrales",
+  "source_document": "Calcul intégral.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "def_primitive",
+      "type": "definition",
+      "title": "Primitive d'une fonction",
+      "content_latex": "Soit $f$ continue sur $I$. Une primitive de $f$ est une fonction $F$ dérivable sur $I$ telle que $\\forall x \\in I, F'(x) = f(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_structure_primitives",
+      "type": "property",
+      "title": "Structure de l'ensemble des primitives",
+      "content_latex": "Deux primitives de $f$ sur un intervalle $I$ diffèrent d'une constante. Si $F$ est une primitive, toutes les autres sont de la forme $F + \\lambda$ ($\\lambda \\in \\mathbb{R}$).",
+      "proof_latex": "Si $G'=F'=f$, alors $(G-F)'=0$ sur un intervalle, donc $G-F$ est constante."
+    },
+    {
+      "id": "thm_fondamental_analyse_existence",
+      "type": "theorem",
+      "title": "Théorème fondamental (Existence)",
+      "content_latex": "Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.",
+      "proof_latex": "Admis."
+    },
+    {
+      "id": "def_classe_C1",
+      "type": "definition",
+      "title": "Fonction de classe C1",
+      "content_latex": "$f$ est de classe $\\mathcal{C}^1$ sur $I$ si elle est dérivable sur $I$ et que sa dérivée $f'$ est continue sur $I$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_operations_C1",
+      "type": "property",
+      "title": "Opérations sur les fonctions C1",
+      "content_latex": "Somme, produit, quotient (si dénominateur non nul) et composée de fonctions $\\mathcal{C}^1$ sont $\\mathcal{C}^1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_integrale_segment",
+      "type": "definition",
+      "title": "Intégrale sur un segment",
+      "content_latex": "$\\int_a^b f(t)dt = [F(t)]_a^b = F(b) - F(a)$, où $F$ est une primitive quelconque de $f$.",
+      "proof_latex": "Indépendance vis-à-vis de la primitive choisie vérifiée par calcul."
+    },
+    {
+      "id": "prop_linearite_integrale",
+      "type": "property",
+      "title": "Linéarité de l'intégrale",
+      "content_latex": "$\\int_a^b (\\lambda f(t) + g(t)) dt = \\lambda \\int_a^b f(t) dt + \\int_a^b g(t) dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_chasles_integrale",
+      "type": "property",
+      "title": "Relation de Chasles",
+      "content_latex": "$\\int_a^b f(t) dt = \\int_a^c f(t) dt + \\int_c^b f(t) dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_positivite_integrale",
+      "type": "property",
+      "title": "Positivité de l'intégrale",
+      "content_latex": "Si $a \\le b$ et $f \\ge 0$ sur $[a,b]$, alors $\\int_a^b f(t) dt \\ge 0$.",
+      "proof_latex": "Car une primitive $F$ est croissante."
+    },
+    {
+      "id": "prop_croissance_integrale",
+      "type": "property",
+      "title": "Croissance de l'intégrale",
+      "content_latex": "Si $a \\le b$ et $f \\le g$ sur $[a,b]$, alors $\\int_a^b f(t) dt \\le \\int_a^b g(t) dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_inegalite_triangulaire_integrale",
+      "type": "property",
+      "title": "Inégalité triangulaire (intégrale)",
+      "content_latex": "Si $a \\le b$, $|\\int_a^b f(t) dt| \\le \\int_a^b |f(t)| dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_integrale_nulle_positive",
+      "type": "property",
+      "title": "Intégrale nulle d'une fonction positive",
+      "content_latex": "Si $f$ est continue, positive sur $[a,b]$ ($a<b$) et $\\int_a^b f(t) dt = 0$, alors $f$ est nulle sur $[a,b]$.",
+      "proof_latex": "Par l'absurde ou via primitive constante."
+    },
+    {
+      "id": "thm_fondamental_analyse_formule",
+      "type": "theorem",
+      "title": "Théorème fondamental (Primitive intégrale)",
+      "content_latex": "La fonction $F(x) = \\int_a^x f(t) dt$ est l'unique primitive de $f$ qui s'annule en $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "list_primitives_usuelles_puissances",
+      "type": "method",
+      "title": "Primitives usuelles (Puissances)",
+      "content_latex": "$x^n \\to \\frac{x^{n+1}}{n+1}$ ($n \\ne -1$), $x^{-1} \\to \\ln|x|$, $x^\\alpha \\to \\frac{x^{\\alpha+1}}{\\alpha+1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "list_primitives_usuelles_trigo",
+      "type": "method",
+      "title": "Primitives usuelles (Trigo)",
+      "content_latex": "$\\cos \\to \\sin$, $\\sin \\to -\\cos$, $1+\\tan^2 = \\frac{1}{\\cos^2} \\to \\tan$.",
+      "proof_latex": null
+    },
+    {
+      "id": "list_primitives_usuelles_hyp",
+      "type": "method",
+      "title": "Primitives usuelles (Hyperbolique)",
+      "content_latex": "$\\text{ch} \\to \\text{sh}$, $\\text{sh} \\to \\text{ch}$, $1-\\text{th}^2 = \\frac{1}{\\text{ch}^2} \\to \\text{th}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "list_primitives_usuelles_inv",
+      "type": "method",
+      "title": "Primitives usuelles (Inverses)",
+      "content_latex": "$\\frac{1}{1+x^2} \\to \\arctan x$, $\\frac{1}{\\sqrt{1-x^2}} \\to \\arcsin x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_primitives_composees",
+      "type": "property",
+      "title": "Primitives composées",
+      "content_latex": "$u'u^n \\to \\frac{u^{n+1}}{n+1}$, $u'/u \\to \\ln|u|$, $u'e^u \\to e^u$, $u'(v' \\circ u) \\to v \\circ u$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_primitive_affine",
+      "type": "property",
+      "title": "Primitive de f(ax+b)",
+      "content_latex": "Si $F$ est primitive de $f$, alors $x \\mapsto \\frac{1}{a}F(ax+b)$ est primitive de $x \\mapsto f(ax+b)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_primitives_speciales",
+      "type": "property",
+      "title": "Primitives tan, th, ln",
+      "content_latex": "$\\tan x \\to -\\ln|\\cos x|$, $\\text{th } x \\to \\ln(\\text{ch } x)$, $\\ln x \\to x\\ln x - x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "meth_elts_simples_1",
+      "type": "method",
+      "title": "Intégration éléments simples (1ère espèce)",
+      "content_latex": "$\\frac{1}{x-a} \\to \\ln|x-a|$, $\\frac{1}{(x-a)^n} \\to \\frac{-1}{(n-1)(x-a)^{n-1}}$ ($n \\ge 2$).",
+      "proof_latex": null
+    },
+    {
+      "id": "meth_elts_simples_2",
+      "type": "method",
+      "title": "Intégration éléments simples (2ème espèce)",
+      "content_latex": "$\\frac{1}{x^2+1} \\to \\arctan x$. Pour $ax^2+bx+c$, mettre sous forme canonique pour se ramener à $\\frac{du}{u^2+1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "meth_poly_trigo",
+      "type": "method",
+      "title": "Intégration polynômes trigonométriques",
+      "content_latex": "Linéariser les expressions (avec formules d'Euler) pour obtenir somme de $\\cos(kx)$ et $\\sin(kx)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_ipp",
+      "type": "theorem",
+      "title": "Intégration par parties (IPP)",
+      "content_latex": "$\\int_a^b u'(t)v(t)dt = [u(t)v(t)]_a^b - \\int_a^b u(t)v'(t)dt$. (Pour $u,v$ de classe $\\mathcal{C}^1$).",
+      "proof_latex": "Dérivée d'un produit."
+    },
+    {
+      "id": "thm_changement_variable",
+      "type": "theorem",
+      "title": "Changement de variable",
+      "content_latex": "$\\int_a^b f(\\varphi(x))\\varphi'(x)dx = \\int_{\\varphi(a)}^{\\varphi(b)} f(t)dt$. (Avec $\\varphi$ de classe $\\mathcal{C}^1$).",
+      "proof_latex": "Par composition des primitives."
+    },
+    {
+      "id": "def_fonctions_complexes",
+      "type": "definition",
+      "title": "Fonction à valeurs complexes",
+      "content_latex": "$f(t) = \\text{Re}(f)(t) + i \\text{Im}(f)(t)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_derivabilite_complexe",
+      "type": "definition",
+      "title": "Dérivabilité (fonctions complexes)",
+      "content_latex": "$f$ est dérivable si $\\text{Re}(f)$ et $\\text{Im}(f)$ le sont. $f' = (\\text{Re } f)' + i(\\text{Im } f)'$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_operations_derivee_complexe",
+      "type": "property",
+      "title": "Opérations dérivées complexes",
+      "content_latex": "$(uv)' = u'v + uv'$, $(u/v)' = \\frac{u'v-uv'}{v^2}$ (valables comme dans $\\mathbb{R}$).",
+      "proof_latex": "Calcul via parties réelles et imaginaires."
+    },
+    {
+      "id": "def_primitive_complexe",
+      "type": "definition",
+      "title": "Primitive (fonction complexe)",
+      "content_latex": "$F$ est primitive de $f$ si $F' = f$. Revient à primitiver parties réelle et imaginaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_integrale_complexe",
+      "type": "definition",
+      "title": "Intégrale (fonction complexe)",
+      "content_latex": "$\\int_a^b f(t) dt = \\int_a^b \\text{Re}(f)(t) dt + i \\int_a^b \\text{Im}(f)(t) dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_derivee_exp_complexe",
+      "type": "property",
+      "title": "Dérivée de $e^\\varphi$",
+      "content_latex": "Si $\\varphi$ est dérivable à valeurs complexes, $(e^\\varphi)' = \\varphi' e^\\varphi$.",
+      "proof_latex": "Calcul détaillé parties réelle/imaginaire."
+    },
+    {
+      "id": "cor_primitive_exp_alpha_t",
+      "type": "property",
+      "title": "Primitive de $e^{\\alpha t}$",
+      "content_latex": "Pour $\\alpha \\in \\mathbb{C}^*$, une primitive de $t \\mapsto e^{\\alpha t}$ est $t \\mapsto \\frac{1}{\\alpha}e^{\\alpha t}$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exo_int_01",
+      "statement_latex": "Encadrer la série harmonique $H_n$ à l'aide de l'intégrale de $t \\mapsto 1/t$.",
+      "solution_latex": "Par décroissance de $1/t$ : $\\frac{1}{k+1} \\le \\int_k^{k+1} \\frac{dt}{t} \\le \\frac{1}{k}$. Sommation : $\\ln(n+1) \\le H_n \\le 1 + \\ln n$.",
+      "difficulty": 2,
+      "tags": ["comparaison_serie_integrale", "encadrement"]
+    },
+    {
+      "id": "exo_int_02",
+      "statement_latex": "Calculer une primitive de $f(x) = \\frac{1}{x^2+2x+3}$.",
+      "solution_latex": "Forme canonique : $(x+1)^2 + 2 = 2 [(\\frac{x+1}{\\sqrt{2}})^2 + 1]$. Primitive : $\\frac{1}{\\sqrt{2}} \\arctan(\\frac{x+1}{\\sqrt{2}})$.",
+      "difficulty": 2,
+      "tags": ["elements_simples", "arctangente", "canonique"]
+    },
+    {
+      "id": "exo_int_03",
+      "statement_latex": "Calculer une primitive de $\\cos^3(x) + 2\\sin^2(2x)\\cos(3x)$.",
+      "solution_latex": "Linéariser. $\\cos^3 x = \\frac{\\cos 3x + 3\\cos x}{4}$. Le second terme donne $-\\frac{1}{2}(\\cos 7x - 2\\cos 3x + \\cos x)$. Intégrer terme à terme.",
+      "difficulty": 3,
+      "tags": ["trigonometrie", "linearisation"]
+    },
+    {
+      "id": "exo_int_04",
+      "statement_latex": "Calculer $I = \\int_0^1 \\arctan(t) dt$ par IPP.",
+      "solution_latex": "Poser $u'(t)=1, v(t)=\\arctan t$. $I = [t \\arctan t]_0^1 - \\int_0^1 \\frac{t}{1+t^2} dt = \\frac{\\pi}{4} - [\\frac{1}{2}\\ln(1+t^2)]_0^1$.",
+      "difficulty": 2,
+      "tags": ["ipp", "arctan"]
+    },
+    {
+      "id": "exo_int_05",
+      "statement_latex": "Calculer $I = \\int_0^\\pi e^{-2t}\\cos(t) dt$ par double IPP.",
+      "solution_latex": "Deux IPP successives ramènent à l'intégrale de départ. On obtient une équation $I = \\dots - 4I$ ou similaire. Résultat : $\\frac{2e^{-2\\pi}+2}{5}$.",
+      "difficulty": 3,
+      "tags": ["ipp", "double_ipp", "integrale_cyclique"]
+    },
+    {
+      "id": "exo_int_06",
+      "statement_latex": "Calculer $\\int_0^2 \\frac{dx}{\\text{ch } x}$ par changement de variable $t=e^x$.",
+      "solution_latex": "$dt = e^x dx \\implies dx = dt/t$. $\\int \\frac{2}{t+1/t} \\frac{dt}{t} = \\int \\frac{2}{t^2+1} dt = 2[\\arctan t]$.",
+      "difficulty": 2,
+      "tags": ["changement_variable", "hyperbolique"]
+    },
+    {
+      "id": "exo_int_07",
+      "statement_latex": "Calculer une primitive de $x \\mapsto e^{2t}\\sin(t)$ via les complexes.",
+      "solution_latex": "Calculer $\\int e^{(2+i)t} dt = \\frac{1}{2+i}e^{(2+i)t}$. Prendre la partie imaginaire du résultat.",
+      "difficulty": 2,
+      "tags": ["complexes", "exponentielle", "primitive"]
+    }
+  ]
+}

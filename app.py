@@ -25,988 +25,42 @@ st.set_page_config(
     }
 )
 
-from data.query import (
+from services.knowledge_service import (
     get_chapters,
     get_random_question,
     get_exercise_by_difficulty,
     get_collection_stats,
-    get_rag_context,
+    get_exercise_for_concepts,
+    get_concepts_for_question,
 )
-from services.gemini_service import (
+# Import du router AI qui gère Claude/Gemini
+from services.ai_router import (
     evaluate_answer,
     guide_exercise,
     transcribe_image,
     chat,
+    get_available_providers,
+    get_available_ocr_providers,
 )
-from components.rag_debug import render_rag_debug_panel
-
-
+from application.settings import get_settings
+from pathlib import Path
 
 
 # =============================================================================
-# STYLES CSS
+# STYLES CSS (chargé depuis fichier externe)
 # =============================================================================
 
-st.markdown("""
-<style>
-    /* =================================================================
-       KHÔLLEUR AI - ENGINEERING PRECISION v3.0
-       Inspired by SpaceX / Tesla UI
-       ================================================================= */
+def load_css():
+    """Charge le CSS depuis le fichier externe."""
+    css_path = Path(__file__).parent / "ui" / "streamlit" / "styles.css"
+    if css_path.exists():
+        css_content = css_path.read_text(encoding="utf-8")
+        st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
 
-    :root {
-        /* EdTech Modern Palette */
-        --color-primary: #4f46e5;
-        --color-primary-hover: #4338ca;
-        --color-accent: #8b5cf6;
-        --color-success: #10b981;
-        --color-bg: #f8fafc;
-        --color-card-bg: #ffffff;
-        --color-border: #e2e8f0;
-        --color-border-strong: #4f46e5;
-        --color-text: #1e293b;
-        --color-text-main: #1e293b;
-        --color-text-muted: #64748b;
-        --color-user-bubble: #4f46e5;
-        --color-tutor-bubble: #ffffff;
+load_css()
 
-        /* Spacing & Radii */
-        --radius-refined: 8px;
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 20px;
 
-        /* Shadows */
-        --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-
-        /* Transitions */
-        --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-        /* Fonts */
-        --font-main: 'Inter', sans-serif;
-        --font-mono: 'JetBrains Mono', monospace;
-    }
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-    html, body, [class*="css"] {
-        font-family: var(--font-main);
-        background-color: var(--color-bg) !important;
-        color: var(--color-text) !important;
-        -webkit-font-smoothing: antialiased;
-    }
-
-    /* Modern light mode with subtle gradient */
-    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-        background-color: var(--color-bg) !important;
-        color: var(--color-text) !important;
-    }
-
-    .stMainBlockContainer, [data-testid="stVerticalBlock"] {
-        background-color: transparent !important;
-    }
-
-    /* =================================================================
-       GLOBAL TEXT COLOR - Modern Edtech
-       ================================================================= */
-    p, span, label, div, li, td, th {
-        color: var(--color-text);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: var(--color-text-main);
-        font-weight: 700 !important;
-        letter-spacing: -0.02em;
-    }
-
-    /* Streamlit specific text elements */
-    [data-testid="stMarkdownContainer"],
-    [data-testid="stMarkdownContainer"] p,
-    [data-testid="stMarkdownContainer"] span,
-    [data-testid="stMarkdownContainer"] li,
-    [data-testid="stText"],
-    .stMarkdown, .stMarkdown p {
-        color: var(--color-text) !important;
-    }
-
-    code, pre, .stCode, .step-number, .score-gauge-value {
-        font-family: var(--font-mono) !important;
-    }
-
-    /* =================================================================
-       HEADER - Modern & Clean
-       ================================================================= */
-    .main-header {
-        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-        padding: 1.5rem 2rem;
-        border-radius: 0;
-        margin-bottom: 2rem;
-        box-shadow: var(--shadow-md);
-        position: relative;
-    }
-
-    .main-header h1 {
-        color: #fff;
-        margin: 0;
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-transform: none;
-        letter-spacing: -0.02em;
-    }
-
-    .main-header p {
-        color: rgba(255, 255, 255, 0.9) !important;
-        margin: 0.5rem 0 0 0;
-        font-size: 0.875rem;
-        font-family: var(--font-main);
-        text-transform: none;
-    }
-
-    .logo-header {
-        height: 32px;
-        width: auto;
-        margin-right: 1rem;
-        filter: brightness(0) invert(1);
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-
-    /* Logo dans le main content (pas dans header) */
-    img[alt="Logo"] {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        image-rendering: high-quality;
-    }
-
-    /* =================================================================
-       PROGRESS BAR - Visual & Progressive
-       ================================================================= */
-    .progress-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 1.5rem 0;
-        padding: 1rem;
-        background: var(--color-card-bg);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-    }
-
-    .progress-step {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: var(--color-text-muted) !important;
-        letter-spacing: 0.05em;
-        transition: var(--transition-fast);
-    }
-
-    .progress-step span {
-        color: var(--color-text-muted) !important;
-    }
-
-    .progress-step .step-number {
-        font-size: 0.7rem;
-        color: var(--color-text-muted) !important;
-        padding: 4px 8px;
-        border-radius: 6px;
-        background: var(--color-bg);
-        transition: var(--transition-fast);
-    }
-
-    .progress-step.active .step-number {
-        color: #FFFFFF !important;
-        background: var(--color-primary);
-        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
-    }
-
-    .progress-step.active span {
-        color: var(--color-primary) !important;
-    }
-
-    .progress-step.completed .step-number {
-        color: #FFFFFF !important;
-        background: var(--color-success);
-    }
-
-    .progress-step.completed span {
-        color: var(--color-text) !important;
-    }
-
-    .progress-connector {
-        flex-grow: 1;
-        height: 2px;
-        background: var(--color-border);
-        margin: 0 1rem;
-        border-radius: 2px;
-        transition: var(--transition-fast);
-    }
-
-    .progress-connector.completed {
-        background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-    }
-
-    /* =================================================================
-       CARDS - Modern & Elevated
-       ================================================================= */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker),
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker),
-    .question-card, .exercise-card, .feedback-card {
-        background: var(--color-card-bg) !important;
-        border-radius: var(--radius-md) !important;
-        border: 1px solid var(--color-border) !important;
-        box-shadow: var(--shadow-sm) !important;
-        padding: 1.5rem !important;
-        margin: 1rem 0 !important;
-        transition: var(--transition-fast);
-    }
-
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker):hover,
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker):hover {
-        border-color: var(--color-accent) !important;
-        box-shadow: var(--shadow-md) !important;
-        transform: translateY(-2px);
-    }
-
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"] p,
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) [data-testid="stMarkdownContainer"] p {
-        color: var(--color-text) !important;
-        font-size: 1.1rem !important;
-        line-height: 1.75;
-        font-weight: 450;
-    }
-
-    /* Style pour le contenu LaTeX dans les questions/exercices */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-marker) [data-testid="stMarkdownContainer"],
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.exercise-marker) [data-testid="stMarkdownContainer"] {
-        font-size: 1.1rem !important;
-    }
-
-    /* =================================================================
-       MESSAGES - CLEAN LOGS
-       ================================================================= */
-    .kholleur-msg {
-        background: #F5F5F5;
-        color: var(--color-text);
-        padding: 1rem;
-        border-radius: var(--radius-refined);
-        border-left: 3px solid var(--color-primary);
-        margin: 0.75rem 0;
-        max-width: 90%;
-        font-size: 0.85rem;
-    }
-
-    .kholleur-msg::before { display: none; }
-
-    .student-msg {
-        background: transparent;
-        color: var(--color-text);
-        padding: 1rem;
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-refined);
-        margin: 0.75rem 0 0.75rem auto;
-        max-width: 90%;
-        font-size: 0.85rem;
-    }
-
-    /* =================================================================
-       GAUGE - ANALYTICAL READOUT
-       ================================================================= */
-    .score-gauge-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .score-gauge-circle {
-        width: 80px;
-        height: 80px;
-        border: 1px solid var(--color-border);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-    }
-
-    .score-gauge-circle::before { display: none; }
-
-    .score-gauge-value {
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: var(--color-primary);
-    }
-
-    .score-gauge-label {
-        font-size: 0.7rem;
-        color: var(--color-text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .score-badge {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        padding: 0.3rem 0.6rem;
-        border: none;
-        border-radius: var(--radius-sm);
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-
-    .score-high {
-        background: var(--color-success);
-        color: #FFF;
-    }
-
-    .score-medium {
-        background: var(--color-accent);
-        color: #FFF;
-    }
-
-    .score-low {
-        background: var(--color-text-muted);
-        color: #FFF;
-    }
-
-    /* =================================================================
-       BUTTONS - Modern & Tactile
-       ================================================================= */
-    .stButton > button,
-    .stButton > button[kind="primary"],
-    .stButton > button[kind="secondary"],
-    [data-testid="stBaseButton-primary"],
-    [data-testid="stBaseButton-secondary"],
-    [data-testid="baseButton-primary"],
-    [data-testid="baseButton-secondary"] {
-        border-radius: var(--radius-md) !important;
-        border: none !important;
-        background-color: var(--color-primary) !important;
-        color: #FFFFFF !important;
-        text-transform: none;
-        letter-spacing: normal;
-        font-size: 0.875rem !important;
-        font-weight: 600 !important;
-        padding: 0.625rem 1.5rem !important;
-        transition: var(--transition-fast) !important;
-    }
-
-    .stButton > button:hover,
-    [data-testid="stBaseButton-primary"]:hover,
-    [data-testid="stBaseButton-secondary"]:hover,
-    [data-testid="baseButton-primary"]:hover,
-    [data-testid="baseButton-secondary"]:hover {
-        background-color: var(--color-primary-hover) !important;
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
-        transform: translateY(-1px);
-        color: #FFFFFF !important;
-    }
-
-    .stButton > button p,
-    [data-testid="stBaseButton-primary"] p,
-    [data-testid="baseButton-primary"] p {
-        color: #FFFFFF !important;
-    }
-
-    /* Selectbox - Complete styling */
-    .stSelectbox label,
-    .stSelectbox [data-baseweb="select"] span,
-    .stSelectbox [data-baseweb="select"] div {
-        color: #000000 !important;
-    }
-
-    .stSelectbox > div > div {
-        border: 1px solid var(--color-border) !important;
-        border-radius: var(--radius-md) !important;
-        background-color: var(--color-card-bg) !important;
-        color: var(--color-text) !important;
-        font-size: 0.875rem !important;
-        transition: var(--transition-fast) !important;
-    }
-
-    .stSelectbox > div > div:hover {
-        border-color: var(--color-primary) !important;
-    }
-
-    .stSelectbox [data-baseweb="select"] {
-        background-color: #FFFFFF !important;
-    }
-
-    .stSelectbox [data-baseweb="popover"],
-    .stSelectbox [data-baseweb="menu"],
-    [data-baseweb="popover"],
-    [data-baseweb="menu"],
-    [data-baseweb="list"],
-    [data-baseweb="listbox"] {
-        background-color: #FFFFFF !important;
-        background: #FFFFFF !important;
-    }
-
-    /* Dropdown list items */
-    .stSelectbox [data-baseweb="menu"] li,
-    [data-baseweb="menu"] li,
-    [data-baseweb="menu"] [role="option"],
-    [data-baseweb="list"] li,
-    [data-baseweb="listbox"] li,
-    [role="listbox"] [role="option"],
-    [data-baseweb="select"] [role="option"],
-    ul[role="listbox"] li {
-        color: #000000 !important;
-        background-color: #FFFFFF !important;
-        background: #FFFFFF !important;
-    }
-
-    /* Dropdown list item text */
-    [data-baseweb="menu"] li *,
-    [data-baseweb="list"] li *,
-    [data-baseweb="listbox"] li *,
-    [role="listbox"] [role="option"] *,
-    ul[role="listbox"] li * {
-        color: #000000 !important;
-    }
-
-    [data-baseweb="menu"] li:hover,
-    [data-baseweb="menu"] [role="option"]:hover,
-    [data-baseweb="list"] li:hover,
-    [role="listbox"] [role="option"]:hover,
-    [role="option"][aria-selected="true"] {
-        background-color: #F0F0F0 !important;
-        background: #F0F0F0 !important;
-    }
-
-    /* Popover container */
-    [data-baseweb="popover"] > div,
-    [data-baseweb="popover"] [data-baseweb="menu"],
-    div[data-baseweb="popover"] {
-        background-color: #FFFFFF !important;
-        background: #FFFFFF !important;
-        border: 1px solid #BFBFBF !important;
-    }
-
-    /* Radio buttons */
-    .stRadio label,
-    .stRadio [data-baseweb="radio"] label,
-    .stRadio span,
-    .stRadio p {
-        color: #000000 !important;
-    }
-
-    .stRadio > div {
-        background-color: transparent !important;
-    }
-
-    .stRadio [data-baseweb="radio"] {
-        background-color: #FFFFFF !important;
-    }
-
-    /* Textarea - Modern with focus states */
-    .stTextArea label {
-        color: var(--color-text) !important;
-        font-weight: 500;
-    }
-
-    .stTextArea textarea {
-        border: 1px solid var(--color-border) !important;
-        border-radius: var(--radius-md) !important;
-        font-size: 0.9rem !important;
-        color: var(--color-text) !important;
-        background-color: var(--color-card-bg) !important;
-        padding: 12px 16px !important;
-        transition: var(--transition-fast) !important;
-    }
-
-    .stTextArea textarea:focus {
-        border-color: var(--color-primary) !important;
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
-        outline: none !important;
-    }
-
-    .stTextArea textarea::placeholder {
-        color: var(--color-text-muted) !important;
-    }
-
-    .difficulty {
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-        color: var(--color-primary);
-    }
-
-    /* =================================================================
-       ADDITIONAL COMPONENTS - DARK MODE OVERRIDE
-       ================================================================= */
-
-    /* Slider */
-    .stSlider label,
-    .stSlider [data-baseweb="slider"] div,
-    .stSlider span {
-        color: #000000 !important;
-    }
-
-    .stSlider [data-testid="stTickBarMin"],
-    .stSlider [data-testid="stTickBarMax"] {
-        color: #555555 !important;
-    }
-
-    /* Metrics */
-    [data-testid="stMetric"],
-    [data-testid="stMetricLabel"],
-    [data-testid="stMetricValue"],
-    [data-testid="stMetricDelta"] {
-        color: #000000 !important;
-    }
-
-    [data-testid="stMetricValue"] {
-        color: #000000 !important;
-        font-weight: 600;
-    }
-
-    /* Chat messages - Modern bubbles */
-    [data-testid="stChatMessage"],
-    [data-testid="stChatMessageContent"],
-    .stChatMessage {
-        background-color: transparent !important;
-        border-radius: var(--radius-lg) !important;
-        padding: 1rem !important;
-        margin: 0.75rem 0 !important;
-        animation: fadeIn 0.4s ease-out forwards;
-        box-shadow: var(--shadow-sm);
-        max-height: none !important;
-        overflow: visible !important;
-    }
-
-    [data-testid="stChatMessage"] p,
-    [data-testid="stChatMessage"] span:not(.katex):not(.katex *),
-    [data-testid="stChatMessage"] div:not(.katex-display):not(.katex *) {
-        line-height: 1.6;
-        max-height: none !important;
-        overflow: visible !important;
-        white-space: normal !important;
-    }
-
-    /* Ne pas casser les formules LaTeX */
-    [data-testid="stChatMessage"] .katex,
-    [data-testid="stChatMessage"] .katex *,
-    [data-testid="stChatMessage"] .katex-display,
-    [data-testid="stChatMessage"] code {
-        word-wrap: normal !important;
-        word-break: normal !important;
-        white-space: nowrap !important;
-    }
-
-    /* User message styling - À DROITE, couleur indigo */
-    [data-testid="stChatMessage"][data-testid*="user"] {
-        background-color: var(--color-user-bubble) !important;
-        border: none !important;
-        border-bottom-right-radius: 4px !important;
-        box-shadow: var(--shadow-md) !important;
-        margin-left: auto !important;
-        margin-right: 0 !important;
-        max-width: 85% !important;
-    }
-
-    [data-testid="stChatMessage"][data-testid*="user"] p,
-    [data-testid="stChatMessage"][data-testid*="user"] span,
-    [data-testid="stChatMessage"][data-testid*="user"] div {
-        color: #FFFFFF !important;
-    }
-
-    /* Assistant message styling - À GAUCHE, fond blanc */
-    [data-testid="stChatMessage"][data-testid*="assistant"] {
-        background-color: var(--color-tutor-bubble) !important;
-        border: 1px solid var(--color-border) !important;
-        border-left: 3px solid var(--color-primary) !important;
-        border-bottom-left-radius: 4px !important;
-        box-shadow: var(--shadow-sm) !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-        max-width: 85% !important;
-    }
-
-    [data-testid="stChatMessage"][data-testid*="assistant"] p,
-    [data-testid="stChatMessage"][data-testid*="assistant"] span,
-    [data-testid="stChatMessage"][data-testid*="assistant"] div {
-        color: var(--color-text) !important;
-    }
-
-    /* Transcription message - mise en valeur spéciale */
-    .transcription-message {
-        background: #F8F8F8 !important;
-        border: 1px solid #000000 !important;
-        border-radius: 2px !important;
-        padding: 1rem !important;
-        margin: 1rem 0 !important;
-    }
-
-    .transcription-label {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #555555 !important;
-        margin-bottom: 0.5rem;
-        font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Expander */
-    .streamlit-expanderHeader,
-    [data-testid="stExpander"] summary,
-    [data-testid="stExpander"] summary span {
-        color: #000000 !important;
-        background-color: #FFFFFF !important;
-    }
-
-    [data-testid="stExpander"] [data-testid="stMarkdownContainer"] {
-        color: #000000 !important;
-    }
-
-    /* File uploader */
-    .stFileUploader,
-    .stFileUploader label,
-    .stFileUploader span,
-    .stFileUploader p,
-    .stFileUploader [data-testid="stFileUploaderDropzone"] {
-        color: #000000 !important;
-    }
-
-    .stFileUploader [data-testid="stFileUploaderDropzone"] {
-        background-color: var(--color-card-bg) !important;
-        border: 2px dashed var(--color-border) !important;
-        border-radius: var(--radius-md) !important;
-        transition: var(--transition-fast) !important;
-    }
-
-    .stFileUploader [data-testid="stFileUploaderDropzone"]:hover {
-        border-color: var(--color-primary) !important;
-        background-color: rgba(79, 70, 229, 0.02) !important;
-    }
-
-    .stFileUploader small {
-        color: #555555 !important;
-    }
-
-    /* Captions and small text */
-    .stCaption, small, .stCaption p {
-        color: #555555 !important;
-    }
-
-    /* Alert boxes - Modern with rounded corners */
-    .stSuccess, .stWarning, .stError, .stInfo,
-    [data-testid="stAlert"] {
-        border-radius: var(--radius-md) !important;
-        border: none !important;
-        box-shadow: var(--shadow-sm) !important;
-    }
-
-    [data-testid="stAlert"] p {
-        color: inherit !important;
-    }
-
-    .stSuccess {
-        background-color: rgba(16, 185, 129, 0.1) !important;
-        color: #059669 !important;
-    }
-
-    .stInfo {
-        background-color: rgba(79, 70, 229, 0.1) !important;
-        color: var(--color-primary) !important;
-    }
-
-    .stWarning {
-        background-color: rgba(245, 158, 11, 0.1) !important;
-        color: #d97706 !important;
-    }
-
-    .stError {
-        background-color: rgba(239, 68, 68, 0.1) !important;
-        color: #dc2626 !important;
-    }
-
-    /* Divider - Subtle */
-    .stDivider, hr {
-        border: 0;
-        border-top: 1px solid var(--color-border);
-        margin: 2rem 0;
-    }
-
-    /* Header Backdrop avec dégradé progressif */
-    [data-testid="stHeader"] {
-        background: linear-gradient(180deg,
-            rgba(248, 250, 252, 0.95) 0%,
-            rgba(248, 250, 252, 0.8) 70%,
-            rgba(248, 250, 252, 0) 100%) !important;
-        backdrop-filter: blur(8px);
-        -webkit-mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
-        mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
-    }
-
-    /* Toggle */
-    .stToggle label,
-    .stToggle span {
-        color: #000000 !important;
-    }
-
-    /* =================================================================
-       PHASE INDICATOR - LEGACY
-       ================================================================= */
-    .phase-indicator {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .phase {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid var(--color-border);
-    }
-
-    .phase.active {
-        background: var(--color-primary);
-        color: white;
-        border-color: var(--color-primary);
-    }
-
-    .phase.completed {
-        background: #F5F5F5;
-        color: var(--color-text);
-    }
-
-    .phase.pending {
-        background: transparent;
-        color: var(--color-text-muted);
-    }
-
-    /* =================================================================
-       SIDEBAR - Modern Panel
-       ================================================================= */
-    [data-testid="stSidebar"],
-    [data-testid="stSidebar"] > div,
-    [data-testid="stSidebarContent"] {
-        border-right: 1px solid var(--color-border);
-        background: var(--color-card-bg) !important;
-        background-color: var(--color-card-bg) !important;
-    }
-
-    [data-testid="stSidebar"] * {
-        color: var(--color-text) !important;
-    }
-
-    [data-testid="stSidebar"] .stButton > button {
-        background-color: var(--color-primary) !important;
-        color: #FFFFFF !important;
-    }
-
-    [data-testid="stSidebar"] .stButton > button p {
-        color: #FFFFFF !important;
-    }
-
-    [data-testid="stSidebar"] .stButton > button:hover {
-        background-color: var(--color-primary-hover) !important;
-    }
-
-    [data-testid="stSidebar"] .stMarkdown p,
-    [data-testid="stSidebar"] .stMarkdown h1,
-    [data-testid="stSidebar"] .stMarkdown h2,
-    [data-testid="stSidebar"] .stMarkdown h3,
-    [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] .stSelectbox label,
-    [data-testid="stSidebar"] .stSlider label {
-        color: var(--color-text) !important;
-    }
-
-    [data-testid="stSidebar"] .stCaption {
-        color: var(--color-text-muted) !important;
-    }
-
-    hr {
-        border-color: var(--color-border) !important;
-    }
-
-    /* =================================================================
-       ANIMATIONS - Smooth & Engaging
-       ================================================================= */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(8px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .question-card, .exercise-card, .feedback-card {
-        animation: fadeIn 0.4s ease-out forwards;
-    }
-
-    /* =================================================================
-       LAYOUT OPTIMIZATION - REDUCE WHITESPACE
-       ================================================================= */
-
-    /* Réduire l'espace en haut de la page */
-    .main .block-container {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-
-    /* Cacher le footer Streamlit */
-    footer {
-        visibility: hidden;
-        height: 0;
-    }
-
-    footer:after {
-        content: '';
-        visibility: visible;
-        display: block;
-        position: relative;
-        padding: 0.5rem;
-    }
-
-    /* Cacher le menu hamburger en haut à droite */
-    #MainMenu {
-        visibility: hidden;
-    }
-
-    /* Réduire l'espace au-dessus du header */
-    header {
-        background: transparent !important;
-    }
-
-    .stApp header {
-        background-color: transparent !important;
-    }
-
-    /* =================================================================
-       RESPONSIVE - MOBILE PRECISION
-       ================================================================= */
-    @media (max-width: 768px) {
-        .main-header {
-            padding: 0.75rem 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .main-header h1 {
-            font-size: 0.9rem;
-        }
-
-        .main-header p {
-            display: none;
-        }
-
-        .progress-container {
-            padding: 0.5rem 0;
-        }
-
-        .progress-step {
-            font-size: 0.6rem;
-        }
-
-        .progress-step span:last-child {
-            display: none;
-        }
-
-        .kholleur-msg, .student-msg {
-            max-width: 95%;
-            padding: 0.75rem;
-            font-size: 0.8rem;
-        }
-
-        .stSelectbox > div > div {
-            min-height: 48px !important;
-        }
-
-        .stButton > button {
-            min-height: 48px !important;
-            font-size: 0.7rem !important;
-        }
-
-        .stFileUploader {
-            border: 1px dashed var(--color-border) !important;
-            border-radius: var(--radius-refined) !important;
-            background: transparent !important;
-        }
-
-        .stTextArea textarea {
-            font-size: 16px !important;
-        }
-
-        .stForm [data-testid="baseButton-primary"] {
-            width: 100% !important;
-            min-height: 48px !important;
-        }
-    }
-
-    .stSelectbox {
-        z-index: 100;
-    }
-
-    .stSelectbox > div > div {
-        cursor: pointer;
-    }
-
-    .stForm {
-        background: transparent;
-        border-radius: var(--radius-refined);
-        padding: 1rem;
-        border: 1px solid var(--color-border);
-    }
-
-    /* Ensure form submit buttons have modern edtech styling */
-    .stForm button,
-    .stForm button[kind="primary"],
-    .stForm [data-testid="baseButton-primary"],
-    .stForm [data-testid="baseButton-secondary"],
-    .stForm [type="submit"] {
-        background-color: var(--color-primary) !important;
-        color: #FFFFFF !important;
-        border: none !important;
-        border-radius: var(--radius-md) !important;
-        padding: 0.625rem 1.5rem !important;
-        transition: all 0.2s ease !important;
-    }
-
-    .stForm button:hover,
-    .stForm button[kind="primary"]:hover,
-    .stForm [data-testid="baseButton-primary"]:hover,
-    .stForm [data-testid="baseButton-secondary"]:hover,
-    .stForm [type="submit"]:hover {
-        background-color: var(--color-primary-hover) !important;
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
-        transform: translateY(-1px);
-    }
-
-    .stForm button p,
-    .stForm button span,
-    .stForm button[kind="primary"] p,
-    .stForm button[kind="primary"] span,
-    .stForm [data-testid="baseButton-primary"] p,
-    .stForm [data-testid="baseButton-primary"] span,
-    .stForm [data-testid="baseButton-secondary"] p,
-    .stForm [data-testid="baseButton-secondary"] span,
-    .stForm [type="submit"] p,
-    .stForm [type="submit"] span {
-        color: #FFFFFF !important;
-    }
-
-    /* Force white text on all form buttons */
-    .stForm button *,
-    .stForm [data-testid^="baseButton"] * {
-        color: #FFFFFF !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+# CSS a été déplacé vers ui/streamlit/styles.css
 
 
 # =============================================================================
@@ -1038,6 +92,7 @@ def init_session_state():
         st.session_state.phase = PHASE_SETUP
         st.session_state.chapter_id = None
         st.session_state.difficulty = 3
+        st.session_state.ai_provider = "gemini"  # "claude" ou "gemini"
         st.session_state.current_question = None
         st.session_state.current_exercise = None
         st.session_state.conversation_history = []
@@ -1045,9 +100,9 @@ def init_session_state():
         st.session_state.asked_questions = []
         st.session_state.done_exercises = []
         st.session_state.scores = []
-        # RAG Debug mode
-        st.session_state.rag_debug_mode = False
-        st.session_state.rag_chunks = []
+        # Debug mode
+        st.session_state.debug_prompt_mode = False
+        st.session_state.debug_prompt_data = {}
         # UI state management pour éviter doubles soumissions
         st.session_state.is_processing = False
 
@@ -1119,13 +174,76 @@ def render_sidebar():
             avg_score = sum(st.session_state.scores) / len(st.session_state.scores)
             st.metric("Score moyen", f"{avg_score:.0f}/100")
         
-        # RAG Debug Mode
+        # Providers AI et OCR
         st.divider()
-        st.markdown("### Avancé")
-        st.session_state.rag_debug_mode = st.toggle(
-            "Mode Debug RAG",
-            value=st.session_state.rag_debug_mode,
-            help="Affiche les chunks de contexte utilisés"
+        st.markdown("### Modèles")
+
+        # Sélecteur AI Provider (Khôlleur) - désactivé pendant une khôlle
+        available_ai = get_available_providers()
+        ai_labels = {
+            "gemini": "Gemini",
+            "claude": "Claude",
+            "deepseek": "DeepSeek (V3.2)",
+            "kimi": "Kimi (K2.5)",
+        }
+
+        # Désactiver si khôlle en cours (pas en phase setup)
+        is_kholle_in_progress = st.session_state.phase != PHASE_SETUP
+
+        if len(available_ai) > 1:
+            options_ai = [ai_labels.get(p, p) for p in available_ai]
+            current_ai = st.session_state.get("ai_provider", "gemini")
+            current_ai_index = available_ai.index(current_ai) if current_ai in available_ai else 0
+
+            selected_ai_label = st.selectbox(
+                "Khôlleur",
+                options=options_ai,
+                index=current_ai_index,
+                help="Changer avant de démarrer" if is_kholle_in_progress else "Modèle IA pour les interactions",
+                disabled=is_kholle_in_progress
+            )
+
+            # Mettre à jour le provider si changé (seulement si pas désactivé)
+            if not is_kholle_in_progress:
+                selected_ai = available_ai[options_ai.index(selected_ai_label)]
+                if selected_ai != st.session_state.get("ai_provider"):
+                    st.session_state.ai_provider = selected_ai
+
+        # Sélecteur OCR Provider
+        available_ocr = get_available_ocr_providers()
+        ocr_labels = {
+            "gemini": "Gemini",
+            "kimi": "Kimi (K2.5)",
+        }
+
+        if len(available_ocr) > 1:
+            # Initialiser le provider dans session_state si pas déjà fait
+            if "ocr_provider" not in st.session_state:
+                st.session_state.ocr_provider = get_settings().ocr_provider
+
+            options_ocr = [ocr_labels.get(p, p) for p in available_ocr]
+            current_ocr = st.session_state.ocr_provider
+            current_ocr_index = available_ocr.index(current_ocr) if current_ocr in available_ocr else 0
+
+            selected_ocr_label = st.selectbox(
+                "OCR",
+                options=options_ocr,
+                index=current_ocr_index,
+                help="Modèle pour la lecture des photos"
+            )
+
+            # Mettre à jour le provider si changé
+            selected_ocr = available_ocr[options_ocr.index(selected_ocr_label)]
+            if selected_ocr != st.session_state.ocr_provider:
+                st.session_state.ocr_provider = selected_ocr
+
+        # Debug Prompt Mode
+        st.divider()
+        st.markdown("### Avance")
+        st.session_state.debug_prompt_mode = st.toggle(
+            "Mode Debug Prompt",
+            value=st.session_state.debug_prompt_mode,
+            help="Affiche le prompt enrichi envoye au LLM"
         )
 
 
@@ -1191,10 +309,10 @@ def render_setup_mobile():
     
     if selected_chapter:
         st.session_state.chapter_id = chapter_options[selected_chapter]
-    
+
     # Sélection de la difficulté avec boutons radio visuels
     st.markdown("##### Niveau")
-    
+
     difficulty_labels = {
         1: "01 · Facile",
         2: "02 · Accessible",
@@ -1202,7 +320,7 @@ def render_setup_mobile():
         4: "04 · Difficile",
         5: "05 · Expert"
     }
-    
+
     selected_difficulty = st.radio(
         "Niveau",
         options=[1, 2, 3, 4, 5],
@@ -1314,10 +432,13 @@ def render_question_cours():
             with st.chat_message("assistant", avatar="📐"):
                 st.markdown(msg['content'], unsafe_allow_html=True)
 
-    # Panneau RAG Debug (si activé et chunks disponibles)
-    if st.session_state.rag_debug_mode and st.session_state.rag_chunks:
-        with st.expander("Contexte RAG", expanded=False):
-            render_rag_debug_panel(st.session_state.rag_chunks)
+    # Panneau debug prompt (si active et donnees disponibles)
+    if st.session_state.debug_prompt_mode and st.session_state.debug_prompt_data:
+        with st.expander("Prompt envoye au LLM", expanded=False):
+            st.markdown("**System prompt**")
+            st.code(st.session_state.debug_prompt_data.get("system_prompt", ""), language="markdown")
+            st.markdown("**User prompt (enrichi)**")
+            st.code(st.session_state.debug_prompt_data.get("user_prompt", ""), language="markdown")
 
     # ÉTAPE 2 : Spinner pour génération de réponse (AVANT zone de formulaire)
     if (not st.session_state.question_validated and
@@ -1333,22 +454,22 @@ def render_question_cours():
                 erreurs = json.loads(q.get("erreurs_frequentes_json", "[]"))
                 relances = json.loads(q.get("relances_prof_json", "[]"))
 
-                # Récupérer le contexte RAG pour le debug
-                rag_chunks = get_rag_context(
-                    question=q["question_raw"],
-                    chapter_id=st.session_state.chapter_id,
-                    top_k=3
-                )
-                st.session_state.rag_chunks = rag_chunks
-
                 result = evaluate_answer(
                     question=q["question_raw"],
                     expected=attendus,
                     student_answer=final_answer,
                     common_errors=erreurs,
                     follow_up_questions=relances,
-                    conversation_history=st.session_state.conversation_history[:-1]
+                    conversation_history=st.session_state.conversation_history[:-1],
+                    question_id=q["id"],
+                    chapter_id=st.session_state.chapter_id,
                 )
+
+                # Stocker les prompts debug (et les retirer du result)
+                st.session_state.debug_prompt_data = {
+                    "system_prompt": result.pop("_debug_system_prompt", ""),
+                    "user_prompt": result.pop("_debug_user_prompt", ""),
+                }
 
                 # Vérifier que le feedback n'est pas vide
                 feedback = result.get("feedback", "")
@@ -1367,6 +488,9 @@ def render_question_cours():
                 # Stocker le score et les détails de validation
                 st.session_state.scores.append(result["score"])
 
+                # Debug: Afficher les valeurs retournées
+                print(f"DEBUG - is_complete: {result['is_complete']}, score: {result['score']}")
+
                 # Validation réaliste (comme en khôlle)
                 if (result["is_complete"] and result["score"] >= 75):
                     st.session_state.question_validated = True
@@ -1375,6 +499,7 @@ def render_question_cours():
                         "score": result["score"],
                         "missing_points": result["missing_points"]
                     }
+                    print(f"DEBUG - Question validée !")
 
                 st.session_state.is_processing = False
 
@@ -1413,9 +538,17 @@ def render_question_cours():
             start_exercise()
             st.rerun()
         st.divider()
-    
+
     # Zone de réponse (désactivée si question validée)
     if not st.session_state.question_validated:
+        # Bouton de déblocage manuel (au cas où la validation automatique bug)
+        col1, col2 = st.columns([3, 1])
+        with col2:
+            if st.button("⚡ Forcer le passage", help="Passer à l'exercice sans validation automatique", key="force_exercise"):
+                st.session_state.question_validated = True
+                st.session_state.validation_score = 100
+                st.rerun()
+
         st.markdown("### Ta réponse")
 
         # Layout text-first (texte prioritaire sur photo)
@@ -1503,12 +636,29 @@ def render_question_cours():
 
 
 def start_exercise():
-    """Démarre la phase exercice."""
-    exercise = get_exercise_by_difficulty(
-        chapter_id=st.session_state.chapter_id,
-        difficulty=st.session_state.difficulty,
-        exclude_ids=st.session_state.done_exercises
-    )
+    """Demarre la phase exercice. Trouve un exercice testant les memes concepts."""
+    q = st.session_state.current_question
+    exercise = None
+
+    # Matching par concepts si une question a ete posee
+    if q and q.get("id"):
+        concepts = get_concepts_for_question(q["id"])
+        concept_ids = [c["id"] for c in concepts]
+        if concept_ids:
+            exercise = get_exercise_for_concepts(
+                concept_ids=concept_ids,
+                difficulty=st.session_state.difficulty,
+                chapter_id=st.session_state.chapter_id,
+                exclude_ids=st.session_state.done_exercises,
+            )
+
+    # Fallback sur chapitre + difficulte
+    if not exercise:
+        exercise = get_exercise_by_difficulty(
+            chapter_id=st.session_state.chapter_id,
+            difficulty=st.session_state.difficulty,
+            exclude_ids=st.session_state.done_exercises,
+        )
     
     if exercise:
         st.session_state.current_exercise = exercise

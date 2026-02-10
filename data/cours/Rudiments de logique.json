@@ -1,0 +1,156 @@
+{
+  "chapter_official_id": "LOGIQUE_ENS",
+  "chapter_name": "Éléments de Logique",
+  "source_document": "Rudiments de logique.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "notations_ensembles",
+      "type": "notation",
+      "title": "Ensembles de nombres usuels",
+      "content_latex": "On note les inclusions successives : $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R} \\subset \\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_negation",
+      "type": "definition",
+      "title": "Négation",
+      "content_latex": "La négation de la proposition $P$, notée $\\neg P$ (ou non P), est vraie si et seulement si $P$ est fausse.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_tiers_exclus_double_negation",
+      "type": "property",
+      "title": "Tiers-exclus et Double négation",
+      "content_latex": "1. $\\neg(\\neg P) \\equiv P$ (Loi de la double négation).\\n2. $P \\vee (\\neg P)$ est toujours vraie (Principe du tiers-exclus).",
+      "proof_latex": "Démonstration par tables de vérité."
+    },
+    {
+      "id": "thm_lois_de_morgan",
+      "type": "theorem",
+      "title": "Lois de De Morgan",
+      "content_latex": "1. $\\neg(P \\wedge Q) \\equiv (\\neg P) \\vee (\\neg Q)$.\\n2. $\\neg(P \\vee Q) \\equiv (\\neg P) \\wedge (\\neg Q)$.",
+      "proof_latex": "Démonstration par tables de vérité."
+    },
+    {
+      "id": "prop_distributivite",
+      "type": "property",
+      "title": "Distributivité des connecteurs",
+      "content_latex": "1. $(P \\vee Q) \\wedge R \\equiv (P \\wedge R) \\vee (Q \\wedge R)$.\\n2. $(P \\wedge Q) \\vee R \\equiv (P \\vee R) \\wedge (Q \\vee R)$.",
+      "proof_latex": "Démonstration par tables de vérité."
+    },
+    {
+      "id": "def_implication",
+      "type": "definition",
+      "title": "Implication",
+      "content_latex": "L'implication $P \\Rightarrow Q$ est la proposition qui est fausse si et seulement si $P$ est vraie et $Q$ est fausse. On a l'équivalence : $P \\Rightarrow Q \\equiv (\\neg P) \\vee Q$.",
+      "proof_latex": "Démonstration par tables de vérité."
+    },
+    {
+      "id": "def_contraposee",
+      "type": "definition",
+      "title": "Contraposée",
+      "content_latex": "La contraposée de l'implication $P \\Rightarrow Q$ est la proposition $(\\neg Q) \\Rightarrow (\\neg P)$. Elles ont la même valeur de vérité.",
+      "proof_latex": "On montre que $(\\neg Q) \\Rightarrow (\\neg P) \\equiv \\neg(\\neg Q) \\vee (\\neg P) \\equiv Q \\vee (\\neg P) \\equiv P \\Rightarrow Q$."
+    },
+    {
+      "id": "def_equivalence",
+      "type": "definition",
+      "title": "Équivalence",
+      "content_latex": "$P \\iff Q$ est vraie si et seulement si $P$ et $Q$ ont la même valeur de vérité. On a : $(P \\iff Q) \\equiv (P \\Rightarrow Q) \\wedge (Q \\Rightarrow P)$.",
+      "proof_latex": "Démonstration par tables de vérité."
+    },
+    {
+      "id": "def_quantificateurs",
+      "type": "definition",
+      "title": "Quantificateurs Universel et Existentiel",
+      "content_latex": "Quantificateur universel $\\forall$ : « pour tout ». $\\forall x \\in E, P(x)$ est vraie si $P(x)$ est vraie pour tous les éléments de $E$.\\nQuantificateur existentiel $\\exists$ : « il existe ». $\\exists x \\in E, P(x)$ est vraie s'il existe au moins un élément de $E$ vérifiant $P(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_negation_quantificateurs",
+      "type": "property",
+      "title": "Négation des quantificateurs",
+      "content_latex": "1. $\\neg(\\forall x \\in E, P(x)) \\equiv \\exists x \\in E, \\neg P(x)$.\\n2. $\\neg(\\exists x \\in E, P(x)) \\equiv \\forall x \\in E, \\neg P(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "meth_analyse_synthese",
+      "type": "method",
+      "title": "Raisonnement par Analyse-Synthèse",
+      "content_latex": "Utilisé pour prouver l'existence et l'unicité ou déterminer des objets.\\n1. **Analyse** : On suppose que l'objet existe et vérifie les propriétés. On en déduit des conditions nécessaires (unicité potentielle, forme des solutions).\\n2. **Synthèse** : On vérifie que les candidats trouvés conviennent (existence).",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_recurrence_simple",
+      "type": "theorem",
+      "title": "Principe de récurrence simple",
+      "content_latex": "Soit $\\mathcal{P}(n)$ un prédicat. Si $\\mathcal{P}(n_0)$ est vraie (Initialisation) et si $\\forall n \\ge n_0, \\mathcal{P}(n) \\Rightarrow \\mathcal{P}(n+1)$ (Hérédité), alors $\\forall n \\ge n_0, \\mathcal{P}(n)$ est vraie.",
+      "proof_latex": "Admis (axiome de Peano)."
+    },
+    {
+      "id": "thm_recurrence_double",
+      "type": "theorem",
+      "title": "Principe de récurrence double (ou d'ordre $k$)",
+      "content_latex": "Pour une récurrence double : Si $\\mathcal{P}(n_0)$ et $\\mathcal{P}(n_0+1)$ sont vraies, et si $\\forall n \\ge n_0, (\\mathcal{P}(n) \\wedge \\mathcal{P}(n+1)) \\Rightarrow \\mathcal{P}(n+2)$, alors la propriété est vraie pour tout $n \\ge n_0$.",
+      "proof_latex": "Se ramène à une récurrence simple sur la propriété $\\mathcal{Q}(n) : \\mathcal{P}(n) \\wedge \\mathcal{P}(n+1)$."
+    },
+    {
+      "id": "thm_recurrence_forte",
+      "type": "theorem",
+      "title": "Principe de récurrence forte",
+      "content_latex": "Si $\\mathcal{P}(n_0)$ est vraie et si $\\forall n \\ge n_0, (\\forall k \\in [[n_0, n]], \\mathcal{P}(k)) \\Rightarrow \\mathcal{P}(n+1)$, alors $\\forall n \\ge n_0, \\mathcal{P}(n)$ est vraie.",
+      "proof_latex": "Se ramène à une récurrence simple sur $\\mathcal{Q}(n) : \\forall k \\in [[n_0, n]], \\mathcal{P}(k)$."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exo_divisibilite_3",
+      "statement_latex": "Montrer que pour tout entier $n \\in \\mathbb{N}$, $n^3 - n$ est divisible par 3.",
+      "solution_latex": "On procède par disjonction de cas selon le reste de $n$ modulo 3 ($n=3k$, $n=3k+1$, $n=3k+2$). Dans chaque cas, on factorise $n^3-n = n(n-1)(n+1)$ et on montre que l'un des facteurs est multiple de 3.",
+      "difficulty": 2,
+      "tags": ["disjonction de cas", "arithmétique"]
+    },
+    {
+      "id": "exo_contraposee_pair",
+      "statement_latex": "Prouver que si $n^2-1$ n'est pas divisible par 8, alors $n$ est pair.",
+      "solution_latex": "On utilise la contraposée : « Si $n$ est impair, alors $n^2-1$ est divisible par 8 ». Si $n=2p+1$, $n^2-1 = 4p(p+1)$. Comme $p(p+1)$ est pair (produit de deux consécutifs), $4p(p+1)$ est divisible par 8.",
+      "difficulty": 3,
+      "tags": ["contraposée", "arithmétique"]
+    },
+    {
+      "id": "exo_irrationalite_racine_2",
+      "statement_latex": "Prouver par l'absurde que $\\sqrt{2} \\notin \\mathbb{Q}$.",
+      "solution_latex": "Supposons $\\sqrt{2} = p/q$ irréductible. Alors $p^2 = 2q^2$, donc $p^2$ pair, donc $p$ pair ($p=2k$). Alors $2q^2 = 4k^2 \\Rightarrow q^2 = 2k^2$, donc $q$ pair. Contradiction avec l'irréductibilité.",
+      "difficulty": 3,
+      "tags": ["absurde", "classique"]
+    },
+    {
+      "id": "exo_analyse_synthese_racine",
+      "statement_latex": "Résoudre l'équation $\\sqrt{x+2} = x$ d'inconnue $x \\in [-2, +\\infty[$.",
+      "solution_latex": "Analyse : Si $x$ est solution, $x+2=x^2 \\Rightarrow x^2-x-2=0$, racines $-1$ et $2$. Synthèse : On teste. Pour $x=-1$, $\\sqrt{1}=1 \\neq -1$. Pour $x=2$, $\\sqrt{4}=2$. Unique solution : $x=2$.",
+      "difficulty": 2,
+      "tags": ["analyse-synthèse", "équations"]
+    },
+    {
+      "id": "exo_recurrence_factorielle",
+      "statement_latex": "Montrer que pour tout $n \\ge 4$, $2^n \\le n!$.",
+      "solution_latex": "Initialisation : $2^4=16 \\le 24=4!$. Hérédité : $2^{n+1} = 2 \\cdot 2^n \\le 2 \\cdot n!$. Or pour $n \\ge 4$, $2 \\le n+1$, donc $2 \\cdot n! \\le (n+1)n! = (n+1)!$.",
+      "difficulty": 2,
+      "tags": ["récurrence", "inégalités"]
+    },
+    {
+      "id": "exo_recurrence_double_entier",
+      "statement_latex": "Soit $x = \\frac{3+\\sqrt{5}}{2}$. Montrer par récurrence double que $\\forall n \\in \\mathbb{N}, x^n + \\frac{1}{x^n} \\in \\mathbb{Z}$.",
+      "solution_latex": "Initialisation pour $n=0$ (2) et $n=1$ (3). Relation : $(x^n + 1/x^n)(x+1/x) = (x^{n+1}+1/x^{n+1}) + (x^{n-1}+1/x^{n-1})$. Comme $x+1/x=3$, on a une récurrence linéaire à coefficients entiers.",
+      "difficulty": 3,
+      "tags": ["récurrence double", "suites"]
+    },
+    {
+      "id": "exo_recurrence_forte_majoration",
+      "statement_latex": "Soit $(u_n)$ telle que $u_0 \\ge 0$ et $u_{n+1} \\le \\sum_{k=0}^n u_k$. Montrer que $u_n \\le 2^n u_0$.",
+      "solution_latex": "Récurrence forte. $u_{n+1} \\le \\sum_{k=0}^n 2^k u_0 = u_0(2^{n+1}-1) \\le 2^{n+1} u_0$.",
+      "difficulty": 3,
+      "tags": ["récurrence forte", "sommes"]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Khôlleur AI simulates oral math exams ("khôlles") for French MPSI preparatory school students. It challenges students with questions and provides Socratic feedback—it does NOT teach or explain course material.
+Kholleur AI simulates oral math exams ("kholles") for French MPSI preparatory school students. It challenges students with questions and provides Socratic feedback—it does NOT teach or explain course material.
 
 ## Commands
 
@@ -15,40 +15,116 @@ pip install -r requirements.txt
 # Run the app
 streamlit run app.py
 
-# Ingest data into ChromaDB (after adding new questions/exercises/courses)
-python data/ingest.py
+# Run tests
+python -m pytest tests/unit/ -v
 ```
 
 ## Architecture
 
 ```
-app.py                  # Main Streamlit app (UI, session state, pages)
-config.py               # Centralized configuration (paths, API keys, model names)
-data/
-  ingest.py            # Load questions/exercises/courses into ChromaDB
-  query.py             # Vector search and RAG retrieval from ChromaDB
-services/
-  gemini_service.py    # Gemini API calls (OCR, evaluation, Socratic feedback)
-components/
-  rag_debug.py         # Debug panel for RAG context visualization
+kholleur/
+├── core/                           # Domain layer (no external dependencies)
+│   ├── entities/                   # Domain objects
+│   │   ├── question.py             # Question, Exercise, Chapter dataclasses
+│   │   ├── evaluation.py           # EvaluationResult, Score dataclasses
+│   │   └── conversation.py         # Message, ConversationHistory
+│   ├── interfaces/                 # Protocols (abstractions)
+│   │   ├── llm_provider.py         # Protocol: LLMProvider
+│   │   ├── ocr_provider.py         # Protocol: OCRProvider
+│   │   └── embedding_provider.py   # Protocol: EmbeddingProvider
+│   └── services/                   # (future) Domain services
+│
+├── infrastructure/                 # Concrete implementations
+│   ├── llm/                        # LLM Providers
+│   │   ├── base.py                 # BaseLLMProvider (shared retry logic)
+│   │   ├── gemini_provider.py      # GeminiLLMProvider
+│   │   ├── claude_provider.py      # ClaudeLLMProvider
+│   │   ├── deepseek_provider.py    # DeepSeekLLMProvider
+│   │   └── kimi_provider.py        # KimiLLMProvider
+│   └── ocr/                        # OCR Providers
+│       ├── base.py                 # BaseOCRProvider (shared retry, image processing)
+│       ├── gemini_ocr.py           # GeminiOCRProvider
+│       └── kimi_ocr.py             # KimiOCRProvider
+│
+├── application/                    # Application services
+│   ├── settings.py                 # Pydantic Settings (env vars)
+│   ├── container.py                # DI Container / Factory
+│   └── ai_service.py               # AI facade (no Streamlit dependency)
+│
+├── services/                       # Application layer (Streamlit bridge)
+│   ├── ai_router.py                # Routes to ai_service and OCR providers
+│   └── knowledge_service.py        # Knowledge graph + data access (replaces ChromaDB)
+│
+├── prompts/                        # Externalized prompts
+│   ├── kholleur_system.txt         # Main system prompt
+│   ├── evaluation.txt              # Evaluation prompt template
+│   ├── exercise_guide.txt          # Exercise guidance template
+│   └── ocr.txt                     # OCR system prompt
+│
+├── ui/streamlit/                   # UI layer
+│   └── styles.css                  # Externalized CSS (960+ lines)
+│
+├── data/                           # Structured data (JSON)
+│   ├── knowledge_graph.json        # 928 nodes, 2236 edges (Chapter/Concept/Exercise/Kholle)
+│   ├── questions_kholle.json       # 127 kholle questions with attendus/erreurs/relances
+│   ├── programme.json              # Programme officiel MPSI (20 chapitres)
+│   ├── cours/                      # 17 course JSON files (1+ per chapter)
+│   │   ├── logique_ens.json
+│   │   └── ...
+│   └── exercices/                  # 17 exercise JSON files (1 per chapter)
+│       ├── logique_ens.json
+│       └── ...
+│
+├── tests/                          # Tests
+│   └── unit/
+│       ├── test_entities.py
+│       ├── test_settings.py
+│       ├── test_container.py
+│       ├── test_llm_providers.py
+│       └── test_knowledge_service.py
+│
+└── app.py                          # Main Streamlit app
 ```
 
 **Data Flow:**
-1. Questions (JSON), exercises (Markdown), courses (Markdown) are ingested into ChromaDB with embeddings
-2. User selects a chapter → app retrieves random question
-3. User answers (text or photo) → Gemini evaluates using RAG context
-4. Socratic feedback guides student without revealing answers
+1. All data is loaded from JSON files at startup into `KnowledgeService` (~2 Mo in memory)
+2. User selects a chapter → app retrieves random question from `questions_kholle.json`
+3. User answers (text or photo) → LLM evaluates using structured context from the knowledge graph
+4. Structured context = exact definitions/theorems tested (via TESTS edges) + programme constraints
+5. After validation, exercise is matched by shared concepts (via graph traversal), not just chapter/difficulty
 
-**Key Collections in ChromaDB:**
-- `questions_cours`: Course questions with metadata (chapter, difficulty)
-- `exercices`: Exercises with solutions
-- `cours_chunks`: Course reference chunks
+**Knowledge Graph:**
+- **Nodes**: Chapter (20), Concept (338), Exercise (443), Kholle (127)
+- **Edges**: BELONGS_TO, REQUIRES, TESTS (links questions/exercises to concepts), APPLIES_METHOD
+- Deterministic lookup replaces probabilistic RAG: for each kholle question, traverse TESTS edges to find exact concepts tested, then load their LaTeX content from Cours JSON
+
+**Key Abstractions:**
+- `KnowledgeService`: In-memory JSON database with graph traversal (replaces ChromaDB)
+- `LLMProvider` Protocol: Common interface for Gemini, Claude, DeepSeek, Kimi
+- `OCRProvider` Protocol: Common interface for image transcription
+- `BaseLLMProvider` / `BaseOCRProvider`: Shared retry logic, prompt loading
+- `Container`: Dependency injection for provider creation
+- `Settings`: Pydantic-based configuration from `.env`
+
+## Adding a New LLM Provider
+
+1. Create `infrastructure/llm/new_provider.py` extending `BaseLLMProvider`
+2. Implement `_init_client()` and `_call_api()` methods
+3. Add factory method in `application/container.py`
+4. Add API key to `application/settings.py`
+
+## Adding a New OCR Provider
+
+1. Create `infrastructure/ocr/new_ocr.py` extending `BaseOCRProvider`
+2. Implement `_init_client()` and `_call_api()` methods
+3. Add factory method `_create_new_ocr()` in `application/container.py`
+4. Add model name to `application/settings.py`
 
 ## Design System: Modern EdTech
 
-Vibe inspirée de **Duolingo / Khan Academy / Notion** — moderne, coloré mais professionnel, interface accueillante.
+Vibe inspired by **Duolingo / Khan Academy / Notion** — modern, colorful but professional.
 
-### Palette de couleurs
+### Color Palette
 ```css
 --color-primary: #4f46e5      /* Indigo */
 --color-primary-hover: #4338ca
@@ -58,49 +134,28 @@ Vibe inspirée de **Duolingo / Khan Academy / Notion** — moderne, coloré mais
 --color-card-bg: #ffffff
 --color-border: #e2e8f0       /* Light gray */
 --color-text: #1e293b         /* Dark slate */
---color-text-muted: #888888
---color-user-bubble: #4f46e5  /* Indigo pour messages user */
---color-tutor-bubble: #ffffff /* Blanc pour messages assistant */
 ```
 
-### Typographie
-- **Police principale**: Inter (sans-serif)
-- **Police monospace**: JetBrains Mono
-- **Style**: Texte normal (pas de uppercase systématique), letter-spacing subtil pour les labels
+### Typography
+- **Main font**: Inter (sans-serif)
+- **Monospace**: JetBrains Mono
 
-### Principes de design
-- **Pas d'emojis excessifs** (utilisés avec parcimonie uniquement quand pertinent)
-- **Ombres douces** — box-shadow subtiles pour profondeur
-- **Coins arrondis** (border-radius: 8-20px selon l'élément)
-- **Texte sobre et technique** en français
-- **Transitions fluides** pour les interactions
-- **Glassmorphism subtil** pour le header (backdrop-filter: blur)
+### Design Principles
+- No excessive emojis
+- Soft shadows for depth
+- Rounded corners (8-20px)
+- Sober technical text in French
+- Smooth transitions
+- Subtle glassmorphism for header
 
-### Composants
-| Élément | Style |
-|---------|-------|
-| Header | Fond blanc transparent avec blur, dégradé progressif vers transparent |
-| Boutons | Fond indigo, coins arrondis 12px, hover avec ombre indigo + translateY |
-| Cards | Bordure légère, coins arrondis, fond blanc, ombres subtiles |
-| Inputs | Bordure grise, coins arrondis, fond transparent |
-| Messages User | À droite, fond indigo, texte blanc, coins arrondis |
-| Messages Assistant | À gauche, fond blanc, bordure gauche indigo, texte noir |
-
-### UX/UI Rules
-- **Temporal sequencing**: Message user apparaît d'abord, puis spinner, puis réponse AI
-- **Image upload**: Cachée dans expander collapsed après upload (max 300px width)
-- **Form order**: Textarea FIRST (prioritaire), puis photo upload SECOND
-- **Spinner location**: Entre le chat history et le formulaire (pas en dessous du form)
-- **No message truncation**: max-height: none, overflow: visible pour tous les messages
-
-## Code Rules (from context.md)
+## Code Rules
 
 - **Simple > clever**: Prioritize readability
 - **One function = one responsibility**
-- **Interface in French**: All UI text in French (but technical/sober tone)
+- **Interface in French**: All UI text in French
 - **Feedback explains the error**, not just "wrong"
 - **Socratic method**: Never give answers directly; guide through questions
-- **No emojis**: Keep interface clean and professional
+- **No emojis** in code or interface
 
 ## Math/LaTeX Formatting
 
@@ -112,85 +167,68 @@ Vibe inspirée de **Duolingo / Khan Academy / Notion** — moderne, coloré mais
 
 - No course explanations or teaching from scratch
 - No user authentication or accounts
-- No traditional database (all data in local files + ChromaDB)
+- No traditional database (all data in local JSON files)
 
 ## Tech Stack
 
-- Python 3.x + Streamlit
-- Google Gemini (`gemini-3-flash-preview` for OCR/evaluation, `text-embedding-004` for embeddings)
-- ChromaDB (persistent vector database in `chroma_db/`)
-- Environment: API key in `.env` as `GOOGLE_API_KEY`
+- Python 3.11+ with type hints
+- Streamlit for UI
+- Multiple LLM providers: Gemini, Claude, DeepSeek (V3.2), Kimi (K2.5)
+- Multiple OCR providers: Gemini, Kimi (K2.5)
+- In-memory JSON with knowledge graph (deterministic lookup, no vector DB)
+- Pydantic for settings validation
+- Environment: API keys in `.env`
 
 ## API Error Handling
 
-**Gemini 503 Errors (Overloaded):**
-- All Gemini API calls use `call_gemini_with_retry()` wrapper
+All LLM and OCR providers use shared retry logic in base classes:
 - Automatic retry with exponential backoff: 2s → 4s → 8s
 - Max 3 attempts before showing error to user
-- `max_output_tokens` set to 4096 to prevent response truncation
-- Located in `services/gemini_service.py`
+- Handles 503/500 errors and rate limits
+- Empty response detection and retry
 
-# MCP Gemini Design - MANDATORY FOR FRONTEND
+## Environment Variables
 
-## ⛔ ABSOLUTE RULE - NEVER IGNORE
+```bash
+# Required
+GOOGLE_API_KEY=...          # For Gemini
 
-**You MUST NEVER write frontend/UI code yourself.**
+# Optional (for additional providers)
+CLAUDE_API_KEY=...          # For Claude
+DEEPSEEK_API_KEY=...        # For DeepSeek
+KIMI_API_KEY=...            # For Kimi (Moonshot AI)
 
-Gemini is your frontend developer. You are NOT allowed to create visual components, pages, or interfaces without going through Gemini. This is NON-NEGOTIABLE.
+# LLM Model configuration (optional, has defaults)
+GEMINI_MODEL=gemini-3-flash-preview
+CLAUDE_MODEL=claude-sonnet-4-5-20250929
+DEEPSEEK_MODEL=deepseek-chat
+KIMI_MODEL=kimi-k2.5
+DEFAULT_AI_PROVIDER=gemini  # or claude, deepseek, kimi
 
-### When to use Gemini? ALWAYS for:
+# OCR Model configuration (optional, has defaults)
+GEMINI_OCR_MODEL=gemini-2.0-flash
+KIMI_OCR_MODEL=kimi-k2.5
+OCR_PROVIDER=gemini         # or kimi
+```
+
+## MCP Gemini Design - MANDATORY FOR FRONTEND
+
+### When to use Gemini MCP for UI:
 - Creating a page (dashboard, landing, settings, etc.)
-- Creating a visual component (card, modal, sidebar, form, button, etc.)
+- Creating a visual component (card, modal, sidebar, form, etc.)
 - Modifying the design of an existing element
 - Anything related to styling/layout
 
 ### Exceptions (you can do it yourself):
 - Modifying text/copy
-- Adding JS logic without changing the UI
+- Adding logic without changing the UI
 - Non-visual bug fixes
-- Data wiring (useQuery, useMutation, etc.)
+- Data wiring
 
-## MANDATORY Workflow
-
-### Current project status: Design ESTABLISHED
-The project uses **"Modern EdTech"** vibe (Duolingo/Khan Academy/Notion inspired).
-See "Design System: Modern EdTech" section above for guidelines.
-
-### When modifying UI:
+### Workflow
 ```
-ALWAYS pass the CSS from app.py (lines 45-1000) in the `context` parameter
-ALWAYS follow the Modern EdTech guidelines
-Respect indigo color scheme and rounded corners
-Ensure temporal sequencing and proper message display
+1. ALWAYS pass CSS from ui/streamlit/styles.css in the `context` parameter
+2. ALWAYS follow the Modern EdTech guidelines
+3. Respect indigo color scheme and rounded corners
+4. Gemini returns code → YOU write it to disk
 ```
-
-### For new projects without existing design
-```
-STEP 1: generate_vibes → show options to the user
-STEP 2: User chooses their vibe
-STEP 3: create_frontend with the chosen vibe
-```
-
-### 3. After Gemini's response
-```
-Gemini returns code → YOU write it to disk with Write/Edit
-```
-
-## Checklist before coding frontend
-
-- [ ] Am I creating/modifying something visual?
-- [ ] If YES → STOP → Use Gemini
-- [ ] If NO (pure logic) → You can continue
-
-## ❌ WHAT IS FORBIDDEN
-
-- Writing a React component with styling without Gemini
-- Creating a page without Gemini
-- "Reusing existing styles" as an excuse to not use Gemini
-- Doing frontend "quickly" yourself
-
-## ✅ WHAT IS EXPECTED
-
-- Call Gemini BEFORE writing any frontend code
-- Ask the user for their vibe choice if new project
-- Let Gemini design, you implement

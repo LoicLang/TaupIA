@@ -1,0 +1,661 @@
+{
+  "chapter_official_id": "CALC_ALG",
+  "source_document": "Rappels et compléments calculatoires.pdf",
+  "exercises": [
+    {
+      "id": "td_calc_alg_02_01",
+      "source_number": "2.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Inégalités",
+          "Réels"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $a, b, c, d$ des nombres réels vérifiant $a \\le b$ et $c \\le d$.\nMontrer que si $a+c=b+d$, alors nécessairement $a=b$ et $c=d$.",
+        "hint_latex": null,
+        "solution_latex": "On a $a \\le b \\iff b-a \\ge 0$ et $c \\le d \\iff d-c \\ge 0$.\nL'égalité $a+c=b+d$ s'écrit $(b-a) + (d-c) = 0$.\nOr une somme de nombres positifs est nulle si et seulement si chacun de ses termes est nul. Donc $b-a=0$ et $d-c=0$, soit $a=b$ et $c=d$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalités",
+          "Somme de positifs"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_02",
+      "source_number": "2.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Calcul algébrique",
+          "Puissances",
+          "Racines"
+        ]
+      },
+      "content": {
+        "statement_latex": "Simplifier au maximum les expressions suivantes, où $x$ et $y$ sont des réels non nuls et $n \\in \\mathbb{N}$.\n1. $(\\sqrt{3\\sqrt{2}})^{4}$\n2. $\\frac{(xy^{2})^{3}}{(-x)^{-2}y^{3}}$\n3. $\\left(\\frac{3}{4}\\right)^{12}\\left(\\frac{2}{9}\\right)^{5}$\n4. $\\frac{32 \\times 8^{n-1}}{2^{2n+2}-4^{n}}$\n5. $\\frac{\\sqrt{75}-1}{\\sqrt{27}+\\sqrt{36}}$",
+        "hint_latex": null,
+        "solution_latex": "1. $(\\sqrt{3\\sqrt{2}})^{4} = ((3\\sqrt{2})^{1/2})^4 = (3\\sqrt{2})^2 = 9 \\times 2 = 18$.\n2. $\\frac{x^3 y^6}{x^{-2} y^3} = x^3 y^6 x^2 y^{-3} = x^5 y^3$ (Attention $(-x)^{-2} = ((-1)x)^{-2} = x^{-2}$).\n3. $\\frac{3^{12}}{2^{24}} \\times \\frac{2^5}{3^{10}} = \\frac{3^2}{2^{19}}$.\n4. $\\frac{2^5 \\times (2^3)^{n-1}}{2^{2n+2} - 2^{2n}} = \\frac{2^5 \\cdot 2^{3n-3}}{2^{2n}(2^2 - 1)} = \\frac{2^{3n+2}}{3 \\cdot 2^{2n}} = \\frac{2^{n+2}}{3}$.\n5. $\\frac{5\\sqrt{3}-1}{3\\sqrt{3}+6} = \\frac{(5\\sqrt{3}-1)(2-\\sqrt{3})}{3(2+\\sqrt{3})(2-\\sqrt{3})} = \\dots = \\frac{11\\sqrt{3}-17}{3}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Puissances",
+          "Racines carrées"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_03",
+      "source_number": "2.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Équations",
+          "Racines carrées",
+          "Exponentielle"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations suivantes d'inconnue $x \\in \\mathbb{R}$ :\n1. $2x=\\sqrt{x^{2}+1}$\n2. $2\\sqrt{x}+1=\\frac{1}{\\sqrt{x}}$\n3. $e^{2x}+2e^{1+x}=\\frac{3}{e^{-2}}$\n4. $\\ln(x)^{2}-\\ln(x)-10=\\frac{8}{\\ln(x)}$",
+        "hint_latex": null,
+        "solution_latex": "1. Condition : $x \\ge 0$. En élevant au carré : $4x^2 = x^2+1 \\Rightarrow 3x^2=1 \\Rightarrow x = \\frac{1}{\\sqrt{3}}$ (la solution négative est exclue).\n2. Condition : $x > 0$. On pose $X=\\sqrt{x}$. $2X+1=1/X \\Rightarrow 2X^2+X-1=0$. Racines $1/2$ et $-1$. $X$ doit être positif, donc $\\sqrt{x}=1/2 \\Rightarrow x=1/4$.\n3. Équation équivalente à $(e^x)^2 + 2e \\cdot e^x - 3e^2 = 0$. Posons $X=e^x > 0$. $X^2 + 2eX - 3e^2 = 0$. $\\Delta = 4e^2 + 12e^2 = 16e^2$. $X = \\frac{-2e \\pm 4e}{2}$. $X=e$ ou $X=-3e$ (exclu). Donc $e^x=e \\Rightarrow x=1$.\n4. Domaine : $x>0, x \\ne 1$. Posons $X=\\ln(x)$. $X^2-X-10 = 8/X \\Rightarrow X^3-X^2-10X-8=0$. $-2$ est racine évidente. $(X+2)(X^2-3X-4)=0$. Racines : $-2, -1, 4$. Solutions : $e^{-2}, e^{-1}, e^4$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Résolution d'équations",
+          "Changement de variable"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_04",
+      "source_number": "2.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Inéquations",
+          "Tableau de signes"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre les inéquations suivantes, d'inconnue $x \\in \\mathbb{R}$ :\n1. $\\frac{3x+4}{x^{2}+1} \\ge 5$\n2. $\\frac{x-2}{2x+1} \\le -1$\n3. $2x^{4}-9x^{2}+4 < 0$\n4. $e^{2x}-e^{x} \\le 2$\n5. $\\frac{x+5}{x^{2}-1} \\ge 1$",
+        "hint_latex": null,
+        "solution_latex": "1. $x^2+1 > 0$, donc $3x+4 \\ge 5x^2+5 \\iff 5x^2-3x+1 \\le 0$. $\\Delta < 0$, le polynôme est toujours positif. Pas de solution.\n2. $\\frac{x-2}{2x+1} + 1 \\le 0 \\iff \\frac{3x-1}{2x+1} \\le 0$. Tableau de signes : $x \\in ]-1/2, 1/3]$.\n3. Posons $X=x^2 \\ge 0$. $2X^2-9X+4 < 0$. Racines $1/2$ et $4$. Donc $1/2 < x^2 < 4 \\iff \\frac{1}{\\sqrt{2}} < |x| < 2$. Solution : $]-2, -1/\\sqrt{2}[ \\cup ]1/\\sqrt{2}, 2[$.\n4. $X=e^x$. $X^2-X-2 \\le 0$. Racines $-1, 2$. Donc $-1 \\le e^x \\le 2$. Comme $e^x > 0$, on a $e^x \\le 2 \\iff x \\le \\ln 2$.\n5. $\\frac{x+5 - (x^2-1)}{x^2-1} \\ge 0 \\iff \\frac{-x^2+x+6}{x^2-1} \\ge 0$. Racines numérateur : $-2, 3$. Racines dénominateur : $-1, 1$. Tableau de signes donne $S = [-2, -1[ \\cup ]1, 3]$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inéquations",
+          "Polynôme du second degré"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_05",
+      "source_number": "2.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Inégalités",
+          "Bornes",
+          "Fonctions"
+        ]
+      },
+      "content": {
+        "statement_latex": "Prouver que :\n1. Pour tout $x \\in [0,1]$, $0 \\le \\frac{2x+1+\\cos(2x)}{2-x^{2}} \\le 4$.\n2. Pour tout $x > 0$, $\\frac{xe^{-\\sqrt{x}}}{\\ln(x)^{2}-\\ln(x)+1} \\le \\frac{16e^{-2}}{3}$.\n3. Pour tous $x, y$ dans $[1,2]$, $\\frac{2}{5} \\le \\frac{x+y^{2}}{x^{2}+2y-y^{2}} \\le 6$.",
+        "hint_latex": null,
+        "solution_latex": "1. Numérateur : $0 \\le 2x \\le 2$, $-1 \\le \\cos(2x) \\le 1$, donc $0 \\le 2x+1+\\cos(2x) \\le 2+1+1=4$. Dénominateur : $1 \\le 2-x^2 \\le 2$. Donc $1/2 \\le \\frac{1}{2-x^2} \\le 1$. Le produit donne $0 \\le \\text{expr} \\le 4$.\n2. Étude de $f(t) = t^2 e^{-t}$ (max en 2 vaut $4e^{-2}$) et $g(u) = u^2-u+1$ (min en $1/2$ vaut $3/4$). On pose $t=\\sqrt{x}$ et $u=\\ln(x)$. Max/Min donne le résultat.\n3. Encadrements successifs : $1 \\le x \\le 2$, $1 \\le y^2 \\le 4$. Numérateur $\\in [2, 6]$. Dénominateur : étudier $h(y) = 2y-y^2$ sur $[1,2]$. $h'(y)=2-2y \\le 0$. Max en 1 vaut 1, min en 2 vaut 0. Donc $0 \\le 2y-y^2 \\le 1$. Et $1 \\le x^2 \\le 4$. Dénominateur $\\in [1, 5]$. Bornes : $2/5$ et $6/1=6$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Encadrement",
+          "Étude de fonction"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_06",
+      "source_number": "2.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Sommes",
+          "Carrés"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $x_{1},...,x_{n}$ des réels tels que $x_{1}+x_{2}+\\dots+x_{n} = x_{1}^{2}+x_{2}^{2}+\\dots+x_{n}^{2} = n$.\nMontrer que $x_{1}=\\dots=x_{n}=1$.",
+        "hint_latex": null,
+        "solution_latex": "On considère la somme $\\sum (x_i - 1)^2 = \\sum x_i^2 - 2\\sum x_i + \\sum 1 = n - 2n + n = 0$. Une somme de carrés réels est nulle ssi chaque terme est nul, donc $x_i = 1$ pour tout $i$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Somme de carrés",
+          "Identité remarquable"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_07",
+      "source_number": "2.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Inégalités",
+          "Logarithme"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que pour tout réel $x$, $x^{2}-\\frac{x^{4}}{2} \\le \\ln(1+x^{2}) \\le x^{2}$.",
+        "hint_latex": "Poser $X=x^2$ et étudier les fonctions associées.",
+        "solution_latex": "Posons $u=x^2 \\ge 0$. On montre $u - u^2/2 \\le \\ln(1+u) \\le u$. Étude de $f(u) = \\ln(1+u) - u$ (décroissante, $f(0)=0$) et $g(u) = \\ln(1+u) - (u - u^2/2)$ (croissante, $g(0)=0$)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalités usuelles",
+          "Logarithme"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_08",
+      "source_number": "2.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Optimisation",
+          "Inégalités"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Déterminer le maximum de la fonction définie sur $[0, 1]$ par $f(x)=x(1-x)$.\n2. Soient $a, b, c$ trois réels de $[0, 1]$. Montrer que l'un au moins des nombres $a(1-c)$, $b(1-a)$, $c(1-b)$ est inférieur ou égal à $\\frac{1}{4}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Le maximum est atteint en $1/2$ et vaut $1/4$.\n2. Par l'absurde, supposons les trois strictement supérieurs à $1/4$. Le produit $P = a(1-c)b(1-a)c(1-b)$ serait strictement supérieur à $(1/4)^3$. Or $P = [a(1-a)][b(1-b)][c(1-c)]$. Chacun des facteurs est $\\le 1/4$ d'après 1., donc $P \\le (1/4)^3$. Contradiction."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Raisonnement par l'absurde",
+          "Optimisation"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_09",
+      "source_number": "2.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Récurrence",
+          "Inégalités"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer par récurrence que pour tout $t \\in [0,1]$ et tout $n \\in \\mathbb{N}^{*}$, $1-nt \\le (1-t)^{n} \\le \\frac{1}{1+nt}$.",
+        "hint_latex": null,
+        "solution_latex": "Initialisation $n=1$ : $1-t \\le 1-t \\le \\frac{1}{1+t}$ (car $1-t^2 \\le 1$).\nHérédité : Supposons vrai pour $n$. $(1-t)^{n+1} = (1-t)(1-t)^n \\ge (1-t)(1-nt) = 1-(n+1)t + nt^2 \\ge 1-(n+1)t$.\nPour l'autre : $(1-t)^{n+1} \\le \\frac{1-t}{1+nt}$. On veut montrer $\\frac{1-t}{1+nt} \\le \\frac{1}{1+(n+1)t}$. Cela revient à étudier le signe de la différence ou produit en croix, qui donne une inégalité vraie ($t^2 \\ge 0$)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalité de Bernoulli",
+          "Récurrence"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_10",
+      "source_number": "2.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Inégalités",
+          "Sommes"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que pour tout $x \\in \\mathbb{R}_{+}^{*}$, $x+\\frac{1}{x} \\ge 2$.\n2. En déduire que pour tout $n \\in \\mathbb{N}^{*}$, pour tous réels strictement positifs $a_{1},...,a_{n}$, $(a_{1}+\\dots+a_{n})(\\frac{1}{a_{1}}+\\dots+\\frac{1}{a_{n}}) \\ge n^{2}$.\n3. À quelle condition cette inégalité est-elle une égalité ?",
+        "hint_latex": null,
+        "solution_latex": "1. $( \\sqrt{x} - 1/\\sqrt{x} )^2 \\ge 0 \\Rightarrow x - 2 + 1/x \\ge 0$.\n2. En développant le produit, on a $n$ termes égaux à 1 (les $a_i/a_i$) et des termes $a_i/a_j + a_j/a_i$ pour $i \\ne j$. Chaque paire vaut $\\ge 2$. Il y a $n(n-1)/2$ paires. Somme $\\ge n + 2 \\frac{n(n-1)}{2} = n^2$. (Ou récurrence).\n3. Égalité si chaque $a_i/a_j = 1$, donc tous les $a_i$ sont égaux."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalité arithmético-géométrique",
+          "Développement"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_11",
+      "source_number": "2.11",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Inégalités",
+          "Identités remarquables"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que pour tous réels $a$ et $b$, $(a+b)^{2} \\ge 4ab$.\n2. En déduire que pour $a$ et $b$ strictement positifs, $\\frac{ab}{a+b} \\le \\frac{a+b}{4}$.\n3. Montrer que pour $x, y, z$ strictement positifs, $\\frac{xy}{x+y}+\\frac{xz}{x+z}+\\frac{yz}{y+z} \\le \\frac{x+y+z}{2}$.",
+        "hint_latex": null,
+        "solution_latex": "1. $(a+b)^2 - 4ab = (a-b)^2 \\ge 0$.\n2. Diviser par $4(a+b)$.\n3. Somme des trois inégalités : $\\sum \\frac{xy}{x+y} \\le \\sum \\frac{x+y}{4} = \\frac{2(x+y+z)}{4} = \\frac{x+y+z}{2}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalités usuelles",
+          "Symétrie"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_12",
+      "source_number": "2.12",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Inégalités",
+          "Cyclique"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $x, y, z$ trois réels strictement positifs. Montrer que $\\frac{x^{2}}{y^{2}}+\\frac{y^{2}}{z^{2}}+\\frac{z^{2}}{x^{2}} \\ge \\frac{x}{z}+\\frac{y}{x}+\\frac{z}{y}$.\nÀ quelle(s) condition(s) cette inégalité est-elle une égalité ?",
+        "hint_latex": "Utiliser des sommes de carrés.",
+        "solution_latex": "On forme des carrés parfaits : $(\\frac{x}{y} - \\frac{y}{z})^2 + (\\text{cyc}) \\dots$ En fait, l'inégalité équivaut à $\\frac{1}{2} [ (\\frac{x}{y}-\\frac{y}{z})^2 + (\\frac{y}{z}-\\frac{z}{x})^2 + (\\frac{z}{x}-\\frac{x}{y})^2 ] \\ge 0$. Égalité ssi $x=y=z$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Somme de carrés",
+          "Inégalités cycliques"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_13",
+      "source_number": "2.13",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Équations",
+          "Logarithme",
+          "Valeur absolue"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre l'équation $\\ln|x|+\\ln|x+1|=0$.",
+        "hint_latex": null,
+        "solution_latex": "Équivalent à $\\ln|x(x+1)|=0 \\iff |x^2+x|=1$. Deux cas : $x^2+x=1$ ou $x^2+x=-1$. La première donne $x = \\frac{-1 \\pm \\sqrt{5}}{2}$. La seconde a un discriminant négatif."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Logarithme",
+          "Valeur absolue"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_14",
+      "source_number": "2.14",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "F",
+        "difficulty_score": 1,
+        "tags": [
+          "Sommes",
+          "Inégalité triangulaire"
+        ]
+      },
+      "content": {
+        "statement_latex": "Prouver que pour tout $n \\in \\mathbb{N}^{*}$, $|1^{3}-2^{3}+3^{3}-4^{3}+\\dots+(-1)^{n-1}n^{3}| \\le n^{4}$.",
+        "hint_latex": null,
+        "solution_latex": "Inégalité triangulaire : $|S| \\le \\sum |k^3| = \\sum k^3 \\le \\sum n^3 = n \\cdot n^3 = n^4$ (majoration brutale)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalité triangulaire",
+          "Majoration"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_15",
+      "source_number": "2.15",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Équations",
+          "Valeur absolue"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations suivantes :\n1. $x+|x|=\\frac{4}{x}$\n2. $x|x|=3x+2$",
+        "hint_latex": "Disjonction de cas selon le signe de $x$.",
+        "solution_latex": "1. Si $x>0$, $2x=4/x \\Rightarrow x=\\sqrt{2}$. Si $x<0$, $0=4/x$ impossible. Solution $\\sqrt{2}$.\n2. Si $x \\ge 0$, $x^2-3x-2=0 \\Rightarrow x = \\frac{3+\\sqrt{17}}{2}$. Si $x < 0$, $-x^2-3x-2=0 \\Rightarrow x^2+3x+2=0 \\Rightarrow x \\in \\{-1, -2\\}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Disjonction de cas",
+          "Valeur absolue"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_16",
+      "source_number": "2.16",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Inéquations",
+          "Valeur absolue"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre les inéquations suivantes, d'inconnue $x \\in \\mathbb{R}$ :\n1. $|x+2| < |x^{2}-4|$\n2. $|x+5| \\ge |x^{2}-25|$\n3. $|\\frac{1}{x+1}| > 2$\n4. $4|x+1|x-|x| > 1$\n5. $|x^{2}-3x-7|=3$",
+        "hint_latex": "Factoriser les polynômes dans les valeurs absolues.",
+        "solution_latex": "1. $|x+2| < |x+2||x-2|$. Si $x \\ne -2$, $1 < |x-2| \\Rightarrow x-2 > 1$ ou $x-2 < -1$. $x \\in ]-\\infty, -2[ \\cup ]-2, 1[ \\cup ]3, +\\infty[$.\n2. $|x+5| \\ge |x+5||x-5|$. Si $x \\ne -5$, $1 \\ge |x-5|$. $x \\in [4, 6]$. $-5$ est aussi solution.\n3. $|x+1| < 1/2$. $x \\in ]-1.5, -0.5[ \\setminus \\{-1\\}$.\n4. Disjonction de cas sur les intervalles définis par $-1$ et $0$.\n5. $x^2-3x-7=3$ ou $-3$. $x^2-3x-10=0 (-2, 5)$ ou $x^2-3x-4=0 (-1, 4)$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Valeur absolue",
+          "Factorisation"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_17",
+      "source_number": "2.17",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Inégalités",
+          "Valeur absolue"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $a, b$ deux nombres réels. Montrer que $\\frac{|a+b|}{1+|a+b|} \\le \\frac{|a|}{1+|a|}+\\frac{|b|}{1+|b|}$.",
+        "hint_latex": "Utiliser la croissance de $t \\mapsto t/(1+t)$ ou réduire au même dénominateur.",
+        "solution_latex": "La fonction $f(t) = \\frac{t}{1+t} = 1 - \\frac{1}{1+t}$ est croissante sur $\\mathbb{R}_+$. Comme $|a+b| \\le |a|+|b|$, on a $f(|a+b|) \\le f(|a|+|b|) = \\frac{|a|+|b|}{1+|a|+|b|} = \\frac{|a|}{1+|a|+|b|} + \\frac{|b|}{1+|a|+|b|} \\le \\frac{|a|}{1+|a|} + \\frac{|b|}{1+|b|}$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Inégalité triangulaire",
+          "Fonction croissante"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_18",
+      "source_number": "2.18",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Partie entière",
+          "Arithmétique"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $n \\in \\mathbb{Z}$. Prouver que $\\lfloor\\frac{n}{2}\\rfloor = \\frac{n}{2}$ si $n$ est pair, et $\\frac{n-1}{2}$ si $n$ est impair.",
+        "hint_latex": null,
+        "solution_latex": "Si $n=2k$, $\\lfloor k \\rfloor = k = n/2$. Si $n=2k+1$, $n/2 = k + 0.5$, $\\lfloor k+0.5 \\rfloor = k = (n-1)/2$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie entière",
+          "Parité"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_19",
+      "source_number": "2.19",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Partie entière",
+          "Racines carrées"
+        ]
+      },
+      "content": {
+        "statement_latex": "Montrer que pour $n \\in \\mathbb{N}$, $\\lfloor(\\sqrt{n}+\\sqrt{n+1})^{2}\\rfloor=4n+1$.",
+        "hint_latex": "Développer le carré et encadrer.",
+        "solution_latex": "$(\\sqrt{n}+\\sqrt{n+1})^2 = 2n+1 + 2\\sqrt{n^2+n}$. Or $n < \\sqrt{n^2+n} < n+0.5$ (à vérifier par élévation au carré : $n^2 < n^2+n < n^2+n+0.25$, vrai pour $n \\ge 1$). Donc $2n < 2\\sqrt{n^2+n} < 2n+1$. La somme est comprise entre $4n+1$ et $4n+2$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie entière",
+          "Encadrement"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_20",
+      "source_number": "2.20",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Partie entière",
+          "Équations"
+        ]
+      },
+      "content": {
+        "statement_latex": "Résoudre l'équation $\\lfloor\\sqrt{x^{2}-x+2}\\rfloor=2$ et l'inéquation $|\\lfloor x^{2}-4x-3\\rfloor+1| \\le 2$, d'inconnue $x \\in \\mathbb{R}$.",
+        "hint_latex": "Revenir à la définition de la partie entière : $n \\le A < n+1$.",
+        "solution_latex": "1. $2 \\le \\sqrt{x^2-x+2} < 3 \\iff 4 \\le x^2-x+2 < 9$. Résoudre les deux inéquations du second degré.\n2. $-2 \\le \\lfloor \\dots \\rfloor + 1 \\le 2 \\iff -3 \\le \\lfloor \\dots \\rfloor \\le 1 \\iff -3 \\le x^2-4x-3 < 2$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie entière",
+          "Double inéquation"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_21",
+      "source_number": "2.21",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Partie entière",
+          "Propriétés"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soient $x$ et $y$ deux nombres réels.\n1. Prouver que pour $n \\in \\mathbb{Z}$, $n \\le x \\Rightarrow n \\le \\lfloor x\\rfloor$.\n2. Montrer que la fonction partie entière est croissante.\n3. A-t-on toujours $\\lfloor x+y\\rfloor=\\lfloor x\\rfloor+\\lfloor y\\rfloor$ ? Montrer que $\\lfloor x\\rfloor+\\lfloor y\\rfloor \\le \\lfloor x+y\\rfloor \\le \\lfloor x\\rfloor+\\lfloor y\\rfloor+1$.",
+        "hint_latex": null,
+        "solution_latex": "1. $\\lfloor x \\rfloor$ est le plus grand entier $\\le x$. Si $n$ est un entier $\\le x$, alors $n \\le \\lfloor x \\rfloor$.\n2. Si $x \\le y$, $\\lfloor x \\rfloor \\le x \\le y$. Comme $\\lfloor x \\rfloor$ est entier, d'après 1., $\\lfloor x \\rfloor \\le \\lfloor y \\rfloor$.\n3. Non (ex: 0.5+0.5). Encadrement : $x = \\lfloor x \\rfloor + \\{x\\}$. Somme : $\\lfloor x \\rfloor + \\lfloor y \\rfloor + \\{x\\} + \\{y\\}$. La partie fractionnaire somme est dans $[0, 2[$. Donc partie entière est soit somme, soit somme+1."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Partie entière",
+          "Croissance"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_22",
+      "source_number": "2.22",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": [
+          "Partie entière",
+          "Valeur absolue",
+          "Logique"
+        ]
+      },
+      "content": {
+        "statement_latex": "Vrai ou Faux ? Justifier.\n1. Si $\\lfloor a\\rfloor=\\lfloor b\\rfloor$ alors $|a-b|<1$.\n2. Si $|a-b|<1$ alors $\\lfloor a\\rfloor=\\lfloor b\\rfloor$.\n3. Si $a \\le b$, alors $a^{2} \\le b^{2}$.\n4. $|a| \\le |a+b|$.\n5. $a+|a|=0 \\iff a \\le 0$.\n6. $|a+b|=|a| \\Rightarrow b=0$.\n7. $|\\lfloor x\\rfloor|=\\lfloor|x|\\rfloor$.\n8. $\\lfloor\\frac{x}{2}\\rfloor=\\frac{\\lfloor x\\rfloor}{2}$.",
+        "hint_latex": null,
+        "solution_latex": "1. Vrai. Même intervalle $[n, n+1[$, distance max 1.\n2. Faux. $0.9$ et $1.0$.\n3. Faux. Négatifs.\n4. Faux. $b=-a$.\n5. Vrai.\n6. Faux. $b=-2a$.\n7. Faux. $x=-0.5$, $|-1|=1 \\ne 0$.\n8. Faux. $x=1$, $0 \\ne 0.5$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Contre-exemple",
+          "Logique"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_23",
+      "source_number": "2.23",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": [
+          "Partie entière",
+          "Identité d'Hermite"
+        ]
+      },
+      "content": {
+        "statement_latex": "Soit $x \\in \\mathbb{R}$ et $n \\in \\mathbb{N}^{*}$. Montrer les relations suivantes :\n1. $\\lfloor x\\rfloor+\\lfloor x+\\frac{1}{2}\\rfloor=\\lfloor 2x\\rfloor$.\n2. $\\lfloor\\frac{\\lfloor nx\\rfloor}{n}\\rfloor=\\lfloor x\\rfloor$.",
+        "hint_latex": "Disjonction de cas selon la position de la partie fractionnaire.",
+        "solution_latex": "1. Si $0 \\le \\{x\\} < 0.5$, $\\lfloor x+0.5 \\rfloor = \\lfloor x \\rfloor$ et $\\lfloor 2x \\rfloor = 2\\lfloor x \\rfloor$. Si $0.5 \\le \\{x\\} < 1$, $\\lfloor x+0.5 \\rfloor = \\lfloor x \\rfloor + 1$ et $\\lfloor 2x \\rfloor = 2\\lfloor x \\rfloor + 1$.\n2. Encadrement $n\\lfloor x \\rfloor \\le \\lfloor nx \\rfloor \\le nx$. Diviser par $n$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Identité d'Hermite",
+          "Partie fractionnaire"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_24",
+      "source_number": "2.24",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Partie entière",
+          "Équations"
+        ]
+      },
+      "content": {
+        "statement_latex": "Pour $x \\in \\mathbb{R}$ on note $n=\\lfloor x\\rfloor$.\n1. Exprimer $\\lfloor x-4\\rfloor$ et $\\lfloor 2x-1\\rfloor$ en fonction de $n$.\n2. Résoudre l'équation $\\lfloor x-4\\rfloor=\\lfloor 2x-1\\rfloor$.",
+        "hint_latex": null,
+        "solution_latex": "1. $\\lfloor x-4 \\rfloor = n-4$. $\\lfloor 2x-1 \\rfloor = 2n-1$ si $x \\in [n, n+0.5[$ et $2n$ si $x \\in [n+0.5, n+1[$.\n2. Cas 1 : $n-4 = 2n-1 \\Rightarrow n=-3$. Solution sur $[-3, -2.5[$. Cas 2 : $n-4 = 2n \\Rightarrow n=-4$. Solution sur $[-3.5, -3[$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Équation avec partie entière",
+          "Disjonction de cas"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_25",
+      "source_number": "2.25",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "D",
+        "difficulty_score": 4,
+        "tags": [
+          "Partie entière",
+          "Récurrence",
+          "Arithmétique"
+        ]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que pour tout $n \\in \\mathbb{N}^{*}$ il existe deux entiers naturels $a_{n}$ et $b_{n}$ vérifiant $(2+\\sqrt{3})^{n}=a_{n}+b_{n}\\sqrt{3}$ et $3b_{n}^{2}=a_{n}^{2}-1$.\n2. Prouver que pour tout $n \\in \\mathbb{N}^{*}$, $\\lfloor(2+\\sqrt{3})^{n}\\rfloor$ est un entier impair.",
+        "hint_latex": "Utiliser la quantité conjuguée $(2-\\sqrt{3})^n$.",
+        "solution_latex": "1. Récurrence. Relation $3b_n^2 - a_n^2 = -1$ vient de la norme dans $\\mathbb{Z}[\\sqrt{3}]$ ou calcul direct.\n2. On remarque que $(2-\\sqrt{3})^n = a_n - b_n\\sqrt{3}$. Or $0 < 2-\\sqrt{3} < 1$, donc $0 < a_n - b_n\\sqrt{3} < 1$. Ainsi $b_n\\sqrt{3} < a_n < b_n\\sqrt{3} + 1$. Or $(2+\\sqrt{3})^n = a_n + b_n\\sqrt{3} \\approx 2a_n$. Plus précisément, la somme est $2a_n$, le terme conjugué est petit. $\\lfloor \\dots \\rfloor = 2a_n - 1$."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Corps quadratique",
+          "Suite récurrente"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_26",
+      "source_number": "2.26",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "TD",
+        "difficulty_score": 5,
+        "tags": [
+          "Suites",
+          "Partie entière",
+          "Oral Polytechnique"
+        ]
+      },
+      "content": {
+        "statement_latex": "On considère une suite $(u_{n})_{n\\ge1}$ définie par : $u_{1}=1, u_{2}=u_{3}=2, u_{4}=u_{5}=u_{6}=3, \\dots$ (le nombre $k$ apparaît $k$ fois).\nDonner une expression de $u_{n}$ en fonction de $n$ utilisant la partie entière.",
+        "hint_latex": "Chercher $k$ tel que $k(k-1)/2 < n \\le k(k+1)/2$.",
+        "solution_latex": "On a $u_n = k \\iff \\frac{(k-1)k}{2} < n \\le \\frac{k(k+1)}{2}$. On résout approximativement $n \\approx k^2/2 \\Rightarrow k \\approx \\sqrt{2n}$. Formule exacte : $u_n = \\lfloor \\frac{1+\\sqrt{8n-7}}{2} \\rfloor$ (ou formule proche selon les indices)."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Suite",
+          "Triangulaire"
+        ]
+      }
+    },
+    {
+      "id": "td_calc_alg_02_27",
+      "source_number": "2.27",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "TD",
+        "difficulty_score": 5,
+        "tags": [
+          "Partie entière",
+          "Grands nombres"
+        ]
+      },
+      "content": {
+        "statement_latex": "Mon ordinateur m'indique que $\\lfloor\\sqrt{44}\\rfloor=6$, $\\lfloor\\sqrt{4444}\\rfloor=66$, $\\lfloor\\sqrt{444444}\\rfloor=666$.\nEst-il vrai que pour tout $n \\in \\mathbb{N}^{*}$, $\\lfloor\\sqrt{44...4}\\rfloor$ ($2n$ chiffres) $= 66...6$ ($n$ chiffres) ?",
+        "hint_latex": "Exprimer les nombres comme sommes géométriques.",
+        "solution_latex": "$A_n = \\sum_{k=0}^{2n-1} 4 \\cdot 10^k = \\frac{4}{9}(10^{2n}-1)$. $B_n = \\frac{2}{3}(10^n-1)$.\nOn vérifie que $B_n^2 \\le A_n < (B_n+1)^2$. Calcul direct montre que c'est vrai."
+      },
+      "graph_links": {
+        "tested_concepts_placeholder": [
+          "Repunit",
+          "Partie entière"
+        ]
+      }
+    }
+  ]
+}

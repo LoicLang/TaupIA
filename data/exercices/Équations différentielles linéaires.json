@@ -1,0 +1,310 @@
+{
+  "chapter_official_id": "TECH_ANA",
+  "source_document": "Équations différentielles linéaires.pdf",
+  "exercises": [
+    {
+      "id": "eq_diff_td_10_01",
+      "source_number": "10.1",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 1,
+        "tags": ["Équation différentielle linéaire d'ordre 1", "Variation de la constante", "Primitive"]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations différentielles suivantes sur les intervalles $I$ indiqués :\n1. $y' + y = e^{2x}$ ($I = \\mathbb{R}$)\n2. $2ty'(t) - 3y(t) = t^2$ ($I = \\mathbb{R}_{+}^{*}$)\n3. $(t-1)y' - 2y = (t-1)^3$ ($I = ]-\\infty, 1[$)\n4. $\\sqrt{1-t^2}y' - y = 2$ ($I = ]-1, 1[$)\n5. $xy' - 2y = x^5 \\sin(x)$ ($I = \\mathbb{R}_{-}^{*}$)\n6. $y' - y = \\text{sh}(x)$ ($I = \\mathbb{R}$)\n7. $(t^2+1)^2 y' + 2t(t^2+1)y = 2$ ($I = \\mathbb{R}$)\n8. $(1+x^2)y' - y = 1$ ($I = \\mathbb{R}$)\n9. $y' + y \\tan x = \\sin(2x)$ ($I = ]-\\frac{\\pi}{2}, \\frac{\\pi}{2}[$)",
+        "hint_latex": "Utiliser la méthode de la variation de la constante ou identifier une solution particulière évidente.",
+        "solution_latex": "1. $x \\mapsto \\frac{e^{2x}}{3} + \\lambda e^{-x}$.\n2. $t \\mapsto t^2 + \\lambda t\\sqrt{t}$.\n3. $t \\mapsto (t-1)^2(\\lambda + t)$.\n4. $t \\mapsto -2 + \\lambda e^{\\text{Arcsin}(t)}$.\n5. $x \\mapsto x^2((2-x^2)\\cos(x) + 2x\\sin(x) + \\lambda)$.\n6. $x \\mapsto e^x(\\lambda + \\frac{x}{2}) + \\frac{e^{-x}}{4}$.\n7. $t \\mapsto \\frac{2\\text{Arctan}(t) + \\lambda}{1+t^2}$.\n8. $t \\mapsto \\lambda e^{\\text{Arctan}(t)} - 1$.\n9. $t \\mapsto \\lambda \\cos t - 2\\cos^2 t$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Ordre 1", "Variation de la constante"] }
+    },
+    {
+      "id": "eq_diff_td_10_02",
+      "source_number": "10.2",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 2,
+        "tags": ["Problème de Cauchy", "Condition initiale", "Exponentielle complexe"]
+      },
+      "content": {
+        "statement_latex": "Déterminer les solutions aux problèmes de Cauchy suivants :\n1. $y' + y = \\cos(t)e^t, y(0) = -1$\n2. $(x+1)y' + (x^2 + x + 1)y = x, y(1) = e$\n3. $y' + 2xy = e^{x-x^2}, y(0) = 0$",
+        "hint_latex": null,
+        "solution_latex": "1. $t \\mapsto \\frac{1}{5}(-7e^{-t} + e^t(2\\cos(t) + \\sin(t)))$.\n2. $x \\mapsto \\frac{1 + (2e-1)e^{(1-x^2)/2}}{x+1}$.\n3. $x \\mapsto e^{-x^2}(e^x - 1)$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Condition initiale", "Cauchy"] }
+    },
+    {
+      "id": "eq_diff_td_10_03",
+      "source_number": "10.3",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 2,
+        "tags": ["Équation homogène", "Unicité", "Exponentielle"]
+      },
+      "content": {
+        "statement_latex": "Soit $y'(t) + a(t)y(t) = 0$ une équation différentielle linéaire homogène d'ordre un sur $I$. Soit $y_0$ une solution. Montrer que s'il existe $t_0 \\in I$ tel que $y_0(t_0) = 0$, alors $y_0$ est la fonction nulle.",
+        "hint_latex": "Utiliser l'unicité du problème de Cauchy ou la forme générale des solutions.",
+        "solution_latex": "Les solutions sont de la forme $t \\mapsto \\lambda e^{-A(t)}$. Comme l'exponentielle ne s'annule jamais, $y_0(t_0) = 0 \\implies \\lambda = 0$[cite: 254, 256]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Unicité Cauchy", "Solution nulle"] }
+    },
+    {
+      "id": "eq_diff_td_10_04",
+      "source_number": "10.4",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD/AD",
+        "difficulty_score": 3,
+        "tags": ["Raccordement", "Continuité", "Dérivabilité"]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations suivantes sur $\\mathbb{R}$ :\n1. $xy' - 2y = 2x^4$\n2. $x(x^2+1)y' - (x^2-1)y = -2x$\n3. $(1-x^2)y' + xy = x$\n4. $xy' - y = x^2$\n5. $x^2 y' - y = (x^2-1)e^x$",
+        "hint_latex": "Résoudre sur chaque intervalle où le coefficient de $y'$ ne s'annule pas, puis étudier la continuité et la dérivabilité au point critique.",
+        "solution_latex": "1. $x \\mapsto \\lambda_1 x^2 + x^4$ si $x \\ge 0$ et $\\lambda_2 x^2 + x^4$ si $x < 0$.\n2. L'unique solution est $x \\mapsto -x$.\n3. L'unique solution est la fonction constante égale à 1.\n4. $x \\mapsto \\lambda x + x^2$.\n5. $x \\mapsto e^x$ si $x \\le 0$ et $\\lambda e^{-1/x} + e^x$ si $x > 0$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Raccordement", "Analyse-Synthèse"] }
+    },
+    {
+      "id": "eq_diff_td_10_05",
+      "source_number": "10.5",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": ["Oral Mines", "Raccordement", "Limite"]
+      },
+      "content": {
+        "statement_latex": "Existe-t-il des solutions sur $\\mathbb{R}$ de l'équation différentielle $y' \\sin x + y \\cos x = \\sin^2 x$ ?",
+        "hint_latex": "Chercher les solutions sur $]k\\pi, (k+1)\\pi[$ et regarder si elles admettent des limites finies en $k\\pi$.",
+        "solution_latex": "Non. Les solutions sur $]0, \\pi[$ sont de la forme $y(x) = \\frac{x+2\\lambda}{2\\sin x} - \\frac{\\cos x}{2}$. La continuité en 0 impose $\\lambda = 0$, mais alors $\\lim_{x \\to \\pi^-} y(x) = +\\infty$, ce qui contredit la continuité en $\\pi$[cite: 469, 472, 474]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Non-existence solution globale"] }
+    },
+    {
+      "id": "eq_diff_td_10_06",
+      "source_number": "10.6",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 3,
+        "tags": ["Équation intégrale", "Fonction dérivable"]
+      },
+      "content": {
+        "statement_latex": "Déterminer toutes les fonctions dérivables sur $\\mathbb{R}$ telles que $\\forall t \\in \\mathbb{R}, f'(t) + f(t) = \\int_{0}^{1} f(x) dx$.",
+        "hint_latex": "Noter $A = \\int_{0}^{1} f(x) dx$ la constante et résoudre l'équation différentielle $y' + y = A$.",
+        "solution_latex": "Les solutions sont les fonctions constantes $f(t) = A$ pour tout $A \\in \\mathbb{R}$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Intégrale constante"] }
+    },
+    {
+      "id": "eq_diff_td_10_07",
+      "source_number": "10.7",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 1,
+        "tags": ["Équation homogène d'ordre 2", "Coefficients constants"]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations différentielles suivantes :\n1. $y'' - 2y' + y = 0$\n2. $y'' + y' + y = 0$ ($K=\\mathbb{C}$ puis $K=\\mathbb{R}$)\n3. $y'' + 4y' - 6y = 0$\n4. $y'' - 4y' + ay = 0$ ($a \\in \\mathbb{R}$)",
+        "hint_latex": "Étudier le signe du discriminant du polynôme caractéristique.",
+        "solution_latex": "1. $(\\lambda t + \\mu)e^t$.\n2. $e^{-t/2}(\\lambda \\cos(\\frac{\\sqrt{3}}{2}t) + \\mu \\sin(\\frac{\\sqrt{3}}{2}t))$ sur $\\mathbb{R}$.\n3. $\\lambda e^{(-\\sqrt{10}-2)t} + \\mu e^{(\\sqrt{10}-2)t}$.\n4. Si $a \\le 4$, racines réelles ; si $a > 4$, racines complexes[cite: 514, 516]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Polynôme caractéristique"] }
+    },
+    {
+      "id": "eq_diff_td_10_08",
+      "source_number": "10.8",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 3,
+        "tags": ["Coefficients complexes", "Cauchy"]
+      },
+      "content": {
+        "statement_latex": "Résoudre $y'' - (1-i)y' - 2(1+i)y = 0$. Déterminer l'unique solution telle que $y(0) = y'(0) = 1$.",
+        "hint_latex": "Calculer le discriminant complexe $\\Delta$.",
+        "solution_latex": "$\\Delta = 8-6i = (3-i)^2$. Racines : 2 et $-1-i$. Solution : $t \\mapsto \\frac{7+i}{10}e^{2t} + \\frac{3-i}{10}e^{-(1+i)t}$[cite: 527, 528, 536]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Équation complexe"] }
+    },
+    {
+      "id": "eq_diff_td_10_09",
+      "source_number": "10.9",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD/F/PD",
+        "difficulty_score": 3,
+        "tags": ["Second membre", "Superposition", "Exponentielle complexe"]
+      },
+      "content": {
+        "statement_latex": "Résoudre les équations suivantes :\n1. $y'' + 2y' + y = \\text{sh}(x)$\n2. $y'' + 4y' + 5y = e^{-2x} \\sin(x)$\n3. $y'' - 3y' + 2y = \\sin x + \\cos x$\n4. $y'' - y = e^x \\cos(2x)$\n5. $y'' + y = \\sin(x)$",
+        "hint_latex": "Utiliser le principe de superposition et chercher des solutions particulières sous forme de fonctions 'du même type'.",
+        "solution_latex": "1. $((\\lambda x + \\mu) - \\frac{x^2}{4})e^{-x} + \\frac{e^x}{8}$.\n2. $e^{-2x}(\\cos(x)\\frac{\\lambda - x}{2} + \\mu \\sin(x))$.\n3. $\\lambda e^x + \\mu e^{2x} + \\frac{2\\cos x}{5} - \\frac{\\sin x}{5}$.\n4. $\\lambda e^{-x} + \\mu e^x - \\frac{e^x}{8}(\\cos(2x) + \\sin(2x))$.\n5. $\\lambda \\cos x + \\mu \\sin x - \\frac{x}{2} \\cos x$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Superposition", "Solution particulière"] }
+    },
+    {
+      "id": "eq_diff_td_10_10",
+      "source_number": "10.10",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": ["Solution bornée", "Analyse"]
+      },
+      "content": {
+        "statement_latex": "1. Montrer que $y'' + 2y' + 2y = 0$ possède une unique solution bornée sur $\\mathbb{R}$.\n2. En déduire que $y''(x) + 2y'(x) + 2y(x) = f(x)$ possède au plus une solution bornée sur $\\mathbb{R}$.",
+        "hint_latex": "Une solution bornée de l'équation homogène ne peut être que la fonction nulle.",
+        "solution_latex": "1. Les solutions sont $e^{-t}(\\lambda \\cos t + \\mu \\sin t)$. Si $\\lambda \\ne 0$ ou $\\mu \\ne 0$, la fonction n'est pas bornée quand $t \\to -\\infty$[cite: 611, 613].\n2. La différence de deux solutions bornées serait une solution bornée de l'homogène, donc nulle."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Bornitude"] }
+    },
+    {
+      "id": "eq_diff_td_10_11",
+      "source_number": "10.11",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": ["Second membre polynomial", "Somme de termes"]
+      },
+      "content": {
+        "statement_latex": "1. Résoudre $y'' + 2y' = x^2 - x + 2\\text{ch}(x)$.\n2. Résoudre $y'' - 3y' + 2y = xe^x$.",
+        "hint_latex": "Pour la question 2, 1 est racine simple du polynôme caractéristique.",
+        "solution_latex": "1. $x \\mapsto \\lambda e^{-2x} + \\mu + \\frac{x^3}{6} - \\frac{x^2}{2} + \\frac{x}{2} + \\frac{e^x}{3} - e^{-x}$.\n2. $x \\mapsto -(\\frac{x^2}{2} + x + \\lambda)e^x + \\mu e^{2x}$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Racine du polynôme caractéristique"] }
+    },
+    {
+      "id": "eq_diff_td_10_12",
+      "source_number": "10.12",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD",
+        "difficulty_score": 3,
+        "tags": ["Équation d'Euler", "Changement de variable"]
+      },
+      "content": {
+        "statement_latex": "On cherche à résoudre $x^2 y'' + axy' + by = c(x)$ sur $\\mathbb{R}_{+}^{*}$.\n1. Poser $t = \\ln(x)$ et $z(t) = y(e^t)$.\n2. Résoudre $x^2 y'' + xy' + y = x^2 + x + 1$.",
+        "hint_latex": "Calculer $y'$ et $y''$ en fonction de $z'$ et $z''$ via la règle de la chaîne.",
+        "solution_latex": "1. L'équation devient $z'' + (a-1)z' + bz = c(e^t)$.\n2. L'équation en $z$ est $z'' + z = e^{2t} + e^t + 1$. Solution finale : $x \\mapsto \\lambda \\cos(\\ln x) + \\mu \\sin(\\ln x) + \\frac{x^2}{5} + \\frac{x}{2} + 1$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Changement de variable log"] }
+    },
+    {
+      "id": "eq_diff_td_10_13",
+      "source_number": "10.13",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 4,
+        "tags": ["Équation fonctionnelle", "Analyse-Synthèse"]
+      },
+      "content": {
+        "statement_latex": "1. Déterminer les fonctions dérivables sur $\\mathbb{R}$ telles que $f'(x) = -f(-x)$.\n2. Déterminer les fonctions dérivables sur $\\mathbb{R}$ telles que $f'(x) = f(-x) + xe^{-x}$.",
+        "hint_latex": "Dériver la relation pour obtenir une équation différentielle d'ordre 2.",
+        "solution_latex": "1. $f''(x) + f(x) = 0 \\implies f(x) = \\lambda(\\cos x - \\sin x)$[cite: 686, 696].\n2. $f(x) = \\frac{x-1}{2}e^x - \\frac{x}{2}e^{-x} + \\lambda(\\cos x + \\sin x)$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Dérivation relation"] }
+    },
+    {
+      "id": "eq_diff_td_10_14",
+      "source_number": "10.14",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 4,
+        "tags": ["Équation intégrale", "Théorème fondamental de l'analyse"]
+      },
+      "content": {
+        "statement_latex": "Trouver toutes les fonctions continues sur $\\mathbb{R}$ telles que $\\forall x \\in \\mathbb{R}, f(x) + \\int_{0}^{x} (x-t)f(t)dt = 1$.",
+        "hint_latex": "Dériver deux fois l'égalité après avoir justifié la dérivabilité.",
+        "solution_latex": "Par dérivation, on obtient $f'' + f = 0$ avec $f(0)=1$ et $f'(0)=0$. L'unique solution est $f(x) = \\cos x$[cite: 739, 759]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Dérivation sous l'intégrale"] }
+    },
+    {
+      "id": "eq_diff_td_10_15",
+      "source_number": "10.15",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 3,
+        "tags": ["Équation non linéaire", "Changement de fonction"]
+      },
+      "content": {
+        "statement_latex": "Résoudre $y' = e^{x+y}$ en posant $z = e^{-y}$.",
+        "hint_latex": "Calculer $z'$ en fonction de $y'$ et remplacer.",
+        "solution_latex": "$z' = -e^x$. Donc $z(x) = -e^x + \\lambda$. Comme $z > 0$, il faut $\\lambda > e^x$. Solutions : $y(x) = -\\ln(\\lambda - e^x)$ sur $]-\\infty, \\ln \\lambda[$[cite: 773, 775]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Changement de fonction inconnue"] }
+    },
+    {
+      "id": "eq_diff_td_10_16",
+      "source_number": "10.16",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "AD/D/F",
+        "difficulty_score": 3,
+        "tags": ["Suites récurrentes linéaires", "Arithmético-géométrique"]
+      },
+      "content": {
+        "statement_latex": "Donner les termes généraux des suites :\n1. $u_0 = 7, u_{n+1} = 3u_n + 4$\n2. $u_0 = 1, u_1 = 0, u_{n+2} + 4u_n = 4u_{n+1}$\n3. $u_0 = 1, u_1 = -1, 2u_{n+2} = 3u_{n+1} - u_n$\n4. $u_0 = 1, u_1 = 2, u_{n+2} = u_{n+1} - u_n$",
+        "hint_latex": "Appliquer les méthodes classiques de résolution des suites récurrentes d'ordre 1 et 2.",
+        "solution_latex": "1. $u_n = 9 \\times 3^n - 2$.\n2. $u_n = 2^n(1-n)$.\n3. $u_n = -3 + \\frac{4}{2^n}$.\n4. $u_n = 2 \\cos(\\frac{(n-1)\\pi}{3})$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Récurrence d'ordre 2"] }
+    },
+    {
+      "id": "eq_diff_td_10_17",
+      "source_number": "10.17",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 2,
+        "tags": ["Récurrence linéaire", "Trigonométrie"]
+      },
+      "content": {
+        "statement_latex": "Soit $\\theta \\in ]0, \\pi[$, et $u_0 = u_1 = 1$, $\\forall n \\in \\mathbb{N}, u_{n+2} = 2\\cos(\\theta)u_{n+1} - u_n$. Déterminer le terme général.",
+        "hint_latex": "Les racines du polynôme caractéristique sont $e^{\\pm i\\theta}$.",
+        "solution_latex": "$u_n = \\frac{\\cos(\\frac{(2n-1)\\theta}{2})}{\\cos(\\frac{\\theta}{2})}$."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Racines complexes"] }
+    },
+    {
+      "id": "eq_diff_td_10_18",
+      "source_number": "10.18",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": null,
+        "difficulty_score": 3,
+        "tags": ["Suite arithmético-géométrique", "Récurrence d'ordre 2"]
+      },
+      "content": {
+        "statement_latex": "Montrer qu'une suite $v_{n+1} = av_n + b$ est une suite récurrente linéaire d'ordre 2. En déduire le terme général de $v_0 = 2, v_{n+1} = 2v_n - 3$.",
+        "hint_latex": "Éliminer la constante $b$ en écrivant la relation au rang $n+1$ et en faisant la différence.",
+        "solution_latex": "$v_{n+2} - (a+1)v_{n+1} + av_n = 0$. Pour l'exemple : $v_n = 3 - 2^n$[cite: 815, 825]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Lien ordre 1 et 2"] }
+    },
+    {
+      "id": "eq_diff_td_10_19",
+      "source_number": "10.19",
+      "type": "td_exercise",
+      "metadata": {
+        "difficulty_code": "PD",
+        "difficulty_score": 4,
+        "tags": ["ENS", "Équation fonctionnelle", "Suites"]
+      },
+      "content": {
+        "statement_latex": "Déterminer les applications $f: \\mathbb{R}_{+}^{*} \\to \\mathbb{R}_{+}^{*}$ telles que $\\forall x > 0, f(f(x)) = 6x - f(x)$.",
+        "hint_latex": "Étudier la suite $u_{n+1} = f(u_n)$ avec $u_0 = x$.",
+        "solution_latex": "La suite $u_n$ vérifie $u_{n+2} + u_{n+1} - 6u_n = 0$, donc $u_n = A 2^n + B (-3)^n$. La positivité de $f$ impose $B=0$. On en déduit $f(x) = 2x$[cite: 833, 852, 855]."
+      },
+      "graph_links": { "tested_concepts_placeholder": ["Interprétation séquentielle"] }
+    }
+  ]
+}

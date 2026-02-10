@@ -1,0 +1,156 @@
+{
+  "chapter_official_id": "TECH_ANA",
+  "chapter_name": "Équations Différentielles Linéaires et Suites Récurrentes",
+  "source_document": "Équations différentielles linéaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "def_edl1",
+      "type": "definition",
+      "title": "Équation différentielle linéaire d'ordre 1",
+      "content_latex": "Soient $a$ et $b$ deux fonctions continues sur $I$ à valeurs dans $K$. Résoudre l'équation $y'(t) + a(t)y(t) = b(t)$, c'est trouver toutes les fonctions $y: I \\to K$ dérivables vérifiant cette relation pour tout $t \\in I$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_eq_homogene_associee",
+      "type": "definition",
+      "title": "Équation homogène associée",
+      "content_latex": "À l'équation $(E): y'(t) + a(t)y(t) = b(t)$, on associe l'équation homogène $(E_0): y'(t) + a(t)y(t) = 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_structure_sol_edl1",
+      "type": "property",
+      "title": "Structure de l'ensemble des solutions (Ordre 1)",
+      "content_latex": "Soit $y_p$ une solution particulière de $(E)$. Les solutions de $(E)$ sont les fonctions de la forme $y_p + y_H$, où $y_H$ parcourt l'ensemble des solutions de l'équation homogène $(E_0)$. On note $S = \\{ y_p + y_H \\mid y_H \\in S_H \\}$.",
+      "proof_latex": "Si $y$ est solution, $(y-y_p)' + a(y-y_p) = (y' + ay) - (y_p' + ay_p) = b - b = 0$, donc $y - y_p \\in S_H$."
+    },
+    {
+      "id": "thm_sol_homogene_edl1",
+      "type": "theorem",
+      "title": "Solutions de l'équation homogène (Ordre 1)",
+      "content_latex": "Soit $A$ une primitive de $a$ sur $I$. L'ensemble des solutions de $y'(t) + a(t)y(t) = 0$ est l'ensemble des fonctions définies par $t \\mapsto \\lambda e^{-A(t)}$ où $\\lambda \\in K$.",
+      "proof_latex": "On vérifie que $\\lambda e^{-A(t)}$ est solution. Inversement, si $y$ est solution, on pose $z(t) = y(t)e^{A(t)}$. On montre que $z' = 0$, donc $z$ est constante."
+    },
+    {
+      "id": "meth_variation_constante",
+      "type": "method",
+      "title": "Méthode de la variation de la constante",
+      "content_latex": "Pour trouver une solution particulière de $y'(t) + a(t)y(t) = b(t)$, on cherche $y$ sous la forme $y(t) = \\lambda(t)e^{-A(t)}$. Cela mène à la condition $\\lambda'(t) = b(t)e^{A(t)}$. On détermine $\\lambda$ par intégration.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_cauchy_edl1",
+      "type": "theorem",
+      "title": "Problème de Cauchy (Ordre 1)",
+      "content_latex": "Soit $t_0 \\in I$ et $y_0 \\in K$. Il existe une unique solution $y$ de l'équation $y'(t) + a(t)y(t) = b(t)$ vérifiant la condition initiale $y(t_0) = y_0$.",
+      "proof_latex": "La solution générale est $y(t) = \\lambda e^{-A(t)} + y_p(t)$. La condition $y(t_0)=y_0$ fixe une unique valeur pour $\\lambda$."
+    },
+    {
+      "id": "def_edl2_coef_const",
+      "type": "definition",
+      "title": "EDL d'ordre 2 à coefficients constants",
+      "content_latex": "Équation de la forme $y''(t) + ay'(t) + by(t) = c(t)$ où $a, b$ sont des constantes et $c$ une fonction continue.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_edl2_homogene_C",
+      "type": "theorem",
+      "title": "Solutions homogènes EDL2 (Cas complexe)",
+      "content_latex": "Soient $r_1, r_2$ les racines du polynôme caractéristique $X^2 + aX + b$. \\n - Si $r_1 \\neq r_2$, les solutions sont $t \\mapsto \\lambda e^{r_1 t} + \\mu e^{r_2 t}$.\\n - Si $r_1 = r_2 = r$, les solutions sont $t \\mapsto (\\lambda t + \\mu)e^{rt}$.",
+      "proof_latex": "On pose $z(t) = y(t)e^{-r_1 t}$ et on se ramène à une équation d'ordre 1 ou à une dérivée seconde nulle."
+    },
+    {
+      "id": "thm_edl2_homogene_R",
+      "type": "theorem",
+      "title": "Solutions homogènes EDL2 (Cas réel)",
+      "content_latex": "Si $a, b \\in \\mathbb{R}$, selon le discriminant $\\Delta$ de $X^2+aX+b$ :\\n - $\\Delta > 0$ (racines réelles $r_1, r_2$) : $y(t) = \\lambda e^{r_1 t} + \\mu e^{r_2 t}$.\\n - $\\Delta = 0$ (racine double $r$) : $y(t) = (\\lambda t + \\mu)e^{rt}$.\\n - $\\Delta < 0$ (racines $r \\pm i\\omega$) : $y(t) = e^{rt}(\\lambda \\cos(\\omega t) + \\mu \\sin(\\omega t))$.",
+      "proof_latex": "Pour le cas complexe, on utilise les combinaisons linéaires des solutions exponentielles complexes pour obtenir des fonctions réelles."
+    },
+    {
+      "id": "prop_superposition",
+      "type": "property",
+      "title": "Principe de superposition",
+      "content_latex": "Si $y_1$ est solution de l'équation avec second membre $c_1$ et $y_2$ avec $c_2$, alors $\\lambda y_1 + \\mu y_2$ est solution de l'équation avec second membre $\\lambda c_1 + \\mu c_2$.",
+      "proof_latex": "Par linéarité de la dérivation."
+    },
+    {
+      "id": "meth_sol_particuliere_exp_poly",
+      "type": "method",
+      "title": "Solution particulière (Second membre exponentielle-polynôme)",
+      "content_latex": "Si $c(t) = P(t)e^{\\lambda t}$, on cherche une solution $y_p(t) = Q(t)e^{\\lambda t}$ avec :\\n - $\\deg Q = \\deg P$ si $\\lambda$ n'est pas racine de l'équation caractéristique.\\n - $\\deg Q = \\deg P + 1$ si $\\lambda$ est racine simple.\\n - $\\deg Q = \\deg P + 2$ si $\\lambda$ est racine double.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_cauchy_edl2",
+      "type": "theorem",
+      "title": "Problème de Cauchy (Ordre 2)",
+      "content_latex": "Pour tout $t_0 \\in I$ et tout couple $(y_0, y_1) \\in K^2$, il existe une unique solution vérifiant $y(t_0) = y_0$ et $y'(t_0) = y_1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_suite_arithmetico_geo",
+      "type": "definition",
+      "title": "Suite arithmético-géométrique",
+      "content_latex": "Suite vérifiant $u_{n+1} = au_n + b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "meth_suite_arithmetico_geo",
+      "type": "method",
+      "title": "Terme général suite arithmético-géométrique ($a \\neq 1$)",
+      "content_latex": "On résout l'équation de point fixe $l = al + b$. La suite $v_n = u_n - l$ est alors géométrique de raison $a$. On a $u_n = l + (u_0 - l)a^n$.",
+      "proof_latex": "$v_{n+1} = u_{n+1} - l = au_n + b - (al+b) = a(u_n - l) = av_n$."
+    },
+    {
+      "id": "def_srl2",
+      "type": "definition",
+      "title": "Suite récurrente linéaire d'ordre 2",
+      "content_latex": "Suite vérifiant $u_{n+2} + au_{n+1} + bu_n = 0$ avec $b \\neq 0$. Polynôme caractéristique : $X^2 + aX + b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_srl2_sol_C",
+      "type": "theorem",
+      "title": "Expression explicite SRL2 (Cas complexe)",
+      "content_latex": "Soient $r_1, r_2$ les racines du polynôme caractéristique.\\n - Si $r_1 \\neq r_2$ : $u_n = \\lambda r_1^n + \\mu r_2^n$.\\n - Si $r_1 = r_2 = r$ : $u_n = (\\lambda n + \\mu)r^n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_srl2_sol_R",
+      "type": "theorem",
+      "title": "Expression explicite SRL2 (Cas réel)",
+      "content_latex": "Si racines complexes conjuguées $\\rho e^{\\pm i\\theta}$, alors $u_n = \\rho^n(\\lambda \\cos(n\\theta) + \\mu \\sin(n\\theta))$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exo_edl1_stitching",
+      "statement_latex": "Résoudre sur $\\mathbb{R}$ l'équation $t^2 y' - (2t-1)y = t^2$ par raccordement des solutions.",
+      "solution_latex": "Sur $\\mathbb{R}_+^*$ et $\\mathbb{R}_-^*$, forme normalisée $y' - \\frac{2t-1}{t^2}y = 1$. Solutions homogènes : $\\lambda t^2 e^{1/t}$. Solution particulière constante $-t^2$ (approx). Variation constante donne $y(t) = t^2 + \\lambda t^2 e^{1/t}$. En $0$, limite nécessite $\\lambda=0$ pour $t>0$. Pour $t<0$, $\\mu$ quelconque car limite nulle. Solutions : $y(t) = t^2$ si $t \\ge 0$, $y(t) = t^2(1+\\mu e^{1/t})$ si $t < 0$.",
+      "difficulty": 4,
+      "tags": ["edl1", "raccordement", "analyse"]
+    },
+    {
+      "id": "exo_edl1_var_constante",
+      "statement_latex": "Résoudre $y' - \\frac{1}{t(t+1)}y = te^t$ sur $\\mathbb{R}_+^*$.",
+      "solution_latex": "Homogène : $y_H(t) = \\lambda \\frac{t}{t+1}$. Variation constante $\\lambda'(t) = (t+1)e^t$. IPP donne $\\lambda(t) = te^t$. Solution : $y(t) = \\frac{t^2 e^t + \\lambda t}{t+1}$.",
+      "difficulty": 3,
+      "tags": ["edl1", "variation_constante", "ipp"]
+    },
+    {
+      "id": "exo_edl2_superposition",
+      "statement_latex": "Trouver les solutions réelles de $y'' + 2y' + 2y = 3e^{-t}\\cos(t) + t^2 - t$.",
+      "solution_latex": "Homogène : racines $-1 \\pm i$. $y_H = e^{-t}(\\lambda \\cos t + \\mu \\sin t)$. Particulière 1 (complexe) pour $e^{(-1+i)t}$ : forme $(at+b)e^{(-1+i)t}$, donne $y_{p1} = \\frac{3}{2}te^{-t}\\sin t$. Particulière 2 (poly) : $y_{p2} = \\frac{1}{2}t^2 -\\frac{3}{2}t + 1$.",
+      "difficulty": 3,
+      "tags": ["edl2", "superposition", "complexe"]
+    },
+    {
+      "id": "exo_suite_rec_lin",
+      "statement_latex": "Déterminer la suite $(u_n)$ définie par $u_0=2, u_1=-1$ et $u_{n+2} = 2u_{n+1} - 2u_n$.",
+      "solution_latex": "Caractéristique : $X^2 - 2X + 2 = 0$, racines $1 \\pm i = \\sqrt{2}e^{\\pm i\\pi/4}$. $u_n = (\\sqrt{2})^n(\\lambda \\cos(n\\pi/4) + \\mu \\sin(n\\pi/4))$. Conditions initiales donnent $\\lambda=2, \\mu=-5$.",
+      "difficulty": 2,
+      "tags": ["suites", "recurrence_lineaire", "complexes"]
+    }
+  ]
+}

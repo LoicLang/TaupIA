@@ -1,0 +1,324 @@
+{
+  "chapter_official_id": "LOGIQUE_ENS",
+  "chapter_name": "Applications et Relations binaires",
+  "source_document": "Applications, relations binaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "def_image_directe",
+      "type": "definition",
+      "title": "Image directe",
+      "content_latex": "Soit $f: E \\to F$ et $A \\subset E$. L'image directe de $A$ par $f$ est $f(A) = \\{f(x) \\mid x \\in A\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_image_reciproque",
+      "type": "definition",
+      "title": "Image réciproque",
+      "content_latex": "Soit $f: E \\to F$ et $B \\subset F$. L'image réciproque de $B$ par $f$ est $f^{-1}(B) = \\{x \\in E \\mid f(x) \\in B\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_reciproque_singleton",
+      "type": "property",
+      "title": "Image réciproque d'un singleton",
+      "content_latex": "$f^{-1}(\\{y\\})$ est l'ensemble des antécédents de $y$ par $f$, c'est-à-dire l'ensemble des solutions de $f(x)=y$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_restriction",
+      "type": "definition",
+      "title": "Restriction",
+      "content_latex": "Si $A \\subset E$, la restriction de $f$ à $A$ est $f_{|A} : A \\to F$ définie par $\\forall x \\in A, f_{|A}(x) = f(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_prolongement",
+      "type": "definition",
+      "title": "Prolongement",
+      "content_latex": "Si $E \\subset E'$, $g : E' \\to F$ est un prolongement de $f$ si $g_{|E} = f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_corestriction",
+      "type": "definition",
+      "title": "Corestriction",
+      "content_latex": "Si $f(E) \\subset B \\subset F$, la corestriction de $f$ à $B$ est l'application $f|^{B} : E \\to B$ définie par $x \\mapsto f(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_ensemble_stable",
+      "type": "definition",
+      "title": "Partie stable",
+      "content_latex": "$A \\subset E$ est stable par $f: E \\to E$ si $f(A) \\subset A$ (i.e. $\\forall x \\in A, f(x) \\in A$).",
+      "proof_latex": null
+    },
+    {
+      "id": "def_application_induite",
+      "type": "definition",
+      "title": "Application induite",
+      "content_latex": "Si $A$ est stable par $f$, l'application induite est la restriction corestreinte à $A$ : $g : A \\to A, x \\mapsto f(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_injection",
+      "type": "definition",
+      "title": "Injection",
+      "content_latex": "$f$ est injective si $\\forall x, x' \\in E, f(x) = f(x') \\implies x = x'$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_injection_antecedent",
+      "type": "property",
+      "title": "Caractérisation de l'injection",
+      "content_latex": "$f$ est injective ssi tout élément de $F$ admet **au plus** un antécédent.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_monotonie_injection",
+      "type": "property",
+      "title": "Monotonie stricte et injection",
+      "content_latex": "Toute fonction strictement monotone sur une partie de $\\mathbb{R}$ est injective.",
+      "proof_latex": "Par l'absurde ou disjonction des cas d'ordre."
+    },
+    {
+      "id": "def_surjection",
+      "type": "definition",
+      "title": "Surjection",
+      "content_latex": "$f$ est surjective si $\\forall y \\in F, \\exists x \\in E, y = f(x)$ (tout élément a **au moins** un antécédent).",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_surjection_image",
+      "type": "property",
+      "title": "Caractérisation de la surjection",
+      "content_latex": "$f : E \\to F$ est surjective ssi $\\text{Im}(f) = F$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_comp_inj_surj",
+      "type": "property",
+      "title": "Composition et propriétés",
+      "content_latex": "Si $f,g$ injectives $\\implies g \\circ f$ injective. Si $f,g$ surjectives $\\implies g \\circ f$ surjective. Si $g \\circ f$ injective $\\implies f$ injective. Si $g \\circ f$ surjective $\\implies g$ surjective.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_bijection",
+      "type": "definition",
+      "title": "Bijection",
+      "content_latex": "$f$ est bijective si elle est injective et surjective (tout élément a **un unique** antécédent).",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_bijection_reciproque_existence",
+      "type": "property",
+      "title": "Théorème de la bijection réciproque",
+      "content_latex": "$f: E \\to F$ est bijective ssi il existe $g: F \\to E$ telle que $g \\circ f = id_E$ et $f \\circ g = id_F$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_bijection_reciproque_objet",
+      "type": "definition",
+      "title": "Application réciproque",
+      "content_latex": "L'unique $g$ telle que $f \\circ g = id_F$ et $g \\circ f = id_E$. Notée $f^{-1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_inverse_composition",
+      "type": "property",
+      "title": "Inverse d'une composée",
+      "content_latex": "Si $f, g$ bijectives, $(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}$.",
+      "proof_latex": "Vérification par composition."
+    },
+    {
+      "id": "def_indicatrice",
+      "type": "definition",
+      "title": "Fonction indicatrice",
+      "content_latex": "$\\mathbb{1}_A(x) = 1$ si $x \\in A$, $0$ sinon.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_indicatrice_ops",
+      "type": "property",
+      "title": "Opérations sur les indicatrices",
+      "content_latex": "$\\mathbb{1}_{A \\cap B} = \\mathbb{1}_A \\mathbb{1}_B$, $\\mathbb{1}_{\\overline{A}} = 1 - \\mathbb{1}_A$, $\\mathbb{1}_{A \\cup B} = \\mathbb{1}_A + \\mathbb{1}_B - \\mathbb{1}_A \\mathbb{1}_B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_relation_binaire",
+      "type": "definition",
+      "title": "Relation binaire",
+      "content_latex": "Sous-ensemble $\\mathcal{R}$ de $E \\times E$. On note $x \\mathcal{R} y$ si $(x,y) \\in \\mathcal{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_reflexive",
+      "type": "definition",
+      "title": "Réflexivité",
+      "content_latex": "$\\forall x \\in E, x \\mathcal{R} x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_symetrique",
+      "type": "definition",
+      "title": "Symétrie",
+      "content_latex": "$\\forall x,y, x \\mathcal{R} y \\implies y \\mathcal{R} x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_antisymetrique",
+      "type": "definition",
+      "title": "Antisymétrie",
+      "content_latex": "$\\forall x,y, (x \\mathcal{R} y \\text{ et } y \\mathcal{R} x) \\implies x=y$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_transitive",
+      "type": "definition",
+      "title": "Transitivité",
+      "content_latex": "$\\forall x,y,z, (x \\mathcal{R} y \\text{ et } y \\mathcal{R} z) \\implies x \\mathcal{R} z$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_relation_equivalence",
+      "type": "definition",
+      "title": "Relation d'équivalence",
+      "content_latex": "Relation réflexive, symétrique et transitive.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_classe_equivalence",
+      "type": "definition",
+      "title": "Classe d'équivalence",
+      "content_latex": "$cl(x) = \\bar{x} = \\{y \\in E \\mid x \\mathcal{R} y\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_partition_classes",
+      "type": "theorem",
+      "title": "Partition par les classes",
+      "content_latex": "Les classes d'équivalence forment une partition de $E$ (elles sont disjointes ou égales, et leur union vaut $E$).",
+      "proof_latex": "Démonstration par transitivité et symétrie."
+    },
+    {
+      "id": "def_relation_ordre",
+      "type": "definition",
+      "title": "Relation d'ordre",
+      "content_latex": "Relation réflexive, antisymétrique et transitive.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_ordre_total_partiel",
+      "type": "definition",
+      "title": "Ordre total / partiel",
+      "content_latex": "Total si $\\forall x,y$, on a $x \\le y$ ou $y \\le x$. Partiel sinon (il existe des éléments incomparables).",
+      "proof_latex": null
+    },
+    {
+      "id": "def_ordre_lexicographique",
+      "type": "definition",
+      "title": "Ordre lexicographique",
+      "content_latex": "Sur $E \\times F$ : $(x,y) \\le (x',y')$ si $x < x'$ ou ($x=x'$ et $y \\le y'$).",
+      "proof_latex": null
+    },
+    {
+      "id": "def_max_min",
+      "type": "definition",
+      "title": "Maximum / Minimum",
+      "content_latex": "Max : élément $a \\in A$ tel que $\\forall x \\in A, x \\le a$. Min : élément $a \\in A$ tel que $\\forall x \\in A, a \\le x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_majorant_minorant",
+      "type": "definition",
+      "title": "Majorant / Minorant",
+      "content_latex": "Majorant : $M \\in E$ tel que $\\forall x \\in A, x \\le M$. (Pas forcément dans $A$).",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_N_bon_ordre",
+      "type": "property",
+      "title": "Bon ordre sur N",
+      "content_latex": "Toute partie non vide de $\\mathbb{N}$ admet un plus petit élément.",
+      "proof_latex": "Équivalent au principe de récurrence."
+    },
+    {
+      "id": "prop_N_majore",
+      "type": "property",
+      "title": "Partie majorée de N",
+      "content_latex": "Toute partie non vide et majorée de $\\mathbb{N}$ admet un plus grand élément.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_borne_sup_inf",
+      "type": "definition",
+      "title": "Borne Supérieure / Inférieure",
+      "content_latex": "Sup : le plus petit des majorants (s'il existe). Inf : le plus grand des minorants.",
+      "proof_latex": null
+    },
+    {
+      "id": "thm_carac_borne_sup",
+      "type": "theorem",
+      "title": "Caractérisation de la borne sup",
+      "content_latex": "$S = \\sup A \\iff S$ majorant et $\\forall \\varepsilon > 0, \\exists x \\in A, x > S - \\varepsilon$ (dans $\\mathbb{R}$).",
+      "proof_latex": null
+    },
+    {
+      "id": "def_ensemble_fini",
+      "type": "definition",
+      "title": "Ensemble fini",
+      "content_latex": "Ensemble en bijection avec $[[1, n]]$ pour un certain $n \\in \\mathbb{N}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "def_cardinal",
+      "type": "definition",
+      "title": "Cardinal",
+      "content_latex": "L'unique entier $n$ tel que $E$ soit en bijection avec $[[1, n]]$. Noté $\\text{Card}(E)$ ou $|E|$.",
+      "proof_latex": null
+    },
+    {
+      "id": "prop_cardinal_segment",
+      "type": "property",
+      "title": "Cardinal d'un segment d'entiers",
+      "content_latex": "$\\text{Card}([[a, b]]) = b - a + 1$.",
+      "proof_latex": "Par bijection $k \\mapsto k - a + 1$ vers $[[1, b-a+1]]$."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exo_app_01",
+      "statement_latex": "Soit $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ définie par $f(x,y,z) = (y-3z, -x+y-z, -x+y)$. Montrer que $f$ est bijective et déterminer sa réciproque.",
+      "solution_latex": "On résout le système $f(x,y,z) = (a,b,c)$. On trouve une unique solution pour tout $(a,b,c)$. $f^{-1}(a,b,c) = (a-3b+2c, a-3b+3c, -b+c)$.",
+      "difficulty": 2,
+      "tags": ["bijection", "systeme_lineaire", "reciproque"]
+    },
+    {
+      "id": "exo_app_02",
+      "statement_latex": "Étudier l'injectivité et la surjectivité de $f: \\mathbb{C} \\to \\mathbb{C}, z \\mapsto z^2 - 2z + 5$.",
+      "solution_latex": "Surjective car toute équation du second degré a une solution dans $\\mathbb{C}$. Non injective car $f(z) = f(2-z)$ (ou contre-exemple).",
+      "difficulty": 2,
+      "tags": ["complexe", "surjection", "injection"]
+    },
+    {
+      "id": "exo_rel_01",
+      "statement_latex": "Sur $\\mathbb{R}^{\\mathbb{N}}$, on définit $u \\sim v \\iff \\lim (u_n - v_n) = 0$. Montrer que c'est une relation d'équivalence.",
+      "solution_latex": "Vérifier réflexivité (limite nulle de 0), symétrie ($u-v \\to 0 \\implies v-u \\to 0$) et transitivité (somme de limites).",
+      "difficulty": 2,
+      "tags": ["relation_equivalence", "suites"]
+    },
+    {
+      "id": "exo_rel_02",
+      "statement_latex": "La relation de divisibilité est-elle un ordre sur $\\mathbb{Z}$ ?",
+      "solution_latex": "Non, elle n'est pas antisymétrique : $1 | -1$ et $-1 | 1$ mais $1 \\neq -1$. C'est un ordre sur $\\mathbb{N}$.",
+      "difficulty": 1,
+      "tags": ["relation_ordre", "arithmetique", "piege"]
+    },
+    {
+      "id": "exo_card_01",
+      "statement_latex": "Démontrer que $\\text{Card}([[a,b]]) = b - a + 1$.",
+      "solution_latex": "Expliciter la bijection $\\varphi(k) = k - a + 1$ de $[[a,b]]$ vers $[[1, b-a+1]]$.",
+      "difficulty": 1,
+      "tags": ["cardinal", "bijection", "demonstration_cours"]
+    }
+  ]
+}
