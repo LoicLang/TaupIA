@@ -131,14 +131,20 @@ def render_sidebar():
         # Choix du chapitre
         chapters = get_chapters()
         chapter_options = {ch['title']: ch['id'] for ch in chapters}
-        
+        chapter_ids = list(chapter_options.values())
+
+        # Calculer l'index courant depuis session_state
+        current_idx = 0
+        if st.session_state.chapter_id in chapter_ids:
+            current_idx = chapter_ids.index(st.session_state.chapter_id)
+
         selected_chapter = st.selectbox(
             "Chapitre",
             options=list(chapter_options.keys()),
-            index=0 if chapter_options else None,
+            index=current_idx if chapter_options else None,
             help="Sélectionner le chapitre"
         )
-        
+
         if selected_chapter:
             st.session_state.chapter_id = chapter_options[selected_chapter]
         
@@ -296,17 +302,23 @@ def render_setup_mobile():
     </div>
     """, unsafe_allow_html=True)
     
-    # Sélection du chapitre
+    # Sélection du chapitre (synchronise avec la sidebar)
     chapters = get_chapters()
     chapter_options = {ch['title']: ch['id'] for ch in chapters}
-    
+    chapter_ids = list(chapter_options.values())
+
+    # Calculer l'index courant depuis session_state
+    current_idx = 0
+    if st.session_state.chapter_id in chapter_ids:
+        current_idx = chapter_ids.index(st.session_state.chapter_id)
+
     selected_chapter = st.selectbox(
         "Chapitre",
         options=list(chapter_options.keys()),
-        index=0 if chapter_options else None,
+        index=current_idx if chapter_options else None,
         key="mobile_chapter_select"
     )
-    
+
     if selected_chapter:
         st.session_state.chapter_id = chapter_options[selected_chapter]
 

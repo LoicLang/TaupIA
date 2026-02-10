@@ -288,6 +288,9 @@ class KnowledgeService:
         Trouve un exercice TD testant les memes concepts que la question validee.
         Utilise les aretes TESTS du knowledge graph. Fallback sur chapter + difficulty.
         """
+        # Normaliser le chapter_id pour filtrer correctement
+        normalized_chapter = self._normalize_chapter_id(chapter_id) if chapter_id else None
+
         candidate_ids: set[str] = set()
         for concept_id in concept_ids:
             for ex_id in self._concept_to_exercises.get(concept_id, []):
@@ -298,7 +301,11 @@ class KnowledgeService:
             if ex_id in self._td_exercises_by_id:
                 if exclude_ids and ex_id in exclude_ids:
                     continue
-                candidates.append(self._td_exercises_by_id[ex_id])
+                ex = self._td_exercises_by_id[ex_id]
+                # Filtrer par chapitre pour eviter les exercices d'un autre chapitre
+                if normalized_chapter and ex.get("_chapter_id") != normalized_chapter:
+                    continue
+                candidates.append(ex)
 
         if not candidates:
             return self.get_exercise_by_difficulty(chapter_id, difficulty, exclude_ids)
