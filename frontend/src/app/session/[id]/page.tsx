@@ -250,6 +250,7 @@ export default function SessionPage() {
             <ExercisePhase
               sessionId={sessionId}
               exercise={exercise}
+              ocrProvider={session.ocr_provider}
               onFinish={handleFinish}
               onSkip={handleSkip}
             />

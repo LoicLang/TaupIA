@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Terminal, Send, Loader2, Cpu, Flag, AlertTriangle, SkipForward } from "lucide-react";
+import { Terminal, Send, Camera, Loader2, Cpu, Flag, AlertTriangle, SkipForward } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { exerciseMessage } from "@/lib/api";
+import { exerciseMessage, transcribeImage } from "@/lib/api";
 import LatexRenderer from "@/components/shared/LatexRenderer";
 import type { Exercise, ChatMessage } from "@/lib/types";
 
 interface ExercisePhaseProps {
   sessionId: string;
   exercise: Exercise;
+  ocrProvider: string;
   onFinish: () => void;
   onSkip: () => void;
 }
@@ -17,13 +18,16 @@ interface ExercisePhaseProps {
 export default function ExercisePhase({
   sessionId,
   exercise,
+  ocrProvider,
   onFinish,
   onSkip,
 }: ExercisePhaseProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [transcribing, setTranscribing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,6 +60,21 @@ export default function ExercisePhase({
       e.preventDefault();
       handleSubmit();
     }
+  }
+
+  async function handlePhotoUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setTranscribing(true);
+    setError(null);
+    try {
+      const res = await transcribeImage(file, ocrProvider);
+      setInput((prev) => (prev ? prev + "\n" + res.text : res.text));
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Erreur lors de la transcription");
+    }
+    setTranscribing(false);
+    if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
   return (
@@ -158,6 +177,26 @@ export default function ExercisePhase({
           />
           <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
             <div className="flex items-center gap-2">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handlePhotoUpload}
+                className="hidden"
+              />
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={transcribing}
+                className="flex items-center gap-1.5 px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg text-xs sm:text-[11px] font-medium text-white/40 border border-white/5 hover:text-white/60 hover:border-white/10 transition-all min-h-[44px] sm:min-h-0"
+              >
+                {transcribing ? (
+                  <Loader2 className="w-4 h-4 sm:w-3 sm:h-3 animate-spin" />
+                ) : (
+                  <Camera className="w-4 h-4 sm:w-3 sm:h-3" />
+                )}
+                Photo
+              </button>
               <button
                 onClick={onFinish}
                 className="flex items-center gap-1.5 px-4 py-2.5 sm:px-3 sm:py-1.5 rounded-lg text-xs sm:text-[11px] font-medium text-white/40 border border-white/5 hover:text-white/60 hover:border-white/10 transition-all min-h-[44px] sm:min-h-0"
