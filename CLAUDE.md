@@ -4,19 +4,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Kholleur AI simulates oral math exams ("kholles") for French MPSI preparatory school students. It challenges students with questions and provides Socratic feedback—it does NOT teach or explain course material.
+Kholleur AI (TaupIA) simulates oral math exams ("kholles") for French MPSI preparatory school students. It challenges students with questions and provides Socratic feedback—it does NOT teach or explain course material.
 
 ## Commands
 
 ```bash
-# Install dependencies
+# Install backend dependencies
 pip install -r requirements.txt
 
-# Run the app
-streamlit run app.py
+# Run backend (FastAPI)
+uvicorn backend.main:app --reload
+
+# Run frontend (Next.js)
+cd frontend && npm run dev
 
 # Run tests
 python -m pytest tests/unit/ -v
+
+# Build frontend
+cd frontend && npx next build
 ```
 
 ## Architecture
@@ -49,11 +55,42 @@ kholleur/
 ├── application/                    # Application services
 │   ├── settings.py                 # Pydantic Settings (env vars)
 │   ├── container.py                # DI Container / Factory
-│   └── ai_service.py               # AI facade (no Streamlit dependency)
+│   └── ai_service.py               # AI facade (no framework dependency)
 │
-├── services/                       # Application layer (Streamlit bridge)
-│   ├── ai_router.py                # Routes to ai_service and OCR providers
+├── services/                       # Application layer
 │   └── knowledge_service.py        # Knowledge graph + data access (replaces ChromaDB)
+│
+├── backend/                        # FastAPI backend
+│   ├── main.py                     # FastAPI app, CORS, lifespan, routers
+│   ├── auth.py                     # Clerk JWT verification (conditional)
+│   ├── dependencies.py             # DI: init_services(), get_knowledge_service()
+│   ├── session_store.py            # In-memory session store (2h TTL)
+│   ├── api/                        # API endpoints
+│   │   ├── chapters.py             # GET /api/chapters
+│   │   ├── providers.py            # GET /api/providers/llm, /api/providers/ocr
+│   │   ├── sessions.py             # POST/GET/DELETE /api/sessions
+│   │   ├── kholle.py               # POST /api/sessions/{id}/start, /answer, /skip, etc.
+│   │   └── ocr.py                  # POST /api/ocr/transcribe
+│   └── schemas/
+│       └── session.py              # Pydantic request/response models
+│
+├── frontend/                       # Next.js 16 App Router
+│   ├── src/app/
+│   │   ├── layout.tsx              # Root layout (ClerkWrapper + AuthProvider)
+│   │   ├── page.tsx                # Setup page (chapter, difficulty, format, providers)
+│   │   ├── session/[id]/page.tsx   # Session page (question → exercise → results)
+│   │   ├── sign-in/                # Clerk sign-in page
+│   │   └── sign-up/                # Clerk sign-up page
+│   ├── src/components/
+│   │   ├── question/QuestionPhase.tsx    # Question phase with OCR + chat
+│   │   ├── exercise/ExercisePhase.tsx    # Exercise phase with OCR + chat
+│   │   ├── finished/FinishedPhase.tsx    # Results display
+│   │   └── shared/                       # GridBackground, LatexRenderer, ClerkWrapper, AuthProvider
+│   ├── src/lib/
+│   │   ├── api.ts                  # Typed API client (auto-injects Clerk token)
+│   │   ├── types.ts                # TypeScript interfaces
+│   │   └── utils.ts                # cn() helper
+│   └── src/proxy.ts                # Clerk route protection middleware
 │
 ├── prompts/                        # Externalized prompts
 │   ├── kholleur_system.txt         # Main system prompt
@@ -61,42 +98,34 @@ kholleur/
 │   ├── exercise_guide.txt          # Exercise guidance template
 │   └── ocr.txt                     # OCR system prompt
 │
-├── ui/streamlit/                   # UI layer
-│   └── styles.css                  # Externalized CSS (960+ lines)
-│
 ├── data/                           # Structured data (JSON)
-│   ├── knowledge_graph.json        # 928 nodes, 2236 edges (Chapter/Concept/Exercise/Kholle)
-│   ├── questions_kholle.json       # 127 kholle questions with attendus/erreurs/relances
-│   ├── programme.json              # Programme officiel MPSI (20 chapitres)
-│   ├── cours/                      # 17 course JSON files (1+ per chapter)
-│   │   ├── logique_ens.json
-│   │   └── ...
-│   └── exercices/                  # 17 exercise JSON files (1 per chapter)
-│       ├── logique_ens.json
-│       └── ...
+│   ├── knowledge_graph.json        # 928 nodes, 2236 edges
+│   ├── questions_kholle.json       # 127 kholle questions
+│   ├── programme.json              # Programme officiel MPSI (20 chapters)
+│   ├── cours/                      # 17 course JSON files
+│   └── exercices/                  # 17 exercise JSON files
 │
-├── tests/                          # Tests
-│   └── unit/
-│       ├── test_entities.py
-│       ├── test_settings.py
-│       ├── test_container.py
-│       ├── test_llm_providers.py
-│       └── test_knowledge_service.py
+├── tests/unit/                     # Tests
 │
-└── app.py                          # Main Streamlit app
+├── railway.toml                    # Railway deployment config
+├── .python-version                 # Python 3.12 (for Railway)
+├── .railwayignore                  # Excludes frontend/venv from Railway
+├── .env.example                    # All env vars documented
+│
+└── app.py                          # Legacy Streamlit app (deprecated)
 ```
 
 **Data Flow:**
 1. All data is loaded from JSON files at startup into `KnowledgeService` (~2 Mo in memory)
-2. User selects a chapter → app retrieves random question from `questions_kholle.json`
-3. User answers (text or photo) → LLM evaluates using structured context from the knowledge graph
+2. User selects a chapter + format (full or exercise-only) → app retrieves random question/exercise
+3. User answers (text or photo via OCR) → LLM evaluates using structured context from the knowledge graph
 4. Structured context = exact definitions/theorems tested (via TESTS edges) + programme constraints
-5. After validation, exercise is matched by shared concepts (via graph traversal), not just chapter/difficulty
+5. After validation, exercise is matched by shared concepts (via graph traversal)
 
 **Knowledge Graph:**
 - **Nodes**: Chapter (20), Concept (338), Exercise (443), Kholle (127)
 - **Edges**: BELONGS_TO, REQUIRES, TESTS (links questions/exercises to concepts), APPLIES_METHOD
-- Deterministic lookup replaces probabilistic RAG: for each kholle question, traverse TESTS edges to find exact concepts tested, then load their LaTeX content from Cours JSON
+- Deterministic lookup replaces probabilistic RAG
 
 **Key Abstractions:**
 - `KnowledgeService`: In-memory JSON database with graph traversal (replaces ChromaDB)
@@ -105,6 +134,27 @@ kholleur/
 - `BaseLLMProvider` / `BaseOCRProvider`: Shared retry logic, prompt loading
 - `Container`: Dependency injection for provider creation
 - `Settings`: Pydantic-based configuration from `.env`
+
+## Deployment
+
+| Service | Platform | URL |
+|---------|----------|-----|
+| Backend (FastAPI) | Railway | https://kholleur-ai-production.up.railway.app |
+| Frontend (Next.js) | Vercel | https://taupia.vercel.app |
+| Auth | Clerk | Waitlist mode (invitation-only) |
+
+**Auto-deploy**: Push to `main` on GitHub triggers automatic redeploy on both Vercel and Railway.
+
+**CORS**: Railway env var `CORS_ORIGINS` must include the Vercel domain.
+
+## Authentication (Clerk)
+
+- **Frontend**: `@clerk/nextjs` with `ClerkProvider` in layout, `proxy.ts` for route protection
+- **Backend**: `backend/auth.py` verifies JWT via Clerk's JWKS endpoint (PyJWT + RS256)
+- **Conditional**: If `CLERK_PUBLISHABLE_KEY` is not set, auth is disabled (local dev)
+- **Protected routes**: `/api/sessions/*`, `/api/kholle/*`, `/api/ocr/*`
+- **Public routes**: `/api/health`, `/api/chapters`, `/api/providers/*`
+- **Token injection**: `AuthProvider` component registers `getToken()` in `api.ts` module
 
 ## Adding a New LLM Provider
 
@@ -120,20 +170,19 @@ kholleur/
 3. Add factory method `_create_new_ocr()` in `application/container.py`
 4. Add model name to `application/settings.py`
 
-## Design System: Modern EdTech
+## Design System: Dark Modern EdTech
 
-Vibe inspired by **Duolingo / Khan Academy / Notion** — modern, colorful but professional.
+Dark theme with indigo accents, inspired by terminal/developer aesthetic.
 
 ### Color Palette
 ```css
---color-primary: #4f46e5      /* Indigo */
---color-primary-hover: #4338ca
---color-accent: #8b5cf6       /* Purple */
---color-success: #10b981      /* Green */
---color-bg: #f8fafc           /* Light blue-gray */
---color-card-bg: #ffffff
---color-border: #e2e8f0       /* Light gray */
---color-text: #1e293b         /* Dark slate */
+--bg: #0a0a0a                /* Near-black background */
+--card-bg: #0f0f0f           /* Slightly lighter cards */
+--primary: #4f46e5           /* Indigo */
+--accent: #8b5cf6            /* Purple (exercise phase) */
+--success: #10b981           /* Green */
+--border: white/10           /* Subtle borders */
+--text: white/90             /* Primary text */
 ```
 
 ### Typography
@@ -141,12 +190,12 @@ Vibe inspired by **Duolingo / Khan Academy / Notion** — modern, colorful but p
 - **Monospace**: JetBrains Mono
 
 ### Design Principles
-- No excessive emojis
-- Soft shadows for depth
-- Rounded corners (8-20px)
-- Sober technical text in French
-- Smooth transitions
-- Subtle glassmorphism for header
+- Dark background with subtle grid pattern
+- Glassmorphism cards (backdrop-blur, semi-transparent)
+- Indigo for questions, purple for exercises
+- Mobile-first responsive
+- No emojis in interface
+- French UI text
 
 ## Code Rules
 
@@ -160,24 +209,24 @@ Vibe inspired by **Duolingo / Khan Academy / Notion** — modern, colorful but p
 ## Math/LaTeX Formatting
 
 - All math content uses LaTeX
-- Streamlit: `st.latex()` for blocks, `$...$` inline in `st.markdown()`
-- JSON files contain raw LaTeX—do not escape it
+- Frontend: `react-markdown` with `remark-math` + `rehype-katex` for rendering
+- JSON files contain raw LaTeX — do not escape it
 
 ## What This App Does NOT Do
 
 - No course explanations or teaching from scratch
-- No user authentication or accounts
 - No traditional database (all data in local JSON files)
+- No payment system (yet)
 
 ## Tech Stack
 
-- Python 3.11+ with type hints
-- Streamlit for UI
-- Multiple LLM providers: Gemini, Claude, DeepSeek (V3.2), Kimi (K2.5)
-- Multiple OCR providers: Gemini, Kimi (K2.5)
-- In-memory JSON with knowledge graph (deterministic lookup, no vector DB)
-- Pydantic for settings validation
-- Environment: API keys in `.env`
+- **Backend**: Python 3.12, FastAPI, Pydantic v2
+- **Frontend**: Next.js 16.1.6, React 19, TypeScript 5, TailwindCSS v4
+- **Auth**: Clerk (@clerk/nextjs + PyJWT backend verification)
+- **LLM**: DeepSeek (default), Gemini, Claude, Kimi
+- **OCR**: Kimi (default), Gemini
+- **Data**: In-memory JSON with knowledge graph (deterministic lookup, no vector DB)
+- **Deployment**: Vercel (frontend) + Railway (backend)
 
 ## API Error Handling
 
@@ -190,10 +239,8 @@ All LLM and OCR providers use shared retry logic in base classes:
 ## Environment Variables
 
 ```bash
-# Required
+# LLM API Keys (at least one required)
 GOOGLE_API_KEY=...          # For Gemini
-
-# Optional (for additional providers)
 CLAUDE_API_KEY=...          # For Claude
 DEEPSEEK_API_KEY=...        # For DeepSeek
 KIMI_API_KEY=...            # For Kimi (Moonshot AI)
@@ -203,12 +250,19 @@ GEMINI_MODEL=gemini-3-flash-preview
 CLAUDE_MODEL=claude-sonnet-4-5-20250929
 DEEPSEEK_MODEL=deepseek-chat
 KIMI_MODEL=kimi-k2.5
-DEFAULT_AI_PROVIDER=gemini  # or claude, deepseek, kimi
+DEFAULT_AI_PROVIDER=kimi
 
 # OCR Model configuration (optional, has defaults)
-GEMINI_OCR_MODEL=gemini-2.0-flash
+GEMINI_OCR_MODEL=gemini-3-flash-preview
 KIMI_OCR_MODEL=kimi-k2.5
-OCR_PROVIDER=gemini         # or kimi
+OCR_PROVIDER=kimi
+
+# CORS (comma-separated origins)
+CORS_ORIGINS=http://localhost:3000
+
+# Clerk Auth (required in production)
+CLERK_PUBLISHABLE_KEY=pk_live_...
+CLERK_SECRET_KEY=sk_live_...
 ```
 
 ## MCP Gemini Design - MANDATORY FOR FRONTEND
@@ -227,8 +281,8 @@ OCR_PROVIDER=gemini         # or kimi
 
 ### Workflow
 ```
-1. ALWAYS pass CSS from ui/streamlit/styles.css in the `context` parameter
-2. ALWAYS follow the Modern EdTech guidelines
-3. Respect indigo color scheme and rounded corners
+1. ALWAYS pass design-system.md content in the `designSystem` parameter
+2. ALWAYS follow the Dark Modern EdTech guidelines
+3. Respect indigo/purple color scheme and dark background
 4. Gemini returns code → YOU write it to disk
 ```
