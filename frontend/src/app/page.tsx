@@ -66,7 +66,7 @@ export default function SetupPage() {
   // Form state
   const [chapterId, setChapterId] = useState("");
   const [difficulty, setDifficulty] = useState(3);
-  const [aiProvider, setAiProvider] = useState("kimi");
+  const [aiProvider, setAiProvider] = useState("deepseek");
   const [ocrProvider, setOcrProvider] = useState("kimi");
   const [format, setFormat] = useState<"full" | "exercise_only">("full");
   const [starting, setStarting] = useState(false);
@@ -85,8 +85,9 @@ export default function SetupPage() {
         setOcrProviders(ocr);
 
         if (ch.length > 0) setChapterId(ch[0].id);
-        if (llm.length > 0) setAiProvider(llm[0]);
-        if (ocr.length > 0) setOcrProvider(ocr[0]);
+        // Defaults: deepseek pour LLM, kimi pour OCR (fallback au premier dispo)
+        if (llm.length > 0) setAiProvider(llm.includes("deepseek") ? "deepseek" : llm[0]);
+        if (ocr.length > 0) setOcrProvider(ocr.includes("kimi") ? "kimi" : ocr[0]);
       } catch (e) {
         setError(
           e instanceof Error ? e.message : "Impossible de contacter le serveur"
