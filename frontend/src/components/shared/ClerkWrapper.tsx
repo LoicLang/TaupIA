@@ -15,7 +15,11 @@ export default function ClerkWrapper({ children }: { children: React.ReactNode }
   }
 
   return (
-    <ClerkProvider localization={frFR}>
+    <ClerkProvider
+      localization={frFR}
+      afterSignInUrl="/setup"
+      afterSignUpUrl="/setup"
+    >
       {children}
     </ClerkProvider>
   );
