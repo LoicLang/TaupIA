@@ -1,8 +1,5 @@
 """
 Endpoints kholle : start, answer, next-exercise, exercise/message, finish.
-
-Reproduit la logique de app.py (start_new_kholle, evaluate_answer, start_exercise,
-guide_exercise) sans aucune dependance Streamlit.
 """
 
 import json

@@ -112,7 +112,6 @@ kholleur/
 ├── .railwayignore                  # Excludes frontend/venv from Railway
 ├── .env.example                    # All env vars documented
 │
-└── app.py                          # Legacy Streamlit app (deprecated)
 ```
 
 **Data Flow:**

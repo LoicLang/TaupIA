@@ -3,7 +3,7 @@ Knowledge Service - Acces deterministe aux donnees via le knowledge graph.
 
 Remplace le RAG vectoriel ChromaDB par un lookup en memoire sur les JSON structures.
 Charge ~2 Mo de donnees au demarrage, construit des index, et expose les memes
-signatures que l'ancien data/query.py pour une integration transparente dans app.py.
+signatures que l'ancien data/query.py pour une integration transparente.
 """
 
 import json
@@ -515,7 +515,7 @@ class KnowledgeService:
 
 
 # =============================================================================
-# Singleton et fonctions module-level (drop-in pour app.py)
+# Singleton et fonctions module-level
 # =============================================================================
 
 _service: Optional[KnowledgeService] = None

@@ -3,7 +3,6 @@ AI Service - Facade for LLM operations.
 
 This module provides a clean interface to AI capabilities,
 abstracting away provider selection and dependency injection.
-It replaces the old ai_router.py without Streamlit dependency.
 """
 
 from typing import Optional, Callable
@@ -13,7 +12,7 @@ from core.interfaces import LLMProvider
 from application.container import get_container
 
 
-# Provider getter function - can be overridden for Streamlit integration
+# Provider getter function - can be overridden per request/session context
 _provider_getter: Optional[Callable[[], str]] = None
 
 
@@ -21,7 +20,7 @@ def set_provider_getter(getter: Callable[[], str]):
     """
     Set a custom function to get the current provider name.
 
-    This allows Streamlit to inject its session_state-based provider selection.
+    This allows callers to inject request/session-based provider selection.
 
     Args:
         getter: Function that returns the current provider name

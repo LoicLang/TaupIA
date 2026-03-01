@@ -1,8 +1,8 @@
 """
 Session store in-memory.
 
-Remplace st.session_state par un dict Python {uuid: SessionState}.
-Les sessions expirent apres SESSION_TTL_HOURS d'inactivite.
+Stocke les sessions dans un dict Python {uuid: SessionState}.
+Les sessions expirent apres un delai d'inactivite.
 """
 
 import uuid
@@ -13,7 +13,7 @@ from typing import Optional
 
 @dataclass
 class SessionState:
-    """Etat d'une session de kholle (equivalent de st.session_state)."""
+    """Etat d'une session de kholle."""
 
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     phase: str = "setup"
