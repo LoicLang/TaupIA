@@ -41,6 +41,22 @@ class Settings(BaseSettings):
         default="kimi", alias="OCR_PROVIDER"
     )
 
+    # Enforced providers for regular users
+    fixed_ai_provider: Literal["gemini", "claude", "kimi", "deepseek"] = Field(
+        default="deepseek", alias="FIXED_AI_PROVIDER"
+    )
+    fixed_ocr_provider: Literal["gemini", "kimi"] = Field(
+        default="kimi", alias="FIXED_OCR_PROVIDER"
+    )
+
+    # Users allowed to override fixed providers (comma-separated allowlists)
+    provider_override_user_ids: str = Field(
+        default="", alias="PROVIDER_OVERRIDE_USER_IDS"
+    )
+    provider_override_emails: str = Field(
+        default="", alias="PROVIDER_OVERRIDE_EMAILS"
+    )
+
     # Paths (computed from BASE_DIR)
     @property
     def base_dir(self) -> Path:
@@ -108,6 +124,20 @@ class Settings(BaseSettings):
         if self.has_gemini():
             providers.append("gemini")
         return providers
+
+    @staticmethod
+    def _parse_csv(raw: str) -> set[str]:
+        return {v.strip().lower() for v in raw.split(",") if v.strip()}
+
+    @property
+    def provider_override_user_ids_set(self) -> set[str]:
+        """Allowlisted user IDs that can override providers."""
+        return self._parse_csv(self.provider_override_user_ids)
+
+    @property
+    def provider_override_emails_set(self) -> set[str]:
+        """Allowlisted emails that can override providers."""
+        return self._parse_csv(self.provider_override_emails)
 
     def load_prompt(self, prompt_name: str) -> str:
         """Load a prompt from the prompts directory."""

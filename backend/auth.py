@@ -16,6 +16,7 @@ from fastapi import HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 security = HTTPBearer(auto_error=True)
+optional_security = HTTPBearer(auto_error=False)
 
 
 @lru_cache(maxsize=1)
@@ -40,17 +41,8 @@ def _get_jwk_client() -> Optional[PyJWKClient]:
         return None
 
 
-def verify_clerk_token(
-    credentials: HTTPAuthorizationCredentials = Depends(security),
-) -> dict:
-    """
-    Dependency FastAPI : verifie le JWT Clerk.
-
-    Retourne le payload decode (contient sub, email, etc.)
-    Leve 401 si le token est invalide ou absent.
-    """
-    token = credentials.credentials
-
+def _decode_clerk_token(token: str) -> dict:
+    """Decode and verify a Clerk JWT token."""
     jwk_client = _get_jwk_client()
     if jwk_client is None:
         raise HTTPException(
@@ -74,6 +66,35 @@ def verify_clerk_token(
         raise HTTPException(status_code=401, detail=f"Token invalide: {e}")
     except Exception as e:
         raise HTTPException(status_code=401, detail=f"Erreur d'authentification: {e}")
+
+
+def verify_clerk_token(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+) -> dict:
+    """
+    Dependency FastAPI : verifie le JWT Clerk.
+
+    Retourne le payload decode (contient sub, email, etc.)
+    Leve 401 si le token est invalide ou absent.
+    """
+    return _decode_clerk_token(credentials.credentials)
+
+
+def get_current_user_optional(
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(optional_security),
+) -> Optional[dict]:
+    """
+    Retourne l'utilisateur courant si un token valide est present.
+
+    - Sans Clerk configure : retourne None
+    - Sans token : retourne None
+    - Token invalide : leve 401
+    """
+    if not os.getenv("CLERK_PUBLISHABLE_KEY"):
+        return None
+    if credentials is None:
+        return None
+    return _decode_clerk_token(credentials.credentials)
 
 
 def get_auth_dependencies() -> list:

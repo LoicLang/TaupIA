@@ -261,12 +261,13 @@ export default function SetupPage() {
                         <Cpu className="w-3.5 h-3.5 sm:w-3 sm:h-3" />
                         Provider IA
                       </label>
-                      <select
-                        value={aiProvider}
-                        onChange={(e) => setAiProvider(e.target.value)}
-                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
-                      >
-                        {llmProviders.map((p) => (
+                      {llmProviders.length > 1 ? (
+                        <select
+                          value={aiProvider}
+                          onChange={(e) => setAiProvider(e.target.value)}
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
+                        >
+                          {llmProviders.map((p) => (
                             <option
                               key={p}
                               value={p}
@@ -275,19 +276,25 @@ export default function SetupPage() {
                               {p}
                             </option>
                           ))}
-                      </select>
+                        </select>
+                      ) : (
+                        <div className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70">
+                          {aiProvider || "indisponible"}
+                        </div>
+                      )}
                     </div>
                     <div className="space-y-2 text-left">
                       <label className="text-xs sm:text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
                         <Cpu className="w-3.5 h-3.5 sm:w-3 sm:h-3" />
                         Provider OCR
                       </label>
-                      <select
-                        value={ocrProvider}
-                        onChange={(e) => setOcrProvider(e.target.value)}
-                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
-                      >
-                        {ocrProviders.map((p) => (
+                      {ocrProviders.length > 1 ? (
+                        <select
+                          value={ocrProvider}
+                          onChange={(e) => setOcrProvider(e.target.value)}
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
+                        >
+                          {ocrProviders.map((p) => (
                             <option
                               key={p}
                               value={p}
@@ -296,7 +303,12 @@ export default function SetupPage() {
                               {p}
                             </option>
                           ))}
-                      </select>
+                        </select>
+                      ) : (
+                        <div className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70">
+                          {ocrProvider || "indisponible"}
+                        </div>
+                      )}
                     </div>
                   </div>
 

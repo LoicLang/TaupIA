@@ -4,12 +4,16 @@ Endpoints kholle : start, answer, next-exercise, exercise/message, finish.
 
 import json
 from pathlib import Path
+from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 
 from application import ai_service
+from application.settings import get_settings
 from application.container import Container
 from services.knowledge_service import KnowledgeService
+from backend.auth import get_current_user_optional
+from backend.provider_policy import effective_llm_provider, effective_ocr_provider
 from backend.session_store import SessionState
 from backend.dependencies import (
     get_knowledge_service,
@@ -50,12 +54,30 @@ async def start_kholle(
     req: StartKholleRequest,
     session: SessionState = Depends(get_session),
     ks: KnowledgeService = Depends(get_knowledge_service),
+    container: Container = Depends(get_di_container),
+    current_user: Optional[dict] = Depends(get_current_user_optional),
 ):
     """Demarre une kholle : configure la session et tire une question ou un exercice."""
+    settings = get_settings()
+
+    try:
+        session.ai_provider = effective_llm_provider(
+            requested_provider=req.ai_provider,
+            container=container,
+            settings=settings,
+            user_payload=current_user,
+        )
+        session.ocr_provider = effective_ocr_provider(
+            requested_provider=req.ocr_provider,
+            container=container,
+            settings=settings,
+            user_payload=current_user,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
     session.chapter_id = req.chapter_id
     session.difficulty = req.difficulty
-    session.ai_provider = req.ai_provider
-    session.ocr_provider = req.ocr_provider
     session.format = req.format
 
     # Configurer le provider getter pour cette requete
