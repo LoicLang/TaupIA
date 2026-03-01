@@ -173,7 +173,7 @@ export default function SessionPage() {
           <AlertTriangle className="w-8 h-8 text-red-400 mx-auto" />
           <p className="text-red-400 text-sm">{fatalError || "Session introuvable"}</p>
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/setup")}
             className="flex items-center gap-2 px-5 py-3 sm:px-4 sm:py-2 mx-auto text-sm text-white/60 border border-white/10 rounded-full hover:bg-white/5 transition-all min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -203,7 +203,7 @@ export default function SessionPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/setup")}
             className="flex items-center gap-1.5 text-xs sm:text-[11px] font-medium text-white/30 hover:text-white/60 transition-colors py-2 sm:py-0"
           >
             <ArrowLeft className="w-3 h-3" />
