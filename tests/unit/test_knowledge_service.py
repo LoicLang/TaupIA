@@ -75,6 +75,18 @@ class TestKnowledgeService:
         assert ex_id not in service._td_exercises_by_id
         assert service._invalid_exercises_by_id[ex_id]
 
+    def test_manually_blacklisted_exercises_are_filtered_out(self, service):
+        """Manually reviewed low-quality exercises should not be served."""
+        for ex_id in [
+            "calculs_algebriques_dans_r__ex_007",
+            "derivabilite_et_convexite__ex_032",
+            "determinants__ex_020",
+            "groupes_et_anneaux__champo_017",
+            "nombres_complexes__champo_029",
+        ]:
+            assert ex_id not in service._td_exercises_by_id
+            assert service._invalid_exercises_by_id[ex_id]
+
     # =========================================================================
     # Chapters (29 course chapters user-facing)
     # =========================================================================
@@ -101,7 +113,7 @@ class TestKnowledgeService:
         """Each course chapter should have its own curated questions."""
         assert set(service._questions_by_course_chapter) == set(service._course_chapters)
         for course_id, questions in service._questions_by_course_chapter.items():
-            assert len(questions) == 2, f"{course_id} should expose exactly 2 curated questions"
+            assert len(questions) == 4, f"{course_id} should expose exactly 4 curated questions"
             for question in questions:
                 assert question["id"].startswith(f"{course_id}__")
 
@@ -269,7 +281,7 @@ class TestKnowledgeService:
         assert "questions_cours" in stats
         assert "exercices" in stats
         assert "concepts" in stats
-        assert stats["questions_cours"]["count"] == 58
+        assert stats["questions_cours"]["count"] == 116
         assert stats["exercices"]["count"] > 0
 
     def test_get_programme_for_chapter(self, service):

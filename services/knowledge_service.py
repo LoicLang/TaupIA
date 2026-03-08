@@ -21,6 +21,13 @@ class KnowledgeService:
 
     _TEXT_UNICODE_ESCAPE = re.compile(r"\\u([0-9a-fA-F]{4})")
     _TEXT_ACCENT_ESCAPE = re.compile(r"\\(?=[À-ÖØ-öø-ÿ])")
+    _KNOWN_INVALID_EXERCISE_IDS: dict[str, str] = {
+        "calculs_algebriques_dans_r__ex_007": "incomplete_solution",
+        "derivabilite_et_convexite__ex_032": "truncated_source",
+        "determinants__ex_020": "incomplete_solution",
+        "groupes_et_anneaux__champo_017": "incomplete_solution",
+        "nombres_complexes__champo_029": "incomplete_solution",
+    }
     _INVALID_EXERCISE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         ("placeholder_tag", re.compile(r"\bplaceholder\b", re.IGNORECASE)),
         (
@@ -254,6 +261,9 @@ class KnowledgeService:
 
     def _exercise_quality_issues(self, ex: dict) -> list[str]:
         issues: list[str] = []
+        if ex.get("id") in self._KNOWN_INVALID_EXERCISE_IDS:
+            issues.append(self._KNOWN_INVALID_EXERCISE_IDS[ex["id"]])
+
         tags = [tag.lower() for tag in ex.get("tags", []) if isinstance(tag, str)]
         if "placeholder" in tags:
             issues.append("placeholder_tag")
