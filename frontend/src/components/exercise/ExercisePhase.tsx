@@ -34,6 +34,14 @@ export default function ExercisePhase({
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  useEffect(() => {
+    setMessages([]);
+    setInput("");
+    setLoading(false);
+    setTranscribing(false);
+    setError(null);
+  }, [exercise.id]);
+
   async function handleSubmit() {
     if (!input.trim() || loading) return;
     const msg = input.trim();

@@ -29,6 +29,7 @@ class TestKnowledgeService:
         """Test V3 data scale."""
         stats = service.get_collection_stats()
         assert stats["exercices"]["count"] >= 1500
+        assert stats["exercices"]["invalid_count"] > 0
         assert stats["concepts"]["count"] >= 1900
 
     def test_29_course_chapters_loaded(self, service):
@@ -57,6 +58,23 @@ class TestKnowledgeService:
             exercises = service._td_exercises_by_chapter.get(canonical_id, [])
             assert len(exercises) > 0, f"No exercises found for {canonical_id}"
 
+    def test_exercise_text_artifacts_are_normalized(self, service):
+        """OCR/text artifacts should be normalized during loading."""
+        raw = "Une borne \\u00e0 calculer et un r\\éel \\à fixer."
+        assert service._normalize_text_artifacts(raw) == "Une borne à calculer et un réel à fixer."
+
+    def test_placeholder_exercises_are_filtered_out(self, service):
+        """Known placeholder exercises should not be served to users."""
+        ex_id = "rappels_et_complements_sur_les_fonctions_reelles__ex_025"
+        assert ex_id not in service._td_exercises_by_id
+        assert "placeholder_tag" in service._invalid_exercises_by_id[ex_id]
+
+    def test_self_confessed_invalid_exercises_are_filtered_out(self, service):
+        """Exercises whose solutions admit an error should be excluded from selection."""
+        ex_id = "matrices_et_systemes_lineaires__ex_002"
+        assert ex_id not in service._td_exercises_by_id
+        assert service._invalid_exercises_by_id[ex_id]
+
     # =========================================================================
     # Chapters (29 course chapters user-facing)
     # =========================================================================
@@ -78,6 +96,14 @@ class TestKnowledgeService:
             assert ch["question_count"] > 0
             assert "difficulties" in ch
             assert len(ch["difficulties"]) > 0
+
+    def test_curated_question_bank_covers_all_course_chapters(self, service):
+        """Each course chapter should have its own curated questions."""
+        assert set(service._questions_by_course_chapter) == set(service._course_chapters)
+        for course_id, questions in service._questions_by_course_chapter.items():
+            assert len(questions) == 2, f"{course_id} should expose exactly 2 curated questions"
+            for question in questions:
+                assert question["id"].startswith(f"{course_id}__")
 
     def test_get_chapters_sorted(self, service):
         """Test that chapters are sorted by semestre then title."""
@@ -163,6 +189,34 @@ class TestKnowledgeService:
         assert isinstance(ex["indications"], str)
         assert isinstance(ex["correction"], str)
 
+    def test_exercise_format_deduplicates_repeated_main_statement(self, service):
+        """A repeated statement should not appear twice in the final exercise text."""
+        duplicate_exercise = None
+
+        for raw_exercise in service._td_exercises_by_id.values():
+            main_statement = (raw_exercise.get("statement_latex") or "").strip()
+            if not main_statement:
+                continue
+
+            for sub_question in raw_exercise.get("sub_questions", []):
+                label = (sub_question.get("label") or "").strip()
+                stmt = (sub_question.get("statement_latex") or "").strip()
+                if not label and stmt == main_statement:
+                    duplicate_exercise = raw_exercise
+                    break
+
+            if duplicate_exercise:
+                break
+
+        assert duplicate_exercise is not None
+
+        chapter_id = duplicate_exercise["_chapter_id"]
+        chapter_title = service._course_chapters.get(chapter_id, {}).get("title", "")
+        formatted = service._format_exercise(duplicate_exercise, chapter_title, chapter_id)
+        repeated_statement = duplicate_exercise["statement_latex"].strip()
+
+        assert formatted["enonce"].count(repeated_statement) == 1
+
     def test_exercise_for_concepts(self, service):
         """Test concept-based exercise matching."""
         for q_id, concepts in service._kholle_to_concepts.items():
@@ -215,7 +269,7 @@ class TestKnowledgeService:
         assert "questions_cours" in stats
         assert "exercices" in stats
         assert "concepts" in stats
-        assert stats["questions_cours"]["count"] > 0
+        assert stats["questions_cours"]["count"] == 58
         assert stats["exercices"]["count"] > 0
 
     def test_get_programme_for_chapter(self, service):

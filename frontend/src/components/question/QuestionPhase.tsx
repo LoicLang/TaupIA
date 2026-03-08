@@ -10,7 +10,6 @@ import {
   CheckCircle,
   XCircle,
   Cpu,
-  ChevronRight,
   AlertTriangle,
   SkipForward,
 } from "lucide-react";
@@ -52,6 +51,16 @@ export default function QuestionPhase({
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    setMessages([]);
+    setInput("");
+    setLoading(false);
+    setLastEval(null);
+    setValidated(false);
+    setTranscribing(false);
+    setError(null);
+  }, [question.id]);
 
   async function handleSubmit() {
     if (!input.trim() || loading) return;
@@ -221,7 +230,7 @@ export default function QuestionPhase({
             onClick={onNextExercise}
             className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-semibold text-sm rounded-full hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all"
           >
-            Passer à l'exercice
+            Passer à l&apos;exercice
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
@@ -234,7 +243,7 @@ export default function QuestionPhase({
             onClick={handleForceValidate}
             className="w-full px-4 py-3 sm:py-2 text-xs sm:text-[11px] font-medium text-white/30 border border-white/5 rounded-full hover:text-white/50 hover:border-white/10 transition-all min-h-[44px] sm:min-h-0"
           >
-            Valider manuellement et passer à l'exercice
+            Valider manuellement et passer à l&apos;exercice
           </button>
           <button
             onClick={onSkip}

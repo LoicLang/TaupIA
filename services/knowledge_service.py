@@ -11,12 +11,41 @@ via le mapping linked_course_chapters.
 
 import json
 import random
+import re
 from pathlib import Path
 from typing import Optional
 
 
 class KnowledgeService:
     """Base de connaissances en memoire chargee depuis les fichiers JSON V3."""
+
+    _TEXT_UNICODE_ESCAPE = re.compile(r"\\u([0-9a-fA-F]{4})")
+    _TEXT_ACCENT_ESCAPE = re.compile(r"\\(?=[À-ÖØ-öø-ÿ])")
+    _INVALID_EXERCISE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+        ("placeholder_tag", re.compile(r"\bplaceholder\b", re.IGNORECASE)),
+        (
+            "missing_statement",
+            re.compile(
+                r"\[texte manquant dans le pdf\]|\[exercise statement not provided in source",
+                re.IGNORECASE,
+            ),
+        ),
+        (
+            "truncated_source",
+            re.compile(
+                r"énoncé (?:tronqué|source)|question semble tronquée|fragments manquants",
+                re.IGNORECASE,
+            ),
+        ),
+        (
+            "incomplete_solution",
+            re.compile(r"solution incomp|correction probable|faux\s*:\s*recalcul", re.IGNORECASE),
+        ),
+        (
+            "unknown_bound",
+            re.compile(r"\\text\{\?\}|\[\s*1\s*,\s*\\text\{\?\}\s*\[", re.IGNORECASE),
+        ),
+    )
 
     def __init__(self, base_dir: Optional[Path] = None):
         if base_dir is None:
@@ -108,6 +137,7 @@ class KnowledgeService:
         """Charge les exercices et normalise les chapter_official_id vers les IDs cours."""
         self._td_exercises_by_id: dict[str, dict] = {}
         self._td_exercises_by_chapter: dict[str, list[dict]] = {}
+        self._invalid_exercises_by_id: dict[str, list[str]] = {}
 
         exo_dir = self._base_dir / "data" / "exercices"
         if not exo_dir.exists():
@@ -125,7 +155,12 @@ class KnowledgeService:
                 self._td_exercises_by_chapter[chapter_id] = []
 
             for ex in exercises:
+                ex = self._normalize_exercise_payload(ex)
                 ex["_chapter_id"] = chapter_id
+                quality_issues = self._exercise_quality_issues(ex)
+                if quality_issues:
+                    self._invalid_exercises_by_id[ex["id"]] = quality_issues
+                    continue
                 self._td_exercises_by_id[ex["id"]] = ex
                 self._td_exercises_by_chapter[chapter_id].append(ex)
 
@@ -136,7 +171,8 @@ class KnowledgeService:
         # Garder les donnees brutes par programme pour get_programme_for_chapter
         self._raw_questions_by_prog: dict[str, dict] = {}
 
-        qdir = self._base_dir / "data" / "questions_de_cours"
+        curated_qdir = self._base_dir / "data" / "questions_de_cours_curated"
+        qdir = curated_qdir if curated_qdir.exists() else self._base_dir / "data" / "questions_de_cours"
         if not qdir.exists():
             return
 
@@ -194,6 +230,69 @@ class KnowledgeService:
 
             elif etype == "REQUIRES":
                 self._chapter_prerequisites.setdefault(src, []).append(tgt)
+
+    def _normalize_text_artifacts(self, text: str) -> str:
+        normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+        normalized = self._TEXT_UNICODE_ESCAPE.sub(
+            lambda match: chr(int(match.group(1), 16)),
+            normalized,
+        )
+        normalized = self._TEXT_ACCENT_ESCAPE.sub("", normalized)
+        return normalized
+
+    def _normalize_exercise_payload(self, value):
+        if isinstance(value, str):
+            return self._normalize_text_artifacts(value)
+        if isinstance(value, list):
+            return [self._normalize_exercise_payload(item) for item in value]
+        if isinstance(value, dict):
+            return {
+                key: self._normalize_exercise_payload(item)
+                for key, item in value.items()
+            }
+        return value
+
+    def _exercise_quality_issues(self, ex: dict) -> list[str]:
+        issues: list[str] = []
+        tags = [tag.lower() for tag in ex.get("tags", []) if isinstance(tag, str)]
+        if "placeholder" in tags:
+            issues.append("placeholder_tag")
+
+        texts = [
+            ex.get("title", ""),
+            ex.get("statement_latex", "") or "",
+            ex.get("global_solution_latex", "") or "",
+        ]
+
+        for hint in ex.get("hints", []):
+            texts.append(hint.get("content_latex", "") or "")
+
+        for sq in ex.get("sub_questions", []):
+            texts.append(sq.get("statement_latex", "") or "")
+            texts.append(sq.get("solution_latex", "") or "")
+            for hint in sq.get("hints", []):
+                texts.append(hint.get("content_latex", "") or "")
+
+        blob = "\n".join(texts)
+        for name, pattern in self._INVALID_EXERCISE_PATTERNS:
+            if pattern.search(blob) and name not in issues:
+                issues.append(name)
+
+        has_statement = bool((ex.get("statement_latex") or "").strip()) or any(
+            (sq.get("statement_latex") or "").strip()
+            for sq in ex.get("sub_questions", [])
+        )
+        if not has_statement:
+            issues.append("empty_statement")
+
+        has_solution = bool((ex.get("global_solution_latex") or "").strip()) or any(
+            (sq.get("solution_latex") or "").strip()
+            for sq in ex.get("sub_questions", [])
+        )
+        if not has_solution:
+            issues.append("missing_solution")
+
+        return issues
 
     # =========================================================================
     # API publique
@@ -349,40 +448,61 @@ class KnowledgeService:
 
     def _format_exercise(self, ex: dict, chapter_title: str, chapter_id: str) -> dict:
         """Formate un exercice V3 pour l'API."""
+        def _normalized_text(value: Optional[str]) -> str:
+            return " ".join((value or "").split())
+
+        def _append_unique(parts: list[str], seen: set[str], value: Optional[str]) -> None:
+            text = (value or "").strip()
+            if not text:
+                return
+
+            key = _normalized_text(text)
+            if key in seen:
+                return
+
+            seen.add(key)
+            parts.append(text)
+
         enonce_parts = []
+        seen_enonce: set[str] = set()
         main_statement = ex.get("statement_latex", "")
-        if main_statement:
-            enonce_parts.append(main_statement)
+        _append_unique(enonce_parts, seen_enonce, main_statement)
 
         sub_questions = ex.get("sub_questions", [])
         for sq in sub_questions:
-            label = sq.get("label", "")
-            stmt = sq.get("statement_latex", "")
-            if label and stmt:
-                enonce_parts.append(f"{label} {stmt}")
-            elif stmt:
-                enonce_parts.append(stmt)
+            label = (sq.get("label") or "").strip()
+            stmt = (sq.get("statement_latex") or "").strip()
+            if not stmt:
+                continue
+            if not label and _normalized_text(stmt) == _normalized_text(main_statement):
+                continue
+
+            rendered = f"{label} {stmt}".strip() if label else stmt
+            _append_unique(enonce_parts, seen_enonce, rendered)
 
         enonce = "\n\n".join(enonce_parts)
 
         hints_parts = []
+        seen_hints: set[str] = set()
         for hint in ex.get("hints", []):
-            hints_parts.append(hint.get("content_latex", ""))
+            _append_unique(hints_parts, seen_hints, hint.get("content_latex", ""))
         for sq in sub_questions:
             for hint in sq.get("hints", []):
-                hints_parts.append(hint.get("content_latex", ""))
+                _append_unique(hints_parts, seen_hints, hint.get("content_latex", ""))
         indications = "\n\n".join(h for h in hints_parts if h)
 
         correction_parts = []
+        seen_correction: set[str] = set()
         global_sol = ex.get("global_solution_latex")
         if global_sol:
-            correction_parts.append(global_sol)
+            _append_unique(correction_parts, seen_correction, global_sol)
         else:
             for sq in sub_questions:
-                sol = sq.get("solution_latex", "")
-                label = sq.get("label", "")
+                sol = (sq.get("solution_latex") or "").strip()
+                label = (sq.get("label") or "").strip()
                 if sol:
-                    correction_parts.append(f"{label} {sol}" if label else sol)
+                    rendered = f"{label} {sol}".strip() if label else sol
+                    _append_unique(correction_parts, seen_correction, rendered)
         correction = "\n\n".join(correction_parts)
 
         return {
@@ -554,7 +674,10 @@ class KnowledgeService:
         )
         return {
             "questions_cours": {"count": total_questions},
-            "exercices": {"count": len(self._td_exercises_by_id)},
+            "exercices": {
+                "count": len(self._td_exercises_by_id),
+                "invalid_count": len(self._invalid_exercises_by_id),
+            },
             "concepts": {"count": len(self._course_nodes_by_id)},
         }
 

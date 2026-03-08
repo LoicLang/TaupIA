@@ -177,7 +177,7 @@ export default function SessionPage() {
             className="flex items-center gap-2 px-5 py-3 sm:px-4 sm:py-2 mx-auto text-sm text-white/60 border border-white/10 rounded-full hover:bg-white/5 transition-all min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </button>
         </div>
       </div>
@@ -238,6 +238,7 @@ export default function SessionPage() {
         <div key={session.phase} className="animate-fade-in-up">
           {session.phase === "question_cours" && session.current_question && (
             <QuestionPhase
+              key={session.current_question.id}
               sessionId={sessionId}
               question={session.current_question}
               ocrProvider={session.ocr_provider}
@@ -248,6 +249,7 @@ export default function SessionPage() {
 
           {session.phase === "exercice" && exercise && (
             <ExercisePhase
+              key={exercise.id}
               sessionId={sessionId}
               exercise={exercise}
               ocrProvider={session.ocr_provider}
