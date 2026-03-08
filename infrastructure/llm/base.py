@@ -278,6 +278,7 @@ Compare la réponse de l'étudiant avec la réponse de référence ci-dessus.
         self,
         exercise_statement: str,
         student_message: str,
+        context: str,
         hints: str,
         solution: str,
     ) -> str:
@@ -286,6 +287,7 @@ Compare la réponse de l'étudiant avec la réponse de référence ci-dessus.
             template = self._load_prompt("exercise_guide")
             return template.format(
                 exercise_statement=exercise_statement,
+                context=context or "Contexte structuré indisponible.",
                 hints=hints or "Aucun indice spécifique.",
                 solution=solution or "Non disponible.",
                 student_message=student_message,
@@ -294,6 +296,9 @@ Compare la réponse de l'étudiant avec la réponse de référence ci-dessus.
             # Fallback to inline prompt
             return f"""## Exercice
 {exercise_statement}
+
+## Contexte mathématique pertinent
+{context if context else "Contexte structuré indisponible."}
 
 ## Indices disponibles (à distiller progressivement)
 {hints if hints else "Aucun indice spécifique."}
@@ -360,6 +365,7 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
         self,
         exercise_statement: str,
         student_message: str,
+        context: str = "",
         hints: str = "",
         solution: str = "",
         conversation_history: Optional[list[dict]] = None,
@@ -369,6 +375,7 @@ Si l'étudiant est bloqué, donne UN indice parmi ceux disponibles."""
         user_prompt = self._build_exercise_prompt(
             exercise_statement=exercise_statement,
             student_message=student_message,
+            context=context,
             hints=hints,
             solution=solution,
         )

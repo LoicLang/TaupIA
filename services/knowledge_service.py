@@ -23,10 +23,22 @@ class KnowledgeService:
     _TEXT_ACCENT_ESCAPE = re.compile(r"\\(?=[À-ÖØ-öø-ÿ])")
     _KNOWN_INVALID_EXERCISE_IDS: dict[str, str] = {
         "calculs_algebriques_dans_r__ex_007": "incomplete_solution",
+        "calculs_algebriques_dans_r__champo_024": "thin_solution",
+        "calculs_algebriques_dans_r__champo_025": "thin_solution",
+        "arithmetique_des_entiers__champo_028": "thin_solution",
+        "groupes_et_anneaux__ex_004": "incorrect_solution",
         "derivabilite_et_convexite__ex_032": "truncated_source",
         "determinants__ex_020": "incomplete_solution",
         "groupes_et_anneaux__champo_017": "incomplete_solution",
+        "nombres_complexes__ex_020": "incorrect_solution",
+        "nombres_complexes__ex_028": "incorrect_solution",
         "nombres_complexes__champo_029": "incomplete_solution",
+        "rappels_et_complements_sur_les_fonctions_reelles__champo_024": "thin_solution",
+        "rappels_et_complements_sur_les_fonctions_reelles__champo_025": "thin_solution",
+        "rappels_et_complements_sur_les_fonctions_reelles__champo_027": "thin_solution",
+        "rappels_et_complements_sur_les_fonctions_reelles__champo_030": "thin_solution",
+        "rappels_et_complements_sur_les_fonctions_reelles__champo_031": "thin_solution",
+        "relations_binaires_et_applications__champo_027": "thin_solution",
     }
     _INVALID_EXERCISE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         ("placeholder_tag", re.compile(r"\bplaceholder\b", re.IGNORECASE)),
@@ -175,6 +187,7 @@ class KnowledgeService:
         """Charge les questions et les distribue aux chapitres cours."""
         # Questions indexees par cours chapter ID
         self._questions_by_course_chapter: dict[str, list[dict]] = {}
+        self._questions_by_id: dict[str, dict] = {}
         # Garder les donnees brutes par programme pour get_programme_for_chapter
         self._raw_questions_by_prog: dict[str, dict] = {}
 
@@ -197,6 +210,8 @@ class KnowledgeService:
                 if course_id not in self._questions_by_course_chapter:
                     self._questions_by_course_chapter[course_id] = []
                 self._questions_by_course_chapter[course_id].extend(questions)
+            for question in questions:
+                self._questions_by_id[question["id"]] = question
 
     # =========================================================================
     # Construction des index
@@ -458,6 +473,9 @@ class KnowledgeService:
 
     def _format_exercise(self, ex: dict, chapter_title: str, chapter_id: str) -> dict:
         """Formate un exercice V3 pour l'API."""
+        numbered_item_pattern = re.compile(r"(?m)^(?P<label>(?:\d+|[a-zA-Z])[.)])\s+")
+        inline_numbered_item_pattern = re.compile(r"(?<![_\\])(?P<label>(?:\d+|[a-zA-Z])[.)])\s+")
+
         def _normalized_text(value: Optional[str]) -> str:
             return " ".join((value or "").split())
 
@@ -473,47 +491,169 @@ class KnowledgeService:
             seen.add(key)
             parts.append(text)
 
+        def _format_labeled_block(text: str, label: Optional[str]) -> str:
+            clean = text.strip()
+            if not clean:
+                return ""
+            if not label:
+                return clean
+            return f"**{label}** {clean}"
+
+        def _label_sort_value(label: str) -> tuple[str, int] | None:
+            token = (label or "").strip()[:-1]
+            if token.isdigit():
+                return ("num", int(token))
+            if len(token) == 1 and token.isalpha():
+                return ("alpha", ord(token.lower()) - ord("a") + 1)
+            return None
+
+        def _looks_like_ordered_sequence(matches: list[re.Match[str]]) -> bool:
+            if len(matches) < 2:
+                return False
+
+            parsed = [_label_sort_value(match.group("label")) for match in matches]
+            if any(value is None for value in parsed):
+                return False
+
+            first_kind, first_value = parsed[0]
+            if first_value != 1:
+                return False
+
+            for expected, parsed_label in enumerate(parsed[: min(len(parsed), 8)], start=1):
+                kind, value = parsed_label
+                if kind != first_kind or value != expected:
+                    return False
+
+            return True
+
+        def _iter_embedded_matches(content: str) -> list[re.Match[str]]:
+            line_matches = list(numbered_item_pattern.finditer(content))
+            if _looks_like_ordered_sequence(line_matches):
+                return line_matches
+
+            inline_matches = list(inline_numbered_item_pattern.finditer(content))
+            if _looks_like_ordered_sequence(inline_matches):
+                return inline_matches
+
+            return []
+
+        def _split_embedded_numbered_items(text: Optional[str]) -> list[str]:
+            content = (text or "").strip()
+            if not content:
+                return []
+
+            matches = _iter_embedded_matches(content)
+            if not matches:
+                return [content]
+
+            parts: list[str] = []
+            intro = content[:matches[0].start()].strip()
+            if intro:
+                parts.append(intro)
+
+            for index, match in enumerate(matches):
+                start = match.end()
+                end = matches[index + 1].start() if index + 1 < len(matches) else len(content)
+                block = content[start:end].strip()
+                if block:
+                    parts.append(_format_labeled_block(block, match.group("label")))
+
+            return parts or [content]
+
+        def _sub_question_display_label(index: int, sq: dict) -> Optional[str]:
+            label = (sq.get("label") or "").strip()
+            if label:
+                return label
+            if has_multiple_sub_questions:
+                return f"{index}."
+            return None
+
+        def _format_hint_blocks() -> str:
+            blocks: list[str] = []
+            seen_general_hints: set[str] = set()
+            general_hints: list[str] = []
+            for hint in ex.get("hints", []):
+                _append_unique(general_hints, seen_general_hints, hint.get("content_latex", ""))
+
+            if general_hints:
+                block = ["Indications générales"]
+                block.extend(general_hints)
+                blocks.append("\n\n".join(block))
+
+            for index, sq in enumerate(sub_questions, start=1):
+                sq_hint_lines: list[str] = []
+                sq_seen: set[str] = set()
+                for hint_index, hint in enumerate(sq.get("hints", []), start=1):
+                    content = (hint.get("content_latex") or "").strip()
+                    if not content:
+                        continue
+                    level = hint.get("level")
+                    hint_label = f"Indice {level}" if level else f"Indice {hint_index}"
+                    _append_unique(
+                        sq_hint_lines,
+                        sq_seen,
+                        f"**{hint_label}.** {content}",
+                    )
+
+                if not sq_hint_lines:
+                    continue
+
+                display_label = _sub_question_display_label(index, sq)
+                statement = (sq.get("statement_latex") or "").strip()
+                header = _format_labeled_block(statement, display_label)
+                block = [header] if header else []
+                block.extend(sq_hint_lines)
+                blocks.append("\n\n".join(block))
+
+            return "\n\n".join(block for block in blocks if block)
+
+        def _format_correction_blocks() -> str:
+            correction_parts: list[str] = []
+            seen_correction: set[str] = set()
+            global_sol = ex.get("global_solution_latex")
+            if global_sol:
+                _append_unique(correction_parts, seen_correction, global_sol)
+                return "\n\n".join(correction_parts)
+
+            for index, sq in enumerate(sub_questions, start=1):
+                sol = (sq.get("solution_latex") or "").strip()
+                if not sol:
+                    continue
+
+                display_label = _sub_question_display_label(index, sq)
+                statement = (sq.get("statement_latex") or "").strip()
+                if statement:
+                    rendered = f"{_format_labeled_block(statement, display_label)}\n{sol}"
+                elif display_label:
+                    rendered = f"**{display_label}**\n{sol}"
+                else:
+                    rendered = sol
+                _append_unique(correction_parts, seen_correction, rendered)
+
+            return "\n\n".join(correction_parts)
+
         enonce_parts = []
         seen_enonce: set[str] = set()
         main_statement = ex.get("statement_latex", "")
-        _append_unique(enonce_parts, seen_enonce, main_statement)
+        for part in _split_embedded_numbered_items(main_statement):
+            _append_unique(enonce_parts, seen_enonce, part)
 
         sub_questions = ex.get("sub_questions", [])
-        for sq in sub_questions:
-            label = (sq.get("label") or "").strip()
+        has_multiple_sub_questions = len([sq for sq in sub_questions if (sq.get("statement_latex") or "").strip()]) > 1
+        for index, sq in enumerate(sub_questions, start=1):
+            label = _sub_question_display_label(index, sq)
             stmt = (sq.get("statement_latex") or "").strip()
             if not stmt:
                 continue
-            if not label and _normalized_text(stmt) == _normalized_text(main_statement):
+            if not (sq.get("label") or "").strip() and _normalized_text(stmt) == _normalized_text(main_statement):
                 continue
 
-            rendered = f"{label} {stmt}".strip() if label else stmt
+            rendered = _format_labeled_block(stmt, label)
             _append_unique(enonce_parts, seen_enonce, rendered)
 
         enonce = "\n\n".join(enonce_parts)
-
-        hints_parts = []
-        seen_hints: set[str] = set()
-        for hint in ex.get("hints", []):
-            _append_unique(hints_parts, seen_hints, hint.get("content_latex", ""))
-        for sq in sub_questions:
-            for hint in sq.get("hints", []):
-                _append_unique(hints_parts, seen_hints, hint.get("content_latex", ""))
-        indications = "\n\n".join(h for h in hints_parts if h)
-
-        correction_parts = []
-        seen_correction: set[str] = set()
-        global_sol = ex.get("global_solution_latex")
-        if global_sol:
-            _append_unique(correction_parts, seen_correction, global_sol)
-        else:
-            for sq in sub_questions:
-                sol = (sq.get("solution_latex") or "").strip()
-                label = (sq.get("label") or "").strip()
-                if sol:
-                    rendered = f"{label} {sol}".strip() if label else sol
-                    _append_unique(correction_parts, seen_correction, rendered)
-        correction = "\n\n".join(correction_parts)
+        indications = _format_hint_blocks()
+        correction = _format_correction_blocks()
 
         return {
             "id": ex["id"],
@@ -532,9 +672,31 @@ class KnowledgeService:
     def get_concepts_for_question(self, question_id: str) -> list[dict]:
         """Traverse les aretes TESTS pour trouver les concepts testes par une question."""
         tested = self._kholle_to_concepts.get(question_id, [])
+        question = self._questions_by_id.get(question_id, {})
         if not tested:
+            tested = [
+                (concept_id, 1.0)
+                for concept_id in question.get("tested_concept_ids", [])
+            ]
+        if not tested:
+            if question.get("answer_latex"):
+                inferred_type = {
+                    "definition": "definition",
+                    "enonce": "theorem",
+                }.get(question.get("type"), "theorem")
+                return [{
+                    "id": question.get("answer_node_id", question_id),
+                    "type": inferred_type,
+                    "title": question.get("programme_notion", question_id),
+                    "content_latex": question.get("answer_latex", ""),
+                    "proof_latex": None,
+                    "confidence": 1.0,
+                }]
             return []
 
+        return self._resolve_concepts(tested)
+
+    def _resolve_concepts(self, tested: list[tuple[str, float]]) -> list[dict]:
         tested_sorted = sorted(tested, key=lambda x: x[1], reverse=True)
 
         result = []
@@ -563,6 +725,99 @@ class KnowledgeService:
                 })
 
         return result
+
+    def get_concepts_for_exercise(self, exercise_id: str) -> list[dict]:
+        """Retourne les concepts testes par un exercice via le graphe, avec fallback JSON."""
+        tested = list(self._exercise_to_concepts.get(exercise_id, []))
+
+        raw_exercise = self._td_exercises_by_id.get(exercise_id)
+        if raw_exercise and not tested:
+            for concept_id in raw_exercise.get("knowledge_nodes_tested", []) or []:
+                tested.append((concept_id, 1.0))
+
+            for sq in raw_exercise.get("sub_questions", []):
+                for concept_id in sq.get("knowledge_nodes_tested", []) or []:
+                    tested.append((concept_id, 1.0))
+
+        if not tested:
+            return []
+
+        deduped: dict[str, float] = {}
+        for concept_id, confidence in tested:
+            deduped[concept_id] = max(confidence, deduped.get(concept_id, 0.0))
+
+        return self._resolve_concepts(list(deduped.items()))
+
+    def get_exercise_structured_context(
+        self,
+        exercise_id: str,
+        chapter_id: str,
+        max_chars: int = 4000,
+    ) -> str:
+        """Construit un contexte structuré pour le guidage d'exercice."""
+        parts: list[str] = []
+        total_chars = 0
+
+        concepts = self.get_concepts_for_exercise(exercise_id)
+        if concepts:
+            section_parts = ["### Concepts testes par cet exercice"]
+            for concept in concepts[:6]:
+                type_label = {
+                    "definition": "Definition",
+                    "theorem": "Theoreme",
+                    "property": "Propriete",
+                    "method": "Methode",
+                    "example": "Exemple",
+                    "remark": "Remarque",
+                    "warning": "Attention",
+                }.get(concept["type"], concept["type"].capitalize())
+                entry = f"**{type_label} : {concept['title']}**"
+                if concept.get("content_latex"):
+                    entry += f"\n{concept['content_latex']}"
+                section_parts.append(entry)
+            concept_text = "\n\n".join(section_parts)
+            parts.append(concept_text)
+            total_chars += len(concept_text)
+
+        raw_exercise = self._td_exercises_by_id.get(exercise_id)
+        if raw_exercise and total_chars < max_chars:
+            sub_blocks: list[str] = []
+            for index, sq in enumerate(raw_exercise.get("sub_questions", []), start=1):
+                concept_ids = sq.get("knowledge_nodes_tested", []) or []
+                if not concept_ids:
+                    continue
+
+                label = (sq.get("label") or "").strip() or f"{index}."
+                statement = (sq.get("statement_latex") or "").strip()
+                concept_titles = []
+                for concept_id in concept_ids[:3]:
+                    node = self._course_nodes_by_id.get(concept_id)
+                    if node:
+                        concept_titles.append(node.get("title", concept_id))
+                if not concept_titles:
+                    continue
+
+                header = f"**{label}** {statement}".strip() if statement else f"**{label}**"
+                sub_blocks.append(f"{header}\nNotions clees : {', '.join(concept_titles)}")
+
+            if sub_blocks:
+                sub_text = "### Repartition par sous-question\n" + "\n\n".join(sub_blocks)
+                if total_chars + len(sub_text) <= max_chars:
+                    parts.append(sub_text)
+                    total_chars += len(sub_text)
+
+        prog = self.get_programme_for_chapter(chapter_id)
+        if prog["vigilance"] and total_chars < max_chars:
+            vigilance_text = "### Points de vigilance (programme officiel)\n"
+            vigilance_text += "\n".join(f"- {v}" for v in prog["vigilance"][:4])
+            if total_chars + len(vigilance_text) <= max_chars:
+                parts.append(vigilance_text)
+                total_chars += len(vigilance_text)
+
+        if not parts:
+            return "Contexte non disponible pour cet exercice."
+
+        return "\n\n".join(parts)
 
     def get_programme_for_chapter(self, chapter_id: str) -> dict:
         """Retourne les contraintes du programme officiel pour un chapitre cours."""

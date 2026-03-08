@@ -12,12 +12,93 @@ interface LatexRendererProps {
 
 const BARE_LATEX_BLOCK =
   /\\(?:begin\{|left|right|frac|sum|prod|int|lim|sqrt|mathbb|mathcal|operatorname|overline|underline|vec|cdots|ldots|mapsto|longrightarrow|rightarrow|infty|times|leq|geq|neq|forall|exists|det|sin|cos|tan|ln|exp)\b/;
+const STRONG_MATH_MARKER = /\\[a-zA-Z]+|[_^{}]/;
+
+function isMathLikeToken(token: string): boolean {
+  const stripped = token
+    .replace(/^[“"']+/, "")
+    .replace(/[.,;:!?]+$/, "")
+    .trim();
+
+  if (!stripped) {
+    return false;
+  }
+
+  return STRONG_MATH_MARKER.test(stripped);
+}
+
+function splitTrailingPunctuation(token: string): [string, string] {
+  const match = token.match(/^(.*?)([.,;:!?]+)$/);
+  if (!match) {
+    return [token, ""];
+  }
+  return [match[1], match[2]];
+}
+
+function wrapInlineLatexRuns(paragraph: string): string {
+  if (!paragraph || paragraph.includes("$")) {
+    return paragraph;
+  }
+
+  const parts = paragraph.split(/(\s+)/);
+  const result: string[] = [];
+  let mathBuffer: string[] = [];
+
+  const flushMathBuffer = () => {
+    if (!mathBuffer.length) {
+      return;
+    }
+
+    const joined = mathBuffer.join("");
+    mathBuffer = [];
+    const leadingWhitespace = joined.match(/^\s*/)?.[0] ?? "";
+    const trailingWhitespace = joined.match(/\s*$/)?.[0] ?? "";
+    const raw = joined.trim();
+    if (!raw) {
+      return;
+    }
+
+    const [core, trailingPunctuation] = splitTrailingPunctuation(raw);
+    if (!core || !STRONG_MATH_MARKER.test(core)) {
+      result.push(`${leadingWhitespace}${raw}${trailingWhitespace}`);
+      return;
+    }
+
+    result.push(`${leadingWhitespace}$${core}$${trailingPunctuation}${trailingWhitespace}`);
+  };
+
+  for (const part of parts) {
+    if (!part) {
+      continue;
+    }
+
+    if (/^\s+$/.test(part)) {
+      if (mathBuffer.length) {
+        mathBuffer.push(part);
+      } else {
+        result.push(part);
+      }
+      continue;
+    }
+
+    if (isMathLikeToken(part)) {
+      mathBuffer.push(part);
+      continue;
+    }
+
+    flushMathBuffer();
+    result.push(part);
+  }
+
+  flushMathBuffer();
+  return result.join("");
+}
 
 function wrapBareLatexParagraphs(content: string): string {
   return content
     .split(/\n{2,}/)
     .map((paragraph) => {
-      const trimmed = paragraph.trim();
+      const trimmed = wrapInlineLatexRuns(paragraph.trim());
       if (!trimmed || trimmed.includes("$")) {
         return trimmed;
       }

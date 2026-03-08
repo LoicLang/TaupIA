@@ -86,6 +86,7 @@ def evaluate_answer(
 def guide_exercise(
     exercise_statement: str,
     student_message: str,
+    context: str = "",
     hints: str = "",
     solution: str = "",
     conversation_history: Optional[list[dict]] = None,
@@ -96,6 +97,7 @@ def guide_exercise(
     Args:
         exercise_statement: The exercise problem
         student_message: Student's question or attempt
+        context: Structured context for the exercise
         hints: Available hints
         solution: Reference solution
         conversation_history: Previous messages
@@ -107,6 +109,7 @@ def guide_exercise(
     return provider.guide(
         exercise_statement=exercise_statement,
         student_message=student_message,
+        context=context,
         hints=hints,
         solution=solution,
         conversation_history=conversation_history,

@@ -303,6 +303,7 @@ async def exercise_message(
     session_id: str,
     req: ExerciseMessageRequest,
     session: SessionState = Depends(get_session),
+    ks: KnowledgeService = Depends(get_knowledge_service),
 ):
     """Envoie un message pendant la phase exercice (guidage socratique)."""
     if session.phase != "exercice":
@@ -322,9 +323,15 @@ async def exercise_message(
     })
 
     try:
+        context = ks.get_exercise_structured_context(
+            exercise_id=ex["id"],
+            chapter_id=ex.get("chapter_id") or session.chapter_id or "",
+            max_chars=4000,
+        )
         guidance = ai_service.guide_exercise(
             exercise_statement=ex.get("enonce", ""),
             student_message=req.message,
+            context=context,
             hints=ex.get("indications", ""),
             solution=ex.get("correction", ""),
             conversation_history=session.conversation_history[:-1],

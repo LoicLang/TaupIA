@@ -28,7 +28,7 @@ class TestKnowledgeService:
     def test_v3_data_counts(self, service):
         """Test V3 data scale."""
         stats = service.get_collection_stats()
-        assert stats["exercices"]["count"] >= 1500
+        assert stats["exercices"]["count"] >= 1490
         assert stats["exercices"]["invalid_count"] > 0
         assert stats["concepts"]["count"] >= 1900
 
@@ -79,10 +79,22 @@ class TestKnowledgeService:
         """Manually reviewed low-quality exercises should not be served."""
         for ex_id in [
             "calculs_algebriques_dans_r__ex_007",
+            "calculs_algebriques_dans_r__champo_024",
+            "calculs_algebriques_dans_r__champo_025",
+            "arithmetique_des_entiers__champo_028",
+            "groupes_et_anneaux__ex_004",
             "derivabilite_et_convexite__ex_032",
             "determinants__ex_020",
             "groupes_et_anneaux__champo_017",
+            "nombres_complexes__ex_020",
+            "nombres_complexes__ex_028",
             "nombres_complexes__champo_029",
+            "rappels_et_complements_sur_les_fonctions_reelles__champo_024",
+            "rappels_et_complements_sur_les_fonctions_reelles__champo_025",
+            "rappels_et_complements_sur_les_fonctions_reelles__champo_027",
+            "rappels_et_complements_sur_les_fonctions_reelles__champo_030",
+            "rappels_et_complements_sur_les_fonctions_reelles__champo_031",
+            "relations_binaires_et_applications__champo_027",
         ]:
             assert ex_id not in service._td_exercises_by_id
             assert service._invalid_exercises_by_id[ex_id]
@@ -116,6 +128,26 @@ class TestKnowledgeService:
             assert len(questions) == 4, f"{course_id} should expose exactly 4 curated questions"
             for question in questions:
                 assert question["id"].startswith(f"{course_id}__")
+
+    def test_curated_questions_expose_structured_concepts(self, service):
+        """Curated questions should provide exact linked concepts or a curated fallback."""
+        exact_links = 0
+        total = 0
+        seen_ids = set()
+
+        for questions in service._questions_by_course_chapter.values():
+            for question in questions:
+                if question["id"] in seen_ids:
+                    continue
+                seen_ids.add(question["id"])
+                total += 1
+                if question.get("tested_concept_ids"):
+                    exact_links += 1
+                concepts = service.get_concepts_for_question(question["id"])
+                assert concepts, f"{question['id']} has no structured concept context"
+
+        assert total == 116
+        assert exact_links >= 90
 
     def test_get_chapters_sorted(self, service):
         """Test that chapters are sorted by semestre then title."""
@@ -229,6 +261,75 @@ class TestKnowledgeService:
 
         assert formatted["enonce"].count(repeated_statement) == 1
 
+    def test_exercise_format_numbers_unlabeled_sub_questions(self, service):
+        """Multiple unlabeled sub-questions should be separated explicitly."""
+        raw_exercise = {
+            "id": "dummy_multi_subq",
+            "difficulty": 2,
+            "statement_latex": "Résoudre dans $\\mathbb{R}$.",
+            "sub_questions": [
+                {
+                    "label": "",
+                    "statement_latex": "Montrer que $f$ est injective.",
+                    "solution_latex": "On raisonne par l'absurde.",
+                    "hints": [{"level": 1, "content_latex": "Partir de $f(x)=f(y)$."}],
+                },
+                {
+                    "label": "",
+                    "statement_latex": "Calculer l'image de $f$.",
+                    "solution_latex": "On explicite les valeurs atteintes.",
+                    "hints": [{"level": 1, "content_latex": "Chercher un antécédent de $y$."}],
+                },
+            ],
+            "hints": [],
+            "global_solution_latex": "",
+        }
+
+        formatted = service._format_exercise(raw_exercise, "Test", "test")
+
+        assert "**1.** Montrer que $f$ est injective." in formatted["enonce"]
+        assert "**2.** Calculer l'image de $f$." in formatted["enonce"]
+        assert "**1.** Montrer que $f$ est injective." in formatted["indications"]
+        assert "**Indice 1.** Partir de $f(x)=f(y)$." in formatted["indications"]
+        assert "**2.** Calculer l'image de $f$." in formatted["correction"]
+        assert "On explicite les valeurs atteintes." in formatted["correction"]
+
+    def test_exercise_format_splits_embedded_numbered_statement(self, service):
+        """A main statement containing inline numbered parts should be separated."""
+        raw_exercise = {
+            "id": "dummy_embedded_numbering",
+            "difficulty": 2,
+            "statement_latex": (
+                "Ordre d'un element : "
+                "1. Montrer que $G=\\langle x \\rangle$. "
+                "2. Calculer le cardinal de $\\langle a \\rangle$."
+            ),
+            "sub_questions": [],
+            "hints": [],
+            "global_solution_latex": "",
+        }
+
+        formatted = service._format_exercise(raw_exercise, "Test", "test")
+
+        assert "Ordre d'un element :" in formatted["enonce"]
+        assert "**1.** Montrer que $G=\\langle x \\rangle$." in formatted["enonce"]
+        assert "**2.** Calculer le cardinal de $\\langle a \\rangle$." in formatted["enonce"]
+
+    def test_exercise_format_preserves_multi_question_hint_structure(self, service):
+        """Hints for multi-part exercises should stay attached to the right sub-question."""
+        raw_exercise = service._td_exercises_by_id["analyse_asymptotique_de_niveau_1__ex_003"]
+        chapter_id = raw_exercise["_chapter_id"]
+        chapter_title = service._course_chapters[chapter_id]["title"]
+
+        formatted = service._format_exercise(raw_exercise, chapter_title, chapter_id)
+
+        assert "**1)** $(x\\mapsto e^{x}, x\\mapsto x e^{x}, x\\mapsto e^{x+x^{2}})$" in formatted["enonce"]
+        assert "**1)** $(x\\mapsto e^{x}, x\\mapsto x e^{x}, x\\mapsto e^{x+x^{2}})$" in formatted["indications"]
+        assert "**Indice 1.** Écrire une combinaison linéaire nulle" in formatted["indications"]
+        assert "**2)** $(x\\mapsto \\cos x, x\\mapsto x \\cos x, x\\mapsto \\sin x, x\\mapsto x \\sin x)$" in formatted["indications"]
+        assert "**Indice 2.** Effectuer un développement limité en $0$ à l'ordre 3" in formatted["indications"]
+        assert "**2)** $(x\\mapsto \\cos x, x\\mapsto x \\cos x, x\\mapsto \\sin x, x\\mapsto x \\sin x)$" in formatted["correction"]
+
     def test_exercise_for_concepts(self, service):
         """Test concept-based exercise matching."""
         for q_id, concepts in service._kholle_to_concepts.items():
@@ -270,6 +371,25 @@ class TestKnowledgeService:
                     assert len(context) > 0
                     assert "Concepts testes" in context
                     break
+
+    def test_get_concepts_for_exercise(self, service):
+        """Exercises should expose the structured concepts they test."""
+        concepts = service.get_concepts_for_exercise("arithmetique_des_entiers__champo_036")
+
+        assert concepts
+        assert any(concept["title"] for concept in concepts)
+
+    def test_get_exercise_structured_context(self, service):
+        """A multi-part exercise should expose chapter concepts and sub-question mapping."""
+        context = service.get_exercise_structured_context(
+            "analyse_asymptotique_de_niveau_1__ex_003",
+            "analyse_asymptotique_de_niveau_1",
+        )
+
+        assert "Concepts testes par cet exercice" in context
+        assert "Repartition par sous-question" in context
+        assert "**1)** $(x\\mapsto e^{x}, x\\mapsto x e^{x}, x\\mapsto e^{x+x^{2}})$" in context
+        assert "Notions clees" in context
 
     # =========================================================================
     # Stats and programme

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import re
+import unicodedata
 from pathlib import Path
 
 
@@ -8,6 +10,363 @@ ROOT = Path(__file__).resolve().parents[1]
 COURSE_DIR = ROOT / "data" / "cours"
 PROGRAMME_PATH = ROOT / "data" / "programme.json"
 OUTPUT_DIR = ROOT / "data" / "questions_de_cours_curated"
+
+STOPWORDS = {
+    "a",
+    "alors",
+    "au",
+    "aux",
+    "avec",
+    "ce",
+    "ces",
+    "cette",
+    "dans",
+    "de",
+    "definir",
+    "definition",
+    "des",
+    "du",
+    "en",
+    "enoncer",
+    "et",
+    "finie",
+    "forme",
+    "fonction",
+    "formule",
+    "general",
+    "generale",
+    "les",
+    "leur",
+    "linaire",
+    "lineaire",
+    "matrice",
+    "pour",
+    "propriete",
+    "que",
+    "quelconque",
+    "rappeler",
+    "reelle",
+    "reelles",
+    "relation",
+    "sur",
+    "theoreme",
+    "tout",
+    "une",
+    "un",
+}
+
+QUESTION_CONCEPT_HINTS = {
+    "rudiments_de_logique_et_vocabulaire_ensembliste__qc_001": [
+        "Négation d'une proposition avec quantificateurs",
+    ],
+    "rudiments_de_logique_et_vocabulaire_ensembliste__qc_002": [
+        "Principe de récurrence simple",
+    ],
+    "rudiments_de_logique_et_vocabulaire_ensembliste__qc_003": [
+        "Implication, équivalence",
+        "Réciproque, contraposée",
+    ],
+    "rudiments_de_logique_et_vocabulaire_ensembliste__qc_004": [
+        "Principe de récurrence forte",
+    ],
+    "relations_binaires_et_applications__qc_001": [
+        "Application injective",
+        "Application surjective",
+        "Application bijective",
+    ],
+    "relations_binaires_et_applications__qc_002": [
+        "bijection",
+        "réciproque",
+    ],
+    "relations_binaires_et_applications__qc_004": [
+        "image directe",
+        "image réciproque",
+    ],
+    "calculs_algebriques_dans_R__qc_001": ["binôme de Newton"],
+    "calculs_algebriques_dans_R__qc_002": ["Formules d'addition"],
+    "calculs_algebriques_dans_R__qc_003": ["Somme géométrique"],
+    "calculs_algebriques_dans_R__qc_004": ["Linéarisation"],
+    "nombres_complexes__qc_001": ["Conjugué", "module"],
+    "nombres_complexes__qc_002": ["Racines n-ièmes"],
+    "nombres_complexes__qc_003": ["Argument", "forme exponentielle"],
+    "nombres_complexes__qc_004": ["Formule de Moivre"],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_001": [
+        "Parité",
+        "Périodicité",
+    ],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_002": [
+        "Maximum",
+        "Minimum",
+    ],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_003": ["Fonction monotone"],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_004": ["Fonction majorée"],
+    "techniques_elementaires_de_calcul_integral__qc_001": [
+        "Intégration par parties",
+    ],
+    "techniques_elementaires_de_calcul_integral__qc_002": [
+        "Changement de variable",
+    ],
+    "techniques_elementaires_de_calcul_integral__qc_003": ["Primitives"],
+    "techniques_elementaires_de_calcul_integral__qc_004": [
+        "Propriétés de l'intégrale",
+    ],
+    "equations_differentielles_lineaires__qc_001": [
+        "Équation différentielle linéaire du premier ordre",
+    ],
+    "equations_differentielles_lineaires__qc_002": [
+        "Équation différentielle linéaire du second ordre à coefficients constants",
+    ],
+    "equations_differentielles_lineaires__qc_003": [
+        "équation homogène",
+    ],
+    "equations_differentielles_lineaires__qc_004": [
+        "solution particulière",
+        "équation homogène",
+    ],
+    "topologie_de_r_et_c__qc_001": ["adhérence"],
+    "topologie_de_r_et_c__qc_002": ["Bolzano-Weierstrass"],
+    "topologie_de_r_et_c__qc_003": ["Ouvert", "Fermé", "Voisinage"],
+    "topologie_de_r_et_c__qc_004": ["Compact = fermé borné"],
+    "suites_reelles__qc_001": ["Limite d'une suite"],
+    "suites_reelles__qc_002": ["Théorème de la limite monotone"],
+    "suites_reelles__qc_003": ["Théorème des suites adjacentes"],
+    "suites_reelles__qc_004": ["Encadrement / Minoration / Majoration"],
+    "limites_et_continuite__qc_001": ["Continuité d'une fonction en un point"],
+    "limites_et_continuite__qc_002": ["Théorème des valeurs intermédiaires"],
+    "limites_et_continuite__qc_003": ["Limite d'une fonction en un point"],
+    "limites_et_continuite__qc_004": ["bornes atteintes"],
+    "derivabilite_et_convexite__qc_001": [
+        "Théorème de Rolle",
+        "Inégalité des accroissements finis",
+    ],
+    "derivabilite_et_convexite__qc_002": [
+        "Caractérisation des fonctions convexes dérivables",
+    ],
+    "derivabilite_et_convexite__qc_003": ["Fonction dérivable"],
+    "derivabilite_et_convexite__qc_004": ["dérivée seconde", "Fonction convexe"],
+    "arithmetique_des_entiers__qc_001": ["division euclidienne"],
+    "arithmetique_des_entiers__qc_002": ["Théorème de Bézout"],
+    "arithmetique_des_entiers__qc_003": ["Congruence modulo"],
+    "arithmetique_des_entiers__qc_004": ["factorisation première"],
+    "groupes_et_anneaux__qc_001": ["critère de sous-groupe"],
+    "groupes_et_anneaux__qc_002": ["Noyau", "Image d'un morphisme de groupes"],
+    "groupes_et_anneaux__qc_003": ["Groupe", "Anneau", "Corps"],
+    "groupes_et_anneaux__qc_004": ["Morphisme de groupes"],
+    "matrices_et_systemes_lineaires__qc_001": ["Matrice inversible"],
+    "matrices_et_systemes_lineaires__qc_002": ["pivot de Gauss"],
+    "matrices_et_systemes_lineaires__qc_003": ["Transposée", "matrice symétrique"],
+    "matrices_et_systemes_lineaires__qc_004": ["matrices élémentaires"],
+    "polynomes_et_racines__qc_001": ["racine", "multiplicité"],
+    "polynomes_et_racines__qc_002": ["d'Alembert-Gauss", "conjuguées"],
+    "polynomes_et_racines__qc_003": ["relations coefficients-racines"],
+    "polynomes_et_racines__qc_004": ["interpolation de Lagrange"],
+    "arithmetique_des_polynomes_et_fractions_rationnelles__qc_001": [
+        "division euclidienne",
+    ],
+    "arithmetique_des_polynomes_et_fractions_rationnelles__qc_002": [
+        "Bézout",
+    ],
+    "arithmetique_des_polynomes_et_fractions_rationnelles__qc_003": [
+        "PGCD",
+    ],
+    "arithmetique_des_polynomes_et_fractions_rationnelles__qc_004": [
+        "éléments simples",
+    ],
+    "analyse_asymptotique_de_niveau_1__qc_001": [
+        "Négligeabilité",
+        "Équivalence",
+        "Domination",
+    ],
+    "analyse_asymptotique_de_niveau_1__qc_002": ["Croissances comparées usuelles"],
+    "analyse_asymptotique_de_niveau_1__qc_003": ["équivalents usuels"],
+    "analyse_asymptotique_de_niveau_1__qc_004": [
+        "produit",
+        "équivalents",
+    ],
+    "analyse_asymptotique_de_niveau_2__qc_001": ["Développement limité"],
+    "analyse_asymptotique_de_niveau_2__qc_002": ["Taylor-Young"],
+    "analyse_asymptotique_de_niveau_2__qc_003": ["développements limités usuels"],
+    "analyse_asymptotique_de_niveau_2__qc_004": ["Position locale par rapport à une tangente"],
+    "espaces_vectoriels__qc_001": ["Famille libre", "Famille génératrice", "Base"],
+    "espaces_vectoriels__qc_002": ["base incomplète"],
+    "espaces_vectoriels__qc_003": ["Somme directe", "Supplémentaire"],
+    "espaces_vectoriels__qc_004": ["Grassmann"],
+    "applications_lineaires__qc_001": ["Image réciproque", "noyau"],
+    "applications_lineaires__qc_002": ["Théorème du rang"],
+    "applications_lineaires__qc_003": ["Caractérisation de l'injectivité"],
+    "applications_lineaires__qc_004": ["Image d'un sous-espace", "Image réciproque d'un sous-espace"],
+    "representation_matricielle_applications_lineaires__qc_001": [
+        "Matrice d'une application linéaire",
+    ],
+    "representation_matricielle_applications_lineaires__qc_002": [
+        "Changement de base",
+    ],
+    "representation_matricielle_applications_lineaires__qc_003": [
+        "Composition",
+        "produit matriciel",
+    ],
+    "representation_matricielle_applications_lineaires__qc_004": [
+        "équivalentes",
+        "semblables",
+    ],
+    "determinants__qc_001": ["Déterminant"],
+    "determinants__qc_002": ["inversible si et seulement si son déterminant"],
+    "determinants__qc_003": ["Opérations sur le déterminant"],
+    "determinants__qc_004": ["Comatrice"],
+    "denombrement__qc_001": ["Coefficients binomiaux, combinaison"],
+    "denombrement__qc_002": ["Formule du crible"],
+    "denombrement__qc_003": ["applications", "injections", "bijections"],
+    "denombrement__qc_004": ["Propriétés des coefficients binomiaux"],
+    "probabilites_sur_un_univers_fini__qc_001": ["Formules de Bayes"],
+    "probabilites_sur_un_univers_fini__qc_002": ["Indépendance"],
+    "probabilites_sur_un_univers_fini__qc_003": ["Variable aléatoire", "loi"],
+    "probabilites_sur_un_univers_fini__qc_004": ["Propriétés de l'espérance", "variance"],
+    "complements_probabilistes__qc_001": ["Espérance", "Variance"],
+    "complements_probabilistes__qc_002": ["Bienaymé-Tchebychev"],
+    "complements_probabilistes__qc_003": ["loi binomiale"],
+    "complements_probabilistes__qc_004": ["variables aléatoires indépendantes"],
+    "espaces_prehilbertiens_reels__qc_001": ["Cauchy-Schwarz"],
+    "espaces_prehilbertiens_reels__qc_002": ["Projection orthogonale"],
+    "espaces_prehilbertiens_reels__qc_003": ["Orthogonalité", "orthonormée"],
+    "espaces_prehilbertiens_reels__qc_004": ["Pythagore", "projeté orthogonal"],
+    "series_et_familles_sommables__qc_001": ["Condition nécessaire de convergence d'une série"],
+    "series_et_familles_sommables__qc_002": ["Comparaison des séries positives"],
+    "series_et_familles_sommables__qc_003": ["Série géométrique"],
+    "series_et_familles_sommables__qc_004": ["Séries alternées"],
+    "fonctions_de_deux_variables__qc_001": ["fonction différentiable"],
+    "fonctions_de_deux_variables__qc_002": ["Plan tangent"],
+    "fonctions_de_deux_variables__qc_003": ["Gradient", "Point critique"],
+    "fonctions_de_deux_variables__qc_004": ["extremum local", "hessienne"],
+    "integration_sur_un_segment__qc_001": ["Propriétés de l'intégrale"],
+    "integration_sur_un_segment__qc_002": ["Théorème fondamental de l'analyse"],
+    "integration_sur_un_segment__qc_003": ["Sommes de Riemann"],
+    "integration_sur_un_segment__qc_004": ["Taylor avec reste intégral"],
+}
+
+MANUAL_QUESTION_CONCEPT_IDS = {
+    "analyse_asymptotique_de_niveau_1__qc_001": [
+        "analyse_asymptotique_de_niveau_1__definition_negligeabilite",
+        "analyse_asymptotique_de_niveau_1__definition_equivalence",
+        "analyse_asymptotique_de_niveau_1__definition_domination",
+    ],
+    "analyse_asymptotique_de_niveau_2__qc_001": [],
+    "analyse_asymptotique_de_niveau_2__qc_002": [],
+    "analyse_asymptotique_de_niveau_2__qc_003": [],
+    "analyse_asymptotique_de_niveau_2__qc_004": [],
+    "applications_lineaires__qc_001": [],
+    "arithmetique_des_polynomes_et_fractions_rationnelles__qc_001": [],
+    "calculs_algebriques_dans_R__qc_002": [],
+    "calculs_algebriques_dans_R__qc_003": [
+        "calculs_algebriques_dans_R__theorem_sommes_geometriques",
+    ],
+    "calculs_algebriques_dans_R__qc_004": [],
+    "complements_probabilistes__qc_003": [],
+    "complements_probabilistes__qc_004": [],
+    "derivabilite_et_convexite__qc_004": [],
+    "equations_differentielles_lineaires__qc_001": [],
+    "equations_differentielles_lineaires__qc_002": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+    ],
+    "equations_differentielles_lineaires__qc_003": [],
+    "equations_differentielles_lineaires__qc_004": [],
+    "espaces_prehilbertiens_reels__qc_001": [
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+    ],
+    "espaces_prehilbertiens_reels__qc_002": [
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+    ],
+    "espaces_prehilbertiens_reels__qc_003": [
+        "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+        "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+    ],
+    "espaces_prehilbertiens_reels__qc_004": [
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+    ],
+    "espaces_vectoriels__qc_001": [
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_partie_generatrice",
+        "espaces_vectoriels__definition_base_coordonnees",
+    ],
+    "fonctions_de_deux_variables__qc_003": [
+        "fonctions_de_deux_variables__definition_gradient",
+    ],
+    "fonctions_de_deux_variables__qc_004": [],
+    "groupes_et_anneaux__qc_001": [
+        "groupes_et_anneaux__definition_sous_groupe",
+        "groupes_et_anneaux__theorem_caracterisation_sous_groupes",
+    ],
+    "groupes_et_anneaux__qc_002": [
+        "groupes_et_anneaux__definition_morphisme_groupes",
+        "groupes_et_anneaux__definition_theoreme_image_noyau",
+    ],
+    "groupes_et_anneaux__qc_003": [
+        "groupes_et_anneaux__definition_groupe",
+        "groupes_et_anneaux__definition_anneau",
+        "groupes_et_anneaux__definition_corps",
+    ],
+    "groupes_et_anneaux__qc_004": [
+        "groupes_et_anneaux__definition_morphisme_groupes",
+        "groupes_et_anneaux__theorem_proprietes_morphismes_groupes",
+    ],
+    "limites_et_continuite__qc_001": [
+        "limites_et_continuite__definition_continuite",
+    ],
+    "nombres_complexes__qc_003": [
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_exponentielle_complexe",
+    ],
+    "nombres_complexes__qc_004": [],
+    "probabilites_sur_un_univers_fini__qc_002": [],
+    "probabilites_sur_un_univers_fini__qc_003": [
+        "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+    ],
+    "probabilites_sur_un_univers_fini__qc_004": [
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+    ],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_001": [],
+    "rappels_et_complements_sur_les_fonctions_reelles__qc_002": [
+        "rappels_et_complements_sur_les_fonctions_reelles__definition_maximum_minimum",
+    ],
+    "relations_binaires_et_applications__qc_001": [
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__theorem_bijection",
+    ],
+    "relations_binaires_et_applications__qc_002": [
+        "relations_binaires_et_applications__theorem_bijection_composition",
+    ],
+    "relations_binaires_et_applications__qc_004": [
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+    ],
+    "representation_matricielle_applications_lineaires__qc_002": [],
+    "representation_matricielle_applications_lineaires__qc_003": [],
+    "topologie_de_r_et_c__qc_001": [
+        "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+    ],
+    "topologie_de_r_et_c__qc_003": [
+        "topologie_de_r_et_c__definition_voisinage",
+        "topologie_de_r_et_c__definition_ouvert",
+        "topologie_de_r_et_c__definition_ferme",
+    ],
+}
+
+
+def _normalize_search_text(text: str) -> str:
+    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+    text = text.lower()
+    text = re.sub(r"\\[a-zA-Z]+", " ", text)
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _keywords(text: str) -> set[str]:
+    return {
+        token
+        for token in _normalize_search_text(text).split()
+        if len(token) >= 3 and token not in STOPWORDS
+    }
 
 
 def make_question(
@@ -29,6 +388,62 @@ def make_question(
         "answer_latex": answer_latex,
         "tags": ["curated", "qualite", "chapitre de cours"],
     }
+
+
+def _score_node(question: dict, node: dict, hints: list[str]) -> int:
+    score = 0
+    title = node["title"]
+    title_norm = _normalize_search_text(title)
+    title_tokens = _keywords(title)
+    content_tokens = _keywords(node.get("content_latex", ""))
+
+    expected_types = {
+        "definition": {"definition", "theorem"},
+        "enonce": {"theorem", "property", "definition", "method"},
+    }.get(question["type"], {"definition", "theorem", "property", "method"})
+    if node.get("type") in expected_types:
+        score += 8
+
+    query_tokens = _keywords(question["programme_notion"]) | _keywords(question["question_latex"])
+    overlap = len(query_tokens & title_tokens)
+    score += overlap * 3
+
+    for hint in hints:
+        hint_norm = _normalize_search_text(hint)
+        hint_tokens = _keywords(hint)
+        if hint_norm and (hint_norm in title_norm or title_norm in hint_norm):
+            score += 50
+        score += len(hint_tokens & title_tokens) * 8
+        score += len(hint_tokens & content_tokens) * 2
+
+    return score
+
+
+def _resolve_concept_ids(course_id: str, question: dict, knowledge_nodes: list[dict]) -> list[str]:
+    if question["id"] in MANUAL_QUESTION_CONCEPT_IDS:
+        return MANUAL_QUESTION_CONCEPT_IDS[question["id"]]
+
+    hints = QUESTION_CONCEPT_HINTS.get(question["id"], [question["programme_notion"]])
+    scored = []
+    for node in knowledge_nodes:
+        score = _score_node(question, node, hints)
+        if score > 0:
+            scored.append((score, node["id"], node["title"]))
+
+    scored.sort(reverse=True)
+    if not scored:
+        return []
+
+    selected: list[str] = []
+    for score, node_id, _title in scored:
+        if len(selected) >= min(3, len(hints)):
+            break
+        if score < 18:
+            continue
+        if node_id not in selected:
+            selected.append(node_id)
+
+    return selected
 
 
 COURSE_QUESTIONS = {
@@ -1456,9 +1871,11 @@ for course_id, questions in ADDITIONAL_COURSE_QUESTIONS.items():
 
 def main() -> None:
     cours_titles = {}
+    course_nodes = {}
     for path in COURSE_DIR.glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8"))
         cours_titles[data["chapter_official_id"]] = data["chapter_name"]
+        course_nodes[data["chapter_official_id"]] = data["knowledge_nodes"]
 
     expected_course_ids = set(cours_titles)
     curated_course_ids = set(COURSE_QUESTIONS)
@@ -1489,6 +1906,15 @@ def main() -> None:
             raise ValueError(
                 f"{course_id} should define exactly 4 curated questions, found {len(questions)}"
             )
+        resolved_questions = []
+        for question in questions:
+            resolved_question = dict(question)
+            resolved_question["tested_concept_ids"] = _resolve_concept_ids(
+                course_id,
+                resolved_question,
+                course_nodes[course_id],
+            )
+            resolved_questions.append(resolved_question)
         payload = {
             "programme_chapter_id": course_id,
             "programme_chapter_title": course_to_programme.get(course_id, cours_titles[course_id]),
@@ -1497,7 +1923,7 @@ def main() -> None:
             "semestre": course_to_semester.get(course_id, 1),
             "linked_course_chapters": [course_id],
             "source_document": "Banque de questions de cours curated",
-            "questions": questions,
+            "questions": resolved_questions,
         }
         output_path = OUTPUT_DIR / f"{course_id}.json"
         output_path.write_text(

@@ -46,6 +46,7 @@ class LLMProvider(Protocol):
         self,
         exercise_statement: str,
         student_message: str,
+        context: str,
         hints: str,
         solution: str,
         conversation_history: Optional[list[dict]] = None,
@@ -56,6 +57,7 @@ class LLMProvider(Protocol):
         Args:
             exercise_statement: The exercise problem
             student_message: Student's question or attempt
+            context: Structured mathematical context for the exercise
             hints: Available hints (to give progressively)
             solution: Reference solution (never to be given directly)
             conversation_history: Previous messages
