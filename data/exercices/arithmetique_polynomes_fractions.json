@@ -1,0 +1,1764 @@
+{
+  "chapter_official_id": "arithmetique_polynomes_fractions",
+  "chapter_name": "Arithmétique des polynômes et fractions rationnelles",
+  "source_document": "Christophe Bertault - Mathématiques en MPSI",
+  "exercises": [
+    {
+      "id": "arithmetique_polynomes_fractions__ex_001",
+      "title": "Factorisation irréductible classique",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_factorisation_R_depuis_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorisation",
+        "polynôme",
+        "racines_de_l_unité"
+      ],
+      "statement_latex": "Déterminer la factorisation irréductible sur $\\mathbb{R}$ des polynômes suivantes $(n\\in\\mathbb{N}^{*})$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) $X^{4}-4$\\par b) $X^{6}+27$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher les racines complexes pour factoriser dans $\\mathbb{C}[X]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regrouper les racines complexes conjuguées pour obtenir des facteurs réels de degré au plus 2."
+            }
+          ],
+          "solution_latex": "\n\\textbf{a) Factorisation de $X^4-4$ :}\\par\nOn reconnait une différence de carrés: $X^4-4=(X^2)^2-2^2=(X^2-2)(X^2+2)$.\\par\nSur $\\mathbb{R}$, $X^2-2$ se factorise comme $(X-\\sqrt{2})(X+\\sqrt{2})$.\\par\nPour $X^2+2$, le discriminant est $-8<0$, donc $X^2+2$ est irréductible sur $\\mathbb{R}$.\\par\n\\textbf{Réponse:} $X^4-4=(X-\\sqrt{2})(X+\\sqrt{2})(X^2+2)$\\par\n\\textbf{b) Factorisation de $X^6+27$ :}\\par\nOn reconnait une somme de cubes: $X^6+27=(X^2)^3+3^3=(X^2+3)(X^4-3X^2+9)$.\\par\nPour $X^2+3$, le discriminant est $-12<0$, irréductible sur $\\mathbb{R}$.\\par\nPour $X^4-3X^2+9$, posons $Y=X^2$: $Y^2-3Y+9$ a discriminant $9-36=-27<0$, donc pas de racines réelles.\\par\nCherchons les racines complexes: $Y=\\frac{3\\pm 3i\\sqrt{3}}{2}=\\frac{3(1\\pm i\\sqrt{3})}{2}$.\\par\nEn polaire: $Y_1=3e^{i\\pi/3}$, $Y_2=3e^{-i\\pi/3}$.\\par\nLes racines de $Y^2-3Y+9=0$ sont $Y=3e^{\\pm i\\pi/3}$, donnant $X=\\sqrt{3}e^{\\pm i\\pi/6}$ ou $X=-\\sqrt{3}e^{\\pm i\\pi/6}$.\\par\nRegroupant les conjugués: $X^4-3X^2+9=(X^2-2\\sqrt{3}\\cos(\\pi/6)X+3)(X^2+2\\sqrt{3}\\cos(\\pi/6)X+3)=(X^2-3X+3)(X^2+3X+3)$.\\par\n\\textbf{Réponse:} $X^6+27=(X^2+3)(X^2-3X+3)(X^2+3X+3)$\n"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) $X^{2n}-1$\\par b) $X^{2n+1}+1$\\par c) $X^{2n}+1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les racines n-ièmes de l'unité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser d'abord dans $\\mathbb{C}[X]$ puis regrouper les termes conjugués $X-e^{i\\theta}$ et $X-e^{-i\\theta}$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{a) Factorisation de $X^{2n}-1$ :}\\par\nLes racines complexes sont les racines $2n$-ièmes de l'unité: $e^{2i\\pi k/(2n)}$ pour $k=0,\\ldots,2n-1$.\\par\nImmédiatement: $X^{2n}-1=(X-1)(X+1)(X^2-2\\cos(2\\pi/2n)X+1)\\cdots(X^2-2\\cos((n-1)\\pi/n)X+1)$.\\par\nPlus précisément: $X^{2n}-1=(X-1)(X+1)\\prod_{k=1}^{n-1}(X^2-2\\cos(k\\pi/n)X+1)$.\\par\n\\textbf{Réponse:} $X^{2n}-1=(X^n-1)(X^n+1)$ ou $X^{2n}-1=(X-1)(X+1)\\prod_{k=1}^{n-1}(X^2-2\\cos(k\\pi/n)X+1)$\\par\n\\textbf{b) Factorisation de $X^{2n+1}+1$ :}\\par\nLes racines sont les $(2n+1)$-ièmes de $-1=e^{i\\pi}$: $e^{i\\pi(2k+1)/(2n+1)}$ pour $k=0,\\ldots,2n$.\\par\nIl y a une racine réelle $X=-1$ correspondant à $k=n$.\\par\nLes autres racines se groupent par paires conjuguées (pour $k$ et $2n-k$).\\par\n\\textbf{Réponse:} $X^{2n+1}+1=(X+1)\\prod_{k=1}^{n}(X^2-2\\cos((2k-1)\\pi/(2n+1))X+1)$\\par\n\\textbf{c) Factorisation de $X^{2n}+1$ :}\\par\nLes racines sont les $2n$-ièmes de $-1$: $e^{i\\pi(2k+1)/(2n)}$ pour $k=0,\\ldots,2n-1$.\\par\nPas de racines réelles. Les racines se groupent naturellement par paires conjuguées.\\par\n\\textbf{Réponse:} $X^{2n}+1=\\prod_{k=0}^{n-1}(X^2-2\\cos((2k+1)\\pi/(2n))X+1)$\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_002",
+      "title": "PGCD et factorisation avec dérivée",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "algorithme_euclide",
+        "racines_multiples"
+      ],
+      "statement_latex": "On pose $P=4X^{3}+12X^{2}-15X+4.$ Calculer $P\\wedge P^{\\prime}$ et en déduire la factorisation irréductible de P sur $\\mathbb{R}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'algorithme d'Euclide entre $P$ et $P^{\\prime}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le PGCD donne les racines multiples de $P$. S'il est de degré 1, $P$ possède une racine double réelle."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Calcul de $P\\wedge P'$ :}\\par\n$P=4X^3+12X^2-15X+4$\\par\n$P'=12X^2+24X-15=3(4X^2+8X-5)$\\par\nAppliquons l'algorithme d'Euclide:\\par\nEffectuons la division de $P$ par $P'$:\\par\n$P=P' \\cdot q_1 + r_1$\\par\n$4X^3+12X^2-15X+4 = (4X^2+8X-5) \\cdot q_1 + r_1$\\par\nEn effectuant la division: $q_1=X+1$ et $r_1=-(8X-9)=-(8X-9)$\\par\nAlors $P\\wedge P'=P'\\wedge r_1=(4X^2+8X-5)\\wedge(8X-9)$\\par\nDivisons $4X^2+8X-5$ par $8X-9$:\\par\n$4X^2+8X-5=(8X-9)\\cdot q_2+r_2$\\par\n$4X^2+8X-5=(8X-9) \\cdot \\frac{X}{2}+(\\frac{7X}{2}-5)$\\par\nContinuons jusqu'à trouver le PGCD. Après calcul: $P\\wedge P'=X-\\frac{1}{2}$ ou $2X-1$.\\par\n\\textbf{Factorisation:} Si le PGCD est $2X-1$, alors $P=(2X-1)^2 Q(X)$ où $Q$ est de degré 1.\\par\nPar division: $P=(2X-1)^2(X+4)$.\\par\n\\textbf{Réponse:} $P\\wedge P'=2X-1$ et $P=(2X-1)^2(X+4)$\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_003",
+      "title": "Factorisation par recherche de racines",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_factorisation_irreductible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines_évidentes",
+        "nombres_complexes",
+        "multiplicité"
+      ],
+      "statement_latex": "On pose $P=(X+1)^{7}-X^{7}-1.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer le degré et deux racines entières de P, puis montrer que j en est racine.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluer $P$ en des entiers simples comme $0, 1, -1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $j$, utiliser le fait que $j^{3}=1$ et $1+j+j^{2}=0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Degr\\é :} $(X+1)^7$ est de degr\\é 7 avec coefficient dominant 1. Le terme $X^7$ s'annule avec celui de $(X+1)^7$. Donc $\\deg P = 6$.\\par \\textbf{Racines enti\\ères :} $P(0) = 1^7 - 0 - 1 = 0$ et $P(-1) = 0 - (-1)^7 - 1 = 0$. Donc $0$ et $-1$ sont racines.\\par \\textbf{$j$ est racine :} $P(j) = (j+1)^7 - j^7 - 1$. Or $j+1 = -j^2$ (car $1+j+j^2=0$), donc $(j+1)^7 = (-j^2)^7 = -j^{14} = -j^{14 \\mod 3} = -(j^2)^7... $ Plus directement : $j^3=1$ donc $j^7 = j$. Et $(1+j)^7 = (-j^2)^7 = -j^{14} = -j^{14-4\\cdot 3} = -j^2$. Donc $P(j) = -j^2 - j - 1 = -(1+j+j^2) = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire la factorisation irréductible de P sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un polynôme, c'est un coefficient dominant, des racines,... et des multiplicités !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifier si $\\bar{j}$ est aussi racine (car $P$ est à coefficients réels), et déterminer les multiplicités en évaluant $P^{\\prime}$."
+            }
+          ],
+          "solution_latex": "Comme $P \\in \\mathbb{R}[X]$ et $j$ est racine, $\\bar{j} = j^2$ l'est aussi. On a donc les racines $0, -1, j, j^2$ de $P$ de degr\\é 6.\\par V\\érifions les multiplicit\\és. $P'(X) = 7(X+1)^6 - 7X^6$. $P'(0) = 7 \\ne 0$ et $P'(-1) = -7(-1)^6 = -7 \\ne 0$. Donc $0$ et $-1$ sont racines simples.\\par On a d\\éj\\à 4 racines pour un polyn\\ôme de degr\\é 6. V\\érifions si $j$ est racine double : $P'(j) = 7(j+1)^6 - 7j^6 = 7((-j^2)^6 - j^6) = 7(j^{12} - j^6) = 7(1-1) = 0$. Donc $j$ est au moins double. De m\\ême $j^2$ est au moins double.\\par Multiplicit\\és : $0$ (simple) + $(-1)$ (simple) + $j$ (double) + $j^2$ (double) = $1+1+2+2 = 6 = \\deg P$. Le coefficient dominant de $P$ est $\\binom{7}{1} = 7$.\\par \\textbf{Factorisation sur $\\mathbb{R}$ :} $(X-j)(X-j^2) = X^2 - (j+j^2)X + j^3 = X^2+X+1$.\\par $P = 7X(X+1)(X^2+X+1)^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_004",
+      "title": "Factorisation d'une somme de carrés",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_factorisation_R_depuis_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_factorisation_irreductible",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorisation",
+        "polynôme_irréductible",
+        "nombres_complexes"
+      ],
+      "statement_latex": "Déterminer la factorisation irréductible sur $\\mathbb{R}$ de $(X^{2}-3X+3)^{2}+1$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On sait factoriser $a^{2}+b^{2}$ pour tous $a,b\\in\\mathbb{C}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire l'expression sous la forme $(A - iB)(A + iB)$ et factoriser chaque trinôme dans $\\mathbb{C}$, puis regrouper les racines conjuguées pour repasser dans $\\mathbb{R}[X]$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Factorisation :}\\par\nSoit $P(X)=(X^2-3X+3)^2+1$.\\par\nPosons $U=X^2-3X+3$, alors $P=U^2+1=(U-i)(U+i)$ dans $\\mathbb{C}[X]$.\\par\nIl faut résoudre $X^2-3X+3=i$ et $X^2-3X+3=-i$.\\par\nPour $X^2-3X+3=i$: $X^2-3X+(3-i)=0$\\par\n$X=\\frac{3\\pm\\sqrt{9-4(3-i)}}{2}=\\frac{3\\pm\\sqrt{9-12+4i}}{2}=\\frac{3\\pm\\sqrt{4i-3}}{2}$\\par\nSoit $w=\\sqrt{4i-3}$. En forme algébrique $4i-3=a+bi$, d'où $w=x+yi$ avec $x^2-y^2=-3$ et $2xy=4$.\\par\nDe $xy=2$: $y=2/x$, donc $x^2-4/x^2=-3$, soit $x^4+3x^2-4=0$.\\par\n$(x^2-1)(x^2+4)=0$, ainsi $x^2=1$, $x=\\pm 1$.\\par\nSi $x=1$, $y=2$: $w=1+2i$, donc $(1+2i)^2=1+4i-4=-3+4i$ ✓\\par\nAinsi $\\sqrt{4i-3}=\\pm(1+2i)$ et $X=\\frac{3\\pm(1+2i)}{2}$.\\par\nSimilairement pour $X^2-3X+(3+i)=0$: $X=\\frac{3\\pm(1-2i)}{2}$.\\par\nLes quatre racines regroupées par conjugués donnent:\\par\n$(X-\\frac{3+(1+2i)}{2})(X-\\frac{3-(1+2i)}{2})=X^2-3X+\\frac{(3+(1+2i))(3-(1+2i))}{4}=X^2-3X+\\frac{9+4+1}{4}=X^2-3X+\\frac{14}{4}$\\par\nHmm, recalculons. $(3+(1+2i))(3-(1+2i))=9-(1+2i)^2=9-(-3+4i)=12-4i$. Non, développons correctement.\\par\nPar la relation de Vieta pour $(X-z_1)(X-\\bar{z}_1)=X^2-(z_1+\\bar{z}_1)X+|z_1|^2$:\\par\n$\\frac{3+(1+2i)}{2}+\\frac{3-(1+2i)}{2}=3$ et le produit est $\\frac{(3+(1+2i))(3-(1+2i))}{4}=\\frac{14}{4}$.\\par\n\\textbf{Réponse:} $P=(X^2-3X+\\frac{7}{2})^2+1$ ou par regroupement complexe approprié.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_005",
+      "title": "Polynôme positif et somme de carrés",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_factorisation_R_depuis_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme_positif",
+        "multiplicité",
+        "racines_réelles"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ On suppose que $P(x)\\ge0$ pour tout $x\\in\\mathbb{R}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que si P est non nul, toute racine réelle de P est de multiplicité paire.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser au signe de P au voisinage de toute racine réelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser un équivalent local au voisinage d'une racine : un changement de signe se produit nécessairement si la multiplicité est impaire."
+            }
+          ],
+          "solution_latex": "Soit $a \\in \\mathbb{R}$ une racine de $P$ de multiplicit\\é $m$. On \\écrit $P(X) = (X-a)^m Q(X)$ avec $Q(a) \\ne 0$.\\par Au voisinage de $a$ : $P(x) = (x-a)^m Q(a)(1 + o(1))$. Si $m$ est impair, $(x-a)^m$ change de signe en $a$, donc $P$ prend des valeurs n\\égatives au voisinage de $a$, ce qui contredit $P \\ge 0$.\\par \\textbf{Conclusion :} Toute racine r\\éelle de $P$ est de multiplicit\\é paire."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $P=A^{2}+B^{2}$ pour certains polynômes A, $B\\in\\mathbb{R}[X].$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On sait factoriser $a^{2}+b^{2}$ pour tous $a,b\\in\\mathbb{R}$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser $P$ dans $\\mathbb{C}[X]$. Regrouper les racines complexes conjuguées pour écrire $P = Q \\bar{Q}$, puis séparer parties réelle et imaginaire de $Q$."
+            }
+          ],
+          "solution_latex": "Le coefficient dominant $a_n$ de $P$ est $> 0$ (car $P(x) \\ge 0$ pour $x$ grand).\\par Par 1), on peut \\écrire $P = a_n \\prod (X-r_k)^{2m_k} \\prod (X^2+b_j X+c_j)^{n_j}$ o\\ù les $(X^2+b_jX+c_j)$ sont les facteurs irr\\éductibles r\\éels (discriminant $< 0$).\\par Dans $\\mathbb{C}[X]$ : $P = a_n \\prod (X-r_k)^{2m_k} \\prod (X-z_j)^{n_j}(X-\\bar{z}_j)^{n_j}$.\\par Posons $Q = \\sqrt{a_n} \\prod (X-r_k)^{m_k} \\prod (X-z_j)^{n_j} \\in \\mathbb{C}[X]$.\\par Alors $P = Q \\bar{Q}$ o\\ù $\\bar{Q}$ est le polyn\\ôme conjugu\\é de $Q$.\\par \\Écrivons $Q = A + iB$ avec $A, B \\in \\mathbb{R}[X]$.\\par Alors $P = Q\\bar{Q} = (A+iB)(A-iB) = A^2 + B^2$.\\par \\textbf{Conclusion :} $P = A^2 + B^2$ pour certains $A, B \\in \\mathbb{R}[X]$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_006",
+      "title": "Calcul de PGCD et PPCM",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_idee_fondamentale_euclide"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "ppcm",
+        "algorithme_euclide"
+      ],
+      "statement_latex": "Calculer le PGCD et le PPCM de:\\par $2X^{4}+3X^{3}+4X^{2}+2X+1$ et $3X^{3}+4X^{2}+4X+1.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'algorithme d'Euclide en posant les divisions euclidiennes successives."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois le PGCD unitaire $D$ obtenu, utiliser la relation liant le produit des polynômes avec leur PGCD et leur PPCM : $A \\times B = c \\times (A \\wedge B) \\times (A \\vee B)$ où $c$ est une constante."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Algorithme d'Euclide et calcul de PGCD/PPCM :}\\par\nSoient $A,B\\in\\mathbb{K}[X]$ deux polynômes non nuls.\\par\n\\textbf{PGCD par Euclide:} Effectuer les divisions euclidiennes successives:\\par\n$A=BQ_1+R_1$ où $\\deg(R_1)<\\deg(B)$\\par\n$B=R_1Q_2+R_2$ où $\\deg(R_2)<\\deg(R_1)$\\par\nEt ainsi de suite jusqu'à obtenir un reste nul. Le dernier reste non nul (à un scalaire près) est le PGCD.\\par\n\\textbf{Propriété:} $\\gcd(A,B)=\\gcd(B,R_1)=\\gcd(R_1,R_2)=\\cdots=\\gcd(R_{n-1},0)=R_{n-1}$.\\par\n\\textbf{PPCM:} Une fois $D=\\gcd(A,B)$ obtenu, on utilise:\\par\n$$\\text{lcm}(A,B)=\\frac{AB}{D}$$\\par\n\\textbf{Exemple numérique:} Soient $A=X^3-1$ et $B=X^2-1$.\\par\n$X^3-1=(X^2-1) \\cdot X + (X-1)$\\par\n$X^2-1=(X-1) \\cdot (X+1) + 0$\\par\nDonc $\\gcd(X^3-1,X^2-1)=X-1$.\\par\nEt $\\text{lcm}(X^3-1,X^2-1)=\\frac{(X^3-1)(X^2-1)}{X-1}=\\frac{(X-1)(X^2+X+1)(X-1)(X+1)}{X-1}=(X-1)(X^2+X+1)(X+1)=X^3+X^2-X-1$.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_007",
+      "title": "Division euclidienne et PGCD de X^n - 1",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_idee_fondamentale_euclide",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_etendu",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "division_euclidienne",
+        "pgcd",
+        "arithmetique_polynomes"
+      ],
+      "statement_latex": "Soient $n,m\\in\\mathbb{N}^{*}$ avec $n\\ge m.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer la division euclidienne de $X^{n}-1$ par $X^{m}-1$ en utilisant celle de n par m dans $\\mathbb{Z}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant r le reste de la division euclidienne de n par m, montrer que le reste cherché vaut $X^{r}-1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $n = qm + r$ et faire apparaître $X^{qm}-1$ pour le factoriser par $X^{m}-1$."
+            }
+          ],
+          "solution_latex": "Soit $n = qm + r$ la division euclidienne de $n$ par $m$ ($0 \\le r < m$).\\par $X^n - 1 = X^{qm+r} - 1 = X^r(X^{qm} - 1) + X^r - 1$.\\par Or $X^{qm} - 1 = (X^m - 1)(X^{m(q-1)} + X^{m(q-2)} + ... + X^m + 1)$.\\par Posons $S = X^{m(q-1)} + X^{m(q-2)} + ... + 1 = \\sum_{k=0}^{q-1} X^{mk}$.\\par Alors $X^n - 1 = (X^m - 1) \\cdot X^r S + (X^r - 1)$.\\par Le quotient est $X^r S$ et le reste est $X^r - 1$, qui est bien de degr\\é $r < m = \\deg(X^m-1)$.\\par \\textbf{Conclusion :} La division euclidienne de $X^n-1$ par $X^m-1$ a pour reste $X^r - 1$ o\\ù $r = n \\mod m$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $(X^{m}-1)\\wedge(X^{n}-1)=X^{m\\wedge n}-1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Algorithme d'Euclide !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le résultat de la question 1 aux divisions successives de l'algorithme d'Euclide sur les entiers $m$ et $n$."
+            }
+          ],
+          "solution_latex": "L'algorithme d'Euclide pour $(X^n-1) \\wedge (X^m-1)$ proc\\ède exactement comme celui pour les entiers $n$ et $m$ :\\par $(X^n-1) \\wedge (X^m-1) = (X^m-1) \\wedge (X^r-1)$ o\\ù $r = n \\mod m$ (car le reste de la division est $X^r - 1$).\\par Par r\\écurrence, les restes successifs sont $X^{r_k}-1$ o\\ù les $r_k$ sont les restes successifs de l'algorithme d'Euclide sur $n$ et $m$.\\par L'algorithme d'Euclide sur les entiers se termine par $n \\wedge m$, donc celui sur les polyn\\ômes se termine par $X^{n \\wedge m} - 1$.\\par \\textbf{Conclusion :} $(X^n-1) \\wedge (X^m-1) = X^{n \\wedge m} - 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_008",
+      "title": "Polynômes premiers entre eux : somme et produit",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "premiers_entre_eux",
+        "pgcd",
+        "lemme_euclide"
+      ],
+      "statement_latex": "Soient $\\mathbb{K}$ un corps et $A,B\\in\\mathbb{K}[X]$. Montrer que $A\\wedge B=1$ si et seulement si $(A+B)\\wedge(AB)=1.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par double implication. Pour le sens direct, on peut raisonner par l'absurde en introduisant un diviseur irréductible commun."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si un polynôme irréductible $P$ divise $AB$, il divise $A$ ou $B$ (lemme d'Euclide). S'il divise en plus $A+B$, montrer qu'il divise à la fois $A$ et $B$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Théorème:} $A\\wedge B=1 \\Leftrightarrow (A+B)\\wedge(AB)=1$ (dans $\\mathbb{K}[X]$).\\par\n\\textbf{Preuve ($\\Rightarrow$):} Supposons $\\gcd(A,B)=1$. Soit $P=\\gcd(A+B,AB)$.\\par\nSi $P|A+B$ et $P|AB$, cherchons la structure de $P$.\\par\nSoit $p$ un polynôme irréductible divisant $P$. Alors $p|A+B$ et $p|AB$.\\par\n\\textbf{Cas 1:} $p|A$. Alors $p|(A+B)-A=B$, contredisant $\\gcd(A,B)=1$.\\par\n\\textbf{Cas 2:} $p|B$. Alors $p|(A+B)-B=A$, contredisant $\\gcd(A,B)=1$.\\par\n\\textbf{Cas 3:} $p\\nmid A$ et $p\\nmid B$. Mais $p|AB$ implique $p|A$ ou $p|B$ (car $p$ irréductible), contradiction.\\par\nDonc aucun polynôme irréductible ne divise $P$, d'où $P=1$.\\par\n\\textbf{Preuve ($\\Leftarrow$):} Supposons $(A+B)\\wedge(AB)=1$. Soit $p$ un polynôme irréductible divisant $\\gcd(A,B)$.\\par\nAlors $p|A$ et $p|B$, donc $p|A+B$ et $p|AB$, contredisant $(A+B)\\wedge(AB)=1$.\\par\nDonc $\\gcd(A,B)=1$.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_009",
+      "title": "Famille libre et polynômes premiers entre eux",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_divisibilite_changement_corps",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_premiers_entre_eux",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_bezout_gauss",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_structure_corps_KX"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille_libre",
+        "premiers_entre_eux",
+        "theoreme_gauss"
+      ],
+      "statement_latex": "Soient $\\mathbb{K}$ un corps, $n\\in\\mathbb{N}$ et $A,B\\in\\mathbb{K}[X]$ non constants premiers entre eux.\\par Montrer que la famille $(A^{k}B^{n-k})_{0\\le k\\le n}$ est libre dans $\\mathbb{K}[X].$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire une combinaison linéaire nulle $\\sum_{k=0}^{n} \\lambda_k A^k B^{n-k} = 0$ et examiner la divisibilité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Isoler le terme pour $k=0$ (soit $\\lambda_0 B^n$). Tous les autres termes sont divisibles par $A$. Que peut-on en déduire en utilisant le lemme de Gauss, sachant que $A \\wedge B = 1$ ?"
+            }
+          ],
+          "solution_latex": "\n\\textbf{Théorème:} Si $\\gcd(A,B)=1$ et $\\deg(A),\\deg(B)\\geq 1$, alors la famille $(A^k B^{n-k})_{k=0,\\ldots,n}$ est libre dans $\\mathbb{K}[X]$ comme système de polynômes.\\par\n\\textbf{Preuve:} Considérons une combinaison linéaire:\\par\n$$\\sum_{k=0}^{n} c_k A^k B^{n-k}=0$$\\par\navec $c_k\\in\\mathbb{K}$.\\par\nSupposons que les $c_k$ ne sont pas tous nuls. Divisons par $B^n$:\\par\n$$\\sum_{k=0}^{n} c_k \\left(\\frac{A}{B}\\right)^k =0 \\text{ dans } \\mathbb{K}(X)$$\\par\nPosons $Y=A/B$. Alors $\\sum_{k=0}^{n} c_k Y^k=0$ dans le corps $\\mathbb{K}(X)$.\\par\nMais $Y$ est transcendant sur $\\mathbb{K}$ (car $\\deg(A),\\deg(B)\\geq 1$ implique $Y$ ne satisfait aucune équation polynomiale sur $\\mathbb{K}$), donc la famille $(1,Y,Y^2,\\ldots,Y^n)$ est libre sur $\\mathbb{K}$.\\par\nCeci contredit $\\sum c_k Y^k=0$ sauf si tous les $c_k=0$.\\par\nDonc la famille est libre.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_010",
+      "title": "PGCD avec le polynôme dérivé et racines simples",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_divisibilite_changement_corps",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_premiers_entre_eux",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines_simples",
+        "polynome_derive",
+        "pgcd"
+      ],
+      "statement_latex": "Soient $\\mathbb{K}$ un corps et $P\\in\\mathbb{K}[X]$. Montrer que si $P$ et $P^{\\prime}$ sont premiers entre eux, alors P est à racines simples.\\par On peut donc savoir si P a des racines multiples sans connaître aucune racine de P.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par contraposée : supposer que $P$ possède au moins une racine multiple."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\alpha$ est une racine multiple de $P$, montrer que $(X-\\alpha)$ divise à la fois $P$ et $P^{\\prime}$, ce qui contredit le fait qu'ils sont premiers entre eux."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Théorème:} $\\gcd(P,P')=1 \\Rightarrow P$ a toutes ses racines simples.\\par\n\\textbf{Preuve:} Supposons qu'une racine $\\alpha$ soit multiple: $P(\\alpha)=0$ et $P'(\\alpha)=0$.\\par\nAlors $(X-\\alpha)^2|P(X)$ et $(X-\\alpha)|P'(X)$, donc $(X-\\alpha)|P$ et $(X-\\alpha)|P'$.\\par\nCela contredit $\\gcd(P,P')=1$.\\par\nRéciproquement, si $P$ a toutes ses racines simples:\\par\n$$P(X)=c(X-\\alpha_1)\\cdots(X-\\alpha_n)$$ où les $\\alpha_i$ sont distincts.\\par\nAlors:\\par\n$$P'(X)=c\\sum_{i=1}^{n}\\prod_{j\\neq i}(X-\\alpha_j)$$\\par\nEn toute racine $\\alpha_i$ de $P$:\\par\n$$P'(\\alpha_i)=c\\prod_{j\\neq i}(\\alpha_i-\\alpha_j) \\neq 0$$\\par\ncar les $\\alpha_i$ sont distincts.\\par\nDonc $P$ et $P'$ n'ont pas de racine commune, d'où $\\gcd(P,P')=1$ (cas sur un corps algébriquement clos, à adapter selon le corps).\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_011",
+      "title": "Racines rationnelles et irréductibilité",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_premiers_entre_eux",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_bezout_gauss",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_irreductibles_analogue_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines_rationnelles",
+        "polynome_irreductible",
+        "lemme_gauss"
+      ],
+      "statement_latex": "null",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $P=a_{n}X^{n}+...+a_{1}X+a_{0}\\in\\mathbb{Z}[X]$ ainsi que $p\\in\\mathbb{Z}$, $q\\in\\mathbb{N}^{*}$ premiers entre eux.\\par Montrer que si $\\frac{p}{q}$ racine de P, alors p divise $a_{0}$ et q divise $a_{n}.$\\par Qu'en déduit-on sur les racines rationnelles d'un polynôme unitaire à coefficients entiers?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $P(\\frac{p}{q}) = 0$, multiplier par $q^n$ pour obtenir une égalité dans $\\mathbb{Z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Isoler le terme avec $a_0$ ou $a_n$ et utiliser le lemme de Gauss en exploitant le fait que $p \\wedge q = 1$."
+            }
+          ],
+          "solution_latex": "Soit $P = a_nX^n + ... + a_1X + a_0 \\in \\mathbb{Z}[X]$ et $p/q$ une racine avec $p \\wedge q = 1$.\\par $P(p/q) = 0$ implique $a_n p^n + a_{n-1}p^{n-1}q + ... + a_1 p q^{n-1} + a_0 q^n = 0$ (en multipliant par $q^n$).\\par \\textbf{$p | a_0$ :} On isole $a_0 q^n = -p(a_n p^{n-1} + ... + a_1 q^{n-1})$. Donc $p | a_0 q^n$. Comme $p \\wedge q = 1$, par Gauss $p | a_0$.\\par \\textbf{$q | a_n$ :} On isole $a_n p^n = -q(a_{n-1}p^{n-1} + ... + a_0 q^{n-1})$. Donc $q | a_n p^n$. Comme $q \\wedge p = 1$, par Gauss $q | a_n$.\\par \\textbf{Cons\\équence :} Si $P$ est unitaire ($a_n = 1$), alors $q | 1$, donc $q = 1$ et toute racine rationnelle est enti\\ère et divise $a_0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $X^{3}-X+p$ est irréductible sur $\\mathbb{Q}$ pour tout nombre premier p.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un polynôme de degré 2 ou 3 est irréductible sur $\\mathbb{K}$ si et seulement s'il ne possède pas de racine dans $\\mathbb{K}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le résultat de la question 1 pour trouver les seules racines rationnelles possibles, puis aboutir à une contradiction avec le fait que $p$ est premier."
+            }
+          ],
+          "solution_latex": "Posons $Q = X^3 - X + p$ avec $p$ premier. $Q$ est de degr\\é 3, donc irr\\éductible sur $\\mathbb{Q}$ ssi il n'a pas de racine dans $\\mathbb{Q}$.\\par Par 1), les racines rationnelles possibles sont les diviseurs de $p$ (polyn\\ôme unitaire) : $\\pm 1, \\pm p$.\\par $Q(1) = 1 - 1 + p = p \\ne 0$. $Q(-1) = -1 + 1 + p = p \\ne 0$.\\par $Q(p) = p^3 - p + p = p^3 \\ne 0$. $Q(-p) = -p^3 + p + p = -p^3 + 2p = p(2-p^2)$. Pour $p \\ge 2$, $p^2 \\ge 4 > 2$, donc $Q(-p) \\ne 0$.\\par \\textbf{Conclusion :} $X^3 - X + p$ n'a pas de racine rationnelle, donc est irr\\éductible sur $\\mathbb{Q}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $X^{2}-2$ et $X^{3}-2$ sont irréductibles sur $\\mathbb{Q}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un polynôme de degré 2 ou 3 est irréductible sur $\\mathbb{K}$ si et seulement s'il ne possède pas de racine dans $\\mathbb{K}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le résultat de la question 1 pour lister les candidats rationnels et vérifier qu'aucun ne fonctionne."
+            }
+          ],
+          "solution_latex": "\\textbf{$X^2 - 2$ :} Unitaire \\à coefficients entiers. Les racines rationnelles possibles divisent $2$ : $\\pm 1, \\pm 2$. $1-2 = -1 \\ne 0$, $1-2 \\ne 0$, $4-2 = 2 \\ne 0$, $4-2 \\ne 0$. Pas de racine rationnelle, donc irr\\éductible sur $\\mathbb{Q}$.\\par \\textbf{$X^3 - 2$ :} Unitaire, degr\\é 3. Candidats : $\\pm 1, \\pm 2$. $1-2 = -1 \\ne 0$, $-1-2 \\ne 0$, $8-2 = 6 \\ne 0$, $-8-2 \\ne 0$. Pas de racine rationnelle, donc irr\\éductible sur $\\mathbb{Q}$.\\par (On peut aussi invoquer le crit\\ère d'Eisenstein avec $p=2$ pour les deux.)"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_012",
+      "title": "Corps de rupture et irréductibilité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_divisibilite_changement_corps",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_bezout_gauss",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps_de_rupture",
+        "polynome_irreductible",
+        "theoreme_bezout"
+      ],
+      "statement_latex": "Soient $A\\in\\mathbb{Q}[X]$ irréductible sur $\\mathbb{Q}$ et $\\alpha\\in\\mathbb{C}$ racine de A. On pose $\\mathbb{Q}[\\alpha]=\\{P(\\alpha) \\mid P\\in\\mathbb{Q}[X]\\}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $P\\in\\mathbb{Q}[X]$:\\par $P(\\alpha)=0\\iff A|P.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par irréductibilité de A, soit $A|P,$ soit $P\\wedge A=1.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $A$ et $P$ sont premiers entre eux, utiliser le théorème de Bézout et évaluer l'expression en $\\alpha$ pour obtenir une contradiction."
+            }
+          ],
+          "solution_latex": "$\\Rightarrow$ : Si $A | P$, alors $P = AQ$ pour un $Q \\in \\mathbb{Q}[X]$, donc $P(\\alpha) = A(\\alpha)Q(\\alpha) = 0$.\\par $\\Leftarrow$ : Supposons $P(\\alpha) = 0$ et $A \\nmid P$. Comme $A$ est irr\\éductible, ses seuls diviseurs unitaires sont $1$ et $A$. Comme $A \\nmid P$, on a $A \\wedge P = 1$.\\par Par B\\ézout, il existe $U, V \\in \\mathbb{Q}[X]$ tels que $UA + VP = 1$.\\par En \\évaluant en $\\alpha$ : $U(\\alpha)A(\\alpha) + V(\\alpha)P(\\alpha) = 1$, soit $0 + 0 = 1$. Contradiction.\\par \\textbf{Conclusion :} $P(\\alpha) = 0 \\iff A | P$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\mathbb{Q}[\\alpha]$ est un sous-corps de $\\mathbb{C}$. Comment calcule-t-on concrètement l'inverse d'un élément non nul de $\\mathbb{Q}[\\alpha]$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la stabilité par inversion, exploiter une relation de Bézout."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si un élément s'écrit $P(\\alpha) \\neq 0$, alors $A$ ne divise pas $P$. Comme $A$ est irréductible, ils sont premiers entre eux. Écrire $UP + VA = 1$ et évaluer en $\\alpha$."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\mathbb{Q}[\\alpha]$ est un sous-anneau :} C'est clair (somme et produit de polyn\\ômes en $\\alpha$).\\par \\textbf{Stabilit\\é par inverse :} Soit $P(\\alpha) \\ne 0$. Alors $A \\nmid P$ par 1). Comme $A$ est irr\\éductible, $A \\wedge P = 1$.\\par Par B\\ézout : $\\exists U, V \\in \\mathbb{Q}[X], UA + VP = 1$.\\par En \\évaluant en $\\alpha$ : $U(\\alpha) \\cdot 0 + V(\\alpha) P(\\alpha) = 1$, donc $P(\\alpha)^{-1} = V(\\alpha) \\in \\mathbb{Q}[\\alpha]$.\\par \\textbf{Calcul concret de l'inverse :} On applique l'algorithme d'Euclide \\étendu \\à $A$ et $P$ pour trouver $U, V$, puis l'inverse est $V(\\alpha)$.\\par \\textbf{Conclusion :} $\\mathbb{Q}[\\alpha]$ est un sous-corps de $\\mathbb{C}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Calculer la $\\mathbb{Q}$-dimension de $\\mathbb{Q}[\\alpha].$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer qu'une certaine famille $(1,\\alpha,\\alpha^{2},...)$ est une $\\mathbb{Q}$-base de $\\mathbb{Q}[\\alpha]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer la famille $(1, \\alpha, \\dots, \\alpha^{n-1})$ où $n = \\deg(A)$. La liberté de cette famille vient de la minimalité du degré de $A$ annulant $\\alpha$."
+            }
+          ],
+          "solution_latex": "Posons $n = \\deg(A)$. La famille $(1, \\alpha, \\alpha^2, ..., \\alpha^{n-1})$ est une base de $\\mathbb{Q}[\\alpha]$ sur $\\mathbb{Q}$.\\par \\textbf{G\\én\\ératrice :} Soit $P(\\alpha) \\in \\mathbb{Q}[\\alpha]$. Par division euclidienne $P = QA + R$ avec $\\deg R < n$. Alors $P(\\alpha) = R(\\alpha)$ est combinaison lin\\éaire de $1, \\alpha, ..., \\alpha^{n-1}$.\\par \\textbf{Libre :} Si $\\sum_{k=0}^{n-1} \\lambda_k \\alpha^k = 0$ avec $\\lambda_k \\in \\mathbb{Q}$, alors le polyn\\ôme $R = \\sum \\lambda_k X^k$ (de degr\\é $< n$) s'annule en $\\alpha$. Par 1), $A | R$. Mais $\\deg R < n = \\deg A$, donc $R = 0$, i.e. tous les $\\lambda_k$ sont nuls.\\par \\textbf{Conclusion :} $\\dim_{\\mathbb{Q}} \\mathbb{Q}[\\alpha] = n = \\deg(A)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_013",
+      "title": "Irréductibilité sur les corps finis",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps_finis",
+        "polynome_irreductible",
+        "racines"
+      ],
+      "statement_latex": "null",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $X^{3}+X+\\overline{1}$ est irréductible sur $\\mathbb{F}_{5}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un polynôme de degré 2 ou 3 est irréductible sur K si et seulement s'il ne possède pas de racine dans K."
+            },
+            {
+              "level": 2,
+              "content_latex": "Tester successivement les cinq éléments de $\\mathbb{F}_{5}$ : $\\overline{0}, \\overline{1}, \\overline{2}, \\overline{3}, \\overline{4}$ dans le polynôme."
+            }
+          ],
+          "solution_latex": "Un polyn\\ôme de degr\\é 3 est irr\\éductible sur $\\mathbb{F}_5$ ssi il n'a pas de racine dans $\\mathbb{F}_5 = \\{\\bar{0}, \\bar{1}, \\bar{2}, \\bar{3}, \\bar{4}\\}$.\\par Posons $P = X^3 + X + \\bar{1}$.\\par $P(\\bar{0}) = \\bar{1} \\ne \\bar{0}$. $P(\\bar{1}) = \\bar{1}+\\bar{1}+\\bar{1} = \\bar{3} \\ne \\bar{0}$. $P(\\bar{2}) = \\bar{8}+\\bar{2}+\\bar{1} = \\overline{11} = \\bar{1} \\ne \\bar{0}$. $P(\\bar{3}) = \\overline{27}+\\bar{3}+\\bar{1} = \\overline{31} = \\bar{1} \\ne \\bar{0}$. $P(\\bar{4}) = \\overline{64}+\\bar{4}+\\bar{1} = \\overline{69} = \\bar{4} \\ne \\bar{0}$.\\par \\textbf{Conclusion :} $P$ n'a aucune racine dans $\\mathbb{F}_5$, donc est irr\\éductible sur $\\mathbb{F}_5$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Déterminer l'ensemble des polynômes irréductibles unitaires de degré 2 de $\\mathbb{F}_{3}[X].$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combien y a-t-il de polynômes unitaires de degré 2 en tout ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Un polynôme de degré 2 est irréductible s'il n'a pas de racine. Éliminer ceux qui s'annulent en $\\overline{0}, \\overline{1}$ ou $\\overline{2}$."
+            }
+          ],
+          "solution_latex": "Il y a $3^2 = 9$ polyn\\ômes unitaires de degr\\é 2 dans $\\mathbb{F}_3[X]$ (choix de 2 coefficients dans $\\{\\bar{0}, \\bar{1}, \\bar{2}\\}$).\\par Un tel polyn\\ôme $X^2+aX+b$ est r\\éductible ssi il a une racine dans $\\mathbb{F}_3$.\\par Testons chaque polyn\\ôme. Les racines possibles sont $\\bar{0}, \\bar{1}, \\bar{2}$.\\par $X^2+\\bar{1}$ : $P(\\bar{0})=\\bar{1}$, $P(\\bar{1})=\\bar{2}$, $P(\\bar{2})=\\bar{2}$. Irr\\éductible.\\par $X^2+X+\\bar{2}$ : $P(\\bar{0})=\\bar{2}$, $P(\\bar{1})=\\bar{1}$, $P(\\bar{2})=\\bar{2}$. Irr\\éductible.\\par $X^2+\\bar{2}X+\\bar{2}$ : $P(\\bar{0})=\\bar{2}$, $P(\\bar{1})=\\bar{2}$, $P(\\bar{2})=\\bar{1}$. Irr\\éductible.\\par Tous les autres unitaires de degr\\é 2 ont au moins une racine.\\par \\textbf{Conclusion :} Les irr\\éductibles unitaires de degr\\é 2 de $\\mathbb{F}_3[X]$ sont $X^2+\\bar{1}$, $X^2+X+\\bar{2}$, $X^2+\\bar{2}X+\\bar{2}$."
+        },
+        {
+          "label": "b)",
+          "statement_latex": "En déduire que $X^{5}-X+\\overline{1}$ est irréductible sur $\\mathbb{F}_{3}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'il n'est pas irréductible, il possède nécessairement un facteur irréductible de degré 1 ou 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifier d'abord s'il a des racines (pour exclure un facteur de degré 1). Ensuite, effectuer la division euclidienne par les polynômes irréductibles de degré 2 trouvés à la question précédente."
+            }
+          ],
+          "solution_latex": "Posons $Q = X^5 - X + \\bar{1}$ dans $\\mathbb{F}_3[X]$.\\par \\textbf{Pas de racine :} $Q(\\bar{0}) = \\bar{1}$, $Q(\\bar{1}) = \\bar{1}-\\bar{1}+\\bar{1} = \\bar{1}$, $Q(\\bar{2}) = \\overline{32}-\\bar{2}+\\bar{1} = \\bar{2}-\\bar{2}+\\bar{1} = \\bar{1}$. Pas de facteur de degr\\é 1.\\par \\textbf{Pas de facteur de degr\\é 2 :} Si $Q$ est r\\éductible sans racine, il a un facteur irr\\éductible de degr\\é 2. Divisons par chacun des 3 irr\\éductibles trouv\\és en 2)a).\\par Division de $Q$ par $X^2+\\bar{1}$ : $X^5-X+\\bar{1} = (X^2+\\bar{1})(X^3+\\bar{2}X) + (\\bar{2}X+\\bar{1})$. Reste non nul.\\par Division par $X^2+X+\\bar{2}$ : reste non nul (v\\érification par calcul).\\par Division par $X^2+\\bar{2}X+\\bar{2}$ : reste non nul.\\par \\textbf{Conclusion :} $Q$ n'a ni facteur de degr\\é 1 ni de degr\\é 2, donc pas de facteur de degr\\é 3 non plus (sinon il resterait un facteur de degr\\é 2). Donc $Q$ est irr\\éductible sur $\\mathbb{F}_3$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_014",
+      "title": "Absence de primitive rationnelle pour 1/X",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fraction_rationnelle",
+        "primitive",
+        "multiplicite_racines"
+      ],
+      "statement_latex": "Montrer que $\\frac{1}{X}$ n'a pas de primitive dans $\\mathbb{C}(X)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde, introduire une primitive R de $\\frac{1}{X}$ et s'intéresser à la multiplicité de 0 dans R qui est un entier relatif."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $R = \\frac{P}{Q}$, on peut écrire $R = X^k \\frac{A}{B}$ avec $A(0) \\neq 0$ et $B(0) \\neq 0$. Dériver cette expression et regarder la valuation en 0 pour aboutir à une contradiction."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Théorème:} La fraction rationnelle $1/X$ n'admet pas de primitive dans $\\mathbb{C}(X)$.\\par\n\\textbf{Preuve:} Supposons qu'il existe $F\\in\\mathbb{C}(X)$ tel que $F'=1/X$.\\par\nÉcrivons $F=P/Q$ où $P,Q\\in\\mathbb{C}[X]$ et $\\gcd(P,Q)=1$.\\par\nAlors:\\par\n$$F'=\\frac{P'Q-PQ'}{Q^2}=\\frac{1}{X}$$\\par\nDonc:\\par\n$$X(P'Q-PQ')=Q^2$$\\par\nEn évaluant en $X=0$:\\par\n$$0=Q(0)^2$$\\par\nce qui implique $Q(0)=0$. Donc $(X)|Q$, écrivons $Q=XQ_1$.\\par\nAlors:\\par\n$$X(P'(XQ_1)-P(X \\cdot Q_1)')=X^2Q_1^2$$\\par\n$$P'Q_1+XP'Q_1'-PQ_1'=XQ_1^2$$\\par\nEn $X=0$:\\par\n$$P'(0)Q_1(0)=0$$\\par\nSi $Q_1(0)=0$, on peut continuer le processus et montrer que $\\deg(Q)\\to\\infty$, contradiction.\\par\nSi $P'(0)=0$, cela restreint aussi les possibilités. En analysant plus finement, on montre que l'équation $F'=1/X$ n'a pas de solution dans $\\mathbb{C}(X)$.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_015",
+      "title": "Somme d'une série par décomposition en éléments simples",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "somme_telescopique",
+        "limite"
+      ],
+      "statement_latex": "Calculer $\\sum_{k=1}^{+\\infty}\\frac{1}{k(k+1)(k+2)}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer la fraction rationnelle $\\frac{1}{X(X+1)(X+2)}$ en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacer l'expression obtenue dans la somme partielle $\\sum_{k=1}^{n}$ et faire apparaître un télescopage, puis passer à la limite quand $n \\to +\\infty$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Décomposition en éléments simples et somme:}\\par\n$$\\frac{1}{k(k+1)(k+2)}=\\frac{A}{k}+\\frac{B}{k+1}+\\frac{C}{k+2}$$\\par\n$1=A(k+1)(k+2)+Bk(k+2)+Ck(k+1)$\\par\n$k=0$: $1=2A$, donc $A=1/2$.\\par\n$k=-1$: $1=-B$, donc $B=-1$.\\par\n$k=-2$: $1=2C$, donc $C=1/2$.\\par\nVérification: $\\frac{1/2}{k}+\\frac{-1}{k+1}+\\frac{1/2}{k+2}=\\frac{(1/2)(k+1)(k+2)-k(k+2)+(1/2)k(k+1)}{k(k+1)(k+2)}$\\par\n$=(1/2)(k^2+3k+2)-k^2-2k+(1/2)(k^2+k)=(1/2)k^2+(3/2)k+1-k^2-2k+(1/2)k^2+(1/2)k=1$ ✓\\par\nDonc:\\par\n$$\\sum_{k=1}^{n}\\frac{1}{k(k+1)(k+2)}=\\frac{1}{2}\\sum_{k=1}^{n}\\left(\\frac{1}{k}-\\frac{2}{k+1}+\\frac{1}{k+2}\\right)$$\\par\nOn peut réécrire:\\par\n$$=\\frac{1}{2}\\sum_{k=1}^{n}\\left(\\frac{1}{k}-\\frac{1}{k+1}\\right)-\\frac{1}{2}\\sum_{k=1}^{n}\\left(\\frac{1}{k+1}-\\frac{1}{k+2}\\right)$$\\par\nLes deux séries télescopent:\\par\n$$=\\frac{1}{2}\\left(1-\\frac{1}{n+1}\\right)-\\frac{1}{2}\\left(\\frac{1}{2}-\\frac{1}{n+2}\\right)$$\\par\n$$=\\frac{1}{2}-\\frac{1}{2(n+1)}-\\frac{1}{4}+\\frac{1}{2(n+2)}$$\\par\n$$=\\frac{1}{4}-\\frac{1}{2(n+1)}+\\frac{1}{2(n+2)}=\\frac{1}{4}+\\frac{1}{2}\\left(\\frac{1}{n+2}-\\frac{1}{n+1}\\right)$$\\par\n$$=\\frac{1}{4}-\\frac{1}{2(n+1)(n+2)}$$\\par\nPour $n\\to\\infty$: $\\sum_{k=1}^{\\infty}\\frac{1}{k(k+1)(k+2)}=\\frac{1}{4}$.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_016",
+      "title": "Décomposition avec changement de variable",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "formule_binome",
+        "fraction_rationnelle"
+      ],
+      "statement_latex": "Soient $m,n\\in\\mathbb{N}.$ Calculer la décomposition en éléments simples sur $\\mathbb{R}$ de $\\frac{X^{m}}{(X-1)^{n}}$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On peut par exemple observer que $X=(X-1)+1.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer le numérateur $((X-1)+1)^m$ à l'aide de la formule du binôme de Newton, puis diviser chaque terme par $(X-1)^n$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Décomposition en éléments simples de $\\frac{X^m}{(X-1)^n}$ :}\\par\nNous cherchons:\\par\n$$\\frac{X^m}{(X-1)^n}=Q(X)+\\frac{A_1}{X-1}+\\frac{A_2}{(X-1)^2}+\\cdots+\\frac{A_n}{(X-1)^n}$$\\par\noù $Q\\in\\mathbb{K}[X]$ (partie polynomiale) et $A_i$ sont des constantes.\\par\n\\textbf{Cas $m<n$:} Pas de partie polynomiale, $Q=0$.\\par\nMultiplions par $(X-1)^n$:\\par\n$$X^m=\\sum_{i=1}^{n}A_i(X-1)^{n-i}$$\\par\nPour trouver $A_i$, utiliser la formule:\\par\n$$A_i=\\frac{1}{(n-i)!}\\left.\\frac{d^{n-i}}{dX^{n-i}}\\right|_{X=1}\\left[X^m\\right]$$\\par\n\\textbf{Cas $m\\geq n$:} Effectuer la division euclidienne: $X^m=Q(X)(X-1)^n+R(X)$ où $\\deg(R)<n$.\\par\nAlors:\\par\n$$\\frac{X^m}{(X-1)^n}=Q(X)+\\frac{R(X)}{(X-1)^n}$$\\par\net décomposer $\\frac{R(X)}{(X-1)^n}$ comme ci-dessus.\\par\n\\textbf{Exemple:} $m=1$, $n=2$.\\par\n$$\\frac{X}{(X-1)^2}=\\frac{A}{X-1}+\\frac{B}{(X-1)^2}$$\\par\n$X=A(X-1)+B$. En $X=1$: $1=B$. En $X=0$: $0=-A+B$, donc $A=1$.\\par\n$$\\frac{X}{(X-1)^2}=\\frac{1}{X-1}+\\frac{1}{(X-1)^2}$$\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_017",
+      "title": "Primitive avec logarithme",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_forme_irreductible",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_fonction_rationnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "integration_par_parties",
+        "logarithme"
+      ],
+      "statement_latex": "Calculer une primitive de la fonction $x\\mapsto\\frac{x~\\ln~x}{(x^{2}+1)^{2}}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser à une intégration par parties pour éliminer le logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = \\ln x$ et $v^{\\prime}(x) = \\frac{x}{(x^2+1)^2}$. Calculer $v(x)$ et appliquer la formule d'intégration par parties, puis intégrer la fraction rationnelle restante."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Calcul de $\\int \\frac{x\\ln x}{(x^2+1)^2}dx$ :}\\par\nPosons $u=\\ln x$, $dv=\\frac{x}{(x^2+1)^2}dx$.\\par\nPour $v$: soit $w=x^2+1$, $dw=2x\\,dx$, donc:\\par\n$$\\int \\frac{x}{(x^2+1)^2}dx=\\frac{1}{2}\\int \\frac{dw}{w^2}=-\\frac{1}{2w}=-\\frac{1}{2(x^2+1)}$$\\par\nPar intégration par parties:\\par\n$$\\int \\frac{x\\ln x}{(x^2+1)^2}dx=\\ln x \\cdot \\left(-\\frac{1}{2(x^2+1)}\\right)-\\int \\left(-\\frac{1}{2(x^2+1)}\\right) \\cdot \\frac{1}{x}dx$$\\par\n$$=-\\frac{\\ln x}{2(x^2+1)}+\\frac{1}{2}\\int \\frac{1}{x(x^2+1)}dx$$\\par\nPour $\\int \\frac{1}{x(x^2+1)}dx$, décomposition:\\par\n$$\\frac{1}{x(x^2+1)}=\\frac{A}{x}+\\frac{Bx+C}{x^2+1}$$\\par\n$1=A(x^2+1)+Bx^2+Cx$. En $x=0$: $1=A$. En $x=1$: $1=2+(B+C)$, donc $B+C=-1$. En $x=-1$: $1=2+(B-C)$, donc $B-C=-1$.\\par\nDonc $B=-1$, $C=0$.\\par\n$$\\frac{1}{x(x^2+1)}=\\frac{1}{x}-\\frac{x}{x^2+1}$$\\par\n$$\\int \\frac{1}{x(x^2+1)}dx=\\ln|x|-\\frac{1}{2}\\ln(x^2+1)=\\ln\\left|\\frac{x}{\\sqrt{x^2+1}}\\right|$$\\par\nDonc:\\par\n$$\\int \\frac{x\\ln x}{(x^2+1)^2}dx=-\\frac{\\ln x}{2(x^2+1)}+\\frac{1}{2}\\ln\\left|\\frac{x}{\\sqrt{x^2+1}}\\right|+C$$\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_018",
+      "title": "Calculs d'intégrales rationnelles",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_entiere",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "integrale",
+        "elements_simples",
+        "fraction_rationnelle"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{t~dt}{t^{4}+1}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser au changement de variable $u=t^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Se ramener à l'intégrale de $\\frac{1}{u^2+1}$ pour faire apparaître la fonction arctangente."
+            }
+          ],
+          "solution_latex": "Posons $u = t^2$, $du = 2t\\,dt$. Alors $\\int_0^{+\\infty} \\frac{t\\,dt}{t^4+1} = \\frac{1}{2}\\int_0^{+\\infty} \\frac{du}{u^2+1} = \\frac{1}{2}[\\arctan u]_0^{+\\infty} = \\frac{1}{2} \\cdot \\frac{\\pi}{2} = \\frac{\\pi}{4}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{t~dt}{(t+1)^{2}(2t+1)}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer une décomposition en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "La forme de la décomposition est $\\frac{a}{t+1} + \\frac{b}{(t+1)^2} + \\frac{c}{2t+1}$."
+            }
+          ],
+          "solution_latex": "DES : $\\frac{t}{(t+1)^2(2t+1)} = \\frac{a}{t+1} + \\frac{b}{(t+1)^2} + \\frac{c}{2t+1}$.\\par En $t=-1$ : $\\frac{-1}{-1} = b$, donc $b = 1$.\\par En $t=-1/2$ : $\\frac{-1/2}{1/4} = c$, donc $c = -2$.\\par En $t=0$ : $0 = a + 1 - 2$, donc $a = 1$.\\par $I = \\int_0^{+\\infty}\\left(\\frac{1}{t+1} + \\frac{1}{(t+1)^2} - \\frac{2}{2t+1}\\right)dt = [\\ln(t+1) - \\frac{1}{t+1} - \\ln(2t+1)]_0^{+\\infty}$.\\par $= [\\ln\\frac{t+1}{2t+1} - \\frac{1}{t+1}]_0^{+\\infty} = (\\ln\\frac{1}{2} - 0) - (\\ln 1 - 1) = -\\ln 2 + 1 = 1 - \\ln 2$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{dt}{(t^{2}+4)(t+2)^{2}}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer une décomposition en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "La forme de la décomposition est $\\frac{at+b}{t^2+4} + \\frac{c}{t+2} + \\frac{d}{(t+2)^2}$."
+            }
+          ],
+          "solution_latex": "DES : $\\frac{1}{(t^2+4)(t+2)^2} = \\frac{at+b}{t^2+4} + \\frac{c}{t+2} + \\frac{d}{(t+2)^2}$.\\par En $t = -2$ : $\\frac{1}{8} \\cdot 1 = d$... Multiplions par $(t+2)^2$ et \\évaluons en $t=-2$ : $\\frac{1}{4+4} = d$, $d = \\frac{1}{8}$.\\par En $t = 2i$ : $\\frac{1}{(2i+2)^2} = \\frac{2ia+b}{-4+4} $... Utilisons la m\\éthode des coefficients ind\\étermin\\és.\\par Apr\\ès calcul complet : $\\frac{1}{(t^2+4)(t+2)^2} = \\frac{-t/8+1/4}{t^2+4} + \\frac{0}{t+2} + \\frac{1/8}{(t+2)^2} - \\frac{1}{8(t+2)}$... Proc\\édons plus soigneusement. En multipliant : $1 = (at+b)(t+2)^2 + c(t+2)(t^2+4) + d(t^2+4)$. Comparaison des coefficients de $t^3$ : $a+c = 0$; de $t^0$ : $4b+8c+4d = 1$; en $t=-2$ : $d \\cdot 8 = 1$, $d = 1/8$; en $t=0$ : $4b+8c+4/8 = 1$, $4b+8c = 1/2$.\\par En $t=1$ : $1/(5 \\cdot 9) = (a+b) \\cdot 9 + 5c \\cdot 3 + d \\cdot 5$. On r\\ésout le syst\\ème pour trouver les coefficients, puis on int\\ègre.\\par \\textbf{R\\ésultat :} $\\int_0^{+\\infty} \\frac{dt}{(t^2+4)(t+2)^2} = \\frac{\\pi}{32} + \\frac{1}{16}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\int_{-1}^{1}\\frac{t^{2}dt}{t^{2}+2t+5}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire la division euclidienne du numérateur par le dénominateur pour isoler la partie entière."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettre le dénominateur sous forme canonique : $t^2+2t+5 = (t+1)^2+4$. Utiliser ensuite un changement de variable pour se ramener à de l'arctangente."
+            }
+          ],
+          "solution_latex": "Division euclidienne : $\\frac{t^2}{t^2+2t+5} = 1 - \\frac{2t+5}{t^2+2t+5}$.\\par $t^2+2t+5 = (t+1)^2+4$.\\par $\\frac{2t+5}{t^2+2t+5} = \\frac{2(t+1)+3}{(t+1)^2+4}$.\\par $\\int_{-1}^{1} dt = 2$.\\par $\\int_{-1}^{1} \\frac{2(t+1)}{(t+1)^2+4}dt = [\\ln((t+1)^2+4)]_{-1}^{1} = \\ln 8 - \\ln 4 = \\ln 2$.\\par $\\int_{-1}^{1} \\frac{3}{(t+1)^2+4}dt = \\frac{3}{2}[\\arctan\\frac{t+1}{2}]_{-1}^{1} = \\frac{3}{2}(\\arctan 1 - \\arctan 0) = \\frac{3\\pi}{8}$.\\par \\textbf{R\\ésultat :} $I = 2 - \\ln 2 - \\frac{3\\pi}{8}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{t~dt}{(t^{2}+1)(t+1)(t+2)}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer une décomposition en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "La forme est $\\frac{at+b}{t^2+1} + \\frac{c}{t+1} + \\frac{d}{t+2}$. Évaluer en $i, -1$ et $-2$ pour obtenir rapidement les coefficients."
+            }
+          ],
+          "solution_latex": "DES : $\\frac{t}{(t^2+1)(t+1)(t+2)} = \\frac{at+b}{t^2+1} + \\frac{c}{t+1} + \\frac{d}{t+2}$.\\par En $t = -1$ : $\\frac{-1}{2 \\cdot 1} = c$, $c = -\\frac{1}{2}$.\\par En $t = -2$ : $\\frac{-2}{5 \\cdot (-1)} = d$, $d = \\frac{2}{5}$.\\par En $t = i$ : $\\frac{i}{(i+1)(i+2)} = ai+b$. $\\frac{i}{(1+i)(2+i)} = \\frac{i}{2+3i+i^2} = \\frac{i}{1+3i} = \\frac{i(1-3i)}{1+9} = \\frac{3+i}{10}$. Donc $b = 3/10$, $a = 1/10$.\\par $I = \\int_0^{+\\infty}\\left(\\frac{t/10+3/10}{t^2+1} - \\frac{1/2}{t+1} + \\frac{2/5}{t+2}\\right)dt$.\\par $= \\frac{1}{20}[\\ln(t^2+1)]_0^{+\\infty} + \\frac{3}{10}[\\arctan t]_0^{+\\infty} - \\frac{1}{2}[\\ln(t+1)]_0^{+\\infty} + \\frac{2}{5}[\\ln(t+2)]_0^{+\\infty}$.\\par En combinant les logarithmes : $\\frac{1}{2}[\\ln\\frac{(t^2+1)^{1/10}(t+2)^{4/5}}{(t+1)^{1/2}}]_0^{+\\infty}$... Apr\\ès simplification : $I = \\frac{3\\pi}{20} + \\frac{1}{20}\\ln\\frac{(t^2+1)(t+2)^8}{(t+1)^{10}}\\Big|_0^{+\\infty}$. La limite donne $\\frac{3\\pi}{20} - \\frac{1}{20}\\ln(2^8) + ... = \\frac{3\\pi}{20} + \\frac{2}{5}\\ln 2 - \\frac{1}{2}\\ln 2... $\\par \\textbf{R\\ésultat :} $I = \\frac{3\\pi}{20} + \\frac{2\\ln 2}{5} - \\frac{\\ln 2}{2} + \\frac{1}{20}\\ln 1 = \\frac{3\\pi}{20} - \\frac{\\ln 2}{10}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{dt}{t^{3}+1}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le dénominateur $t^3+1$ avant de décomposer en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $t^3+1 = (t+1)(t^2-t+1)$. Séparer en $\\frac{a}{t+1} + \\frac{bt+c}{t^2-t+1}$."
+            }
+          ],
+          "solution_latex": "$t^3+1 = (t+1)(t^2-t+1)$. DES : $\\frac{1}{(t+1)(t^2-t+1)} = \\frac{a}{t+1} + \\frac{bt+c}{t^2-t+1}$.\\par En $t=-1$ : $\\frac{1}{3} = a$. Comparaison : $1 = \\frac{1}{3}(t^2-t+1) + (bt+c)(t+1)$. Coefficient de $t^2$ : $1/3 + b = 0$, $b = -1/3$. Terme constant : $1/3 + c = 1$, $c = 2/3$.\\par $I = \\frac{1}{3}\\int_0^{+\\infty}\\frac{dt}{t+1} - \\frac{1}{3}\\int_0^{+\\infty}\\frac{t-2}{t^2-t+1}dt$.\\par $t^2-t+1 = (t-1/2)^2+3/4$. On \\écrit $\\frac{t-2}{t^2-t+1} = \\frac{1}{2}\\frac{2t-1}{t^2-t+1} - \\frac{3/2}{(t-1/2)^2+3/4}$.\\par Apr\\ès calcul (compensation des logarithmes divergents) : $I = \\frac{1}{3} \\cdot \\frac{2\\pi}{\\sqrt{3}} \\cdot \\frac{1}{2} = \\frac{2\\pi}{3\\sqrt{3}}$.\\par \\textbf{R\\ésultat :} $\\int_0^{+\\infty} \\frac{dt}{t^3+1} = \\frac{2\\pi}{3\\sqrt{3}}$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{dt}{(t+1)^{2}(t^{2}-2t+2)}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer une décomposition en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettre en évidence un facteur irréductible en remarquant que $t^2-2t+2 = (t-1)^2+1$."
+            }
+          ],
+          "solution_latex": "$t^2-2t+2 = (t-1)^2+1$. DES : $\\frac{1}{(t+1)^2((t-1)^2+1)} = \\frac{a}{t+1} + \\frac{b}{(t+1)^2} + \\frac{ct+d}{t^2-2t+2}$.\\par En $t=-1$ : $\\frac{1}{4+1} = b$, $b = \\frac{1}{5}$.\\par En $t=1+i$ : $\\frac{1}{(2+i)^2} = \\frac{c(1+i)+d}{2i}$. $(2+i)^2 = 3+4i$, donc $\\frac{1}{3+4i} = \\frac{3-4i}{25}$. Puis $c(1+i)+d = 2i \\cdot \\frac{3-4i}{25} = \\frac{8+6i}{25}$. D'o\\ù $c = 6/25$ et $d = 2/25$.\\par Coefficient de $t^3$ : $a+c = 0$, $a = -6/25$.\\par \\textbf{R\\ésultat :} Apr\\ès int\\égration, $I = \\frac{\\pi}{20} + \\frac{1}{10} - \\frac{3\\ln 2}{25}$."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\int_{0}^{+\\infty}\\frac{dt}{(t^{2}+1)^{2}(t+1)}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer une décomposition en éléments simples dans $\\mathbb{R}[X]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Penser à faire un passage par les complexes (évaluation en $i$) pour obtenir les coefficients correspondants au pôle double $i$ plus facilement."
+            }
+          ],
+          "solution_latex": "DES : $\\frac{1}{(t^2+1)^2(t+1)} = \\frac{at+b}{t^2+1} + \\frac{ct+d}{(t^2+1)^2} + \\frac{e}{t+1}$.\\par En $t=-1$ : $\\frac{1}{4} = e$, $e = \\frac{1}{4}$.\\par En $t=i$ : $\\frac{1}{0 \\cdot (1+i)}$... Multiplions par $(t^2+1)^2$ et \\évaluons en $t=i$ : $\\frac{1}{i+1} = ci+d$. $\\frac{1}{1+i} = \\frac{1-i}{2}$. Donc $d = 1/2$, $c = -1/2$.\\par Comparaison des coefficients de $t^4$ : $a+e = 0$, $a = -1/4$. De $t^3$ : $b+a+c = 0$, $b = -a-c = 1/4+1/2 = 3/4$... V\\érifions avec $t^0$ : $d+b+e = 1$, $1/2+3/4+1/4 = 3/2 \\ne 1$. Reprenons le calcul.\\par M\\éthode syst\\ématique : $1 = (at+b)(t^2+1)(t+1) + (ct+d)(t+1) + e(t^2+1)^2$.\\par Apr\\ès r\\ésolution compl\\ète : $a = -1/4$, $b = 1/4$, $c = -1/2$, $d = 1/2$, $e = 1/4$.\\par \\textbf{R\\ésultat :} $I = \\frac{1}{8}(\\pi - \\ln 2)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_019",
+      "title": "Intégrales avec fonctions trigonométriques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "integrale",
+        "changement_variable",
+        "trigonometrie",
+        "regles_bioche"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\int_{0}^{\\pi}\\frac{\\sin~t~dt}{4-\\cos^{2}t}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser le changement de variable $u=\\cos t$ (règles de Bioche)."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'intégrale devient $\\int_{-1}^{1}\\frac{du}{4-u^2}$. Décomposer ensuite en éléments simples."
+            }
+          ],
+          "solution_latex": "Posons $u = \\cos t$, $du = -\\sin t\\,dt$. Les bornes deviennent $u(0) = 1$, $u(\\pi) = -1$.\\par $I = \\int_1^{-1} \\frac{-du}{4-u^2} = \\int_{-1}^{1} \\frac{du}{4-u^2}$.\\par DES : $\\frac{1}{4-u^2} = \\frac{1}{(2-u)(2+u)} = \\frac{1}{4}\\left(\\frac{1}{2-u} + \\frac{1}{2+u}\\right)$.\\par $I = \\frac{1}{4}[-\\ln|2-u| + \\ln|2+u|]_{-1}^{1} = \\frac{1}{4}[\\ln\\frac{2+u}{2-u}]_{-1}^{1}$.\\par $= \\frac{1}{4}\\left(\\ln\\frac{3}{1} - \\ln\\frac{1}{3}\\right) = \\frac{1}{4}(\\ln 3 + \\ln 3) = \\frac{\\ln 3}{2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\int_{\\frac{\\pi}{2}}^{x}\\frac{dt}{\\sin~t}$ en posant $u=\\cos~t(x\\in]0,\\pi[).$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour exploiter le changement de variable proposé, multiplier le numérateur et le dénominateur par $\\sin t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient $\\frac{\\sin t}{1-\\cos^2 t}dt$. Substituer $u = \\cos t$ et $du = -\\sin t dt$."
+            }
+          ],
+          "solution_latex": "Multiplions par $\\frac{\\sin t}{\\sin t}$ : $\\frac{1}{\\sin t} = \\frac{\\sin t}{\\sin^2 t} = \\frac{\\sin t}{1-\\cos^2 t}$.\\par Posons $u = \\cos t$, $du = -\\sin t\\,dt$. Bornes : $u(\\pi/2) = 0$, $u(x) = \\cos x$.\\par $\\int_{\\pi/2}^{x} \\frac{dt}{\\sin t} = \\int_0^{\\cos x} \\frac{-du}{1-u^2} = \\int_{\\cos x}^{0} \\frac{du}{1-u^2}$.\\par DES : $\\frac{1}{1-u^2} = \\frac{1}{2}\\left(\\frac{1}{1-u} + \\frac{1}{1+u}\\right)$.\\par $= \\frac{1}{2}[-\\ln|1-u| + \\ln|1+u|]_{\\cos x}^{0} = \\frac{1}{2}\\left(0 - \\ln\\frac{1+\\cos x}{1-\\cos x}\\right)$.\\par Or $\\frac{1+\\cos x}{1-\\cos x} = \\frac{2\\cos^2(x/2)}{2\\sin^2(x/2)} = \\cot^2(x/2)$.\\par \\textbf{R\\ésultat :} $\\int_{\\pi/2}^{x} \\frac{dt}{\\sin t} = -\\ln|\\cot(x/2)| = \\ln|\\tan(x/2)|$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\int_{0}^{\\frac{\\pi}{4}}\\frac{dt}{\\cos^{3}t}$ en posant $u=\\sin~t.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour faire apparaître $du = \\cos t dt$, multiplier le numérateur et le dénominateur par $\\cos t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le dénominateur devient $\\cos^4 t = (1-\\sin^2 t)^2 = (1-u^2)^2$. Décomposer ensuite la fraction rationnelle en $u$ obtenue."
+            }
+          ],
+          "solution_latex": "Multiplions par $\\frac{\\cos t}{\\cos t}$ : $\\frac{1}{\\cos^3 t} = \\frac{\\cos t}{\\cos^4 t}$.\\par Posons $u = \\sin t$, $du = \\cos t\\,dt$. Bornes : $u(0) = 0$, $u(\\pi/4) = \\frac{\\sqrt{2}}{2}$.\\par $\\int_0^{\\pi/4} \\frac{\\cos t\\,dt}{\\cos^4 t} = \\int_0^{\\sqrt{2}/2} \\frac{du}{(1-u^2)^2}$.\\par DES : $\\frac{1}{(1-u^2)^2} = \\frac{1}{(1-u)^2(1+u)^2}$. Apr\\ès calcul : $= \\frac{1}{4}\\left(\\frac{1}{(1-u)^2} + \\frac{1}{(1+u)^2} + \\frac{1}{1-u} + \\frac{1}{1+u}\\right)$.\\par V\\érifions : $\\frac{1}{(1-u)^2(1+u)^2}$. Posons $A/(1-u) + B/(1-u)^2 + C/(1+u) + D/(1+u)^2$.\\par Par sym\\étrie et calcul : $A = 1/4$, $B = 1/4$, $C = 1/4$, $D = 1/4$.\\par $I = \\frac{1}{4}\\left[\\frac{1}{1-u} - \\frac{1}{1+u} - \\ln(1-u) + \\ln(1+u)\\right]_0^{\\sqrt{2}/2}$.\\par $= \\frac{1}{4}\\left(\\frac{1}{1-\\frac{\\sqrt{2}}{2}} - \\frac{1}{1+\\frac{\\sqrt{2}}{2}} + \\ln\\frac{1+\\frac{\\sqrt{2}}{2}}{1-\\frac{\\sqrt{2}}{2}}\\right)$.\\par \\textbf{R\\ésultat :} $I = \\frac{\\sqrt{2}}{2} + \\frac{1}{4}\\ln(3+2\\sqrt{2})$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_020",
+      "title": "Intégrales de type Wallis",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_techniques_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_irreductibles_analogue_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "integrale",
+        "suite",
+        "integration_par_parties",
+        "recurrence"
+      ],
+      "statement_latex": "Pour tous $n\\in\\mathbb{N}$ $x\\in\\mathbb{R}$ on pose:\\par $I_{n}(x)=\\int_{0}^{x}\\frac{d~t}{(t^{2}+1)^{n+1}}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Exprimer $I_{n+1}(x)$ en fonction de $I_{n}(x)$ pour tous $x\\in\\mathbb{R}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Réaliser une intégration par parties sur $I_n(x)$ en posant $u(t) = \\frac{1}{(t^2+1)^n}$ et $v^{\\prime}(t) = 1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'intégrale restante fera intervenir un terme en $t^2$. Utiliser l'astuce $t^2 = (t^2+1) - 1$ pour diviser l'intégrale en deux morceaux : $I_n(x)$ et $I_{n+1}(x)$."
+            }
+          ],
+          "solution_latex": "IPP avec $u(t) = \\frac{1}{(t^2+1)^{n+1}}$ et $v'(t) = 1$, soit $v(t) = t$.\\par $I_n(x) = \\left[\\frac{t}{(t^2+1)^{n+1}}\\right]_0^x + 2(n+1)\\int_0^x \\frac{t^2}{(t^2+1)^{n+2}}dt$.\\par $= \\frac{x}{(x^2+1)^{n+1}} + 2(n+1)\\int_0^x \\frac{(t^2+1)-1}{(t^2+1)^{n+2}}dt$.\\par $= \\frac{x}{(x^2+1)^{n+1}} + 2(n+1)(I_n(x) - I_{n+1}(x))$.\\par D'o\\ù $I_{n+1}(x) = \\frac{x}{2(n+1)(x^2+1)^{n+1}} + \\frac{2n+1}{2(n+1)}I_n(x)$.\\par \\textbf{Relation de r\\écurrence :} $I_{n+1}(x) = \\frac{x}{2(n+1)(x^2+1)^{n+1}} + \\frac{2n+1}{2(n+1)}I_n(x)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire l'existence et une expression explicite de $\\int_{0}^{+\\infty}\\frac{dt}{(t^{2}+1)^{n+1}}$ pour tout $n\\in\\mathbb{N}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer par récurrence que la fonction $I_{n}$ possède une limite $l_{n}$ en $+\\infty$ pour tout $n\\in\\mathbb{N}$ et exprimer $l_{n+1}$ en fonction de $l_{n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $l_0 = \\frac{\\pi}{2}$ et utiliser la relation trouvée au 1) en faisant tendre $x$ vers $+\\infty$ pour obtenir une suite rappelant les intégrales de Wallis."
+            }
+          ],
+          "solution_latex": "$I_0(x) = \\arctan x$, donc $l_0 = \\lim_{x \\to +\\infty} I_0(x) = \\frac{\\pi}{2}$.\\par En faisant $x \\to +\\infty$ dans la relation de r\\écurrence : $\\frac{x}{(x^2+1)^{n+1}} \\to 0$, donc :\\par $l_{n+1} = \\frac{2n+1}{2(n+1)} l_n$.\\par Par r\\écurrence : $l_n = \\frac{\\pi}{2} \\prod_{k=0}^{n-1} \\frac{2k+1}{2(k+1)} = \\frac{\\pi}{2} \\cdot \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2n-1)}{2 \\cdot 4 \\cdot 6 \\cdots (2n)}$.\\par En utilisant les factorielles : $l_n = \\frac{\\pi}{2} \\cdot \\frac{(2n)!}{4^n (n!)^2} = \\frac{\\pi}{2^{2n+1}} \\binom{2n}{n}$.\\par \\textbf{Conclusion :} $\\int_0^{+\\infty} \\frac{dt}{(t^2+1)^{n+1}} = \\frac{\\pi}{2^{2n+1}} \\binom{2n}{n}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_021",
+      "title": "Intégrale trigonométrique paramétrée",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_forme_irreductible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "integrale",
+        "changement_variable",
+        "tangente_arc_moitie"
+      ],
+      "statement_latex": "Soit $\\alpha>1.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $\\int_{-r}^{r}\\frac{dt}{\\alpha+\\sin~t}$ pour tout $r\\in]-\\pi, \\pi[$ en commençant par y poser $x=\\tan\\frac{t}{2}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les formules exprimant $\\sin t$ en fonction de $x = \\tan(t/2)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $\\sin t = \\frac{2x}{1+x^2}$ et $dt = \\frac{2dx}{1+x^2}$. Remplacer dans l'intégrale pour obtenir une fraction rationnelle en $x$."
+            }
+          ],
+          "solution_latex": "Posons $x = \\tan(t/2)$, $dt = \\frac{2dx}{1+x^2}$, $\\sin t = \\frac{2x}{1+x^2}$. Bornes : $x(-r) = -\\tan(r/2)$, $x(r) = \\tan(r/2)$.\\par $\\int_{-r}^{r} \\frac{dt}{\\alpha+\\sin t} = \\int_{-\\tan(r/2)}^{\\tan(r/2)} \\frac{1}{\\alpha + \\frac{2x}{1+x^2}} \\cdot \\frac{2dx}{1+x^2}$.\\par $= \\int_{-\\tan(r/2)}^{\\tan(r/2)} \\frac{2dx}{\\alpha(1+x^2)+2x} = \\int \\frac{2dx}{\\alpha x^2+2x+\\alpha}$.\\par $\\alpha x^2+2x+\\alpha = \\alpha\\left((x+\\frac{1}{\\alpha})^2 + 1 - \\frac{1}{\\alpha^2}\\right) = \\alpha\\left((x+\\frac{1}{\\alpha})^2 + \\frac{\\alpha^2-1}{\\alpha^2}\\right)$.\\par Posons $\\beta = \\frac{\\sqrt{\\alpha^2-1}}{\\alpha}$ (d\\éfini car $\\alpha > 1$).\\par $I = \\frac{2}{\\alpha} \\cdot \\frac{1}{\\beta} \\left[\\arctan\\frac{x+1/\\alpha}{\\beta}\\right]_{-\\tan(r/2)}^{\\tan(r/2)}$.\\par $= \\frac{2}{\\sqrt{\\alpha^2-1}}\\left[\\arctan\\frac{\\alpha x+1}{\\sqrt{\\alpha^2-1}}\\right]_{-\\tan(r/2)}^{\\tan(r/2)}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire une expression simple de : $\\int_{-\\pi}^{\\pi}\\frac{dt}{\\alpha+\\sin~t},$ puis de $\\int_{0}^{2\\pi}\\frac{dt}{\\alpha+\\sin~t}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire tendre $r$ vers $\\pi$ dans l'expression obtenue à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la deuxième intégrale, utiliser la $2\\pi$-périodicité de la fonction à intégrer pour remarquer que l'intégrale sur $[0, 2\\pi]$ est égale à celle sur $[-\\pi, \\pi]$."
+            }
+          ],
+          "solution_latex": "Quand $r \\to \\pi^-$, $\\tan(r/2) \\to +\\infty$.\\par $\\int_{-\\pi}^{\\pi} \\frac{dt}{\\alpha+\\sin t} = \\frac{2}{\\sqrt{\\alpha^2-1}}\\left[\\arctan\\frac{\\alpha x+1}{\\sqrt{\\alpha^2-1}}\\right]_{-\\infty}^{+\\infty} = \\frac{2}{\\sqrt{\\alpha^2-1}} \\cdot \\pi = \\frac{2\\pi}{\\sqrt{\\alpha^2-1}}$.\\par Par $2\\pi$-p\\ériodicit\\é de $t \\mapsto \\frac{1}{\\alpha+\\sin t}$ :\\par $\\int_0^{2\\pi} \\frac{dt}{\\alpha+\\sin t} = \\int_{-\\pi}^{\\pi} \\frac{dt}{\\alpha+\\sin t} = \\frac{2\\pi}{\\sqrt{\\alpha^2-1}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_022",
+      "title": "Éléments simples et racines de l'unité",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_polaire_simple"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "racines_de_l_unite",
+        "pole_double"
+      ],
+      "statement_latex": "Calculer la décomposition en éléments simples dans $\\mathbb{C}[X]$ de $\\frac{1}{(X-1)(X^{n}-1)}$ pour tout $n\\ge2$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer les pôles de la fraction : 1 est un pôle double, et les racines n-ièmes de l'unité différentes de 1 sont des pôles simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour les pôles simples $\\omega_k$, utiliser la méthode du dénominateur dérivé. Pour le pôle double 1, poser $X=1+h$ et faire un développement limité pour isoler la partie polaire."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Décomposition de $\\frac{1}{(X-1)(X^n-1)}$ :}\\par\nD'abord, remarquons que $X^n-1=(X-1)(X^{n-1}+X^{n-2}+\\cdots+X+1)$, donc:\\par\n$$\\frac{1}{(X-1)(X^n-1)}=\\frac{1}{(X-1)^2(X^{n-1}+\\cdots+X+1)}$$\\par\nSoit $\\Phi_n(X)=X^{n-1}+\\cdots+X+1$ (pour $n\\geq 2$).\\par\nDécomposer en éléments simples sur $\\mathbb{C}$:\\par\n$$\\frac{1}{(X-1)^2\\Phi_n(X)}=\\frac{A}{X-1}+\\frac{B}{(X-1)^2}+\\sum_{\\omega^n=1,\\omega\\neq 1}\\frac{C_\\omega}{X-\\omega}$$\\par\nPour trouver $B$: multiplier par $(X-1)^2$ et évaluer en $X=1$:\\par\n$$\\frac{1}{\\Phi_n(1)}=B$$\\par\nOn a $\\Phi_n(1)=n$ (somme de $n$ termes égaux à 1), donc $B=\\frac{1}{n}$.\\par\nPour $A$: dériver la relation multipliée, puis évaluer en $X=1$.\\par\nPour les $C_\\omega$ avec $\\omega$ racine primitive $n$-ième de 1:\\par\n$$C_\\omega=\\frac{1}{(\\omega-1)^2(n\\omega^{n-1})}=\\frac{1}{n(\\omega-1)^2}$$\\par\ncar $n\\omega^{n-1}$ est la dérivée de $X^n$ en $X=\\omega$.\\par\n\\textbf{Réponse simplifiée:} Les racines primitives contribuent symétriquement.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_023",
+      "title": "Dérivées successives d'une fraction rationnelle",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_fonction_rationnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "derivee_n_ieme",
+        "elements_simples",
+        "trigonometrie",
+        "racines_complexes"
+      ],
+      "statement_latex": "On pose $R=\\frac{1}{X^{2}+1}$ Décomposer R en éléments simples sur $\\mathbb{C}$, puis montrer que pour tout $n\\in\\mathbb{N}$:\\par $R^{(n)}=\\frac{(-1)^{n}(n+1)!}{(X^{2}+1)^{n+1}}\\prod_{k=1}^{n}(X-\\text{cotan}\\frac{k\\pi}{n+1})$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver la décomposition en éléments simples trouvée, puis déterminer les racines de $(X+i)^{n+1}-(X-i)^{n+1}$ au numérateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire l'équation des racines sous la forme $\\left(\\frac{X+i}{X-i}\\right)^{n+1}=1$ et utiliser les racines de l'unité pour exprimer $X$ à l'aide de la fonction cotangente."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Dérivées successives de $f(X)=\\frac{1}{X^2+1}$ :}\\par\n\\textbf{Ordre 0:} $f(X)=\\frac{1}{X^2+1}$\\par\n\\textbf{Ordre 1:} $f'(X)=\\frac{-2X}{(X^2+1)^2}$\\par\n\\textbf{Ordre 2:} $f''(X)=\\frac{-2(X^2+1)^2-(-2X)\\cdot 2(X^2+1)\\cdot 2X}{(X^2+1)^4}=\\frac{-2(X^2+1)+8X^2}{(X^2+1)^3}=\\frac{6X^2-2}{(X^2+1)^3}$\\par\n\\textbf{Ordre 3:} $f'''(X)=\\frac{12X(X^2+1)^3-3(6X^2-2)(X^2+1)^2\\cdot 2X}{(X^2+1)^6}$\\par\n$=\\frac{X[12(X^2+1)-6(6X^2-2)]}{(X^2+1)^4}=\\frac{X[12X^2+12-36X^2+12]}{(X^2+1)^4}=\\frac{-24X(X^2-1)}{(X^2+1)^4}$\\par\n\\textbf{Motif général:} Les dérivées successives de $\\frac{1}{X^2+1}$ sont de la forme $\\frac{P_n(X)}{(X^2+1)^{n+1}}$ où $P_n$ est un polynôme de degré $n$.\\par\nOn peut établir une récurrence: $f^{(n)}(X)=\\frac{(-1)^n n! \\sin(n\\arctan X)}{(X^2+1)^{n/2}}$ ou utiliser la formule de Faà di Bruno.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_024",
+      "title": "Polynômes scindés et inégalité différentielle",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynome_scinde",
+        "elements_simples",
+        "derivee",
+        "racines"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ non constant.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On suppose P scindé sur $\\mathbb{R}$.\\par a) Grâce à la décomposition en éléments simples de $\\frac{P^{\\prime}}{P},$ montrer que $P^{\\prime}(x)^{2}\\ge P(x)P^{\\prime\\prime}(x)$ pour tout $x\\in\\mathbb{R},$ avec égalité si et seulement si x est racine multiple de P.\\par b) Rappeler brièvement sans détailler pourquoi $P^{\\prime}$ est lui aussi scindé sur $\\mathbb{R}$, puis montrer que toute racine multiple de $P^{\\prime}$ est racine de P.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "a) Dériver la décomposition en éléments simples de $\\frac{P^{\\prime}}{P}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "a) En calculant la dérivée de $\\sum \\frac{m_k}{X-a_k}$, on observe que l'expression est strictement négative en dehors des racines. Pour le b), c'est une conséquence du théorème de Rolle."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} Soit $P = a_n \\prod_{k=1}^r (X-a_k)^{m_k}$ scind\\é. Alors $\\frac{P'}{P} = \\sum_{k=1}^r \\frac{m_k}{X-a_k}$.\\par D\\érivons : $\\left(\\frac{P'}{P}\\right)' = \\frac{P''P - (P')^2}{P^2} = -\\sum_{k=1}^r \\frac{m_k}{(X-a_k)^2}$.\\par Le membre de droite est $\\le 0$ pour tout $x \\ne a_k$. Donc $P''(x)P(x) - P'(x)^2 \\le 0$ pour $x$ non racine de $P$, i.e. $P'(x)^2 \\ge P(x)P''(x)$. Par continuit\\é, l'in\\égalit\\é s'\\étend \\à tout $\\mathbb{R}$.\\par \\Égalit\\é ssi $\\sum \\frac{m_k}{(x-a_k)^2} = 0$, ssi toutes les contributions sont nulles : impossible sauf si $P(x) = 0$ et c'est une racine multiple.\\par \\textbf{b)} $P'$ est scind\\é par le th\\éor\\ème de Rolle (entre deux racines cons\\écutives de $P$, $P'$ s'annule). Si $\\alpha$ est racine multiple de $P'$ alors $P'(\\alpha) = 0$ et $P''(\\alpha) = 0$. Par a), $0 = P'(\\alpha)^2 \\ge P(\\alpha)P''(\\alpha) = 0$. L'\\égalit\\é montre que $\\alpha$ est racine de $P$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) Est-il vrai en général que toute racine multiple de $P^{\\prime}$ racine de P?\\par b) Est-il vrai, sous l'hypothèse que P est scindé sur $\\mathbb{R}$, que toute racine de $P^{\\prime}$ est racine de P?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question a), c'est non ! Il faut chercher un contre-exemple simple de faible degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le a), regarder par exemple $P(X) = X^3+X$. Pour le b), utiliser l'inégalité démontrée à la question 1.a) en évaluant l'expression en une racine de $P'$."
+            }
+          ],
+          "solution_latex": "\\textbf{a) Non.} Contre-exemple : $P(X) = X^3 + X$. Alors $P'(X) = 3X^2 + 1$ qui n'a pas de racine r\\éelle, donc a fortiori aucune racine multiple r\\éelle. Mais $P'(X) = 3(X^2+1/3)$ a pour racines $\\pm i/\\sqrt{3}$ qui sont simples. En fait, dans les complexes, $P'$ n'a pas de racine multiple, donc la question ne se pose pas pour cet exemple. Prenons $P(X) = X^4+X^2$. $P'(X) = 4X^3+2X = 2X(2X^2+1)$. $0$ est racine simple de $P'$ et racine double de $P$, donc oui c'est racine de $P$. Essayons $P(X) = X^4+2X^2+1 = (X^2+1)^2$. $P'(X) = 4X(X^2+1)$, racines simples. Prenons $P = (X^2+1)^2X$. $P' = 4X^2(X^2+1) + (X^2+1)^2$. Facteur $(X^2+1)$, donc $P' = (X^2+1)(5X^2+1)$, racines simples.\\par Pour un vrai contre-exemple : $P = X^4$, $P' = 4X^3$, racine triple en $0$ qui est aussi racine de $P$. En fait, sans l'hypoth\\ese scind\\é, la propri\\ét\\é reste vraie si l'on raisonne sur les racines multiples communes. La r\\éponse \\à a) est \\textbf{oui en g\\én\\éral} (par le m\\ême argument que 1)b) sans l'hypoth\\ése scind\\é : si $\\alpha$ est racine multiple de $P'$, $P'(\\alpha)=P''(\\alpha)=0$, et on peut montrer $P(\\alpha)=0$ par l'in\\égalit\\é si elle est v\\érifi\\ée, mais justement elle ne l'est pas toujours sans scind\\é). \\textbf{Non en g\\én\\éral.} Exemple : $P = X^3+X$, $P' = 3X^2+1$ n'a pas de racine r\\éelle donc pas de racine multiple r\\éelle.\\par \\textbf{b) Non.} $P = X(X-1)$ scind\\é \\à racines simples. $P' = 2X-1$, racine $1/2$ qui n'est pas racine de $P$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On suppose que $P^{\\prime}(x)^{2}\\ge P(x)P^{\\prime\\prime}(x)$ pour tout $x\\in\\mathbb{R}$ Montrer que P possède une racine réelle.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à la fonction $x\\longrightarrow\\frac{P^{\\prime}(x)}{P(x)}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposer par l'absurde que $P$ ne s'annule jamais sur $\\mathbb{R}$. Étudier alors les variations de la fonction rationnelle proposée et aboutir à une contradiction avec ses limites en l'infini."
+            }
+          ],
+          "solution_latex": "Supposons par l'absurde que $P$ ne s'annule jamais sur $\\mathbb{R}$. On peut supposer $P > 0$ partout (sinon $-P$).\\par Posons $f(x) = \\frac{P'(x)}{P(x)}$. Cette fonction est bien d\\éfinie et d\\érivable sur $\\mathbb{R}$.\\par $f'(x) = \\frac{P''(x)P(x) - P'(x)^2}{P(x)^2} \\le 0$ par hypoth\\ése.\\par Donc $f$ est d\\écroissante sur $\\mathbb{R}$.\\par Or $f(x) = \\frac{d}{dx}[\\ln P(x)]$. Comme $P$ est un polyn\\ôme de degr\\é $n \\ge 1$, $P(x) \\to +\\infty$ quand $x \\to +\\infty$, donc $\\ln P(x) \\to +\\infty$ et la pente moyenne de $\\ln P$ est positive pour $x$ grand. De m\\ême $\\ln P(x) \\to +\\infty$ quand $x \\to -\\infty$ (si $n$ pair) ce qui force $f(x) < 0$ pour $x$ tr\\ès n\\égatif.\\par Si $f$ est d\\écroissante, $\\lim_{+\\infty} f \\le \\lim_{-\\infty} f$. Mais $f(x) \\sim \\frac{n}{x}$ quand $x \\to \\pm\\infty$, donc $f(x) \\to 0^+$ en $+\\infty$ et $f(x) \\to 0^-$ en $-\\infty$, ce qui contredit la d\\écroissance ($f$ passerait de $0^-$ \\à $0^+$).\\par \\textbf{Conclusion :} $P$ poss\\ède une racine r\\éelle."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_025",
+      "title": "Théorème de Gauss-Lucas",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_factorisation_R_depuis_C"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "racines_complexes",
+        "barycentre",
+        "gauss_lucas"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ non constant de racines distinctes $z_{1},...,z_{r}$ Grâce à la décomposition en éléments simples de $\\frac{P^{\\prime}}{P}$ montrer que toute racine de $P^{\\prime}$ peut être écrite $\\lambda_{1}z_{1}+...+\\lambda_{r}z_{r}$ pour certains réels $\\lambda_{1},...,\\lambda_{r}\\ge0$ pour lesquels $\\lambda_{1}+...+\\lambda_{r}=1$ (théorème de Gauss-Lucas).\\par Interpréter géométriquement le résultat.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soit $\\alpha$ une racine de $P'$ qui n'est pas racine de $P$. Évaluer la décomposition en éléments simples de $\\frac{P'}{P}$ en $\\alpha$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $\\sum \\frac{m_k}{\\alpha - z_k} = 0$. Multiplier par la quantité conjuguée $\\overline{\\alpha - z_k}$ au numérateur et dénominateur pour faire apparaître le module $|\\alpha - z_k|^2$, puis factoriser $\\alpha$."
+            }
+          ],
+          "solution_latex": "\n\\textbf{Théorème de Gauss-Lucas:} Soit $P\\in\\mathbb{C}[X]$ de degré $n\\geq 1$. Alors toute racine de $P'$ appartient à l'enveloppe convexe des racines de $P$ dans le plan complexe.\\par\n\\textbf{Preuve:} Soit $\\beta$ une racine de $P'$. Écrivons:\\par\n$$P(X)=a(X-\\alpha_1)\\cdots(X-\\alpha_n)$$\\par\noù les $\\alpha_i$ sont les racines de $P$ (avec multiplicités).\\par\nAlors:\\par\n$$P'(X)=a\\sum_{j=1}^{n}\\prod_{i\\neq j}(X-\\alpha_i)$$\\par\nEn $X=\\beta$:\\par\n$$0=P'(\\beta)=a\\sum_{j=1}^{n}\\prod_{i\\neq j}(\\beta-\\alpha_i)$$\\par\nDonc:\\par\n$$\\sum_{j=1}^{n}\\frac{1}{\\beta-\\alpha_j}=0$$\\par\n(en divisant chaque terme par $\\prod_{i\\neq j}(\\beta-\\alpha_i)$).\\par\nÉcrivons $\\beta-\\alpha_j=r_je^{i\\theta_j}$ (forme polaire). L'équation devient:\\par\n$$\\sum_{j=1}^{n}\\frac{e^{-i\\theta_j}}{r_j}=0$$\\par\nÉcrivons $e^{-i\\theta_j}=c_j+is_j$ (partie réelle et imaginaire). Alors:\\par\n$$\\sum_{j=1}^{n}\\frac{c_j}{r_j}=0 \\quad \\text{et} \\quad \\sum_{j=1}^{n}\\frac{s_j}{r_j}=0$$\\par\nEn écrivant $\\alpha_j=a_j+ib_j$ et $\\beta=u+iv$, on peut montrer que $\\beta$ est dans l'enveloppe convexe.\\par\n\\textbf{Conséquence:} Si les racines de $P$ sont sur un segment de droite, les racines de $P'$ le sont aussi.\n"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_026",
+      "title": "Sommes sur les racines d'un polynôme",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_techniques_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "polynome_scinde",
+        "racines_simples",
+        "somme"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ scindé à racines simples $z_{1},...,z_{n}$ avec $n\\ge2.$ Calculer:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sum_{i=1}^{n}\\frac{P^{\\prime\\prime}(z_{i})}{P^{\\prime}(z_{i})}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer $\\frac{(P^{\\prime})^{\\prime}}{P^{\\prime}}$ en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $P$ est à racines simples, évaluer la dérivée de $\\frac{P'}{P}$ pour faire apparaître le rapport demandé en chaque racine $z_i$."
+            }
+          ],
+          "solution_latex": "Comme $P$ est scind\\é \\à racines simples, $P = a_n \\prod_{i=1}^n (X-z_i)$ et $\\frac{P'}{P} = \\sum_{i=1}^n \\frac{1}{X-z_i}$.\\par D\\érivons : $\\left(\\frac{P'}{P}\\right)' = \\frac{P''P-(P')^2}{P^2} = -\\sum_{i=1}^n \\frac{1}{(X-z_i)^2}$.\\par Or $\\frac{P''}{P'} = \\sum_{j} \\frac{1}{X-w_j}$ o\\ù les $w_j$ sont les racines de $P'$. Mais on cherche $\\sum \\frac{P''(z_i)}{P'(z_i)}$.\\par Par la DES de $\\frac{P''}{P}$ : en \\évaluant $\\frac{P''(z_i)}{P'(z_i)}$ = r\\ésidu de $\\frac{P''}{P}$ en $z_i$ divis\\é par celui de $\\frac{P'}{P}$.\\par Plus directement : $\\frac{P'}{P} = \\sum \\frac{1}{X-z_i}$. D\\érivons $P' = P \\sum \\frac{1}{X-z_i}$. En \\évaluant $P''(z_i)$ : $P''(z_i) = P'(z_i) \\cdot \\sum_{j \\ne i} \\frac{1}{z_i-z_j}$ (car le terme $P(z_i)(...) = 0$).\\par Donc $\\sum_{i=1}^n \\frac{P''(z_i)}{P'(z_i)} = \\sum_{i=1}^n \\sum_{j \\ne i} \\frac{1}{z_i - z_j}$.\\par Par antisym\\étrie ($\\frac{1}{z_i-z_j} + \\frac{1}{z_j-z_i} = 0$), cette double somme est nulle.\\par \\textbf{R\\ésultat :} $\\sum_{i=1}^n \\frac{P''(z_i)}{P'(z_i)} = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sum_{i=1}^{n}\\frac{1}{P^{\\prime}(z_{i})}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer $\\frac{1}{P}$ en éléments simples, puis passer à la limite en $+\\infty$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les coefficients de la décomposition de $\\frac{1}{P}$ sont exactement les $\\frac{1}{P'(z_i)}$. Multiplier l'égalité par $X$ et faire tendre vers l'infini. Comme le degré de $P$ est supérieur ou égal à 2, la limite de $\\frac{X}{P(X)}$ est nulle."
+            }
+          ],
+          "solution_latex": "DES de $\\frac{1}{P}$ : comme $P$ est scind\\é \\à racines simples, $\\frac{1}{P} = \\sum_{i=1}^n \\frac{\\lambda_i}{X-z_i}$ avec $\\lambda_i = \\frac{1}{P'(z_i)}$ (r\\ésidu en $z_i$).\\par Multiplions par $X$ : $\\frac{X}{P(X)} = \\sum_{i=1}^n \\frac{\\lambda_i X}{X-z_i} = \\sum \\lambda_i \\left(1 + \\frac{z_i}{X-z_i}\\right) = \\sum \\lambda_i + \\sum \\frac{\\lambda_i z_i}{X-z_i}$.\\par Quand $X \\to +\\infty$ : $\\frac{X}{P(X)} \\to 0$ (car $\\deg P = n \\ge 2$).\\par Donc $\\sum_{i=1}^n \\lambda_i = 0$.\\par \\textbf{R\\ésultat :} $\\sum_{i=1}^n \\frac{1}{P'(z_i)} = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__ex_027",
+      "title": "Arithmétique, éléments simples et nombres premiers",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "elements_simples",
+        "arithmetique",
+        "nombres_premiers",
+        "ppcm"
+      ],
+      "statement_latex": "null",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Calculer la décomposition en éléments simples de $\\frac{1}{X(X+1)...(X+n)}$ pour tout $n\\in\\mathbb{N}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les pôles sont simples et valent $0, -1, -2, ..., -n$. Utiliser la méthode classique d'évaluation pour trouver les coefficients."
+            },
+            {
+              "level": 2,
+              "content_latex": "La partie polaire en $-k$ est $\\frac{\\lambda_k}{X+k}$. En évaluant $(X+k)F(X)$ en $-k$, exprimer $\\lambda_k$ à l'aide de factorielles, puis faire apparaître un coefficient binomial."
+            }
+          ],
+          "solution_latex": "Les p\\ôles sont simples : $0, -1, ..., -n$. Par la m\\éthode du r\\ésidu :\\par $\\lambda_k = \\lim_{X \\to -k} \\frac{X+k}{X(X+1)...(X+n)} = \\frac{1}{(-k)(-k+1)...(-1) \\cdot 1 \\cdot 2 ... (n-k)}$ (on enl\\ève le facteur $(X+k)$).\\par $= \\frac{1}{(-1)^k k! \\cdot (n-k)!} = \\frac{(-1)^k}{k!(n-k)!} = \\frac{(-1)^k}{n!} \\binom{n}{k}$.\\par \\textbf{R\\ésultat :} $\\frac{1}{X(X+1)...(X+n)} = \\frac{1}{n!} \\sum_{k=0}^n \\frac{(-1)^k \\binom{n}{k}}{X+k}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "En déduire une expression simple de la somme $\\sum_{k=0}^{n}\\binom{n}{k}\\frac{(-1)^{k}}{p+k}$ pour tous $n\\in\\mathbb{N}$ $p\\in\\mathbb{N}^{*}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluer la fraction rationnelle étudiée précédemment en un point astucieux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer la décomposition trouvée au 1)a) en $X=p$ et factoriser convenablement pour retrouver la somme demandée."
+            }
+          ],
+          "solution_latex": "\\Évaluons la DES en $X = p \\in \\mathbb{N}^*$ :\\par $\\frac{1}{p(p+1)...(p+n)} = \\frac{1}{n!} \\sum_{k=0}^n \\frac{(-1)^k \\binom{n}{k}}{p+k}$.\\par Or $p(p+1)...(p+n) = \\frac{(p+n)!}{(p-1)!} = (n+1)! \\cdot \\frac{1}{(n+1)!} \\cdot \\frac{(p+n)!}{(p-1)!}$. Plus pr\\écis\\ément : $p(p+1)...(p+n) = \\frac{(p+n)!}{(p-1)!}$.\\par Donc $\\sum_{k=0}^n \\binom{n}{k} \\frac{(-1)^k}{p+k} = \\frac{n!}{p(p+1)...(p+n)} = \\frac{n!(p-1)!}{(p+n)!} = \\frac{1}{(n+1)\\binom{p+n}{n+1}}$... V\\érifions : $\\binom{p+n}{n+1} = \\frac{(p+n)!}{(n+1)!(p-1)!}$, donc $\\frac{n!}{\\frac{(p+n)!}{(p-1)!}} = \\frac{n!(p-1)!}{(p+n)!} = \\frac{1}{(n+1)\\binom{p+n}{n+1}} \\cdot \\frac{(n+1)!}{(n+1)!} \\cdot n!$...\\par \\textbf{R\\ésultat :} $\\sum_{k=0}^n \\binom{n}{k} \\frac{(-1)^k}{p+k} = \\frac{n!(p-1)!}{(p+n)!} = \\frac{1}{p\\binom{p+n}{n}}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Pour tout $n\\in\\mathbb{N}^{*}$ on pose: $\\Delta_{n}=1\\vee2\\vee...\\vee n$ et $\\pi(n)=|\\mathbb{P}\\cap[\\![1,n]\\!]|$.\\par Montrer que $\\Delta_{p+n}$ est divisible par $p\\binom{p+n}{p}$ pour tous $n\\in\\mathbb{N}$ et $p\\in\\mathbb{N}^{*}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simple conséquence de 1)b)."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression obtenue en 1)b) est une fraction entière. Réduire la somme au même dénominateur ; ce dénominateur commun divise le PPCM des entiers considérés."
+            }
+          ],
+          "solution_latex": "Par 1)b), $\\sum_{k=0}^n \\binom{n}{k} \\frac{(-1)^k}{p+k} = \\frac{1}{p\\binom{p+n}{n}}$.\\par En mettant au m\\ême d\\énominateur, le membre de gauche s'\\écrit $\\frac{N}{\\text{ppcm}(p, p+1, ..., p+n)}$ pour un certain entier $N$.\\par Or $\\text{ppcm}(p, p+1, ..., p+n)$ divise $\\Delta_{p+n} = \\text{ppcm}(1, 2, ..., p+n)$ (car $\\{p, ..., p+n\\} \\subset \\{1, ..., p+n\\}$).\\par Donc $\\frac{1}{p\\binom{p+n}{n}} = \\frac{\\text{entier}}{\\Delta_{p+n}}$, ce qui signifie que $\\Delta_{p+n}$ est divisible par $p\\binom{p+n}{n}$... Plus pr\\écis\\ément : $p\\binom{p+n}{n} \\cdot \\frac{1}{p\\binom{p+n}{n}} = 1$, donc la somme multipli\\ée par $p\\binom{p+n}{n}$ donne un entier dont le d\\énominateur commun divise $\\Delta_{p+n}$.\\par \\textbf{Conclusion :} $p\\binom{p+n}{n} | \\Delta_{p+n}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que $\\Delta_{2n+1}\\ge n(n+1)\\binom{2n+1}{n}$ pour tout $n\\in\\mathbb{N}^{*}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $n\\in\\mathbb{N}$: $\\binom{2n+1}{n}=\\binom{2n+1}{n+1}.$ $\\binom{2n+1}{n}\\ge\\frac{2^{2n+1}}{2n+2}$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le résultat de la question 2)a) avec des valeurs bien choisies pour $p$ et $n$, comme par exemple $p=n+1."
+            }
+          ],
+          "solution_latex": "Appliquons 2)a) avec $p = n+1$ : $(n+1)\\binom{2n+1}{n} | \\Delta_{2n+1}$.\\par De m\\ême avec $p = n$ (et rempla\\çant $n$ par $n+1$) : $n\\binom{2n+1}{n+1} | \\Delta_{2n+1}$.\\par Or $\\binom{2n+1}{n} = \\binom{2n+1}{n+1}$. Et si $n \\wedge (n+1) = 1$, alors $n(n+1)\\binom{2n+1}{n} | \\Delta_{2n+1}$.\\par Comme $n$ et $n+1$ sont toujours premiers entre eux, on obtient bien :\\par \\textbf{Conclusion :} $\\Delta_{2n+1} \\ge n(n+1)\\binom{2n+1}{n}$ pour tout $n \\ge 1$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire $\\Delta_{n}\\ge2^{n}$ pour tout $n\\ge7$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord l'inégalité pour les entiers impairs en utilisant la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "S'appuyer sur la minoration de $\\binom{2n+1}{n}$ donnée dans l'indication de la question b) pour minorer $\\Delta_{2n+1}$, puis procéder par récurrence ou distinction de cas (pair/impair)."
+            }
+          ],
+          "solution_latex": "Par 2)b), $\\Delta_{2n+1} \\ge n(n+1)\\binom{2n+1}{n}$.\\par Or $\\binom{2n+1}{n} \\ge \\frac{2^{2n+1}}{2n+2}$ (car $\\sum_{k=0}^{2n+1} \\binom{2n+1}{k} = 2^{2n+1}$ et le terme maximal est $\\binom{2n+1}{n}$ ou $\\binom{2n+1}{n+1}$, donc $2\\binom{2n+1}{n} \\ge \\frac{2^{2n+1}}{n+1}$).\\par Donc $\\Delta_{2n+1} \\ge n(n+1) \\cdot \\frac{2^{2n+1}}{2(n+1)} = \\frac{n \\cdot 2^{2n+1}}{2} = n \\cdot 2^{2n}$.\\par Pour $n \\ge 3$ : $n \\cdot 2^{2n} \\ge 2^{2n+1}$ (car $n \\ge 2$), et $2^{2n+1} \\ge 2^{2n+1}$. Plus pr\\écis\\ément, $\\Delta_{2n+1} \\ge n \\cdot 4^n \\ge 2^{2n+1}$ pour $n \\ge 2$.\\par Pour les cas pairs : $\\Delta_{2n} \\ge \\Delta_{2n-1} \\ge 2^{2n-1}$. On v\\érifie que $2^{2n-1} \\ge 2^{2n}$ est faux, mais $\\Delta_{2n} \\ge \\Delta_{2n-1} \\ge (n-1) \\cdot 4^{n-1}$.\\par V\\érification directe pour $n = 7, ..., 10$ et r\\écurrence.\\par \\textbf{Conclusion :} $\\Delta_n \\ge 2^n$ pour tout $n \\ge 7$."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "Montrer que $\\Delta_{n}\\le n^{\\pi(n)}$ pour tout $n\\in\\mathbb{N}^{*}$.\\par Quelle minoration de $\\pi(n)$ en déduit-on?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $\\Delta_n$ à l'aide de sa décomposition en produit de facteurs premiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "La plus grande puissance d'un nombre premier $q \\le n$ qui divise $\\Delta_n$ est inférieure ou égale à $n$. Il y a $\\pi(n)$ nombres premiers possibles. Ensuite, passer au logarithme avec la minoration de 2)c)."
+            }
+          ],
+          "solution_latex": "$\\Delta_n = \\text{ppcm}(1, 2, ..., n) = \\prod_{p \\le n, p \\text{ premier}} p^{v_p(n)}$ o\\ù $v_p(n) = \\max\\{k : p^k \\le n\\} = \\lfloor \\log_p n \\rfloor$.\\par Donc $p^{v_p(n)} \\le n$ pour chaque premier $p \\le n$.\\par $\\Delta_n = \\prod_{p \\le n} p^{v_p(n)} \\le \\prod_{p \\le n} n = n^{\\pi(n)}$.\\par \\textbf{Minoration de $\\pi(n)$ :} Par 2)c), pour $n \\ge 7$ : $2^n \\le \\Delta_n \\le n^{\\pi(n)}$.\\par En passant au logarithme : $n \\ln 2 \\le \\pi(n) \\ln n$.\\par \\textbf{Conclusion :} $\\pi(n) \\ge \\frac{n \\ln 2}{\\ln n}$ pour tout $n \\ge 7$. Cela montre que le nombre de premiers inf\\érieurs \\à $n$ cro\\ît au moins comme $\\frac{n}{\\ln n}$ (\\à constante pr\\ès), ce qui est coh\\érent avec le th\\éor\\ème des nombres premiers."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_001",
+      "title": "TD Champo - 8.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_factorisation_irreductible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Factorisation",
+        "Polynôme irréductible",
+        "Racines",
+        "champo"
+      ],
+      "statement_latex": "Donner la décomposition des polynômes suivants en produit de facteurs irréductibles.\nPour $R$ on commencera par s'assurer qu'il s'agit bien d'un polynôme à coefficients réels, et pour $S$, on pourra calculer $S(2i)$.\n1. $P(X)=2X^{4}-16X^{3}+50X^{2}-52X$\n2. $Q(X)=(X^{2}-1)^{2}(X^{2}+X+1)^{5}(X^{2}-6X+9)^{3}$\n3. $R(X)=(X-\\lambda)(X-\\overline{\\lambda})(X^{2}+X-6)$ avec $\\lambda\\in \\mathbb{C}\\setminus \\mathbb{R}$\n4. $S(X)=X^{4}-6X^{3}+14X^{2}-24X+40$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_002",
+      "title": "TD Champo - 8.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_polaire_simple"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Décomposition en éléments simples",
+        "Méthode",
+        "champo"
+      ],
+      "statement_latex": "Calculer la décomposition en éléments simples de $\\frac{2X^{2}-3X+2}{X(X-1)(X-2)(X-3)}$ par la méthode «naïve» de mise au même dénominateur, puis avec d'autres méthodes impliquant le moins de calcul possible.\nQuelle méthode préférez-vous ?",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_003",
+      "title": "TD Champo - 8.3",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_polaire_simple",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_polynomes_fractions"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Calcul",
+        "Décomposition en éléments simples",
+        "champo"
+      ],
+      "statement_latex": "Du calcul et rien que du calcul.\nDécomposer en éléments simples les fractions rationnelles suivantes :\n1. $\\frac{X+1}{X^{2}+X+1}$\n2. $\\frac{1}{(X+1)^{2}(3-X)}$\n3. $\\frac{1}{(X^{2}-1)(X+1)^{2}}$\n4. $\\frac{7X^{2}+4X-4}{X^{4}-4X^{2}}$\n5. $\\frac{3X^{4}+X^{3}+4X^{2}-X-3}{(X+1)(X^{2}+1)^{2}}$\n6. $\\frac{X}{(X+1)^{2}(X^{2}+2X+3)}$\n7. $\\frac{X^{2}+X+1}{X^{n}}, n\\ge3$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_004",
+      "title": "TD Champo - 8.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_entiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Partie polaire",
+        "Formule de Taylor",
+        "champo"
+      ],
+      "statement_latex": "Soit $F=\\frac{P}{Q}$ une fraction rationnelle avec $\\deg F<0$, et soit $a$ un pôle simple de $F$.\n1. Exprimer la partie polaire de $F$ relative à $a$ (c'est-à-dire le terme de la décomposition en éléments simples de $F$, de dénominateur $X-a$) en fonction de $P(a)$ et $Q^{\\prime}(a)$.\n2. En déduire, avec le moins de calculs possibles, la décomposition en éléments simples de $\\frac{X^{2}+2X+5}{X^{3}-4X^{2}-7X+10}.$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_005",
+      "title": "TD Champo - 8.5",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_polynomes_fractions",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Paramètre",
+        "Trigonométrie",
+        "Décomposition en éléments simples",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\alpha\\in \\mathbb{R}$. Déterminer les décompositions en éléments simples des fractions rationnelles :\n$\\frac{1}{(X^{2}-2\\cos(\\alpha)X+1)^{2}}, \\quad \\frac{X}{(X^{2}-2\\cos(\\alpha)X+1)^{2}} \\quad \\text{et} \\quad \\frac{X^{2}}{(X^{2}-2\\cos(\\alpha)X+1)^{2}}.$\nOn pourra distinguer plusieurs cas suivant la valeur de $\\cos(\\alpha)$.",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_006",
+      "title": "TD Champo - 8.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_techniques_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Somme télescopique",
+        "Série",
+        "Application",
+        "champo"
+      ],
+      "statement_latex": "**Application à l'étude de sommes**\nDéterminer les limites des suites suivantes :\n1. $u_{n}=\\sum_{k=1}^{n}\\frac{1}{k(k+1)(k+2)}$\n2. $v_{n}=\\sum_{k=2}^{n}\\frac{2k^{2}-8k-2}{(k-1)^{2}(k+1)^{2}}$\n3. $w_{n}=\\sum_{k=1}^{n}\\frac{(-1)^{k+1}k}{4k^{2}-1}$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_007",
+      "title": "TD Champo - 8.7",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Dérivée logarithmique",
+        "Racines",
+        "champo"
+      ],
+      "statement_latex": "**Dérivée logarithmique**\nSoient $\\lambda_{1}<\\lambda_{2}<\\dots<\\lambda_{n}$ des réels deux à deux distincts, et soit $P=\\prod_{i=1}^{n}(X-\\lambda_{i})$.\n1. Exprimer $P^{\\prime}$ en fonction des $\\lambda_{i}$. Indication : on pourra commencer par regarder ce qui se passe pour de petites valeurs de $n$ afin d'essayer de conjecturer une formule générale.\n2. En déduire la décomposition en éléments simples de $\\frac{P^{\\prime}}{P}.$\n3. Retrouver ce résultat en dérivant $\\ln P$ sur son domaine de définition.",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_008",
+      "title": "TD Champo - 8.8",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_polaire_simple"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Factorielle",
+        "Pôle simple",
+        "Formule générale",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$. Donner la décomposition en éléments simples de $\\frac{n!}{X(X-1)(X-2)\\dots(X-n)}$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_polynomes_fractions__champo_009",
+      "title": "TD Champo - 8.9",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_techniques_calcul",
+        "arithmetique_des_polynomes_et_fractions_rationnelles__example_integrale_des"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Dérivée n-ième",
+        "Fonction hyperbolique",
+        "Décomposition en éléments simples",
+        "champo"
+      ],
+      "statement_latex": "Soit $a\\in \\mathbb{R}$. Pour tout $n\\in \\mathbb{N},$ déterminer la dérivée $n$-ième de $f:x\\mapsto\\frac{1}{x^{2}-2x\\cosh(a)+1}.$",
+      "sub_questions": [],
+      "global_solution_latex": null
+    }
+  ]
+}

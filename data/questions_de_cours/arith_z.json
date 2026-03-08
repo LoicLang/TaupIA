@@ -1,0 +1,725 @@
+{
+  "programme_chapter_id": "ARITH_Z",
+  "programme_chapter_title": "Arithmétique dans l'ensemble des entiers relatifs",
+  "semestre": 1,
+  "linked_course_chapters": [
+    "arithmetique_des_entiers"
+  ],
+  "questions": [
+    {
+      "id": "ARITH_Z__qc_001",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Divisibilité dans Z, diviseurs, multiples.",
+      "programme_notion": "Divisibilité dans Z, diviseurs, multiples",
+      "answer_node_id": "arithmetique_des_entiers__definition_divisibilite",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ divise $b$, ce qu'on note $a \\mid b$, si $b = ak$ pour un certain $k \\in \\mathbb{Z}$. On dit aussi que $a$ est un diviseur de $b$, que $b$ est divisible par $a$ ou que $b$ est un multiple de $a$.\\par Pour tout $a \\in \\mathbb{Z}$, l'ensemble des multiples de $a$ est l'ensemble $a\\mathbb{Z} = \\{ak \\mid k \\in \\mathbb{Z}\\}$. Quant à l'ensemble des diviseurs de $a$, il sera noté $\\text{div}(a)$ dans ce cours, mais il ne s'agit pas d'une notation universelle.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_002",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des couples d'entiers associés.",
+      "programme_notion": "Caractérisation des couples d'entiers associés",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "answer_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_003",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de la division euclidienne.",
+      "programme_notion": "Théorème de la division euclidienne",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_division_euclidienne",
+      "answer_latex": "Soient $a \\in \\mathbb{Z}$ et $b \\in \\mathbb{N}^*$. Il existe un et un seul couple $(q, r) \\in \\mathbb{Z} \\times \\mathbb{N}$ pour lequel $a = bq + r$ et $0 \\leq r < b$.\\par On appelle $a$ le dividende de la division euclidienne de $a$ par $b$, $b$ son diviseur, $q$ son quotient et $r$ son reste. Par ailleurs : $q = \\left\\lfloor \\frac{a}{b} \\right\\rfloor$.\\par Pour $b = 2$, le théorème montre que tout entier relatif est pair ou impair, mais jamais les deux.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_004",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème de la division euclidienne.",
+      "programme_notion": "Théorème de la division euclidienne",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_division_euclidienne",
+      "answer_latex": "Soient $a \\in \\mathbb{Z}$ et $b \\in \\mathbb{N}^*$. Il existe un et un seul couple $(q, r) \\in \\mathbb{Z} \\times \\mathbb{N}$ pour lequel $a = bq + r$ et $0 \\leq r < b$.\\par On appelle $a$ le dividende de la division euclidienne de $a$ par $b$, $b$ son diviseur, $q$ son quotient et $r$ son reste. Par ailleurs : $q = \\left\\lfloor \\frac{a}{b} \\right\\rfloor$.\\par Pour $b = 2$, le théorème montre que tout entier relatif est pair ou impair, mais jamais les deux.\n\n\\textbf{Démonstration.} • Existence : L'ensemble $\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}$ est une partie non vide de $\\mathbb{N}$ car il contient $a = a - b \\times 0$ si $a \\geq 0$ et $a - ba = a(1-b) \\geq 0$ si $a < 0$. Cet ensemble possède ainsi un plus petit élément $r$, et par définition de $r$, $a = bq + r$ pour un certain $q \\in \\mathbb{Z}$. Se peut-il qu'on ait $r \\geq b$ ? Si c'était le cas, $a - b(q+1) = r - b$ serait un élément de $\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}$ strictement plus petit que $r = \\min \\left(\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}\\right)$ — impossible. Conclusion : $0 \\leq r \\leq b-1$.\\par • Unicité : Soient $(q, r)$ et $(q', r')$ deux couples de division euclidienne de $a$ par $b$. Aussitôt $b(q - q') = r' - r$, donc $b \\mid (r' - r)$, mais par ailleurs $-b < r' - r < b$, donc $\\left|\\frac{r' - r}{b}\\right| < 1$. Comme $\\frac{r' - r}{b}$ est entier, il en découle que $q = q'$, et en retour, $r = a - bq = a - bq' = r'$.\\par Pour finir : $0 \\leq r = a - bq < b$, donc $\\frac{a}{b} - 1 < q \\leq \\frac{a}{b}$, donc $q = \\left\\lfloor \\frac{a}{b} \\right\\rfloor$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : PGCD de deux entiers naturels dont l'un au moins est non nul (notation a ∧ b).",
+      "programme_notion": "PGCD de deux entiers naturels dont l'un au moins est non nul (notation a ∧ b)",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "answer_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_006",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : PGCD de deux entiers naturels dont l'un au moins est non nul (notation a ∧ b).",
+      "programme_notion": "PGCD de deux entiers naturels dont l'un au moins est non nul (notation a ∧ b)",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "answer_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.\n\n\\textbf{Démonstration.} Soient $a, b \\in \\mathbb{Z}$. L'existence de $a \\wedge b$ sera prouvée en deux temps, d'abord sous l'hypothèse que $0 \\leq b \\leq a$, puis dans le cas général.\\par • Algorithme d'Euclide dans le cas où $0 \\leq b \\leq a$ : On définit dans ce cas une famille d'entiers naturels $r_0, r_1, r_2, \\ldots$ de la manière suivante.\\par — Au départ, on pose $r_0 = a$ et $r_1 = b$.\\par — Ensuite, pour $k \\in \\mathbb{N}$, tant que $r_{k+1} > 0$, on note $r_{k+2}$ le reste de la division euclidienne de $r_k$ par $r_{k+1}$, ce qui implique en particulier que $r_{k+2} < r_{k+1}$.\\par À l'issue de cette construction : $r_0 \\geq r_1 > r_2 > \\ldots \\geq 0$, et comme il n'existe qu'un nombre fini d'entiers naturels entre 0 et $r_0$, $r_N = 0$ pour un certain $N \\in \\mathbb{N}^*$, autrement dit l'algorithme se termine. Or grâce à l'idée fondamentale de l'algorithme d'Euclide : $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(r_0) \\cap \\text{div}(r_1) = \\text{div}(r_1) \\cap \\text{div}(r_2) = \\ldots = \\text{div}(r_{N-1}) \\cap \\text{div}(r_N) = \\text{div}(r_{N-1}) \\cap \\text{div}(0) = \\text{div}(r_{N-1})$, donc $a$ et $b$ possèdent un PGCD, en l'occurrence $r_{N-1}$.\\par Pour finir, si $a = 0$, alors $a = b = 0$, donc $N = 1$, donc $a \\wedge b = r_0 = 0$. Si au contraire $a > 0$, alors $r_{N-1} > 0$, donc $a \\wedge b = r_{N-1} = \\max \\text{div}(r_{N-1}) = \\max(\\text{div}(a) \\cap \\text{div}(b))$.\\par • Cas général : On traite le cas général en se ramenant au cas précédent. On peut supposer $a$ et $b$ positifs car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(|a|) \\cap \\text{div}(|b|)$, et supposer aussi $b \\leq a$ car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(b) \\cap \\text{div}(a)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_007",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Le PGCD est le plus grand élément de l'ensemble des diviseurs communs.",
+      "programme_notion": "Le PGCD est le plus grand élément de l'ensemble des diviseurs communs",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Le PGCD est le plus grand élément de l'ensemble des diviseurs communs.",
+      "programme_notion": "Le PGCD est le plus grand élément de l'ensemble des diviseurs communs",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} • La preuve d'Euclide : Par l'absurde, supposons $\\mathbb{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. Supérieur à 2, l'entier $N = p_1 \\ldots p_r + 1$ possède un diviseur premier d'après le théorème précédent, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. En particulier, $p_k$ divise $N - p_1 \\ldots p_r = 1$, donc $p_k = 1$ — contradiction.\\par • La preuve whaou : D'après le théorème précédent : $\\mathbb{Z} \\setminus \\{-1, 1\\} = \\bigcup_{p \\in \\mathbb{P}} p\\mathbb{Z}$. Pourtant, les ensembles $p_1\\mathbb{Z}, \\ldots, p_r\\mathbb{Z}$ sont $p_1 \\ldots p_r$-périodiques, donc leur réunion aussi, alors que $\\mathbb{Z} \\setminus \\{-1, 1\\}$ ne l'est pas — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Algorithme d'Euclide.",
+      "programme_notion": "Algorithme d'Euclide",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+      "answer_latex": "Pour tous $a, b, n \\in \\mathbb{Z}$, si $a \\equiv b \\; [n]$, alors $a \\wedge n = b \\wedge n$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_010",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Algorithme d'Euclide.",
+      "programme_notion": "Algorithme d'Euclide",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+      "answer_latex": "Pour tous $a, b, n \\in \\mathbb{Z}$, si $a \\equiv b \\; [n]$, alors $a \\wedge n = b \\wedge n$.\n\n\\textbf{Démonstration.} On sait déjà que $\\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n)$, mais maintenant que les PGCD existent : $\\text{div}(a \\wedge n) = \\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n) = \\text{div}(b \\wedge n)$, donc $a \\wedge n = b \\wedge n$ par positivité.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_011",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : L'ensemble des diviseurs communs à a et b = ensemble des diviseurs de a ∧ b.",
+      "programme_notion": "L'ensemble des diviseurs communs à a et b = ensemble des diviseurs de a ∧ b",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_012",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : L'ensemble des diviseurs communs à a et b = ensemble des diviseurs de a ∧ b.",
+      "programme_notion": "L'ensemble des diviseurs communs à a et b = ensemble des diviseurs de a ∧ b",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} • La preuve d'Euclide : Par l'absurde, supposons $\\mathbb{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. Supérieur à 2, l'entier $N = p_1 \\ldots p_r + 1$ possède un diviseur premier d'après le théorème précédent, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. En particulier, $p_k$ divise $N - p_1 \\ldots p_r = 1$, donc $p_k = 1$ — contradiction.\\par • La preuve whaou : D'après le théorème précédent : $\\mathbb{Z} \\setminus \\{-1, 1\\} = \\bigcup_{p \\in \\mathbb{P}} p\\mathbb{Z}$. Pourtant, les ensembles $p_1\\mathbb{Z}, \\ldots, p_r\\mathbb{Z}$ sont $p_1 \\ldots p_r$-périodiques, donc leur réunion aussi, alors que $\\mathbb{Z} \\setminus \\{-1, 1\\}$ ne l'est pas — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_013",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : a ∧ b est le plus grand élément au sens de la divisibilité.",
+      "programme_notion": "a ∧ b est le plus grand élément au sens de la divisibilité",
+      "answer_node_id": "arithmetique_des_entiers__definition_divisibilite",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ divise $b$, ce qu'on note $a \\mid b$, si $b = ak$ pour un certain $k \\in \\mathbb{Z}$. On dit aussi que $a$ est un diviseur de $b$, que $b$ est divisible par $a$ ou que $b$ est un multiple de $a$.\\par Pour tout $a \\in \\mathbb{Z}$, l'ensemble des multiples de $a$ est l'ensemble $a\\mathbb{Z} = \\{ak \\mid k \\in \\mathbb{Z}\\}$. Quant à l'ensemble des diviseurs de $a$, il sera noté $\\text{div}(a)$ dans ce cours, mais il ne s'agit pas d'une notation universelle.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_014",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : PGCD de ka et kb pour k ∈ N*.",
+      "programme_notion": "PGCD de ka et kb pour k ∈ N*",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_015",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : PGCD de ka et kb pour k ∈ N*.",
+      "programme_notion": "PGCD de ka et kb pour k ∈ N*",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.\n\n\\textbf{Démonstration.} Montrons l'unicité du PGCD. Pour tous PGCD $d$ et $d'$ de $a_1, \\ldots, a_r$ : $\\text{div}(d) = \\text{div}(d')$, donc $d$ et $d'$ se divisent mutuellement, donc sont égaux puisqu'ils sont positifs. Même chose pour le PPCM.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Extension au cas de deux entiers relatifs.",
+      "programme_notion": "Extension au cas de deux entiers relatifs",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "answer_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_017",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Extension au cas de deux entiers relatifs.",
+      "programme_notion": "Extension au cas de deux entiers relatifs",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "answer_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.\n\n\\textbf{Démonstration.} Soient $a, b \\in \\mathbb{Z}$. L'existence de $a \\wedge b$ sera prouvée en deux temps, d'abord sous l'hypothèse que $0 \\leq b \\leq a$, puis dans le cas général.\\par • Algorithme d'Euclide dans le cas où $0 \\leq b \\leq a$ : On définit dans ce cas une famille d'entiers naturels $r_0, r_1, r_2, \\ldots$ de la manière suivante.\\par — Au départ, on pose $r_0 = a$ et $r_1 = b$.\\par — Ensuite, pour $k \\in \\mathbb{N}$, tant que $r_{k+1} > 0$, on note $r_{k+2}$ le reste de la division euclidienne de $r_k$ par $r_{k+1}$, ce qui implique en particulier que $r_{k+2} < r_{k+1}$.\\par À l'issue de cette construction : $r_0 \\geq r_1 > r_2 > \\ldots \\geq 0$, et comme il n'existe qu'un nombre fini d'entiers naturels entre 0 et $r_0$, $r_N = 0$ pour un certain $N \\in \\mathbb{N}^*$, autrement dit l'algorithme se termine. Or grâce à l'idée fondamentale de l'algorithme d'Euclide : $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(r_0) \\cap \\text{div}(r_1) = \\text{div}(r_1) \\cap \\text{div}(r_2) = \\ldots = \\text{div}(r_{N-1}) \\cap \\text{div}(r_N) = \\text{div}(r_{N-1}) \\cap \\text{div}(0) = \\text{div}(r_{N-1})$, donc $a$ et $b$ possèdent un PGCD, en l'occurrence $r_{N-1}$.\\par Pour finir, si $a = 0$, alors $a = b = 0$, donc $N = 1$, donc $a \\wedge b = r_0 = 0$. Si au contraire $a > 0$, alors $r_{N-1} > 0$, donc $a \\wedge b = r_{N-1} = \\max \\text{div}(r_{N-1}) = \\max(\\text{div}(a) \\cap \\text{div}(b))$.\\par • Cas général : On traite le cas général en se ramenant au cas précédent. On peut supposer $a$ et $b$ positifs car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(|a|) \\cap \\text{div}(|b|)$, et supposer aussi $b \\leq a$ car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(b) \\cap \\text{div}(a)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_018",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation de Bézout.",
+      "programme_notion": "Relation de Bézout",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. Il existe des entiers $u, v \\in \\mathbb{Z}$ pour lesquels $a \\wedge b = au + bv$. Une telle relation est appelée UNE relation de Bézout de $a$ et $b$.\\par Attention ! Les entiers $u$ et $v$ ne sont pas du tout uniques.\\par Par exemple : $4 \\wedge 6 = 2$, mais $2 = (-1) \\times 4 + 1 \\times 6 = 2 \\times 4 + (-1) \\times 6$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_019",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation de Bézout.",
+      "programme_notion": "Relation de Bézout",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. Il existe des entiers $u, v \\in \\mathbb{Z}$ pour lesquels $a \\wedge b = au + bv$. Une telle relation est appelée UNE relation de Bézout de $a$ et $b$.\\par Attention ! Les entiers $u$ et $v$ ne sont pas du tout uniques.\\par Par exemple : $4 \\wedge 6 = 2$, mais $2 = (-1) \\times 4 + 1 \\times 6 = 2 \\times 4 + (-1) \\times 6$.\n\n\\textbf{Démonstration.} On peut supposer sans perte de généralité que $0 \\leq b \\leq a$ et s'intéresser de nouveau aux restes successifs $r_0, \\ldots, r_N$ de l'algorithme d'Euclide. Concrètement, $r_0 = a$, $r_1 = b$, $r_{N-1} = a \\wedge b$ et $r_N = 0$, et $r_{k+2}$ est le reste de la division euclidienne de $r_k$ par $r_{k+1}$ pour tout $k \\in \\{0, \\ldots, N-2\\}$.\\par Montrons par récurrence double que $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ pour tout $k \\in \\{0, \\ldots, N-1\\}$. Cela montrera en particulier que $a \\wedge b = r_{N-1} \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par Observons en amont que toute combinaison linéaire à coefficients entiers d'éléments de $a\\mathbb{Z} + b\\mathbb{Z}$ est encore un élément de $a\\mathbb{Z} + b\\mathbb{Z}$. En d'autres termes, pour tous $x, y \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $m, n \\in \\mathbb{Z}$ : $mx + ny \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Initialisation : $r_0 = a = a \\times 1 + b \\times 0 \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_1 = b = a \\times 0 + b \\times 1 \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Hérédité : Soit $k \\in \\{0, \\ldots, N-2\\}$. Si $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_{k+1} \\in a\\mathbb{Z} + b\\mathbb{Z}$, alors en notant $q$ le quotient de la division euclidienne de $r_k$ par $r_{k+1}$, le reste $r_{k+2} = r_k - qr_{k+1}$ appartient à $a\\mathbb{Z} + b\\mathbb{Z}$ d'après la propriété de stabilité par combinaison linéaire.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_020",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Algorithme d'Euclide étendu pour trouver un couple de Bézout.",
+      "programme_notion": "Algorithme d'Euclide étendu pour trouver un couple de Bézout",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+      "answer_latex": "Pour tous $a, b, n \\in \\mathbb{Z}$, si $a \\equiv b \\; [n]$, alors $a \\wedge n = b \\wedge n$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_021",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Algorithme d'Euclide étendu pour trouver un couple de Bézout.",
+      "programme_notion": "Algorithme d'Euclide étendu pour trouver un couple de Bézout",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+      "answer_latex": "Pour tous $a, b, n \\in \\mathbb{Z}$, si $a \\equiv b \\; [n]$, alors $a \\wedge n = b \\wedge n$.\n\n\\textbf{Démonstration.} On sait déjà que $\\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n)$, mais maintenant que les PGCD existent : $\\text{div}(a \\wedge n) = \\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n) = \\text{div}(b \\wedge n)$, donc $a \\wedge n = b \\wedge n$ par positivité.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_022",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : PPCM (notation a ∨ b).",
+      "programme_notion": "PPCM (notation a ∨ b)",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_023",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : PPCM (notation a ∨ b).",
+      "programme_notion": "PPCM (notation a ∨ b)",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.\n\n\\textbf{Démonstration.} Montrons l'unicité du PGCD. Pour tous PGCD $d$ et $d'$ de $a_1, \\ldots, a_r$ : $\\text{div}(d) = \\text{div}(d')$, donc $d$ et $d'$ se divisent mutuellement, donc sont égaux puisqu'ils sont positifs. Même chose pour le PPCM.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_024",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Couple d'entiers premiers entre eux.",
+      "programme_notion": "Couple d'entiers premiers entre eux",
+      "answer_node_id": "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ et $b$ sont premiers entre eux si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a \\wedge b = 1$. Il est équivalent de dire que $a$ et $b$ n'ont aucun diviseur premier commun.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_025",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de Bézout (caractérisation des entiers premiers entre eux).",
+      "programme_notion": "Théorème de Bézout (caractérisation des entiers premiers entre eux)",
+      "answer_node_id": "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ et $b$ sont premiers entre eux si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a \\wedge b = 1$. Il est équivalent de dire que $a$ et $b$ n'ont aucun diviseur premier commun.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_026",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Forme irréductible d'un rationnel.",
+      "programme_notion": "Forme irréductible d'un rationnel",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_forme_irreductible_rationnel",
+      "answer_latex": "Tout rationnel peut être écrit d'une et une seule manière, appelée sa forme irréductible, sous la forme $\\frac{p}{q}$ avec $(p, q) \\in \\mathbb{Z} \\times \\mathbb{N}^*$ et $p$ et $q$ premiers entre eux.\\par En choisissant $p$ dans $\\mathbb{Z}$ et $q$ dans $\\mathbb{N}^*$, on impose que le signe soit porté par le numérateur. Sans cela, pas d'unicité !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_027",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Forme irréductible d'un rationnel.",
+      "programme_notion": "Forme irréductible d'un rationnel",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_forme_irreductible_rationnel",
+      "answer_latex": "Tout rationnel peut être écrit d'une et une seule manière, appelée sa forme irréductible, sous la forme $\\frac{p}{q}$ avec $(p, q) \\in \\mathbb{Z} \\times \\mathbb{N}^*$ et $p$ et $q$ premiers entre eux.\\par En choisissant $p$ dans $\\mathbb{Z}$ et $q$ dans $\\mathbb{N}^*$, on impose que le signe soit porté par le numérateur. Sans cela, pas d'unicité !\n\n\\textbf{Démonstration.} • Unicité : Soient $(p, q), (p', q') \\in \\mathbb{Z} \\times \\mathbb{N}^*$. On suppose que $r = \\frac{p}{q} = \\frac{p'}{q'}$ avec $p \\wedge q = 1$ et $p' \\wedge q' = 1$. Aussitôt $pq' = p'q$, donc $q \\mid pq'$. Cela dit $p \\wedge q = 1$, donc $q \\mid q'$ d'après le théorème de Gauss, puis $q' \\mid q$ par symétrie des rôles de $q$ et $q'$. En d'autres termes, $q$ et $q'$ se divisent mutuellement, et avec $q$ et $q'$ positifs, donc $q = q'$, et enfin $p = p'$.\\par • Existence : Par définition, $r = \\frac{a}{b}$ pour certains $a, b \\in \\mathbb{Z}$ avec $b \\neq 0$, et même $b > 0$ sans perte de généralité.\\par En notant $d$ le PGCD de $a$ et $b$, $a = dp$ et $b = dq$ pour certains $p \\in \\mathbb{Z}$ et $q \\in \\mathbb{N}^*$ premiers entre eux, donc $r = \\frac{a}{b} = \\frac{dp}{dq} = \\frac{p}{q}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_028",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Lemme de Gauss.",
+      "programme_notion": "Lemme de Gauss",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_bezout_gauss",
+      "answer_latex": "Soient $a, b, c \\in \\mathbb{Z}$.\\par (i) Théorème de Bézout : $a \\wedge b = 1 \\Leftrightarrow \\exists u, v \\in \\mathbb{Z}, au + bv = 1$.\\par (ii) Théorème de Gauss : Si $a \\mid bc$ avec $a \\wedge b = 1$, alors $a \\mid c$.\\par D'après le théorème de Gauss, si $a$ est dans $bc$ mais n'a rien de commun avec $b$, alors $a$ est dans $c$. Assez logique !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_029",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Lemme de Gauss.",
+      "programme_notion": "Lemme de Gauss",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_bezout_gauss",
+      "answer_latex": "Soient $a, b, c \\in \\mathbb{Z}$.\\par (i) Théorème de Bézout : $a \\wedge b = 1 \\Leftrightarrow \\exists u, v \\in \\mathbb{Z}, au + bv = 1$.\\par (ii) Théorème de Gauss : Si $a \\mid bc$ avec $a \\wedge b = 1$, alors $a \\mid c$.\\par D'après le théorème de Gauss, si $a$ est dans $bc$ mais n'a rien de commun avec $b$, alors $a$ est dans $c$. Assez logique !\n\n\\textbf{Démonstration.} (i) Pour l'implication directe, nous avons déjà montré en toute généralité que $a \\wedge b = au + bv$ pour certains $u, v \\in \\mathbb{Z}$. Réciproquement, faisons l'hypothèse que $au + bv = 1$ pour certains $u, v \\in \\mathbb{Z}$. En tant que diviseur commun de $a$ et $b$, $a \\wedge b$ divise alors $au + bv = 1$, donc $a \\wedge b = 1$ par positivité.\\par (ii) Par hypothèse, $bc = ak$ pour un certain $k \\in \\mathbb{Z}$ et $au + bv = 1$ pour certains $u, v \\in \\mathbb{Z}$ — relation de Bézout. Multiplions par $c$ : $acu + bcv = c$, puis remplaçons $bc$ par $ak$ : $a(cu + kv) = c$. Ainsi $a \\mid c$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_030",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si a et b premiers entre eux divisent n, alors ab divise n.",
+      "programme_notion": "Si a et b premiers entre eux divisent n, alors ab divise n",
+      "answer_node_id": "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ et $b$ sont premiers entre eux si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a \\wedge b = 1$. Il est équivalent de dire que $a$ et $b$ n'ont aucun diviseur premier commun.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_031",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si a et b premiers à n, alors ab premier à n.",
+      "programme_notion": "Si a et b premiers à n, alors ab premier à n",
+      "answer_node_id": "arithmetique_des_entiers__definition_nombre_premier",
+      "answer_latex": "Soit $p \\in \\mathbb{N}$. On dit que $p$ est premier si $p \\neq 1$ et si ses seuls diviseurs sont $\\pm 1$ et $\\pm p$. On dit que $p$ est composé si $p$ n'est ni égal à 1 ni premier.\\par L'ensemble des nombres premiers est généralement noté $\\mathbb{P}$.\\par La liste des nombres premiers commence ainsi : $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37\\ldots$",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_032",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : PGCD d'un nombre fini d'entiers, relation de Bézout généralisée.",
+      "programme_notion": "PGCD d'un nombre fini d'entiers, relation de Bézout généralisée",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. Il existe des entiers $u, v \\in \\mathbb{Z}$ pour lesquels $a \\wedge b = au + bv$. Une telle relation est appelée UNE relation de Bézout de $a$ et $b$.\\par Attention ! Les entiers $u$ et $v$ ne sont pas du tout uniques.\\par Par exemple : $4 \\wedge 6 = 2$, mais $2 = (-1) \\times 4 + 1 \\times 6 = 2 \\times 4 + (-1) \\times 6$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_033",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : PGCD d'un nombre fini d'entiers, relation de Bézout généralisée.",
+      "programme_notion": "PGCD d'un nombre fini d'entiers, relation de Bézout généralisée",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z}$. Il existe des entiers $u, v \\in \\mathbb{Z}$ pour lesquels $a \\wedge b = au + bv$. Une telle relation est appelée UNE relation de Bézout de $a$ et $b$.\\par Attention ! Les entiers $u$ et $v$ ne sont pas du tout uniques.\\par Par exemple : $4 \\wedge 6 = 2$, mais $2 = (-1) \\times 4 + 1 \\times 6 = 2 \\times 4 + (-1) \\times 6$.\n\n\\textbf{Démonstration.} On peut supposer sans perte de généralité que $0 \\leq b \\leq a$ et s'intéresser de nouveau aux restes successifs $r_0, \\ldots, r_N$ de l'algorithme d'Euclide. Concrètement, $r_0 = a$, $r_1 = b$, $r_{N-1} = a \\wedge b$ et $r_N = 0$, et $r_{k+2}$ est le reste de la division euclidienne de $r_k$ par $r_{k+1}$ pour tout $k \\in \\{0, \\ldots, N-2\\}$.\\par Montrons par récurrence double que $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ pour tout $k \\in \\{0, \\ldots, N-1\\}$. Cela montrera en particulier que $a \\wedge b = r_{N-1} \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par Observons en amont que toute combinaison linéaire à coefficients entiers d'éléments de $a\\mathbb{Z} + b\\mathbb{Z}$ est encore un élément de $a\\mathbb{Z} + b\\mathbb{Z}$. En d'autres termes, pour tous $x, y \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $m, n \\in \\mathbb{Z}$ : $mx + ny \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Initialisation : $r_0 = a = a \\times 1 + b \\times 0 \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_1 = b = a \\times 0 + b \\times 1 \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Hérédité : Soit $k \\in \\{0, \\ldots, N-2\\}$. Si $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_{k+1} \\in a\\mathbb{Z} + b\\mathbb{Z}$, alors en notant $q$ le quotient de la division euclidienne de $r_k$ par $r_{k+1}$, le reste $r_{k+2} = r_k - qr_{k+1}$ appartient à $a\\mathbb{Z} + b\\mathbb{Z}$ d'après la propriété de stabilité par combinaison linéaire.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_034",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Entiers premiers entre eux dans leur ensemble vs deux à deux.",
+      "programme_notion": "Entiers premiers entre eux dans leur ensemble vs deux à deux",
+      "answer_node_id": "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • Dans leur ensemble : On dit que $a_1, \\ldots, a_r$ sont premiers entre eux dans leur ensemble si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a_1 \\wedge \\ldots \\wedge a_r = 1$.\\par • Deux à deux : On dit que $a_1, \\ldots, a_r$ sont premiers entre eux deux à deux si $a_i \\wedge a_j = 1$ pour tous $i, j \\in \\{1, \\ldots, r\\}$ distincts.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Nombre premier.",
+      "programme_notion": "Nombre premier",
+      "answer_node_id": "arithmetique_des_entiers__definition_nombre_premier",
+      "answer_latex": "Soit $p \\in \\mathbb{N}$. On dit que $p$ est premier si $p \\neq 1$ et si ses seuls diviseurs sont $\\pm 1$ et $\\pm p$. On dit que $p$ est composé si $p$ n'est ni égal à 1 ni premier.\\par L'ensemble des nombres premiers est généralement noté $\\mathbb{P}$.\\par La liste des nombres premiers commence ainsi : $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37\\ldots$",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_036",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Crible d'Ératosthène.",
+      "programme_notion": "Crible d'Ératosthène",
+      "answer_node_id": "arithmetique_des_entiers__methode_crible_eratosthene",
+      "answer_latex": "Le crible d'Ératosthène permet une détermination simple de tous les nombres premiers inférieurs à un seuil donné et repose sur la remarque suivante. Si un entier $n \\geq 2$ est composé et si nous notons $p$ le plus petit de ses diviseurs premiers, alors $n = pk$ pour un certain $k \\in \\mathbb{N}^*$, mais tout diviseur premier de $k$ est aussi supérieur à $p$, donc $n = pk \\geq p^2$, i.e. $p \\leq \\sqrt{n}$.\\par En résumé : Tout entier COMPOSÉ $n$ possède un diviseur premier inférieur à $\\sqrt{n}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_037",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : L'ensemble des nombres premiers est infini.",
+      "programme_notion": "L'ensemble des nombres premiers est infini",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_038",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : L'ensemble des nombres premiers est infini.",
+      "programme_notion": "L'ensemble des nombres premiers est infini",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "answer_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} • La preuve d'Euclide : Par l'absurde, supposons $\\mathbb{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. Supérieur à 2, l'entier $N = p_1 \\ldots p_r + 1$ possède un diviseur premier d'après le théorème précédent, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. En particulier, $p_k$ divise $N - p_1 \\ldots p_r = 1$, donc $p_k = 1$ — contradiction.\\par • La preuve whaou : D'après le théorème précédent : $\\mathbb{Z} \\setminus \\{-1, 1\\} = \\bigcup_{p \\in \\mathbb{P}} p\\mathbb{Z}$. Pourtant, les ensembles $p_1\\mathbb{Z}, \\ldots, p_r\\mathbb{Z}$ sont $p_1 \\ldots p_r$-périodiques, donc leur réunion aussi, alors que $\\mathbb{Z} \\setminus \\{-1, 1\\}$ ne l'est pas — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_039",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence et unicité de la décomposition en facteurs premiers.",
+      "programme_notion": "Existence et unicité de la décomposition en facteurs premiers",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+      "answer_latex": "Tout entier naturel non nul est un produit de nombres premiers.\\par On considère 1 comme le produit de 0 nombre premier et tout nombre premier est le produit d'un seul nombre premier.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_040",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence et unicité de la décomposition en facteurs premiers.",
+      "programme_notion": "Existence et unicité de la décomposition en facteurs premiers",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+      "answer_latex": "Tout entier naturel non nul est un produit de nombres premiers.\\par On considère 1 comme le produit de 0 nombre premier et tout nombre premier est le produit d'un seul nombre premier.\n\n\\textbf{Démonstration.} Par récurrence forte.\\par • Initialisation : 2 est premier, donc produit de nombres premiers !\\par • Hérédité : Soit $n \\geq 2$. Faisons l'hypothèse que tout entier naturel non nul strictement inférieur à $n$ est un produit de nombres premiers. Qu'en est-il de $n$ ? Deux cas possibles — soit $n$ est premier, soit $n$ est composé.\\par Si $n$ est premier, c'est terminé, il est produit de nombres premiers. Et s'il est composé ? Il s'écrit dans ce cas $n = ab$ où $a$ et $b$ sont deux diviseurs positifs de $n$ strictement inférieurs à $n$. Par hypothèse de récurrence, $a$ et $b$ sont des produits de nombres premiers, donc $n$ aussi par produit.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_041",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Valuation p-adique (notation v_p(n)).",
+      "programme_notion": "Valuation p-adique (notation v_p(n))",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_valuation_p_adique",
+      "answer_latex": "Soient $p \\in \\mathbb{P}$ et $n \\in \\mathbb{Z} \\setminus \\{0\\}$. L'ensemble $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ possède un plus grand élément, appelé la valuation $p$-adique de $n$ et noté $v_p(n)$.\\par Clairement : $v_p(n) = v_p(|n|)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_042",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Valuation p-adique (notation v_p(n)).",
+      "programme_notion": "Valuation p-adique (notation v_p(n))",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_valuation_p_adique",
+      "answer_latex": "Soient $p \\in \\mathbb{P}$ et $n \\in \\mathbb{Z} \\setminus \\{0\\}$. L'ensemble $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ possède un plus grand élément, appelé la valuation $p$-adique de $n$ et noté $v_p(n)$.\\par Clairement : $v_p(n) = v_p(|n|)$.\n\n\\textbf{Démonstration.} Tout d'abord $p^0 = 1 \\mid n$, donc l'ensemble considéré est non vide. Ensuite, $k \\leq p^k \\leq |n|$ pour tout $k \\in \\mathbb{N}$ pour lequel $p^k$ divise $n$. Ainsi, $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ est une partie non vide majorée de $\\mathbb{N}$, donc possède un plus grand élément.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_043",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Valuation p-adique d'un produit.",
+      "programme_notion": "Valuation p-adique d'un produit",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_valuation_p_adique",
+      "answer_latex": "Soient $p \\in \\mathbb{P}$ et $n \\in \\mathbb{Z} \\setminus \\{0\\}$. L'ensemble $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ possède un plus grand élément, appelé la valuation $p$-adique de $n$ et noté $v_p(n)$.\\par Clairement : $v_p(n) = v_p(|n|)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_044",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Valuation p-adique d'un produit.",
+      "programme_notion": "Valuation p-adique d'un produit",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_valuation_p_adique",
+      "answer_latex": "Soient $p \\in \\mathbb{P}$ et $n \\in \\mathbb{Z} \\setminus \\{0\\}$. L'ensemble $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ possède un plus grand élément, appelé la valuation $p$-adique de $n$ et noté $v_p(n)$.\\par Clairement : $v_p(n) = v_p(|n|)$.\n\n\\textbf{Démonstration.} Tout d'abord $p^0 = 1 \\mid n$, donc l'ensemble considéré est non vide. Ensuite, $k \\leq p^k \\leq |n|$ pour tout $k \\in \\mathbb{N}$ pour lequel $p^k$ divise $n$. Ainsi, $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ est une partie non vide majorée de $\\mathbb{N}$, donc possède un plus grand élément.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_045",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation de la divisibilité par les valuations p-adiques.",
+      "programme_notion": "Caractérisation de la divisibilité par les valuations p-adiques",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$.\\par (i) $a$ divise $b$ si et seulement si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$.\\par (ii) $a \\wedge b = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$ et $a \\vee b = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_046",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation de la divisibilité par les valuations p-adiques.",
+      "programme_notion": "Caractérisation de la divisibilité par les valuations p-adiques",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$.\\par (i) $a$ divise $b$ si et seulement si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$.\\par (ii) $a \\wedge b = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$ et $a \\vee b = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$.\n\n\\textbf{Démonstration.} (i) Si $a \\mid b$, alors $b = ak$ pour un certain $k \\in \\mathbb{Z} \\setminus \\{0\\}$, donc $v_p(b) = v_p(a) + v_p(k) \\geq v_p(a)$ pour tout $p \\in \\mathbb{P}$.\\par Inversement, si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$, $p^{v_p(a)}$ divise $p^{v_p(b)}$, donc $\\prod_{p \\in \\mathbb{P}} p^{v_p(a)} = a$ divise $\\prod_{p \\in \\mathbb{P}} p^{v_p(b)} = b$.\\par (ii) Pour le PGCD, posons $d = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$. D'après (i), $d$ divise $a$ et $b$. Montrer que $d = a \\wedge b$ revient donc à montrer que $\\frac{a}{d} \\wedge \\frac{b}{d} = 1$. Raisonnons pour cela par l'absurde en supposant que $\\frac{a}{d} \\wedge \\frac{b}{d} \\neq 1$. L'entier $\\frac{a}{d} \\wedge \\frac{b}{d}$ possède alors un diviseur premier $q$, donc $v_q(a) = v_q(d) + v_q\\left(\\frac{a}{d}\\right) \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ et de même $v_q(b) \\geq v_q(d) + 1$. En retour : $\\min\\{v_q(a), v_q(b)\\} \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ — contradiction.\\par Pour le PPCM : $a \\vee b = \\frac{ab}{a \\wedge b} = \\frac{\\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)}}{\\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}} = \\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)-\\min\\{v_p(a), v_p(b)\\}} = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$ car $x + y = \\min\\{x, y\\} + \\max\\{x, y\\}$ pour tous $x, y \\in \\mathbb{R}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_047",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expressions du PGCD et PPCM à l'aide des valuations p-adiques.",
+      "programme_notion": "Expressions du PGCD et PPCM à l'aide des valuations p-adiques",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$.\\par (i) $a$ divise $b$ si et seulement si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$.\\par (ii) $a \\wedge b = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$ et $a \\vee b = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_048",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Expressions du PGCD et PPCM à l'aide des valuations p-adiques.",
+      "programme_notion": "Expressions du PGCD et PPCM à l'aide des valuations p-adiques",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+      "answer_latex": "Soient $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$.\\par (i) $a$ divise $b$ si et seulement si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$.\\par (ii) $a \\wedge b = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$ et $a \\vee b = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$.\n\n\\textbf{Démonstration.} (i) Si $a \\mid b$, alors $b = ak$ pour un certain $k \\in \\mathbb{Z} \\setminus \\{0\\}$, donc $v_p(b) = v_p(a) + v_p(k) \\geq v_p(a)$ pour tout $p \\in \\mathbb{P}$.\\par Inversement, si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$, $p^{v_p(a)}$ divise $p^{v_p(b)}$, donc $\\prod_{p \\in \\mathbb{P}} p^{v_p(a)} = a$ divise $\\prod_{p \\in \\mathbb{P}} p^{v_p(b)} = b$.\\par (ii) Pour le PGCD, posons $d = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$. D'après (i), $d$ divise $a$ et $b$. Montrer que $d = a \\wedge b$ revient donc à montrer que $\\frac{a}{d} \\wedge \\frac{b}{d} = 1$. Raisonnons pour cela par l'absurde en supposant que $\\frac{a}{d} \\wedge \\frac{b}{d} \\neq 1$. L'entier $\\frac{a}{d} \\wedge \\frac{b}{d}$ possède alors un diviseur premier $q$, donc $v_q(a) = v_q(d) + v_q\\left(\\frac{a}{d}\\right) \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ et de même $v_q(b) \\geq v_q(d) + 1$. En retour : $\\min\\{v_q(a), v_q(b)\\} \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ — contradiction.\\par Pour le PPCM : $a \\vee b = \\frac{ab}{a \\wedge b} = \\frac{\\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)}}{\\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}} = \\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)-\\min\\{v_p(a), v_p(b)\\}} = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$ car $x + y = \\min\\{x, y\\} + \\max\\{x, y\\}$ pour tous $x, y \\in \\mathbb{R}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_049",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation de congruence modulo n sur Z (notation a ≡ b [n]).",
+      "programme_notion": "Relation de congruence modulo n sur Z (notation a ≡ b [n])",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_proprietes_congruence",
+      "answer_latex": "Soient $a, a', b, b', m, n \\in \\mathbb{Z}$.\\par (i) Relation d'équivalence : La relation $\\equiv \\; [n]$ est une relation d'équivalence sur $\\mathbb{Z}$.\\par (ii) Somme : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Produit : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $aa' \\equiv bb' \\; [n]$, et en particulier $a^k \\equiv b^k \\; [n]$ pour tout $k \\in \\mathbb{N}$.\\par (iv) Multiplication/division par un entier non nul : Si $m$ est non nul : $a \\equiv b \\; [n] \\Leftrightarrow ma \\equiv mb \\; [mn]$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_050",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation de congruence modulo n sur Z (notation a ≡ b [n]).",
+      "programme_notion": "Relation de congruence modulo n sur Z (notation a ≡ b [n])",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_proprietes_congruence",
+      "answer_latex": "Soient $a, a', b, b', m, n \\in \\mathbb{Z}$.\\par (i) Relation d'équivalence : La relation $\\equiv \\; [n]$ est une relation d'équivalence sur $\\mathbb{Z}$.\\par (ii) Somme : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Produit : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $aa' \\equiv bb' \\; [n]$, et en particulier $a^k \\equiv b^k \\; [n]$ pour tout $k \\in \\mathbb{N}$.\\par (iv) Multiplication/division par un entier non nul : Si $m$ est non nul : $a \\equiv b \\; [n] \\Leftrightarrow ma \\equiv mb \\; [mn]$.\n\n\\textbf{Démonstration.} (i) L'assertion (i) a été prouvée au chapitre « Relations binaires et applications ».\\par (ii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $(a + a') - (b + b')$ par somme, donc $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $a(a' - b') + b'(a - b) = aa' - bb'$ par combinaison linéaire, donc $aa' \\equiv bb' \\; [n]$.\\par (iv) $a \\equiv b \\; [n] \\Leftrightarrow n \\mid (a - b) \\Leftrightarrow mn \\mid m(a - b) \\Leftrightarrow ma \\equiv mb \\; [mn]$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_051",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations sur les congruences : somme, produit.",
+      "programme_notion": "Opérations sur les congruences : somme, produit",
+      "answer_node_id": "arithmetique_des_entiers__remark_nouveau_point_vue",
+      "answer_latex": "Et maintenant, un nouveau point de vue sur les congruences. Raisonner modulo 4, c'est considérer que « $4 = 0$ » en quelque sorte. Raisonner modulo $n$ équivaut à considérer que « $n = 0$ », mais à proprement parler, $n \\equiv 0 \\; [n]$ et $n^2 \\equiv 0 \\; [n^2]$, et si on additionne ces relations après les avoir multipliées par des entiers, on en tire que pour tout polynôme $P$ à coefficients entiers : $P(n) \\equiv P(0) \\; [n]$.\\par Par exemple : $n \\equiv -1 \\; [n^2 + 1]$, donc $n^4 \\equiv 1 \\; [n^2 + 1]$, et $5n^3 + 7n^2 + 1 \\equiv 5(-1)n + 7(-1) + 1 \\equiv -5n - 6 \\; [n^2 + 1]$.\\par Même chose modulo $n^2 + 1$, on peut considérer que « $n^2 = -1$ », mais plus exactement, $n^2 \\equiv -1 \\; [n^2 + 1]$. Le cas $n = 2$ revient de même à considérer que « $n = 2$ », mais plus exactement, $n \\equiv 2 \\; [n-2]$, donc $n^4 + 5n^3 + 7n^2 + 1 \\equiv 16 + 40 + 28 + 1 \\equiv 85 \\equiv 17 \\; [n-2]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_052",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Utilisation d'un inverse modulo n pour résoudre une congruence.",
+      "programme_notion": "Utilisation d'un inverse modulo n pour résoudre une congruence",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_proprietes_congruence",
+      "answer_latex": "Soient $a, a', b, b', m, n \\in \\mathbb{Z}$.\\par (i) Relation d'équivalence : La relation $\\equiv \\; [n]$ est une relation d'équivalence sur $\\mathbb{Z}$.\\par (ii) Somme : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Produit : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $aa' \\equiv bb' \\; [n]$, et en particulier $a^k \\equiv b^k \\; [n]$ pour tout $k \\in \\mathbb{N}$.\\par (iv) Multiplication/division par un entier non nul : Si $m$ est non nul : $a \\equiv b \\; [n] \\Leftrightarrow ma \\equiv mb \\; [mn]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_053",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Utilisation d'un inverse modulo n pour résoudre une congruence.",
+      "programme_notion": "Utilisation d'un inverse modulo n pour résoudre une congruence",
+      "answer_node_id": "arithmetique_des_entiers__theoreme_proprietes_congruence",
+      "answer_latex": "Soient $a, a', b, b', m, n \\in \\mathbb{Z}$.\\par (i) Relation d'équivalence : La relation $\\equiv \\; [n]$ est une relation d'équivalence sur $\\mathbb{Z}$.\\par (ii) Somme : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Produit : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $aa' \\equiv bb' \\; [n]$, et en particulier $a^k \\equiv b^k \\; [n]$ pour tout $k \\in \\mathbb{N}$.\\par (iv) Multiplication/division par un entier non nul : Si $m$ est non nul : $a \\equiv b \\; [n] \\Leftrightarrow ma \\equiv mb \\; [mn]$.\n\n\\textbf{Démonstration.} (i) L'assertion (i) a été prouvée au chapitre « Relations binaires et applications ».\\par (ii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $(a + a') - (b + b')$ par somme, donc $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $a(a' - b') + b'(a - b) = aa' - bb'$ par combinaison linéaire, donc $aa' \\equiv bb' \\; [n]$.\\par (iv) $a \\equiv b \\; [n] \\Leftrightarrow n \\mid (a - b) \\Leftrightarrow mn \\mid m(a - b) \\Leftrightarrow ma \\equiv mb \\; [mn]$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_054",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Petit théorème de Fermat.",
+      "programme_notion": "Petit théorème de Fermat",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "ARITH_Z__qc_055",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Petit théorème de Fermat.",
+      "programme_notion": "Petit théorème de Fermat",
+      "answer_node_id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "answer_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.\n\n\\textbf{Démonstration.} Montrons l'unicité du PGCD. Pour tous PGCD $d$ et $d'$ de $a_1, \\ldots, a_r$ : $\\text{div}(d) = \\text{div}(d')$, donc $d$ et $d'$ se divisent mutuellement, donc sont égaux puisqu'ils sont positifs. Même chose pour le PPCM.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "programme_chapter_id": "CALC_ALG",
+  "programme_chapter_title": "Compléments de calcul algébrique et de trigonométrie",
+  "semestre": 1,
+  "linked_course_chapters": [
+    "calculs_algebriques_dans_R"
+  ],
+  "questions": [
+    {
+      "id": "CALC_ALG__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Somme et produit d'une famille finie de nombres réels (Σ, Π).",
+      "programme_notion": "Somme et produit d'une famille finie de nombres réels (Σ, Π)",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_produit",
+      "answer_latex": "Pour toute famille $(x_i)_{i \\in I}$ de réels indexée par un ensemble fini $I$, le produit de tous les nombres $x_i$, $i$ décrivant $I$, est noté $\\prod_{i \\in I} x_i$.\\par\\par Par convention des produits vides : $\\prod_{i \\in \\emptyset} x_i = 1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_002",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cas où l'ensemble d'indices est vide.",
+      "programme_notion": "Cas où l'ensemble d'indices est vide",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_003",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Cas où l'ensemble d'indices est vide.",
+      "programme_notion": "Cas où l'ensemble d'indices est vide",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} Par l'absurde, supposons $\\mathcal{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. L'entier $N = p_1 \\ldots p_r + 1$ est supérieur à $2$, c'est donc un produit de nombres premiers d'après le théorème précédent. Il possède en particulier un diviseur premier, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. Ainsi, $p_k$ divise à la fois $N$ et $p_1 \\ldots p_r$, donc également leur différence $N - p_1 \\ldots p_r = 1$. Il en découle que $p_k = 1$ — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_004",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Sommes et produits télescopiques.",
+      "programme_notion": "Sommes et produits télescopiques",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_somme_infinie",
+      "answer_latex": "Soit $(x_n)_{n \\in \\mathbb{N}}$ une suite réelle. Si la suite $\\left(\\sum_{k=0}^{n} x_k\right)_{n \\in \\mathbb{N}}$ converge, sa limite est notée $\\sum_{k=0}^{+\\infty} x_k$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Changements d'indices et regroupements de termes.",
+      "programme_notion": "Changements d'indices et regroupements de termes",
+      "answer_node_id": "calculs_algebriques_dans_R__method_changement_indice",
+      "answer_latex": "Une somme peut toujours être écrite de différentes manières selon le choix qu'on fait de la lettre en indice. Le passage d'une écriture à une autre est appelé changement d'indice.\\par\\par Exemples : $\\sum_{k=1}^{n} x_k = \\sum_{p=0}^{n-1} x_{p+1}$ (changement d'indice $k = p+1$) et $\\sum_{k=0}^{n} x_k = \\sum_{p=0}^{n} x_{n-p}$ (changement d'indice $k = n-p$).\\par\\par Parfois, nous ferons des changements d'indice plus compliqués. Ce qu'il faut toujours garantir, c'est qu'on n'a ni supprimé ni ajouté aucun terme à la somme initiale — on a juste changé le nom des termes sans changer leur valeur.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_006",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expressions simplifiées de Σk, Σk², Σx^k.",
+      "programme_notion": "Expressions simplifiées de Σk, Σk², Σx^k",
+      "answer_node_id": "calculs_algebriques_dans_R__example_sommes_simples",
+      "answer_latex": "Pour tout $\\alpha \\in \\mathbb{R}$ : $\\sum_{k=1}^{n} \\alpha = \\underbrace{\\alpha + \\alpha + \\ldots + \\alpha}_{n \text{ termes}} = n\\alpha$ et $\\sum_{k=m}^{n} \\alpha = (n-m+1)\\alpha$.\\par\\par Également : $\\sum_{k=1}^{n} \frac{1}{k} = 1 + \frac{1}{2} + \frac{1}{3} + \\ldots + \frac{1}{n}$ et $\\sum_{p=3}^{2n} p = 3 + 4 + \\ldots + 2n$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_007",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Factorisation de a^n - b^n par a - b.",
+      "programme_notion": "Factorisation de a^n - b^n par a - b",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_factorisation_premiere",
+      "answer_latex": "Tout entier supérieur à $2$ peut être écrit d'une et une seule manière, appelée sa factorisation première, sous la forme $p_1^{\\alpha_1} \\ldots p_r^{\\alpha_r}$ où $p_1, \\ldots, p_r$ sont des nombres premiers rangés dans l'ordre $p_1 < \\ldots < p_r$ et où $\\alpha_1, \\ldots, \\alpha_r \\in \\mathbb{N}^*$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Factorisation de a^n - b^n par a - b.",
+      "programme_notion": "Factorisation de a^n - b^n par a - b",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_factorisation_premiere",
+      "answer_latex": "Tout entier supérieur à $2$ peut être écrit d'une et une seule manière, appelée sa factorisation première, sous la forme $p_1^{\\alpha_1} \\ldots p_r^{\\alpha_r}$ où $p_1, \\ldots, p_r$ sont des nombres premiers rangés dans l'ordre $p_1 < \\ldots < p_r$ et où $\\alpha_1, \\ldots, \\alpha_r \\in \\mathbb{N}^*$.\n\n\\textbf{Démonstration.} L'existence se démontre aisément par récurrence FORTE. L'unicité attendra quelques mois.\\par\\par Initialisation : $2$ est premier !\\par\\par Hérédité : Soit $n \\geq 2$. Faisons l'hypothèse que tout entier compris entre $2$ et $n$ est un produit de nombres premiers — éventuellement constitué d'un seul nombre premier. Qu'en est-il de $n+1$ ? Si $n+1$ est premier, c'est terminé. S'il ne l'est pas, il a des diviseurs positifs autres que $1$ et $n+1$, disons $a$ et $b$ avec $n+1 = ab$. Ainsi, $a$ et $b$ sont des produits de nombres premiers par hypothèse de récurrence, donc $n+1$ aussi par produit.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Sommes doubles, produit de deux sommes finies.",
+      "programme_notion": "Sommes doubles, produit de deux sommes finies",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_permutation_sommes_doubles",
+      "answer_latex": "Pour toute famille $(x_{ij})_{1 \\leq i, j \\leq n}$ de réels :\\par $\\sum_{1 \\leq i, j \\leq n} x_{ij} = \\sum_{i=1}^{n} \\sum_{j=1}^{n} x_{ij} = \\sum_{j=1}^{n} \\sum_{i=1}^{n} x_{ij}$,\\par $\\sum_{1 \\leq i \\leq j \\leq n} x_{ij} = \\sum_{j=1}^{n} \\sum_{i=1}^{j} x_{ij} = \\sum_{i=1}^{n} \\sum_{j=i}^{n} x_{ij}$,\\par $\\sum_{1 \\leq i < j \\leq n} x_{ij} = \\sum_{j=2}^{n} \\sum_{i=1}^{j-1} x_{ij} = \\sum_{i=1}^{n-1} \\sum_{j=i+1}^{n} x_{ij}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_010",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Sommes triangulaires.",
+      "programme_notion": "Sommes triangulaires",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_somme_infinie",
+      "answer_latex": "Soit $(x_n)_{n \\in \\mathbb{N}}$ une suite réelle. Si la suite $\\left(\\sum_{k=0}^{n} x_k\right)_{n \\in \\mathbb{N}}$ converge, sa limite est notée $\\sum_{k=0}^{+\\infty} x_k$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_011",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Factorielle, coefficients binomiaux.",
+      "programme_notion": "Factorielle, coefficients binomiaux",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_coefficient_binomial",
+      "answer_latex": "Soient $n \\in \\mathbb{N}$ et $k \\in \\mathbb{Z}$. On appelle (coefficient binomial) $k$ parmi $n$ et on note $\binom{n}{k}$ le nombre de parties de cardinal $k$ de l'ensemble $\\{1, \\ldots, n\\}$ — ou de l'ensemble $\\emptyset$ si $n = 0$.\\par\\par — Si $k \\in \\{0, 1, \\ldots, n\\}$ : $\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)(n-2)\\ldots(n-k+1)}{k!}$.\\par — Évidemment, $\binom{n}{k} = 0$ si $k < 0$ ou si $k > n$.\\par\\par En particulier : $\binom{n}{0} = 1$, $\binom{n}{1} = n$ et $\binom{n}{2} = \frac{n(n-1)}{2}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_012",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Factorielle, coefficients binomiaux.",
+      "programme_notion": "Factorielle, coefficients binomiaux",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_coefficient_binomial",
+      "answer_latex": "Soient $n \\in \\mathbb{N}$ et $k \\in \\mathbb{Z}$. On appelle (coefficient binomial) $k$ parmi $n$ et on note $\binom{n}{k}$ le nombre de parties de cardinal $k$ de l'ensemble $\\{1, \\ldots, n\\}$ — ou de l'ensemble $\\emptyset$ si $n = 0$.\\par\\par — Si $k \\in \\{0, 1, \\ldots, n\\}$ : $\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)(n-2)\\ldots(n-k+1)}{k!}$.\\par — Évidemment, $\binom{n}{k} = 0$ si $k < 0$ ou si $k > n$.\\par\\par En particulier : $\binom{n}{0} = 1$, $\binom{n}{1} = n$ et $\binom{n}{2} = \frac{n(n-1)}{2}$.\n\n\\textbf{Démonstration.} Faisons l'hypothèse que $k \\in \\{0, 1, \\ldots, n\\}$ et montrons que $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.\\par\\par — Pour construire une famille quelconque $(x_1, \\ldots, x_k)$ de $k$ éléments distincts de $\\{1, \\ldots, n\\}$, on peut commencer par choisir $x_1$ ($n$ possibilités), puis $x_2$ ($n-1$ possibilités maintenant que $x_1$ est choisi), puis $x_3$ (plus que $n-2$ possibilités)... et enfin $x_k$ ($n-k+1$ possibilités). Il existe ainsi $n(n-1)\\ldots(n-k+1) = \frac{n!}{(n-k)!}$ familles de $k$ éléments distincts de $\\{1, \\ldots, n\\}$.\\par\\par — Pour construire une telle famille, on peut aussi procéder autrement, choisir d'abord une partie de cardinal $k$ de $\\{1, \\ldots, n\\}$ ($\binom{n}{k}$ possibilités), puis ordonner cette partie pour en faire une famille $(x_1, \\ldots, x_k)$ ($k!$ possibilités — $k$ pour le choix de $x_1$, puis $k-1$ pour $x_2$... donc $k!$ possibilités en tout). Il existe ainsi $\binom{n}{k} \times k!$ familles de $k$ éléments distincts de $\\{1, \\ldots, n\\}$.\\par\\par Conclusion : $\binom{n}{k} \times k! = \frac{n!}{(n-k)!}$, donc $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_013",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Convention (n,k) = 0 pour k < 0 et k > n.",
+      "programme_notion": "Convention (n,k) = 0 pour k < 0 et k > n",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_puissances",
+      "answer_latex": "Définition : Pour tous $x \\in \\mathbb{R}$ et $n \\in \\mathbb{N}$, on pose $x^n = \\underbrace{x \times x \times \\ldots \times x}_{n \text{ termes}}$ avec $x^0 = 1$ par convention, et si $x \neq 0$, on pose $x^{-n} = \frac{1}{x^n} = \\underbrace{\frac{1}{x} \times \frac{1}{x} \times \\ldots \times \frac{1}{x}}_{n \text{ termes}}$.\\par\\par Règles de calcul : Pour tous $x, y \\in \\mathbb{R}$ et $m, n \\in \\mathbb{N}$ : $x^{m+n} = x^m x^n$, $x^{mn} = (x^m)^n$ et $(xy)^n = x^n y^n$. Ces relations restent vraies si $m$ ou $n$ est négatif à condition que $x$ et $y$ soient non nuls.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_014",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule du binôme de Newton dans R.",
+      "programme_notion": "Formule du binôme de Newton dans R",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_binome",
+      "answer_latex": "Pour tous $n \\in \\mathbb{N}$ et $a, b \\in \\mathbb{R}$ : $(a+b)^n = \\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$.\\par\\par Pour $n \\in \\{2, 3, 4, 5\\}$ :\\par $(a+b)^2 = a^2 + 2ab + b^2$,\\par $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$,\\par $(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$,\\par $(a+b)^5 = a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_015",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule du binôme de Newton dans R.",
+      "programme_notion": "Formule du binôme de Newton dans R",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_binome",
+      "answer_latex": "Pour tous $n \\in \\mathbb{N}$ et $a, b \\in \\mathbb{R}$ : $(a+b)^n = \\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$.\\par\\par Pour $n \\in \\{2, 3, 4, 5\\}$ :\\par $(a+b)^2 = a^2 + 2ab + b^2$,\\par $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$,\\par $(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$,\\par $(a+b)^5 = a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5$.\n\n\\textbf{Démonstration.} Soient $a, b \\in \\mathbb{R}$ fixés. Par récurrence sur $n$.\\par\\par Initialisation : $(a+b)^0 = 1 = \binom{0}{0} a^0 b^{0-0}$.\\par\\par Hérédité : Soit $n \\in \\mathbb{N}$. On suppose que $(a+b)^n = \\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$. Alors :\\par $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b)\\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} = a\\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} + b\\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$\\par $= \\sum_{k=0}^{n} \binom{n}{k} a^{k+1} b^{n-k} + \\sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k+1} = \\sum_{l=1}^{n+1} \binom{n}{l-1} a^l b^{n+1-l} + \\sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k}$ (changement d'indice $k = l-1$ dans la première somme)\\par $= \binom{n}{n} a^{n+1} b^0 + \\sum_{k=1}^{n} \\left[\binom{n}{k-1} + \binom{n}{k}\right] a^k b^{n+1-k} + \binom{n}{0} a^0 b^{n+1} = \\sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}$ (formule de Pascal).",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Système linéaire 2×2, 3×3 à coefficients réels.",
+      "programme_notion": "Système linéaire 2×2, 3×3 à coefficients réels",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_coefficient_binomial",
+      "answer_latex": "Soient $n \\in \\mathbb{N}$ et $k \\in \\mathbb{Z}$. On appelle (coefficient binomial) $k$ parmi $n$ et on note $\binom{n}{k}$ le nombre de parties de cardinal $k$ de l'ensemble $\\{1, \\ldots, n\\}$ — ou de l'ensemble $\\emptyset$ si $n = 0$.\\par\\par — Si $k \\in \\{0, 1, \\ldots, n\\}$ : $\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)(n-2)\\ldots(n-k+1)}{k!}$.\\par — Évidemment, $\binom{n}{k} = 0$ si $k < 0$ ou si $k > n$.\\par\\par En particulier : $\binom{n}{0} = 1$, $\binom{n}{1} = n$ et $\binom{n}{2} = \frac{n(n-1)}{2}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_017",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Système linéaire 2×2, 3×3 à coefficients réels.",
+      "programme_notion": "Système linéaire 2×2, 3×3 à coefficients réels",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_coefficient_binomial",
+      "answer_latex": "Soient $n \\in \\mathbb{N}$ et $k \\in \\mathbb{Z}$. On appelle (coefficient binomial) $k$ parmi $n$ et on note $\binom{n}{k}$ le nombre de parties de cardinal $k$ de l'ensemble $\\{1, \\ldots, n\\}$ — ou de l'ensemble $\\emptyset$ si $n = 0$.\\par\\par — Si $k \\in \\{0, 1, \\ldots, n\\}$ : $\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)(n-2)\\ldots(n-k+1)}{k!}$.\\par — Évidemment, $\binom{n}{k} = 0$ si $k < 0$ ou si $k > n$.\\par\\par En particulier : $\binom{n}{0} = 1$, $\binom{n}{1} = n$ et $\binom{n}{2} = \frac{n(n-1)}{2}$.\n\n\\textbf{Démonstration.} Faisons l'hypothèse que $k \\in \\{0, 1, \\ldots, n\\}$ et montrons que $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.\\par\\par — Pour construire une famille quelconque $(x_1, \\ldots, x_k)$ de $k$ éléments distincts de $\\{1, \\ldots, n\\}$, on peut commencer par choisir $x_1$ ($n$ possibilités), puis $x_2$ ($n-1$ possibilités maintenant que $x_1$ est choisi), puis $x_3$ (plus que $n-2$ possibilités)... et enfin $x_k$ ($n-k+1$ possibilités). Il existe ainsi $n(n-1)\\ldots(n-k+1) = \frac{n!}{(n-k)!}$ familles de $k$ éléments distincts de $\\{1, \\ldots, n\\}$.\\par\\par — Pour construire une telle famille, on peut aussi procéder autrement, choisir d'abord une partie de cardinal $k$ de $\\{1, \\ldots, n\\}$ ($\binom{n}{k}$ possibilités), puis ordonner cette partie pour en faire une famille $(x_1, \\ldots, x_k)$ ($k!$ possibilités — $k$ pour le choix de $x_1$, puis $k-1$ pour $x_2$... donc $k!$ possibilités en tout). Il existe ainsi $\binom{n}{k} \times k!$ familles de $k$ éléments distincts de $\\{1, \\ldots, n\\}$.\\par\\par Conclusion : $\binom{n}{k} \times k! = \frac{n!}{(n-k)!}$, donc $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_018",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation géométrique : intersection de droites dans R², de plans dans R³.",
+      "programme_notion": "Interprétation géométrique : intersection de droites dans R², de plans dans R³",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_019",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Algorithme du pivot de Gauss.",
+      "programme_notion": "Algorithme du pivot de Gauss",
+      "answer_node_id": "matrices_et_systemes_lineaires__method_algorithme_pivot",
+      "answer_latex": "C'EN EST FINI DES SUBSTITUTIONS ! On utilise l'algorithme du pivot.\\par Étape 1 : On choisit un coefficient non nul (pivot) et on le place en position $(1,1)$ par permutation si nécessaire. Privilégiez un pivot de valeur 1.\\par Étape 2 : On annule tous les coefficients de la première colonne sous le pivot par des opérations $L_i \\leftarrow L_i + \\lambda_i L_1$. On supprime les lignes nulles.\\par Reprise : On répète sur le sous-système (sans la ligne 1) jusqu'à obtenir une forme échelonnée.\\par Remontée : On annule les coefficients au-dessus des pivots pour exprimer les inconnues.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_020",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations élémentaires L_i ↔ L_j, L_i ← λL_i, L_i ← L_i + λL_j.",
+      "programme_notion": "Opérations élémentaires L_i ↔ L_j, L_i ← λL_i, L_i ← L_i + λL_j",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_nombre_premier",
+      "answer_latex": "Un entier naturel $p$ est dit premier si $p \\geq 2$ et si ses seuls diviseurs sont $\\pm 1$ et $\\pm p$.\\par\\par Les nombres premiers sont l'analogue arithmétique des particules élémentaires en physique — des entiers qu'on ne peut pas casser en morceaux plus petits. Leur liste commence ainsi : $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43\\ldots$",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_021",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Relation d'ordre sur R, compatibilité avec les opérations.",
+      "programme_notion": "Relation d'ordre sur R, compatibilité avec les opérations",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_inegalites",
+      "answer_latex": "Soient $a, b, c, d, \\lambda \\in \\mathbb{R}$.\\par\\par Lien strict/large : Si $a < b$, alors $a \\leq b$, mais la réciproque est fausse !\\par\\par Dans les règles qui suivent, on peut remplacer les inégalités larges par des inégalités strictes.\\par — Addition : Si $a \\leq b$ et $c \\leq d$, alors $a + c \\leq b + d$.\\par — Produit :\\par \\quad — par un réel positif : Si $a \\leq b$ et $\\lambda \\geq 0$, alors $\\lambda a \\leq \\lambda b$.\\par \\quad — par un réel négatif : Si $a \\leq b$ et $\\lambda \\leq 0$, alors $\\lambda a \\geq \\lambda b$. On renverse !\\par \\quad — d'inégalités positives : Si $0 \\leq a \\leq b$ et $0 \\leq c \\leq d$, alors $0 \\leq ac \\leq bd$.\\par — Inversion : Si $a \\leq b$ avec $a$ et $b$ non nuls DE MÊME SIGNE, alors $\frac{1}{b} \\leq \frac{1}{a}$.\\par — Majorer/minorer une fraction : On suppose $a \\geq 0$ et $b > 0$. Majorer $\frac{a}{b}$, c'est majorer $a$ et MINORER $b$. Au contraire, minorer $\frac{a}{b}$, c'est minorer $a$ et MAJORER $b$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_022",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Intervalles de R.",
+      "programme_notion": "Intervalles de R",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_intervalles",
+      "answer_latex": "Pour tous $a, b \\in \\mathbb{R}$, on introduit différents ensembles de nombres appelés intervalles :\\par — les segments : $[a, b] = \\{x \\in \\mathbb{R} \\mid a \\leq x \\leq b\\}$,\\par — les intervalles ouverts, par exemple : $]a, b[ = \\{x \\in \\mathbb{R} \\mid a < x < b\\}$ et $]a, +\\infty[ = \\{x \\in \\mathbb{R} \\mid x > a\\}$,\\par — les intervalles semi-ouverts, par exemple : $[a, b[ = \\{x \\in \\mathbb{R} \\mid a \\leq x < b\\}$ et $]-\\infty, b] = \\{x \\in \\mathbb{R} \\mid x \\leq b\\}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_023",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Majoration et minoration de sommes, produits, quotients.",
+      "programme_notion": "Majoration et minoration de sommes, produits, quotients",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_simplification_telescopique_produit",
+      "answer_latex": "Pour tous $x_m, \\ldots, x_{n+1} \\in \\mathbb{R}^*$ : $\\prod_{k=m}^{n} \frac{x_{k+1}}{x_k} = \frac{x_{n+1}}{x_m}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_024",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Utilisation de factorisations et tableaux de signes.",
+      "programme_notion": "Utilisation de factorisations et tableaux de signes",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_pgcd_ppcm",
+      "answer_latex": "Soient $a, b \\in \\mathbb{N}^*$.\\par\\par PGCD : Le plus grand diviseur commun positif de $a$ et $b$ est appelé le PGCD de $a$ et $b$ et noté $a \\wedge b$.\\par\\par PPCM : Le plus petit multiple commun strictement positif de $a$ et $b$ est appelé le PPCM de $a$ et $b$ et noté $a \\vee b$.\\par\\par Calcul à partir des factorisations premières : Soient $p_1, \\ldots, p_r$ des nombres premiers distincts et $\\alpha_1, \\ldots, \\alpha_r, \beta_1, \\ldots, \beta_r \\in \\mathbb{N}$. Alors :\\par $p_1^{\\alpha_1} \\ldots p_r^{\\alpha_r} \\wedge p_1^{\beta_1} \\ldots p_r^{\beta_r} = p_1^{\\min\\{\\alpha_1, \beta_1\\}} \\ldots p_r^{\\min\\{\\alpha_r, \beta_r\\}}$\\par et $p_1^{\\alpha_1} \\ldots p_r^{\\alpha_r} \\vee p_1^{\beta_1} \\ldots p_r^{\beta_r} = p_1^{\\max\\{\\alpha_1, \beta_1\\}} \\ldots p_r^{\\max\\{\\alpha_r, \beta_r\\}}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_025",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Résolution d'inéquations.",
+      "programme_notion": "Résolution d'inéquations",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_inequations_carres",
+      "answer_latex": "Pour $x, a \\in \\mathbb{R}$ : $x \\leq a \\Rightarrow x^2 \\leq a^2$ est FAUX, et $x^2 \\leq a^2 \\Rightarrow x \\leq a$ est FAUX. Par exemple : $-2 \\leq 1$ mais $(-2)^2 > 1^2$, et $1 \\leq (-2)^2$ mais $1 > -2$.\\par\\par Par bonheur, certaines choses se passent bien. Pour tous $x, a \\in \\mathbb{R}$ : $x^2 \\leq a^2 \\iff |x| \\leq |a|$, et pour $x, a \\geq 0$ : $x \\leq a \\iff x^2 \\leq a^2$, et pour $x \\geq 0$ seulement : $x^2 \\leq a^2 \\iff x \\leq a$ et $a \\geq 0$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_026",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Valeur absolue, inégalité triangulaire, cas d'égalité.",
+      "programme_notion": "Valeur absolue, inégalité triangulaire, cas d'égalité",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_valeur_absolue",
+      "answer_latex": "Définition : Pour tout $x \\in \\mathbb{R}$, on appelle valeur absolue de $x$ le réel $|x| = \begin{cases} x & \text{si } x \\geq 0 \\ -x & \text{si } x < 0 \\end{cases}$. Ce réel est positif, et nul seulement si $x = 0$.\\par\\par En outre, $x$ est compris entre $-|x|$ et $|x|$ : $-|x| \\leq x \\leq |x|$.\\par\\par Interprétation géométrique : Pour tous $x, y \\in \\mathbb{R}$, $|x-y|$ est la distance entre $x$ et $y$ sur la droite réelle.\\par\\par Effet sur une somme ou un produit : Pour tous $x, y \\in \\mathbb{R}$ : $|xy| = |x| \\cdot |y|$ et $|x+y| \\leq |x| + |y|$ (inégalité triangulaire).",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_027",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation de |x - a| ≤ b sur la droite réelle.",
+      "programme_notion": "Interprétation de |x - a| ≤ b sur la droite réelle",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_valeur_absolue",
+      "answer_latex": "Définition : Pour tout $x \\in \\mathbb{R}$, on appelle valeur absolue de $x$ le réel $|x| = \begin{cases} x & \text{si } x \\geq 0 \\ -x & \text{si } x < 0 \\end{cases}$. Ce réel est positif, et nul seulement si $x = 0$.\\par\\par En outre, $x$ est compris entre $-|x|$ et $|x|$ : $-|x| \\leq x \\leq |x|$.\\par\\par Interprétation géométrique : Pour tous $x, y \\in \\mathbb{R}$, $|x-y|$ est la distance entre $x$ et $y$ sur la droite réelle.\\par\\par Effet sur une somme ou un produit : Pour tous $x, y \\in \\mathbb{R}$ : $|xy| = |x| \\cdot |y|$ et $|x+y| \\leq |x| + |y|$ (inégalité triangulaire).",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_028",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Parties majorées, minorées, bornées dans R.",
+      "programme_notion": "Parties majorées, minorées, bornées dans R",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_029",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Majorant, minorant, maximum, minimum.",
+      "programme_notion": "Majorant, minorant, maximum, minimum",
+      "answer_node_id": "topologie_de_r_et_c__example_bornes_adherentes",
+      "answer_latex": "Pour toute partie non vide bornée $A$ de $\\mathbb{R}$, $\\inf A$ et $\\sup A$ sont adhérents à $A$ d'après la caractérisation séquentielle des bornes supérieure et inférieure.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_030",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Partie entière d'un nombre réel (notation ⌊x⌋).",
+      "programme_notion": "Partie entière d'un nombre réel (notation ⌊x⌋)",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_partie_entiere",
+      "answer_latex": "Soit $x \\in \\mathbb{R}$. Il existe un et un seul entier $n \\in \\mathbb{Z}$ pour lequel $n \\leq x < n+1$, appelé la partie entière de $x$ et noté $\\lfloor x \rfloor$. Cet entier est donc le plus grand entier relatif inférieur (ou égal) à $x$.\\par\\par L'essentiel en résumé : $\\lfloor x \rfloor \\leq x < \\lfloor x \rfloor + 1$ et $\\lfloor x \rfloor - 1 < x \\leq \\lfloor x \rfloor$.\\par\\par Le réel $y = x - \\lfloor x \rfloor$ est quant à lui appelé la partie fractionnaire de $x$ et $x$ est ainsi la somme de sa partie entière et de sa partie fractionnaire.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_031",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Cercle trigonométrique, paramétrisation par cos et sin.",
+      "programme_notion": "Cercle trigonométrique, paramétrisation par cos et sin",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_032",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation de congruence modulo 2π sur R.",
+      "programme_notion": "Relation de congruence modulo 2π sur R",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_inegalites",
+      "answer_latex": "Soient $a, b, c, d, \\lambda \\in \\mathbb{R}$.\\par\\par Lien strict/large : Si $a < b$, alors $a \\leq b$, mais la réciproque est fausse !\\par\\par Dans les règles qui suivent, on peut remplacer les inégalités larges par des inégalités strictes.\\par — Addition : Si $a \\leq b$ et $c \\leq d$, alors $a + c \\leq b + d$.\\par — Produit :\\par \\quad — par un réel positif : Si $a \\leq b$ et $\\lambda \\geq 0$, alors $\\lambda a \\leq \\lambda b$.\\par \\quad — par un réel négatif : Si $a \\leq b$ et $\\lambda \\leq 0$, alors $\\lambda a \\geq \\lambda b$. On renverse !\\par \\quad — d'inégalités positives : Si $0 \\leq a \\leq b$ et $0 \\leq c \\leq d$, alors $0 \\leq ac \\leq bd$.\\par — Inversion : Si $a \\leq b$ avec $a$ et $b$ non nuls DE MÊME SIGNE, alors $\frac{1}{b} \\leq \frac{1}{a}$.\\par — Majorer/minorer une fraction : On suppose $a \\geq 0$ et $b > 0$. Majorer $\frac{a}{b}$, c'est majorer $a$ et MINORER $b$. Au contraire, minorer $\frac{a}{b}$, c'est minorer $a$ et MAJORER $b$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_033",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cosinus et sinus de π ± x, de π/2 ± x.",
+      "programme_notion": "Cosinus et sinus de π ± x, de π/2 ± x",
+      "answer_node_id": "calculs_algebriques_dans_R__definition_ensembles_nombres",
+      "answer_latex": "On rappelle que :\\par — $\\mathbb{N}^*$, $\\mathbb{Q}^*$, $\\mathbb{R}^*$ et $\\mathbb{C}^*$ désignent les ensembles $\\mathbb{N}$, $\\mathbb{Q}$, $\\mathbb{R}$ et $\\mathbb{C}$ privés de $0$,\\par — $\\mathbb{R}_+$ désigne l'ensemble des réels positifs (ou nuls) et $\\mathbb{R}_-$ celui des réels négatifs (ou nuls),\\par — $\\mathbb{R}_+^*$ désigne l'ensemble des réels strictement positifs et $\\mathbb{R}_-^*$ celui des réels strictement négatifs.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_034",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cosinus et sinus des angles usuels.",
+      "programme_notion": "Cosinus et sinus des angles usuels",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_035",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Cosinus et sinus des angles usuels.",
+      "programme_notion": "Cosinus et sinus des angles usuels",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} Par l'absurde, supposons $\\mathcal{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. L'entier $N = p_1 \\ldots p_r + 1$ est supérieur à $2$, c'est donc un produit de nombres premiers d'après le théorème précédent. Il possède en particulier un diviseur premier, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. Ainsi, $p_k$ divise à la fois $N$ et $p_1 \\ldots p_r$, donc également leur différence $N - p_1 \\ldots p_r = 1$. Il en découle que $p_k = 1$ — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_036",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formules d'addition cos(a±b), sin(a±b).",
+      "programme_notion": "Formules d'addition cos(a±b), sin(a±b)",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_037",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formules de duplication cos(2a), sin(2a).",
+      "programme_notion": "Formules de duplication cos(2a), sin(2a)",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_038",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions circulaires cos, sin : dérivées, variations.",
+      "programme_notion": "Fonctions circulaires cos, sin : dérivées, variations",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_039",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité |sin(x)| ≤ |x|.",
+      "programme_notion": "Inégalité |sin(x)| ≤ |x|",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_cauchy_schwarz",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_n, y_1, \\ldots, y_n \\in \\mathbb{R}$ : $\\left|\\sum_{k=1}^{n} x_k y_k\right| \\leq \\sqrt{\\sum_{k=1}^{n} x_k^2} \\sqrt{\\sum_{k=1}^{n} y_k^2}$, ou encore : $\\left(\\sum_{k=1}^{n} x_k y_k\right)^2 \\leq \\left(\\sum_{k=1}^{n} x_k^2\right)\\left(\\sum_{k=1}^{n} y_k^2\right)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_040",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité |sin(x)| ≤ |x|.",
+      "programme_notion": "Inégalité |sin(x)| ≤ |x|",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_cauchy_schwarz",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_n, y_1, \\ldots, y_n \\in \\mathbb{R}$ : $\\left|\\sum_{k=1}^{n} x_k y_k\right| \\leq \\sqrt{\\sum_{k=1}^{n} x_k^2} \\sqrt{\\sum_{k=1}^{n} y_k^2}$, ou encore : $\\left(\\sum_{k=1}^{n} x_k y_k\right)^2 \\leq \\left(\\sum_{k=1}^{n} x_k^2\right)\\left(\\sum_{k=1}^{n} y_k^2\right)$.\n\n\\textbf{Démonstration.} Posons $X = \\sum_{k=1}^{n} x_k^2$, $Y = \\sum_{k=1}^{n} y_k^2$ et $Z = \\sum_{k=1}^{n} x_k y_k$. On souhaite montrer que $|Z| \\leq \\sqrt{X}\\sqrt{Y}$.\\par\\par Si $x_1 = \\ldots = x_n = 0$, alors $X = Z = 0$, donc $|Z| = 0 \\leq 0 = \\sqrt{X}\\sqrt{Y}$.\\par\\par Supposons au contraire que l'un des réels $x_1, \\ldots, x_n$ est non nul, de sorte que $X > 0$, et notons $S$ la fonction $t \\mapsto \\sum_{k=1}^{n} (x_k t + y_k)^2$ de $\\mathbb{R}$ dans $\\mathbb{R}$. Pour tout $t \\in \\mathbb{R}$ : $S(t) = \\sum_{k=1}^{n} (x_k^2 t^2 + 2x_k y_k t + y_k^2) = Xt^2 + 2Zt + Y$, donc $S$ est une fonction polynomiale de degré 2 — EXACTEMENT 2 car $X \neq 0 = 0$. Par ailleurs, $S$ est positive sur $\\mathbb{R}$ tout entier car une somme de carrés de réels est toujours positive, donc $S$ possède 0 ou 1 racine réelle, mais pas plus. Il en découle que son discriminant $(2Z)^2 - 4XY = 4(Z^2 - XY)$ est négatif, i.e. que $Z^2 \\leq XY$. Enfin, par croissance de la racine carrée : $|Z| = \\sqrt{Z^2} \\leq \\sqrt{XY} = \\sqrt{X}\\sqrt{Y}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_041",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction tangente : dérivée, variations, représentation graphique.",
+      "programme_notion": "Fonction tangente : dérivée, variations, représentation graphique",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_racines_polynome",
+      "answer_latex": "Soient $P : \\mathbb{R} \to \\mathbb{R}$ une fonction polynomiale et $\\lambda \\in \\mathbb{R}$. Les assertions suivantes sont équivalentes :\\par (i) $P(\\lambda) = 0$.\\par (ii) Il existe une fonction polynomiale $Q : \\mathbb{R} \to \\mathbb{R}$ pour laquelle $P(x) = (x-\\lambda)Q(x)$ pour tout $x \\in \\mathbb{R}$.\\par\\par On dit dans ce cas que $\\lambda$ est une racine de $P$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_042",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonction tangente : dérivée, variations, représentation graphique.",
+      "programme_notion": "Fonction tangente : dérivée, variations, représentation graphique",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_racines_polynome",
+      "answer_latex": "Soient $P : \\mathbb{R} \to \\mathbb{R}$ une fonction polynomiale et $\\lambda \\in \\mathbb{R}$. Les assertions suivantes sont équivalentes :\\par (i) $P(\\lambda) = 0$.\\par (ii) Il existe une fonction polynomiale $Q : \\mathbb{R} \to \\mathbb{R}$ pour laquelle $P(x) = (x-\\lambda)Q(x)$ pour tout $x \\in \\mathbb{R}$.\\par\\par On dit dans ce cas que $\\lambda$ est une racine de $P$.\n\n\\textbf{Démonstration.} L'implication (ii) $\\Rightarrow$ (i) est triviale. Réciproquement, faisons l'hypothèse que $P(\\lambda) = 0$. Aussitôt, pour tout $x \\in \\mathbb{R}$ : $P(x) = P(x) - P(\\lambda) = \\sum_{k=0}^{n} a_k(x^k - \\lambda^k) = \\sum_{k=1}^{n} a_k(x-\\lambda)\\sum_{i=0}^{k-1} x^i \\lambda^{k-1-i} = (x-\\lambda)\\sum_{i=0}^{n-1}\\left(\\sum_{k=i+1}^{n} a_k \\lambda^{k-1-i}\right)x^i = (x-\\lambda)Q(x)$ si on pose $Q(x) = \\sum_{i=0}^{n-1}\\left(\\sum_{k=i+1}^{n} a_k \\lambda^{k-1-i}\right)x^i$. La fonction $Q$ ainsi dénichée est bien polynomiale, c'est fini !",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_043",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Tangente de π ± x, tangente des angles usuels.",
+      "programme_notion": "Tangente de π ± x, tangente des angles usuels",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_044",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Tangente de π ± x, tangente des angles usuels.",
+      "programme_notion": "Tangente de π ± x, tangente des angles usuels",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_infinite_premiers",
+      "answer_latex": "L'ensemble $\\mathcal{P}$ des nombres premiers est infini.\n\n\\textbf{Démonstration.} Par l'absurde, supposons $\\mathcal{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. L'entier $N = p_1 \\ldots p_r + 1$ est supérieur à $2$, c'est donc un produit de nombres premiers d'après le théorème précédent. Il possède en particulier un diviseur premier, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. Ainsi, $p_k$ divise à la fois $N$ et $p_1 \\ldots p_r$, donc également leur différence $N - p_1 \\ldots p_r = 1$. Il en découle que $p_k = 1$ — contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_045",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule d'addition tan(a±b).",
+      "programme_notion": "Formule d'addition tan(a±b)",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_an_moins_bn",
+      "answer_latex": "Pour tous $n \\in \\mathbb{N}^*$ et $a, b \\in \\mathbb{R}$ : $a^n - b^n = (a-b)\\sum_{k=0}^{n-1} a^k b^{n-1-k} = (a-b)(a^{n-1} + a^{n-2}b + \\ldots + ab^{n-2} + b^{n-1})$.\\par\\par Dans la somme, les puissances de $a$ diminuent à mesure que les puissances de $b$ augmentent. Pour $n=2$, le résultat est connu : $a^2 - b^2 = (a-b)(a+b)$, pour $n=3$ : $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$, et enfin pour $n=4$ : $a^4 - b^4 = (a-b)(a^3 + a^2b + ab^2 + b^3)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_046",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule d'addition tan(a±b).",
+      "programme_notion": "Formule d'addition tan(a±b)",
+      "answer_node_id": "calculs_algebriques_dans_R__theorem_an_moins_bn",
+      "answer_latex": "Pour tous $n \\in \\mathbb{N}^*$ et $a, b \\in \\mathbb{R}$ : $a^n - b^n = (a-b)\\sum_{k=0}^{n-1} a^k b^{n-1-k} = (a-b)(a^{n-1} + a^{n-2}b + \\ldots + ab^{n-2} + b^{n-1})$.\\par\\par Dans la somme, les puissances de $a$ diminuent à mesure que les puissances de $b$ augmentent. Pour $n=2$, le résultat est connu : $a^2 - b^2 = (a-b)(a+b)$, pour $n=3$ : $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$, et enfin pour $n=4$ : $a^4 - b^4 = (a-b)(a^3 + a^2b + ab^2 + b^3)$.\n\n\\textbf{Démonstration.} $(a-b)\\sum_{k=0}^{n-1} a^k b^{n-1-k} = \\sum_{k=0}^{n-1} (a^{k+1}b^{n-(k+1)} - a^k b^{n-k}) = a^n b^0 - a^0 b^n = a^n - b^n$ après simplification télescopique.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_ALG__qc_047",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression de cos(t) et sin(t) en fonction de tan(t/2).",
+      "programme_notion": "Expression de cos(t) et sin(t) en fonction de tan(t/2)",
+      "answer_node_id": "calculs_algebriques_dans_R__warning_majorer_dans_valeur_absolue",
+      "answer_latex": "TRÈS GROSSE ERREUR : $x \\leq y \\Rightarrow |x| \\leq |y|$. Majorer $|x|$, c'est ENCADRER $x$, et non pas seulement le majorer.\\par\\par Quand on veut majorer $|\\cos x + \\sin x|$, il faut donc toujours gérer D'ABORD la valeur absolue, souvent grâce à l'inégalité triangulaire : $|\\cos x + \\sin x| \\leq |\\cos x| + |\\sin x| \\leq 1 + 1 = 2$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    }
+  ]
+}

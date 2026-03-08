@@ -1,0 +1,2060 @@
+{
+  "chapter_official_id": "topologie_de_r_et_c",
+  "chapter_name": "Topologie de R et C",
+  "source_document": "Exercices - Topologie de R et C.pdf",
+  "exercises": [
+    {
+      "id": "topologie_de_r_et_c__ex_001",
+      "title": "Limites de modules et arguments",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__theorem_critere_convergence",
+        "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites complexes",
+        "limites",
+        "module",
+        "argument"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $(r_{n})_{n\\in\\mathbb{N}}$ et $(\\theta_{n})_{n\\in\\mathbb{N}}$ deux suites r\\éelles convergentes. \\Étudier $\\lim_{n\\rightarrow+\\infty}r_{n}e^{i\\theta_{n}}.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_critere_convergence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les th\\éor\\èmes d'op\\érations sur les limites pour le produit et l'exponentielle complexe."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction $x \\mapsto e^{ix}$ est continue sur $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Posons $r_n \\to r$ et $\\theta_n \\to \\theta$. On a $r_n e^{i\\theta_n} = r_n(\\cos\\theta_n + i\\sin\\theta_n)$. Par continuit\\é de $\\cos$ et $\\sin$ sur $\\mathbb{R}$, $\\cos\\theta_n \\to \\cos\\theta$ et $\\sin\\theta_n \\to \\theta$. Par le th\\éor\\ème des op\\érations sur les limites (produit), $r_n\\cos\\theta_n \\to r\\cos\\theta$ et $r_n\\sin\\theta_n \\to r\\sin\\theta$. Donc $r_n e^{i\\theta_n} \\to re^{i\\theta}$.\\par \\textbf{Conclusion :} $\\lim_{n\\to+\\infty} r_n e^{i\\theta_n} = re^{i\\theta}$ o\\ù $r = \\lim r_n$ et $\\theta = \\lim \\theta_n$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Soit $(z_{n})_{n\\in\\mathbb{N}}$ une suite complexe convergente. \\Étudier $\\lim_{n\\rightarrow+\\infty}|z_{n}|$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser \\à la continuit\\é de l'application module."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'in\\égalité triangulaire invers\\ée : $||z_n| - |l|| \\le |z_n - l|$."
+            }
+          ],
+          "solution_latex": "Soit $z_n \\to l \\in \\mathbb{C}$. Par l'in\\égalité triangulaire invers\\ée, $||z_n| - |l|| \\le |z_n - l|$. Comme $|z_n - l| \\to 0$, par le th\\éor\\ème d'encadrement (ou des gendarmes), $||z_n| - |l|| \\to 0$, donc $|z_n| \\to |l|$.\\par \\textbf{Conclusion :} $\\lim_{n\\to+\\infty} |z_n| = |l|$. L'application module est continue sur $\\mathbb{C}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $x\\in\\mathbb{R}^{*}$. Trouver une suite complexe $(z_{n})_{n\\in\\mathbb{N}}$ pour laquelle $(\\arg(z_{n}))_{n\\in\\mathbb{N}}$ n'a pas de limite, mais $z_{n}\\longrightarrow-x.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_critere_convergence",
+            "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'argument d'un r\\éel n\\égatif principal est g\\én\\éralement $\\pi$. On cherche une suite qui oscille autour de l'axe r\\éel n\\égatif en coupant cet axe."
+            },
+            {
+              "level": 2,
+              "content_latex": "Essayer une suite de la forme $z_n = -x + i \\frac{(-1)^n}{n}$."
+            }
+          ],
+          "solution_latex": "Soit $x \\in \\mathbb{R}^*$. On suppose $x > 0$ (le cas $x < 0$ est analogue). Posons $z_n = -x + i\\frac{(-1)^n}{n}$ pour $n \\ge 1$.\\par \\textbf{Convergence :} $|z_n - (-x)| = |i\\frac{(-1)^n}{n}| = \\frac{1}{n} \\to 0$, donc $z_n \\to -x$.\\par \\textbf{Argument :} Pour $n$ pair, $\\text{Im}(z_n) = \\frac{1}{n} > 0$ et $\\text{Re}(z_n) = -x < 0$, donc $\\arg(z_n) \\in (\\frac{\\pi}{2}, \\pi)$ et tend vers $\\pi$. Pour $n$ impair, $\\text{Im}(z_n) = -\\frac{1}{n} < 0$ et $\\text{Re}(z_n) = -x < 0$, donc $\\arg(z_n) \\in (-\\pi, -\\frac{\\pi}{2})$ et tend vers $-\\pi$.\\par La suite $(\\arg(z_n))_{n}$ oscille entre des valeurs proches de $\\pi$ et $-\\pi$, donc ne converge pas."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit $(z_{n})_{n\\in\\mathbb{N}}$ une suite complexe convergente de limite 1. Montrer que $\\arg(z_{n})\\rightarrow0$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "\\Écrire l'argument comme une arctangente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $z_n = x_n + i y_n$ proche de 1, $x_n > 0$, donc on peut utiliser la formule $\\arg(z_n) \\equiv \\arctan(y_n/x_n) \\pmod{2\\pi}$."
+            }
+          ],
+          "solution_latex": "Soit $z_n \\to 1$. Posons $z_n = x_n + iy_n$. Alors $x_n \\to 1$ et $y_n \\to 0$.\\par Pour $n$ assez grand, $x_n > 0$ (car $x_n \\to 1 > 0$). On peut donc \\écrire $\\arg(z_n) = \\arctan\\left(\\frac{y_n}{x_n}\\right) + 2k_n\\pi$ pour un certain $k_n \\in \\mathbb{Z}$. Mais comme $z_n$ est dans le demi-plan $\\{\\text{Re}(z) > 0\\}$ pour $n$ assez grand, l'argument principal vaut exactement $\\arg(z_n) = \\arctan\\left(\\frac{y_n}{x_n}\\right)$.\\par Par continuit\\é de $\\arctan$ et par op\\érations sur les limites : $\\frac{y_n}{x_n} \\to \\frac{0}{1} = 0$, donc $\\arg(z_n) = \\arctan\\left(\\frac{y_n}{x_n}\\right) \\to \\arctan(0) = 0$.\\par \\textbf{Conclusion :} $\\arg(z_n) \\to 0$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Soit $(z_{n})_{n\\in\\mathbb{N}}$ une suite complexe convergente dont la limite n'appartient pas \\à $\\mathbb{R}$. Montrer que $(\\arg(z_{n}))_{n\\in\\mathbb{N}}$ converge.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $z_{\\infty}$ la limite de $(z_{n})_{n\\in\\mathbb{N}}$, montrer que $\\arg(z_{n})=\\arg(z_{\\infty})+\\arg(\\frac{z_{n}}{z_{\\infty}})$ pour n assez grand avec une \\égalité et non pas une congruence modulo $2\\pi$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $z_\\infty \\notin \\mathbb{R}$, son argument n'est pas un multiple de $\\pi$. Argumenter de la continuit\\é de la fonction argument principal en dehors de $\\mathbb{R}_-$."
+            }
+          ],
+          "solution_latex": "Notons $z_\\infty = \\lim z_n$ avec $z_\\infty \\notin \\mathbb{R}$. Alors $\\text{Im}(z_\\infty) \\ne 0$.\\par Pour $n$ assez grand, $z_n$ est proche de $z_\\infty$, donc $z_n \\notin \\mathbb{R}_-$ (car $z_\\infty \\notin \\mathbb{R}$). La fonction argument principal est continue sur $\\mathbb{C} \\setminus \\mathbb{R}_-$.\\par Plus pr\\écis\\ément, $\\frac{z_n}{z_\\infty} \\to 1$ et $1 \\notin \\mathbb{R}_-$, donc par la question 2) b), $\\arg\\left(\\frac{z_n}{z_\\infty}\\right) \\to 0$.\\par On a $\\arg(z_n) = \\arg(z_\\infty) + \\arg\\left(\\frac{z_n}{z_\\infty}\\right)$ (modulo $2\\pi$), et comme les deux membres du second terme restent dans un intervalle de longueur $< 2\\pi$ pour $n$ assez grand, l'\\égalit\\é est exacte (sans modulo).\\par \\textbf{Conclusion :} $\\arg(z_n) \\to \\arg(z_\\infty)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_002",
+      "title": "Convergence suite définie par récurrence",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites complexes",
+        "récurrence",
+        "module",
+        "argument"
+      ],
+      "statement_latex": "Soit $(z_{n})_{n\\in\\mathbb{N}}$ une suite complexe pour laquelle $z_{n+1}=\\frac{z_{n}+|z_{n}|}{2}$ pour tout $n\\in\\mathbb{N}$. Montrer que $(z_{n})_{n\\in\\mathbb{N}}$ converge vers un r\\éel positif.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ce n'est pas obligatoire, mais on peut travailler avec des formes trigonom\\étriques et chercher des relations de r\\écurrence sur les modules et les arguments."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $z_n = r_n e^{i\\theta_n}$. En d\\éduire que $r_{n+1} = r_n \\cos(\\theta_n / 2)$ et $\\theta_{n+1} = \\theta_n / 2$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Exprimer $\\theta_n$ en fonction de $\\theta_0$, puis utiliser la limite d'un produit infini ou une astuce de t\\élescopage avec la fonction sinus pour d\\éterminer la limite de $r_n$."
+            }
+          ],
+          "solution_latex": "Posons $z_n = r_n e^{i\\theta_n}$ avec $r_n = |z_n|$ et $\\theta_n = \\arg(z_n)$.\\par \\textbf{Calcul de $z_{n+1}$ :} $z_{n+1} = \\frac{z_n + |z_n|}{2} = \\frac{r_n e^{i\\theta_n} + r_n}{2} = \\frac{r_n}{2}(e^{i\\theta_n} + 1) = \\frac{r_n}{2} \\cdot 2\\cos\\left(\\frac{\\theta_n}{2}\\right) e^{i\\theta_n/2} = r_n \\cos\\left(\\frac{\\theta_n}{2}\\right) e^{i\\theta_n/2}$.\\par On en d\\éduit : $r_{n+1} = r_n \\left|\\cos\\left(\\frac{\\theta_n}{2}\\right)\\right|$ et $\\theta_{n+1} = \\frac{\\theta_n}{2}$ (\\à $\\pi$ pr\\ès selon le signe du cosinus, mais on peut v\\érifier que $\\cos(\\theta_n/2) \\ge 0$ pour $n \\ge 1$ car $|\\theta_n| \\le \\pi/2^{n-1}$ pour $n \\ge 1$).\\par \\textbf{Suite des arguments :} $\\theta_n = \\frac{\\theta_0}{2^n} \\to 0$.\\par \\textbf{Suite des modules :} $r_n = r_0 \\prod_{k=0}^{n-1} \\cos\\left(\\frac{\\theta_0}{2^{k+1}}\\right)$.\\par Par l'identit\\é de Ch\\ébyshev-t\\élescopage : $\\prod_{k=1}^{n} \\cos\\left(\\frac{\\theta}{2^k}\\right) = \\frac{\\sin\\theta}{2^n \\sin(\\theta/2^n)}$ pour $\\theta \\ne 0$.\\par Donc $r_n = r_0 \\cdot \\frac{\\sin\\theta_0}{2^n \\sin(\\theta_0/2^n)}$. Comme $\\sin(\\theta_0/2^n) \\sim \\frac{\\theta_0}{2^n}$ quand $n \\to +\\infty$, on obtient $r_n \\to r_0 \\cdot \\frac{\\sin\\theta_0}{\\theta_0}$ si $\\theta_0 \\ne 0$, et $r_n = r_0$ pour tout $n$ si $\\theta_0 = 0$.\\par \\textbf{Conclusion :} $z_n \\to r_0 \\cdot \\frac{\\sin\\theta_0}{\\theta_0} \\in \\mathbb{R}_+$ si $\\theta_0 \\ne 0$, et $z_n = z_0 \\in \\mathbb{R}_+$ si $\\theta_0 = 0$. Dans tous les cas, la limite est r\\éelle positive."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_003",
+      "title": "Majoration d'une suite complexe récurrente",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites complexes",
+        "suite de cauchy",
+        "majoration"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite complexe pour laquelle $u_{n+2}=u_{n+1}+\\frac{u_{n}}{2^{n}}$ pour tout $n\\in\\mathbb{N}$.\\par On pose $m_{n}=\\max\\{|u_{n}|,|u_{n+1}|\\}$ pour tout $n\\in\\mathbb{N}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $m_{n+1}\\le(1+\\frac{1}{2^{n}})m_{n}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $|u_{n+2}|$ en utilisant l'in\\égalité triangulaire sur la relation de r\\écurrence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer $|u_{n+1}|$ et $|u_n|$ par $m_n$ dans l'expression."
+            }
+          ],
+          "solution_latex": "On a $u_{n+2} = u_{n+1} + \\frac{u_n}{2^n}$, donc par l'in\\égalit\\é triangulaire :\\par $|u_{n+2}| \\le |u_{n+1}| + \\frac{|u_n|}{2^n} \\le m_n + \\frac{m_n}{2^n} = m_n\\left(1 + \\frac{1}{2^n}\\right)$.\\par Or $m_{n+1} = \\max\\{|u_{n+1}|, |u_{n+2}|\\}$. On a $|u_{n+1}| \\le m_n \\le m_n(1 + 1/2^n)$ et $|u_{n+2}| \\le m_n(1 + 1/2^n)$.\\par \\textbf{Conclusion :} $m_{n+1} \\le \\left(1 + \\frac{1}{2^n}\\right)m_n$ pour tout $n \\in \\mathbb{N}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En d\\éduire que $m_{n}\\le e^{2}m_{0}$ pour tout $n\\in\\mathbb{N}$ puis que la suite $(u_{n})_{n\\in\\mathbb{N}}$ est born\\ée.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $x>-1$ : $\\ln(1+x)\\le x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer un t\\élescopage multiplicatif (ou une somme de logarithmes) aux in\\égalit\\és successives obtenues en 1)."
+            }
+          ],
+          "solution_latex": "Par r\\écurrence sur la question 1), $m_n \\le m_0 \\prod_{k=0}^{n-1}\\left(1 + \\frac{1}{2^k}\\right)$.\\par En passant au logarithme : $\\ln(m_n) \\le \\ln(m_0) + \\sum_{k=0}^{n-1} \\ln\\left(1 + \\frac{1}{2^k}\\right)$.\\par Or $\\ln(1+x) \\le x$ pour tout $x > -1$, donc $\\sum_{k=0}^{n-1} \\ln\\left(1 + \\frac{1}{2^k}\\right) \\le \\sum_{k=0}^{n-1} \\frac{1}{2^k} \\le \\sum_{k=0}^{+\\infty} \\frac{1}{2^k} = 2$.\\par Ainsi $m_n \\le m_0 e^2$ pour tout $n \\in \\mathbb{N}$.\\par Comme $|u_n| \\le m_n$ pour tout $n$ (car $|u_n| \\le \\max(|u_n|, |u_{n+1}|) = m_n$), la suite $(u_n)$ est born\\ée par $M = m_0 e^2$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "D\\éterminer un r\\éel $a\\ge0$ pour lequel pour tous $p\\ge n : |u_{n}-u_{p}|\\le\\frac{a}{2^{n}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "\\Écrire $u_{n}-u_{p}$ comme une somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Transformer la diff\\érence en somme t\\élescopique $\\sum_{k=n}^{p-1} (u_{k+1}-u_k)$ et utiliser la relation de r\\écurrence coupl\\ée au caract\\ère born\\é de la suite."
+            }
+          ],
+          "solution_latex": "Pour $p \\ge n$, on \\écrit $u_p - u_n = \\sum_{k=n}^{p-1}(u_{k+1} - u_k)$.\\par Or $u_{k+1} - u_k = u_{k+1} - (u_{k+1} - \\frac{u_{k-1}}{2^{k-1}}) = \\frac{u_{k-1}}{2^{k-1}}$ n'est pas directement utilisable. Reprenons : de la relation $u_{k+2} = u_{k+1} + \\frac{u_k}{2^k}$, on tire $u_{k+2} - u_{k+1} = \\frac{u_k}{2^k}$.\\par Donc $|u_{k+2} - u_{k+1}| = \\frac{|u_k|}{2^k} \\le \\frac{M}{2^k}$ o\\ù $M = m_0 e^2$.\\par Ainsi $|u_p - u_n| \\le \\sum_{k=n}^{p-1} |u_{k+1} - u_k| \\le \\sum_{k=n-1}^{p-2} \\frac{M}{2^k} \\le M \\sum_{k=n-1}^{+\\infty} \\frac{1}{2^k} = \\frac{2M}{2^{n-1}} = \\frac{4M}{2^n}$.\\par On peut prendre $a = 4m_0 e^2$, de sorte que $|u_p - u_n| \\le \\frac{a}{2^n}$ pour tout $p \\ge n$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "En d\\éduire que la suite $(u_{n})_{n\\in\\mathbb{N}}$ converge.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Bolzano-Weierstrass !"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'in\\égalité pr\\éc\\édente caract\\érise une suite de Cauchy, ce qui assure sa convergence dans $\\mathbb{C}$."
+            }
+          ],
+          "solution_latex": "L'in\\égalit\\é $|u_p - u_n| \\le \\frac{a}{2^n}$ pour $p \\ge n$ montre que $(u_n)$ est une suite de Cauchy dans $\\mathbb{C}$.\\par En effet, soit $\\epsilon > 0$. On choisit $N \\in \\mathbb{N}$ tel que $\\frac{a}{2^N} < \\epsilon$ (i.e. $N > \\log_2(a/\\epsilon)$). Alors pour tous $p, q \\ge N$, $|u_p - u_q| \\le \\frac{a}{2^{\\min(p,q)}} \\le \\frac{a}{2^N} < \\epsilon$.\\par Comme $\\mathbb{C}$ est complet, toute suite de Cauchy y converge.\\par \\textbf{Conclusion :} La suite $(u_n)_{n\\in\\mathbb{N}}$ converge."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_004",
+      "title": "Valeurs d'adhérence, inf et sup",
+      "type": "counterexample",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_critere_convergence",
+        "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs d'adhérence",
+        "inf",
+        "sup",
+        "limite"
+      ],
+      "statement_latex": "Proposer un exemple de suite $(u_{n})_{n\\in\\mathbb{N}}$ convergente dont ni $\\inf_{n\\in\\mathbb{N}}u_{n}$ ni $\\sup_{n\\in\\mathbb{N}}u_{n}$ ne sont valeurs d'adh\\érence.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_critere_convergence",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Toute suite convergente poss\\ède une unique valeur d'adh\\érence qui est sa limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construire une suite dont les bornes sup\\érieure et inf\\érieure sont des termes de la suite strictement \\éloign\\és de la limite. Penser \\à une suite altern\\ée amortie."
+            }
+          ],
+          "solution_latex": "Posons $u_n = \\frac{(-1)^n}{n+1}$ pour $n \\ge 0$.\\par \\textbf{Convergence :} $|u_n| = \\frac{1}{n+1} \\to 0$, donc $u_n \\to 0$. La seule valeur d'adh\\érence est $0$.\\par \\textbf{Sup et inf :} $\\sup_{n} u_n = u_0 = 1$ (atteint en $n=0$) et $\\inf_{n} u_n = u_1 = -\\frac{1}{2}$ (atteint en $n=1$).\\par Or $1 \\ne 0$ et $-\\frac{1}{2} \\ne 0$, donc ni le sup ni l'inf ne sont valeurs d'adh\\érence.\\par \\textbf{Remarque :} Plus simplement, on peut aussi prendre $u_n = \\frac{(-1)^n}{n}$ pour $n \\ge 1$, qui converge vers $0$, avec $\\sup u_n = 1$ et $\\inf u_n = -1/2$, aucun des deux n'\\étant valeur d'adh\\érence."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_005",
+      "title": "Stabilité de l'ensemble des valeurs d'adhérence",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs d'adhérence",
+        "compacité",
+        "stabilité"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite complexe born\\ée pour laquelle $3u_{n}+u_{2n}\\rightarrow1$. On note $A$ l'ensemble de ses valeurs d'adh\\érence.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $A$ est born\\é et stable par la fonction $z\\mapsto1-3z.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la d\\éfinition epsilonesque des valeurs d'adh\\érence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $a \\in A$, il existe une extractrice $\\varphi$ telle que $u_{\\varphi(n)} \\rightarrow a$. \\Étudier le comportement de la sous-suite $u_{2\\varphi(n)}$ via l'hypoth\\èse $3u_{\\varphi(n)} + u_{2\\varphi(n)} \\rightarrow 1$."
+            }
+          ],
+          "solution_latex": "\\textbf{$A$ est born\\é :} La suite $(u_n)$ est born\\ée (car $3u_n + u_{2n} \\to 1$ implique $(u_n)$ born\\ée : supposons $|u_n| \\le M$, alors $|3u_n| \\le |3u_n + u_{2n}| + |u_{2n}|$, mais raisonnons directement). Toute valeur d'adh\\érence est limite d'une sous-suite born\\ée, donc $A$ est born\\é.\\par \\textbf{Stabilit\\é par $z \\mapsto 1-3z$ :} Soit $a \\in A$. Il existe une extractrice $\\varphi$ telle que $u_{\\varphi(n)} \\to a$. Par hypoth\\èse, $3u_{\\varphi(n)} + u_{2\\varphi(n)} \\to 1$, donc $u_{2\\varphi(n)} \\to 1 - 3a$.\\par La suite $(u_{2\\varphi(n)})$ est une sous-suite de $(u_n)$ et converge vers $1-3a$, donc $1-3a$ est valeur d'adh\\érence de $(u_n)$, i.e. $1-3a \\in A$.\\par \\textbf{Conclusion :} $A$ est stable par $f : z \\mapsto 1-3z$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En d\\éduire que $(u_{n})_{n\\in\\mathbb{N}}$ converge.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer 1) et \\étudier la d\\ynamique de la fonction $f(z) = 1-3z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $A$ est born\\é et stable par $f$, si $A$ contenait un point diff\\érent du point fixe de $f$, ses it\\érations sous $f$ divergeraient en module, ce qui contredit le caract\\ère born\\é de $A$."
+            }
+          ],
+          "solution_latex": "La fonction $f(z) = 1-3z$ a un unique point fixe $z_0$ d\\étermin\\é par $z_0 = 1-3z_0$, soit $z_0 = \\frac{1}{4}$.\\par Supposons par l'absurde qu'il existe $a \\in A$ avec $a \\ne \\frac{1}{4}$. Comme $A$ est stable par $f$, les it\\ér\\és $f^{\\circ n}(a) \\in A$ pour tout $n$.\\par Or $f^{\\circ n}(a) - \\frac{1}{4} = (-3)^n\\left(a - \\frac{1}{4}\\right)$ (par r\\écurrence : $f(z) - 1/4 = -3(z - 1/4)$).\\par Donc $|f^{\\circ n}(a) - 1/4| = 3^n |a - 1/4| \\to +\\infty$ car $a \\ne 1/4$ et $3 > 1$.\\par Cela contredit le fait que $A$ est born\\é.\\par \\textbf{Conclusion :} $A = \\{1/4\\}$, la suite $(u_n)$ n'a qu'une seule valeur d'adh\\érence. Comme elle est born\\ée, elle converge vers $\\frac{1}{4}$ par le th\\éor\\ème de la valeur d'adh\\érence unique pour les suites born\\ées."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_006",
+      "title": "Ensemble des valeurs d'adhérence",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__theorem_interieur_ouvert",
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_ouvert",
+        "topologie_de_r_et_c__theorem_densite_decimaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs d'adhérence",
+        "fermé",
+        "ouvert",
+        "densité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{K}^{\\mathbb{N}}.$ Montrer que l'ensemble des valeurs d'adh\\érence de $(u_{n})_{n\\in\\mathbb{N}}$ est ferm\\é en montrant que son compl\\émentaire est ouvert.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_interieur_ouvert",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la d\\éfinition epsilonesque des valeurs d'adh\\érence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $x$ n'\\étant pas valeur d'adh\\érence. Il existe $\\epsilon > 0$ tel que $u_n \\notin B(x, \\epsilon)$ pour $n$ assez grand. Montrer que la boule ouverte $B(x, \\epsilon/2)$ ne contient alors aucune valeur d'adh\\érence."
+            }
+          ],
+          "solution_latex": "Soit $x \\notin A$ o\\ù $A$ est l'ensemble des valeurs d'adh\\érence de $(u_n)$.\\par Alors $x$ n'est pas valeur d'adh\\érence : il existe $\\epsilon > 0$ et $N \\in \\mathbb{N}$ tels que pour tout $n \\ge N$, $|u_n - x| \\ge \\epsilon$.\\par Montrons que $B(x, \\epsilon/2) \\subset \\mathbb{K} \\setminus A$. Soit $y \\in B(x, \\epsilon/2)$. Pour tout $n \\ge N$ : $|u_n - y| \\ge |u_n - x| - |x - y| \\ge \\epsilon - \\epsilon/2 = \\epsilon/2$.\\par Donc pour tout $n \\ge N$, $u_n \\notin B(y, \\epsilon/2)$. L'ensemble $\\{n \\in \\mathbb{N} : u_n \\in B(y, \\epsilon/2)\\}$ est fini (inclus dans $\\{0, ..., N-1\\}$), donc $y$ n'est pas valeur d'adh\\érence, i.e. $y \\notin A$.\\par Ainsi $B(x, \\epsilon/2) \\cap A = \\emptyset$, ce qui montre que $\\mathbb{K} \\setminus A$ est ouvert.\\par \\textbf{Conclusion :} $A$ est ferm\\é."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On pose $u_{n}=\\sqrt{n}-\\lfloor\\sqrt{n}\\rfloor$ pour tout $n\\in\\mathbb{N}.$\\par Montrer que $u_{(nb)^2+2an}\\longrightarrow\\frac{a}{b}$ pour tous $a\\in\\mathbb{N}$ et $b\\in\\mathbb{N}^{*}$ pour lesquels $a \\le b$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer de mani\\ère exacte $\\lfloor\\sqrt{(nb)^2+2an}\\rfloor$ en utilisant la condition $a \\le b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser sous la racine et utiliser l'expression de la quantit\\é conjugu\\ée ou un d\\éveloppement limit\\é pour trouver la limite."
+            }
+          ],
+          "solution_latex": "Posons $u_n = \\sqrt{n} - \\lfloor\\sqrt{n}\\rfloor$ pour $n \\in \\mathbb{N}$, et consid\\érons $n_k = (kb)^2 + 2ak$ pour $k \\in \\mathbb{N}$.\\par On a $\\sqrt{n_k} = \\sqrt{k^2b^2 + 2ak} = kb\\sqrt{1 + \\frac{2a}{kb^2}}$.\\par Pour $k$ assez grand, $\\frac{2a}{kb^2} < \\frac{2b}{kb^2} = \\frac{2}{kb} \\le 1$ (car $a \\le b$). Donc $(kb)^2 < n_k < (kb)^2 + 2kb + 1 = (kb+1)^2$, ce qui donne $\\lfloor\\sqrt{n_k}\\rfloor = kb$.\\par Ainsi $u_{n_k} = \\sqrt{n_k} - kb = kb\\left(\\sqrt{1 + \\frac{2a}{kb^2}} - 1\\right)$.\\par Par d\\éveloppement limit\\é $\\sqrt{1+x} = 1 + \\frac{x}{2} + O(x^2)$ avec $x = \\frac{2a}{kb^2}$ :\\par $u_{n_k} = kb \\cdot \\left(\\frac{a}{kb^2} + O\\left(\\frac{1}{k^2}\\right)\\right) = \\frac{a}{b} + O\\left(\\frac{1}{k}\\right)$.\\par \\textbf{Conclusion :} $u_{n_k} \\to \\frac{a}{b}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En d\\éduire l'ensemble des valeurs d'adh\\érence de $(u_{n})_{n\\in\\mathbb{N}}.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense",
+            "topologie_de_r_et_c__theorem_densite_decimaux",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble contient tous les rationnels de l'intervalle $[0, 1]$. Comme l'ensemble des valeurs d'adh\\érence est ferm\\é, il contient n\\écessairement l'adh\\érence de $\\mathbb{Q} \\cap [0, 1]$."
+            }
+          ],
+          "solution_latex": "D'apr\\ès 2) a), pour tout rationnel $\\frac{a}{b} \\in [0,1]$ (avec $0 \\le a \\le b$, $b \\ge 1$), $\\frac{a}{b}$ est valeur d'adh\\érence de $(u_n)$.\\par Donc $\\mathbb{Q} \\cap [0,1] \\subset A$ o\\ù $A$ est l'ensemble des valeurs d'adh\\érence.\\par Par la question 1), $A$ est ferm\\é. Comme $\\mathbb{Q} \\cap [0,1]$ est dense dans $[0,1]$, on a $[0,1] = \\overline{\\mathbb{Q} \\cap [0,1]} \\subset \\overline{A} = A$.\\par R\\éciproquement, $u_n = \\sqrt{n} - \\lfloor\\sqrt{n}\\rfloor \\in [0,1)$ pour tout $n$, donc toute valeur d'adh\\érence est dans $[0,1]$. Ainsi $A \\subset [0,1]$.\\par \\textbf{Conclusion :} L'ensemble des valeurs d'adh\\érence de $(u_n)$ est $[0,1]$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_007",
+      "title": "Valeurs d'adhérence d'une suite à pas tendant vers 0",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__theorem_bolzano_weierstrass",
+        "topologie_de_r_et_c__definition_theorem_suite_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs d'adhérence",
+        "suite",
+        "connexité",
+        "intervalle"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite r\\éelle born\\ée pour laquelle $u_{n+1}-u_{n}\\rightarrow0$. Montrer que l'ensemble des valeurs d'adh\\érence de $(u_{n})_{n\\in\\mathbb{N}}$ est un intervalle non vide.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee",
+            "topologie_de_r_et_c__theorem_bolzano_weierstrass"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soient $a$ et $b$ deux valeurs d'adh\\érence de $(u_{n})_{n\\in\\mathbb{N}}$ pour lesquelles $a<b$.\\par Soit $x\\in[a,b]$. La suite $(u_{n})_{n\\in\\mathbb{N}}$ prend une valeur proche de $a$ \\à un moment, puis plus tard une valeur proche de $b$, et comme elle avance par petits sauts par hypoth\\èse, il faut bien qu'elle passe au voisinage de $x$ \\à un moment."
+            },
+            {
+              "level": 2,
+              "content_latex": "Y a plus qu'\\à r\\édiger. Formaliser ce \"passage\" en d\\émontrant que pour tout $\\epsilon > 0$, il existe une infinit\\é d'indices $n$ tels que $|u_n - x| < \\epsilon$."
+            }
+          ],
+          "solution_latex": "L'ensemble $A$ des valeurs d'adh\\érence est non vide par Bolzano-Weierstrass (la suite est born\\ée).\\par Soient $a, b \\in A$ avec $a < b$, et soit $x \\in [a,b]$. Montrons que $x \\in A$.\\par Soit $\\epsilon > 0$. Il faut montrer que $u_n \\in B(x, \\epsilon)$ pour une infinit\\é de $n$.\\par Comme $a \\in A$, il existe une infinit\\é d'indices $n$ tels que $u_n < a + \\epsilon/2 \\le x + \\epsilon/2$. De m\\ême, $b \\in A$ fournit une infinit\\é d'indices $m$ tels que $u_m > b - \\epsilon/2 \\ge x - \\epsilon/2$.\\par Choisissons $\\eta > 0$ tel que $\\eta < \\epsilon/2$. Comme $u_{n+1} - u_n \\to 0$, il existe $N_0$ tel que pour $n \\ge N_0$, $|u_{n+1} - u_n| < \\eta$.\\par Prenons $n_1 \\ge N_0$ tel que $u_{n_1} < x - \\epsilon/2 + \\eta$, et $n_2 > n_1$ tel que $u_{n_2} > x + \\epsilon/2 - \\eta$ (ou inversement). Sur le chemin de $u_{n_1}$ \\à $u_{n_2}$, la suite avance par pas de taille $< \\eta$.\\par Par le th\\éor\\ème des valeurs interm\\édiaires discret : il existe $k \\in \\{n_1, ..., n_2\\}$ tel que $|u_k - x| < \\eta + \\eta < \\epsilon$ (car la suite passe d'une valeur $< x$ \\à une valeur $> x$ par sauts de taille $< \\eta$).\\par Comme on peut r\\ép\\éter ce proc\\éd\\é pour trouver de tels $k$ arbitrairement grands, $x \\in A$.\\par \\textbf{Conclusion :} $A$ est un intervalle non vide."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_008",
+      "title": "Ouverts et fermés dans C (demi-plan et droite)",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_ouvert",
+        "topologie_de_r_et_c__theorem_interieur_ouvert",
+        "topologie_de_r_et_c__theorem_densite_decimaux",
+        "topologie_de_r_et_c__theorem_exemples_fermes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "topologie",
+        "ouvert",
+        "fermé",
+        "image réciproque"
+      ],
+      "statement_latex": "Soient $a, b, c\\in\\mathbb{R}$ avec $(a,b)\\ne(0,0)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\{x+iy \\mid ax+by<c\\}$ est ouvert.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_interieur_ouvert",
+            "topologie_de_r_et_c__theorem_densite_decimaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Consid\\érer l'application $f : x+iy \\mapsto ax+by$ de $\\mathbb{C}$ dans $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que $f$ est continue et exprimer l'ensemble comme l'image r\\éciproque d'un ouvert de $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Consid\\érons $f : \\mathbb{C} \\to \\mathbb{R}$ d\\éfinie par $f(x+iy) = ax + by$.\\par \\textbf{$f$ est continue :} Soient $z = x+iy$ et $w = u+iv$. $|f(z) - f(w)| = |a(x-u) + b(y-v)| \\le |a||x-u| + |b||y-v| \\le (|a|+|b|)|z-w|$. Donc $f$ est lipschitzienne, en particulier continue.\\par L'ensemble $\\{x+iy \\mid ax+by < c\\} = f^{-1}(]-\\infty, c[)$ est l'image r\\éciproque de l'ouvert $]-\\infty, c[$ de $\\mathbb{R}$ par la fonction continue $f$.\\par \\textbf{Conclusion :} L'image r\\éciproque d'un ouvert par une application continue est ouverte, donc $\\{x+iy \\mid ax+by < c\\}$ est ouvert."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\{x+iy \\mid ax+by=c\\}$ est ferm\\é.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la m\\ême application $f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble est l'image r\\éciproque du singleton $\\{c\\}$, qui est une partie ferm\\ée de $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Avec la m\\ême application continue $f : z = x+iy \\mapsto ax+by$ :\\par $\\{x+iy \\mid ax+by = c\\} = f^{-1}(\\{c\\})$.\\par Le singleton $\\{c\\}$ est un ferm\\é de $\\mathbb{R}$.\\par L'image r\\éciproque d'un ferm\\é par une application continue est ferm\\ée.\\par \\textbf{Conclusion :} $\\{x+iy \\mid ax+by = c\\}$ est ferm\\é dans $\\mathbb{C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_009",
+      "title": "Nature topologique de parties classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ouverts",
+        "fermés",
+        "exemples classiques"
+      ],
+      "statement_latex": "Les parties suivantes sont-elles ouvertes ? ferm\\ées ?",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Dans $\\mathbb{R}$ : $\\mathbb{Z}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_exemples_ouverts",
+            "topologie_de_r_et_c__theorem_operations_ouverts",
+            "topologie_de_r_et_c__definition_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher si son compl\\émentaire est une r\\éunion d'intervalles ouverts."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\mathbb{Z}$ n'est pas ouvert :} Soit $n \\in \\mathbb{Z}$. Pour tout $\\epsilon > 0$, $n + \\epsilon/2 \\in ]n-\\epsilon, n+\\epsilon[$ mais $n+\\epsilon/2 \\notin \\mathbb{Z}$. Aucune boule ouverte centr\\ée en $n$ n'est incluse dans $\\mathbb{Z}$.\\par \\textbf{$\\mathbb{Z}$ est ferm\\é :} Son compl\\émentaire est $\\mathbb{R} \\setminus \\mathbb{Z} = \\bigcup_{n \\in \\mathbb{Z}} ]n, n+1[$, qui est une r\\éunion d'intervalles ouverts, donc ouvert.\\par \\textbf{Conclusion :} $\\mathbb{Z}$ est ferm\\é et non ouvert dans $\\mathbb{R}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Dans $\\mathbb{R}$ : $\\mathbb{Q}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_developpement_decimal_illimite",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde en supposant que $\\mathbb{Q}$ ou son compl\\émentaire contient un intervalle ouvert, et utiliser la densit\\é."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\mathbb{Q}$ n'est pas ouvert :} Soit $q \\in \\mathbb{Q}$. Tout intervalle ouvert $]q-\\epsilon, q+\\epsilon[$ contient des irrationnels (par densit\\é de $\\mathbb{R}\\setminus\\mathbb{Q}$). Donc aucune boule centr\\ée en $q$ n'est incluse dans $\\mathbb{Q}$.\\par \\textbf{$\\mathbb{Q}$ n'est pas ferm\\é :} $\\mathbb{R}\\setminus\\mathbb{Q}$ n'est pas ouvert, car tout intervalle ouvert contient des rationnels (par densit\\é de $\\mathbb{Q}$). Donc le compl\\émentaire de $\\mathbb{Q}$ n'est pas ouvert.\\par Alternativement, $\\sqrt{2} \\notin \\mathbb{Q}$ mais $\\sqrt{2} = \\lim_{n\\to\\infty} \\frac{\\lfloor \\sqrt{2} \\cdot 10^n \\rfloor}{10^n} \\in \\overline{\\mathbb{Q}}$, donc $\\mathbb{Q}$ n'est pas ferm\\é.\\par \\textbf{Conclusion :} $\\mathbb{Q}$ n'est ni ouvert ni ferm\\é dans $\\mathbb{R}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Dans $\\mathbb{R}$ : $\\{\\frac{1}{n} \\mid n\\in\\mathbb{N}^{*}\\}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_bornee",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelle est la limite de la suite $(1/n)$ ? Ce point limite appartient-il \\à l'ensemble ?"
+            }
+          ],
+          "solution_latex": "Posons $E = \\{1/n \\mid n \\in \\mathbb{N}^*\\}$.\\par \\textbf{$E$ n'est pas ouvert :} Par exemple, $1 \\in E$ mais tout voisinage de $1$ contient des points $\\notin E$ (par exemple $1 - \\epsilon/2$).\\par \\textbf{$E$ n'est pas ferm\\é :} La suite $(1/n)_{n \\ge 1}$ est \\à valeurs dans $E$ et converge vers $0$, mais $0 \\notin E$. Donc $E$ ne contient pas tous ses points d'accumulation.\\par \\textbf{Conclusion :} $E$ n'est ni ouvert ni ferm\\é dans $\\mathbb{R}$."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "Dans $\\mathbb{R}$ : $\\bigcup_{n\\in\\mathbb{N}^{*}}[\\frac{1}{2n+1},\\frac{1}{2n}].$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_voisinage",
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__definition_point_interieur_adherent"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Regarder attentivement ce qui se passe au voisinage de $0$. L'ensemble contient des points arbitrairement proches de $0$."
+            }
+          ],
+          "solution_latex": "Posons $F = \\bigcup_{n \\ge 1} [\\frac{1}{2n+1}, \\frac{1}{2n}]$.\\par \\textbf{$F$ n'est pas ouvert :} Le point $\\frac{1}{2}$ (extr\\émit\\é de $[\\frac{1}{3}, \\frac{1}{2}]$) appartient \\à $F$, mais tout voisinage de $\\frac{1}{2}$ contient des points $> \\frac{1}{2}$ qui n'appartiennent \\à aucun des intervalles.\\par \\textbf{$F$ n'est pas ferm\\é :} Les intervalles s'accumulent vers $0$. Pour tout $\\epsilon > 0$, il existe $n$ tel que $\\frac{1}{2n} < \\epsilon$, et $\\frac{1}{2n} \\in F$. Donc $0$ est adh\\érent \\à $F$, mais $0 \\notin F$ (car $0 < \\frac{1}{2n+1}$ pour tout $n$).\\par \\textbf{Conclusion :} $F$ n'est ni ouvert ni ferm\\é dans $\\mathbb{R}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Dans $\\mathbb{C}$ : $\\{z\\in\\mathbb{C} \\mid 1<|z|<2\\}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser \\à l'application module $z \\mapsto |z|$ et utiliser l'image r\\éciproque d'un ouvert de $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Posons $G = \\{z \\in \\mathbb{C} \\mid 1 < |z| < 2\\}$ (couronne ouverte).\\par L'application $z \\mapsto |z|$ est continue de $\\mathbb{C}$ dans $\\mathbb{R}$. On a $G = |\\cdot|^{-1}(]1, 2[)$, image r\\éciproque de l'ouvert $]1,2[$ par une application continue.\\par \\textbf{$G$ est ouvert.}\\par \\textbf{$G$ n'est pas ferm\\é :} la suite $z_n = 1 + 1/n \\in G$ converge vers $1 \\notin G$.\\par \\textbf{Conclusion :} $G$ est ouvert et non ferm\\é."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Dans $\\mathbb{C}$ : $\\{x+iy \\mid x,y\\in\\mathbb{R}, xy\\ne1\\}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Consid\\érer l'application $(x, y) \\mapsto xy$. Est-elle continue ?"
+            }
+          ],
+          "solution_latex": "Posons $H = \\{x+iy \\mid xy \\ne 1\\}$.\\par L'application $f : x+iy \\mapsto xy$ est continue de $\\mathbb{C}$ dans $\\mathbb{R}$ (comme produit des projections continues sur les parties r\\éelle et imaginaire).\\par $H = f^{-1}(\\mathbb{R} \\setminus \\{1\\})$, image r\\éciproque de l'ouvert $\\mathbb{R} \\setminus \\{1\\}$ par $f$ continue.\\par \\textbf{$H$ est ouvert.}\\par \\textbf{$H$ n'est pas ferm\\é :} la suite $z_n = \\frac{1}{n} + in$ v\\érifie $\\text{Re}(z_n)\\text{Im}(z_n) = 1$, donc $z_n \\notin H$. Mais $H$ n'est pas ferm\\é car son compl\\émentaire (l'hyperbole $xy=1$) n'est pas ouvert.\\par \\textbf{Conclusion :} $H$ est ouvert et non ferm\\é."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Dans $\\mathbb{C}$ : $\\{z\\in\\mathbb{C} \\mid |z|\\le1, |z-1|\\le1\\}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_voisinage",
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cet ensemble est l'intersection de deux disques ferm\\és."
+            }
+          ],
+          "solution_latex": "Posons $K = \\{z \\in \\mathbb{C} \\mid |z| \\le 1\\} \\cap \\{z \\in \\mathbb{C} \\mid |z-1| \\le 1\\}$.\\par C'est l'intersection de deux disques ferm\\és $\\overline{B}(0,1)$ et $\\overline{B}(1,1)$.\\par Chaque disque ferm\\é est un ferm\\é (image r\\éciproque de $]-\\infty, 1]$ par $z \\mapsto |z|$ ou $z \\mapsto |z-1|$, qui sont continues). L'intersection de deux ferm\\és est ferm\\ée.\\par De plus, $K \\subset \\overline{B}(0,1)$ qui est born\\é, donc $K$ est born\\é.\\par \\textbf{$K$ n'est pas ouvert :} Le point $z = 0$ appartient \\à $K$ (car $|0| = 0 \\le 1$ et $|0-1| = 1 \\le 1$), mais tout voisinage de $0$ contient des points $z$ avec $\\text{Re}(z) < 0$ et $|z-1| > 1$.\\par \\textbf{Conclusion :} $K$ est ferm\\é (et m\\ême compact), non ouvert."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_010",
+      "title": "Compacité d'un ensemble de combinaisons convexes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_compact",
+        "topologie_de_r_et_c__theorem_densite_decimaux",
+        "topologie_de_r_et_c__theorem_compact_ferme_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "compacts",
+        "combinaisons convexes",
+        "continuité"
+      ],
+      "statement_latex": "Soient $z_{1},...,z_{p}\\in\\mathbb{C}.$ On note $C$ l'ensemble des combinaisons convexes de $z_{1},...,z_{p}$ i.e. des nombres complexes $\\lambda_{1}z_{1}+...+\\lambda_{p}z_{p}$ avec $\\lambda_{1},...,\\lambda_{p}\\in[0,1]$ et $\\lambda_{1}+...+\\lambda_{p}=1.$\\par Montrer que $C$ est compact.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_compact",
+            "topologie_de_r_et_c__theorem_compact_ferme_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappeler qu'un sous-ensemble est compact s'il est l'image d'un compact par une application continue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser le simplexe standard de $\\mathbb{R}^p$ d\\éfini par les conditions sur les coefficients $\\lambda_i$. Montrer qu'il est compact (ferm\\é et born\\é), puis consid\\érer l'application continue $(\\lambda_1, ..., \\lambda_p) \\mapsto \\sum \\lambda_i z_i$."
+            }
+          ],
+          "solution_latex": "Consid\\érons le simplexe standard $\\Delta = \\{(\\lambda_1, ..., \\lambda_p) \\in [0,1]^p \\mid \\lambda_1 + ... + \\lambda_p = 1\\}$.\\par \\textbf{$\\Delta$ est compact :} $\\Delta \\subset [0,1]^p$ qui est born\\é. $\\Delta$ est ferm\\é comme image r\\éciproque du ferm\\é $\\{1\\}$ par l'application continue $(\\lambda_1,...,\\lambda_p) \\mapsto \\sum \\lambda_i$, intersect\\é avec le ferm\\é $[0,1]^p$. Donc $\\Delta$ est ferm\\é born\\é dans $\\mathbb{R}^p$, donc compact.\\par \\textbf{$C$ est l'image de $\\Delta$ :} D\\éfinissons $\\varphi : \\Delta \\to \\mathbb{C}$ par $\\varphi(\\lambda_1, ..., \\lambda_p) = \\sum_{i=1}^p \\lambda_i z_i$. Cette application est continue (combinaison lin\\éaire des projections continues).\\par On a $C = \\varphi(\\Delta)$, image d'un compact par une application continue.\\par \\textbf{Conclusion :} $C$ est compact."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_011",
+      "title": "Théorème des compacts emboîtés",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__theorem_operations_compacts"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "compacts",
+        "intersection",
+        "suites décroissantes",
+        "recouvrement"
+      ],
+      "statement_latex": "Soit $(C_{n})_{n\\in\\mathbb{N}}$ une suite d\\écroissante de compacts non vides de $\\mathbb{K}$. Montrer que $\\bigcap_{n\\in\\mathbb{N}}C_{n}$ est un compact non vide (th\\éor\\ème des compacts embo\\ît\\és).",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la compacit\\é, remarquer que l'intersection d'ensembles ferm\\és (inclus dans le compact $C_0$) est un ferm\\é dans un compact, donc compact."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver que l'intersection est non vide, raisonner par l'absurde. Si l'intersection est vide, l'intersection des $C_n$ dans $C_0$ est vide. En passant au compl\\émentaire, les ouverts $O_n = \\mathbb{K} \\setminus C_n$ recouvrent $C_0$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Extraire un sous-recouvrement fini de $C_0$ par la propri\\ét\\é de Borel-Lebesgue, puis utiliser la d\\écroissance de la suite $(C_n)$ pour aboutir \\à une contradiction ($C_N = \\emptyset$)."
+            }
+          ],
+          "solution_latex": "Posons $C = \\bigcap_{n \\in \\mathbb{N}} C_n$.\\par \\textbf{$C$ est compact :} Chaque $C_n$ est compact, donc ferm\\é. $C$ est l'intersection de ferm\\és inclus dans le compact $C_0$, donc $C$ est un ferm\\é inclus dans un born\\é. Ainsi $C$ est ferm\\é et born\\é, donc compact.\\par \\textbf{$C$ est non vide :} Raisonnons par l'absurde. Supposons $C = \\emptyset$, i.e. $\\bigcap_{n} C_n = \\emptyset$.\\par En passant au compl\\émentaire dans $C_0$ : $C_0 \\subset \\bigcup_{n \\ge 1} (\\mathbb{K} \\setminus C_n)$.\\par Posons $O_n = \\mathbb{K} \\setminus C_n$. Chaque $O_n$ est ouvert (compl\\émentaire d'un compact, donc d'un ferm\\é). Les $(O_n)$ forment un recouvrement ouvert de $C_0$.\\par Par la propri\\ét\\é de Borel-Lebesgue (compacit\\é de $C_0$), on extrait un sous-recouvrement fini : il existe $n_1 < ... < n_k$ tels que $C_0 \\subset O_{n_1} \\cup ... \\cup O_{n_k}$.\\par Comme la suite $(C_n)$ est d\\écroissante, $(O_n)$ est croissante, donc $O_{n_1} \\cup ... \\cup O_{n_k} = O_{n_k} = \\mathbb{K} \\setminus C_{n_k}$.\\par Ainsi $C_0 \\subset \\mathbb{K} \\setminus C_{n_k}$, i.e. $C_0 \\cap C_{n_k} = \\emptyset$. Mais $C_{n_k} \\subset C_0$ (car la suite est d\\écroissante), donc $C_{n_k} = \\emptyset$. Contradiction avec $C_{n_k}$ non vide.\\par \\textbf{Conclusion :} $C = \\bigcap_{n} C_n$ est un compact non vide."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_012",
+      "title": "Propriétés topologiques de la somme d'ensembles",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_point_interieur_adherent"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme d'ensembles",
+        "ouverts",
+        "fermés",
+        "compacts"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $A$ et $B$ deux parties de $\\mathbb{K}$. Montrer que si $A$ ou $B$ est ouvert, $A+B$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_operations_ouverts",
+            "topologie_de_r_et_c__theorem_exemples_ouverts",
+            "topologie_de_r_et_c__definition_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On peut faire autrement, mais on peut observer que $A+b$ est ouvert pour tout $b\\in B.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble $A+B$ peut s'\\écrire comme l'union $\\bigcup_{b \\in B} (A+b)$. L'union quelconque d'ouverts est un ouvert."
+            }
+          ],
+          "solution_latex": "Supposons $A$ ouvert. On a $A + B = \\bigcup_{b \\in B} (A + b)$ o\\ù $A + b = \\{a + b \\mid a \\in A\\}$.\\par Pour tout $b \\in B$, l'application $z \\mapsto z + b$ est un hom\\éomorphisme de $\\mathbb{K}$, donc $A + b$ est ouvert (image d'un ouvert par une translation).\\par $A + B$ est une r\\éunion quelconque d'ouverts, donc est ouvert.\\par \\textbf{Conclusion :} Si $A$ ou $B$ est ouvert, $A + B$ est ouvert (par sym\\étrie du r\\ôle de $A$ et $B$)."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $A$ et $B$ sont compacts, $A+B$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_bornee",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Proc\\éder \\à des extractions successives."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prendre une suite $(z_n)$ dans $A+B$, s'\\écrivant $z_n = x_n + y_n$. Extraire une sous-suite convergente de $(x_n)$, puis de la sous-suite correspondante pour $(y_n)$ via Bolzano-Weierstrass."
+            }
+          ],
+          "solution_latex": "Soit $(z_n)$ une suite d'\\éléments de $A + B$. Pour tout $n$, $z_n = a_n + b_n$ avec $a_n \\in A$, $b_n \\in B$.\\par Comme $A$ est compact, par Bolzano-Weierstrass, on extrait $a_{\\varphi(n)} \\to a \\in A$.\\par La suite $(b_{\\varphi(n)})$ est \\à valeurs dans le compact $B$, donc on en extrait $b_{\\varphi(\\psi(n))} \\to b \\in B$.\\par Alors $z_{\\varphi(\\psi(n))} = a_{\\varphi(\\psi(n))} + b_{\\varphi(\\psi(n))} \\to a + b \\in A + B$.\\par Toute suite de $A+B$ admet une sous-suite convergeant dans $A+B$.\\par \\textbf{Conclusion :} $A + B$ est compact."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que si $A$ est compact et $B$ ferm\\é, $A+B$ est ferm\\é.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prendre une suite $(z_n)$ de $A+B$ qui converge vers une limite $l$, avec $z_n = x_n + y_n$. Le but est de montrer que $l \\in A+B$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $A$ est compact, extraire de $(x_n)$ une sous-suite convergente vers $x \\in A$. En d\\éduire le comportement de la sous-suite correspondante pour $(y_n)$ et utiliser le fait que $B$ est ferm\\é."
+            }
+          ],
+          "solution_latex": "Soit $(z_n)$ une suite de $A + B$ convergeant vers $l$. On \\écrit $z_n = a_n + b_n$ avec $a_n \\in A$, $b_n \\in B$.\\par Comme $A$ est compact, on extrait $a_{\\varphi(n)} \\to a \\in A$.\\par Alors $b_{\\varphi(n)} = z_{\\varphi(n)} - a_{\\varphi(n)} \\to l - a$.\\par Comme $B$ est ferm\\é et $(b_{\\varphi(n)}) \\subset B$, on a $l - a \\in B$.\\par Donc $l = a + (l-a) \\in A + B$.\\par \\textbf{Conclusion :} $A + B$ contient la limite de toute suite convergente de ses \\éléments, donc $A + B$ est ferm\\é."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Repr\\ésenter graphiquement $A+\\mathbb{R}$ pour toute partie $A$ de $\\mathbb{C}$. En d\\éduire une partie ferm\\ée $A$ de $\\mathbb{C}$ pour laquelle $A+\\mathbb{R}$ n'est pas ferm\\é.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_point_interieur_adherent"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$A+\\mathbb{R}$ correspond \\à la r\\éunion de toutes les droites horizontales passant par les points de $A$. C'est une projection « \\étal\\ée » sur l'axe r\\éel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour trouver le contre-exemple, chercher un ferm\\é $A$ (comme une hyperbole) tel que sa distance \\à l'axe des r\\éels tende vers $0$ sans jamais l'atteindre. Par exemple, $A = \\{x + i/x \\mid x > 0\\}$ ou une branche d'exponentielle complexe."
+            }
+          ],
+          "solution_latex": "\\textbf{Repr\\ésentation :} Pour toute partie $A$ de $\\mathbb{C}$, $A + \\mathbb{R} = \\{a + t \\mid a \\in A, t \\in \\mathbb{R}\\}$. C'est l'ensemble des points obtenus en translatant horizontalement chaque point de $A$ de n'importe quelle quantit\\é. G\\éom\\étriquement, c'est la r\\éunion de toutes les droites horizontales passant par les points de $A$. Autrement dit, $A + \\mathbb{R} = \\{x + iy \\mid \\exists a \\in A, \\text{Im}(a) = y\\}$ : c'est la projection de $A$ sur l'axe imaginaire, puis r\\é-\\étal\\ée horizontalement.\\par \\textbf{Contre-exemple :} Posons $A = \\{x + i/x \\mid x > 0\\}$. C'est l'image de $]0,+\\infty[$ par l'application continue $x \\mapsto x + i/x$.\\par $A$ est ferm\\é dans $\\mathbb{C}$ (si $x_n + i/x_n \\to l$, alors $(x_n)$ est born\\ée inf\\érieurement — sinon $1/x_n \\to +\\infty$ — et on en extrait une sous-suite convergente).\\par Or $A + \\mathbb{R} = \\{z \\in \\mathbb{C} \\mid \\text{Im}(z) > 0\\} = \\{x+iy \\mid y > 0\\}$ (car $1/x$ parcourt $]0,+\\infty[$ quand $x > 0$).\\par Ce demi-plan ouvert est ouvert mais pas ferm\\é. En fait $A + \\mathbb{R}$ n'est pas ferm\\é car $i/n + n \\in A + \\mathbb{R}$ mais les points $x + 0i$ (avec $y = 0$) ne sont pas dans $A + \\mathbb{R}$.\\par \\textbf{Conclusion :} $A$ ferm\\é mais $A + \\mathbb{R}$ non ferm\\é."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_013",
+      "title": "Somme de deux boules",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_boules_sphere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "boules",
+        "somme d'ensembles",
+        "inégalité triangulaire"
+      ],
+      "statement_latex": "Montrer que pour tous $a,b\\in\\mathbb{K}$ et $r,s\\ge0$ : \\par $B(a,r)+B(b,s)=B(a+b,r+s).$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_boules_sphere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer la double inclusion. Pour l'inclusion $\\subset$, prendre $x \\in B(a,r)$ et $y \\in B(b,s)$ et \\évaluer $|(x+y) - (a+b)|$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'in\\égalité triangulaire : $|(x+y) - (a+b)| \\le |x-a| + |y-b| < r + s$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour l'inclusion r\\éciproque $\\supset$, soit $z \\in B(a+b, r+s)$. Il faut d\\écomposer $z = x+y$ astucieusement. Penser \\à poser $x = a + \\frac{r}{r+s}(z - (a+b))$ et $y = b + \\frac{s}{r+s}(z - (a+b))$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inclusion $\\subset$ :} Soient $x \\in B(a,r)$ et $y \\in B(b,s)$. Par l'in\\égalit\\é triangulaire :\\par $|(x+y) - (a+b)| = |(x-a) + (y-b)| \\le |x-a| + |y-b| < r + s$.\\par Donc $x + y \\in B(a+b, r+s)$.\\par \\textbf{Inclusion $\\supset$ :} Soit $z \\in B(a+b, r+s)$, i.e. $|z - (a+b)| < r+s$. Si $r+s = 0$, les deux boules sont r\\éduites \\à $\\{a\\}$ et $\\{b\\}$ et le r\\ésultat est imm\\édiat.\\par Sinon, posons $x = a + \\frac{r}{r+s}(z - (a+b))$ et $y = b + \\frac{s}{r+s}(z - (a+b))$.\\par On v\\érifie $x + y = a + b + (z - (a+b)) = z$. De plus :\\par $|x - a| = \\frac{r}{r+s}|z - (a+b)| < \\frac{r}{r+s}(r+s) = r$, donc $x \\in B(a,r)$.\\par $|y - b| = \\frac{s}{r+s}|z - (a+b)| < \\frac{s}{r+s}(r+s) = s$, donc $y \\in B(b,s)$.\\par Ainsi $z = x + y \\in B(a,r) + B(b,s)$.\\par \\textbf{Conclusion :} $B(a,r) + B(b,s) = B(a+b, r+s)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_014",
+      "title": "Compacité de l'ensemble des termes d'une suite convergente",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_compact",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_ouvert"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "compacts",
+        "suites",
+        "topologie"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{K}^{\\mathbb{N}}$ convergente de limite $l$. Montrer que $\\{u_{n} \\mid n\\in\\mathbb{N}\\} \\cup \\{l\\}$ est compact.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__definition_compact",
+            "topologie_de_r_et_c__theorem_interieur_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il vaut mieux montrer que l'ensemble \\étudi\\é est ferm\\é et born\\é, et pour le premier point, que son compl\\émentaire est ouvert."
+            },
+            {
+              "level": 2,
+              "content_latex": "Toute suite convergente est born\\ée, donc l'ensemble avec sa limite est born\\é. Pour montrer qu'il est ferm\\é, soit $x \\notin \\{u_n \\mid n \\in \\mathbb{N}\\} \\cup \\{l\\}$. Utiliser la d\\éfinition de la limite pour s\\éparer $x$ de $l$ et des $u_n$ par une boule."
+            }
+          ],
+          "solution_latex": "Posons $E = \\{u_n \\mid n \\in \\mathbb{N}\\} \\cup \\{l\\}$.\\par \\textbf{$E$ est born\\é :} $(u_n)$ converge, donc elle est born\\ée : $|u_n| \\le M$ pour tout $n$. Ainsi $E \\subset \\overline{B}(0, \\max(M, |l|))$.\\par \\textbf{$E$ est ferm\\é :} Montrons que $\\mathbb{K} \\setminus E$ est ouvert. Soit $x \\notin E$, i.e. $x \\ne l$ et $x \\ne u_n$ pour tout $n$.\\par Posons $\\delta_1 = |x - l| > 0$. Comme $u_n \\to l$, il existe $N$ tel que pour $n \\ge N$, $|u_n - l| < \\delta_1/2$, donc $|u_n - x| \\ge |x-l| - |u_n - l| > \\delta_1/2$.\\par Pour $n < N$, posons $\\delta_2 = \\min_{0 \\le n < N} |x - u_n| > 0$ (car $x \\ne u_n$ pour tout $n$).\\par Posons $\\epsilon = \\min(\\delta_1/2, \\delta_2) > 0$. Alors $B(x, \\epsilon) \\cap E = \\emptyset$, ce qui montre que $\\mathbb{K} \\setminus E$ est ouvert.\\par \\textbf{Conclusion :} $E$ est ferm\\é et born\\é, donc compact."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_015",
+      "title": "Parties simultanément ouvertes et fermées (Connexité)",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_ouvert",
+        "topologie_de_r_et_c__theorem_interieur_ouvert",
+        "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "connexité",
+        "ouverts",
+        "fermés",
+        "frontière"
+      ],
+      "statement_latex": "Montrer que $\\emptyset$ et $\\mathbb{K}$ sont les seules parties \\à la fois ouvertes et ferm\\ées de $\\mathbb{K}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_interieur_ouvert",
+            "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soit $A$ une partie ouverte et ferm\\ée de $\\mathbb{K}$. Raisonner par l'absurde et se donner $x\\in A$ et $y\\in\\mathbb{K}\\setminus A,$ puis s'int\\éresser au segment d'extr\\émit\\és $x$ et $y$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ce chemin de $x$ vers $y$ commence dans $A$ et finit dans $B = \\mathbb{K}\\setminus A$, mais o\\ù est-on quand on passe la fronti\\ère ?"
+            },
+            {
+              "level": 3,
+              "content_latex": "Consid\\érer l'application $f(t) = (1-t)x + ty$ pour $t \\in [0, 1]$. \\Étudier l'ensemble $T = \\{t \\in [0,1] \\mid f(t) \\in A\\}$. Cet ensemble poss\\ède une borne sup\\érieure $s$. Montrer que $f(s)$ doit \\être \\à la fois dans l'ouvert $A$ et dans le ferm\\é $A$, ce qui am\\ène \\à une contradiction selon la position de $s$."
+            }
+          ],
+          "solution_latex": "Soit $A \\subset \\mathbb{K}$ \\à la fois ouvert et ferm\\é, avec $A \\ne \\emptyset$. Montrons que $A = \\mathbb{K}$.\\par Raisonnons par l'absurde : supposons $A \\ne \\mathbb{K}$. Soit $x \\in A$ et $y \\in \\mathbb{K} \\setminus A$.\\par Consid\\érons le segment $\\gamma : [0,1] \\to \\mathbb{K}$ d\\éfini par $\\gamma(t) = (1-t)x + ty$. On a $\\gamma(0) = x \\in A$ et $\\gamma(1) = y \\notin A$.\\par Posons $T = \\{t \\in [0,1] \\mid \\gamma(t) \\in A\\}$. On a $0 \\in T$ et $1 \\notin T$, donc $T \\ne \\emptyset$ et $T \\ne [0,1]$. Soit $s = \\sup T \\in [0,1]$.\\par \\textbf{$\\gamma(s) \\in \\overline{A}$ :} Il existe $(t_n)$ dans $T$ avec $t_n \\to s$, donc $\\gamma(t_n) \\in A$ et $\\gamma(t_n) \\to \\gamma(s)$ par continuit\\é. Comme $A$ est ferm\\é, $\\gamma(s) \\in A$.\\par \\textbf{$\\gamma(s) \\in \\mathring{A}$ :} Comme $A$ est ouvert et $\\gamma(s) \\in A$, il existe $\\epsilon > 0$ tel que $B(\\gamma(s), \\epsilon) \\subset A$. Par continuit\\é de $\\gamma$, il existe $\\eta > 0$ tel que pour $|t - s| < \\eta$, $|\\gamma(t) - \\gamma(s)| < \\epsilon$, donc $\\gamma(t) \\in A$.\\par Cela signifie que $[s, s+\\eta) \\cap [0,1] \\subset T$ (les points apr\\ès $s$ sont aussi dans $T$).\\par Si $s < 1$, cela contredit $s = \\sup T$ (car $s + \\eta/2 \\in T$ et $s + \\eta/2 > s$). Si $s = 1$, alors $\\gamma(1) = y \\in A$, contradiction avec $y \\notin A$.\\par \\textbf{Conclusion :} $A = \\mathbb{K}$. Les seules parties \\à la fois ouvertes et ferm\\ées de $\\mathbb{K}$ sont $\\emptyset$ et $\\mathbb{K}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_016",
+      "title": "Frontières et adhérences",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "frontière",
+        "adhérence",
+        "boules",
+        "topologie"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Calculer la fronti\\ère de $\\mathbb{Z}$ et $\\mathbb{Q}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense",
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_interieur_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fronti\\ère est l'intersection de l'adh\\érence et de l'adh\\érence du compl\\émentaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $\\mathbb{Z}$, les points sont isol\\és. Pour $\\mathbb{Q}$, utiliser la densit\\é de $\\mathbb{Q}$ et de $\\mathbb{R}\\setminus\\mathbb{Q}$ dans $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Fronti\\ère de $\\mathbb{Z}$ :} $\\text{Fr}(\\mathbb{Z}) = \\overline{\\mathbb{Z}} \\cap \\overline{\\mathbb{R}\\setminus\\mathbb{Z}}$.\\par $\\overline{\\mathbb{Z}} = \\mathbb{Z}$ (car $\\mathbb{Z}$ est ferm\\é). $\\overline{\\mathbb{R}\\setminus\\mathbb{Z}} = \\mathbb{R}$ (car $\\mathbb{R}\\setminus\\mathbb{Z}$ est dense : tout intervalle ouvert contient des non-entiers).\\par Donc $\\text{Fr}(\\mathbb{Z}) = \\mathbb{Z} \\cap \\mathbb{R} = \\mathbb{Z}$.\\par \\textbf{Fronti\\ère de $\\mathbb{Q}$ :} $\\text{Fr}(\\mathbb{Q}) = \\overline{\\mathbb{Q}} \\cap \\overline{\\mathbb{R}\\setminus\\mathbb{Q}}$.\\par $\\overline{\\mathbb{Q}} = \\mathbb{R}$ (densit\\é de $\\mathbb{Q}$) et $\\overline{\\mathbb{R}\\setminus\\mathbb{Q}} = \\mathbb{R}$ (densit\\é des irrationnels).\\par \\textbf{Conclusion :} $\\text{Fr}(\\mathbb{Z}) = \\mathbb{Z}$ et $\\text{Fr}(\\mathbb{Q}) = \\mathbb{R}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Calculer l'adh\\érence de $\\{z\\in\\mathbb{C} \\mid \\text{Re}(z)>0\\}$ dans $\\mathbb{C}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__theorem_critere_convergence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'adh\\érence est le plus petit ferm\\é contenant l'ensemble. Penser \\à un prolongement par passage \\à la limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'adh\\érence du demi-plan ouvert strict est le demi-plan ferm\\é $\\{z\\in\\mathbb{C} \\mid \\text{Re}(z)\\ge0\\}$."
+            }
+          ],
+          "solution_latex": "Posons $H = \\{z \\in \\mathbb{C} \\mid \\text{Re}(z) > 0\\}$ (demi-plan ouvert droit).\\par \\textbf{$\\overline{H} \\subset \\{z \\mid \\text{Re}(z) \\ge 0\\}$ :} Si $z_n \\in H$ et $z_n \\to z$, alors $\\text{Re}(z_n) > 0$ pour tout $n$ et par passage \\à la limite, $\\text{Re}(z) \\ge 0$.\\par \\textbf{$\\{z \\mid \\text{Re}(z) \\ge 0\\} \\subset \\overline{H}$ :} Soit $z = x + iy$ avec $x \\ge 0$. La suite $z_n = (x + 1/n) + iy \\in H$ converge vers $z$. Donc $z \\in \\overline{H}$.\\par \\textbf{Conclusion :} $\\overline{H} = \\{z \\in \\mathbb{C} \\mid \\text{Re}(z) \\ge 0\\}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\overline{A}=A\\sqcup[-1,1]$ pour : $A=\\{\\sin\\frac{1}{x}+ix \\mid x>0\\}$ .",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'adh\\érence de $A$ contient $A$ et tous ses points d'accumulation."
+            },
+            {
+              "level": 2,
+              "content_latex": "\\Étudier le comportement de $\\sin(1/x)$ quand $x$ tend vers $0$. Toute valeur de l'intervalle $[-1,1]$ peut \\être atteinte comme limite d'une suite de la forme $\\sin(1/x_n)$ avec $x_n \\to 0$."
+            }
+          ],
+          "solution_latex": "Posons $A = \\{\\sin(1/x) + ix \\mid x > 0\\}$.\\par \\textbf{$A \\subset \\overline{A}$ :} \\Évident.\\par \\textbf{$[-1,1] \\subset \\overline{A}$ :} Soit $y \\in [-1,1]$. Il existe une suite $(x_n)$ avec $x_n > 0$, $x_n \\to 0$ et $\\sin(1/x_n) \\to y$ (car $\\sin$ prend toutes les valeurs de $[-1,1]$ sur chaque intervalle de la forme $(0, \\epsilon)$). Alors $\\sin(1/x_n) + ix_n \\to y + 0 = y$. Donc $y \\in \\overline{A}$.\\par \\textbf{$\\overline{A} \\subset A \\cup [-1,1]$ :} Soit $z \\in \\overline{A} \\setminus A$. Il existe $(x_n)$ avec $x_n > 0$ et $\\sin(1/x_n) + ix_n \\to z$. Comme $z \\notin A$, on n'a pas $z = \\sin(1/x_0) + ix_0$ pour un $x_0 > 0$. En prenant la partie imaginaire : $x_n \\to \\text{Im}(z)$. Si $\\text{Im}(z) > 0$, alors $z = \\sin(1/\\text{Im}(z)) + i\\text{Im}(z) \\in A$, contradiction. Donc $\\text{Im}(z) = 0$ et $\\text{Re}(z) = \\lim \\sin(1/x_n) \\in [-1,1]$. Ainsi $z \\in [-1,1]$.\\par \\textbf{$A \\cap [-1,1] = \\emptyset$ :} les \\éléments de $A$ ont une partie imaginaire $> 0$.\\par \\textbf{Conclusion :} $\\overline{A} = A \\sqcup [-1,1]$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tous $a\\in\\mathbb{K}$ et $r>0$ : $\\overline{B(a,r)}=\\overline{B}(a,r)$ et $\\mathring{\\overline{B}}(a,r)=B(a,r).$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Proc\\éder par double inclusion pour chaque \\égalité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour montrer qu'un point de la boule ferm\\ée est dans l'adh\\érence de la boule ouverte, construire une suite d'\\éléments de la boule ouverte qui converge vers ce point en le rapprochant radialement du centre $a$."
+            }
+          ],
+          "solution_latex": "\\textbf{Premi\\ère \\égalit\\é : $\\overline{B(a,r)} = \\overline{B}(a,r)$.}\\par $\\subset$ : Si $z \\in \\overline{B(a,r)}$, il existe $(z_n) \\subset B(a,r)$ avec $z_n \\to z$. On a $|z_n - a| < r$ pour tout $n$, donc $|z-a| = \\lim |z_n-a| \\le r$, i.e. $z \\in \\overline{B}(a,r)$.\\par $\\supset$ : Soit $z \\in \\overline{B}(a,r)$, i.e. $|z-a| \\le r$. Si $|z-a| < r$, alors $z \\in B(a,r) \\subset \\overline{B(a,r)}$. Si $|z-a| = r$ (et $r > 0$), posons $z_n = a + (1 - 1/n)(z-a)$ pour $n \\ge 2$. Alors $|z_n - a| = (1-1/n)r < r$, donc $z_n \\in B(a,r)$, et $z_n \\to z$. Donc $z \\in \\overline{B(a,r)}$.\\par \\textbf{Seconde \\égalit\\é : $\\mathring{\\overline{B}}(a,r) = B(a,r)$.}\\par $\\supset$ : $B(a,r)$ est ouvert et $B(a,r) \\subset \\overline{B}(a,r)$, donc $B(a,r) \\subset \\mathring{\\overline{B}}(a,r)$.\\par $\\subset$ : Soit $z \\in \\mathring{\\overline{B}}(a,r)$. Si $|z-a| = r$, tout voisinage de $z$ contient des points $w$ avec $|w-a| > r$ (prendre $w = z + \\epsilon \\frac{z-a}{|z-a|}$). Donc $z$ n'est pas int\\érieur \\à $\\overline{B}(a,r)$, contradiction. Donc $|z-a| < r$.\\par \\textbf{Conclusion :} $\\overline{B(a,r)} = \\overline{B}(a,r)$ et $\\mathring{\\overline{B}}(a,r) = B(a,r)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_017",
+      "title": "Propriétés de l'adhérence et de l'intérieur",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_point_interieur_adherent"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "adhérence",
+        "intérieur",
+        "topologie générale",
+        "intersections"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $A$ et $B$ deux parties de $\\mathbb{K}$. Montrer que $\\overline{\\mathbb{K}\\setminus A}=\\mathbb{K}\\setminus\\mathring{A}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Jouer calmement avec les d\\éfinitions et leurs n\\égations."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduire '$x$ appartient \\à l'adh\\érence du compl\\émentaire' par 'toute boule centr\\ée en $x$ rencontre le compl\\émentaire', ce qui \\équivaut \\à dire qu'aucune boule centr\\ée en $x$ n'est incluse dans $A$."
+            }
+          ],
+          "solution_latex": "$x \\in \\overline{\\mathbb{K}\\setminus A}$\\par $\\iff$ toute boule $B(x,\\epsilon)$ rencontre $\\mathbb{K}\\setminus A$\\par $\\iff$ aucune boule $B(x,\\epsilon)$ n'est incluse dans $A$\\par $\\iff$ $x \\notin \\mathring{A}$\\par $\\iff$ $x \\in \\mathbb{K} \\setminus \\mathring{A}$.\\par \\textbf{Conclusion :} $\\overline{\\mathbb{K}\\setminus A} = \\mathbb{K} \\setminus \\mathring{A}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $A\\subset B,$ alors $\\overline{A}\\subset\\overline{B}$ et $\\mathring{A}\\subset\\mathring{B}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la d\\éfinition du plus petit ferm\\é contenant l'ensemble ou raisonner s\\équentiellement."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\overline{A} \\subset \\overline{B}$ :} Soit $x \\in \\overline{A}$. Toute boule $B(x,\\epsilon)$ rencontre $A$. Comme $A \\subset B$, elle rencontre aussi $B$. Donc $x \\in \\overline{B}$.\\par \\textbf{$\\mathring{A} \\subset \\mathring{B}$ :} Soit $x \\in \\mathring{A}$. Il existe $\\epsilon > 0$ tel que $B(x,\\epsilon) \\subset A \\subset B$. Donc $B(x,\\epsilon) \\subset B$, i.e. $x \\in \\mathring{B}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que $\\overline{A\\cup B}=\\overline{A}\\cup\\overline{B}$ et $\\overline{A\\cap B}\\subset\\overline{A}\\cap\\overline{B}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser b) pour commencer."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'inclusion non \\évidente de l'union, si $x \\in \\overline{A\\cup B}$, extraire une suite convergente vers $x$ et utiliser le fait que l'un des deux ensembles $A$ ou $B$ doit contenir une infinit\\é de termes de cette suite."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\overline{A \\cup B} = \\overline{A} \\cup \\overline{B}$ :}\\par $\\supset$ : $A \\subset A \\cup B$ implique $\\overline{A} \\subset \\overline{A \\cup B}$ par b). De m\\ême $\\overline{B} \\subset \\overline{A \\cup B}$. Donc $\\overline{A} \\cup \\overline{B} \\subset \\overline{A \\cup B}$.\\par $\\subset$ : $\\overline{A} \\cup \\overline{B}$ est ferm\\é (r\\éunion finie de ferm\\és) et contient $A \\cup B$. Comme $\\overline{A \\cup B}$ est le plus petit ferm\\é contenant $A \\cup B$, $\\overline{A \\cup B} \\subset \\overline{A} \\cup \\overline{B}$.\\par \\textbf{$\\overline{A \\cap B} \\subset \\overline{A} \\cap \\overline{B}$ :}\\par $A \\cap B \\subset A$ implique $\\overline{A \\cap B} \\subset \\overline{A}$ par b). De m\\ême $\\overline{A \\cap B} \\subset \\overline{B}$. Donc $\\overline{A \\cap B} \\subset \\overline{A} \\cap \\overline{B}$."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "Montrer que $\\mathring{A\\cap B}=\\mathring{A}\\cap\\mathring{B}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il suffit d'appliquer a) et c) convenablement. On peut aussi faire sans."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\mathring{A \\cap B} = \\mathring{A} \\cap \\mathring{B}$ :}\\par $\\subset$ : $A \\cap B \\subset A$ implique $\\mathring{A \\cap B} \\subset \\mathring{A}$ par b). De m\\ême $\\mathring{A \\cap B} \\subset \\mathring{B}$. Donc $\\mathring{A \\cap B} \\subset \\mathring{A} \\cap \\mathring{B}$.\\par $\\supset$ : Soit $x \\in \\mathring{A} \\cap \\mathring{B}$. Il existe $\\epsilon_1, \\epsilon_2 > 0$ tels que $B(x, \\epsilon_1) \\subset A$ et $B(x, \\epsilon_2) \\subset B$. Posons $\\epsilon = \\min(\\epsilon_1, \\epsilon_2) > 0$. Alors $B(x, \\epsilon) \\subset A \\cap B$, donc $x \\in \\mathring{A \\cap B}$.\\par \\textbf{Remarque :} On peut aussi d\\éduire ce r\\ésultat de a) et c) par passage au compl\\émentaire : $\\mathbb{K} \\setminus \\mathring{A \\cap B} = \\overline{\\mathbb{K} \\setminus (A \\cap B)} = \\overline{(\\mathbb{K}\\setminus A) \\cup (\\mathbb{K}\\setminus B)} = \\overline{\\mathbb{K}\\setminus A} \\cup \\overline{\\mathbb{K}\\setminus B} = (\\mathbb{K}\\setminus\\mathring{A}) \\cup (\\mathbb{K}\\setminus\\mathring{B}) = \\mathbb{K} \\setminus (\\mathring{A} \\cap \\mathring{B})$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Proposer deux parties $A$ et $B$ de $\\mathbb{R}$ pour lesquelles $\\overline{A\\cap B}\\ne\\overline{A}\\cap\\overline{B}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher deux ensembles disjoints (intersection vide) mais qui sont \"entrem\\êl\\és\" partout."
+            },
+            {
+              "level": 2,
+              "content_latex": "Penser aux ensembles denses comme $\\mathbb{Q}$ et $\\mathbb{R}\\setminus\\mathbb{Q}$."
+            }
+          ],
+          "solution_latex": "Prenons $A = \\mathbb{Q}$ et $B = \\mathbb{R} \\setminus \\mathbb{Q}$ dans $\\mathbb{R}$.\\par $A \\cap B = \\emptyset$, donc $\\overline{A \\cap B} = \\overline{\\emptyset} = \\emptyset$.\\par Or $\\overline{A} = \\overline{\\mathbb{Q}} = \\mathbb{R}$ et $\\overline{B} = \\overline{\\mathbb{R}\\setminus\\mathbb{Q}} = \\mathbb{R}$ (par densit\\é), donc $\\overline{A} \\cap \\overline{B} = \\mathbb{R}$.\\par \\textbf{Conclusion :} $\\overline{A \\cap B} = \\emptyset \\ne \\mathbb{R} = \\overline{A} \\cap \\overline{B}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_018",
+      "title": "Distance à une partie",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__definition_point_interieur_adherent"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "distance",
+        "adhérence",
+        "ouverts",
+        "fermés"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $A$ une partie non vide de $\\mathbb{K}$. Justifier pour tout $x\\in\\mathbb{K}$ l'existence du r\\éel $d(x,A)=\\inf\\{|x-a| \\mid a\\in A\\}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble des distances est une partie de $\\mathbb{R}$ minor\\ée par $0$."
+            }
+          ],
+          "solution_latex": "L'ensemble $\\{|x-a| \\mid a \\in A\\}$ est une partie non vide de $\\mathbb{R}$ (car $A \\ne \\emptyset$) et minor\\ée par $0$ (car $|x-a| \\ge 0$).\\par Par propri\\ét\\é de la borne inf\\érieure dans $\\mathbb{R}$, cet ensemble admet une borne inf\\érieure.\\par \\textbf{Conclusion :} $d(x, A) = \\inf\\{|x-a| \\mid a \\in A\\}$ existe dans $\\mathbb{R}_+$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que pour tous $x,y\\in\\mathbb{K}$ : $|d(x,A)-d(y,A)|\\le|x-y|$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'in\\égalité triangulaire pour majorer $|x-a|$ par $|x-y| + |y-a|$ et passer \\à la borne inf\\érieure."
+            }
+          ],
+          "solution_latex": "Soient $x, y \\in \\mathbb{K}$. Pour tout $a \\in A$, par l'in\\égalit\\é triangulaire :\\par $|x - a| \\le |x - y| + |y - a|$.\\par En passant \\à la borne inf\\érieure sur $a \\in A$ dans le membre de droite : $|x - a| \\le |x - y| + d(y, A)$ pour tout $a \\in A$.\\par Puis en passant \\à la borne inf\\érieure sur $a$ dans le membre de gauche : $d(x, A) \\le |x - y| + d(y, A)$.\\par Donc $d(x, A) - d(y, A) \\le |x - y|$. Par sym\\étrie des r\\ôles de $x$ et $y$, $d(y, A) - d(x, A) \\le |x - y|$.\\par \\textbf{Conclusion :} $|d(x, A) - d(y, A)| \\le |x - y|$. La fonction $x \\mapsto d(x, A)$ est $1$-lipschitzienne."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que pour tout $x\\in\\mathbb{K}$ : $x\\in\\overline{A} \\iff d(x,A)=0.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire le lien avec la caract\\érisation s\\équentielle de l'adh\\érence."
+            }
+          ],
+          "solution_latex": "$\\Rightarrow$ : Supposons $x \\in \\overline{A}$. Pour tout $\\epsilon > 0$, il existe $a \\in A$ tel que $|x - a| < \\epsilon$, donc $d(x, A) \\le |x - a| < \\epsilon$. Comme c'est vrai pour tout $\\epsilon > 0$, $d(x, A) = 0$.\\par $\\Leftarrow$ : Supposons $d(x, A) = 0$. Pour tout $n \\ge 1$, il existe $a_n \\in A$ tel que $|x - a_n| < 1/n$ (par caract\\érisation de la borne inf\\érieure). Alors $a_n \\to x$ et $(a_n) \\subset A$, donc $x \\in \\overline{A}$.\\par \\textbf{Conclusion :} $x \\in \\overline{A} \\iff d(x, A) = 0$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $A$ une partie non vide de $\\mathbb{K}$ et $r>0$. Montrer que : $\\bigcup_{a\\in A}B(a,r)=\\{x\\in\\mathbb{K} \\mid d(x,A)<r\\}.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La question a) produit plein de gentils ouverts."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduire la condition stricte $d(x,A) < r$ par l'existence d'un point $a \\in A$ tel que $|x-a| < r$."
+            }
+          ],
+          "solution_latex": "$\\subset$ : Soit $x \\in \\bigcup_{a \\in A} B(a, r)$. Il existe $a_0 \\in A$ tel que $|x - a_0| < r$. Donc $d(x, A) \\le |x - a_0| < r$, i.e. $x \\in \\{z \\mid d(z, A) < r\\}$.\\par $\\supset$ : Soit $x$ tel que $d(x, A) < r$. Par d\\éfinition de la borne inf\\érieure, il existe $a_0 \\in A$ tel que $|x - a_0| < r$, i.e. $x \\in B(a_0, r)$.\\par \\textbf{Conclusion :} $\\bigcup_{a \\in A} B(a, r) = \\{x \\in \\mathbb{K} \\mid d(x, A) < r\\}$. Cet ensemble est ouvert comme r\\éunion de boules ouvertes."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit $F$ un ferm\\é de $\\mathbb{K}$. Montrer que $F$ est l'intersection d'une suite d\\écroissante d'ouverts.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Construire des voisinages tubulaires autour de $F$ en utilisant la fonction distance."
+            },
+            {
+              "level": 2,
+              "content_latex": "Consid\\érer la suite d'ouverts $O_n = \\{x\\in\\mathbb{K} \\mid d(x,F) < 1/n\\}$."
+            }
+          ],
+          "solution_latex": "Posons $O_n = \\{x \\in \\mathbb{K} \\mid d(x, F) < 1/n\\}$ pour $n \\ge 1$. Par la question 2) a), chaque $O_n$ est ouvert. De plus $(O_n)$ est d\\écroissante.\\par \\textbf{$F \\subset \\bigcap_n O_n$ :} Si $x \\in F$, alors $d(x, F) = 0 < 1/n$ pour tout $n$, donc $x \\in O_n$.\\par \\textbf{$\\bigcap_n O_n \\subset F$ :} Si $x \\in \\bigcap_n O_n$, alors $d(x, F) < 1/n$ pour tout $n \\ge 1$, donc $d(x, F) = 0$. Par 1) c), $x \\in \\overline{F} = F$ (car $F$ est ferm\\é).\\par \\textbf{Conclusion :} $F = \\bigcap_{n \\ge 1} O_n$ est l'intersection d'une suite d\\écroissante d'ouverts."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Soit $O$ un ouvert de $\\mathbb{K}$. Montrer que $O$ est la r\\éunion d'une suite croissante de compacts.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ça ne suffit pas, mais on peut commencer par passer au compl\\émentaire dans le r\\ésultat de la question b)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si on prend le compl\\émentaire, on obtient une r\\éunion de ferm\\és. Pour les rendre compacts, il suffit de les intersecter avec la boule ferm\\ée de centre $0$ et de rayon $n$."
+            }
+          ],
+          "solution_latex": "Soit $O$ un ouvert de $\\mathbb{K}$. Posons $F = \\mathbb{K} \\setminus O$, qui est ferm\\é.\\par Par 2) b), $F = \\bigcap_{n \\ge 1} O_n$ avec $(O_n)$ ouverts d\\écroissants.\\par En passant au compl\\émentaire : $O = \\mathbb{K} \\setminus F = \\bigcup_{n \\ge 1} F_n$ o\\ù $F_n = \\mathbb{K} \\setminus O_n$ est ferm\\é, et $(F_n)$ est croissante.\\par Mais les $F_n$ ne sont pas forc\\ément compacts (pas born\\és). Posons $K_n = F_n \\cap \\overline{B}(0, n)$ pour $n \\ge 1$. Chaque $K_n$ est ferm\\é et born\\é, donc compact. La suite $(K_n)$ est croissante car $(F_n)$ l'est et $\\overline{B}(0,n) \\subset \\overline{B}(0,n+1)$.\\par $\\bigcup_n K_n = \\bigcup_n (F_n \\cap \\overline{B}(0,n)) = O$ (car tout $x \\in O$ est dans un $F_n$ pour $n$ assez grand, et dans $\\overline{B}(0,n)$ pour $n \\ge |x|$).\\par \\textbf{Conclusion :} $O = \\bigcup_{n \\ge 1} K_n$ avec $(K_n)$ suite croissante de compacts."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_019",
+      "title": "Distance entre ensembles et compacité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "distance",
+        "compacts",
+        "fermés"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $A$ une partie de $\\mathbb{K}$ et $O$ un ouvert de $\\mathbb{K}$. Montrer que si $A$ et $O$ sont disjoints, $\\overline{A}$ et $O$ le sont aussi.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par contraposition."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si l'intersection n'est pas vide, prendre $x \\in O \\cap \\overline{A}$. Alors $O$ est un voisinage ouvert de $x$, et par d\\éfinition de l'adh\\érence, il doit rencontrer $A$."
+            }
+          ],
+          "solution_latex": "Par contrapos\\ée. Supposons $\\overline{A} \\cap O \\ne \\emptyset$. Soit $x \\in \\overline{A} \\cap O$.\\par Comme $O$ est ouvert et $x \\in O$, il existe $\\epsilon > 0$ tel que $B(x, \\epsilon) \\subset O$.\\par Comme $x \\in \\overline{A}$, il existe $a \\in A$ tel que $|a - x| < \\epsilon$, i.e. $a \\in B(x, \\epsilon) \\subset O$.\\par Donc $a \\in A \\cap O$, ce qui signifie que $A$ et $O$ ne sont pas disjoints.\\par \\textbf{Conclusion :} Si $A \\cap O = \\emptyset$, alors $\\overline{A} \\cap O = \\emptyset$ (contrapos\\ée)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Justifier l'existence du r\\éel $d(A,B)=\\inf_{a\\in A,b\\in B}|a-b|$ pour toutes parties non vides $A$ et $B$ de $\\mathbb{K}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble des distances r\\éelles est minor\\é par $0$."
+            }
+          ],
+          "solution_latex": "L'ensemble $\\{|a - b| \\mid a \\in A, b \\in B\\}$ est une partie non vide de $\\mathbb{R}$ (car $A$ et $B$ sont non vides) et minor\\ée par $0$.\\par Par la propri\\ét\\é de la borne inf\\érieure dans $\\mathbb{R}$, cet ensemble admet une borne inf\\érieure.\\par \\textbf{Conclusion :} $d(A, B) = \\inf\\{|a-b| \\mid a \\in A, b \\in B\\}$ existe dans $\\mathbb{R}_+$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soient $C$ et $C'$ deux compacts non vides disjoints de $\\mathbb{K}$. Montrer que $d(C,C')=|c-c'|>0$ pour certains $c\\in C$ et $c'\\in C'.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_operations_compacts",
+            "topologie_de_r_et_c__theorem_exemples_compacts"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la caract\\érisation s\\équentielle de la borne inf\\érieure."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prendre des suites $(c_n)$ et $(c'_n)$ telles que $|c_n - c'_n| \\to d(C,C')$. Appliquer Bolzano-Weierstrass successivement dans les compacts $C$ et $C'$."
+            }
+          ],
+          "solution_latex": "\\textbf{Existence de $c, c'$ r\\éalisant la distance :} Par caract\\érisation de la borne inf\\érieure, il existe $(c_n) \\subset C$ et $(c'_n) \\subset C'$ tels que $|c_n - c'_n| \\to d(C, C')$.\\par Comme $C$ est compact, on extrait $c_{\\varphi(n)} \\to c \\in C$. Comme $C'$ est compact, on extrait $c'_{\\varphi(\\psi(n))} \\to c' \\in C'$.\\par Par continuit\\é du module : $|c - c'| = \\lim |c_{\\varphi(\\psi(n))} - c'_{\\varphi(\\psi(n))}| = d(C, C')$.\\par \\textbf{Stricte positivit\\é :} Si $d(C, C') = 0$, alors $|c - c'| = 0$, i.e. $c = c'$. Mais $c \\in C$ et $c' \\in C'$ avec $C \\cap C' = \\emptyset$. Contradiction.\\par \\textbf{Conclusion :} $d(C, C') = |c - c'| > 0$ pour certains $c \\in C$, $c' \\in C'$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soient $F$ un ferm\\é non vide et $C$ un compact non vide de $\\mathbb{K}$, disjoints. Montrer que $d(F,C)>0.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde avec une suite minimisante."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $d(F,C)=0$, il existe des suites $f_n \\in F$ et $c_n \\in C$ telles que $|f_n - c_n| \\to 0$. Extraire de $c_n$ une sous-suite convergente dans le compact $C$, et montrer que la limite de la sous-suite correspondante $f_n$ y adh\\ère aussi."
+            }
+          ],
+          "solution_latex": "Raisonnons par l'absurde. Supposons $d(F, C) = 0$.\\par Il existe $(f_n) \\subset F$ et $(c_n) \\subset C$ tels que $|f_n - c_n| \\to 0$.\\par Comme $C$ est compact, on extrait $c_{\\varphi(n)} \\to c \\in C$.\\par Alors $f_{\\varphi(n)} = c_{\\varphi(n)} + (f_{\\varphi(n)} - c_{\\varphi(n)})$. Or $|f_{\\varphi(n)} - c_{\\varphi(n)}| \\le |f_n - c_n| \\to 0$ (sous-suite d'une suite convergeant vers $0$). Donc $f_{\\varphi(n)} \\to c$.\\par Comme $F$ est ferm\\é et $(f_{\\varphi(n)}) \\subset F$, on a $c \\in F$.\\par Ainsi $c \\in F \\cap C$, ce qui contredit $F \\cap C = \\emptyset$.\\par \\textbf{Conclusion :} $d(F, C) > 0$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Proposer deux ferm\\és non vides disjoints de $\\mathbb{C}$ pour lesquels $d(F,F')=0.$",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour que des ferm\\és s'approchent infiniment pr\\ès sans se toucher, ils ne doivent pas \\être compacts (donc non born\\és dans $\\mathbb{C}$)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Penser \\à un axe et une branche d'hyperbole (ex: $y=0$ et $y=1/x$ pour $x>0$)."
+            }
+          ],
+          "solution_latex": "Posons $F = \\mathbb{R}$ (l'axe r\\éel, vu dans $\\mathbb{C}$) et $F' = \\{x + i/x \\mid x > 0\\}$ (branche d'hyperbole).\\par \\textbf{$F$ et $F'$ sont ferm\\és :} $F = \\mathbb{R}$ est ferm\\é dans $\\mathbb{C}$. $F'$ est ferm\\é car si $x_n + i/x_n \\to l$ avec $x_n > 0$, alors $\\text{Im}(l) = \\lim 1/x_n$. Si $x_n \\to 0$, la partie imaginaire diverge, contradiction. Si $x_n \\to +\\infty$, la partie r\\éelle diverge, contradiction. Donc $(x_n)$ reste born\\ée loin de $0$, et la limite est dans $F'$.\\par \\textbf{$F \\cap F' = \\emptyset$ :} Si $z \\in F$, $\\text{Im}(z) = 0$, mais si $z \\in F'$, $\\text{Im}(z) = 1/x > 0$.\\par \\textbf{$d(F, F') = 0$ :} Posons $f_n = n \\in F$ et $f'_n = n + i/n \\in F'$. Alors $|f_n - f'_n| = 1/n \\to 0$.\\par \\textbf{Conclusion :} $F$ et $F'$ sont ferm\\és, disjoints, et $d(F, F') = 0$. Cela montre que l'hypoth\\ese de compacit\\é est n\\écessaire dans les questions 3) et 4)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_020",
+      "title": "Sous-groupes de R et C",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__theorem_operations_compacts",
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_ouvert",
+        "topologie_de_r_et_c__definition_compact"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-groupes",
+        "densité",
+        "compacité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $G$ un sous-groupe de $\\mathbb{R}$ non r\\éduit \\à $\\{0\\}$. Montrer que $G\\cap\\mathbb{R}_{+}^{*}$ poss\\ède une borne inf\\érieure $\\alpha$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_densite_decimaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble $G\\cap\\mathbb{R}_{+}^{*}$ est non vide (si $x \\in G \\setminus \\{0\\}$, alors $\\pm x > 0$) et est minor\\é par $0$."
+            }
+          ],
+          "solution_latex": "Comme $G \\ne \\{0\\}$, il existe $x \\in G$ avec $x \\ne 0$. Puisque $G$ est un sous-groupe de $(\\mathbb{R}, +)$, $-x \\in G$.\\par L'un des deux, $x$ ou $-x$, est strictement positif. Donc $G \\cap \\mathbb{R}_+^* \\ne \\emptyset$.\\par Cet ensemble est minor\\é par $0$.\\par \\textbf{Conclusion :} Par la propri\\ét\\é de la borne inf\\érieure, $\\alpha = \\inf(G \\cap \\mathbb{R}_+^*)$ existe dans $\\mathbb{R}_+$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $\\alpha>0$, alors $G=\\alpha\\mathbb{Z}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord que $\\alpha\\in G$ en raisonnant par l'absurde."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puis pour tout $x \\in G$, consid\\érer la division euclidienne $x = q\\alpha + r$ avec $0 \\le r < \\alpha$, et conclure sur $r$."
+            }
+          ],
+          "solution_latex": "\\textbf{$\\alpha \\in G$ :} Raisonnons par l'absurde. Si $\\alpha \\notin G$, par caract\\érisation de la borne inf\\érieure, il existe $a, b \\in G \\cap \\mathbb{R}_+^*$ tels que $\\alpha \\le a < b \\le \\alpha + (a - \\alpha)/2$... Plus pr\\écis\\ément, pour tout $\\epsilon > 0$, il existe $g \\in G$ avec $\\alpha < g < \\alpha + \\epsilon$. Prenons deux tels \\éléments $g_1, g_2$ avec $\\alpha < g_1 < g_2 < \\alpha + \\epsilon$. Alors $0 < g_2 - g_1 < \\epsilon$ et $g_2 - g_1 \\in G$. Cela contredit $\\alpha = \\inf(G \\cap \\mathbb{R}_+^*)$ si $\\epsilon < \\alpha$, car $g_2 - g_1 < \\epsilon < \\alpha$.\\par Donc $\\alpha \\in G$.\\par \\textbf{$G = \\alpha\\mathbb{Z}$ :} $\\alpha\\mathbb{Z} \\subset G$ car $\\alpha \\in G$ et $G$ est un sous-groupe. R\\éciproquement, soit $x \\in G$. Effectuons la division euclidienne : $x = q\\alpha + r$ avec $q \\in \\mathbb{Z}$ et $0 \\le r < \\alpha$. Alors $r = x - q\\alpha \\in G$. Si $r > 0$, alors $r \\in G \\cap \\mathbb{R}_+^*$ et $r < \\alpha$, contredisant la minimalit\\é de $\\alpha$. Donc $r = 0$ et $x = q\\alpha \\in \\alpha\\mathbb{Z}$.\\par \\textbf{Conclusion :} $G = \\alpha\\mathbb{Z}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que si $\\alpha=0,$ alors $G$ est dense dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense",
+            "topologie_de_r_et_c__definition_ouvert",
+            "topologie_de_r_et_c__theorem_interieur_ouvert"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que tout intervalle ouvert non vide contient un \\élément de $G$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\alpha=0$, il existe dans $G$ des \\éléments strictement positifs arbitrairement petits. Les multiples de ces \\éléments forment un quadrillage suffisamment fin pour tomber dans n'importe quel intervalle de largeur donn\\ée."
+            }
+          ],
+          "solution_latex": "Supposons $\\alpha = 0$. Soit $]a, b[$ un intervalle ouvert non vide de $\\mathbb{R}$.\\par Comme $\\alpha = 0$, pour tout $\\epsilon > 0$, il existe $g \\in G$ tel que $0 < g < \\epsilon$.\\par Choisissons $g \\in G$ avec $0 < g < b - a$. Les multiples de $g$ forment un r\\éseau de pas $g$ sur $\\mathbb{R}$ : $\\{ng \\mid n \\in \\mathbb{Z}\\} \\subset G$.\\par Comme $g < b - a$, tout intervalle de longueur $b - a$ contient au moins un multiple de $g$. Donc il existe $n \\in \\mathbb{Z}$ tel que $ng \\in ]a, b[$, i.e. $G \\cap ]a,b[ \\ne \\emptyset$.\\par \\textbf{Conclusion :} $G$ rencontre tout intervalle ouvert non vide, donc $G$ est dense dans $\\mathbb{R}$."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "Conclusion ?",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Synth\\étiser les r\\ésultats pr\\éc\\édents sur la classification des sous-groupes additifs de $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Th\\éor\\ème (classification des sous-groupes additifs de $\\mathbb{R}$) :}\\par Tout sous-groupe $G$ de $(\\mathbb{R}, +)$ est soit $\\{0\\}$, soit de la forme $\\alpha\\mathbb{Z}$ avec $\\alpha > 0$ (sous-groupe discret), soit dense dans $\\mathbb{R}$.\\par En effet, si $G \\ne \\{0\\}$, la borne inf\\érieure $\\alpha = \\inf(G \\cap \\mathbb{R}_+^*)$ existe, et par 1) b) et 1) c), si $\\alpha > 0$ alors $G = \\alpha\\mathbb{Z}$, si $\\alpha = 0$ alors $G$ est dense."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que pour tous $a\\in\\mathbb{R}$, $b\\in\\mathbb{R}^{*}$ pour lesquels $\\frac{a}{b}\\notin\\mathbb{Q}$, $a\\mathbb{Z}+b\\mathbb{Z}$ est dense dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_densite_decimaux",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que sait-on des sous-groupes de $\\mathbb{R}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble $a\\mathbb{Z}+b\\mathbb{Z}$ est un sous-groupe de $\\mathbb{R}$. S'il est de la forme $\\alpha\\mathbb{Z}$, montrer que le rapport $a/b$ devrait \\être rationnel, ce qui m\\ène \\à une contradiction."
+            }
+          ],
+          "solution_latex": "L'ensemble $H = a\\mathbb{Z} + b\\mathbb{Z} = \\{na + mb \\mid n, m \\in \\mathbb{Z}\\}$ est un sous-groupe additif de $\\mathbb{R}$.\\par Par la classification des sous-groupes (question 1)), soit $H = \\{0\\}$, soit $H = \\alpha\\mathbb{Z}$, soit $H$ est dense.\\par $H = \\{0\\}$ est exclu car $b \\ne 0$, donc $b \\in H \\setminus \\{0\\}$.\\par Si $H = \\alpha\\mathbb{Z}$ avec $\\alpha > 0$, alors $a = n_0\\alpha$ et $b = m_0\\alpha$ pour certains $n_0, m_0 \\in \\mathbb{Z}$ (avec $m_0 \\ne 0$ car $b \\ne 0$). Donc $\\frac{a}{b} = \\frac{n_0}{m_0} \\in \\mathbb{Q}$, contradiction.\\par \\textbf{Conclusion :} $a\\mathbb{Z} + b\\mathbb{Z}$ est dense dans $\\mathbb{R}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En admettant que $\\pi$ est irrationnel, montrer que $\\{\\sin n \\mid n\\in\\mathbb{Z}\\}$ est dense dans $[-1,1]$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_densite_decimaux",
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Relier les valeurs de $\\sin(n)$ \\à l'ensemble des points de la forme $n + 2k\\pi$ sur la droite r\\éelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le r\\ésultat pr\\éc\\édent \\à $a=1$ et $b=2\\pi$. Puis utiliser la continuit\\é de la fonction sinus."
+            }
+          ],
+          "solution_latex": "Comme $\\pi$ est irrationnel, $\\frac{1}{2\\pi} \\notin \\mathbb{Q}$. Par 2) a), $G = \\mathbb{Z} + 2\\pi\\mathbb{Z}$ est dense dans $\\mathbb{R}$.\\par L'application $\\sin : \\mathbb{R} \\to [-1, 1]$ est continue et surjective sur $[-1, 1]$. Comme $\\sin$ est $2\\pi$-p\\ériodique, $\\{\\sin(n + 2k\\pi) \\mid n \\in \\mathbb{Z}, k \\in \\mathbb{Z}\\} = \\{\\sin(n) \\mid n \\in \\mathbb{Z}\\}$.\\par L'image de l'ensemble dense $G$ par la fonction continue $\\sin$ est dense dans $\\sin(\\mathbb{R}) = [-1, 1]$.\\par En effet, soit $y \\in [-1, 1]$ et $\\epsilon > 0$. Il existe $x_0 \\in \\mathbb{R}$ tel que $\\sin(x_0) = y$. Par continuit\\é de $\\sin$, il existe $\\delta > 0$ tel que $|x - x_0| < \\delta \\Rightarrow |\\sin(x) - y| < \\epsilon$. Par densit\\é de $G$, il existe $g \\in G$ avec $|g - x_0| < \\delta$, donc $|\\sin(g) - y| < \\epsilon$. Et $\\sin(g) = \\sin(n)$ pour un certain $n \\in \\mathbb{Z}$.\\par \\textbf{Conclusion :} $\\{\\sin n \\mid n \\in \\mathbb{Z}\\}$ est dense dans $[-1, 1]$."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Soit $G$ un sous-groupe compact de $\\mathbb{C}^*$. Montrer que $G\\subset\\mathbb{U}$ puis que $\\{\\theta\\in\\mathbb{R} \\mid e^{i\\theta}\\in G\\}$ est un sous-groupe de $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_compact",
+            "topologie_de_r_et_c__theorem_compact_ferme_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $G$ contient un \\élément dont le module n'est pas $1$, \\étudier la suite de ses puissances (qui tend soit vers $0$, soit vers $+\\infty$) vis-\\à-vis du caract\\ère born\\é ou ferm\\é en $0$ du compact $G$."
+            }
+          ],
+          "solution_latex": "\\textbf{$G \\subset \\mathbb{U}$ :} Soit $z \\in G$ avec $|z| \\ne 1$. Comme $G$ est un sous-groupe de $(\\mathbb{C}^*, \\times)$, $z^n \\in G$ pour tout $n \\in \\mathbb{Z}$.\\par Si $|z| > 1$, $|z^n| = |z|^n \\to +\\infty$, donc $(z^n)$ n'est pas born\\ée, ce qui contredit la compacit\\é (donc le caract\\ère born\\é) de $G$.\\par Si $|z| < 1$, $|z^n| = |z|^n \\to 0$, mais $0 \\notin \\mathbb{C}^*$, et $z^n \\in G$ converge vers $0 \\notin G$ (car $G \\subset \\mathbb{C}^*$), ce qui contredit le fait que $G$ est ferm\\é.\\par Donc $|z| = 1$ pour tout $z \\in G$, i.e. $G \\subset \\mathbb{U}$.\\par \\textbf{$\\Theta = \\{\\theta \\in \\mathbb{R} \\mid e^{i\\theta} \\in G\\}$ est un sous-groupe de $(\\mathbb{R}, +)$ :}\\par - $0 \\in \\Theta$ car $e^{i \\cdot 0} = 1 \\in G$.\\par - Si $\\theta_1, \\theta_2 \\in \\Theta$, alors $e^{i\\theta_1}, e^{i\\theta_2} \\in G$, donc $e^{i(\\theta_1 + \\theta_2)} = e^{i\\theta_1} \\cdot e^{i\\theta_2} \\in G$, i.e. $\\theta_1 + \\theta_2 \\in \\Theta$.\\par - Si $\\theta \\in \\Theta$, alors $e^{-i\\theta} = (e^{i\\theta})^{-1} \\in G$, i.e. $-\\theta \\in \\Theta$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "D\\éterminer les sous-groupes compacts de $\\mathbb{C}^{*}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__theorem_operations_compacts",
+            "topologie_de_r_et_c__definition_partie_dense",
+            "topologie_de_r_et_c__theorem_exemples_compacts"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "R\\ésoudre en classifiant le sous-groupe de $\\mathbb{R}$ form\\é par les arguments."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si le sous-groupe des arguments est discret (de la forme $\\alpha\\mathbb{Z}$), $G$ correspond aux racines de l'unit\\é. S'il est dense, son image par l'exponentielle compl\\éte l'adh\\érence et $G = \\mathbb{U}$."
+            }
+          ],
+          "solution_latex": "Par 3) a), $G \\subset \\mathbb{U}$ et $\\Theta = \\{\\theta \\mid e^{i\\theta} \\in G\\}$ est un sous-groupe de $\\mathbb{R}$. Par la classification (question 1)) :\\par \\textbf{Cas 1 : $\\Theta = \\{0\\}$.} Alors $G = \\{1\\}$.\\par \\textbf{Cas 2 : $\\Theta = \\alpha\\mathbb{Z}$ avec $\\alpha > 0$.} Alors $G = \\{e^{in\\alpha} \\mid n \\in \\mathbb{Z}\\}$. Pour que $G$ soit ferm\\é (compact), il faut que l'orbite soit finie, ce qui \\équivaut \\à $\\frac{\\alpha}{2\\pi} \\in \\mathbb{Q}$, i.e. $\\alpha = \\frac{2\\pi p}{q}$ avec $p, q \\in \\mathbb{N}^*$ et $\\text{pgcd}(p,q)=1$. Alors $G = \\mathbb{U}_q$ (groupe des racines $q$-i\\èmes de l'unit\\é).\\par Si $\\frac{\\alpha}{2\\pi} \\notin \\mathbb{Q}$, l'orbite est dense dans $\\mathbb{U}$ mais pas ferm\\ée, donc $G$ n'est pas compact : ce cas est impossible.\\par \\textbf{Cas 3 : $\\Theta$ est dense dans $\\mathbb{R}$.} L'image de $\\Theta$ par $\\theta \\mapsto e^{i\\theta}$ est dense dans $\\mathbb{U}$. Comme $G$ est ferm\\é, $G = \\overline{G} \\supset \\mathbb{U}$. Or $G \\subset \\mathbb{U}$, donc $G = \\mathbb{U}$.\\par \\textbf{Conclusion :} Les sous-groupes compacts de $\\mathbb{C}^*$ sont : $\\{1\\}$, les groupes $\\mathbb{U}_n$ des racines $n$-i\\èmes de l'unit\\é ($n \\ge 1$), et $\\mathbb{U}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_021",
+      "title": "Densité d'ensembles de nombres",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_partie_dense"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "densité",
+        "sous-groupes",
+        "nombres dyadiques"
+      ],
+      "statement_latex": "Montrer que les parties suivantes sont denses :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{\\frac{p}{2^{n}} \\mid p\\in\\mathbb{Z}, n\\in\\mathbb{N}\\}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que cet ensemble forme un sous-groupe additif de $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\émontrer qu'il n'est pas de la forme $\\alpha\\mathbb{Z}$ en montrant qu'il contient des \\éléments strictement positifs arbitrairement petits, par exemple pour $p=1$ et $n \\to +\\infty$."
+            }
+          ],
+          "solution_latex": "Posons $D = \\{p/2^n \\mid p \\in \\mathbb{Z}, n \\in \\mathbb{N}\\}$ (nombres dyadiques).\\par \\textbf{$D$ est un sous-groupe de $(\\mathbb{R}, +)$ :} $0 \\in D$. Si $\\frac{p_1}{2^{n_1}}, \\frac{p_2}{2^{n_2}} \\in D$, alors $\\frac{p_1}{2^{n_1}} + \\frac{p_2}{2^{n_2}} = \\frac{p_1 2^{n_2} + p_2 2^{n_1}}{2^{n_1+n_2}} \\in D$, et $-\\frac{p}{2^n} = \\frac{-p}{2^n} \\in D$.\\par \\textbf{$D$ n'est pas de la forme $\\alpha\\mathbb{Z}$ :} $D$ contient $\\frac{1}{2^n}$ pour tout $n \\in \\mathbb{N}$, et $\\frac{1}{2^n} \\to 0$. Donc $\\inf(D \\cap \\mathbb{R}_+^*) = 0$, i.e. $\\alpha = 0$.\\par Par la classification des sous-groupes de $\\mathbb{R}$, $D$ est dense dans $\\mathbb{R}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{2^{n}3^{p} \\mid n,p\\in\\mathbb{Z}\\}$ dans $\\mathbb{R}_{+}$.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_partie_dense"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble est inclus dans $\\mathbb{R}_{+}^{*}$. Essayer de se ramener \\à un ensemble additif par une transformation continue classique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la fonction logarithme n\\ép\\érien. L'image de cet ensemble est $n \\ln(2) + p \\ln(3)$. Utiliser le th\\éor\\ème sur les sous-groupes de $\\mathbb{R}$ de la forme $a\\mathbb{Z} + b\\mathbb{Z}$."
+            }
+          ],
+          "solution_latex": "Posons $E = \\{2^n 3^p \\mid n, p \\in \\mathbb{Z}\\} \\subset \\mathbb{R}_+^*$.\\par Appliquons le logarithme n\\ép\\érien : $\\ln(E) = \\{n\\ln 2 + p\\ln 3 \\mid n, p \\in \\mathbb{Z}\\} = (\\ln 2)\\mathbb{Z} + (\\ln 3)\\mathbb{Z}$.\\par Or $\\frac{\\ln 2}{\\ln 3} = \\log_3 2 \\notin \\mathbb{Q}$ (car s'il existait $p/q$ avec $\\log_3 2 = p/q$, on aurait $2^q = 3^p$, impossible car le membre de gauche est pair et le membre de droite est impair).\\par Par 2) a) de l'exercice pr\\éc\\édent, $(\\ln 2)\\mathbb{Z} + (\\ln 3)\\mathbb{Z}$ est dense dans $\\mathbb{R}$.\\par Comme l'exponentielle $\\exp : \\mathbb{R} \\to \\mathbb{R}_+^*$ est un hom\\éomorphisme, l'image de $\\ln(E)$ par $\\exp$, qui est $E$, est dense dans $\\mathbb{R}_+^*$.\\par Comme $0 \\in \\overline{E}$ (car $2^n 3^{-n} = (2/3)^n \\to 0$), on a $E$ dense dans $\\mathbb{R}_+$.\\par \\textbf{Conclusion :} $\\{2^n 3^p \\mid n, p \\in \\mathbb{Z}\\}$ est dense dans $\\mathbb{R}_+$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__ex_022",
+      "title": "Suites de Cauchy et Théorème du point fixe",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__theorem_critere_convergence",
+        "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite de Cauchy",
+        "complétude",
+        "point fixe de Banach",
+        "fonction contractante"
+      ],
+      "statement_latex": "On appelle suite de Cauchy (de $\\mathbb{K}$) toute suite $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{K}^{\\mathbb{N}}$ pour laquelle : \\par $\\forall\\epsilon>0$ $\\exists N\\in\\mathbb{N},$ $\\forall p,q\\ge N$, $|u_{p}-u_{q}|<\\epsilon$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que toute suite de Cauchy est born\\ée.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_theorem_suite_bornee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la d\\éfinition avec une valeur de $\\epsilon$ fix\\ée, par exemple $\\epsilon = 1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "À partir d'un certain rang $N$, tous les termes sont dans la boule de centre $u_N$ et de rayon $1$. L'ensemble des termes est donc l'union de cet ensemble born\\é et du sous-ensemble fini des $N$ premiers termes."
+            }
+          ],
+          "solution_latex": "Soit $\\epsilon = 1$. Par d\\éfinition de suite de Cauchy, il existe $N \\in \\mathbb{N}$ tel que pour tous $p, q \\ge N$, $|u_p - u_q| < 1$.\\par En particulier, pour tout $p \\ge N$, $|u_p - u_N| < 1$, donc $|u_p| \\le |u_N| + 1$.\\par Posons $M = \\max(|u_0|, |u_1|, ..., |u_{N-1}|, |u_N| + 1)$.\\par Pour tout $n \\in \\mathbb{N}$ : si $n < N$, $|u_n| \\le M$ par d\\éfinition ; si $n \\ge N$, $|u_n| \\le |u_N| + 1 \\le M$.\\par \\textbf{Conclusion :} La suite $(u_n)$ est born\\ée par $M$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que toute suite convergente est de Cauchy.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $u_p - u_q = (u_p - l) + (l - u_q)$ o\\ù $l$ est la limite de la suite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'in\\égalité triangulaire : $|u_p - u_q| \\le |u_p - l| + |u_q - l|$ et utiliser la d\\éfinition de la limite avec $\\epsilon/2$."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ convergente de limite $l$, et soit $\\epsilon > 0$.\\par Par d\\éfinition de la limite, il existe $N \\in \\mathbb{N}$ tel que pour tout $n \\ge N$, $|u_n - l| < \\epsilon/2$.\\par Pour tous $p, q \\ge N$ :\\par $|u_p - u_q| = |(u_p - l) - (u_q - l)| \\le |u_p - l| + |u_q - l| < \\frac{\\epsilon}{2} + \\frac{\\epsilon}{2} = \\epsilon$.\\par \\textbf{Conclusion :} Toute suite convergente est de Cauchy."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "R\\éciproquement, montrer que toute suite de Cauchy est convergente. Cette propri\\ét\\é de $\\mathbb{K}$ est appel\\ée sa compl\\étude.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_bolzano_weierstrass"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Bolzano-Weierstrass !"
+            },
+            {
+              "level": 2,
+              "content_latex": "La suite \\étant born\\ée d'apr\\ès 1) a), extraire une sous-suite convergente vers une limite $l$. Puis, utiliser le caract\\ère de Cauchy pour montrer que la suite enti\\ère converge vers cette m\\ême limite $l$."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ une suite de Cauchy dans $\\mathbb{K}$.\\par Par 1) a), $(u_n)$ est born\\ée. Par le th\\éor\\ème de Bolzano-Weierstrass, on extrait une sous-suite $(u_{\\varphi(n)})$ convergeant vers $l \\in \\mathbb{K}$.\\par Montrons que $u_n \\to l$. Soit $\\epsilon > 0$.\\par Comme $(u_n)$ est de Cauchy, il existe $N_1$ tel que pour tous $p, q \\ge N_1$, $|u_p - u_q| < \\epsilon/2$.\\par Comme $u_{\\varphi(n)} \\to l$, il existe $N_2$ tel que pour $n \\ge N_2$, $|u_{\\varphi(n)} - l| < \\epsilon/2$.\\par Posons $N = \\max(N_1, N_2)$. Pour tout $n \\ge N$, choisissons $m \\ge N$ tel que $\\varphi(m) \\ge N$ (possible car $\\varphi$ est strictement croissante) :\\par $|u_n - l| \\le |u_n - u_{\\varphi(m)}| + |u_{\\varphi(m)} - l| < \\frac{\\epsilon}{2} + \\frac{\\epsilon}{2} = \\epsilon$.\\par \\textbf{Conclusion :} $u_n \\to l$. Toute suite de Cauchy de $\\mathbb{K}$ converge : $\\mathbb{K}$ est complet."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $F$ un ferm\\é de $\\mathbb{K}$ et $f:F\\longrightarrow F$ une fonction contractante, i.e. pour laquelle : \\par $\\exists c\\in[0,1[,\\forall x,y\\in F,|f(x)-f(y)|\\le c|x-y|$. \\par On souhaite montrer que $f$ poss\\ède un et un seul point fixe (th\\éor\\ème du point fixe de Banach). \\par a) Montrer l'unicit\\é d'un tel point fixe.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_point_interieur_adherent",
+            "topologie_de_r_et_c__definition_voisinage",
+            "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposer qu'il existe deux points fixes distincts $x$ et $y$, puis \\évaluer $|f(x) - f(y)|$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'\\égalité $|x - y| = |f(x) - f(y)| \\le c|x - y|$ avec $c < 1$ force $|x - y|$ \\à \\être nul."
+            }
+          ],
+          "solution_latex": "\\textbf{Unicit\\é :} Supposons que $f$ ait deux points fixes $x, y \\in F$ avec $x \\ne y$.\\par $|x - y| = |f(x) - f(y)| \\le c|x - y|$.\\par Comme $|x - y| > 0$, on simplifie : $1 \\le c$, ce qui contredit $c < 1$.\\par \\textbf{Conclusion :} $f$ a au plus un point fixe."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite quelconque pour laquelle $u_{0}\\in F$ et $u_{n+1}=f(u_{n})$ tout $n\\in\\mathbb{N}$. \\par Montrer que $|u_{p}-u_{q}|\\le c^{p}\\frac{|u_{1}-u_{0}|}{1-c}$ pour tous $q\\ge p$ puis que $(u_{n})_{n\\in\\mathbb{N}}$ converge.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+            "topologie_de_r_et_c__theorem_critere_convergence",
+            "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $u_{p}-u_{q}$ comme une somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire appara\\ître une somme t\\élescopique $u_p - u_q = \\sum_{k=p}^{q-1} (u_k - u_{k+1})$. Majorer chaque terme $|u_k - u_{k+1}|$ par $c^k |u_0 - u_1|$ en r\\ép\\étant l'in\\égalité de contractance."
+            },
+            {
+              "level": 3,
+              "content_latex": "Utiliser la somme des termes d'une suite g\\éom\\étrique de raison $c < 1$ pour borner le tout, ce qui prouvera au passage que la suite est de Cauchy."
+            }
+          ],
+          "solution_latex": "\\textbf{Majoration de $|u_{k+1} - u_k|$ :} Par r\\écurrence, $|u_{k+1} - u_k| = |f(u_k) - f(u_{k-1})| \\le c|u_k - u_{k-1}| \\le ... \\le c^k|u_1 - u_0|$.\\par \\textbf{Majoration de $|u_p - u_q|$ pour $q \\ge p$ :}\\par $|u_p - u_q| \\le \\sum_{k=p}^{q-1} |u_{k+1} - u_k| \\le \\sum_{k=p}^{q-1} c^k |u_1 - u_0| = |u_1 - u_0| \\cdot c^p \\cdot \\frac{1 - c^{q-p}}{1-c}$.\\par Comme $0 \\le c < 1$, $1 - c^{q-p} \\le 1$, donc $|u_p - u_q| \\le c^p \\cdot \\frac{|u_1 - u_0|}{1-c}$.\\par \\textbf{Convergence :} Cette majoration montre que $(u_n)$ est de Cauchy : pour $\\epsilon > 0$, choisir $p_0$ tel que $\\frac{c^{p_0}|u_1 - u_0|}{1-c} < \\epsilon$.\\par Comme $\\mathbb{K}$ est complet, $(u_n)$ converge."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En d\\éduire que $f$ poss\\ède un point fixe.",
+          "knowledge_nodes_tested": [
+            "topologie_de_r_et_c__definition_theorem_suite_convergente",
+            "topologie_de_r_et_c__theorem_limites_suites_extraites",
+            "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La suite convergente a une limite $l$. Comme $F$ est ferm\\é, $l \\in F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Passer \\à la limite dans l'\\équation $u_{n+1} = f(u_n)$. La fonction $f$ est continue car contractante (donc lipschitzienne), ce qui assure que $l = f(l)$."
+            }
+          ],
+          "solution_latex": "La suite $(u_n)$ converge vers une limite $l \\in \\mathbb{K}$.\\par Comme $(u_n) \\subset F$ et $F$ est ferm\\é, $l \\in F$.\\par La fonction $f$ est continue (car lipschitzienne : $|f(x)-f(y)| \\le c|x-y|$). En passant \\à la limite dans $u_{n+1} = f(u_n)$ :\\par $l = \\lim u_{n+1} = \\lim f(u_n) = f(\\lim u_n) = f(l)$.\\par \\textbf{Conclusion :} $l$ est un point fixe de $f$ dans $F$. Avec l'unicit\\é de 2) a), $f$ poss\\ède un et un seul point fixe dans $F$ (th\\éor\\ème du point fixe de Banach)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_001",
+      "title": "TD Champo - 12.1",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_point_interieur_adherent",
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+        "topologie_de_r_et_c__definition_ouvert"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne supérieure",
+        "Inclusion",
+        "Majorant",
+        "champo"
+      ],
+      "statement_latex": "Soient $A$ et $B$ deux parties de $\\mathbb{R}$, non vides, avec $B$ majorée et $A \\subset B$. Montrer que $A$ admet une borne supérieure, et que $\\sup(A) \\le \\sup(B)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $M = \\sup(B)$. Alors $M$ est un majorant de $B$. Comme $A \\subset B$, tout élément de $A$ est élément de $B$ et est donc inférieur ou égal à $M$. Ainsi, $M$ est un majorant de $A$. $A$ est une partie non vide et majorée de $\\mathbb{R}$, elle admet donc une borne supérieure. De plus, $\\sup(A)$ est le plus petit des majorants de $A$. Puisque $M$ est un majorant de $A$, on a nécessairement $\\sup(A) \\le M$, c'est-à-dire $\\sup(A) \\le \\sup(B)$."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_002",
+      "title": "TD Champo - 12.2",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_developpement_decimal_illimite",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__theorem_critere_convergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne supérieure",
+        "Borne inférieure",
+        "Calcul de bornes",
+        "champo"
+      ],
+      "statement_latex": "Montrer que les parties de $\\mathbb{R}$ suivantes sont bornées. Déterminer leurs bornes inférieures et supérieures :\n1. $A=\\{(-1)^{n}+\\frac{1}{n+1}, n \\in \\mathbb{N}\\}$\n2. $B=\\{\\frac{1}{n}-\\frac{1}{p}, (n,p) \\in \\mathbb{N}^{*} \\times \\mathbb{N}^{*}\\}$\n3. $C=\\{(-1)^{n}(1-\\frac{1}{n}), n \\in \\mathbb{N}^{*}\\}$",
+      "sub_questions": [],
+      "global_solution_latex": "**1. Pour A :**\nPour tout $n \\in \\mathbb{N}$, $-1 \\le (-1)^{n} + \\frac{1}{n+1} \\le 1 + 1 = 2$. $A$ est bornée. \nPour $n=0$, on obtient $2 \\in A$, c'est donc le maximum et $\\sup(A)=2$. \nMontrons que $\\inf(A) = -1$. $-1$ est un minorant. Soit $\\epsilon > 0$. On cherche $n$ impair tel que $-1 + \\frac{1}{n+1} < -1 + \\epsilon$, soit $\\frac{1}{n+1} < \\epsilon$. Il suffit de prendre $2k+1$ assez grand. Donc $\\inf(A)=-1$.\n\n**2. Pour B :**\nOn a $-1 < \\frac{1}{n} - \\frac{1}{p} < 1$. $\\sup(B)=1$ (en fixant $n=1$ et $p \\to \\infty$) et $\\inf(B)=-1$ (en fixant $p=1$ et $n \\to \\infty$). Les bornes ne sont pas atteintes.\n\n**3. Pour C :**\n$C$ est bornée par $-1$ et $1$. $\\sup(C)=1$ (limite pour $n$ pair) et $\\inf(C)=-1$ (limite pour $n$ impair)."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_003",
+      "title": "TD Champo - 12.3",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__theorem_tomber_plus_bas",
+        "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents",
+        "topologie_de_r_et_c__definition_theorem_suite_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne inférieure",
+        "Union",
+        "Intersection",
+        "Somme d'ensembles",
+        "champo"
+      ],
+      "statement_latex": "Soient $A$ et $B$ deux parties non vides minorées de $\\mathbb{R}$.\n1. Montrer que $A \\cup B$ est minorée, et montrer que $\\inf(A \\cup B) = \\min(\\inf(A), \\inf(B))$.\n2. Montrer que si $A \\cap B \\ne \\emptyset$, alors $\\max(\\inf(A), \\inf(B)) \\le \\inf(A \\cap B)$. Est-ce toujours une égalité ?\n3. On pose $A+B = \\{a+b, (a,b) \\in A \\times B\\}$. Montrer que $A+B$ est minorée et que $\\inf(A+B) = \\inf(A) + \\inf(B)$.",
+      "sub_questions": [],
+      "global_solution_latex": "**1.** Soit $m = \\min(\\inf(A), \\inf(B))$. Pour tout $x \\in A \\cup B$, si $x \\in A$, $x \\ge \\inf(A) \\ge m$. Si $x \\in B$, $x \\ge \\inf(B) \\ge m$. Donc $m$ est un minorant. De plus, $\\inf(A \\cup B)$ doit être inférieur ou égal à $\\inf(A)$ (car $A \\subset A \\cup B$) et à $\\inf(B)$. Donc $\\inf(A \\cup B) \\le m$. D'où l'égalité.\n\n**2.** Si $x \\in A \\cap B$, $x \\ge \\inf(A)$ et $x \\ge \\inf(B)$, donc $x \\ge \\max(\\inf(A), \\inf(B))$. L'inégalité n'est pas toujours stricte : pour $A=\\{1,2\\}$ et $B=\\{0,2\\}$, $\\inf(A)=1, \\inf(B)=0$, $\\max=1$, mais $A \\cap B = \\{2\\}$ donc $\\inf(A \\cap B) = 2 \\ne 1$.\n\n**3.** $A+B$ est minorée par $\\inf(A)+\\inf(B)$. Montrons que c'est le plus grand minorant par la caractérisation $\\epsilon$. Soit $\\epsilon > 0$. Il existe $a \\in A$ tel que $a < \\inf(A) + \\epsilon/2$ et $b \\in B$ tel que $b < \\inf(B) + \\epsilon/2$. Alors $a+b < \\inf(A) + \\inf(B) + \\epsilon$. D'où $\\inf(A+B) = \\inf(A) + \\inf(B)$."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_004",
+      "title": "TD Champo - 12.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+        "topologie_de_r_et_c__definition_point_interieur_adherent"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Parties adjacentes",
+        "Borne supérieure",
+        "Borne inférieure",
+        "champo"
+      ],
+      "statement_latex": "Parties adjacentes de $\\mathbb{R}$. Soient $A$ et $B$ deux parties non vides de $\\mathbb{R}$. On suppose que :\n$$\\forall (a,b) \\in A \\times B, \\quad a \\le b \\quad \\text{et} \\quad \\forall \\epsilon > 0, \\exists (a,b) \\in A \\times B, \\quad b-a < \\epsilon$$\nMontrer que $A$ admet une borne supérieure, $B$ admet une borne inférieure et $\\sup(A) = \\inf(B)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Tout $b \\in B$ est un majorant de $A$, donc $\\sup(A)$ existe et $\\sup(A) \\le b$. Ceci étant vrai pour tout $b$, $\\sup(A)$ est un minorant de $B$, donc $\\inf(B)$ existe et $\\sup(A) \\le \\inf(B)$.\nSupposons par l'absurde $\\sup(A) < \\inf(B)$. Posons $\\epsilon = \\inf(B) - \\sup(A) > 0$. Par hypothèse, il existe $(a,b)$ tels que $b-a < \\epsilon$. Alors $b < a + \\epsilon \\le \\sup(A) + \\epsilon = \\inf(B)$, ce qui contredit la définition de l'infimum ($b$ ne peut pas être strictement plus petit que $\\inf(B)$). Donc $\\sup(A) = \\inf(B)$."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_005",
+      "title": "TD Champo - 12.5",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_point_interieur_adherent",
+        "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+        "topologie_de_r_et_c__definition_ferme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne supérieure",
+        "Ensemble privé d'un point",
+        "champo"
+      ],
+      "statement_latex": "Soit $A$ une partie majorée de $\\mathbb{R}$ contenant au moins deux éléments. On suppose que $x \\in A$ et $x \\ne \\sup(A)$. Montrer que $\\sup(A \\setminus \\{x\\}) = \\sup(A)$.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $A \\setminus \\{x\\} \\subset A$, donc $\\sup(A \\setminus \\{x\\}) \\le \\sup(A)$.\nSupposons l'inégalité stricte : $\\sup(A \\setminus \\{x\\}) < \\sup(A)$.\nSi $\\sup(A \\setminus \\{x\\}) \\le x$, alors pour tout $y \\in A \\setminus \\{x\\}$, $y \\le x$. Comme $x \\le x$, $x$ serait le plus grand élément de $A$, donc $x = \\sup(A)$, ce qui est exclu par hypothèse.\nDonc $x < \\sup(A \\setminus \\{x\\})$. Alors $\\sup(A \\setminus \\{x\\})$ majore $A \\setminus \\{x\\}$ et est supérieur à $x$, donc il majore $A \\cup \\{x\\} = A$. Ainsi $\\sup(A) \\le \\sup(A \\setminus \\{x\\})$, ce qui contredit l'hypothèse stricte.\nD'où l'égalité."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_006",
+      "title": "TD Champo - 12.6",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_bornee",
+        "topologie_de_r_et_c__theorem_densite_decimaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Fonctions bornées",
+        "Monotonie",
+        "Infimum",
+        "Supremum",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R} \\to \\mathbb{R}$ une fonction bornée. On définit deux fonctions $g$ et $h$ sur $\\mathbb{R}$ en posant, pour tout $x \\in \\mathbb{R}$ :\n$$g(x) = \\inf \\{f(y), y \\ge x\\} \\quad \\text{et} \\quad h(x) = \\sup \\{f(y), y \\ge x\\}$$\nMontrer que $g$ et $h$ sont bien définies, que $g \\le h$ et étudier les monotonies de $g$ et $h$.",
+      "sub_questions": [],
+      "global_solution_latex": "$f$ étant bornée, les ensembles sont bornés et non vides (contiennent $f(x)$), donc $g$ et $h$ sont bien définies.\nPour tout $y \\ge x$, $f(y) \\in \\{f(t), t \\ge x\\}$, donc $\\inf \\dots \\le \\sup \\dots$, soit $g(x) \\le h(x)$.\nSoit $x \\le x'$. Alors $\\{f(y), y \\ge x'\\} \\subset \\{f(y), y \\ge x\\}$.\nL'infimum sur un ensemble plus petit est plus grand : $g(x) \\le g(x')$ ($g$ est croissante).\nLe supremum sur un ensemble plus petit est plus petit : $h(x') \\le h(x)$ ($h$ est décroissante)."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_007",
+      "title": "TD Champo - 12.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__theorem_densite_decimaux",
+        "topologie_de_r_et_c__theorem_densite_Q_R_Q"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Densité",
+        "Nombres rationnels",
+        "champo"
+      ],
+      "statement_latex": "Montrer que $E = \\{r^3, r \\in \\mathbb{Q}\\}$ est dense dans $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $a < b$ deux réels. La fonction racine cubique est strictement croissante, donc $\\sqrt[3]{a} < \\sqrt[3]{b}$. Par densité de $\\mathbb{Q}$ dans $\\mathbb{R}$, il existe $r \\in \\mathbb{Q}$ tel que $\\sqrt[3]{a} < r < \\sqrt[3]{b}$. En élevant au cube (fonction croissante), $a < r^3 < b$. Comme $r^3 \\in E$, $E$ est dense dans $\\mathbb{R}$."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_008",
+      "title": "TD Champo - 12.8",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_point_interieur_adherent",
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+        "topologie_de_r_et_c__definition_ferme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne supérieure",
+        "Propriétés topologiques",
+        "champo"
+      ],
+      "statement_latex": "Soit $A$ une partie majorée de $\\mathbb{R}$, et soit $M = \\sup(A)$. On suppose par ailleurs que $A$ ne possède pas de plus grand élément. Montrer que pour tout $\\epsilon > 0$, l'intervalle $]M-\\epsilon, M[$ contient une infinité d'éléments de $A$. Ce résultat reste-t-il vrai si $M \\in A$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Puisque $A$ n'a pas de max, $M \\notin A$. Par définition de la borne sup, pour tout $\\epsilon > 0$, l'intersection $]M-\\epsilon, M[ \\cap A$ est non vide.\nSupposons qu'elle soit finie. Notons $x$ son plus grand élément. On a $x < M$. Comme $x$ n'est pas majorant, il existe $y \\in A$ tel que $x < y \\le M$. Comme $M \\notin A$, $y < M$. Donc $y \\in ]M-\\epsilon, M[ \\cap A$ et $y > x$, ce qui contredit la maximalité de $x$ dans l'intersection finie.\nSi $M \\in A$, c'est faux (ex: $A = \\{0, 1\\}$, $M=1$, l'intersection peut être vide ou réduite à $M$ pour $\\epsilon$ petit)."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_009",
+      "title": "TD Champo - 12.9",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_theorem_suite_convergente",
+        "topologie_de_r_et_c__theorem_limites_suites_extraites",
+        "topologie_de_r_et_c__theorem_critere_convergence",
+        "topologie_de_r_et_c__theorem_convergence_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation fonctionnelle",
+        "Densité",
+        "Morphisme",
+        "champo"
+      ],
+      "statement_latex": "Endomorphismes croissants de $(\\mathbb{R}, +)$. Soit $f : \\mathbb{R} \\to \\mathbb{R}$ telle que $\\forall (x,y) \\in \\mathbb{R}^2, f(x+y) = f(x) + f(y)$. On pose $\\alpha = f(1)$.\n1. Déterminer $f(0)$.\n2. Montrer que pour tout $n \\in \\mathbb{N}$, $f(n) = \\alpha n$.\n3. Montrer que pour tout $n \\in \\mathbb{Z}$, $f(n) = \\alpha n$.\n4. Montrer que pour tout $r \\in \\mathbb{Q}$, $f(r) = \\alpha r$.\n5. Soit $x \\in \\mathbb{R}$.\n   (a) Montrer qu'il existe deux suites $(a_n)$ et $(b_n)$, à valeurs rationnelles, de limite $x$, telles que $\\forall n \\in \\mathbb{N}, a_n \\le x \\le b_n$.\n   (b) On suppose $f$ croissante. Montrer que $f(x) = \\alpha x$.\n6. Déterminer toutes les applications croissantes $f : \\mathbb{R} \\to \\mathbb{R}$ telles que pour tout $(x,y) \\in \\mathbb{R}^2, f(x+y)=f(x)+f(y)$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $f(0) = f(0+0) = 2f(0) \\implies f(0)=0$.\n2. Récurrence: $f(n) = n f(1) = n \\alpha$.\n3. $f(n) + f(-n) = f(0) = 0 \\implies f(-n) = -f(n) = -n\\alpha$.\n4. Pour $r = p/q$, $q f(p/q) = f(p) = p \\alpha \\implies f(r) = \\alpha r$.\n5. (a) Densité de $\\mathbb{Q}$ (approx décimales par ex).\n   (b) $f(a_n) \\le f(x) \\le f(b_n) \\implies \\alpha a_n \\le f(x) \\le \\alpha b_n$. Par passage à la limite (gendarmes), $f(x) = \\alpha x$.\n6. Les applications linéaires $x \\mapsto \\alpha x$ avec $\\alpha \\ge 0$ (pour la croissance)."
+    },
+    {
+      "id": "topologie_de_r_et_c__champo_010",
+      "title": "TD Champo - 12.10",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "topologie_de_r_et_c__definition_partie_dense",
+        "topologie_de_r_et_c__definition_point_interieur_adherent",
+        "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+        "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Densité",
+        "Intervalles",
+        "Dyadiques",
+        "champo"
+      ],
+      "statement_latex": "Un critère de densité. Soit $A$ une partie de $\\mathbb{R}$ telle que :\ni) $\\forall x \\in \\mathbb{R}, \\exists (a,b) \\in A^2, a < x < b$ (Prouver que $A$ est dense dans $\\mathbb{R}$ est une erreur dans l'énoncé original, c'est l'objectif final).\nii) $\\forall (a,b) \\in A^2, \\frac{a+b}{2} \\in A$.\nProuver que $A$ est dense dans $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "L'hypothèse (ii) implique que $A$ est stable par milieux. Soient $x < y$. On veut montrer que $A \\cap ]x, y[ \\ne \\emptyset$. D'après (i), il existe $a, b \\in A$ tels que $a < x < y < b$. En itérant la division par 2, on construit les nombres $x_k^{(n)} = a + k \\frac{b-a}{2^n}$. Ce sont des éléments de $A$. Pour $n$ assez grand, le pas $\\frac{b-a}{2^n}$ est inférieur à $y-x$, donc l'un des points tombe dans $]x,y[$. Donc $A$ est dense.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérer les milieux successifs (nombres dyadiques)."
+        }
+      ]
+    }
+  ]
+}

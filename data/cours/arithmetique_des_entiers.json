@@ -1,0 +1,501 @@
+{
+  "chapter_official_id": "arithmetique_des_entiers",
+  "chapter_name": "Arithmétique des entiers",
+  "source_document": "Cours - Arithmetique des entiers.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "arithmetique_des_entiers__definition_divisibilite",
+      "type": "definition",
+      "title": "Définition : Divisibilité, diviseur, multiple",
+      "content_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ divise $b$, ce qu'on note $a \\mid b$, si $b = ak$ pour un certain $k \\in \\mathbb{Z}$. On dit aussi que $a$ est un diviseur de $b$, que $b$ est divisible par $a$ ou que $b$ est un multiple de $a$.\\par Pour tout $a \\in \\mathbb{Z}$, l'ensemble des multiples de $a$ est l'ensemble $a\\mathbb{Z} = \\{ak \\mid k \\in \\mathbb{Z}\\}$. Quant à l'ensemble des diviseurs de $a$, il sera noté $\\text{div}(a)$ dans ce cours, mais il ne s'agit pas d'une notation universelle.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_divisibilite_ordre",
+      "type": "remark",
+      "title": "Remarque : Relations de divisibilité et d'ordre",
+      "content_latex": "Les relations $\\mid$ et $\\leq$ ont des manières très différentes de structurer $\\mathbb{Z}$, mais pour tous $a, b \\in \\mathbb{N}^*$ : $a \\mid b \\Rightarrow a \\leq b$.\\par De plus, pour $a \\neq 0$ : $\\max \\text{div}(a) = |a|$ et $\\text{div}(a) = \\text{div}(|a|)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_diviseurs",
+      "type": "example",
+      "title": "Exemple : Diviseurs",
+      "content_latex": "$\\text{div}(0) = \\mathbb{Z}$, $\\text{div}(8) = \\{-8, -4, -2, -1, 1, 2, 4, 8\\}$ et $\\text{div}(12) = \\{-12, -6, -4, -3, -2, -1, 1, 2, 3, 4, 6, 12\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de la relation de divisibilité",
+      "content_latex": "Soient $a, b, c, d \\in \\mathbb{Z}$.\\par (i) Relation d'ordre : La relation de divisibilité $\\mid$ est une relation d'ordre sur $\\mathbb{N}$, mais elle est seulement réflexive et transitive sur $\\mathbb{Z}$ car : $a \\mid b$ et $b \\mid a \\Leftrightarrow |a| = |b|$ ou $a = -b$.\\par (ii) Combinaisons linéaires : Si $d \\mid a$ et $d \\mid b$, alors $d \\mid (au + bv)$ pour tous $u, v \\in \\mathbb{Z}$.\\par (iii) Produit : Si $a \\mid b$ et $c \\mid d$, alors $ac \\mid bd$, et en particulier, $a^k \\mid b^k$ pour tout $k \\in \\mathbb{N}$.",
+      "proof_latex": "(i) L'assertion (i) a été prouvée au chapitre « Relations binaires et applications ».\\par (ii) Par hypothèse, $a = dk$ et $b = dl$ pour certains $k, l \\in \\mathbb{Z}$, donc pour tous $u, v \\in \\mathbb{Z}$, $au + bv = d(ku + vl)$ avec $ku + vl \\in \\mathbb{Z}$, donc $d \\mid (au + bv)$.\\par (iii) Par hypothèse, $b = ak$ et $d = cl$ pour certains $k, l \\in \\mathbb{Z}$, donc $bd = (ac)(kl)$ avec $kl \\in \\mathbb{Z}$, donc $ac \\mid bd$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_produit_entiers_consecutifs",
+      "type": "example",
+      "title": "Exemple : Produit d'entiers consécutifs",
+      "content_latex": "Le produit de deux entiers consécutifs est pair. Plus généralement, pour tout $k \\in \\mathbb{N}$, le produit de $k$ entiers consécutifs est divisible par $k!$.",
+      "proof_latex": "Soient $k \\in \\mathbb{N}$ et $n \\in \\mathbb{Z}$.\\par — Si $n \\geq 1$, alors $n(n+1)\\ldots(n+k-1) = \\binom{n+k-1}{k} \\cdot k!$ et les coefficients binomiaux sont des entiers, donc $n(n+1)\\ldots(n+k-1)$ est divisible par $k!$.\\par — Si $n \\in \\{-k+1, \\ldots, 0\\}$, alors $n(n+1)\\ldots(n+k-1) = 0$ est divisible par $k!$.\\par — Si $n \\leq -k$, alors $N = -n-k+1 \\geq 1$, donc $n(n+1)\\ldots(n+k-1) = (-1)^k N(N+1)\\ldots(N+k-1)$ est divisible par $k!$ d'après le premier point."
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_nombre_premier",
+      "type": "definition",
+      "title": "Définition : Nombre premier, nombre composé",
+      "content_latex": "Soit $p \\in \\mathbb{N}$. On dit que $p$ est premier si $p \\neq 1$ et si ses seuls diviseurs sont $\\pm 1$ et $\\pm p$. On dit que $p$ est composé si $p$ n'est ni égal à 1 ni premier.\\par L'ensemble des nombres premiers est généralement noté $\\mathbb{P}$.\\par La liste des nombres premiers commence ainsi : $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37\\ldots$",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+      "type": "theorem",
+      "title": "Théorème : Existence de la factorisation première",
+      "content_latex": "Tout entier naturel non nul est un produit de nombres premiers.\\par On considère 1 comme le produit de 0 nombre premier et tout nombre premier est le produit d'un seul nombre premier.",
+      "proof_latex": "Par récurrence forte.\\par • Initialisation : 2 est premier, donc produit de nombres premiers !\\par • Hérédité : Soit $n \\geq 2$. Faisons l'hypothèse que tout entier naturel non nul strictement inférieur à $n$ est un produit de nombres premiers. Qu'en est-il de $n$ ? Deux cas possibles — soit $n$ est premier, soit $n$ est composé.\\par Si $n$ est premier, c'est terminé, il est produit de nombres premiers. Et s'il est composé ? Il s'écrit dans ce cas $n = ab$ où $a$ et $b$ sont deux diviseurs positifs de $n$ strictement inférieurs à $n$. Par hypothèse de récurrence, $a$ et $b$ sont des produits de nombres premiers, donc $n$ aussi par produit."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+      "type": "theorem",
+      "title": "Théorème : Infinitude de l'ensemble des nombres premiers",
+      "content_latex": "L'ensemble $\\mathbb{P}$ des nombres premiers est infini.",
+      "proof_latex": "• La preuve d'Euclide : Par l'absurde, supposons $\\mathbb{P}$ fini et notons $p_1, \\ldots, p_r$ ses éléments. Supérieur à 2, l'entier $N = p_1 \\ldots p_r + 1$ possède un diviseur premier d'après le théorème précédent, disons $p_k$ pour un certain $k \\in \\{1, \\ldots, r\\}$. En particulier, $p_k$ divise $N - p_1 \\ldots p_r = 1$, donc $p_k = 1$ — contradiction.\\par • La preuve whaou : D'après le théorème précédent : $\\mathbb{Z} \\setminus \\{-1, 1\\} = \\bigcup_{p \\in \\mathbb{P}} p\\mathbb{Z}$. Pourtant, les ensembles $p_1\\mathbb{Z}, \\ldots, p_r\\mathbb{Z}$ sont $p_1 \\ldots p_r$-périodiques, donc leur réunion aussi, alors que $\\mathbb{Z} \\setminus \\{-1, 1\\}$ ne l'est pas — contradiction."
+    },
+    {
+      "id": "arithmetique_des_entiers__methode_crible_eratosthene",
+      "type": "method",
+      "title": "Méthode : Crible d'Ératosthène",
+      "content_latex": "Le crible d'Ératosthène permet une détermination simple de tous les nombres premiers inférieurs à un seuil donné et repose sur la remarque suivante. Si un entier $n \\geq 2$ est composé et si nous notons $p$ le plus petit de ses diviseurs premiers, alors $n = pk$ pour un certain $k \\in \\mathbb{N}^*$, mais tout diviseur premier de $k$ est aussi supérieur à $p$, donc $n = pk \\geq p^2$, i.e. $p \\leq \\sqrt{n}$.\\par En résumé : Tout entier COMPOSÉ $n$ possède un diviseur premier inférieur à $\\sqrt{n}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_division_euclidienne",
+      "type": "theorem",
+      "title": "Théorème : Théorème de la division euclidienne",
+      "content_latex": "Soient $a \\in \\mathbb{Z}$ et $b \\in \\mathbb{N}^*$. Il existe un et un seul couple $(q, r) \\in \\mathbb{Z} \\times \\mathbb{N}$ pour lequel $a = bq + r$ et $0 \\leq r < b$.\\par On appelle $a$ le dividende de la division euclidienne de $a$ par $b$, $b$ son diviseur, $q$ son quotient et $r$ son reste. Par ailleurs : $q = \\left\\lfloor \\frac{a}{b} \\right\\rfloor$.\\par Pour $b = 2$, le théorème montre que tout entier relatif est pair ou impair, mais jamais les deux.",
+      "proof_latex": "• Existence : L'ensemble $\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}$ est une partie non vide de $\\mathbb{N}$ car il contient $a = a - b \\times 0$ si $a \\geq 0$ et $a - ba = a(1-b) \\geq 0$ si $a < 0$. Cet ensemble possède ainsi un plus petit élément $r$, et par définition de $r$, $a = bq + r$ pour un certain $q \\in \\mathbb{Z}$. Se peut-il qu'on ait $r \\geq b$ ? Si c'était le cas, $a - b(q+1) = r - b$ serait un élément de $\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}$ strictement plus petit que $r = \\min \\left(\\{a - bk \\mid k \\in \\mathbb{Z}\\} \\cap \\mathbb{N}\\right)$ — impossible. Conclusion : $0 \\leq r \\leq b-1$.\\par • Unicité : Soient $(q, r)$ et $(q', r')$ deux couples de division euclidienne de $a$ par $b$. Aussitôt $b(q - q') = r' - r$, donc $b \\mid (r' - r)$, mais par ailleurs $-b < r' - r < b$, donc $\\left|\\frac{r' - r}{b}\\right| < 1$. Comme $\\frac{r' - r}{b}$ est entier, il en découle que $q = q'$, et en retour, $r = a - bq = a - bq' = r'$.\\par Pour finir : $0 \\leq r = a - bq < b$, donc $\\frac{a}{b} - 1 < q \\leq \\frac{a}{b}$, donc $q = \\left\\lfloor \\frac{a}{b} \\right\\rfloor$."
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_division_soustraction",
+      "type": "remark",
+      "title": "Remarque : Division comme soustraction",
+      "content_latex": "En résumé, DIVISER C'EST SOUSTRAIRE, mais pour diviser 1000 par 3, faut-il vraiment effectuer 333 soustractions ? Oui et non. Quand on pose la division de 347 par 5, on retranche dans un premier temps $6 \\times 5 = 30$ de 34, du moins en apparence, car en réalité, c'est $60 \\times 5 = 300$ qu'on retranche de 347. Dans un second temps, on retranche $9 \\times 5 = 45$ de 47. Au total, on a effectué 69 soustractions, mais en deux fois seulement. Pour un ordinateur, un grand nombre de mini-soustractions n'est pas un problème. Pour nous autres cerveaux, c'en est un. Nous compensons en exploitant vite et bien les tables de multiplication.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_congruence",
+      "type": "definition",
+      "title": "Définition : Relation de congruence modulo un entier",
+      "content_latex": "Soient $a, b, n \\in \\mathbb{Z}$. On dit que $a$ est congru à $b$ modulo $n$, ce qu'on note $a \\equiv b \\; [n]$, si $a = b + kn$ pour un certain $k \\in \\mathbb{Z}$. Il est équivalent de dire que $n \\mid (a - b)$.\\par L'équivalence suivante est fondamentale dans les deux sens : $n \\mid a \\Leftrightarrow a \\equiv 0 \\; [n]$. Elle traduit les divisibilités en congruences et vice versa.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_division_euclidienne_congruences",
+      "type": "remark",
+      "title": "Remarque : Division euclidienne et congruences",
+      "content_latex": "Le théorème de la division euclidienne par un entier $n \\in \\mathbb{N}^*$ peut être reformulé en termes de congruences : $\\forall a \\in \\mathbb{Z}, \\exists! r \\in \\{0, 1, \\ldots, n-1\\}, a \\equiv r \\; [n]$, ce qui signifie que tout entier relatif $a$ est congru modulo $n$ à un unique entier $r$ de $\\{0, 1, \\ldots, n-1\\}$. En d'autres termes, $\\{0, 1, \\ldots, n-1\\}$ est un ensemble de représentants des classes d'équivalence de $[n]$ et l'ensemble quotient $\\mathbb{Z}/[n]$ est de cardinal $n$."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_proprietes_congruence",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de la relation de congruence modulo un entier",
+      "content_latex": "Soient $a, a', b, b', m, n \\in \\mathbb{Z}$.\\par (i) Relation d'équivalence : La relation $\\equiv \\; [n]$ est une relation d'équivalence sur $\\mathbb{Z}$.\\par (ii) Somme : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Produit : Si $a \\equiv b \\; [n]$ et $a' \\equiv b' \\; [n]$, alors $aa' \\equiv bb' \\; [n]$, et en particulier $a^k \\equiv b^k \\; [n]$ pour tout $k \\in \\mathbb{N}$.\\par (iv) Multiplication/division par un entier non nul : Si $m$ est non nul : $a \\equiv b \\; [n] \\Leftrightarrow ma \\equiv mb \\; [mn]$.",
+      "proof_latex": "(i) L'assertion (i) a été prouvée au chapitre « Relations binaires et applications ».\\par (ii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $(a + a') - (b + b')$ par somme, donc $a + a' \\equiv b + b' \\; [n]$.\\par (iii) Si $n$ divise $a - b$ et $a' - b'$, alors $n$ divise aussi $a(a' - b') + b'(a - b) = aa' - bb'$ par combinaison linéaire, donc $aa' \\equiv bb' \\; [n]$.\\par (iv) $a \\equiv b \\; [n] \\Leftrightarrow n \\mid (a - b) \\Leftrightarrow mn \\mid m(a - b) \\Leftrightarrow ma \\equiv mb \\; [mn]$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_2345_5432",
+      "type": "example",
+      "title": "Exemple : $2345 + 5432$ est divisible par 3",
+      "content_latex": "$2345 + 5432$ est divisible par 3.",
+      "proof_latex": "$2345 + 5432 \\equiv (-1)^{345} + (-1)^{432} \\equiv -1 + 1 \\equiv 0 \\; [3]$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_n2_mod_8",
+      "type": "example",
+      "title": "Exemple : Carré d'un entier impair modulo 8",
+      "content_latex": "Pour tout $n \\in \\mathbb{Z}$ impair : $n^2 \\equiv 1 \\; [8]$.",
+      "proof_latex": "$n = 2k + 1$ pour un certain $k \\in \\mathbb{Z}$, donc $n^2 = 4k^2 + 4k + 1 = 4k(k+1) + 1$. Cela dit, $k$ ou $k+1$ est pair car ces deux entiers sont consécutifs, donc leur produit est pair aussi : $k(k+1) \\equiv 0 \\; [2]$. A fortiori $4k(k+1) \\equiv 0 \\; [8]$, donc $n^2 \\equiv 1 \\; [8]$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_reste_2_puissance_7",
+      "type": "example",
+      "title": "Exemple : Reste de la division euclidienne de $2^{65362}$ par 7",
+      "content_latex": "Le reste de la division euclidienne de $2^{65362}$ par 7 est 2.",
+      "proof_latex": "C'est l'idée-phare de cet exemple — dénicher, si elle existe, la première puissance de 2 congrue à 1 modulo 7. Une fois qu'on en a trouvé une, on peut « raisonner modulo 3 dans l'exposant » car pour tous $q, r \\in \\mathbb{N}$ : $2^{3q+r} = (2^3)^q \\cdot 2^r \\equiv 1^q \\cdot 2^r \\equiv 2^r \\; [7]$.\\par Ici, $2^3 \\equiv 8 \\equiv 1 \\; [7]$. Ici, $65362 \\equiv 1 \\; [3]$, donc $2^{65362} \\equiv 2^1 \\equiv 2 \\; [7]$."
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_equations_diophantiennes",
+      "type": "remark",
+      "title": "Remarque : Équations diophantiennes",
+      "content_latex": "Intéressons-nous à présent aux premières équations diophantiennes de ce chapitre. On appelle ainsi toute équation à inconnues entières construite à partir des seules opérations d'addition et de multiplication — par exemple, les équations $2x + 3y = 5$ ou $x^3 + 7 = y^4$ d'inconnue $(x, y) \\in \\mathbb{Z}^2$.\\par Pour étudier une équation diophantienne, on la réduit souvent modulo un entier $n$ bien choisi. L'idée, c'est que toute solution qu'on peut trouver dans le vaste monde $\\mathbb{Z}$ fournit une solution dans le petit « monde modulo $n$ » — petit car fini de cardinal $n$. Par contraposition, si une équation n'a pas de solution modulo $n$, elle en a encore moins dans $\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_x2_moins_8y2",
+      "type": "example",
+      "title": "Exemple : Équation sans solution",
+      "content_latex": "L'équation $x^2 - 8y^2 = 3$ d'inconnue $(x, y) \\in \\mathbb{Z}^2$ n'a pas de solution.",
+      "proof_latex": "Modulo 2, l'équation s'écrit $x^2 \\equiv -1 \\equiv 1 \\; [2]$ et tous les entiers $x$ impairs en sont solutions — zut. Qu'à cela ne tienne, creusons plus profond. Raisonner plus profondément avec le nombre premier 2, c'est raisonner modulo $2^2 = 4$, voire modulo $2^3 = 8$, etc.\\par Modulo 4, l'équation s'écrit $x^2 \\equiv -1 \\equiv 3 \\; [4]$, mais le tableau ci-contre montre qu'un carré n'est jamais congru à 3 modulo 4. L'équation étudiée n'a pas de solution dans $\\mathbb{Z}^2$.\\par\\par $\\begin{array}{c|cccc} x \\; [4] & 0 & 1 & 2 & 3 \\\\ \\hline x^2 \\; [4] & 0 & 1 & 0 & 1 \\end{array}$"
+    },
+    {
+      "id": "arithmetique_des_entiers__example_x3_plus_y3_egal_z3",
+      "type": "example",
+      "title": "Exemple : Somme de deux cubes égale à un cube",
+      "content_latex": "Soient $x, y, z \\in \\mathbb{Z}$ trois entiers pour lesquels $x^3 + y^3 = z^3$. L'un des entiers $x, y$ ou $z$ est alors divisible par 3. C'est tout ce que nous arriverons à savoir ici, mais c'est déjà ça.",
+      "proof_latex": "Supposons par l'absurde que ni $x$ ni $y$ ni $z$ n'est divisible par 3.\\par • Modulo 3, $x$ et $y$ sont ainsi congrus chacun à $\\pm 1$ modulo 3 et leurs cubes aussi, donc $x^3 + y^3$ est congru à $1 + 1 = 2$ ou $(-1) + (-1) = -2 \\equiv 1$ ou $1 + (-1) = 0$ ou $(-1) + 1 = 0$ modulo 3.\\par • Le problème, c'est que $z^3$ aussi est congru à $\\pm 1$ modulo 3, donc pas de contradiction pour le moment. . .\\par Qu'à cela ne tienne, creusons plus profond en raisonnant modulo 9.\\par Comme $x$ n'est pas divisible par 3, $x$ est congru à 1, 2, 4, 5, 7 ou 8 modulo 9 et le tableau montre que $x^3 \\equiv \\pm 1 \\; [9]$. De même, $y^3 \\equiv \\pm 1 \\; [9]$, mais cette fois, $x^3 + y^3$ est congru à 2, 0 ou $-2$ modulo 9, et $z^3 \\equiv \\pm 1 \\; [9]$, donc $x^3 + y^3 \\not\\equiv z^3 \\; [9]$ — contradiction !"
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_nouveau_point_vue",
+      "type": "remark",
+      "title": "Remarque : Nouveau point de vue sur les congruences",
+      "content_latex": "Et maintenant, un nouveau point de vue sur les congruences. Raisonner modulo 4, c'est considérer que « $4 = 0$ » en quelque sorte. Raisonner modulo $n$ équivaut à considérer que « $n = 0$ », mais à proprement parler, $n \\equiv 0 \\; [n]$ et $n^2 \\equiv 0 \\; [n^2]$, et si on additionne ces relations après les avoir multipliées par des entiers, on en tire que pour tout polynôme $P$ à coefficients entiers : $P(n) \\equiv P(0) \\; [n]$.\\par Par exemple : $n \\equiv -1 \\; [n^2 + 1]$, donc $n^4 \\equiv 1 \\; [n^2 + 1]$, et $5n^3 + 7n^2 + 1 \\equiv 5(-1)n + 7(-1) + 1 \\equiv -5n - 6 \\; [n^2 + 1]$.\\par Même chose modulo $n^2 + 1$, on peut considérer que « $n^2 = -1$ », mais plus exactement, $n^2 \\equiv -1 \\; [n^2 + 1]$. Le cas $n = 2$ revient de même à considérer que « $n = 2$ », mais plus exactement, $n \\equiv 2 \\; [n-2]$, donc $n^4 + 5n^3 + 7n^2 + 1 \\equiv 16 + 40 + 28 + 1 \\equiv 85 \\equiv 17 \\; [n-2]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+      "type": "theorem",
+      "title": "Définition-théorème : PGCD, PPCM",
+      "content_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • PGCD : On appelle PGCD (ou plus grand commun diviseur) de $a_1, \\ldots, a_r$ tout entier naturel $d$ pour lequel : $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_r) = \\text{div}(d)$. S'il existe, un tel entier $d$ est unique et noté $a_1 \\wedge \\ldots \\wedge a_r$.\\par • PPCM : On appelle PPCM (ou plus petit commun multiple) de $a_1, \\ldots, a_r$ tout entier naturel $m$ pour lequel : $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = m\\mathbb{Z}$. S'il existe, un tel entier $m$ est unique et noté $a_1 \\vee \\ldots \\vee a_r$.\\par Attention, rien ne nous garantit pour le moment que $a_1, \\ldots, a_r$ possèdent un PGCD et un PPCM, mais nous verrons que c'est toujours le cas.",
+      "proof_latex": "Montrons l'unicité du PGCD. Pour tous PGCD $d$ et $d'$ de $a_1, \\ldots, a_r$ : $\\text{div}(d) = \\text{div}(d')$, donc $d$ et $d'$ se divisent mutuellement, donc sont égaux puisqu'ils sont positifs. Même chose pour le PPCM."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_12_18",
+      "type": "example",
+      "title": "Exemple : PGCD et PPCM de 12 et 18",
+      "content_latex": "$12 \\wedge 18 = 6$ et $12 \\vee 18 = 36$.",
+      "proof_latex": "$\\text{div}(12) \\cap \\text{div}(18) = \\{-6, -3, -2, -1, 1, 2, 3, 6\\} = \\text{div}(6)$.\\par Quant aux multiples communs de 12 et 18, ce sont tous les multiples de 36 : $12\\mathbb{Z} \\cap 18\\mathbb{Z} = 36\\mathbb{Z}$, mais nous ne chercherons pas à le justifier pour le moment."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_a_1_0",
+      "type": "example",
+      "title": "Exemple : PGCD avec 0 et 1",
+      "content_latex": "Pour tout $a \\in \\mathbb{Z}$ : $a \\wedge 1 = 1$ et $a \\wedge 0 = |a|$.",
+      "proof_latex": "$\\text{div}(a) \\cap \\text{div}(1) = \\text{div}(a) \\cap \\{-1, 1\\} = \\{-1, 1\\} = \\text{div}(1)$ et $\\text{div}(a) \\cap \\text{div}(0) = \\text{div}(a) \\cap \\mathbb{Z} = \\text{div}(a) = \\text{div}(|a|)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__remark_pgcd_borne_inferieure",
+      "type": "remark",
+      "title": "Remarque : PGCD comme borne inférieure",
+      "content_latex": "Dans $\\mathbb{R}$, nous avons défini les notions de majorant, plus grand élément et borne supérieure d'une partie au sens de la relation d'ordre $\\leq$. Les mêmes définitions auraient pu être énoncées dans le cas d'une relation d'ordre quelconque. En particulier, la relation de divisibilité $\\mid$ a beau ne pas être une relation d'ordre sur $\\mathbb{Z}$, c'en est au moins une sur $\\mathbb{N}$.\\par Pour cette raison, les lignes qui suivent ne portent que sur des entiers naturels et la relation d'ordre utilisée est la relation $\\mid$ et non pas la relation $\\leq$.\\par • Dire que $a$ divise $b$, c'est dire que $a$ est plus petit que $b$.\\par • Les diviseurs communs de $a_1, \\ldots, a_r$ sont exactement les minorants de $\\{a_1, \\ldots, a_r\\}$, et les multiples communs de $a_1, \\ldots, a_r$ sont exactement les majorants de $\\{a_1, \\ldots, a_r\\}$.\\par • L'ensemble $\\text{div}^+(d) = \\text{div}(d) \\cap \\mathbb{N}$ admet $d$ pour plus grand élément. L'ensemble $m\\mathbb{N}$ admet $m$ pour plus petit élément.\\par • Dire que $\\text{div}^+(a_1) \\cap \\ldots \\cap \\text{div}^+(a_r) = \\text{div}^+(d)$, c'est dire que $d$ est le plus grand minorant de $\\{a_1, \\ldots, a_r\\}$, i.e. sa borne inférieure. De même, dire que $a_1\\mathbb{N} \\cap \\ldots \\cap a_r\\mathbb{N} = m\\mathbb{N}$, c'est dire que $m$ est le plus petit majorant de $\\{a_1, \\ldots, a_r\\}$, i.e. sa borne supérieure.\\par Dans les acronymes « PGCD » et « PPCM », « plus grand » et « plus petit » sont à comprendre en priorité au sens de la divisibilité.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__remarquee_idee_fondamentale_euclide",
+      "type": "remark",
+      "title": "Remarque : Idée fondamentale de l'algorithme d'Euclide",
+      "content_latex": "L'existence du PGCD de deux entiers repose sur une idée simple que j'appelle personnellement l'idée fondamentale de l'algorithme d'Euclide. Soient $a, b, n \\in \\mathbb{Z}$. Sous l'hypothèse que $a \\equiv b \\; [n]$, montrons que $\\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n)$.\\par Puisque $b = a + kn$ pour un certain $k \\in \\mathbb{Z}$, tout diviseur commun de $a$ et $n$ divise aussi $a + kn = b$ et $n$, et inversement, tout diviseur commun de $b$ et $n$ divise aussi $a = b - kn$ et $n$.\\par En particulier, pour tous $a \\in \\mathbb{Z}$ et $b \\in \\mathbb{N}^*$ : $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(b) \\cap \\text{div}(r)$ si on note $r$ le reste de la division euclidienne de $a$ par $b$."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+      "type": "theorem",
+      "title": "Théorème : Existence du PGCD, cas de deux entiers",
+      "content_latex": "Deux entiers relatifs possèdent toujours un PGCD.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $a \\wedge b = \\begin{cases} \\max(\\text{div}(a) \\cap \\text{div}(b)) & \\text{si } a \\neq 0 \\text{ ou } b \\neq 0, \\\\ 0 & \\text{si } a = b = 0. \\end{cases}$\\par C'était clair à l'avance, mais en passant, pour tous $a, b \\in \\mathbb{Z}$ : $a \\wedge b = |a| \\wedge |b|$ et $a \\wedge b = b \\wedge a$.",
+      "proof_latex": "Soient $a, b \\in \\mathbb{Z}$. L'existence de $a \\wedge b$ sera prouvée en deux temps, d'abord sous l'hypothèse que $0 \\leq b \\leq a$, puis dans le cas général.\\par • Algorithme d'Euclide dans le cas où $0 \\leq b \\leq a$ : On définit dans ce cas une famille d'entiers naturels $r_0, r_1, r_2, \\ldots$ de la manière suivante.\\par — Au départ, on pose $r_0 = a$ et $r_1 = b$.\\par — Ensuite, pour $k \\in \\mathbb{N}$, tant que $r_{k+1} > 0$, on note $r_{k+2}$ le reste de la division euclidienne de $r_k$ par $r_{k+1}$, ce qui implique en particulier que $r_{k+2} < r_{k+1}$.\\par À l'issue de cette construction : $r_0 \\geq r_1 > r_2 > \\ldots \\geq 0$, et comme il n'existe qu'un nombre fini d'entiers naturels entre 0 et $r_0$, $r_N = 0$ pour un certain $N \\in \\mathbb{N}^*$, autrement dit l'algorithme se termine. Or grâce à l'idée fondamentale de l'algorithme d'Euclide : $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(r_0) \\cap \\text{div}(r_1) = \\text{div}(r_1) \\cap \\text{div}(r_2) = \\ldots = \\text{div}(r_{N-1}) \\cap \\text{div}(r_N) = \\text{div}(r_{N-1}) \\cap \\text{div}(0) = \\text{div}(r_{N-1})$, donc $a$ et $b$ possèdent un PGCD, en l'occurrence $r_{N-1}$.\\par Pour finir, si $a = 0$, alors $a = b = 0$, donc $N = 1$, donc $a \\wedge b = r_0 = 0$. Si au contraire $a > 0$, alors $r_{N-1} > 0$, donc $a \\wedge b = r_{N-1} = \\max \\text{div}(r_{N-1}) = \\max(\\text{div}(a) \\cap \\text{div}(b))$.\\par • Cas général : On traite le cas général en se ramenant au cas précédent. On peut supposer $a$ et $b$ positifs car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(|a|) \\cap \\text{div}(|b|)$, et supposer aussi $b \\leq a$ car $\\text{div}(a) \\cap \\text{div}(b) = \\text{div}(b) \\cap \\text{div}(a)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_algorithme_euclide",
+      "type": "remark",
+      "title": "Remarque : Algorithme d'Euclide",
+      "content_latex": "L'algorithme d'Euclide calcule rapidement le PGCD de deux entiers $a$ et $b$ pour lesquels $0 < b \\leq a$. D'après ce qui précède : $a \\wedge b$ est le DERNIER RESTE NON NUL de la famille des restes successifs $r_0, r_1, r_2, \\ldots$",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_1542_58",
+      "type": "example",
+      "title": "Exemple : Calcul de $1542 \\wedge 58$",
+      "content_latex": "$1542 \\wedge 58 = 2$.",
+      "proof_latex": "On applique l'algorithme d'Euclide :\\par $1542 = 26 \\times 58 + 34$,\\par $58 = 1 \\times 34 + 24$,\\par $34 = 1 \\times 24 + 10$,\\par $24 = 2 \\times 10 + 4$,\\par $10 = 2 \\times 4 + 2$,\\par $4 = 2 \\times 2 + 0$.\\par Dernier reste non nul : 2."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+      "type": "theorem",
+      "title": "Théorème : Idée fondamentale de l'algorithme d'Euclide",
+      "content_latex": "Pour tous $a, b, n \\in \\mathbb{Z}$, si $a \\equiv b \\; [n]$, alors $a \\wedge n = b \\wedge n$.",
+      "proof_latex": "On sait déjà que $\\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n)$, mais maintenant que les PGCD existent : $\\text{div}(a \\wedge n) = \\text{div}(a) \\cap \\text{div}(n) = \\text{div}(b) \\cap \\text{div}(n) = \\text{div}(b \\wedge n)$, donc $a \\wedge n = b \\wedge n$ par positivité."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_3n1_2n5",
+      "type": "example",
+      "title": "Exemple : PGCD dépendant de $n$",
+      "content_latex": "Pour tout $n \\in \\mathbb{Z}$ : $(3n + 1) \\wedge (2n + 5) = \\begin{cases} 13 & \\text{si } n \\equiv 4 \\; [13], \\\\ 1 & \\text{sinon}. \\end{cases}$",
+      "proof_latex": "$(3n + 1) \\wedge (2n + 5) = (n - 4) \\wedge (2n + 5)$ car $3n + 1 \\equiv n - 4 \\; [2n + 5]$\\par $= (n - 4) \\wedge 13$ car $n - 4 \\equiv 0 \\; [n - 4]$ et $2n + 5 \\equiv 13 \\; [n - 4]$."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+      "type": "theorem",
+      "title": "Théorème : Existence du PGCD, cas général",
+      "content_latex": "Toute famille finie d'entiers relatifs possède un PGCD.",
+      "proof_latex": "Par récurrence sur le nombre d'entiers.\\par • Initialisation : Deux entiers relatifs possèdent toujours un PGCD !\\par • Hérédité : Soit $r \\geq 2$. On suppose que toute famille de $r$ entiers relatifs possède un PGCD. Pour tous $a_1, \\ldots, a_{r+1} \\in \\mathbb{Z}$ :\\par $\\text{div}(a_1) \\cap \\ldots \\cap \\text{div}(a_{r+1}) = \\text{div}(a_1 \\wedge \\ldots \\wedge a_r) \\cap \\text{div}(a_{r+1}) = \\text{div}((a_1 \\wedge \\ldots \\wedge a_r) \\wedge a_{r+1})$,\\par donc $a_1, \\ldots, a_{r+1}$ possèdent un PGCD."
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_calcul_pgcd_plusieurs",
+      "type": "remark",
+      "title": "Remarque : Calcul du PGCD de plusieurs entiers",
+      "content_latex": "Le calcul du PGCD de plus de deux entiers se ramène toujours à de simples calculs de PGCD de deux entiers.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_10_12_18",
+      "type": "example",
+      "title": "Exemple : PGCD de trois entiers",
+      "content_latex": "$10 \\wedge 12 \\wedge 18 = 10 \\wedge (12 \\wedge 18) = 10 \\wedge 6 = 2$,\\par ou si on préfère : $10 \\wedge 12 \\wedge 18 = (10 \\wedge 12) \\wedge 18 = 2 \\wedge 18 = 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_factorisation_pgcd",
+      "type": "theorem",
+      "title": "Théorème : Factorisation d'un PGCD",
+      "content_latex": "Pour tous $a_1, \\ldots, a_r, k \\in \\mathbb{Z}$ :\\par $(ka_1) \\wedge \\ldots \\wedge (ka_r) = |k| (a_1 \\wedge \\ldots \\wedge a_r)$.",
+      "proof_latex": "Supposons $k \\neq 0$ et contentons-nous du cas $r = 2$ pour simplifier. Il nous suffit de montrer que les entiers $(ka_1) \\wedge (ka_2)$ et $k(a_1 \\wedge a_2)$ se divisent mutuellement.\\par • Pour commencer, $k(a_1 \\wedge a_2)$ divise $ka_1$ et $ka_2$, donc aussi $(ka_1) \\wedge (ka_2)$ par définition du PGCD.\\par • Inversement, $k$ divise $ka_1$ et $ka_2$, donc aussi $(ka_1) \\wedge (ka_2)$ par définition du PGCD, donc $(ka_1) \\wedge (ka_2) = k.d$ pour un certain $d \\in \\mathbb{N}$. Dans ces conditions, $k.d$ divise $ka_1$ et $ka_2$ avec $k \\neq 0$, donc $d$ divise $a_1$ et $a_2$, donc aussi $a_1 \\wedge a_2$. En retour, $(ka_1) \\wedge (ka_2) = k.d$ divise $k(a_1 \\wedge a_2)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+      "type": "theorem",
+      "title": "Définition-théorème : Relations de Bézout, cas de deux entiers",
+      "content_latex": "Soient $a, b \\in \\mathbb{Z}$. Il existe des entiers $u, v \\in \\mathbb{Z}$ pour lesquels $a \\wedge b = au + bv$. Une telle relation est appelée UNE relation de Bézout de $a$ et $b$.\\par Attention ! Les entiers $u$ et $v$ ne sont pas du tout uniques.\\par Par exemple : $4 \\wedge 6 = 2$, mais $2 = (-1) \\times 4 + 1 \\times 6 = 2 \\times 4 + (-1) \\times 6$.",
+      "proof_latex": "On peut supposer sans perte de généralité que $0 \\leq b \\leq a$ et s'intéresser de nouveau aux restes successifs $r_0, \\ldots, r_N$ de l'algorithme d'Euclide. Concrètement, $r_0 = a$, $r_1 = b$, $r_{N-1} = a \\wedge b$ et $r_N = 0$, et $r_{k+2}$ est le reste de la division euclidienne de $r_k$ par $r_{k+1}$ pour tout $k \\in \\{0, \\ldots, N-2\\}$.\\par Montrons par récurrence double que $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ pour tout $k \\in \\{0, \\ldots, N-1\\}$. Cela montrera en particulier que $a \\wedge b = r_{N-1} \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par Observons en amont que toute combinaison linéaire à coefficients entiers d'éléments de $a\\mathbb{Z} + b\\mathbb{Z}$ est encore un élément de $a\\mathbb{Z} + b\\mathbb{Z}$. En d'autres termes, pour tous $x, y \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $m, n \\in \\mathbb{Z}$ : $mx + ny \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Initialisation : $r_0 = a = a \\times 1 + b \\times 0 \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_1 = b = a \\times 0 + b \\times 1 \\in a\\mathbb{Z} + b\\mathbb{Z}$.\\par • Hérédité : Soit $k \\in \\{0, \\ldots, N-2\\}$. Si $r_k \\in a\\mathbb{Z} + b\\mathbb{Z}$ et $r_{k+1} \\in a\\mathbb{Z} + b\\mathbb{Z}$, alors en notant $q$ le quotient de la division euclidienne de $r_k$ par $r_{k+1}$, le reste $r_{k+2} = r_k - qr_{k+1}$ appartient à $a\\mathbb{Z} + b\\mathbb{Z}$ d'après la propriété de stabilité par combinaison linéaire."
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_euclide_etendu",
+      "type": "remark",
+      "title": "Remarque : Algorithme d'Euclide étendu",
+      "content_latex": "Le procédé de construction des entiers $u$ et $v$ de cette démonstration s'appelle l'algorithme d'Euclide étendu et sa mise en œuvre concrète sera plus claire après un exemple. En résumé, alors que l'algorithme d'Euclide ne s'intéresse qu'aux restes des divisions euclidiennes successives, l'algorithme d'Euclide étendu va plus loin et tient compte aussi des quotients.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_3080_525",
+      "type": "example",
+      "title": "Exemple : Relation de Bézout",
+      "content_latex": "$3080 \\wedge 525 = 35 = 7 \\times 3080 + (-41) \\times 525$.",
+      "proof_latex": "On calcule d'abord les restes successifs associés aux entiers 3080 et 525 :\\par $3080 = 5 \\times 525 + 455$,\\par $525 = 1 \\times 455 + 70$,\\par $455 = 6 \\times 70 + 35$,\\par $70 = 2 \\times 35 + 0$.\\par Le dernier reste non nul vaut 35, c'est notre PGCD. Pour calculer un jeu de coefficients de Bézout associé, on remonte la chaîne des restes successifs en partant du PGCD 35 :\\par $35 = 455 - 6 \\times 70$\\par $= 455 - 6 \\times (525 - 1 \\times 455) = 7 \\times 455 - 6 \\times 525$\\par $= 7 \\times (3080 - 5 \\times 525) - 6 \\times 525 = 7 \\times 3080 - 41 \\times 525$."
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_theoreme_bezout_cas_general",
+      "type": "theorem",
+      "title": "Définition-théorème : Relations de Bézout, cas général",
+      "content_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$. Il existe des entiers $u_1, \\ldots, u_r \\in \\mathbb{Z}$ pour lesquels $a_1 \\wedge \\ldots \\wedge a_r = a_1u_1 + \\ldots + a_ru_r$. Une telle relation est appelée UNE relation de Bézout de $a_1, \\ldots, a_r$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_10_15_24",
+      "type": "example",
+      "title": "Exemple : Relation de Bézout pour trois entiers",
+      "content_latex": "$10 \\wedge 15 \\wedge 24 = 1 = (-5) \\times 10 + 5 \\times 15 + (-1) \\times 24$.",
+      "proof_latex": "Première relation de Bézout : $10 \\wedge 15 = 5 = (-1) \\times 10 + 1 \\times 15$.\\par Deuxième relation de Bézout : $5 \\wedge 24 = 1 = 5 \\times 5 + (-1) \\times 24 = 5 \\times (5) + (-1) \\times 24$.\\par On emboîte : $10 \\wedge 15 \\wedge 24 = 5 \\wedge 24 = 1 = 5 \\times 5 + (-1) \\times 24 = 5 \\times ((-1) \\times 10 + 1 \\times 15) + (-1) \\times 24 = (-5) \\times 10 + 5 \\times 15 + (-1) \\times 24$."
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_rappel_ppcm",
+      "type": "remark",
+      "title": "Remarque : Rappel sur le PPCM",
+      "content_latex": "On rappelle que pour tous $a_1, \\ldots, a_r \\in \\mathbb{Z}$, le PPCM $a_1 \\vee \\ldots \\vee a_r$ des entiers $a_1, \\ldots, a_r$ est positif et défini par la relation $a_1\\mathbb{Z} \\cap \\ldots \\cap a_r\\mathbb{Z} = (a_1 \\vee \\ldots \\vee a_r)\\mathbb{Z}$, du moins s'il existe.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+      "type": "theorem",
+      "title": "Théorème : PPCM, cas de deux entiers",
+      "content_latex": "Deux entiers relatifs possèdent toujours un PPCM.\\par Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ :\\par $(a \\wedge b)(a \\vee b) = |ab|$\\par et $a \\vee b = \\begin{cases} \\min(a\\mathbb{N}^* \\cap b\\mathbb{N}^*) & \\text{si } a \\neq 0 \\text{ et } b \\neq 0, \\\\ 0 & \\text{si } a = 0 \\text{ ou } b = 0. \\end{cases}$",
+      "proof_latex": "Si $a = 0$ ou $b = 0$, alors $a\\mathbb{Z} \\cap b\\mathbb{Z} = 0\\mathbb{Z}$, donc $a \\vee b = 0$ et $(a \\wedge b)(a \\vee b) = a \\wedge b \\times 0 = 0 = ab$.\\par Supposons désormais $a \\neq 0$ et $b \\neq 0$. Pour tout $n \\in \\mathbb{Z}$ :\\par $n \\in a\\mathbb{Z} \\cap b\\mathbb{Z} \\Leftrightarrow n \\in a\\mathbb{Z} \\text{ et } n \\in b\\mathbb{Z} \\Leftrightarrow a \\mid n \\text{ et } b \\mid n$\\par $\\Leftrightarrow \\frac{ab}{a \\wedge b} \\Big| \\frac{an}{a \\wedge b} \\text{ et } \\frac{ab}{a \\wedge b} \\Big| \\frac{bn}{a \\wedge b} \\Leftrightarrow \\frac{ab}{a \\wedge b} \\Big| n$,\\par donc $a$ et $b$ possèdent un PPCM et en l'occurrence $a \\vee b = \\left|\\frac{ab}{a \\wedge b}\\right| = \\frac{|ab|}{a \\wedge b}$, donc $(a \\wedge b)(a \\vee b) = |ab|$.\\par Pour finir : $a\\mathbb{Z} \\cap b\\mathbb{Z} = |a|\\mathbb{N}^* \\cap |b|\\mathbb{N}^* = (a \\vee b)\\mathbb{N}^*$, donc $a \\vee b = \\min(a\\mathbb{N}^* \\cap b\\mathbb{N}^*)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_12_18_ppcm",
+      "type": "example",
+      "title": "Exemple : PPCM de 12 et 18",
+      "content_latex": "Les multiples communs de 12 et 18 sont tous les multiples de 36 car $12 \\vee 18 = \\frac{12 \\times 18}{12 \\wedge 18} = \\frac{12 \\times 18}{6} = 36$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_existence_ppcm_general",
+      "type": "theorem",
+      "title": "Théorème : Existence du PPCM, cas général",
+      "content_latex": "Toute famille finie d'entiers relatifs possède un PPCM.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_factorisation_ppcm",
+      "type": "theorem",
+      "title": "Théorème : Factorisation d'un PPCM",
+      "content_latex": "Pour tous $a_1, \\ldots, a_r, k \\in \\mathbb{Z}$ :\\par $(ka_1) \\vee \\ldots \\vee (ka_r) = |k| (a_1 \\vee \\ldots \\vee a_r)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+      "type": "theorem",
+      "title": "Théorème : Deux propriétés des nombres premiers",
+      "content_latex": "Soient $p$ un NOMBRE PREMIER, $a, b \\in \\mathbb{Z}$ et $n \\in \\mathbb{N}^*$.\\par (i) Être ou ne pas être divisible par un nombre premier : $p \\nmid a \\Leftrightarrow p \\wedge a = 1$.\\par (ii) Lemme d'Euclide : $p \\mid ab \\Leftrightarrow p \\mid a \\text{ ou } p \\mid b$.\\par En particulier : $p \\mid a^n \\Leftrightarrow p \\mid a$.",
+      "proof_latex": "(i) Comme $p$ est premier, ses diviseurs sont $\\pm 1$ et $\\pm p$, donc $p \\wedge a$ vaut 1 ou $p$, en l'occurrence $p$ si $a$ est divisible par $p$ et 1 sinon.\\par (ii) Si $p$ divise $a$ ou $b$, alors $p$ divise $ab$. Réciproquement, faisons l'hypothèse que $p$ divise $ab$ mais pas $a$. Ainsi, $p \\wedge a = 1$ d'après (i), donc $au + pv = 1$ pour certains $u, v \\in \\mathbb{Z}$. En retour, $b = abu + pbv$ est divisible par $p$ car $ab$ l'est."
+    },
+    {
+      "id": "arithmetique_des_entiers__warning_primalite_indispensable",
+      "type": "warning",
+      "title": "Attention : La primalité de $p$ est indispensable",
+      "content_latex": "La primalité de $p$ est indispensable. Par exemple, pour l'assertion (i), $6 \\wedge 10 = 2$ mais $6 \\nmid 10$. Et pour le lemme d'Euclide, $4 \\mid 2 \\times 2$ mais $4 \\nmid 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_theoreme_valuation_p_adique",
+      "type": "theorem",
+      "title": "Définition-théorème : Valuation $p$-adique",
+      "content_latex": "Soient $p \\in \\mathbb{P}$ et $n \\in \\mathbb{Z} \\setminus \\{0\\}$. L'ensemble $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ possède un plus grand élément, appelé la valuation $p$-adique de $n$ et noté $v_p(n)$.\\par Clairement : $v_p(n) = v_p(|n|)$.",
+      "proof_latex": "Tout d'abord $p^0 = 1 \\mid n$, donc l'ensemble considéré est non vide. Ensuite, $k \\leq p^k \\leq |n|$ pour tout $k \\in \\mathbb{N}$ pour lequel $p^k$ divise $n$. Ainsi, $\\{k \\in \\mathbb{N} \\mid p^k \\mid n\\}$ est une partie non vide majorée de $\\mathbb{N}$, donc possède un plus grand élément."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_valuations_60",
+      "type": "example",
+      "title": "Exemple : Valuations $p$-adiques de 60",
+      "content_latex": "$v_2(60) = 2$, $v_3(60) = 1$, $v_5(60) = 1$ et pour tout $p \\in \\mathbb{P} \\setminus \\{2, 3, 5\\}$ : $v_p(60) = 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_additivite_valuations",
+      "type": "theorem",
+      "title": "Théorème : Additivité des valuations $p$-adiques",
+      "content_latex": "Pour tous $p \\in \\mathbb{P}$ et $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$ : $v_p(ab) = v_p(a) + v_p(b)$.",
+      "proof_latex": "Par définition des valuations $p$-adiques, $a = p^{v_p(a)} a'$ et $b = p^{v_p(b)} b'$ pour certains $a', b' \\in \\mathbb{Z} \\setminus \\{0\\}$ non divisibles par $p$. Ainsi, la contraposée du lemme d'Euclide affirme que $a'b'$ n'est pas divisible par $p$. L'égalité $ab = p^{v_p(a)+v_p(b)} a'b'$ montre donc comme voulu que $v_p(ab) = v_p(a) + v_p(b)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_vp_qk",
+      "type": "example",
+      "title": "Exemple : Valuation d'une puissance",
+      "content_latex": "Pour tous $p, q \\in \\mathbb{P}$ et $k \\in \\mathbb{N}$ : $v_p(q^k) = k v_p(q) = \\begin{cases} k & \\text{si } q = p, \\\\ 0 & \\text{sinon}. \\end{cases}$",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_avant_factorisation_premiere",
+      "type": "remark",
+      "title": "Remarque : Vers l'unicité de la factorisation première",
+      "content_latex": "Et voilà, nous sommes enfin en mesure de prouver l'unicité de la factorisation première — à l'ordre près. Alors que l'existence était facile à obtenir, l'unicité requiert une certaine artillerie. Elle repose sur l'additivité des valuations $p$-adiques, qui découle du lemme d'Euclide, qui découle de l'existence des relations de Bézout.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_factorisation_premiere",
+      "type": "theorem",
+      "title": "Théorème : Factorisation première",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, il existe une et une seule famille presque nulle $(v_p(n))_{p \\in \\mathbb{P}}$ d'entiers naturels — i.e. dont tous les éléments sont nuls sauf un nombre fini d'entre eux — pour laquelle : $n = \\prod_{p \\in \\mathbb{P}} p^{v_p(n)}$.\\par Cette décomposition est appelée la factorisation première de $n$.",
+      "proof_latex": "Pour l'unicité, soient $n \\in \\mathbb{N}^*$ et $(\\alpha_p)_{p \\in \\mathbb{P}}$ une famille presque nulle d'entiers naturels pour laquelle $n = \\prod_{q \\in \\mathbb{P}} q^{\\alpha_q}$. Pour tout $p \\in \\mathbb{P}$ :\\par $v_p(n) = v_p\\left(\\prod_{q \\in \\mathbb{P}} q^{\\alpha_q}\\right) = \\sum_{q \\in \\mathbb{P}} v_p(q^{\\alpha_q}) = \\alpha_p$\\par par additivité des valuations $p$-adiques, donc la famille $(\\alpha_p)_{p \\in \\mathbb{P}}$ est nécessairement la famille $(v_p(n))_{p \\in \\mathbb{P}}$ — unicité."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+      "type": "theorem",
+      "title": "Théorème : Divisibilité, PGCD, PPCM et valuations $p$-adiques",
+      "content_latex": "Soient $a, b \\in \\mathbb{Z} \\setminus \\{0\\}$.\\par (i) $a$ divise $b$ si et seulement si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$.\\par (ii) $a \\wedge b = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$ et $a \\vee b = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$.",
+      "proof_latex": "(i) Si $a \\mid b$, alors $b = ak$ pour un certain $k \\in \\mathbb{Z} \\setminus \\{0\\}$, donc $v_p(b) = v_p(a) + v_p(k) \\geq v_p(a)$ pour tout $p \\in \\mathbb{P}$.\\par Inversement, si $v_p(a) \\leq v_p(b)$ pour tout $p \\in \\mathbb{P}$, $p^{v_p(a)}$ divise $p^{v_p(b)}$, donc $\\prod_{p \\in \\mathbb{P}} p^{v_p(a)} = a$ divise $\\prod_{p \\in \\mathbb{P}} p^{v_p(b)} = b$.\\par (ii) Pour le PGCD, posons $d = \\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}$. D'après (i), $d$ divise $a$ et $b$. Montrer que $d = a \\wedge b$ revient donc à montrer que $\\frac{a}{d} \\wedge \\frac{b}{d} = 1$. Raisonnons pour cela par l'absurde en supposant que $\\frac{a}{d} \\wedge \\frac{b}{d} \\neq 1$. L'entier $\\frac{a}{d} \\wedge \\frac{b}{d}$ possède alors un diviseur premier $q$, donc $v_q(a) = v_q(d) + v_q\\left(\\frac{a}{d}\\right) \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ et de même $v_q(b) \\geq v_q(d) + 1$. En retour : $\\min\\{v_q(a), v_q(b)\\} \\geq v_q(d) + 1 = \\min\\{v_q(a), v_q(b)\\} + 1$ — contradiction.\\par Pour le PPCM : $a \\vee b = \\frac{ab}{a \\wedge b} = \\frac{\\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)}}{\\prod_{p \\in \\mathbb{P}} p^{\\min\\{v_p(a), v_p(b)\\}}} = \\prod_{p \\in \\mathbb{P}} p^{v_p(a)+v_p(b)-\\min\\{v_p(a), v_p(b)\\}} = \\prod_{p \\in \\mathbb{P}} p^{\\max\\{v_p(a), v_p(b)\\}}$ car $x + y = \\min\\{x, y\\} + \\max\\{x, y\\}$ pour tous $x, y \\in \\mathbb{R}$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_somme_rationnels",
+      "type": "example",
+      "title": "Exemple : Somme de rationnels",
+      "content_latex": "La réduction d'une somme de rationnels au même dénominateur exploite l'expression (ii) du PPCM. Le plus petit dénominateur commun de $\\frac{5}{12} + \\frac{7}{30}$ vaut $12 \\vee 30 = 2^2 \\vee 2 \\cdot 3 \\vee 3 \\vee 2 \\cdot 3 \\vee 5 = 2^2 \\cdot 3 \\vee 5 = 60$. Bref : $\\frac{5}{12} + \\frac{7}{30} = \\frac{25 + 14}{60} = \\frac{39}{60} = \\frac{13}{20}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_600_740",
+      "type": "example",
+      "title": "Exemple : PGCD avec factorisation première",
+      "content_latex": "$600 \\wedge 740 = 2^3 \\cdot 3 \\cdot 5^2 \\wedge 2^2 \\cdot 5 \\cdot 37 = 2^2 \\cdot 5 = 20$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_nombre_diviseurs",
+      "type": "example",
+      "title": "Exemple : Nombre de diviseurs positifs",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, l'entier $n$ possède exactement $\\prod_{p \\in \\mathbb{P}} (v_p(n) + 1)$ diviseurs positifs.",
+      "proof_latex": "D'après l'assertion (i) du théorème précédent, les diviseurs positifs de $n$ sont exactement les entiers $\\prod_{p \\in \\mathbb{P}} p^{\\alpha_p}$ où $\\alpha_p \\in \\{0, 1, \\ldots, v_p(n)\\}$ pour tout $p \\in \\mathbb{P}$, à savoir $\\prod_{p \\in \\mathbb{P}} p^{\\alpha_p}$ où $(\\alpha_p)_{p \\in \\mathbb{P}}$ est une famille presque nulle d'entiers pour laquelle $0 \\leq \\alpha_p \\leq v_p(n)$ pour tout $p \\in \\mathbb{P}$, et il y en a autant que de familles $(\\alpha_p)_{p \\in \\mathbb{P}}$, soit $\\prod_{p \\in \\mathbb{P}} (v_p(n) + 1)$. Vous noterez bien que ce produit est fini en dépit des apparences."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_racine_cinquieme_irrationnelle",
+      "type": "example",
+      "title": "Exemple : Irrationalité de $\\sqrt[5]{\\frac{4}{3}}$",
+      "content_latex": "$\\sqrt[5]{\\frac{4}{3}}$ est irrationnel.",
+      "proof_latex": "Par l'absurde, supposons $\\sqrt[5]{\\frac{4}{3}}$ rationnel, disons $\\sqrt[5]{\\frac{4}{3}} = \\frac{a}{b}$ pour certains $a, b \\in \\mathbb{N}^*$. Aussitôt $3a^5 = 4b^5$, donc $v_3(3a^5) = v_3(4b^5)$, ce qui s'écrit aussi $5v_3(a) + 1 = 5v_3(b)$, puis $1 \\equiv 0 \\; [5]$ après réduction modulo 5 — contradiction !"
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+      "type": "definition",
+      "title": "Définition : Entiers premiers entre eux, cas de deux entiers",
+      "content_latex": "Soient $a, b \\in \\mathbb{Z}$. On dit que $a$ et $b$ sont premiers entre eux si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a \\wedge b = 1$. Il est équivalent de dire que $a$ et $b$ n'ont aucun diviseur premier commun.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_situation_fondamentale",
+      "type": "remark",
+      "title": "Remarque : Situation fondamentale",
+      "content_latex": "Situation fondamentale : Quand on factorise $a$ et $b$ par leur PGCD : $a = (a \\wedge b) a'$ et $b = (a \\wedge b) b'$, les entiers $a'$ et $b'$ sont premiers entre eux — à condition de choisir $a' = 1$ si $a = 0$ et $b' = 1$ si $b = 0$.\\par Factoriser $a$ et $b$ par $a \\wedge b$, c'est leur arracher à chacun ce qu'ils ont de commun au sens de la divisibilité. Pas étonnant que $a'$ et $b'$ n'aient plus rien en commun après coup, i.e. qu'ils soient premiers entre eux ! De façon plus technique, si $(a, b) \\neq (0, 0)$, alors en posant $d = a \\wedge b$ : $d = (da') \\wedge (db') = d(a' \\wedge b')$ avec $d \\neq 0$, donc $a' \\wedge b' = 1$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_6_35",
+      "type": "example",
+      "title": "Exemple : 6 et 35 sont premiers entre eux",
+      "content_latex": "6 et 35 sont premiers entre eux car $6 \\wedge 35 = 2 \\cdot 3 \\wedge 5 \\cdot 7 = 1$. Sans factorisation première, un simple calcul de PGCD par l'algorithme d'Euclide montre que $6 \\wedge 35 = 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__example_equation_diophantienne_xy",
+      "type": "example",
+      "title": "Exemple : Équation diophantienne",
+      "content_latex": "L'équation $x^2 = y^2 + (x \\wedge y) + 2$ d'inconnue $(x, y) \\in \\mathbb{N}^2$ possède deux solutions, à savoir $(2, 1)$ et $(2, 0)$.",
+      "proof_latex": "• Analyse : Soit $(x, y) \\in \\mathbb{N}^2$. On suppose que $x^2 = y^2 + (x \\wedge y) + 2$ et on pose $d = x \\wedge y$. Clairement $(x, y) \\neq (0, 0)$, donc $d \\neq 0$. En outre $x = dx'$ et $y = dy'$ pour certains $x', y' \\in \\mathbb{N}$ premiers entre eux.\\par L'équation devient $d^2x'^2 = d^2y'^2 + d + 2$, donc $d$ divise 2, i.e. $d = 1$ ou $d = 2$.\\par — Cas où $d = 1$ : $(x' + y')(x' - y') = 3$, or 3 est premier et $x' - y' \\leq x' + y'$, donc $x' + y' = 3$ et $x' - y' = 1$. Aussitôt $(x', y') = (2, 1)$, donc $(x, y) = (2, 1)$.\\par — Cas où $d = 2$ : $(x' + y')(x' - y') = 1$, donc $x' + y' = x' - y' = 1$, i.e. $(x', y') = (1, 0)$, donc $(x, y) = (2, 0)$.\\par • Synthèse : Les couples $(2, 1)$ et $(2, 0)$ sont bel et bien solutions de l'équation étudiée."
+    },
+    {
+      "id": "arithmetique_des_entiers__remarque_vision_urnes",
+      "type": "remark",
+      "title": "Remarque : Vision des entiers comme des urnes",
+      "content_latex": "Lançons-nous à présent dans une petite réflexion pratique sur la notion d'entier. La plupart du temps, quand on trouve l'arithmétique difficile, c'est d'abord parce qu'on se représente mal les entiers. Moralement, tout entier $p_1^{\\alpha_1} \\ldots p_r^{\\alpha_r}$ gagne à être vu comme une sorte d'urne contenant $\\alpha_1$ boules de numéro $p_1$, $\\alpha_2$ boules de numéro $p_2$, etc. Cette vision des choses rapproche les entiers naturels non nuls des ensembles, mais dans un ensemble, chaque élément n'est présent qu'une fois alors qu'une urne peut contenir plusieurs boules de même numéro. L'entier $40 = 2^3 \\cdot 5$ est l'urne contenant 3 boules de numéro 2 et 1 boule de numéro 5. L'entier 1 est simplement l'urne vide.\\par • Multiplier deux entiers revient à les concaténer en tant qu'urnes, i.e. à en superposer les contenus. Les exposants d'un même nombre premier sont additionnés. Par exemple, $12 \\times 20 = 2^2 \\cdot 3 \\times 2^2 \\cdot 5 = 2^4 \\cdot 3 \\cdot 5 = 240$.\\par • Se demander si $a$ divise $b$ revient à se demander si on trouve $a$ dans $b$ intégralement ou non. Par exemple, $20 = 2^2 \\cdot 5$ divise $120 = 2^3 \\cdot 3 \\cdot 5$ car les exposants de nombres premiers sont tous plus grands dans 120 que dans 20.\\par • Calculer $a \\wedge b$ revient à chercher le contenu commun des urnes $a$ et $b$. Ainsi, $36 \\wedge 90 = 2^2 \\cdot 3^2 \\wedge 2 \\cdot 3^2 \\cdot 5 = 2 \\cdot 3^2 = 18$.\\par • La confusion la plus courante en arithmétique est celle des propositions « $a$ ne divise pas $b$ » et « $a$ et $b$ sont premiers entre eux ». Comme nous l'avons vu, pour tout $p$ PREMIER : $p \\nmid a \\Leftrightarrow p \\wedge a = 1$, mais l'équivalence est fausse en général. Simplement, quand $p$ est premier, l'urne $p$ ne contient qu'une boule, donc c'est tout ou rien — soit $a$ contient $p$ intégralement, soit $a$ et $p$ n'ont rien de commun.\\par En toute généralité, dire que $a$ ne divise pas $b$, c'est juste dire que $b$ ne contient pas l'intégralité de $a$, ce qui n'empêche pas $a$ et $b$ d'avoir beaucoup de diviseurs communs. Dire que $a \\wedge b = 1$, c'est dire beaucoup plus, c'est affirmer que $a$ et $b$ n'ont rien de commun si ce n'est $\\pm 1$. Bref : $a \\nmid b \\not\\Leftrightarrow a \\wedge b = 1$.\\par Par exemple, $4 \\nmid 6$ mais $4 \\wedge 6 = 2 \\neq 1$, et $6 \\nmid 15$ mais $6 \\wedge 15 = 3 \\neq 1$. En passant, la proposition $a \\wedge b = 1$ donne des rôles symétriques à $a$ et $b$ alors que les propositions $a \\mid b$ et $b \\mid a$ n'ont pas du tout la même signification."
+    },
+    {
+      "id": "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+      "type": "definition",
+      "title": "Définition : Entiers premiers entre eux dans leur ensemble/deux à deux",
+      "content_latex": "Soient $a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par • Dans leur ensemble : On dit que $a_1, \\ldots, a_r$ sont premiers entre eux dans leur ensemble si leurs seuls diviseurs communs sont $\\pm 1$, i.e. si $a_1 \\wedge \\ldots \\wedge a_r = 1$.\\par • Deux à deux : On dit que $a_1, \\ldots, a_r$ sont premiers entre eux deux à deux si $a_i \\wedge a_j = 1$ pour tous $i, j \\in \\{1, \\ldots, r\\}$ distincts.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__warning_deux_deux_ensemble",
+      "type": "warning",
+      "title": "Attention : Deux à deux vs dans leur ensemble",
+      "content_latex": "Premiers entre eux DEUX À DEUX $\\Rightarrow$ Premiers entre eux DANS LEUR ENSEMBLE. . . mais la réciproque est fausse ! Par exemple, 6, 10 et 15 sont premiers entre eux dans leur ensemble, i.e. n'ont rien de commun à trois, mais cela ne les empêche pas d'avoir un contenu commun deux par deux : $6 \\wedge 10 = 2$, $6 \\wedge 15 = 3$ et $10 \\wedge 15 = 5$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_bezout_gauss",
+      "type": "theorem",
+      "title": "Théorème : Théorèmes de Bézout et Gauss",
+      "content_latex": "Soient $a, b, c \\in \\mathbb{Z}$.\\par (i) Théorème de Bézout : $a \\wedge b = 1 \\Leftrightarrow \\exists u, v \\in \\mathbb{Z}, au + bv = 1$.\\par (ii) Théorème de Gauss : Si $a \\mid bc$ avec $a \\wedge b = 1$, alors $a \\mid c$.\\par D'après le théorème de Gauss, si $a$ est dans $bc$ mais n'a rien de commun avec $b$, alors $a$ est dans $c$. Assez logique !",
+      "proof_latex": "(i) Pour l'implication directe, nous avons déjà montré en toute généralité que $a \\wedge b = au + bv$ pour certains $u, v \\in \\mathbb{Z}$. Réciproquement, faisons l'hypothèse que $au + bv = 1$ pour certains $u, v \\in \\mathbb{Z}$. En tant que diviseur commun de $a$ et $b$, $a \\wedge b$ divise alors $au + bv = 1$, donc $a \\wedge b = 1$ par positivité.\\par (ii) Par hypothèse, $bc = ak$ pour un certain $k \\in \\mathbb{Z}$ et $au + bv = 1$ pour certains $u, v \\in \\mathbb{Z}$ — relation de Bézout. Multiplions par $c$ : $acu + bcv = c$, puis remplaçons $bc$ par $ak$ : $a(cu + kv) = c$. Ainsi $a \\mid c$."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_consequences_gauss",
+      "type": "theorem",
+      "title": "Théorème : Conséquences diverses du théorème de Gauss",
+      "content_latex": "Soient $a, b, m, n, a_1, \\ldots, a_r \\in \\mathbb{Z}$.\\par (i) Division dans une congruence : Si $ma \\equiv mb \\; [n]$ avec $m \\wedge n = 1$, alors $a \\equiv b \\; [n]$.\\par (ii) Produits d'entiers :\\par (ii–i) Si chacun des entiers $a_1, \\ldots, a_r$ est premier avec $n$, leur produit $a_1 \\ldots a_r$ l'est aussi.\\par (ii–ii) Si $a_1, \\ldots, a_r$ divisent $n$ et sont premiers entre eux DEUX À DEUX, leur produit $a_1 \\ldots a_r$ divise $n$.",
+      "proof_latex": "(i) Sachant que $n \\mid m(a - b)$ et $m \\wedge n = 1$, $n \\mid (a - b)$ d'après le théorème de Gauss, donc $a \\equiv b \\; [n]$.\\par (ii–i) Si $a \\wedge n = b \\wedge n = 1$, alors $au + nv = bu' + nv' = 1$ pour certains $u, v, u', v' \\in \\mathbb{Z}$ d'après le théorème de Bézout, donc par produit : $1 = (au + nv)(bu' + nv') = (ab)(uu') + n(auv' + vbu' + nvv')$, donc $(ab) \\wedge n = 1$ de nouveau d'après le théorème de Bézout.\\par (ii–ii) Supposons $n$ divisible par $a$ et $b$ avec $a \\wedge b = 1$. Ainsi, $n = ak$ pour un certain $k \\in \\mathbb{Z}$, donc $b \\mid ak$ avec $a \\wedge b = 1$, donc $b \\mid k$ d'après le théorème de Gauss. A fortiori, $ab \\mid ak = n$."
+    },
+    {
+      "id": "arithmetique_des_entiers__warning_simplification_congruence",
+      "type": "warning",
+      "title": "Attention : Simplification dans une congruence",
+      "content_latex": "(i) On ne peut pas toujours simplifier par $m$ dans une congruence $ma \\equiv mb \\; [n]$. Par exemple, $2 \\times 3 \\equiv 2 \\times 0 \\; [6]$ mais $3 \\not\\equiv 0 \\; [6]$.\\par (ii–ii) En général : $a \\mid n$ et $b \\mid n \\not\\Rightarrow ab \\mid n$. Par exemple, $4 \\mid 12$ et $6 \\mid 12$ mais $24 \\nmid 12$.\\par En tant qu'urne, $n$ peut être assez grand pour contenir $a$ et $b$ mais pas assez pour contenir $ab$ car $a \\wedge b$ est compté deux fois dans $ab$, une fois dans $a$ et une fois dans $b$. D'où l'importance de supposer $a$ et $b$ premiers entre eux.\\par Plus généralement, il est impératif que $a_1, \\ldots, a_r$ soient premiers entre eux DEUX À DEUX dans (ii–ii). Par exemple, les entiers $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$ et $15 = 3 \\cdot 5$ sont premiers entre eux dans leur ensemble et divisent $30 = 2 \\cdot 3 \\cdot 5$, mais $30$ n'est pas divisible par leur produit $2^2 \\cdot 3^2 \\cdot 5^2 = 900$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_recette_casser_puissances",
+      "type": "theorem",
+      "title": "Théorème : Une recette pour casser les puissances",
+      "content_latex": "Soient $a, b \\in \\mathbb{Z}$ et $k \\geq 2$.\\par (i) Avec des entiers positifs : Si $ab$ est une puissance $k$-ème d'entier avec $a \\wedge b = 1$ et $a$ et $b$ positifs, alors $a$ et $b$ sont chacun une puissance $k$-ème d'entier.\\par (ii) Avec des entiers quelconques : Dans le cas général, la parité de $k$ complique un peu la conclusion :\\par — si $k$ est impair, $a$ et $b$ sont chacun une puissance $k$-ème d'entier,\\par — si $k$ est pair, $a$ et $b$ sont soit chacun une puissance $k$-ème d'entier, soit chacun l'opposé d'une telle puissance.",
+      "proof_latex": "(i) Pour commencer, si $a = 0$, alors $b = 0$ car $a \\wedge b = 1$, donc $0 = 0^k$ et $1 = 1^k$ sont des puissances $k$-èmes d'entier. Même chose si $b = 0$. Supposons désormais $a$ et $b$ non nuls. Par hypothèse, $ab = c^k$ pour un certain $c \\in \\mathbb{N}^*$.\\par Fixons $p \\in \\mathbb{P}$. Alors d'une part : $\\min\\{v_p(a), v_p(b)\\} = v_p(a \\wedge b) = v_p(1) = 0$, donc $v_p(a) = 0$ ou $v_p(b) = 0$, mais d'autre part : $v_p(a) + v_p(b) = v_p(ab) = v_p(c^k) = k v_p(c)$.\\par Ainsi, si $v_p(a) = 0$, alors $v_p(b) = v_p(a) + v_p(b) = k v_p(c)$, et si $v_p(b) = 0$, alors $v_p(a) = v_p(a) + v_p(b) = k v_p(c)$. Dans les deux cas, les deux valuations $v_p(a)$ et $v_p(b)$ sont divisibles par $k$ car l'une est nulle et l'autre vaut $k v_p(c)$.\\par Conclusion : $a = \\prod_{p \\in \\mathbb{P}} p^{\\frac{v_p(a)}{k} \\cdot k} = A^k$ et $b = \\prod_{p \\in \\mathbb{P}} p^{\\frac{v_p(b)}{k} \\cdot k} = B^k$ sont des puissances $k$-èmes d'entiers.\\par (ii) Par hypothèse, $ab = c^k$ pour un certain $k \\in \\mathbb{Z}$, donc $|a| \\cdot |b| = |c|^k$ avec $|a| \\wedge |b| = 1$, donc $|a|$ et $|b|$ sont chacun une puissance $k$-ème d'entier d'après (i). A fortiori, $a$ et $b$ sont chacun soit une puissance $k$-ème d'entier, soit l'opposé d'une telle puissance. Cela dit, si $k$ est impair, ces deux cas n'en font qu'un car $(-1)^k = -1$."
+    },
+    {
+      "id": "arithmetique_des_entiers__example_y3_x2_x",
+      "type": "example",
+      "title": "Exemple : Équation $y^3 = x^2 + x$",
+      "content_latex": "L'équation $y^3 = x^2 + x$ d'inconnue $(x, y) \\in \\mathbb{Z}^2$ possède deux solutions, à savoir $(0, 0)$ et $(-1, 0)$.",
+      "proof_latex": "Soit $(x, y) \\in \\mathbb{Z}^2$. On suppose que $y^3 = x^2 + x$. Ainsi, $x(x+1)$ est un cube parfait avec $x \\wedge (x+1) = 1$, donc d'après le théorème précédent, sachant que l'exposant 3 est impair, $x$ et $x+1$ sont eux-mêmes des cubes parfaits, disons $x = a^3$ et $x+1 = b^3$ pour certains $a, b \\in \\mathbb{Z}$. En particulier, $a^3 < b^3$ donc $a < b$. L'égalité $(b-a)(a^2 + ab + b^2) = b^3 - a^3 = 1$, puis que $a^2 + ab + b^2 = 1$, montre en retour que $b - a = a^2 + ab + b^2 = 1$. Après simplification, $a(a+1) = 0$ donc $a \\in \\{0, -1\\}$, puis $x = a^3 \\in \\{0, -1\\}$.\\par Réciproquement, les couples $(0, 0)$ et $(-1, 0)$ sont bel et bien solutions de l'équation étudiée."
+    },
+    {
+      "id": "arithmetique_des_entiers__theoreme_forme_irreductible_rationnel",
+      "type": "theorem",
+      "title": "Théorème : Forme irréductible d'un rationnel",
+      "content_latex": "Tout rationnel peut être écrit d'une et une seule manière, appelée sa forme irréductible, sous la forme $\\frac{p}{q}$ avec $(p, q) \\in \\mathbb{Z} \\times \\mathbb{N}^*$ et $p$ et $q$ premiers entre eux.\\par En choisissant $p$ dans $\\mathbb{Z}$ et $q$ dans $\\mathbb{N}^*$, on impose que le signe soit porté par le numérateur. Sans cela, pas d'unicité !",
+      "proof_latex": "• Unicité : Soient $(p, q), (p', q') \\in \\mathbb{Z} \\times \\mathbb{N}^*$. On suppose que $r = \\frac{p}{q} = \\frac{p'}{q'}$ avec $p \\wedge q = 1$ et $p' \\wedge q' = 1$. Aussitôt $pq' = p'q$, donc $q \\mid pq'$. Cela dit $p \\wedge q = 1$, donc $q \\mid q'$ d'après le théorème de Gauss, puis $q' \\mid q$ par symétrie des rôles de $q$ et $q'$. En d'autres termes, $q$ et $q'$ se divisent mutuellement, et avec $q$ et $q'$ positifs, donc $q = q'$, et enfin $p = p'$.\\par • Existence : Par définition, $r = \\frac{a}{b}$ pour certains $a, b \\in \\mathbb{Z}$ avec $b \\neq 0$, et même $b > 0$ sans perte de généralité.\\par En notant $d$ le PGCD de $a$ et $b$, $a = dp$ et $b = dq$ pour certains $p \\in \\mathbb{Z}$ et $q \\in \\mathbb{N}^*$ premiers entre eux, donc $r = \\frac{a}{b} = \\frac{dp}{dq} = \\frac{p}{q}$."
+    }
+  ],
+  "exercises": []
+}

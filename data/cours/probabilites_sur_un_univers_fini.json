@@ -1,0 +1,484 @@
+{
+  "chapter_official_id": "probabilites_sur_un_univers_fini",
+  "chapter_name": "Probabilités sur un univers fini",
+  "source_document": "Cours - Probabilites sur un univers fini.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "probabilites_sur_un_univers_fini__example_lancer_piece_n_fois",
+      "type": "example",
+      "title": "Exemple : Lancer d'une pièce n fois",
+      "content_latex": "On lance une pièce $n$ fois successivement et on note $F_{k}$ l'événement « On obtient face au $k^{\\text{ème}}$ lancer » pour tout $k \\in [\\![1, n]\\!]$.\\par Les événements $F_{1}, \\ldots, F_{n}$ sont en quelque sorte les événements les plus basiques auxquels cette expérience aléatoire nous confronte et tout événement peut être écrit en fonction d'eux.\\par Par exemple :\\par — l'événement $A$ « On obtient pile au moins une fois au cours des $n$ lancers » peut être écrit $A = \\bigcup_{k=1}^{n} \\overline{F_{k}}$,\\par — l'événement $B$ « On n'obtient jamais pile » peut être écrit $B = \\bigcap_{k=1}^{n} F_{k}$,\\par — et l'événement $C$ « On obtient deux faces consécutifs au cours des $n$ lancers » peut être écrit $C = \\bigcup_{k=1}^{n-1} (F_{k} \\cap F_{k+1})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+      "type": "definition",
+      "title": "Définition : Système complet d'événements",
+      "content_latex": "Soit $\\Omega$ un univers fini. On appelle système complet d'événements de $\\Omega$ tout ensemble $\\{A_{1}, \\ldots, A_{n}\\}$ d'événements deux à deux incompatibles dont la réunion est l'événement certain, i.e. pour lequel $\\Omega = A_{1} \\sqcup \\ldots \\sqcup A_{n}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_systeme_complet_de",
+      "type": "example",
+      "title": "Exemple : Système complet pour le lancer d'un dé",
+      "content_latex": "Pour l'expérience aléatoire du lancer d'un dé à $6$ faces, les événements « La face obtenue est paire » et « La face obtenue est impaire » forment un système complet d'événements car on obtient forcément une face paire ou une face impaire et jamais les deux en même temps.\\par En français, on parle d'alternative plutôt que de système complet d'événements.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_systemes_complets_ensembles",
+      "type": "example",
+      "title": "Exemple : Différents systèmes complets à partir de parties de $\\Omega$",
+      "content_latex": "Soient $\\Omega = \\{\\omega_{1}, \\ldots, \\omega_{n}\\}$ un univers fini et $A, B \\in \\mathcal{P}(\\Omega)$. La paire $\\{A, \\overline{A}\\}$ est un système complet d'événements et il n'est pas dur de se convaincre sur quelques patates que $\\{A \\cap B, A \\cap \\overline{B}, \\overline{A} \\cap B, \\overline{A} \\cap \\overline{B}\\}$ et $\\{A, \\overline{A} \\cap B, \\overline{A} \\cap \\overline{B}\\}$ en sont aussi.\\par Il en va de même enfin de l'ensemble $\\{\\{\\omega_{1}\\}, \\ldots, \\{\\omega_{n}\\}\\}$ des événements élémentaires car $\\Omega = \\{\\omega_{1}\\} \\sqcup \\ldots \\sqcup \\{\\omega_{n}\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+      "type": "definition",
+      "title": "Définition : Variable aléatoire",
+      "content_latex": "Soient $\\Omega$ un univers fini et $E$ un ensemble quelconque.\\par On appelle variable aléatoire sur $\\Omega$ à valeurs dans $E$ toute application $X$ de $\\Omega$ dans $E$. Si $E = \\mathbb{R}$, on précise généralement que $X$ est une variable aléatoire réelle.\\par Événements construits à partir d'une variable aléatoire : Pour toute partie $A$ de $E$, l'événement $X^{-1}(A)$ est noté $\\{X \\in A\\}$ ou $(X \\in A)$ : $\\{X \\in A\\} = X^{-1}(A) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\in A\\}$.\\par En particulier, si $X$ est une variable aléatoire réelle, alors pour tout $x \\in \\mathbb{R}$ : $\\{X = x\\} = X^{-1}(\\{x\\}) = \\{\\omega \\in \\Omega \\mid X(\\omega) = x\\}$.\\par En particulier : $\\{X \\in E\\} = \\Omega$ et $\\{X \\le x\\} = X^{-1}(]-\\infty, x]) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\le x\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_variables_aleatoires_usuelles",
+      "type": "example",
+      "title": "Exemple : Variables aléatoires courantes",
+      "content_latex": "— Pour modéliser le lancer d'un dé à $6$ faces $2$ fois, on peut choisir pour univers $\\Omega$ l'ensemble $[\\![1, 6]\\!]^2$ des $2$-listes de $[\\![1, 6]\\!]$. La fonction $X_{1}$ (resp. $X_{2}$) « valeur obtenue au premier (resp. deuxième) lancer » est une variable aléatoire réelle sur $\\Omega$ d'image $[\\![1, 6]\\!]$. La fonction $S = X_{1} + X_{2}$ en est une autre, d'image $[\\![2, 12]\\!]$. Par exemple, pour $\\omega = (2, 5) \\in \\Omega$ : $X_{1}(\\omega) = 2$, $X_{2}(\\omega) = 5$ et $S(\\omega) = 7$.\\par — Pour modéliser le tirage simultané de $4$ entiers entre $1$ et $10$, on peut choisir pour univers l'ensemble $\\mathcal{P}_{4}([\\![1, 10]\\!])$ des $4$-combinaisons de $[\\![1, 10]\\!]$. La fonction $X$ « plus petit entier tiré » est une variable aléatoire réelle sur $\\Omega$ d'image $[\\![1, 7]\\!]$ (comme on tire $4$ entiers, il est impossible que le plus petit entier tiré vaille $8$, $9$ ou $10$). Par exemple, pour $\\omega = \\{2, 5, 6, 8\\} \\in \\Omega$ : $X(\\omega) = 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+      "type": "theorem",
+      "title": "Définition-théorème : Système complet d'événements associé à une variable aléatoire",
+      "content_latex": "Soient $\\Omega$ un univers fini et $X$ une variable aléatoire sur $\\Omega$. Les événements $\\{X = x\\}$, $x$ décrivant $X(\\Omega)$, forment un système complet d'événements de $\\Omega$ appelé le système complet d'événements de $\\Omega$ associé à $X$. En outre, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $\\{X \\in A\\} = \\bigcup_{x \\in A} \\{X = x\\}$.",
+      "proof_latex": "L'application $X$ est définie de $\\Omega$ dans $X(\\Omega)$ et on peut grouper les éléments de $\\Omega$ en fonction de la valeur que $X$ leur attribue à chacun : $\\Omega = \\bigcup_{x \\in X(\\Omega)} X^{-1}(\\{x\\}) = \\bigcup_{x \\in X(\\Omega)} \\{X = x\\}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+      "type": "definition",
+      "title": "Définition : Probabilité sur un univers fini",
+      "content_latex": "Soit $\\Omega$ un univers fini. On appelle probabilité sur $\\Omega$ toute application $P : \\mathcal{P}(\\Omega) \\longrightarrow [0, 1]$ pour laquelle d'une part $P(\\Omega) = 1$ et d'autre part :\\par $\\forall A, B \\in \\mathcal{P}(\\Omega)$, $A \\cap B = \\emptyset \\Rightarrow P(A \\sqcup B) = P(A) + P(B)$ (additivité).\\par Le couple $(\\Omega, P)$ est alors appelé un espace probabilisé fini. Dans un tel cadre, deux événements $A$ et $B$ sont dits équiprobables si $P(A) = P(B)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__warning_mot_probabilite",
+      "type": "warning",
+      "title": "Attention : Le mot « probabilité »",
+      "content_latex": "Le mot « probabilité » est utilisé de deux manières très différentes. La probabilité de $A$ est le RÉEL $P(A)$ de $[0, 1]$ qu'on associe à l'événement $A$ pour mesurer sa vraisemblance. La probabilité $P$ est l'APPLICATION de $\\mathcal{P}(\\Omega)$ dans $[0, 1]$ qu'on choisit pour mesurer la vraisemblance de tous les événements de $\\Omega$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "type": "theorem",
+      "title": "Définition-théorème : Probabilité uniforme",
+      "content_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.",
+      "proof_latex": "$P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1$ et $P(A \\sqcup B) = \\frac{|A \\sqcup B|}{|\\Omega|} = \\frac{|A|}{|\\Omega|} + \\frac{|B|}{|\\Omega|} = P(A) + P(B)$ pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_lancer_de_uniforme",
+      "type": "example",
+      "title": "Exemple : Lancer d'un dé équilibré",
+      "content_latex": "Pour modéliser le lancer d'un dé équilibré à $6$ faces, on peut choisir pour univers $\\Omega$ l'ensemble $[\\![1, 6]\\!]$ des résultats possibles et pour probabilité $P$ sur $\\Omega$ la probabilité uniforme. Les événements $A$ « On obtient un nombre premier » et $B$ « On obtient un nombre pair » sont alors équiprobables car :\\par $P(A) = P(\\{2, 3, 5\\}) = \\frac{|\\{2, 3, 5\\}|}{|[\\![1, 6]\\!]|!} = \\frac{1}{2}$ et $P(B) = P(\\{2, 4, 6\\}) = \\frac{|\\{2, 4, 6\\}|}{|[\\![1, 6]\\!]|!} = \\frac{1}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_distribution_probabilites",
+      "type": "definition",
+      "title": "Définition : Distribution de probabilités",
+      "content_latex": "Soit $E$ un ensemble fini. On appelle distribution de probabilités sur $E$ toute famille d'éléments de $[0, 1]$ indexée par $E$ dont la somme est égale à $1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_distribution_probabilites",
+      "type": "example",
+      "title": "Exemple : Distribution associée à un espace probabilisé",
+      "content_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini. La famille $(P(\\{\\omega\\}))_{\\omega \\in \\Omega}$ est une distribution de probabilités sur $\\Omega$ car :\\par $\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) = P(\\bigcup_{\\omega \\in \\Omega} \\{\\omega\\}) = P(\\Omega) = 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation d'une probabilité par une distribution de probabilités",
+      "content_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.",
+      "proof_latex": "— Analyse : Soit $P$ une probabilité sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = P(\\bigcup_{\\omega \\in A} \\{\\omega\\}) = \\sum_{\\omega \\in A} P(\\{\\omega\\}) = \\sum_{\\omega \\in A} p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$.\\par — Synthèse : Posons pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $P(A) \\in [0, 1]$ car $0 \\le P(A) \\le \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$. Ensuite : $P(\\Omega) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{\\Omega}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$ et pour tout $\\omega \\in \\Omega$ : $P(\\{\\omega\\}) = \\sum_{\\omega' \\in \\Omega} \\mathbb{I}_{\\{\\omega\\}}(\\omega') p_{\\omega'} = p_{\\omega}$.\\par Enfin, pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles : $\\mathbb{I}_{A \\sqcup B} = \\mathbb{I}_{A} + \\mathbb{I}_{B} - \\mathbb{I}_{A \\cap B} = \\mathbb{I}_{A} + \\mathbb{I}_{B}$, donc : $P(A \\sqcup B) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A \\sqcup B}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega} + \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{B}(\\omega) p_{\\omega} = P(A) + P(B)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_distribution_de_pipe",
+      "type": "example",
+      "title": "Exemple : Lancer d'un dé équilibré vs dé pipé",
+      "content_latex": "Pour modéliser le lancer d'un dé équilibré à $6$ faces, on a muni précédemment l'univers $\\Omega = [\\![1, 6]\\!]$ de la probabilité uniforme, i.e. de la probabilité $P$ définie par la distribution de probabilités $(\\frac{1}{6}, \\frac{1}{6}, \\frac{1}{6}, \\frac{1}{6}, \\frac{1}{6}, \\frac{1}{6})$. En revanche, si le dé est pipé de telle sorte que le numéro $1$ sorte avec probabilité $\\frac{1}{4}$ et les autres numéros avec la même probabilité $p$ — ainsi $\\frac{1}{4} + 5p = 1$, donc $p = \\frac{3}{20}$ — il vaut mieux définir $P$ par la distribution de probabilités $(\\frac{1}{4}, \\frac{3}{20}, \\frac{3}{20}, \\frac{3}{20}, \\frac{3}{20}, \\frac{3}{20})$. L'événement $A$ « On obtient un numéro impair » a alors pour probabilité $P(A) = P(\\{1\\}) + P(\\{3\\}) + P(\\{5\\}) = \\frac{1}{4} + 2 \\times \\frac{3}{20} = \\frac{11}{20}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des probabilités",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A, B, A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$.\\par (i) Ensemble vide : $P(\\emptyset) = 0$.\\par (ii) Complémentaire et différence : $P(\\overline{A}) = 1 - P(A)$ et $P(A \\setminus B) = P(A) - P(A \\cap B)$.\\par (iii) Croissance : Si $A \\subset B$, alors $P(A) \\le P(B)$.\\par (iv) Réunion : $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$.\\par En toute généralité :\\par Si $A_{1}, \\ldots, A_{n}$ sont deux à deux incompatibles, alors : $P(\\bigcup_{i=1}^{n} A_{i}) = \\sum_{i=1}^{n} P(A_{i})$ (additivité).\\par $P(\\bigcup_{i=1}^{n} A_{i}) \\le \\sum_{i=1}^{n} P(A_{i})$ (sous-additivité).\\par Formule du crible : $P(\\bigcup_{i=1}^{n} A_{i}) = \\sum_{k=1}^{n} (-1)^{k-1} \\sum_{1 \\le i_{1} < \\ldots < i_{k} \\le n} P(A_{i_{1}} \\cap \\ldots \\cap A_{i_{k}})$.",
+      "proof_latex": "(i) et (ii) L'égalité $A = (A \\setminus B) \\sqcup (A \\cap B)$ montre que $P(A) = P(A \\setminus B) + P(A \\cap B)$. En retour : $P(\\overline{A}) = P(\\Omega \\setminus A) = P(\\Omega) - P(\\Omega \\cap A) = 1 - P(A)$, donc $P(\\emptyset) = P(\\overline{\\Omega}) = 1 - P(\\Omega) = 1 - 1 = 0$.\\par (iii) Si $A \\subset B$ alors $B = A \\sqcup (B \\setminus A)$, donc $P(B) = P(A) + P(B \\setminus A) \\ge P(A) + 0 = P(A)$.\\par (iv) Cette fois, $A \\cup B = (A \\setminus B) \\cup B$ donc $P(A \\cup B) = P(A \\setminus B) + P(B) = P(A) - P(A \\cap B) + P(B) \\le P(A) + P(B)$.\\par On étend ensuite ce premier cas de sous-additivité à davantage d'événements par récurrence. La formule du crible sera quant à elle prouvée plus loin à l'aide du concept d'espérance."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+      "type": "definition",
+      "title": "Définition-théorème : Loi d'une variable aléatoire",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ une variable aléatoire sur $\\Omega$. L'application $A \\mapsto P(X \\in A)$ est une probabilité sur $X(\\Omega)$ et on l'appelle la loi de $X$ (pour $P$).\\par Cette probabilité est entièrement déterminée par la distribution de probabilités $(P(X=x))_{x \\in X(\\Omega)}$ sur $X(\\Omega)$, qu'on appelle justement la distribution de probabilités de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = \\sum_{x \\in A} P(X=x)$.",
+      "proof_latex": "Montrons que $P_{X}$ est une probabilité sur $X(\\Omega)$. Or $P_{X}(X(\\Omega)) = P(X \\in X(\\Omega)) = P(\\Omega) = 1$ et pour tous $A, B \\in \\mathcal{P}(X(\\Omega))$ incompatibles : $P_{X}(A \\sqcup B) = P(X \\in A \\sqcup B) = P(\\{X \\in A\\} \\sqcup \\{X \\in B\\}) = P(X \\in A) + P(X \\in B) = P_{X}(A) + P_{X}(B)$.\\par Par ailleurs, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = P(\\bigcup_{x \\in A} \\{X = x\\}) = \\sum_{x \\in A} P(X = x)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+      "type": "definition",
+      "title": "Définition : Loi uniforme, loi de Rademacher",
+      "content_latex": "— Loi uniforme : Soient $E$ un ensemble fini non vide et $X$ une variable aléatoire à valeurs dans $E$. On dit que $X$ suit la loi uniforme sur $E$ ou que $X$ est une variable uniforme sur $E$, ce qu'on note $X \\sim \\mathcal{U}(E)$, si $P_{X}$ est la probabilité uniforme sur $E$, i.e. si pour tout $A \\in \\mathcal{P}(E)$ : $P_{X}(A) = P(X \\in A) = \\frac{|A|}{|E|}$.\\par — Loi de Rademacher : La loi uniforme sur $\\{-1, 1\\}$ est appelée la loi de Rademacher. On dit donc d'une variable aléatoire $X$ pour laquelle $P(X = -1) = P(X = 1) = \\frac{1}{2}$ qu'elle suit la loi de Rademacher ou que c'est une variable de Rademacher.\\par La loi uniforme est la loi pour laquelle les événements $\\{X = x\\}$, $x$ décrivant $E$, sont équiprobables de probabilité $\\frac{1}{|E|}$.\\par La formule $P(X \\in A) = \\frac{|A|}{|E|} = \\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$ sur la loi uniforme est essentielle en pratique et ramène tout problème de calcul de probabilité à un problème de dénombrement.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_loi_uniforme_usuelles",
+      "type": "example",
+      "title": "Exemple : Variables uniformes courantes",
+      "content_latex": "— Lorsqu'on choisit au hasard un entier $X$ entre $1$ et $n$, $X$ suit la loi uniforme sur $[\\![1, n]\\!]$.\\par — Lorsqu'on lance $2$ fois successivement un dé équilibré à $6$ faces, le couple $(X_{1}, X_{2})$ des valeurs obtenues suit la loi uniforme sur $[\\![1, 6]\\!]^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_tirage_boules_uniforme",
+      "type": "example",
+      "title": "Exemple : Tirage simultané de boules",
+      "content_latex": "Une urne contient $3$ boules blanches et $5$ noires. On en tire simultanément $4$ boules. Avec quelle probabilité n'a-t-on tiré que des boules noires ?",
+      "proof_latex": "On peut bien sûr supposer sans perte de généralité que les $8$ boules de l'urne sont numérotées de $1$ à $8$ histoire de les distinguer — de $1$ à $3$ pour les blanches et de $4$ à $8$ pour les noires. Notons alors $X$ la $4$-combinaison de $[\\![1, 8]\\!]$ des boules tirées.\\par Cette variable aléatoire suit la loi uniforme sur l'ensemble $\\mathcal{P}_{4}([\\![1, 8]\\!])$ des $4$-combinaisons de $[\\![1, 8]\\!]$ et la probabilité cherchée vaut : $P(X \\in \\mathcal{P}_{4}([\\![4, 8]\\!])) = \\frac{|\\mathcal{P}_{4}([\\![4, 8]\\!])|}{|\\mathcal{P}_{4}([\\![1, 8]\\!])|} = \\frac{\\binom{5}{4}}{\\binom{8}{4}} = \\frac{1}{14}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_bernoulli",
+      "type": "definition",
+      "title": "Définition : Loi de Bernoulli",
+      "content_latex": "Soient $X$ une variable aléatoire à valeurs dans $\\{0, 1\\}$ et $p \\in [0, 1]$. On dit que $X$ suit la loi de Bernoulli de paramètre $p$ ou que $X$ est une variable de Bernoulli de paramètre $p$, ce qu'on note $X \\sim \\mathcal{B}(p)$, si $P(X = 1) = p$ et $P(X = 0) = 1 - p$.\\par Exemple fondamental : Pour tout espace probabilisé fini $(\\Omega, P)$ et pour tout $A \\in \\mathcal{P}(\\Omega)$ : $\\mathbb{I}_{A} \\sim \\mathcal{B}(P(A))$.\\par Toute variable aléatoire qui représente un cardinal peut être exprimée comme une somme d'indicatrices, i.e. comme une somme de variables aléatoires de loi de Bernoulli.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_somme_indicatrices_lancers",
+      "type": "example",
+      "title": "Exemple : Cardinal et somme d'indicatrices",
+      "content_latex": "On lance $n$ fois un dé à $6$ faces. Si on note $A_{k}$ l'événement « On obtient $6$ au $k^{\\text{ème}}$ lancer » pour tout $k \\in [\\![1, n]\\!]$ et $N$ le nombre de $6$ obtenus, alors $N = \\mathbb{I}_{A_{1}} + \\ldots + \\mathbb{I}_{A_{n}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_loi_image_carre",
+      "type": "example",
+      "title": "Exemple : Loi de $X^2 + 1$",
+      "content_latex": "Soit $X$ une variable uniforme sur $[\\![-2, 2]\\!]$. Quelle est la loi de $X^2 + 1$ ?",
+      "proof_latex": "Par hypothèse, $P(X = k) = \\frac{1}{5}$ pour tout $k \\in [\\![-2, 2]\\!]$ et $X^2 + 1$ est à valeurs dans $\\{1, 2, 5\\}$. Ensuite : $P(X^2 + 1 = 1) = P(X = 0) = \\frac{1}{5}$, puis :\\par $P(X^2 + 1 = 2) = P(X^2 = 1) = P(X = 1 \\text{ ou } X = -1) = P(X = 1) + P(X = -1) = \\frac{2}{5}$\\par et $P(X^2 + 1 = 5) = \\frac{2}{5}$ par un calcul analogue."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_loi_de_f_de_X",
+      "type": "theorem",
+      "title": "Théorème : Loi de $f(X)$",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini, $F$ un ensemble, $X$ une variable aléatoire sur $\\Omega$ et $f : X(\\Omega) \\longrightarrow F$ une application. La loi $P_{f(X)}$ de $f(X) = f \\circ X$ est entièrement déterminée par $f$ et la loi de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(f(X(\\Omega)))$ : $P_{f(X)}(A) = P(f(X) \\in A) = \\sum_{x \\in X(\\Omega), f(x) \\in A} P(X = x)$.\\par En particulier, si deux variables aléatoires $X$ et $Y$ ont la même loi, les variables $f(X)$ et $f(Y)$ ont aussi la même loi pour toute application $f$ définie sur $X(\\Omega) = Y(\\Omega)$.",
+      "proof_latex": "Pour tout $A \\in \\mathcal{P}(f(X(\\Omega)))$, les éléments de l'événement $\\{f(X) \\in A\\}$ peuvent être regroupés en fonction de la valeur que $X$ leur donne :\\par $\\{f(X) \\in A\\} = \\{f(X) \\in A\\} \\cap \\Omega = \\{f(X) \\in A\\} \\cap \\bigcup_{x \\in X(\\Omega)} \\{X = x\\} = \\bigcup_{x \\in X(\\Omega)} \\{f(X) \\in A \\text{ et } X = x\\} = \\bigcup_{x \\in X(\\Omega), f(x) \\in A} \\{X = x\\}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_loi_image_translation_parite",
+      "type": "example",
+      "title": "Exemple : Loi de $X+d$ et $(-1)^X$",
+      "content_latex": "Soit $X$ une variable uniforme sur $[\\![1, 2n]\\!]$.\\par — Étant donné un entier $d \\in \\mathbb{Z}$, quelle est la loi de $X+d$ ?\\par — Quelle est la loi de $(-1)^X$ ?",
+      "proof_latex": "— La variable $X+d$ est à valeurs dans $[\\![d+1, d+2n]\\!]$ et pour tout $k \\in [\\![d+1, d+2n]\\!]$, $k-d$ appartient à $[\\![1, 2n]\\!]$, donc $P(X+d = k) = P(X = k-d) = \\frac{1}{2n}$. Par conséquent, $X+d$ est uniforme sur $[\\![d+1, d+2n]\\!]$.\\par — La variable $(-1)^X$ est à valeurs dans $\\{-1, 1\\}$ et elle suit la loi de Rademacher car :\\par $P((-1)^X = 1) = \\sum_{i=1}^{n} P(X = 2i) = \\sum_{i=1}^{n} \\frac{1}{2n} = \\frac{1}{2}$ et $P((-1)^X = -1) = \\sum_{i=0}^{n-1} P(X = 2i+1) = \\sum_{i=0}^{n-1} \\frac{1}{2n} = \\frac{1}{2}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+      "type": "definition",
+      "title": "Définition : Probabilité conditionnelle",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, le réel $P(A|B) = P_{B}(A) = \\frac{P(A \\cap B)}{P(B)}$ est appelé la probabilité conditionnelle de $A$ sachant $B$.\\par L'application $P_{B}$ est alors une probabilité sur $\\Omega$ appelée sa probabilité conditionnelle sachant $B$ (pour $P$).\\par On ne sait pas définir $P_{B}(A)$ lorsque $P(B) = 0$, mais par convention, l'égalité $P(A \\cap B) = P(B)P_{B}(A)$ est tenue pour vraie dans ce cas.",
+      "proof_latex": "Montrons que $P_{B}$ est une probabilité sur $\\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $0 \\le P(A \\cap B) \\le P(B)$ par croissance de $P$, donc $P_{B}(A) \\in [0, 1]$,. Ensuite, $P_{B}(\\Omega) = \\frac{P(\\Omega \\cap B)}{P(B)} = \\frac{P(B)}{P(B)} = 1$. Enfin, pour tous $A, A' \\in \\mathcal{P}(\\Omega)$ incompatibles, $A \\cap B$ et $A' \\cap B$ sont également incompatibles, donc : $P_{B}(A \\sqcup A') = \\frac{P((A \\sqcup A') \\cap B)}{P(B)} = \\frac{P((A \\cap B) \\sqcup (A' \\cap B))}{P(B)} = \\frac{P(A \\cap B) + P(A' \\cap B)}{P(B)} = P_{B}(A) + P_{B}(A')$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_conditionnelle",
+      "type": "definition",
+      "title": "Définition : Lois conditionnelles d'une variable aléatoire",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini, $X$ une variable aléatoire sur $\\Omega$ et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. On appelle loi conditionnelle de $X$ sachant $B$ (pour $P$) la loi de $X$ pour la probabilité $P_{B}$, i.e. l'application $A \\mapsto P_{B}(X \\in A)$ de $\\mathcal{P}(X(\\Omega))$ dans $[0, 1]$.\\par La loi conditionnelle de $X$ sachant $B$ est entièrement déterminée par la distribution de probabilités $(P_{B}(X = x))_{x \\in X(\\Omega)}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_loi_conditionnelle_entier",
+      "type": "example",
+      "title": "Exemple : Loi de $X$ sachant $\\{X \\le n\\}$",
+      "content_latex": "On choisit un entier $X$ au hasard entre $1$ et $2n$. Quelle est la loi de $X$ sachant $\\{X \\le n\\}$ ?",
+      "proof_latex": "Pour commencer : $P(X \\le n) = \\sum_{k=1}^{n} P(X = k) = \\sum_{k=1}^{n} \\frac{1}{2n} = \\frac{1}{2}$. Ainsi, pour tout $k \\in [\\![1, n]\\!]$ : $P_{\\{X \\le n\\}}(X = k) = \\frac{P(X = k)}{P(X \\le n)} = \\frac{1}{n}$ et pour tout $k \\in [\\![n+1, 2n]\\!]$ : $P_{\\{X \\le n\\}}(X = k) = 0$, donc $X_{\\{X \\le n\\}} \\sim \\mathcal{U}([\\![1, n]\\!])$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "type": "theorem",
+      "title": "Théorème : Formule des probabilités composées",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.",
+      "proof_latex": "Si $P(A_{1} \\cap \\ldots \\cap A_{n-1}) = 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{n}) = 0$ par croissance de $P$ et le résultat s'écrit $0 = 0$. Si au contraire $P(A_{1} \\cap \\ldots \\cap A_{n-1}) > 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{i}) > 0$ pour tout $i \\in [\\![1, n-1]\\!]$ par croissance de $P$, donc par simplification télescopique : $P(A_{1})P_{A_{1}}(A_{2})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n}) = P(A_{1})\\prod_{k=2}^{n} P_{A_{1} \\cap \\ldots \\cap A_{k-1}}(A_{k}) = P(A_{1})\\prod_{k=2}^{n} \\frac{P(A_{1} \\cap \\ldots \\cap A_{k})}{P(A_{1} \\cap \\ldots \\cap A_{k-1})} = P(A_{1} \\cap \\ldots \\cap A_{n})$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_probabilites_composees_urne",
+      "type": "example",
+      "title": "Exemple : Tirages avec et sans remise",
+      "content_latex": "Une urne contient $2n$ boules dont $n$ noires et $n$ blanches et on en tire $3$ boules successivement. Avec quelle probabilité les tire-t-on dans l'ordre noire-blanche-noire si les tirages se font avec remise (resp. sans remise) ?",
+      "proof_latex": "Pour tout $i \\in [\\![1, 3]\\!]$ notons $B_{i}$ l'événement « La $i$-ème boule tirée est blanche ». Nous cherchons $P(\\overline{B_{1}} \\cap B_{2} \\cap \\overline{B_{3}})$. D'après la formule des probabilités composées :\\par — pour des tirages avec remise : $P(\\overline{B_{1}} \\cap B_{2} \\cap \\overline{B_{3}}) = P(\\overline{B_{1}})P_{\\overline{B_{1}}}(B_{2})P_{\\overline{B_{1}} \\cap B_{2}}(\\overline{B_{3}}) = \\frac{n}{2n} \\times \\frac{n}{2n} \\times \\frac{n}{2n} = \\frac{1}{8}$.\\par — pour des tirages sans remise : $P(\\overline{B_{1}} \\cap B_{2} \\cap \\overline{B_{3}}) = \\frac{n}{2n} \\times \\frac{n}{2n-1} \\times \\frac{n-1}{2n-2} = \\frac{n}{4(2n-1)}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_probabilites_composees_tickets",
+      "type": "example",
+      "title": "Exemple : Achat de tickets gagnants",
+      "content_latex": "Un commerçant met en vente $50$ tickets d'un jeu dont exactement $3$ sont gagnants. Je lui achète $6$ tickets. Avec quelle probabilité en ai-je acheté au moins un gagnant ?",
+      "proof_latex": "Notons $G$ l'événement « L'un au moins des tickets achetés est gagnant », d'événement contraire $\\overline{G}$ « Tous les tickets achetés sont perdants ». Nous allons calculer $P(G)$ grâce à $P(\\overline{G})$.\\par — Preuve n°1 à l'aide d'une variable aléatoire : On peut numéroter sans perte de généralité les tickets gagnants $1, 2$ et $3$ et les tickets perdants de $4$ à $50$. Notons alors $X$ la $6$-combinaison de $[\\![1, 50]\\!]$ des tickets achetés. Clairement, $X \\sim \\mathcal{U}(\\mathcal{P}_{6}([\\![1, 50]\\!]))$ et $\\overline{G} = \\{X \\in \\mathcal{P}_{6}([\\![4, 50]\\!])\\}$, donc : $P(\\overline{G}) = \\frac{|\\mathcal{P}_{6}([\\![4, 50]\\!])|}{|\\mathcal{P}_{6}([\\![1, 50]\\!])|} = \\frac{\\binom{47}{6}}{\\binom{50}{6}} = \\frac{47 \\cdot 46 \\cdot 45 \\cdot 44 \\cdot 43 \\cdot 42}{50 \\cdot 49 \\cdot 48 \\cdot 47 \\cdot 46 \\cdot 45} = \\frac{44 \\cdot 43 \\cdot 42}{50 \\cdot 49 \\cdot 48} = \\frac{473}{700}$, donc $P(G) = \\frac{227}{700}$.\\par — Preuve n°2 sans variable aléatoire : On peut considérer sans perte de généralité que les $6$ tickets achetés l'ont été dans un certain ordre et, pour tout $i \\in [\\![1, 6]\\!]$, noter $T_{i}$ l'événement « Le $i$-ème ticket acheté est perdant ». Dans ces conditions, $P_{T_{1} \\cap \\ldots \\cap T_{i-1}}(T_{i}) = \\frac{48-i}{51-i}$ pour tout $i \\in [\\![1, 6]\\!]$, car sous l'hypothèse que les $i-1$ premiers tickets achetés ont été perdants, il reste au commerçant $51-i$ tickets à vendre dont $48-i$ perdants. Finalement, d'après la formule des probabilités composées : $P(\\overline{G}) = P(T_{1} \\cap \\ldots \\cap T_{6}) = P(T_{1})P_{T_{1}}(T_{2})\\ldots P_{T_{1} \\cap \\ldots \\cap T_{5}}(T_{6}) = \\prod_{i=1}^{6} \\frac{48-i}{51-i} = \\frac{473}{700}$, donc $P(G) = \\frac{227}{700}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_evenements_independants",
+      "type": "definition",
+      "title": "Définition : Événements indépendants",
+      "content_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini.\\par — Cas de deux événements : Soient $A, B \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A$ et $B$ sont indépendants si : $P(A \\cap B) = P(A)P(B)$.\\par — Cas général : Soient $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A_{1}, \\ldots, A_{n}$ sont (mutuellement) indépendants si : $\\forall I \\in \\mathcal{P}([\\![1, n]\\!]), P(\\bigcap_{i \\in I} A_{i}) = \\prod_{i \\in I} P(A_{i})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__warning_independance_mutuelle_deux_a_deux",
+      "type": "warning",
+      "title": "Attention : Indépendance mutuelle vs deux à deux",
+      "content_latex": "Attention ! (Mutuellement) indépendants $\\Rightarrow$ DEUX À DEUX indépendants mais la réciproque est fausse !\\par Posons par exemple $\\Omega = [\\![1, 4]\\!]$ et notons $P$ la probabilité uniforme sur $\\Omega$. Posons en outre $A = \\{1, 2\\}$, $B = \\{1, 3\\}$ et $C = \\{2, 3\\}$. Alors $P(A) = P(B) = P(C) = \\frac{1}{2}$ et $P(A \\cap B) = P(A \\cap C) = P(B \\cap C) = \\frac{1}{4}$, donc $A, B$ et $C$ sont deux à deux indépendants.\\par Pourtant, $P(A \\cap B \\cap C) = P(\\emptyset) = 0 \\neq \\frac{1}{8} = P(A)P(B)P(C)$ donc $A, B$ et $C$ ne sont pas (mutuellement) indépendants.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+      "type": "theorem",
+      "title": "Théorème : Indépendance et complémentaires",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Si $A_{1}, \\ldots, A_{n}$ sont indépendants, les événements $A_{1}^{\\circ}, \\ldots, A_{n}^{\\circ}$ le sont aussi pour tous $A_{1}^{\\circ} \\in \\{A_{1}, \\overline{A_{1}}\\}, \\ldots, A_{n}^{\\circ} \\in \\{A_{n}, \\overline{A_{n}}\\}$.",
+      "proof_latex": "Nous nous contenterons du cas de deux événements $A$ et $B$.\\par — Si $A$ et $B$ sont indépendants, alors $\\overline{A}$ et $B$ le sont aussi car : $P(\\overline{A} \\cap B) = P(B \\setminus A) = P(B) - P(A \\cap B) = P(B) - P(A)P(B) = (1 - P(A))P(B) = P(\\overline{A})P(B)$.\\par — Quitte à permuter $A$ et $B$, le premier point montre que si $A$ et $B$ sont indépendants, $A$ et $\\overline{B}$ le sont aussi, et donc a fortiori $\\overline{A}$ et $\\overline{B}$ aussi, toujours d'après le premier point."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+      "type": "definition",
+      "title": "Définition : Loi binomiale",
+      "content_latex": "Soient $X$ une variable aléatoire à valeurs dans $[\\![0, n]\\!]$ et $p \\in [0, 1]$. On dit que $X$ suit la loi binomiale de paramètre $(n, p)$ ou que $X$ est une variable binomiale de paramètre $(n, p)$, ce qu'on note $X \\sim \\mathcal{B}(n, p)$, si pour tout $k \\in [\\![0, n]\\!]$ : $P(X = k) = \\binom{n}{k} p^{k} (1-p)^{n-k}$.\\par Lorsqu'on répète $n$ fois indépendamment une expérience aléatoire à deux issues avec probabilité $p$ pour l'issue favorable, le NOMBRE D'ISSUES FAVORABLES suit la loi binomiale $\\mathcal{B}(n, p)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_loi_binomiale_de",
+      "type": "example",
+      "title": "Exemple : Loi binomiale, lancers de dé",
+      "content_latex": "On lance $5$ fois un dé équilibré à $6$ faces dont $2$ blanches et $4$ noires. Avec quelle probabilité obtient-on exactement $3$ fois une face noire ?",
+      "proof_latex": "La face noire a une probabilité $\\frac{4}{6} = \\frac{2}{3}$ d'apparaître quand on lance le dé une fois. Par indépendance des lancers, le nombre $N$ de faces noires obtenues à l'issue des $5$ lancers suit donc la loi binomiale $\\mathcal{B}(5, \\frac{2}{3})$, et ainsi $P(N = 3) = \\binom{5}{3} (\\frac{2}{3})^{3} (1 - \\frac{2}{3})^{5-3} = \\frac{80}{243} \\approx 0,33$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "type": "definition",
+      "title": "Définition-théorème : Variables aléatoires indépendantes",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.",
+      "proof_latex": "Faisons l'hypothèse que $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ et montrons que $X_{1}, \\ldots, X_{n}$ sont indépendantes.\\par — Montrons d'abord que $P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n}) = P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n})$ pour toutes parties $B_{1}$ de $X_{1}(\\Omega), \\ldots, B_{n}$ de $X_{n}(\\Omega)$. En notant $\\boldsymbol{x}$ la proposition $(x_{1}, \\ldots, x_{n}) \\in B_{1} \\times \\ldots \\times B_{n}$ : $P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n}) = (\\sum_{x_{1} \\in B_{1}} P(X_{1} = x_{1})) \\ldots (\\sum_{x_{n} \\in B_{n}} P(X_{n} = x_{n})) = \\sum_{\\boldsymbol{x}} P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P((X_{1}, \\ldots, X_{n}) \\in B_{1} \\times \\ldots \\times B_{n}) = P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n})$.\\par — Fixons à présent des parties $A_{1}$ de $X_{1}(\\Omega), \\ldots,$ et $A_{n}$ de $X_{n}(\\Omega)$ ainsi qu'une partie $I$ de $[\\![1, n]\\!]$ et montrons que $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$. Posons pour cela $B_{i} = A_{i}$ si $i \\in I$, $X_{i}(\\Omega)$ sinon, pour tout $i \\in [\\![1, n]\\!]$. D'après le point précédent : $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = P(\\bigcap_{i=1}^{n} \\{X_{i} \\in B_{i}\\}) = \\prod_{i=1}^{n} P(X_{i} \\in B_{i}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__warning_variables_independantes_mutuelle_deux_a_deux",
+      "type": "warning",
+      "title": "Attention : Variables mutuellement vs deux à deux indépendantes",
+      "content_latex": "Attention ! (Mutuellement) indépendantes $\\Rightarrow$ DEUX À DEUX indépendantes mais la réciproque est fausse !",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_independance_lancer_de_deux_fois",
+      "type": "example",
+      "title": "Exemple : Lancer d'un dé 2 fois",
+      "content_latex": "On lance un dé équilibré à $6$ faces $2$ fois et on note $X_{1}$ (resp. $X_{2}$) la face obtenue au premier (resp. second) lancer. Avec quelle probabilité obtient-on les deux fois une face impaire ?",
+      "proof_latex": "Les variables aléatoires $X_{1}$ et $X_{2}$ sont bien sûr indépendantes et uniformes sur $[\\![1, 6]\\!]$, donc : $P(X_{1} \\text{ et } X_{2} \\text{ sont impairs}) = P(X_{1} \\text{ est impair})P(X_{2} \\text{ est impair}) = \\frac{|\\{1, 3, 5\\}|}{6} \\times \\frac{|\\{1, 3, 5\\}|}{6} = \\frac{1}{4}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_produit_bernoulli_independantes",
+      "type": "example",
+      "title": "Exemple : Produit de variables de Bernoulli",
+      "content_latex": "Soient $p_{1}, \\ldots, p_{n} \\in [0, 1]$ et $X_{1}, \\ldots, X_{n}$ des variables de Bernoulli indépendantes de paramètres respectifs $p_{1}, \\ldots, p_{n}$. Alors $X_{1} \\ldots X_{n} \\sim \\mathcal{B}(p_{1} \\ldots p_{n})$.",
+      "proof_latex": "La variable aléatoire $X_{1} \\ldots X_{n}$ est à valeurs dans $\\{0, 1\\}$ et : $P(X_{1} \\ldots X_{n} = 1) = P(X_{1} = 1, \\ldots, X_{n} = 1) = P(X_{1} = 1) \\ldots P(X_{n} = 1) = p_{1} \\ldots p_{n}$ et $P(X_{1} \\ldots X_{n} = 0) = 1 - P(X_{1} \\ldots X_{n} = 1) = 1 - p_{1} \\ldots p_{n}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_jeu_32_cartes_truque",
+      "type": "example",
+      "title": "Exemple : Jeu de 32 cartes truqué",
+      "content_latex": "Un jeu de $32$ cartes a été malicieusement truqué, on y a remplacé une carte autre que l'as de pique par un deuxième as de pique. On répète $n$ fois avec remise l'expérience consistant à tirer simultanément $4$ cartes. À partir de quelle valeur de $n$ la probabilité de déceler la supercherie est-elle supérieure à $0,9$ ?",
+      "proof_latex": "On peut numéroter sans perte de généralité les $2$ as de pique $1$ et $2$ et les autres cartes de $3$ à $32$. Pour tout $k \\in [\\![1, n]\\!]$, notons $X_{k}$ la $4$-combinaison des cartes tirées au $k$-ème tirage. Ces variables suivent toutes la loi uniforme sur $\\mathcal{P}_{4}([\\![1, 32]\\!])$ et sont de plus indépendantes car les tirages se font avec remise.\\par — Calculons d'abord pour tout $k \\in [\\![1, n]\\!]$ la probabilité de déceler la supercherie au $k$-ème tirage, i.e. de l'événement $A_{k} = \\{1 \\in X_{k}, 2 \\in X_{k}\\}$. Or il y a autant de tirages qui réalisent $A_{k}$ que de $2$-combinaisons de l'ensemble $[\\![3, 32]\\!]$ des cartes qui ne sont pas les as de pique, donc $P(A_{k}) = \\frac{\\binom{30}{2}}{\\binom{32}{4}} = \\frac{3}{248}$.\\par — Notons à présent $B$ l'événement « La supercherie finit par être décelée » d'événement contraire « La supercherie n'est jamais décelée » : $\\overline{B} = \\overline{A_{1}} \\cap \\ldots \\cap \\overline{A_{n}}$. Parce que les variables aléatoires $X_{1}, \\ldots, X_{n}$ le sont, les événements $A_{1}, \\ldots, A_{n}$ sont indépendants, donc les événements $\\overline{A_{1}}, \\ldots, \\overline{A_{n}}$ aussi, et du coup : $P(B) = 1 - P(\\overline{B}) = 1 - P(\\overline{A_{1}} \\cap \\ldots \\cap \\overline{A_{n}}) = 1 - P(\\overline{A_{1}}) \\ldots P(\\overline{A_{n}}) = 1 - (1 - \\frac{3}{248})^{n} = 1 - (\\frac{245}{248})^{n}$. Finalement : $P(B) \\ge 0,9 \\iff (\\frac{245}{248})^{n} \\le \\frac{1}{10} \\iff n \\ge \\frac{\\ln 10}{\\ln \\frac{248}{245}} \\iff n \\ge 190$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "type": "theorem",
+      "title": "Théorème : Deux outils pour créer des variables aléatoires indépendantes",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "proof_latex": "(i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_independance_coalitions_evenements",
+      "type": "example",
+      "title": "Exemple : Coalitions et événements",
+      "content_latex": "Soit $X, Y$ et $Z$ trois variables aléatoires réelles indépendantes. Les événements $\\{X=Y\\}$ et $\\{Z \\ge 0\\}$ sont indépendants.",
+      "proof_latex": "Les variables aléatoires $(X, Y)$ et $Z$ sont indépendantes d'après le lemme des coalitions, donc $X-Y$ et $Z$ aussi après composition par $(x, y) \\mapsto x-y$, donc les événements $\\{X-Y = 0\\}$ et $\\{Z \\in \\mathbb{R}_{+}\\} = \\{Z \\ge 0\\}$ également."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+      "type": "theorem",
+      "title": "Théorème : Existence d'une famille finie de variables aléatoires indépendantes de lois prescrites",
+      "content_latex": "Soient $E_{1}, \\ldots, E_{n}$ des ensembles finis et, pour tout $i \\in [\\![1, n]\\!]$, $P_{i}$ une probabilité sur $E_{i}$. Il existe un espace probabilisé fini $(\\Omega, P)$ et des variables aléatoires indépendantes $X_{1}, \\ldots, X_{n}$ sur $\\Omega$, d'images respectives $E_{1}, \\ldots, E_{n}$ pour lesquels $X_{i} \\sim P_{i}$ pour tout $i \\in [\\![1, n]\\!]$.",
+      "proof_latex": "Pour plus de clarté, traitons seulement le cas $n=2$. Posons $p_{i,x} = P_{i}(\\{x\\})$ pour tous $i \\in \\{1, 2\\}$ et $x \\in E_{i}$, de sorte que $(p_{i,x})_{x \\in E_{i}}$ est la distribution de probabilités de $P_{i}$. La famille $(p_{1,x_{1}}p_{2,x_{2}})_{(x_{1},x_{2}) \\in E_{1} \\times E_{2}}$ est ainsi une distribution de probabilités sur $E_{1} \\times E_{2}$ car : $\\sum_{(x_{1},x_{2}) \\in E_{1} \\times E_{2}} p_{1,x_{1}}p_{2,x_{2}} = (\\sum_{x_{1} \\in E_{1}} p_{1,x_{1}})(\\sum_{x_{2} \\in E_{2}} p_{2,x_{2}}) = 1^2 = 1$.\\par Cette distribution de probabilités sur $E_{1} \\times E_{2}$ définit une probabilité $P$ sur $\\Omega = E_{1} \\times E_{2}$. Notons maintenant $X_{1}$ l'application $(x_{1}, x_{2}) \\mapsto x_{1}$ de $\\Omega$ dans $E_{1}$ et $X_{2}$ l'application $(x_{1}, x_{2}) \\mapsto x_{2}$ de $\\Omega$ dans $E_{2}$. Pour tous $x_{1} \\in E_{1}$ et $x_{2} \\in E_{2}$ : $P(X_{1} = x_{1}, X_{2} = x_{2}) = P(\\{(x_{1}, x_{2})\\}) = p_{1,x_{1}}p_{2,x_{2}}$.\\par Pour tout $x_{1} \\in E_{1}$ : $P(X_{1} = x_{1}) = \\sum_{x_{2} \\in E_{2}} P(X_{1} = x_{1}, X_{2} = x_{2}) = \\sum_{x_{2} \\in E_{2}} p_{1,x_{1}}p_{2,x_{2}} = p_{1,x_{1}} = P_{1}(\\{x_{1}\\})$, donc $X_{1} \\sim P_{1}$. De même, $X_{2} \\sim P_{2}$.\\par En retour, $X_{1}$ et $X_{2}$ sont indépendantes car $P(X_{1} = x_{1}, X_{2} = x_{2}) = p_{1,x_{1}}p_{2,x_{2}} = P(X_{1} = x_{1})P(X_{2} = x_{2})$ pour tous $x_{1} \\in E_{1}$ et $x_{2} \\in E_{2}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_urne_independance_3n_boules",
+      "type": "example",
+      "title": "Exemple : Tirage dans une urne et existence formelle",
+      "content_latex": "Une urne contient $3n$ boules numérotées de $1$ à $2n$ avec, pour tout $k \\in [\\![1, n]\\!]$, exactement $2$ boules indiscernables de numéro $2k$ et exactement une de numéro $2k-1$. On tire $2$ boules de cette urne successivement avec remise. Avec quelle probabilité ont-elles le même numéro ?",
+      "proof_latex": "Notons $X_{1}$ (resp. $X_{2}$) le numéro de la première (resp. deuxième) boule tirée. Les variables aléatoires $X_{1}$ et $X_{2}$ sont indépendantes et pour tout $k \\in [\\![1, n]\\!]$ : $P(X_{1} = 2k) = P(X_{2} = 2k) = \\frac{2}{3n}$ et $P(X_{1} = 2k-1) = P(X_{2} = 2k-1) = \\frac{1}{3n}$.\\par Admise jusqu'ici, l'existence de $X_{1}$ et $X_{2}$ découle à présent du théorème précédent. L'égalité $\\sum_{k=1}^{n} \\frac{2}{3n} + \\sum_{k=1}^{n} \\frac{1}{3n} = 1$ définit en effet une distribution de probabilités sur $[\\![1, 2n]\\!]$ adaptée à l'urne étudiée et il n'en faut pas plus pour garantir l'existence d'un espace probabilisé fini $(\\Omega, P)$ et de variables aléatoires indépendantes $X_{1}$ et $X_{2}$ sur $\\Omega$ de lois adaptées.\\par Dans ce cadre : $P(X_{1} = X_{2}) = \\sum_{k=1}^{2n} P(X_{1} = k, X_{2} = k) = \\sum_{k=1}^{2n} P(X_{1} = k)P(X_{2} = k) = \\sum_{k=1}^{n} P(X_{1} = 2k)P(X_{2} = 2k) + \\sum_{k=1}^{n} P(X_{1} = 2k-1)P(X_{2} = 2k-1) = \\sum_{k=1}^{n} (\\frac{2}{3n})^2 + \\sum_{k=1}^{n} (\\frac{1}{3n})^2 = \\frac{5}{9n}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+      "type": "theorem",
+      "title": "Théorème : Formule des probabilités totales",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $\\{A_{1}, \\ldots, A_{n}\\}$ un système complet d'événements de $\\Omega$. Pour tout $B \\in \\mathcal{P}(\\Omega)$ : $P(B) = \\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)$.",
+      "proof_latex": "$B = B \\cap \\Omega = B \\cap \\bigcup_{i=1}^{n} A_{i} = \\bigcup_{i=1}^{n} (B \\cap A_{i})$ donc $P(B) = P(\\bigcup_{i=1}^{n} (B \\cap A_{i})) = \\sum_{i=1}^{n} P(B \\cap A_{i}) = \\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_urne_boules_sans_remise",
+      "type": "example",
+      "title": "Exemple : Tirage de 2 boules sans remise",
+      "content_latex": "Une urne contient $n$ boules noires et $b$ blanches et on en tire $2$ boules successivement sans remise. Avec quelle probabilité la deuxième boule tirée est-elle blanche ?",
+      "proof_latex": "Notons $B_{1}$ (resp. $B_{2}$) l'événement « La première (resp. deuxième) boule tirée est blanche ». Nous cherchons $P(B_{2})$.\\par Trois probabilités sont immédiatement connues : $P(B_{1}) = \\frac{b}{n+b}$, $P_{B_{1}}(B_{2}) = \\frac{b-1}{n+b-1}$ et $P_{\\overline{B_{1}}}(B_{2}) = \\frac{b}{n+b-1}$. Mais $\\{B_{1}, \\overline{B_{1}}\\}$ est un système complet d'événements, donc d'après la formule des probabilités totales : $P(B_{2}) = P(B_{1})P_{B_{1}}(B_{2}) + P(\\overline{B_{1}})P_{\\overline{B_{1}}}(B_{2}) = \\frac{b}{n+b} \\times \\frac{b-1}{n+b-1} + \\frac{n}{n+b} \\times \\frac{b}{n+b-1} = \\frac{b}{n+b}$.\\par En d'autres termes, les événements $B_{1}$ et $B_{2}$ sont équiprobables."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_formules_de_bayes",
+      "type": "theorem",
+      "title": "Théorème : Formules de Bayes",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$.\\par (i) Pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P_{B}(A) = \\frac{P(A)P_{A}(B)}{P(B)}$.\\par (ii) Soit $\\{A_{1}, \\ldots, A_{n}\\}$ un système complet d'événements de $\\Omega$. Pour tout $j \\in [\\![1, n]\\!]$ : $P_{B}(A_{j}) = \\frac{P(A_{j})P_{A_{j}}(B)}{\\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)}$.",
+      "proof_latex": "Pour l'assertion (i) : $P_{B}(A) = \\frac{P(A \\cap B)}{P(B)} = \\frac{P(A)P_{A}(B)}{P(B)}$. L'assertion (ii) n'est quant à elle qu'un mélange peu subtil d'assertion (i) et de formule des probabilités totales."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_taxis_bayes",
+      "type": "example",
+      "title": "Exemple : Fiabilité d'un témoin (Taxis bleus et verts)",
+      "content_latex": "Juge au tribunal, je dois juger de la culpabilité d'une compagnie de taxis bleus. Un soir de brouillard, un taxi a percuté un piéton qui traversait la rue dans son bon droit, puis a pris la fuite. Un témoin affirme que le taxi était bleu et c'est sur la base de ce témoignage que le procès a été instruit. Or dans la ville, deux compagnies de taxis se partagent le marché, la compagnie des taxis bleus et la compagnie des taxis verts, mais les taxis verts dominent le marché au sens où $90\\%$ des taxis dans la ville sont verts.\\par On demande au témoin d'effectuer des tests de reconnaissance des couleurs pour mesurer la fiabilité de son témoignage. Il s'avère qu'il est fiable dans $90\\%$ des cas pour la couleur bleue et $80\\%$ des cas pour la couleur verte. Dois-je condamner ou non la compagnie des taxis bleus ?",
+      "proof_latex": "Notons $B$ l'événement « Le taxi coupable est bleu » et $T_{B}$ l'événement « Le témoin croit savoir que le taxi coupable est bleu ». Je déciderai du sort de la compagnie des taxis bleus après avoir calculé $P_{T_{B}}(B)$ (probabilité a posteriori).\\par De quelles informations disposons-nous ? $P(B) = \\frac{1}{10}$ et $P(\\overline{B}) = \\frac{9}{10}$ (probabilités a priori), et $P_{B}(T_{B}) = \\frac{9}{10}$ et $P_{\\overline{B}}(\\overline{T_{B}}) = \\frac{8}{10}$. Cette dernière égalité repose sur l'hypothèse que le témoin ne pouvait hésiter qu'entre le vert et le bleu puisque tous les taxis sont verts ou bleus. Il en découle que $P_{\\overline{B}}(T_{B}) = 1 - P_{\\overline{B}}(\\overline{T_{B}}) = \\frac{2}{10}$.\\par Finalement, d'après la formule de Bayes utilisée avec le système complet d'événements $\\{B, \\overline{B}\\}$ : $P_{T_{B}}(B) = \\frac{P(B)P_{B}(T_{B})}{P(B)P_{B}(T_{B}) + P(\\overline{B})P_{\\overline{B}}(T_{B})} = \\frac{\\frac{1}{10} \\times \\frac{9}{10}}{\\frac{1}{10} \\times \\frac{9}{10} + \\frac{9}{10} \\times \\frac{2}{10}} = \\frac{1}{3}$.\\par Conclusion : le témoignage du témoin est écarté, je peux blanchir la compagnie des taxis bleus."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "type": "definition",
+      "title": "Définition-théorème : Loi conjointe et lois marginales d'une famille de variables aléatoires",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_tirage_boules_conjointe",
+      "type": "example",
+      "title": "Exemple : Tirage de 2 boules sans remise",
+      "content_latex": "Une urne contient $3$ boules blanches et $1$ noire et on en tire successivement $2$ boules sans remise. Le couple de couleurs ainsi tirées est noté $(C_{1}, C_{2})$ avec $B$ pour les blanches et $N$ pour l'unique noire. Quelle est la loi de $(C_{1}, C_{2})$ ?",
+      "proof_latex": "Le couple $(C_{1}, C_{2})$ est à valeurs dans $\\{N, B\\}^2$, et même plus précisément $\\{(N, B), (B, N), (B, B)\\}$ car l'urne ne contient qu'une seule boule noire, donc $P(C_{1}=N, C_{2}=N) = 0$. Ensuite : $P(C_{1}=B, C_{2}=B) = P(C_{1}=B)P_{\\{C_{1}=B\\}}(C_{2}=B) = \\frac{3}{4} \\times \\frac{2}{3} = \\frac{1}{2}$ et de même : $P(C_{1}=B, C_{2}=N) = \\frac{3}{4} \\times \\frac{1}{3} = \\frac{1}{4}$ et $P(C_{1}=N, C_{2}=B) = \\frac{1}{4} \\times \\frac{3}{3} = \\frac{1}{4}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_calcul_lois_marginales",
+      "type": "theorem",
+      "title": "Théorème : Calcul des lois marginales à partir de la loi conjointe",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$. La loi (conjointe) $P_{(X, Y)}$ du couple $(X, Y)$ détermine entièrement ses lois marginales $P_{X}$ et $P_{Y}$. Précisément, pour tout $x \\in X(\\Omega)$ : $P(X=x) = \\sum_{y \\in Y(\\Omega)} P(X=x, Y=y)$ et pour tout $y \\in Y(\\Omega)$ : $P(Y=y) = \\sum_{x \\in X(\\Omega)} P(X=x, Y=y)$.\\par Ce résultat se généralise sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires.",
+      "proof_latex": "Pour tout $x \\in X(\\Omega)$ : $\\sum_{y \\in Y(\\Omega)} P(X=x, Y=y) = P(\\bigsqcup_{y \\in Y(\\Omega)} \\{X=x, Y=y\\}) = P(\\{X=x\\} \\cap \\bigsqcup_{y \\in Y(\\Omega)} \\{Y=y\\}) = P(X=x)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__warning_lien_marginales_conjointe",
+      "type": "warning",
+      "title": "Attention : Lien entre lois marginales et loi conjointe",
+      "content_latex": "Attention ! Nous savons associer trois notions de lois $P_{X}$, $P_{Y}$ et $P_{(X, Y)}$ à un couple $(X, Y)$ de variables aléatoires, mais comment ces notions sont-elles liées ? Nous savons calculer $P_{X}$ et $P_{Y}$ à partir de $P_{(X, Y)}$, mais réciproquement, $P_{X}$ et $P_{Y}$ déterminent-elles $P_{(X, Y)}$ ?\\par En général, le réel $P(X=x, Y=y)$ ne dépend pas tant des nombres $P(X=x)$ et $P(Y=y)$, i.e. des variables $X$ et $Y$ isolément, que du lien éventuellement étroit qui les unit. En d'autres termes, on ne connaît pas la loi conjointe du couple $(X, Y)$ quand on connaît ses lois marginales.\\par Dans le cas particulier où $X$ et $Y$ sont indépendantes, cela dit, $P(X=x, Y=y) = P(X=x)P(Y=y)$ pour tous $x \\in X(\\Omega)$ et $y \\in Y(\\Omega)$, donc les lois marginales $P_{X}$ et $P_{Y}$ déterminent entièrement la loi conjointe $P_{(X, Y)}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien",
+      "type": "theorem",
+      "title": "Théorème : Loi uniforme et produit cartésien",
+      "content_latex": "Soient $E$ et $F$ deux ensembles finis non vides et $X$ et $Y$ deux variables aléatoires définies sur un même espace probabilisé fini. Les assertions suivantes sont équivalentes :\\par (i) $(X, Y) \\sim \\mathcal{U}(E \\times F)$\\par (ii) $X$ et $Y$ sont indépendantes et $X \\sim \\mathcal{U}(E)$ et $Y \\sim \\mathcal{U}(F)$.\\par Ce résultat se généralise sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires.",
+      "proof_latex": "(i) $\\Rightarrow$ (ii) Pour tout $x \\in E$ : $P(X=x) = \\sum_{y \\in F} P(X=x, Y=y) = \\sum_{y \\in F} \\frac{1}{|E \\times F|} = \\frac{1}{|E|}$, donc $X \\sim \\mathcal{U}(E)$, et de même $Y \\sim \\mathcal{U}(F)$. A fortiori, $X$ et $Y$ sont indépendantes car pour tous $x \\in E$ et $y \\in F$ : $P(X=x, Y=y) = \\frac{1}{|E \\times F|} = \\frac{1}{|E|} \\times \\frac{1}{|F|} = P(X=x)P(Y=y)$.\\par (ii) $\\Rightarrow$ (i) Le couple $(X, Y)$ est à valeurs dans $E \\times F$ et pour tout $(x, y) \\in E \\times F$ : $P(X=x, Y=y) = P(X=x)P(Y=y) = \\frac{1}{|E|} \\times \\frac{1}{|F|} = \\frac{1}{|E \\times F|}$, donc $(X, Y) \\sim \\mathcal{U}(E \\times F)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_loi_de_f_X_Y",
+      "type": "theorem",
+      "title": "Théorème : Loi de $f(X, Y)$",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini, $F$ un ensemble, $X$ et $Y$ deux variables aléatoires sur $\\Omega$ et $f : (X, Y)(\\Omega) \\longrightarrow F$ une application. La loi $P_{f(X, Y)}$ de $f(X, Y)$ est entièrement déterminée par $f$ et la loi conjointe de $(X, Y)$. En l'occurrence, pour tout $z \\in f(X, Y)(\\Omega)$ : $P(f(X, Y) = z) = \\sum_{(x,y) \\in (X, Y)(\\Omega), f(x,y)=z} P(X=x, Y=y)$.\\par Ce résultat se généralise sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. Cas particulier le plus courant : $P(X+Y=z) = \\sum_{x+y=z} P(X=x, Y=y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+      "type": "theorem",
+      "title": "Théorème : Sommes de variables aléatoires indépendantes de lois binomiales",
+      "content_latex": "Soient $p \\in [0, 1]$, $m, n \\in \\mathbb{N}^{*}$ et $X, Y, X_{1}, \\ldots, X_{n}$ des variables aléatoires définies sur un même espace probabilisé fini.\\par (i) Si $X \\sim \\mathcal{B}(m, p)$ et $Y \\sim \\mathcal{B}(n, p)$ et si $X$ et $Y$ sont indépendantes, alors $X+Y \\sim \\mathcal{B}(m+n, p)$.\\par (ii) Si $X_{i} \\sim \\mathcal{B}(p)$ pour tout $i \\in [\\![1, n]\\!]$ et si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors $X_{1} + \\ldots + X_{n} \\sim \\mathcal{B}(n, p)$.",
+      "proof_latex": "Il suffit d'établir l'assertion (i). La variable aléatoire $X+Y$ est à valeurs dans $[\\![0, m+n]\\!]$ et pour tout $k \\in [\\![0, m+n]\\!]$ : $P(X+Y=k) = \\sum_{i=0}^{k} P(X=i, Y=k-i) = \\sum_{i=0}^{k} P(X=i)P(Y=k-i) = \\sum_{i=0}^{k} \\binom{m}{i} p^{i} (1-p)^{m-i} \\times \\binom{n}{k-i} p^{k-i} (1-p)^{n-k+i} = p^{k} (1-p)^{m+n-k} \\sum_{i=0}^{k} \\binom{m}{i} \\binom{n}{k-i}$.\\par Dans l'anneau des polynômes $\\mathbb{R}[T]$ : $(T+1)^{m}(T+1)^{n} = (T+1)^{m+n}$, donc après identification des coefficients de degré $k$ : $\\sum_{i=0}^{k} \\binom{m}{i} \\binom{n}{k-i} = \\binom{m+n}{k}$.\\par Conclusion : $P(X+Y=k) = \\binom{m+n}{k} p^{k} (1-p)^{m+n-k}$, donc $X+Y \\sim \\mathcal{B}(m+n, p)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_somme_ecart_des",
+      "type": "example",
+      "title": "Exemple : Somme, loi conditionnelle et écart pour deux dés",
+      "content_latex": "On lance deux fois de suite un dé équilibré à $6$ faces et on note $(X, Y)$ le couple de valeurs obtenues. Ce couple suit la loi uniforme sur $[\\![1, 6]\\!]^2$ et nous allons tâcher de déterminer la loi de la somme $S=X+Y$, la loi conditionnelle de $X$ sachant $\\{S=4\\}$ et la loi de l'écart $|X-Y|$.",
+      "proof_latex": "— Loi de la somme $S=X+Y$ : La variable $S$ est à valeurs dans $[\\![2, 12]\\!]$ et pour tout $s \\in [\\![2, 12]\\!]$ : $P(S=s) = P(X+Y=s) = \\sum_{1 \\le i, j \\le 6, i+j=s} P(X=i, Y=j) = \\sum_{1 \\le i, j \\le 6, i+j=s} \\frac{1}{36}$. Or combien existe-t-il de couples $(i, j) \\in [\\![1, 6]\\!]^2$ pour lesquels $i+j=s$ ? Réponse : autant que de couples $(i, s-i)$ pour lesquels $1 \\le i \\le 6$ et $1 \\le s-i \\le 6$, ou encore $1 \\le i \\le 6$ et $s-6 \\le i \\le s-1$. Ainsi, pour tout $s \\in [\\![2, 7]\\!]$ : $P(S=s) = \\sum_{i=1}^{s-1} \\frac{1}{36} = \\frac{s-1}{36}$ et pour tout $s \\in [\\![8, 12]\\!]$ : $P(S=s) = \\sum_{i=s-6}^{6} \\frac{1}{36} = \\frac{13-s}{36}$.\\par — Loi conditionnelle de $X$ sachant $\\{S=4\\}$ : Pour tout $k \\in [\\![1, 6]\\!]$ : $P(X=k, S=4) = P(X=k, Y=4-k) = \\frac{1}{36}$ si $k \\in [\\![1, 3]\\!]$, $0$ sinon, et comme $P(S=4) = \\frac{4-1}{36} = \\frac{1}{12}$ d'après le point précédent : $P_{\\{S=4\\}}(X=k) = \\frac{1}{3}$ si $k \\in [\\![1, 3]\\!]$, $0$ sinon.\\par — Loi de l'écart $|X-Y|$ : La variable aléatoire $|X-Y|$ est à valeurs dans $[\\![0, 5]\\!]$. Or $P(X=Y) = \\sum_{k=1}^{6} P(X=k, Y=k) = \\sum_{k=1}^{6} \\frac{1}{36} = \\frac{1}{6}$. Pour tout $d \\in [\\![1, 5]\\!]$ : $P(|X-Y|=d) = P(X-Y=d) + P(Y-X=d) = \\sum_{i=1}^{6-d} P(X=i, Y=d+i) + \\sum_{j=1}^{6-d} P(X=d+j, Y=j) = \\sum_{i=1}^{6-d} \\frac{1}{36} + \\sum_{j=1}^{6-d} \\frac{1}{36} = 2 \\times \\frac{6-d}{36} = \\frac{6-d}{18}$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_centre_appels_loi_binomiale",
+      "type": "example",
+      "title": "Exemple : Centre d'appels",
+      "content_latex": "Dans un centre d'appels, un employé effectue $n$ appels téléphoniques vers $n$ correspondants distincts dont chacun décroche avec probabilité $p$.\\par — On note $N_{1}$ le nombre de correspondants qui ont décroché. Sans aucun calcul, il est clair que $N_{1} \\sim \\mathcal{B}(n, p)$ car les appels sont indépendants et la probabilité d'obtenir un correspondant ne dépend pas du correspondant choisi.\\par — L'employé rappelle un peu plus tard les $n-N_{1}$ correspondants qui n'ont pas décroché lors de sa première série d'appels. On note $N_{2}$ le nombre de ces correspondants qui décrochent cette fois et $N = N_{1} + N_{2}$ le nombre total des correspondants qui ont décroché. Quelle est la loi de $N$ ?",
+      "proof_latex": "— Pour tout $k \\in [\\![0, n]\\!]$, sous l'hypothèse que $N_{1}=k$, les $n-k$ appels de la deuxième série d'appels satisfont les mêmes hypothèses que ceux de la première série, donc $N_{2} \\sim_{\\{N_{1}=k\\}} \\mathcal{B}(n-k, p)$.\\par — La variable aléatoire $N$ est à valeurs dans $[\\![0, n]\\!]$ et pour tout $s \\in [\\![0, n]\\!]$ : $P(N=s) = P(N_{1}+N_{2}=s) = \\sum_{i=0}^{s} P(N_{1}=i)P_{\\{N_{1}=i\\}}(N_{2}=s-i) = \\sum_{i=0}^{s} \\binom{n}{i} p^{i} (1-p)^{n-i} \\binom{n-i}{s-i} p^{s-i} (1-p)^{(n-i)-(s-i)}$. Or $\\binom{n}{i}\\binom{n-i}{s-i} = \\binom{n}{s}\\binom{s}{i}$, donc : $P(N=s) = \\sum_{i=0}^{s} \\binom{n}{s} \\binom{s}{i} p^{s} (1-p)^{2n-s-i} = \\binom{n}{s} p^{s} (1-p)^{2n-s} \\sum_{i=0}^{s} \\binom{s}{i} (1-p)^{-i} = \\binom{n}{s} p^{s} (1-p)^{2n-s} (1 + \\frac{1}{1-p})^{s} = \\binom{n}{s} p^{s} (2-p)^{s} (1-p)^{2n-2s} = \\binom{n}{s} (2p-p^2)^{s} (1-(2p-p^2))^{n-s}$. Finalement, $N \\sim \\mathcal{B}(n, 2p-p^2)$.\\par — Ce calcul est classique, mais on aurait pu atteindre le résultat directement. En fait, l'employé réalise $n$ expériences aléatoires indépendantes consistant à joindre ses correspondants en deux temps et $N$ compte le nombre de correspondants obtenus, donc $N \\sim \\mathcal{B}(n, q)$ si on note $q$ la probabilité d'obtenir un correspondant en un ou deux appels. Or la probabilité de ne pas obtenir un correspondant après deux appels vaut $(1-p)^2$ donc $q = 1-(1-p)^2 = 2p-p^2$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+      "type": "definition",
+      "title": "Définition : Espérance d'une variable aléatoire complexe",
+      "content_latex": "Soit $X$ une variable aléatoire complexe sur $\\Omega$.\\par On appelle espérance de $X$ le nombre complexe $E(X) = \\sum_{x \\in X(\\Omega)} P(X=x)x$.\\par On dit que $X$ est centrée si $E(X) = 0$.\\par L'espérance de $X$ est une moyenne des valeurs de $X$. Précisément, chaque valeur $x$, $x$ décrivant $X(\\Omega)$, s'y trouve comptabilisée en proportion de sa probabilité d'occurrence $P(X=x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_esperance_de_truque",
+      "type": "example",
+      "title": "Exemple : Espérance avec un dé truqué",
+      "content_latex": "Un dé à $6$ faces numérotées de $1$ à $6$ a été truqué de telle sorte que les faces $1, 2$ et $3$ tombent avec probabilité $\\frac{1}{6}$, les faces $4$ et $5$ avec probabilité $\\frac{1}{12}$ et la face $6$ avec probabilité $\\frac{1}{3}$. Quel numéro obtient-on en moyenne ?",
+      "proof_latex": "Cet énoncé a du sens car $3 \\times \\frac{1}{6} + 2 \\times \\frac{1}{12} + \\frac{1}{3} = 1$.\\par Notons $X$ le numéro obtenu avec un tel dé après un lancer. Par hypothèse : $P(X=1) = P(X=2) = P(X=3) = \\frac{1}{6}$, $P(X=4) = P(X=5) = \\frac{1}{12}$ et $P(X=6) = \\frac{1}{3}$ donc $E(X) = \\sum_{k=1}^{6} P(X=k)k = \\frac{1+2+3}{6} + \\frac{4+5}{12} + \\frac{6}{3} = 1 + \\frac{3}{4} + 2 = 3,75$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+      "type": "theorem",
+      "title": "Théorème : Espérance des lois usuelles",
+      "content_latex": "Soit $X$ une variable aléatoire sur $\\Omega$.\\par (i) Variables aléatoires constantes : Si $X$ est constante de valeur $m$, alors $E(X) = m$.\\par (ii) Loi uniforme : Soit $E = \\{x_{1}, \\ldots, x_{n}\\}$ une partie de $\\mathbb{C}$. Si $X \\sim \\mathcal{U}(E)$, alors $E(X) = \\frac{1}{n} \\sum_{k=1}^{n} x_{k}$.\\par (iii) Loi de Bernoulli : Soit $p \\in [0, 1]$. Si $X \\sim \\mathcal{B}(p)$, alors $E(X) = p$.\\par Exemple fondamental : Pour tout événement $A \\in \\mathcal{P}(\\Omega)$ : $E(\\mathbb{I}_{A}) = P(A)$.\\par (iv) Loi binomiale : Soient $n \\in \\mathbb{N}^{*}$ et $p \\in [0, 1]$. Si $X \\sim \\mathcal{B}(n, p)$, alors $E(X) = np$.",
+      "proof_latex": "(i) Par hypothèse, $X(\\Omega) = \\{m\\}$ et $P(X=m) = P(\\Omega) = 1$, donc $E(X) = m \\times 1 = m$.\\par (ii) Pour tout $k \\in [\\![1, n]\\!]$ : $P(X=x_{k}) = \\frac{1}{n}$ donc $E(X) = \\sum_{k=1}^{n} \\frac{x_{k}}{n} = \\frac{1}{n} \\sum_{k=1}^{n} x_{k}$.\\par (iii) Par hypothèse, $X(\\Omega) = \\{0, 1\\}$, donc $E(X) = P(X=1) \\times 1 + P(X=0) \\times 0 = p$. Si $X = \\mathbb{I}_{A}$ pour un certain $A \\in \\mathcal{P}(\\Omega)$ nous savons déjà que $\\mathbb{I}_{A} \\sim \\mathcal{B}(P(A))$, donc $E(\\mathbb{I}_{A}) = P(A)$.\\par (iv) On peut travailler dans l'anneau $\\mathbb{R}[T]$ : $(T+1-p)^{n} = \\sum_{k=0}^{n} \\binom{n}{k} T^{k} (1-p)^{n-k}$, dériver, puis évaluer en $p$, ou bien utiliser la formule du capitaine.\\par $E(X) = \\sum_{k=0}^{n} P(X=k)k = \\sum_{k=0}^{n} \\binom{n}{k} k p^{k} (1-p)^{n-k} = np \\sum_{k=1}^{n} \\binom{n-1}{k-1} p^{k-1} (1-p)^{n-k} = np \\sum_{i=0}^{n-1} \\binom{n-1}{i} p^{i} (1-p)^{(n-1)-i} = np(p + (1-p))^{n-1} = np$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de l'espérance",
+      "content_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$.\\par (i) Une autre expression : $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)$.\\par (ii) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $E(\\lambda X + \\mu Y) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) Inégalité triangulaire : $|E(X)| \\le E(|X|)$.\\par (iv) Lien avec les parties réelle et imaginaire : $E(X) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par La dernière propriété concerne les variables aléatoires réelles :\\par (v) Croissance : Si $X \\le Y$, alors $E(X) \\le E(Y)$.\\par (vi) Positivité : Si $X \\ge 0$, alors $E(X) \\ge 0$.",
+      "proof_latex": "(i) Les événements $\\{X=x\\}$, $x$ décrivant $X(\\Omega)$, forment un système complet d'événements, donc : $\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) x = \\sum_{x \\in X(\\Omega)} P(X=x)x = E(X)$.\\par (ii) $E(\\lambda X + \\mu Y) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\lambda X + \\mu Y)(\\omega) = \\lambda \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) + \\mu \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) Y(\\omega) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) $|E(X)| = |\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)| \\le \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) |X(\\omega)| = E(|X|)$.\\par (iv) $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\text{Re}(X)(\\omega) + i\\text{Im}(X)(\\omega)) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Re}(X)(\\omega) + i \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Im}(X)(\\omega) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par (v) Positivité évidente par définition de l'espérance. Pour la croissance, si $X \\le Y$, alors $Y-X \\ge 0$, donc par linéarité et positivité : $E(Y) - E(X) = E(Y-X) \\ge 0$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_esperance_somme_des",
+      "type": "example",
+      "title": "Exemple : Espérance de la somme de deux dés",
+      "content_latex": "Qu'obtient-on en moyenne quand on lance $2$ fois un dé à $6$ faces et qu'on additionne les résultats obtenus ?",
+      "proof_latex": "Notons $X_{1}$ (resp. $X_{2}$) le résultat du premier (resp. deuxième) lancer et $S = X_{1} + X_{2}$ leur somme. On cherche à calculer $E(S)$. Bien sûr : $X_{1} \\sim \\mathcal{U}([\\![1, 6]\\!])$ et $X_{2} \\sim \\mathcal{U}([\\![1, 6]\\!])$.\\par Par linéarité, simplement : $E(S) = E(X_{1}) + E(X_{2}) = \\frac{1}{6} \\sum_{k=1}^{6} k + \\frac{1}{6} \\sum_{k=1}^{6} k = 2 \\times \\frac{1}{6} \\times \\frac{6 \\cdot 7}{2} = 7$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_esperance_binomiale_indicatrices",
+      "type": "example",
+      "title": "Exemple : Espérance de la loi binomiale via indicatrices",
+      "content_latex": "Soient $p \\in [0, 1]$ et $X_{1}, \\ldots, X_{n}$ des variables de Bernoulli indépendantes de paramètre $p$ définies sur un même espace probabilisé fini. Nous savons déjà que $X_{1} + \\ldots + X_{n} \\sim \\mathcal{B}(n, p)$. Un nouveau calcul de l'espérance de la loi binomiale en découle : $E(X_{1} + \\ldots + X_{n}) = E(X_{1}) + \\ldots + E(X_{n}) = np$.",
+      "proof_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__example_formule_du_crible_esperance",
+      "type": "example",
+      "title": "Exemple : Preuve de la formule du crible",
+      "content_latex": "Pour tous $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$ : $P(\\bigcup_{i=1}^{n} A_{i}) = \\sum_{k=1}^{n} (-1)^{k-1} \\sum_{1 \\le i_{1} < \\ldots < i_{k} \\le n} P(A_{i_{1}} \\cap \\ldots \\cap A_{i_{k}})$.",
+      "proof_latex": "On commence par un calcul d'indicatrices qui rappelle les relations coefficients-racines : $\\mathbb{I}_{A_{1} \\cup \\ldots \\cup A_{n}} = 1 - \\mathbb{I}_{\\overline{A_{1} \\cup \\ldots \\cup A_{n}}} = 1 - \\mathbb{I}_{\\overline{A_{1}} \\cap \\ldots \\cap \\overline{A_{n}}} = 1 - \\prod_{i=1}^{n} \\mathbb{I}_{\\overline{A_{i}}} = 1 - \\prod_{i=1}^{n} (1 - \\mathbb{I}_{A_{i}}) = \\sum_{k=1}^{n} (-1)^{k-1} \\sum_{1 \\le i_{1} < \\ldots < i_{k} \\le n} \\mathbb{I}_{A_{i_{1}} \\cap \\ldots \\cap A_{i_{k}}}$.\\par Et on conclut par linéarité de l'espérance : $P(\\bigcup_{i=1}^{n} A_{i}) = E(\\mathbb{I}_{A_{1} \\cup \\ldots \\cup A_{n}}) = \\sum_{k=1}^{n} (-1)^{k-1} \\sum_{1 \\le i_{1} < \\ldots < i_{k} \\le n} E(\\mathbb{I}_{A_{i_{1}} \\cap \\ldots \\cap A_{i_{k}}}) = \\sum_{k=1}^{n} (-1)^{k-1} \\sum_{1 \\le i_{1} < \\ldots < i_{k} \\le n} P(A_{i_{1}} \\cap \\ldots \\cap A_{i_{k}})$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_formule_de_transfert",
+      "type": "theorem",
+      "title": "Théorème : Formule de transfert",
+      "content_latex": "Soient $X$ une variable aléatoire sur $\\Omega$ et $f : X(\\Omega) \\longrightarrow \\mathbb{C}$ une fonction. L'espérance de $f(X)$ est entièrement déterminée par $f$ et la loi de $X$ : $E(f(X)) = \\sum_{x \\in X(\\Omega)} P(X=x)f(x)$.\\par On dispose bien sûr d'une version de la formule de transfert pour les couples. Si $X$ et $Y$ sont deux variables aléatoires sur $\\Omega$ et si $f : (X, Y)(\\Omega) \\longrightarrow \\mathbb{C}$ est une fonction, alors $E(f(X, Y)) = \\sum_{(x, y) \\in (X, Y)(\\Omega)} P(X=x, Y=y)f(x, y)$.",
+      "proof_latex": "Les événements $\\{X=x\\}$, $x$ décrivant $X(\\Omega)$ forment un système complet d'événements, donc : $E(f(X)) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) f(X(\\omega)) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) f(X(\\omega)) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) f(x) = \\sum_{x \\in X(\\Omega)} P(X=x)f(x)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+      "type": "theorem",
+      "title": "Théorème : Espérance du produit de deux variables aléatoires indépendantes",
+      "content_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$. Si $X$ et $Y$ sont indépendantes, alors $E(XY) = E(X)E(Y)$.\\par Ce résultat s'étend naturellement à un nombre fini quelconque de variables aléatoires indépendantes.",
+      "proof_latex": "$E(X)E(Y) = (\\sum_{x \\in X(\\Omega)} P(X=x)x)(\\sum_{y \\in Y(\\Omega)} P(Y=y)y) = \\sum_{(x, y) \\in X(\\Omega) \\times Y(\\Omega)} P(X=x)P(Y=y)xy = \\sum_{(x, y) \\in (X, Y)(\\Omega)} P(X=x, Y=y)xy = E(XY)$."
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__warning_esperance_produit_general",
+      "type": "warning",
+      "title": "Attention : Espérance du produit en général",
+      "content_latex": "Attention ! L'identité $E(XY) = E(X)E(Y)$ est fausse en général. Par exemple, pour toute variable de Rademacher $X$, i.e. uniforme sur $\\{-1, 1\\}$, $E(X) = 0$ donc $E(X)^2 = 0$ mais $E(X^2) = E(1) = 1$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

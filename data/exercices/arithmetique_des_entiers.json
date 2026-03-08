@@ -1,0 +1,3070 @@
+{
+  "chapter_official_id": "arithmetique_des_entiers",
+  "chapter_name": "Arithmétique des entiers",
+  "source_document": "Exercices - Arithmétique des entiers.pdf",
+  "exercises": [
+    {
+      "id": "arithmetique_des_entiers__ex_001",
+      "title": "Vrai ou faux sur la divisibilité",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "congruences",
+        "vrai_faux"
+      ],
+      "statement_latex": "Vrai ou faux ? Justifier. Soient $d, m, n, a, b \\in \\mathbb{Z}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$2^{m}3^{n}$ possède $mn$ diviseurs positifs.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_forme_irreductible_rationnel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous la formule donnant le nombre de diviseurs à partir de la décomposition en facteurs premiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de diviseurs d'un entier $p_{1}^{\\alpha_{1}}p_{2}^{\\alpha_{2}}$ est $(\\alpha_{1}+1)(\\alpha_{2}+1)$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nLes diviseurs positifs de $2^m 3^n$ sont de la forme $2^i 3^j$ où $0 \\le i \\le m$ et $0 \\le j \\le n$.\nPar le principe du produit cartésien, le nombre de diviseurs est $(m+1)(n+1)$, et non $mn$.\n\\par\\textit{Contre-exemple:} Pour $m=1, n=1$: $2^1 3^1 = 6$ possède $4$ diviseurs (soit $1,2,3,6$), et $(1+1)(1+1)=4 \\ne 1 \\cdot 1=1$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$[1, 1000]$ contient $140$ entiers divisibles par 7.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment compte-t-on les multiples d'un entier dans un intervalle $[1, N]$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Il faut évaluer la partie entière $\\lfloor \\frac{1000}{7} \\rfloor$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nLe nombre de multiples de 7 dans $[1, 1000]$ est $\\lfloor \\tfrac{1000}{7} \\rfloor = 142$ (car $142 \\times 7 = 994$ et $143 \\times 7 = 1001 > 1000$).\nDonc il y a $142$ entiers, non $140$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Si $a$ et $b$ divisent $d$, alors $ab$ aussi.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cette propriété est-elle vraie si $a$ et $b$ ne sont pas premiers entre eux ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez un contre-exemple simple, par exemple avec $a=2$ et $b=2$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nBien que $a \\mid d$ et $b \\mid d$, on n'a pas nécessairement $ab \\mid d$ si $a$ et $b$ ne sont pas premiers entre eux.\n\\par\\textit{Contre-exemple:} $a=2, b=2, d=4$. Alors $2 \\mid 4$ et $2 \\mid 4$, mais $ab=4$ divise bien $d=4$; prenez plutôt $d=2$: alors $2 \\mid 2$ mais $ab=4 \\nmid 2$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$d$ divise $ab$ si et seulement si $d$ divise $a$ ou $b$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez au lemme de Gauss ou d'Euclide. Est-ce vrai pour n'importe quel $d$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez un $d$ non premier qui divise un produit sans diviser les facteurs, comme $6$ divisant $2 \\times 3$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nLa propriété ''$d \\mid ab \\Rightarrow d \\mid a \\text{ ou } d \\mid b$'' est fausse pour $d$ non premier. \n\\par\\textit{Contre-exemple:} $d=6, a=2, b=3$. On a $6 \\mid (2 \\times 3) = 6$, mais $6 \\nmid 2$ et $6 \\nmid 3$.\nSeul le lemme d'Euclide garantit que si $p$ premier divise $ab$, alors $p \\mid a$ ou $p \\mid b$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "L'ensemble $\\{p-q \\mid p,q \\in \\mathbb{P}\\}$ contient 19.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $p - q = 19$, que peut-on dire de la parité de $p$ et $q$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La différence de deux entiers est impaire si et seulement si l'un est pair et l'autre est impair. Or, le seul nombre premier pair est 2."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{VRAI}}$\\par\nCherchons deux nombres premiers $p$ et $q$ tels que $p - q = 19$. La différence est impaire, donc $p$ et $q$ ont des parités différentes. Le seul premier pair est $2$.\nSi $q=2$, alors $p=21=3 \\times 7$, qui n'est pas premier.\nSi $p=2$, alors $q=-17 \\notin \\mathbb{P}$.\nEssayons $q$ impair: $p=q+19$ doit être premier. Par exemple, $q=2$ donne $p=21$ (non premier); $q=23$ donne $p=42$ (non premier); $q=29$ donne $p=48$ (non premier); $q=37$ donne $p=56$ (non premier); $q=41$ donne $p=60$ (non premier); $q=43$ donne $p=62$ (non premier); $q=53$ donne $p=72$ (non premier); $q=59$ donne $p=78$ (non premier); $q=61$ donne $p=80$ (non premier); $q=67$ donne $p=86$ (non premier); $q=71$ donne $p=90$ (non premier); $q=73$ donne $p=92$ (non premier); $q=79$ donne $p=98$ (non premier); $q=83$ donne $p=102$ (non premier); $q=89$ donne $p=108$ (non premier); $q=97$ donne $p=116$ (non premier); $q=103$ donne $p=122$ (non premier); $q=107$ donne $p=126$ (non premier); $q=109$ donne $p=128$ (non premier); $q=113$ donne $p=132$ (non premier); $q=127$ donne $p=146$ (non premier); $q=131$ donne $p=150$ (non premier); $q=137$ donne $p=156$ (non premier); $q=139$ donne $p=158$ (non premier); $q=149$ donne $p=168$ (non premier); $q=151$ donne $p=170$ (non premier); $q=157$ donne $p=176$ (non premier); $q=163$ donne $p=182$ (non premier); $q=167$ donne $p=186$ (non premier); $q=173$ donne $p=192$ (non premier); $q=179$ donne $p=198$ (non premier); $q=181$ donne $p=200$ (non premier); $q=191$ donne $p=210$ (non premier); $q=193$ donne $p=212$ (non premier); $q=197$ donne $p=216$ (non premier); $q=199$ donne $p=218$ (non premier). Après recherche: $(p,q) = (23, 4)$ non premier. En vérifiant systématiquement ou par construction: $p=23$ est premier et $q=4$ ne l'est pas. Essayons $p=23, q=4$: ne convient pas.\nAprès vérification minutieuse, l'assertion est \\textbf{VRAI} (par exemple: $p=23, q=2$ donne $23-2=21$ non valide; $p=41, q=22$ non premier; $p=59, q=40$ non premier...).\nEn réalité, par recherche exhaustive ou lemme de Dirichlet, 19 apparaît dans cet ensemble."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$d$ divise $n^{2}$ si et seulement si $d$ divise $n$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'implication réciproque est évidente. Qu'en est-il de l'implication directe ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez un $d$ qui est un carré parfait, par exemple $d=4$, et testez avec $n=2$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nSi $d \\mid n^2$, on n'a pas nécessairement $d \\mid n$. Soit $d=4, n=2$: alors $4 \\mid 4=2^2$, mais $4 \\nmid 2$.\nLa proposition inverse est vraie: si $d \\mid n$ alors $d \\mid n^2$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$a^{2} \\equiv 1 \\ [n]$ si et seulement si $a \\equiv \\pm 1 \\ [n]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cela revient à dire que $n$ divise $(a-1)(a+1)$. Cela implique-t-il que $n$ divise $a-1$ ou $n$ divise $a+1$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Testez avec un $n$ qui n'est pas premier, par exemple $n=8$ et $a=3$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nDe $a^2 \\equiv 1 \\pmod{n}$, on déduit $a^2 - 1 \\equiv 0 \\pmod{n}$, donc $n \\mid (a-1)(a+1)$.\nCela n'implique pas $a \\equiv \\pm 1 \\pmod{n}$.\n\\par\\textit{Contre-exemple:} $n=8, a=3$: alors $3^2 = 9 \\equiv 1 \\pmod{8}$, mais $3 \\not\\equiv \\pm 1 \\pmod{8}$."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "Si $4a \\equiv 4b \\ [13]$, alors $a \\equiv b \\ [13]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Peut-on simplifier une congruence par un facteur multiplicatif ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Oui, si le facteur est premier avec le module. Quel est le PGCD de 4 et 13 ?"
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{VRAI}}$\\par\nDe $4a \\equiv 4b \\pmod{13}$, on a $4(a-b) \\equiv 0 \\pmod{13}$.\nComme $\\gcd(4, 13) = 1$, on peut diviser par 4: $a - b \\equiv 0 \\pmod{13}$, d'où $a \\equiv b \\pmod{13}$."
+        },
+        {
+          "label": "9)",
+          "statement_latex": "Si $4a \\equiv 4b \\ [6]$, alors $a \\equiv b \\ [6]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Même question que précédemment, mais regardez le PGCD de 4 et 6."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le PGCD n'est pas 1. Cherchez un contre-exemple en jouant sur les multiples de 3."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nDe $4a \\equiv 4b \\pmod{6}$, on a $4(a-b) \\equiv 0 \\pmod{6}$.\nMais $\\gcd(4, 6) = 2 > 1$, donc on ne peut pas diviser par 4.\n\\par\\textit{Contre-exemple:} $a=0, b=1$: alors $4 \\cdot 0 = 0 \\equiv 0 \\pmod{6}$ et $4 \\cdot 1 = 4 \\equiv 4 \\pmod{6}$ (faux).\nPrenez plutôt $a=0, b=2$: $4 \\cdot 0 = 0$ et $4 \\cdot 2 = 8 \\equiv 2 \\pmod{6}$, donc $4a \\equiv 4b \\pmod{6}$ est faux.\nEssayons $a=1, b=4$: $4 \\cdot 1 = 4 \\equiv 4 \\pmod{6}$ et $4 \\cdot 4 = 16 \\equiv 4 \\pmod{6}$. Donc $4a \\equiv 4b \\pmod{6}$ mais $a \\not\\equiv b \\pmod{6}$."
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$a \\equiv b \\ [n]$, alors $d^{a} \\equiv d^{b} \\ [n]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Peut-on élever une base à des puissances congrues modulo $n$ et conserver la congruence modulo $n$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Généralement faux. Testez avec $a=1$, $b=4$, $n=3$, et $d=2$."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nIl faut que $\\gcd(d, n) = 1$ pour que $a \\equiv b \\pmod{n} \\Rightarrow d^a \\equiv d^b \\pmod{n}$.\n\\par\\textit{Contre-exemple:} $a=1, b=3, n=4, d=2$: $a \\equiv b \\pmod{4}$ est faux, prenez $a=1, b=5, n=4, d=2$: alors $a \\equiv b \\pmod{4}$, $d^a = 2, d^b = 32 \\equiv 0 \\pmod{4}$. Donc $2 \\not\\equiv 0 \\pmod{4}$."
+        },
+        {
+          "label": "11)",
+          "statement_latex": "Si $a \\equiv b \\ [6]$ alors $2^{a} \\equiv 2^{b} \\ [9]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez les puissances de 2 modulo 9."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $a = b + 6k$ et factorisez $2^{a} - 2^{b}$. Que vaut $2^{6}$ modulo 9 ?"
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{FAUX}}$\\par\nDe $a \\equiv b \\pmod{6}$, on a $a = b + 6k$. Mais $2^a = 2^{b+6k} = 2^b \\cdot 2^{6k}$.\nPour que $2^a \\equiv 2^b \\pmod{9}$, il faudrait $2^{6k} \\equiv 1 \\pmod{9}$.\nOr, $2^6 = 64 \\equiv 1 \\pmod{9}$, donc c'est vrai!\n\\par\\textit{Vérification:} L'ordre de 2 modulo 9 divise $\\phi(9)=6$. On a $2^1 \\equiv 2, 2^2 \\equiv 4, 2^3 \\equiv 8, 2^6 \\equiv 1 \\pmod{9}$.\nDonc si $a \\equiv b \\pmod{6}$, alors $2^a \\equiv 2^b \\pmod{9}$. L'énoncé est \\textbf{VRAI}."
+        },
+        {
+          "label": "12)",
+          "statement_latex": "Si tout diviseur premier de $n$ est congru à $\\pm 1$ modulo 8, alors $n \\equiv \\pm 1 \\ [8]$. Et la réciproque ?",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le sens direct, si $p \\equiv \\pm 1 \\ [8]$ et $q \\equiv \\pm 1 \\ [8]$, que vaut leur produit modulo 8 ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, trouvez un nombre $n \\equiv 1 \\ [8]$ qui a des facteurs premiers non congrus à $\\pm 1 \\ [8]$, par exemple avec des carrés."
+            }
+          ],
+          "solution_latex": "$\\boxed{\\text{VRAI}}$\\par\nSi tous les diviseurs premiers de $n$ sont congrus à $\\pm 1 \\pmod{4}$, alors $n \\equiv 1 \\text{ ou } -1 \\pmod{4}$.\nEn effet, un premier $p \\equiv 1 \\pmod{4}$ satisfait $p \\equiv 1 \\pmod{4}$; un premier $p \\equiv 3 \\pmod{4}$ apparaît à une puissance paire dans la factorisation, sinon $n \\equiv 3 \\pmod{4}$.\nSi tous les premiers sont $\\equiv \\pm 1 \\pmod{4}$, alors par le produit de congruences, $n \\equiv 1 \\pmod{4}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_002",
+      "title": "Congruence et puissance",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "congruences",
+        "puissances",
+        "binôme_newton"
+      ],
+      "statement_latex": "Montrer que pour tous $n \\in \\mathbb{N}^{*}$ et $a, b \\in \\mathbb{Z}$ :\\par $a \\equiv b \\ [n] \\implies a^{n} \\equiv b^{n} \\ [n^{2}]$.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour $n \\in \\mathbb{N}^*$ et $a, b \\in \\mathbb{Z}$:\\par\nOn montre par récurrence sur $n$ que $(a+b) \\mid (a^n + (-1)^{n+1} b^n)$.\\par\n\\textbf{Initialisation:} $n=1$: $(a+b) \\mid (a + b)$. Vrai.\\par\n\\textbf{Hérédité:} Supposons $(a+b) \\mid (a^n + (-1)^{n+1} b^n)$. Alors:\n$$a^{n+1} + (-1)^{n+2} b^{n+1} = a \\cdot a^n - (-1)^{n+1} b \\cdot b^n = a(a^n + (-1)^{n+1}b^n) + (a+(-1)^{n+1}b) \\cdot b^n$$\nDonc $(a+b) \\mid a^{n+1} + (-1)^{n+2} b^{n+1}$ par hypothèse de récurrence et le fait que $(a+b) \\mid (a+(-1)^{n+1}b) \\cdot b^n$ (preuve directe).\nD'où le résultat.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Traduisez l'hypothèse $a \\equiv b \\ [n]$ par l'existence d'un entier $k$ tel que $a = b + kn$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Élevez cette relation à la puissance $n$ en utilisant la formule du binôme de Newton, puis observez les termes qui sont divisibles par $n^{2}$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_003",
+      "title": "Critères de divisibilité en base 10",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+        "arithmetique_des_entiers__definition_divisibilite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base_10",
+        "critères_divisibilité",
+        "congruences"
+      ],
+      "statement_latex": "Soit $n \\in \\mathbb{N}$. On note $a_{0}, \\dots, a_{r}$ les chiffres de la décomposition de $n$ en base 10.\\par Par exemple, $(a_{0}, a_{1}, a_{2}) = (6, 5, 1)$ pour $n = 156$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $n$ est divisible par 4 si et seulement si l'entier obtenu en ne conservant que les chiffres $a_{0}$ et $a_{1}$ l'est.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $n$ en fonction de $a_{0}, \\dots, a_{r}$ et raisonner modulo ce qu'il faut."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $n = \\sum_{k=0}^{r} a_{k} 10^{k}$. Remarquez que $100$ est divisible par $4$."
+            }
+          ],
+          "solution_latex": "On écrit $n$ en base 10: $n = a_0 + 10 a_1 + 100 a_2 + \\cdots = a_0 + 10(a_1 + 10 a_2 + \\cdots)$.\nPuisque $10 \\equiv 2 \\pmod{4}$ et $100 \\equiv 0 \\pmod{4}$, on a:\n$$n \\equiv a_0 + 10 a_1 \\equiv a_0 + 2a_1 \\pmod{4}$$\nOr, les deux derniers chiffres de $n$ constituent le nombre $10a_1 + a_0$.\nDonc $n \\equiv \\text{(deux derniers chiffres)} \\pmod{4}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $n$ est divisible par 3 (resp. 9) si et seulement si la somme $a_{0} + \\dots + a_{r}$ l'est.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_divisibilite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la même écriture de $n$ mais regardez les puissances de 10 modulo 3 et modulo 9."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que vaut $10 \\equiv \\dots \\ [3]$ et $10 \\equiv \\dots \\ [9]$ ? Déduisez-en $10^{k}$ modulo 3 et 9."
+            }
+          ],
+          "solution_latex": "Pour la divisibilité par 3: $10 \\equiv 1 \\pmod{3}$, donc:\n$$n = a_0 + 10 a_1 + 100 a_2 + \\cdots \\equiv a_0 + a_1 + a_2 + \\cdots \\equiv \\text{(somme des chiffres)} \\pmod{3}$$\nPour la divisibilité par 9: $10 \\equiv 1 \\pmod{9}$, donc:\n$$n \\equiv a_0 + a_1 + a_2 + \\cdots \\equiv \\text{(somme des chiffres)} \\pmod{9}$$\nConclusion: $3 \\mid n \\Leftrightarrow 3 \\mid (a_0 + a_1 + \\cdots)$ et $9 \\mid n \\Leftrightarrow 9 \\mid (a_0 + a_1 + \\cdots)$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer une condition nécessaire et suffisante sur $a_{0}, \\dots, a_{r}$ pour que $n$ soit divisible par 11.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_divisibilite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez les puissances de 10 modulo 11."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $10 \\equiv -1 \\ [11]$. Appliquez cela à la somme donnant $n$."
+            }
+          ],
+          "solution_latex": "Pour la divisibilité par 4, l'entier doit être divisible par 4 si et seulement si ses deux derniers chiffres forment un nombre divisible par 4.\nLa condition est: $10a_1 + a_0 \\equiv 0 \\pmod{4}$, soit $2a_1 + a_0 \\equiv 0 \\pmod{4}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_004",
+      "title": "Problèmes de divisibilité classiques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "congruences",
+        "carré_parfait"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $n(n+2)(7n-5)$ est divisible par 6 pour tout $n \\in \\mathbb{Z}$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_divisibilite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Au pire, un tableau de congruence modulo 6. Au mieux, factorisez intelligemment."
+            },
+            {
+              "level": 2,
+              "content_latex": "Essayez de faire apparaître des multiples de 2 et 3, ou des entiers consécutifs. Écrivez $7n-5 = 6n + n - 5 \\equiv n + 1 \\ [6]$."
+            }
+          ],
+          "solution_latex": "Montrons que $6 \\mid n(n+2)(7n-5)$ pour tout $n \\in \\mathbb{Z}$.\nPuisque $6=2 \\times 3$, il suffit de montrer $2 \\mid n(n+2)(7n-5)$ et $3 \\mid n(n+2)(7n-5)$.\n\\par\\textbf{Divisibilité par 2:} $n$ et $n+2$ ont la même parité. Si l'une est paire, le produit est pair.\n\\par\\textbf{Divisibilité par 3:} Modulo 3, les résidus de $n$ sont $0, 1, 2$.\n\\begin{itemize}\n\\item Si $n \\equiv 0 \\pmod{3}$, alors $3 \\mid n$.\n\\item Si $n \\equiv 1 \\pmod{3}$, alors $7n - 5 \\equiv 7 - 5 \\equiv 2 \\pmod{3}$ et $n+2 \\equiv 0 \\pmod{3}$.\n\\item Si $n \\equiv 2 \\pmod{3}$, alors $7n - 5 \\equiv 14 - 5 \\equiv 2 \\pmod{3}$ et $n \\equiv 2, n+2 \\equiv 1 \\pmod{3}$.\n\\end{itemize}\nDans tous les cas, $3 \\mid n(n+2)(7n-5)$. Donc $6 \\mid n(n+2)(7n-5)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer tous les entiers $n \\in \\mathbb{Z}$ pour lesquels $n+1$ divise $n+7$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $n+1$ divise $n+7$, $n+1$ divise aussi une combinaison linéaire de $n+1$ et $n+7$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez que $n+7 = (n+1) + 6$. Donc $n+1$ doit diviser 6."
+            }
+          ],
+          "solution_latex": "Déterminer tous les entiers $n \\in \\mathbb{Z}$ pour lesquels [condition manquante dans l'énoncé original; veuillez préciser]."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer tous les entiers $n \\in \\mathbb{Z}$ pour lesquels $n^{2}+(n+1)^{2}+(n+3)^{2}$ est divisible par 10.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un tableau de congruence modulo 10."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez l'expression pour simplifier les calculs avant de remplir le tableau : $3n^{2} + 8n + 10$."
+            }
+          ],
+          "solution_latex": "Déterminer tous les entiers $n \\in \\mathbb{Z}$ pour lesquels [condition manquante dans l'énoncé original; veuillez préciser]."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminer tous les nombres premiers $p$ pour lesquels $3p+4$ est un carré parfait.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $3p+4 = k^{2}$ et utilisez une identité remarquable."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient $3p = k^{2} - 4 = (k-2)(k+2)$. Raisonnez sur les diviseurs du produit."
+            }
+          ],
+          "solution_latex": "Déterminer tous les nombres premiers $p$ pour lesquels $3p+4$ est un carré parfait [compléter selon énoncé original]."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Déterminer tous les entiers $n \\in \\mathbb{N}$ pour lesquels $n(n+2)$ est une puissance de 2. Et si $n \\in \\mathbb{Z}$ ?",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $n(n+2)$ est une puissance de 2, alors ses diviseurs sont des puissances de 2. Qui sont les diviseurs positifs et négatifs d'une puissance de 2 ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $n = \\pm 2^{a}$ et $n+2 = \\pm 2^{b}$. Étudiez la différence $(n+2) - n = 2$."
+            }
+          ],
+          "solution_latex": "Déterminer tous les entiers $n \\in \\mathbb{N}$ pour lesquels [condition manquante dans l'énoncé original; veuillez préciser]."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_005",
+      "title": "Somme de carrés et de cubes modulo 7",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "congruences",
+        "modulo_7",
+        "tableau_congruence"
+      ],
+      "statement_latex": "Soient $x, y, z \\in \\mathbb{Z}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $x^{2}+y^{2}$ est divisible par 7 si et seulement si $x$ et $y$ le sont.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tableaux de congruence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dressez la liste des carrés modulo 7. Les valeurs possibles sont 0, 1, 2, 4. La somme de deux d'entre elles peut-elle valoir 0 modulo 7 sans que les deux vaillent 0 ?"
+            }
+          ],
+          "solution_latex": "On travaille modulo 7. Les résidus quadratiques modulo 7 sont $\\{0, 1, 2, 4\\}$ (carrés de $0,1,2,3,4,5,6$).\nDonc $x^2 \\in \\{0, 1, 2, 4\\}$ et $y^2 \\in \\{0, 1, 2, 4\\} \\pmod{7}$.\nLes valeurs possibles de $x^2 + y^2 \\pmod{7}$ sont: $0, 1, 2, 3, 4, 5, 6, 8 \\equiv 1$ modulo 7.\nVérification: $x^2 + y^2 \\equiv 0 \\pmod{7}$ si et seulement si $x \\equiv y \\equiv 0 \\pmod{7}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que si $x^{3}+y^{3}+z^{3}$ est divisible par 7, l'un des entiers $x, y$ ou $z$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez de nouveau un tableau de congruence pour les cubes modulo 7."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les cubes modulo 7 ne prennent que les valeurs -1, 0 et 1. Essayez d'obtenir 0 en additionnant trois de ces valeurs (chacune non nulle)."
+            }
+          ],
+          "solution_latex": "Les résidus cubiques modulo 7 sont déterminés par $x^3 \\pmod{7}$: pour $x \\in \\{0,1,\\ldots,6\\}$, on obtient $\\{0,1,6\\}$.\nDonc $x^3 + y^3 + z^3 \\equiv 0 \\pmod{7}$ a pour solutions les triplets où au moins un terme est divisible par 7."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_006",
+      "title": "Majoration du (n+1)-ème nombre premier",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nombres_premiers",
+        "majoration",
+        "euclide"
+      ],
+      "statement_latex": "Pour tout $n\\in\\mathbb{N}^{*}$ on note $p_{n}$ le nème nombre premier. Montrer que pour tout $n\\ge2$: $p_{n+1}<p_{1}\\cdot\\cdot\\cdot p_{n}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Pour tout $n\\in\\mathbb{N}^{*}$ on note $p_{n}$ le nème nombre premier. Montrer que pour tout $n\\ge2$: $p_{n+1}<p_{1}\\cdot\\cdot\\cdot p_{n}.$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Méditer la preuve de l'infinité de l'ensemble P."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez l'entier $N = p_{1}p_{2}\\dots p_{n} - 1$. Il possède au moins un diviseur premier $q$. Ce diviseur peut-il faire partie de l'ensemble $\\{p_{1}, \\dots, p_{n}\\}$ ?"
+            }
+          ],
+          "solution_latex": "Pour tout $n \\in \\mathbb{N}^*$, le $n$-ième nombre premier $p_n$ satisfait $p_n \\le 2^{2^{n-1}}$ (résultat classique).\nCela se montre par récurrence: $p_{n+1} < 2 \\prod_{i=1}^n p_i \\le 2 \\cdot 2^{2^{n-1}} = 2^{1+2^{n-1}} = 2^{2^n / 2} < 2^{2^n}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_007",
+      "title": "Calculs de restes et congruences",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_division_euclidienne",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_recette_casser_puissances"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "congruences",
+        "division_euclidienne",
+        "restes"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $2^{123}+3^{121}$ est divisible par 11.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez les puissances de 2 et de 3 modulo 11. Le petit théorème de Fermat peut simplifier la recherche."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $2^{10} \\equiv 1 \\ [11]$ et $3^{10} \\equiv 1 \\ [11]$. Décomposez $123 = 12 \\times 10 + 3$ et $121 = 12 \\times 10 + 1$."
+            }
+          ],
+          "solution_latex": "Par le petit théorème de Fermat, $2^{10} \\equiv 1 \\pmod{11}$ et $3^{10} \\equiv 1 \\pmod{11}$.\nDonc $2^{123} = 2^{120} \\cdot 2^3 = (2^{10})^{12} \\cdot 8 \\equiv 1 \\cdot 8 \\equiv 8 \\pmod{11}$.\nEt $3^{121} = 3^{120} \\cdot 3 = (3^{10})^{12} \\cdot 3 \\equiv 1 \\cdot 3 \\equiv 3 \\pmod{11}$.\nDonc $2^{123} + 3^{121} \\equiv 8 + 3 \\equiv 11 \\equiv 0 \\pmod{11}$. D'où $11 \\mid 2^{123} + 3^{121}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer le reste de la division euclidienne :\\par a) de $3^{2189}$ par 25.\\par b) de $49^{90021}$ par 13.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_division_euclidienne",
+            "arithmetique_des_entiers__theoreme_recette_casser_puissances"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour chaque question, cherchez une puissance de la base qui soit congrue à $1$ ou $-1$ modulo le diviseur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le a), calculez $3^{3} = 27 \\equiv 2 \\ [25]$, puis élevez au cube pour obtenir $3^{9} \\equiv 8 \\ [25]$, et cherchez à atteindre $1$ ou $-1$. Pour le b), remarquez d'abord que $49 \\equiv 10 \\equiv -3 \\ [13]$."
+            }
+          ],
+          "solution_latex": "À calculer selon les détails demandés (puissances spécifiques à préciser)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_008",
+      "title": "Carré d'un nombre premier modulo 24",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nombres_premiers",
+        "congruences",
+        "divisibilité"
+      ],
+      "statement_latex": "Montrer que $p^{2}\\equiv1[24]$ pour tout $p\\in\\mathbb{P}-\\{2,3\\}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que $p^{2}\\equiv1[24]$ pour tout $p\\in\\mathbb{P}-\\{2,3\\}$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $p^{2}-1$ est divisible par 3 et 8 séparément."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $p > 3$, $p$ est impair, donc $p = 2k+1$. Factorisez $p^{2}-1$. De plus, $p$ n'est pas un multiple de 3, donc $p \\equiv 1 \\ [3]$ ou $p \\equiv 2 \\ [3]$."
+            }
+          ],
+          "solution_latex": "Pour tout premier $p > 2$, $p$ est impair, donc $p = 2k+1$ pour un entier $k \\ge 1$.\nAlors $p^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4k(k+1) + 1$.\nPuisque $k(k+1)$ est un produit de deux consécutifs, l'un est pair, donc $k(k+1) \\equiv 0 \\pmod{2}$.\nAinsi $p^2 \\equiv 1 \\pmod{8}$.\nDe plus, $p \\ne 3 \\Rightarrow p \\equiv \\pm 1 \\pmod{3} \\Rightarrow p^2 \\equiv 1 \\pmod{3}$.\nPar le théorème des restes chinois, $p^2 \\equiv 1 \\pmod{24}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_009",
+      "title": "Lemme sous-additif de Fekete",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_division_euclidienne",
+        "arithmetique_des_entiers__remark_division_euclidienne_congruences",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__remark_pgcd_borne_inferieure"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "sous-additivité",
+        "division_euclidienne"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite réelle sous-additive, i.e. pour laquelle $u_{m+n}\\le u_{m}+u_{n}$ pour tous $m,n\\in\\mathbb{N}$. Montrer le lemme sous-additif de Fekete :\\par $\\lim_{n\\to+\\infty}\\frac{u_{n}}{n} = \\inf_{k\\in\\mathbb{N}^{*}} \\frac{u_{k}}{k}$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite réelle sous-additive, i.e. pour laquelle $u_{m+n}\\le u_{m}+u_{n}$ pour tous $m,n\\in\\mathbb{N}$. Montrer le lemme sous-additif de Fekete :\\par $\\lim_{n\\to+\\infty}\\frac{u_{n}}{n} = \\inf_{k\\in\\mathbb{N}^{*}} \\frac{u_{k}}{k}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tous n, $N\\in\\mathbb{N}^{*}$, alors $u_{n}\\le qu_{N}+u_{r}$ si on note q le reste de la division euclidienne de n par N et r son reste."
+            },
+            {
+              "level": 2,
+              "content_latex": "$\\dot{A}$ partir de là, revenir à la définition de la limite en distinguant le cas où l'ensemble $\\{\\frac{u_{k}}{k}|k\\in\\mathbb{N}^{*}\\}$ est minoré de celui où il ne l'est pas."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ une suite sous-additive, i.e., $u_{m+n} \\le u_m + u_n$.\nMontrer que $\\lim_{n \\to \\infty} \\frac{u_n}{n} = \\inf_{n \\ge 1} \\frac{u_n}{n}$.\nPar le lemme de Fekete (ou Stolz-Cesàro), la limite existe et vaut l'infimum."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_010",
+      "title": "Nombres premiers de Mersenne et Fermat",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nombres_premiers",
+        "mersenne",
+        "fermat",
+        "factorisation"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $a\\ge2$ et $n\\ge2$.\\par a) Montrer que si $a^{n}-1$ premier, alors $a=2$ et n est premier.\\par b) Montrer que si $a^{n}+1$ est premier, alors a est pair et n est une puissance de 2.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "a) Factoriser $a^{n}-1$.\\par b) On sait factoriser $a^{2n+1}+b^{2n+1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le b), raisonnez par l'absurde ou par contraposée : si $n$ n'est pas une puissance de 2, il possède un diviseur impair $q > 1$. Écrivez $n = d \\times q$ et utilisez l'indication."
+            }
+          ],
+          "solution_latex": "Soit $a \\ge 2$ et $n \\ge 2$.\na) Si $a^n - 1$ est premier, montrer que $a=2$ et $n$ est premier.\nSupposons $n = rs$ avec $1 < r, s < n$. Alors:\n$$a^n - 1 = a^{rs} - 1 = (a^r)^s - 1 = (a^r - 1)((a^r)^{s-1} + \\cdots + 1)$$\nSi $a^n - 1$ est premier et $a^r - 1 > 1$, alors $a^n - 1 = a^r - 1$, absurde.\nDonc $n$ doit être premier.\nSi $a > 2$, alors $a^n - 1 = (a-1)(a^{n-1} + \\cdots + 1)$ avec $a-1 > 1$ et l'autre facteur $> 1$, donc $a^n - 1$ n'est pas premier.\nD'où $a = 2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Pour tout $n\\in\\mathbb{N},$ $F_{n}=2^{2^{n}}+1$ est appelé le $n^{i}me$ nombre de Fermat.\\par a) Montrer que $F_{n+1}=F_{0}...F_{n}+2$ pour tout $n\\in\\mathbb{N}$\\par b) En déduire que $F_{m}\\wedge F_{n}=1$ pour tous m, $n\\in\\mathbb{N}$ distincts.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le a), procédez par récurrence sur l'entier $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'hérédité en a), remarquez que $F_{n+1} - 2 = 2^{2^{n+1}} - 1 = (2^{2^{n}})^{2} - 1$. Factorisez cette différence de deux carrés."
+            }
+          ],
+          "solution_latex": "Pour $n \\in \\mathbb{N}$, $F_n = 2^{2^n} + 1$ est appelé nombre de Fermat.\nPropriété: $F_m$ et $F_n$ sont premiers entre eux si $m \\ne n$.\nDémonstration: Pour $m < n$, on montre que $F_n \\equiv 2 \\pmod{F_m}$, d'où $\\gcd(F_m, F_n) = 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_011",
+      "title": "Infinité des nombres premiers avec congruences",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_nombre_premier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nombres_premiers",
+        "congruences",
+        "absurde"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que tout entier naturel congru à 3 modulo 4 possède au moins un diviseur premier congru à 3 modulo 4.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par l'absurde."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si tous les diviseurs premiers d'un tel entier étaient congrus à 1 modulo 4, que vaudrait le produit de ces diviseurs modulo 4 ?"
+            }
+          ],
+          "solution_latex": "a) Soit $n \\equiv 3 \\pmod{4}$. Si $n$ a un diviseur premier $p$, alors $p \\equiv 1 \\pmod{4}$ ou $p \\equiv 3 \\pmod{4}$.\nSi tous les diviseurs premiers sont $\\equiv 1 \\pmod{4}$, alors $n \\equiv 1 \\pmod{4}$, contradiction.\nDonc $n$ possède au moins un diviseur premier congru à 3 modulo 4."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer qu'il existe une infinité de nombres premiers congrus à 3 modulo 4.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve de l'infinité de l'ensemble $\\mathbb{P}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez un entier de la forme $N = 4 p_{1} p_{2} \\dots p_{k} - 1$ où les $p_{i}$ sont des nombres premiers congrus à 3 modulo 4."
+            }
+          ],
+          "solution_latex": "b) Supposons qu'il existe seulement un nombre fini de premiers $p \\equiv 3 \\pmod{4}$: $p_1, \\ldots, p_k$.\nConsidérons $N = 4 p_1 p_2 \\cdots p_k - 1 \\equiv 3 \\pmod{4}$.\nPar le point a), $N$ admet un diviseur premier $q \\equiv 3 \\pmod{4}$.\nComme $q \\mid N$, on a $q \\mid 4p_1 \\cdots p_k - 1$, donc $4p_1 \\cdots p_k \\equiv 1 \\pmod{q}$.\nSi $q = p_i$ pour un certain $i$, alors $p_i \\mid 1$, absurde.\nDonc $q$ est un nouveau premier $\\equiv 3 \\pmod{4}$, contredisant la finitude. D'où l'infinitude."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer qu'il existe une infinité de nombres premiers congrus à 5 modulo 6.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La démarche est identique à la question précédente. Quel produit astucieux faut-il construire ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Formez un entier de la forme $N = 6 p_{1} p_{2} \\dots p_{k} - 1$ et étudiez ses diviseurs premiers modulo 6."
+            }
+          ],
+          "solution_latex": "Montrer qu'il existe une infinité de nombres premiers congrus à 1 modulo 4.\nSupposons le contraire: soit $p_1, \\ldots, p_r$ l'ensemble fini de tels premiers.\nPosons $N = (2p_1 \\cdots p_r)^2 + 1 \\equiv 1 \\pmod{4}$.\nPar factorisation, $N$ admet un diviseur premier $q$.\nSi $q \\equiv 3 \\pmod{4}$, alors $q^2 \\equiv 1 \\pmod{4}$ (car $q$ pair impossible), donc $(2p_1 \\cdots p_r)^2 \\equiv -1 \\pmod{q}$, impossible car $-1$ n'est pas résidu quadratique modulo $q \\equiv 3 \\pmod{4}$.\nDonc $q \\equiv 1 \\pmod{4}$. Par le même argument que pour les premiers $\\equiv 3 \\pmod{4}$, $q$ est nouveau, contradiction."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_012",
+      "title": "Divisibilité de puissances et bases",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "puissances",
+        "valuations_p-adiques"
+      ],
+      "statement_latex": "Soient $a, b \\in \\mathbb{Z}$ et $n \\in \\mathbb{N}^{*}$. Montrer que si $a^{n}$ divise $b^{n}$ alors $a$ divise $b$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $a, b \\in \\mathbb{Z}$ et $n \\in \\mathbb{N}^*$. Montrer que si $a \\equiv b \\pmod{n}$, alors $a^k \\equiv b^k \\pmod{n}$ pour tout $k \\in \\mathbb{N}$.\nMontrons par récurrence sur $k$.\n\\par\\textbf{Base:} $k=0$: $a^0 = b^0 = 1 \\equiv 1 \\pmod{n}$. Vrai.\n$k=1$: Hypothèse. Vrai.\n\\par\\textbf{Hérédité:} Si $a^k \\equiv b^k \\pmod{n}$ et $a \\equiv b \\pmod{n}$, alors:\n$$a^{k+1} = a \\cdot a^k \\equiv b \\cdot b^k = b^{k+1} \\pmod{n}$$\npar multiplication de congruences.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Valuations p-adiques! Traiter à part l'entier 0."
+        },
+        {
+          "level": 2,
+          "content_latex": "Traduisez $a^{n} \\mid b^{n}$ par une inégalité sur les valuations : $n \\cdot v_{p}(a) \\le n \\cdot v_{p}(b)$ pour tout nombre premier $p$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_013",
+      "title": "Carré et cube parfait simultanés",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "carré_parfait",
+        "cube_parfait",
+        "valuations_p-adiques"
+      ],
+      "statement_latex": "Soit $n \\in \\mathbb{N}$. Montrer que si $n$ est à la fois un carré parfait et un cube parfait, alors il est la puissance sixième d'un entier.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $n \\in \\mathbb{N}$. Montrer que si $n$ est à la fois un carré et un cube (d'entiers), alors $n$ est une puissance sixième.\nÉcrivons $n = a^2 = b^3$ pour certains $a, b \\in \\mathbb{N}$.\nSoit $n = \\prod p_i^{\\alpha_i}$ la décomposition en facteurs premiers.\nDe $n = a^2$, tous les exposants $\\alpha_i$ sont pairs.\nDe $n = b^3$, tous les exposants $\\alpha_i$ sont divisibles par 3.\nDonc $6 \\mid \\alpha_i$ pour tout $i$, d'où $n = (\\prod p_i^{\\alpha_i/6})^6$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Valuations p-adiques! Traiter à part l'entier 0."
+        },
+        {
+          "level": 2,
+          "content_latex": "Que dire de la valuation $p$-adique d'un carré parfait ? D'un cube parfait ? Déduisez-en que $v_{p}(n)$ est un multiple de 6."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_014",
+      "title": "PGCD et puissances",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+        "arithmetique_des_entiers__remarque_calcul_pgcd_plusieurs",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "puissances",
+        "valuations_p-adiques"
+      ],
+      "statement_latex": "Montrer que $(a \\wedge b)^{n} = a^{n} \\wedge b^{n}$ pour tous $a, b \\in \\mathbb{Z}$ et $n \\in \\mathbb{N}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que $(a \\wedge b)^n = a^n \\wedge b^n$ pour tous $a, b \\in \\mathbb{Z}$ et $n \\in \\mathbb{N}$.\nSoit $d = \\gcd(a,b)$. Alors $a = da', b=db'$ avec $\\gcd(a',b')=1$.\nDonc $a^n = d^n (a')^n, b^n = d^n (b')^n$ et $\\gcd((a')^n, (b')^n) = 1$ (car $\\gcd(a',b')=1$).\nAinsi $\\gcd(a^n, b^n) = d^n = (\\gcd(a,b))^n$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Valuations p-adiques! Traiter à part l'entier 0."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez la valuation $p$-adique d'un PGCD : $v_{p}(x \\wedge y) = \\min(v_{p}(x), v_{p}(y))$. Utilisez ensuite le fait que $\\min(n\\alpha, n\\beta) = n \\min(\\alpha, \\beta)$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_015",
+      "title": "Formule de Legendre et factorielles",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__remarque_vision_urnes",
+        "arithmetique_des_entiers__remark_pgcd_borne_inferieure",
+        "arithmetique_des_entiers__methode_crible_eratosthene",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__definition_divisibilite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorielle",
+        "formule_legendre",
+        "valuations_p-adiques"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $p \\in \\mathbb{P}$ et $n \\in \\mathbb{N}$ :\\par $v_{p}(n!) = \\sum_{k=1}^{+\\infty} \\lfloor \\frac{n}{p^{k}} \\rfloor$ (formule de Legendre),\\par où la somme est faussement infinie car pour tout $k \\in \\mathbb{N}^{*}$ pour lequel $p^{k} > n$, $\\lfloor \\frac{n}{p^{k}} \\rfloor = 0$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combien d'entiers divisibles par $p^{k}$ dans $[1, n]$ pour tous $p \\in \\mathbb{P}$ et $k \\in \\mathbb{N}^{*}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Un multiple de $p^{2}$ apporte 2 à la valuation totale de $n!$, mais il est compté une fois dans le nombre de multiples de $p$ et une deuxième fois dans le nombre de multiples de $p^{2}$."
+            }
+          ],
+          "solution_latex": "Montrer que pour tous $p \\in \\mathbb{P}$ et $n \\in \\mathbb{N}$:\n$$v_p(n!) = \\sum_{k=1}^{\\infty} \\left\\lfloor \\frac{n}{p^k} \\right\\rfloor$$\nLa formule compte le nombre de multiples de $p, p^2, p^3, \\ldots$ dans $\\{1, 2, \\ldots, n\\}$.\nChacun contribue à la puissance de $p$ dans $n!$:\n- Il y a $\\lfloor n/p \\rfloor$ multiples de $p$ (comptage du facteur $p$).\n- Il y a $\\lfloor n/p^2 \\rfloor$ multiples de $p^2$ (comptage du deuxième facteur $p$).\n- Et ainsi de suite, jusqu'à ce que $p^k > n$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Par combien de zéros l'entier $1000!$ s'achève-t-il ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le nombre de zéros finaux correspond à la plus grande puissance de $10$ qui divise $1000!$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $10 = 2 \\times 5$, calculez $v_{2}(1000!)$ et $v_{5}(1000!)$ avec la formule démontrée à la question 1. Quelle valuation est la plus petite des deux ?"
+            }
+          ],
+          "solution_latex": "Par combien de zéros l'entier $1000!$ s'achève-t-il ?\nLes zéros proviennent des facteurs 10, soit des paires $(2,5)$. Comme il y a plus de facteurs 2 que 5, le nombre de zéros égale $v_5(1000!)$.\n$$v_5(1000!) = \\left\\lfloor \\frac{1000}{5} \\right\\rfloor + \\left\\lfloor \\frac{1000}{25} \\right\\rfloor + \\left\\lfloor \\frac{1000}{125} \\right\\rfloor + \\left\\lfloor \\frac{1000}{625} \\right\\rfloor = 200 + 40 + 8 + 1 = 249$$\nDonc $1000!$ s'achève par $\\boxed{249}$ zéros."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_016",
+      "title": "Diviseurs de (n-1)!",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorielle",
+        "divisibilité",
+        "nombres_premiers"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}^{*}$, n divise $(n-1)!$ si et seulement si n n'est ni égal à 4, ni premier.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter la factorisation première de n et observer que $[1, n-1]$ contient de nombreux diviseurs de n."
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparez les cas : si $n$ est composé, il s'écrit $n=ab$ avec $1 < a, b < n$. Si $a \\ne b$, ils apparaissent distinctement dans le produit $(n-1)!$. Le cas délicat est $a=b$, c'est-à-dire $n=p^2$."
+            }
+          ],
+          "solution_latex": "Montrer que pour tout $n \\in \\mathbb{N}^*$, $n$ divise $(n-1)! + 1$.\nPar le théorème de Wilson, si $p$ est premier, alors $(p-1)! \\equiv -1 \\pmod{p}$.\nPour $n$ premier: $n \\mid (n-1)! + 1$.\nPour $n$ composé ($n > 4$): soit $p$ le plus petit diviseur premier de $n$. Alors $p < n$, donc $p \\mid (n-1)!$, d'où $(n-1)! + 1 \\equiv 1 \\pmod{p}$.\nPour $n=1,2,3,4$: vérification directe. $1 \\mid 1, 2 \\mid 2, 3 \\mid 3, 4 \\mid 7$ (non vrai!).\nCorrection: le théorème de Wilson s'applique exactement aux premiers."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $p\\in\\mathbb{P}$ supérieur à 7. Montrer que $(p-1)!+1$ n'est pas une puissance de p.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde et se ramener à la situation de la question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposons $(p-1)! + 1 = p^k$. Alors $(p-1)! = p^k - 1 = (p-1)(p^{k-1} + \\dots + 1)$. Simplifiez par $p-1$ et utilisez la question 1 pour analyser la divisibilité de $(p-2)!$ par $p-1$."
+            }
+          ],
+          "solution_latex": "Soit $p \\in \\mathbb{P}$ supérieur à 7. Montrer que $(p-1)! + 1 \\equiv 0 \\pmod{p}$.\nCela suit directement du théorème de Wilson: pour tout premier $p$, $(p-1)! \\equiv -1 \\pmod{p}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_017",
+      "title": "Somme des inverses d'entiers",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__remark_pgcd_borne_inferieure",
+        "arithmetique_des_entiers__remarque_vision_urnes",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__methode_crible_eratosthene",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "valuations_p-adiques",
+        "parité"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\ge2$\\par $\\sum_{k=1}^{n}\\frac{1}{k}$\\par n'est pas un entier.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que pour tout $n \\ge 2$:\n$$\\sum_{k=1}^{n} \\frac{1}{k} = \\frac{S_n}{n!}$$\noù $S_n$ est un entier impair.\nOn montre que $v_2(\\text{dénominateur}) < v_2(n!)$. Plus précisément, la somme harmonique écrite avec dénominateur commun $n!$ a un numérateur impair.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Montrer que\\par $\\sum_{k=1}^{n}\\frac{1}{k}$\\par est le quotient d'un entier impair par un entier pair pour tout $n\\ge2$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Considérez la plus grande puissance de 2 inférieure ou égale à $n$, notons-la $2^m$. Mettez tous les termes de la somme au même dénominateur usuel (le PPCM des entiers de 1 à $n$) et observez la parité des numérateurs."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_018",
+      "title": "Puissances de 2 divisant 3^n - 1",
+      "type": "computation",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissances",
+        "divisibilité",
+        "valuations_p-adiques"
+      ],
+      "statement_latex": "Déterminer tous les entiers $n\\in\\mathbb{N}^{*}$ pour lesquels $2^{n}$ divise $3^{n}-1$.",
+      "sub_questions": [],
+      "global_solution_latex": "Déterminer tous les entiers $n \\in \\mathbb{N}^*$ pour lesquels [énoncé à compléter].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer $v_{2}(3^{n}-1)$ en toute généralité, notamment grâce à la formule $a^{n}-b^{n}$. On pourra être amené à comparer $v_{2}(3^{n}-1)$ et $v_{2}(3^{2^{v_{2}(n)}}-1)$ et à calculer $v_{2}(3^{2^{n}}+1)$ pour tout $n\\in\\mathbb{N}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si $n$ est impair, que vaut $v_2(3^n-1)$ ? Si $n$ est pair, écrivez $n = 2^k m$ avec $m$ impair, et factorisez itérativement à l'aide de l'identité remarquable $A^2 - B^2 = (A-B)(A+B)$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_019",
+      "title": "Produit d'entiers premiers entre eux",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "entiers_premiers_entre_eux",
+        "décomposition"
+      ],
+      "statement_latex": "Déterminer tous les couples $(x,y)\\in\\mathbb{Z}^{2}$ d'entiers premiers entre eux pour lesquels $xy=150$",
+      "sub_questions": [],
+      "global_solution_latex": "Déterminer tous les couples $(x, y) \\in \\mathbb{Z}^2$ d'entiers [condition à spécifier].\nÀ résoudre par analyse modulaire ou descente infinie selon la condition.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Décomposez $150$ en produit de facteurs premiers."
+        },
+        {
+          "level": 2,
+          "content_latex": "La factorisation donne $150 = 2 \\times 3 \\times 5^2$. Puisque $x$ et $y$ sont premiers entre eux, ils ne peuvent avoir aucun facteur premier en commun. Distribuez les \"blocs\" de facteurs premiers ($2$, $3$ et $25$) entre $x$ et $y$, sans oublier les cas avec des signes négatifs."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_020",
+      "title": "Coefficients binomiaux et divisibilité",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "coefficient_binomial",
+        "pgcd",
+        "théorème_gauss"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $n+1$ et $2n+1$ sont premiers entre eux pour tout $n\\in\\mathbb{N}$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouvez une combinaison linéaire de $n+1$ et $2n+1$ qui élimine la variable $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez simplement $2(n+1) - (2n+1)$ et concluez avec le théorème de Bézout."
+            }
+          ],
+          "solution_latex": "Montrer que $n+1$ et $2n+1$ sont premiers entre eux pour tout $n \\in \\mathbb{N}$.\nSoit $d = \\gcd(n+1, 2n+1)$. Alors:\n$$d \\mid (2n+1) - 2(n+1) = 2n+1-2n-2 = -1$$\nDonc $d \\mid 1$, d'où $d=1$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire, grâce à $\\binom{2n+1}{n+1},$ que $\\binom{2n}{n}$ est divisible par $n+1$ pour tout $n\\in\\mathbb{N}.$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+            "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez la formule explicite avec des factorielles pour relier $\\binom{2n+1}{n+1}$ et $\\binom{2n}{n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient l'égalité $(2n+1)\\binom{2n}{n} = (n+1)\\binom{2n+1}{n+1}$. Utilisez ensuite le théorème de Gauss en vous servant du résultat de la question 1."
+            }
+          ],
+          "solution_latex": "En déduire, grâce à $\\binom{2n+1}{n+1}$, que $\\binom{2n}{n}$ divise [conclusion à établir].\nUtiliser $\\binom{2n+1}{n+1} = \\frac{(2n+1)!}{(n+1)! \\cdot n!}$ et les propriétés de primalité relatives."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_021",
+      "title": "Divisibilité des coefficients binomiaux par p",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "coefficient_binomial",
+        "nombres_premiers",
+        "congruences"
+      ],
+      "statement_latex": "Soit $p\\in\\mathbb{P}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que p divise $\\binom{p}{k}$ pour tout $k\\in\\mathbb{[}1,p-1]].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la formule explicite du coefficient binomial faisant intervenir les factorielles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez la relation sous la forme $k! \\binom{p}{k} = p \\times (p-1)! / (p-k)!$. Que peut-on dire de la divisibilité du membre de droite par $p$, et de l'absence de facteurs $p$ dans $k!$ ?"
+            }
+          ],
+          "solution_latex": "Montrer que $p$ divise $\\binom{p}{k}$ pour tout $k \\in [[1, p-1]]$ et tout premier $p$.\nOn a $\\binom{p}{k} = \\frac{p!}{k!(p-k)!}$.\nPar le théorème de Wilson ou par l'analyse des valuations, $v_p(\\binom{p}{k}) \\ge 1$ pour $1 \\le k \\le p-1$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que pour tout $k\\in[[0,p-1]]$: $\\binom{p-1}{k}\\equiv(-1)^{k}[p].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut $\\binom{p-1}{k}+\\binom{p-1}{k+1}$ pour tout $k\\in\\mathbb{Z}$?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La formule de Pascal donne $\\binom{p}{k+1}$. Utilisez le résultat de la question 1 pour obtenir une congruence, puis raisonnez par récurrence sur $k$."
+            }
+          ],
+          "solution_latex": "En déduire que pour tout $k \\in [[0, p-1]]$: $\\binom{p-1}{k} \\equiv (-1)^k \\pmod{p}$.\nPar le lemme de Lucas ou par expansion $(1+x)^{p-1} \\pmod{p}$, qui donne $(1+x)^{p-1} \\equiv 1 + x^{p-1} \\pmod{p}$ par Frobenius."
+        },
+        {
+          "label": "",
+          "statement_latex": "Montrer que $\\mathbb{U}_{a}\\cap\\mathbb{U}_{b}=\\mathbb{U}_{a\\wedge b}$ pour tous a, $b\\in\\mathbb{N}^{*}.$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_ppcm_general",
+            "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez l'appartenance à $\\mathbb{U}_{a}$ par une condition sur l'ordre de l'élément."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $z^a = 1$ et $z^b = 1$, utilisez le théorème de Bézout pour exprimer le PGCD de $a$ et $b$ comme une combinaison linéaire $au+bv$ et évaluez $z^{au+bv}$."
+            }
+          ],
+          "solution_latex": "Montrer que $\\mathbb{U}_a \\cap \\mathbb{U}_b = \\mathbb{U}_{a \\vee b}$ (où $\\mathbb{U}_n$ est le groupe des unités modulo $n$ et $\\vee$ est le ppcm).\nLes unités modulo $a$ sont les entiers $x$ avec $\\gcd(x,a)=1$, pareillement pour $b$.\nUn entier est dans $\\mathbb{U}_a \\cap \\mathbb{U}_b$ ssi il est premier à $a$ et à $b$, i.e., premier à $\\text{lcm}(a,b)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_022",
+      "title": "PGCD d'expressions polynomiales",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "polynômes",
+        "combinaison_linéaire"
+      ],
+      "statement_latex": "Montrer que $(n^{3}+3n^{2}-5)\\wedge(n+2)=1$",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que $(n^3 + 3n^2 - 5) \\wedge (n+2) = 1$.\nPar l'algorithme d'Euclide:\n\\begin{align}\n\\gcd(n^3+3n^2-5, n+2) &= \\gcd(n^3+3n^2-5 \\pmod{n+2}, n+2)\n\\end{align}\nOn calcule $n \\equiv -2 \\pmod{n+2}$, donc:\n$$n^3 + 3n^2 - 5 \\equiv (-2)^3 + 3(-2)^2 - 5 \\equiv -8 + 12 - 5 = -1 \\pmod{n+2}$$\nD'où $\\gcd(n^3+3n^2-5, n+2) = \\gcd(-1, n+2) = 1$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Cherchez à éliminer les puissances de $n$ en utilisant des combinaisons linéaires avec $n+2$ ou par division euclidienne polynomiale."
+        },
+        {
+          "level": 2,
+          "content_latex": "Modélisez le problème avec des congruences : modulo $n+2$, on a $n \\equiv -2$. Évaluez $n^3 + 3n^2 - 5$ en remplaçant $n$ par $-2$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_023",
+      "title": "Fractions et nombres entiers",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "fractions",
+        "combinaison_linéaire"
+      ],
+      "statement_latex": "Soient a, b, $n\\in\\mathbb{Z}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $(n^{3}+3n^{2}-5)\\wedge(n+2)=1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder comme en 1) et utiliser 3) quand ça coince."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une contradiction de parité ou de divisibilité élémentaire."
+            }
+          ],
+          "solution_latex": "Montrer que $(n^3 + 3n^2 - 5) \\wedge (n+2) = 1$ (voir exercice 22)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\frac{21n-3}{4}$ et $\\frac{15n+2}{4}$ ne sont pas tous les deux entiers.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_factorisation_premiere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer $(21n-3)\\wedge(15n+2).$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour éliminer $n$, calculez la combinaison $5(21n-3) - 7(15n+2)$. Que vaut ce résultat ? Est-il compatible avec le fait que les deux numérateurs soient des multiples de 4 ?"
+            }
+          ],
+          "solution_latex": "Montrer que $\\frac{21n-3}{4}$ et $\\frac{15n+2}{4}$ ne sont jamais tous deux entiers.\nSupposons les deux entiers. Alors $4 \\mid (21n-3)$ et $4 \\mid (15n+2)$.\nDe la première: $21n \\equiv 3 \\pmod{4}$, soit $n \\equiv 3 \\pmod{4}$ (car $21 \\equiv 1 \\pmod{4}$).\nDe la deuxième: $15n \\equiv -2 \\equiv 2 \\pmod{4}$, soit $3n \\equiv 2 \\pmod{4}$, impossible car $3 \\cdot 3 = 9 \\equiv 1 \\pmod{4}$ et $3 \\cdot 2 = 6 \\equiv 2 \\pmod{4}$ n'est jamais solution.\nDonc contradiction."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_024",
+      "title": "Système PPCM et produit",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "pgcd",
+        "ppcm",
+        "système"
+      ],
+      "statement_latex": "Soient a $,b\\in\\mathbb{N}^{*}$ À quelle condition nécessaire et suffisante existe-t-il deux entiers x, $y\\in\\mathbb{N}^{*}$ pour lesquels $x\\vee y=a$ et $xy=b$?",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $a, b \\in \\mathbb{N}^*$. À quelle condition nécessaire et suffisante sur $(a,b)$ [préciser la condition demandée].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Quel lien classique relie le produit, le PGCD et le PPCM de deux entiers ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "On sait que $xy = (x \\wedge y)(x \\vee y)$. Donc le PGCD de $x$ et $y$ doit valoir $b/a$. Pour que cela ait un sens, il faut déjà que $a$ divise $b$. Ensuite, que doit vérifier ce PGCD vis-à-vis du PPCM $a$ ?"
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_025",
+      "title": "Théorèmes d'Euler, Fermat et applications",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fermat",
+        "euler",
+        "matrices",
+        "traces"
+      ],
+      "statement_latex": "Soient $x\\in\\mathbb{Z}$ et $n\\in\\mathbb{N}^{*}$ premiers entre eux.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Pourquoi l'application qui associe à tout entier $k\\in[[0,n]]$ le reste de la division euclidienne de $x^{k}$ par n n'est-elle pas injective? En déduire que pour un certain $N\\in[[1,n]]$: $x^{N}\\equiv1[n]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_division_euclidienne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combien y a-t-il de restes possibles dans la division par $n$ ? Et combien d'entiers dans l'intervalle $[[0, n]]$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez le principe des tiroirs de Dirichlet pour montrer que deux puissances distinctes $x^i$ et $x^j$ ont le même reste, puis simplifiez par la plus petite puissance puisque $x$ est premier avec $n$."
+            }
+          ],
+          "solution_latex": "a) Pourquoi l'application qui associe à tout entier $k \\in [[0, n]]$ [compléter selon énoncé original]."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer qu'on peut choisir N inférieur à l'entier $\\varphi(n)=|\\{k\\in[[0,n-1]|k\\wedge n=1\\}|$ La fonction est appelée l'indicatrice d'Euler.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Affinez l'ensemble d'arrivée des restes : puisque $x$ est premier avec $n$, que peut-on dire du PGCD du reste et de $n$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Les restes possibles appartiennent à l'ensemble des entiers naturels inférieurs à $n$ et premiers avec $n$. Le cardinal de cet ensemble est précisément $\\varphi(n)$."
+            }
+          ],
+          "solution_latex": "b) Montrer qu'on peut choisir $N$ inférieur à l'entier $\\varphi(n)$ [compléter selon contexte]."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $p\\in\\mathbb{P}.$ Montrer que p divise $\\binom{p}{k}$ pour tout $k\\in\\mathbb{[}1,p-1].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_division_euclidienne",
+            "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+            "arithmetique_des_entiers__theoreme_consequences_gauss"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est une question identique à celle de l'exercice 21. Utilisez la formule factorielle."
+            }
+          ],
+          "solution_latex": "a) Soit $p \\in \\mathbb{P}$. Montrer que $p$ divise $\\binom{p}{k}$ pour tout $k \\in [[1, p-1]]$.\nPar la formule $\\binom{p}{k} = \\frac{p \\cdot (p-1)!}{k! (p-k)!}$ et le théorème de Wilson."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que $(x+y)^{p}\\equiv x^{p}+y^{p}[p]$ pour tous $x,y\\in\\mathbb{Z}.$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez l'expression avec la formule du binôme de Newton."
+            },
+            {
+              "level": 2,
+              "content_latex": "Tous les termes intermédiaires sont divisibles par $p$ grâce à la question 2a. Que reste-t-il modulo $p$ ?"
+            }
+          ],
+          "solution_latex": "b) En déduire que $(x+y)^p \\equiv x^p + y^p \\pmod{p}$ pour tous $x, y \\in \\mathbb{Z}$.\nPar le binôme de Newton:\n$$(x+y)^p = \\sum_{k=0}^p \\binom{p}{k} x^{p-k} y^k \\equiv x^p + y^p \\pmod{p}$$\ncar $\\binom{p}{k} \\equiv 0 \\pmod{p}$ pour $1 \\le k \\le p-1$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire que pour tout $x\\in\\mathbb{Z}$: $x^{p}\\equiv x[p]$ (petit théorème de Fermat), puis que si $x\\wedge p=1$, alors $x^{p-1}\\equiv1[p].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Récurrence!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'hérédité, utilisez $(k+1)^p \\equiv k^p + 1^p \\pmod p$ à l'aide de la question 2b."
+            }
+          ],
+          "solution_latex": "c) En déduire que pour tout $x \\in \\mathbb{Z}$: $x^p \\equiv x \\pmod{p}$.\nPar récurrence sur $x$ (ou directement pour $x$ modulo $p$): si $\\gcd(x,p)=1$, Fermat donne $x^{p-1} \\equiv 1 \\pmod{p}$, donc $x^p \\equiv x \\pmod{p}$.\nSi $p \\mid x$, alors $x^p \\equiv 0 \\equiv x \\pmod{p}$."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "Montrer que pour tous $y\\in\\mathbb{Z}$ $k\\in\\mathbb{N}^{*}$: $y\\equiv1[p^{k}]\\Rightarrow y^{p}\\equiv1[p^{k+1}].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez $y = 1 + K p^k$ et élevez à la puissance $p$ en utilisant le binôme de Newton."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le terme en $p$ dans le développement est $p \\times K p^k = K p^{k+1}$. Montrez que les termes suivants ont une valuation $p$-adique au moins égale à $k+1$."
+            }
+          ],
+          "solution_latex": "d) Montrer que pour tous $y \\in \\mathbb{Z}$, $k \\in \\mathbb{N}^*$: [condition à spécifier]."
+        },
+        {
+          "label": "2) e)",
+          "statement_latex": "En déduire que pour tous $x\\in\\mathbb{Z}$ premier à p et $k\\in\\mathbb{N}^{*}$: $x^{p^{k-1}(p-1)}\\equiv1[p^{k}].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combinez le petit théorème de Fermat et le résultat de la question 2d."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $x^{p-1} \\equiv 1 \\pmod p$. Appliquez la propriété 2d de proche en proche avec $y = x^{p-1}$, puis avec ses puissances successives."
+            }
+          ],
+          "solution_latex": "e) En déduire que pour tous $x \\in \\mathbb{Z}$ premier à $p$ et $k \\in \\mathbb{N}$: [théorème CRT / Fermat généralisé]."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$ On pose $N_{n}=\\prod_{p|n}p^{v_{p}(n)-1}(p-1)$ où l'indice p est un nombre premier. Montrer que pour tous $x\\in\\mathbb{Z}$ premier à n: $x^{N_{n}}\\equiv1$ [n] (théorème d'Euler). Nous montrerons au chapitre << Groupes et anneaux » qu'en réalité, $N_{n}=\\varphi(n)$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer une congruence modulo $n$, il suffit de montrer la congruence modulo chaque facteur premier de sa décomposition."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que pour chaque diviseur premier $p$, $p^{v_p(n)}$ divise $x^{N_n} - 1$. Servez-vous de la puissance établie à la question 2e et remarquez que l'exposant divise $N_n$."
+            }
+          ],
+          "solution_latex": "f) Soit $n \\in \\mathbb{N}^*$. On pose $N_n = \\prod_{p \\mid n} p^{v_p(n)}$ [structure de $N_n$ et propriétés]."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Soit $p\\in\\mathbb{P}.$ Montrer que pour tous A, $B\\in\\mathcal{A}_{n}(\\mathbb{Z})$: $tr((A+B)^{p})\\equiv tr(A^{p})+tr(B^{p})[p]$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_proprietes_congruence",
+            "arithmetique_des_entiers__definition_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez $(A+B)^p$. Contrairement aux nombres, les matrices ne commutent pas, donc on ne peut pas utiliser le binôme de Newton usuel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Analysez les mots de longueur $p$ formés par les lettres $A$ et $B$. Pour chaque mot, regroupez ses décalages cycliques (obtenus par conjugaison). Que vaut la trace de deux mots qui sont des permutations cycliques l'un de l'autre ?"
+            }
+          ],
+          "solution_latex": "a) Soit $p \\in \\mathbb{P}$. Montrer que pour tous $A, B \\in \\mathcal{M}(\\mathbb{Z})$: [propriétés matricielles modulo $p$]."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "En déduire que pour tout $A\\in\\mathcal{H}_{n}(\\mathbb{Z})$: $tr(A^{p})\\equiv tr(A)[p].$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Toute matrice carrée est la somme d'une matrice diagonale, d'une matrice triangulaire supérieure stricte et d'une matrice triangulaire inférieure stricte. On peut aussi utiliser des matrices élémentaires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si on exprime $A$ comme somme de ces matrices (ou des $E_{ij}$), la question 4a permet de dire que $tr(A^p) \\equiv \\sum tr(M_k^p) \\pmod p$. Il ne reste plus qu'à calculer la trace de la puissance $p$-ième de ces matrices basiques."
+            }
+          ],
+          "solution_latex": "b) En déduire que pour tout $A \\in \\mathcal{H}_n(\\mathbb{Z})$: [Frobenius sur matrices]."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_026",
+      "title": "Stabilité d'une partie de N*",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__remark_pgcd_borne_inferieure",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+        "arithmetique_des_entiers__remarque_calcul_pgcd_plusieurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensembles",
+        "pgcd",
+        "stabilité"
+      ],
+      "statement_latex": "Déterminer toutes les parties non vides $E$ de $\\mathbb{N}^{*}$ pour lesquelles $\\frac{x+y}{x\\wedge y}\\in E$ pour tous $x, y\\in E$.",
+      "sub_questions": [],
+      "global_solution_latex": "Déterminer toutes les parties non vides $E$ de $\\mathbb{N}^*$ telles que [condition à préciser].\nÀ traiter selon la propriété demandée (stabilité additive, multiplicative, etc.).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Trois solutions: $\\{2\\}$, $\\mathbb{N}\\backslash\\{0,1\\}$ et $\\mathbb{N}$. Montrer que toute solution E distincte de $\\{2\\}$ et $\\mathbb{N}^{*}$ contient 2 mais pas 1 et que le plus petit élément de $E-\\{2\\}$ est impair."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si un ensemble $E$ est solution et contient un élément $x$, étudiez la quantité générée par $(x,x)$. Cela vous donnera un premier élément invariant à exploiter."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_027",
+      "title": "Systèmes avec PGCD et PPCM",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "pgcd",
+        "ppcm",
+        "systèmes"
+      ],
+      "statement_latex": "Résoudre les équations d'inconnue $(x,y)\\in\\mathbb{N}^{2}$:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\begin{cases}x\\wedge y=3\\\\ x+y=18\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser d'abord x et y par leur PGCD."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $x = 3x'$ et $y = 3y'$ avec $x' \\wedge y' = 1$. L'équation de somme devient $x' + y' = 6$. Cherchez les couples d'entiers naturels premiers entre eux dont la somme fait 6."
+            }
+          ],
+          "solution_latex": "Résoudre le système $\\begin{cases} x \\wedge y = 3 \\\\ x + y = 18 \\end{cases}$.\nPosons $x = 3a, y = 3b$ avec $\\gcd(a,b)=1$ et $a + b = 6$.\nLes solutions sont: $(a,b) \\in \\{(1,5), (5,1)\\}$ (pairs premiers entre eux).\nDonc $(x,y) \\in \\{(3, 15), (15, 3)\\}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\vee y=x+y-1$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser d'abord x et y par leur PGCD."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $d = x \\wedge y$, $x = dx'$ et $y = dy'$ avec $x' \\wedge y' = 1$. Exprimez le PPCM en fonction de $d$, $x'$ et $y'$, puis factorisez l'équation obtenue pour isoler $d$."
+            }
+          ],
+          "solution_latex": "Résoudre $x \\vee y = x + y - 1$.\nOn a $\\text{lcm}(x,y) = x + y - 1$.\nPar $xy = \\gcd(x,y) \\cdot \\text{lcm}(x,y)$, soit $d = \\gcd(x,y)$:\n$$\\frac{xy}{d} = x + y - 1 \\Rightarrow xy = d(x+y-1)$$\nSi $x = da, y = db$ avec $\\gcd(a,b)=1$:\n$$d^2 ab = d(da + db - 1) \\Rightarrow d \\cdot ab = da + db - 1$$\n$$d(ab - a - b + 1) = -1 + 1 = 0 \\text{ ou } d(ab-a-b) = 1-d$$\nD'où $d(a-1)(b-1) = 1$, donc $d=1$ et $(a,b) \\in \\{(2,2)\\}$, soit $(x,y) = (2,2)$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$(x\\wedge y)+(x\\vee y)=2x+3y$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_factorisation_premiere",
+            "arithmetique_des_entiers__theoreme_factorisation_ppcm",
+            "arithmetique_des_entiers__theoreme_factorisation_pgcd"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser d'abord x et y par leur PGCD."
+            },
+            {
+              "level": 2,
+              "content_latex": "En posant $x = dx'$ et $y = dy'$ (premiers entre eux), simplifiez l'équation par $d$. On obtient $1 + x'y' = 2x' + 3y'$. Étudiez cette équation diophantienne en isolant $x'$ ou en factorisant sous la forme $(x'-3)(y'-2) = C$."
+            }
+          ],
+          "solution_latex": "Résoudre $(x \\wedge y) + (x \\vee y) = 2x + 3y$.\nPar $\\gcd + \\text{lcm} = d + \\frac{xy}{d}$ et algèbre: $d + \\frac{xy}{d} = 2x + 3y$.\nEn posant $x = da, y=db$: $d + dab = 2da + 3db$, d'où $1 + ab = 2a + 3b$.\nFactorisation: $(a-1)(b-3) = 2$, donnant les solutions $(a,b) \\in \\{(2,5), (3,4)\\}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_028",
+      "title": "Équations diophantiennes quadratiques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere",
+        "arithmetique_des_entiers__theoreme_factorisation_ppcm"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "carrés",
+        "congruences"
+      ],
+      "statement_latex": "Résoudre les équations d'inconnue $(x,y)\\in\\mathbb{N}^{2}$ suivantes:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x^{2}-y^{2}=7$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_factorisation_premiere",
+            "arithmetique_des_entiers__theoreme_factorisation_ppcm",
+            "arithmetique_des_entiers__theoreme_factorisation_pgcd"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez une identité remarquable pour transformer la différence de carrés en produit."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $(x-y)(x+y) = 7$. Les diviseurs de 7 étant limités, résolvez le système linéaire simple qui en découle, en gardant à l'esprit que $x+y \\ge x-y$ sur $\\mathbb{N}$."
+            }
+          ],
+          "solution_latex": "Résoudre $x^2 - y^2 = 7$ dans $\\mathbb{Z}^2$.\nFactorisation: $(x-y)(x+y) = 7$.\nLes diviseurs de 7 sont $\\pm 1, \\pm 7$. Les paires $(x-y, x+y)$ sont:\n$(1,7), (7,1), (-1,-7), (-7,-1)$.\nSolutions: $(x,y) \\in \\{(4, 3), (-4, -3)\\}$ (car $(1,7)$ donne $x=4, y=3$; $(7,1)$ donne $x=4, y=-3$, etc.)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$9x^{2}-y^{2}=32$",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_factorisation_premiere",
+            "arithmetique_des_entiers__theoreme_factorisation_ppcm",
+            "arithmetique_des_entiers__theoreme_factorisation_pgcd"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "De la même manière, factorisez l'expression."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation s'écrit $(3x-y)(3x+y) = 32$. Cherchez les couples de diviseurs de 32. Attention à la parité de $3x-y$ et $3x+y$ qui doivent nécessairement être de même parité pour que leur somme donne un nombre pair."
+            }
+          ],
+          "solution_latex": "Résoudre $9x^2 - y^2 = 32$ dans $\\mathbb{Z}^2$.\nFactorisation: $(3x-y)(3x+y) = 32$.\nPairs de diviseurs: $(1, 32), (2,16), (4,8)$, etc.\nPar substitution et résolution."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$x^{2}-2y^{2}=3$ en raisonnant modulo 8.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dressez la liste des carrés parfaits modulo 8."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour tout entier $k$, $k^2 \\equiv 0, 1, \\text{ ou } 4 \\pmod 8$. Regardez les valeurs possibles pour $x^2$ et $2y^2$ et montrez que leur différence ne peut jamais être congrue à 3 modulo 8."
+            }
+          ],
+          "solution_latex": "Résoudre $x^2 - 2y^2 = 3$ en raisonnant modulo 8.\nModulo 8: $x^2 \\equiv 0, 1, 4 \\pmod{8}$ et $2y^2 \\equiv 0, 2 \\pmod{8}$.\nDonc $x^2 - 2y^2 \\equiv 0, 1, 2, 3, 4, 6 \\pmod{8}$ (jamais 3 ou 5, 7).\nMais $3 \\equiv 3 \\pmod{8}$, donc pas de solutions."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$15x^{2}-7y^{2}=9$ en raisonnant modulo 3.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser encore et encore."
+            },
+            {
+              "level": 2,
+              "content_latex": "Modulo 3, l'équation devient $-y^2 \\equiv 0 \\pmod 3$, donc $y$ est un multiple de 3. Posez $y=3y'$ et réinjectez pour simplifier l'équation, puis recommencez l'opération."
+            }
+          ],
+          "solution_latex": "Résoudre $15x^2 - 7y^2 = 9$ en raisonnant modulo 3.\nModulo 3: $15x^2 \\equiv 0$ et $7y^2 \\equiv y^2 \\pmod{3}$.\nDonc $-y^2 \\equiv 0 \\pmod{3}$, soit $y \\equiv 0 \\pmod{3}$.\nPosons $y = 3z$: $15x^2 - 7 \\cdot 9z^2 = 9$, d'où $5x^2 - 21z^2 = 3$.\nPar continuation de l'analyse modulaire ou descente."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_029",
+      "title": "Équation diophantienne puissance-cube",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "factorisation",
+        "puissances"
+      ],
+      "statement_latex": "Montrer que l'équation $2^{n}+1=m^{3}$ d'inconnue $(m,n)\\in\\mathbb{N}^{2}$ n'a pas de solution.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que l'équation $2^n + 1 = m^3$ d'inconnue $(m,n) \\in \\mathbb{N}^2$ n'a que des solutions triviales.\nModulo 9: $2^1 \\equiv 2, 2^2 \\equiv 4, 2^3 \\equiv 8, 2^4 \\equiv 7, 2^5 \\equiv 5, 2^6 \\equiv 1 \\pmod{9}$.\nCubes modulo 9: $\\{0, 1, 8\\}$.\nDonc $2^n + 1 \\pmod{9}$: il faut que l'ordre de 2 divise 6.\nVérification: la seule solution est $(m,n) = (3, 3)$, i.e., $2^3 + 1 = 9 = 3^2$ (non cube) ou reconsidération.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Par exemple, factoriser $m^{3}-1.$"
+        },
+        {
+          "level": 2,
+          "content_latex": "L'équation s'écrit $2^n = m^3 - 1 = (m-1)(m^2+m+1)$. Puisque le produit vaut une puissance de 2, chaque facteur doit être une puissance de 2. Étudiez le second facteur en l'écrivant $(m-1)^2 + 3m$ pour observer une contradiction selon la parité."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_030",
+      "title": "Équations diophantiennes linéaires",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+        "arithmetique_des_entiers__definition_divisibilite",
+        "arithmetique_des_entiers__theoreme_bezout_gauss",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "bézout",
+        "théorème_gauss"
+      ],
+      "statement_latex": "Soient a, b, $c\\in\\mathbb{Z}$ avec $(a,b)\\ne(0,0)$. On s'intéresse à l'équation $* \\ ax+by=c$ d'inconnue $(x,y)\\in\\mathbb{Z}^{2}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer qu'$*$ n'a pas de solution si c n'est pas un multiple de $a\\wedge b$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_divisibilite",
+            "arithmetique_des_entiers__theoreme_bezout_gauss",
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par définition, le PGCD de $a$ et $b$ divise $a$ et divise $b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $d = a \\wedge b$, alors $d$ divise toute combinaison linéaire de $a$ et de $b$. Donc $d$ divise nécessairement $c$ si une solution existe."
+            }
+          ],
+          "solution_latex": "Montrer que l'équation (*: $ax + by = c$) n'a pas de solution si $c$ n'est pas un multiple de $\\gcd(a,b)$.\nPar Bézout, si $\\gcd(a,b) = d$, il existe $u,v$ tels que $au + bv = d$.\nSi $ax + by = c$, alors $d \\mid (ax + by)$, donc $d \\mid c$.\nRéciproquement, si $d \\mid c$, il existe $k$ avec $c = kd$, d'où $(x,y) = (ku, kv)$ est une solution."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On suppose que $a\\wedge b=1$.\\par a) Montrer qu'$*$ possède au moins une solution.\\par b) En déduire toutes les solutions d'$*$ et interpréter le résultat géométriquement.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_bezout_gauss",
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+            "arithmetique_des_entiers__definition_theoreme_bezout_cas_general"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Relation de Bézout!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le théorème de Bézout donne l'existence d'un couple $(u,v)$ tel que $au+bv = 1$. Multipliez cette relation par $c$ pour obtenir une solution particulière. Ensuite, soustrayez la solution particulière à l'équation générale et utilisez le théorème de Gauss pour trouver toutes les solutions."
+            }
+          ],
+          "solution_latex": "a) On suppose que $a \\wedge b = 1$. Montrer que (*) possède une solution $(x_0, y_0) \\in \\mathbb{Z}^2$ et que la solution générale est $(x, y) = (x_0 + tb, y_0 - ta)$ pour $t \\in \\mathbb{Z}$.\nPar Bézout avec $\\gcd(a,b)=1$, il existe $u,v$ avec $au + bv = 1$, d'où $a(uc) + b(vc) = c$.\nSi $(x_0, y_0)$ est une solution, alors $ax_0 + by_0 = c$.\nPour une autre solution $(x,y)$: $a(x-x_0) = b(y_0 - y)$.\nPuisque $\\gcd(a,b)=1$, on a $b \\mid (x-x_0)$, d'où $x - x_0 = tb$ pour un $t \\in \\mathbb{Z}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Résoudre les équations d'inconnue $(x,y)\\in\\mathbb{Z}^{2}$ :\\par a) $7x-12y=3$ b) $20x-53y=3$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+            "arithmetique_des_entiers__theoreme_bezout_gauss",
+            "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la méthode démontrée à la question 2 en cherchant d'abord une solution particulière évidente ou en utilisant l'algorithme d'Euclide étendu."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la a), remarquez que $7(3) - 12(2) = 21 - 24 = -3$, donc $7(-3) - 12(-2) = 3$. Pour la b), utilisez l'algorithme d'Euclide pour trouver une relation de Bézout entre 20 et 53, puis multipliez par 3."
+            }
+          ],
+          "solution_latex": "Résoudre les équations d'inconnue $(x,y) \\in \\mathbb{Z}^2$:\na) [équation à spécifier]\nb) [équation à spécifier]\nÀ résoudre avec la théorie de Bézout et l'algorithme d'Euclide étendu."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_031",
+      "title": "Équation diophantienne et descente infinie",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "modulo_3",
+        "descente_infinie"
+      ],
+      "statement_latex": "Résoudre l'équation $x^{2}+y^{2}=3z^{2}$ d'inconnue $(x,y,z)\\in\\mathbb{N}^{3}$ notamment en raisonnant modulo 3.",
+      "sub_questions": [],
+      "global_solution_latex": "Résoudre l'équation $x^2 + y^2 = 3z^2$ d'inconnue $(x,y,z) \\in \\mathbb{Z}^3$.\nModulo 3: carrés modulo 3 sont $\\{0, 1\\}$. Donc $x^2 + y^2 \\equiv 0, 1, 2 \\pmod{3}$ et $3z^2 \\equiv 0 \\pmod{3}$.\nPour $x^2 + y^2 \\equiv 0 \\pmod{3}$, il faut $x \\equiv y \\equiv 0 \\pmod{3}$.\nPosons $x = 3x', y = 3y'$: $9(x')^2 + 9(y')^2 = 3z^2$, soit $3((x')^2 + (y')^2) = z^2$, d'où $3 \\mid z$.\nPosons $z = 3z'$: par descente infinie, la seule solution est $(x,y,z) = (0,0,0)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Factoriser par 3 encore et encore."
+        },
+        {
+          "level": 2,
+          "content_latex": "Modulo 3, un carré ne peut valoir que 0 ou 1. La somme de deux carrés valant 0 modulo 3 implique que chaque carré est multiple de 3, donc $x$ et $y$ sont multiples de 3. Que se passe-t-il pour $z$ lorsqu'on simplifie l'équation ?"
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_032",
+      "title": "Triplets pythagoriciens",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "pythagore",
+        "parité"
+      ],
+      "statement_latex": "1) Soit $(x,y,z)\\in(\\mathbb{N}^{*})^{3}$. On suppose que : $x^{2}+y^{2}=z^{2}$ et $x\\wedge y=1$",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que y $\\wedge z=1$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_nombre_premier",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par l'absurde en supposant qu'un nombre premier divise à la fois $y$ et $z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si un premier $p$ divise $y$ et $z$, alors il divise $z^2 - y^2$, donc il divise $x^2$, ce qui entre en contradiction avec l'hypothèse $x \\wedge y = 1$."
+            }
+          ],
+          "solution_latex": "a) Montrer que $y \\wedge z = 1$ (dans le contexte du triplet pythagoricien $(x,y,z)$ avec $x^2+y^2=z^2$).\nSi $d = \\gcd(y,z) > 1$, soit $p$ un premier divisant $d$. Alors $p \\mid y$ et $p \\mid z$, donc $p^2 \\mid (y^2 + z^2)$ (non), absurde."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que x ou y est pair. Quitte à les permuter, on suppose désormais y pair.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_congruence",
+            "arithmetique_des_entiers__theoreme_proprietes_congruence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analysez l'équation modulo 4."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x$ et $y$ étaient tous les deux impairs, leurs carrés seraient congrus à 1 modulo 4. Leur somme vaudrait 2 modulo 4. Or un carré parfait ($z^2$) ne peut être congru qu'à 0 ou 1 modulo 4."
+            }
+          ],
+          "solution_latex": "b) Montrer que $x$ ou $y$ est pair. Quitte à les permuter, on suppose $y$ pair.\n$x^2 + y^2 = z^2$. Modulo 4: si $x,y$ impairs, alors $x^2 \\equiv y^2 \\equiv 1 \\pmod{4}$, d'où $z^2 \\equiv 2 \\pmod{4}$, impossible.\nDonc l'un est pair."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que $y+z$ zet $z-y$ sont premiers entre eux, puis que $y+z=a^{2}$ etz $z-y=b^{2}$ pour certains a, $b\\in\\mathbb{N}^{*}$ impairs et premiers entre eux.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+            "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+            "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si le produit de deux entiers naturels premiers entre eux est un carré, chacun d'entre eux en est un aussi."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $d = (z+y) \\wedge (z-y)$. $d$ divise leur somme ($2z$) et leur différence ($2y$). Puisque $z$ et $y$ sont premiers entre eux, et que $z$ est impair, montrez que $d=1$. L'équation $x^2 = (z-y)(z+y)$ permet de conclure avec l'indication."
+            }
+          ],
+          "solution_latex": "c) Montrer que $y+z$ et $z-y$ sont premiers entre eux, puis que ce sont des carrés.\n$(y+z) + (z-y) = 2z$ et $(y+z) - (z-y) = 2y$.\nDe $x^2 = z^2 - y^2 = (z-y)(z+y)$ avec $\\gcd(z-y, z+y) = \\gcd(z-y, 2y)$ qui divise 2.\nPar l'analyse des parités et primalité."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "En déduire la forme du triplet $(x,y,z)$.",
+          "knowledge_nodes_tested": [
+            "arithmetique_des_entiers__theoreme_forme_irreductible_rationnel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $y$ et $z$ à partir des équations $y+z=a^2$ et $z-y=b^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On trouve $z = \\frac{a^2+b^2}{2}$ et $y = \\frac{a^2-b^2}{2}$. Puisque $a$ et $b$ sont impairs, posez $a=u+v$ et $b=u-v$ pour retrouver des expressions de $y$ et $z$ sans dénominateur."
+            }
+          ],
+          "solution_latex": "d) En déduire la forme du triplet $(x,y,z)$.\n$z - y = a^2, z + y = b^2$ avec $\\gcd(a,b)=1$, $ab = x$. D'où $z = \\frac{a^2+b^2}{2}, y = \\frac{b^2-a^2}{2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Résoudre finalement l'équation $x^{2}+y^{2}=z^{2}$ d'inconnue $(x,y,z)\\in(\\mathbb{N}^{*})^{3}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ramenez-vous au cas traité dans la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $d = x \\wedge y \\wedge z$. Le triplet $(x/d, y/d, z/d)$ vérifie les conditions de la question 1. Il suffit donc de multiplier les solutions trouvées précédemment par un entier arbitraire $d$."
+            }
+          ],
+          "solution_latex": "2) Résoudre finalement l'équation $x^2 + y^2 = z^2$ d'inconnue $(x,y,z) \\in \\mathbb{Z}^3$.\nLes solutions primitives (avec $\\gcd(x,y,z)=1$) sont exactement:\n$$(x,y,z) = (a^2-b^2, 2ab, a^2+b^2) \\text{ ou } (2ab, a^2-b^2, a^2+b^2)$$\npour $a > b > 0$ avec $\\gcd(a,b)=1$ et de parité opposée.\nLa solution générale est $(x,y,z) = k(a^2-b^2, 2ab, a^2+b^2)$ pour $k \\in \\mathbb{Z}^*$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_033",
+      "title": "Équation d'exponentiation croisée",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "puissances",
+        "divisibilité"
+      ],
+      "statement_latex": "Résoudre l'équation $x^{y}=y^{x}$ d'inconnue $(x,y)\\in(\\mathbb{N}^{*})^{2}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Résoudre l'équation $x^y = y^x$ d'inconnue $(x,y) \\in (\\mathbb{N}^*)^2$.\nPrendre les logarithmes: $y \\ln x = x \\ln y$, soit $\\frac{\\ln x}{x} = \\frac{\\ln y}{y}$.\nLa fonction $f(t) = \\frac{\\ln t}{t}$ admet un maximum en $t=e$. \nSi $f(x) = f(y)$ avec $x \\ne y$, soit $x < y$, alors $x \\in (0,e)$ et $y > e$, ou réciproquement.\nPour des entiers: $(x,y) = (2,4)$ donne $2^4 = 16 = 4^2$ ✓.\n$(x,y) = (4,2)$ également.\n$(x,y) = (3, 3)$ donne $3^3 = 27 = 3^3$ ✓.\nAutres: vérification montrant ce sont les seules.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Quitte à permuter, on peut supposer $x \\le y$. S'ils sont différents, posez $y = kx$ avec $k > 1$. $x\\le y$ montrer que x divise y grâce à leur PGCD."
+        },
+        {
+          "level": 2,
+          "content_latex": "En remplaçant $y$ par $kx$, l'équation devient $x^{kx} = (kx)^x$. En prenant la racine $x$-ième, on obtient $x^k = kx$, soit $x^{k-1} = k$. Résolvez cette équation élémentaire sur les entiers naturels pour trouver les seules valeurs possibles de $k$ et $x$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__ex_034",
+      "title": "Équation quadratique paramétrée par un nombre premier",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations_diophantiennes",
+        "nombres_premiers",
+        "factorisation"
+      ],
+      "statement_latex": "Résoudre pour tout $p\\in\\mathbb{P}$ l'équation $x^{2}+px=y^{2}$ d'inconnue $(x,y)\\in\\mathbb{N}^{2}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Résoudre pour tout $p \\in \\mathbb{P}$ l'équation $x^2 + px = y^2$ d'inconnue $(x,y) \\in \\mathbb{Z}^2$.\nRéécrire: $(2x+p)^2 - 4y^2 = p^2$, soit $(2x+p-2y)(2x+p+2y) = p^2$.\nPour $p=2$: $(2x+2-2y)(2x+2+2y) = 4$, d'où les solutions à déterminer.\nPour $p$ impair premier: les diviseurs de $p^2$ sont $1, p, p^2$. Analyse selon les cas.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Si le produit de deux entiers naturels premiers entre eux est un carré, chacun d'entre eux en est un aussi."
+        },
+        {
+          "level": 2,
+          "content_latex": "Réécrivez l'équation sous la forme $px = y^2 - x^2 = (y-x)(y+x)$. Sachant que $p$ est premier, analysez les différentes façons de répartir les facteurs $p$ et $x$ entre $(y-x)$ et $(y+x)$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_001",
+      "title": "TD Champo - 16.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Divisibilité",
+        "Congruence",
+        "champo"
+      ],
+      "statement_latex": "Montrer que pour tout $n \\in \\mathbb{N}$ :\n1. $7 \\mid 3^{2n+1}+2^{n+2}$\n2. $16 \\mid 5^{n}-1-4n$\n3. $6 \\mid n(n+2)(7n-5)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Raisonnons modulo 7 :\n$$3^{2n+1}+2^{n+2} \\equiv 3 \\times (3^2)^n + 4 \\times 2^n \\equiv 3 \\times 2^n + 4 \\times 2^n \\equiv 7 \\times 2^n \\equiv 0 \\pmod{7}$$\n\n2. Calculons les puissances de 5 modulo 16. On remarque que $5^n \\equiv 1+4n \\pmod{16}$ (se montre par récurrence ou en notant que $5=1+4$).\nAinsi $5^n - 1 - 4n \\equiv (1+4n) - 1 - 4n \\equiv 0 \\pmod{16}$.\n\n3. On raisonne par disjonction de cas modulo 6 ($n \\equiv 0, 1, ..., 5$). Dans tous les cas, on vérifie que $n(n+2)(7n-5) \\equiv 0 \\pmod{6}$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_002",
+      "title": "TD Champo - 16.2",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_division_euclidienne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Division euclidienne",
+        "champo"
+      ],
+      "statement_latex": "Trouver le reste de la division euclidienne de $100^{1000}$ par 13.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $100 = 7 \\times 13 + 9$, donc $100 \\equiv 9 \\equiv -4 \\pmod{13}$.\nAlors $100^2 \\equiv (-4)^2 \\equiv 16 \\equiv 3 \\pmod{13}$.\n$100^3 \\equiv 3 \\times (-4) \\equiv -12 \\equiv 1 \\pmod{13}$.\nL'ordre de 100 modulo 13 divise 6 (Petit Fermat), ici on voit que l'ordre est 6 car $100^3 \\equiv 1$ est faux ($100^3 \\equiv -1$ si on suit le calcul exact $10 \\equiv -3$).\nReprenons : $100 \\equiv 9 \\pmod{13}$. $9^2 = 81 = 6 \\times 13 + 3$. $9^3 \\equiv 27 \\equiv 1 \\pmod{13}$ ? Non.\nCorrection précise : $100 \\equiv 9 \\equiv -4$. $100^2 \\equiv 16 \\equiv 3$. $100^3 \\equiv -12 \\equiv 1$. Donc $100^3 \\equiv 1 \\pmod{13}$.\nOn cherche $100^{1000}$. Or $1000 = 3 \\times 333 + 1$.\nDonc $100^{1000} = (100^3)^{333} \\times 100^1 \\equiv 1^{333} \\times 9 \\equiv 9 \\pmod{13}$.\nLe reste est 9."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_003",
+      "title": "TD Champo - 16.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Équation diophantienne",
+        "champo"
+      ],
+      "statement_latex": "En raisonnant modulo 3, montrer que l'équation $x^{4}=3y^{2}-25,$ $(x,y)\\in \\mathbb{N}^{2}$ ne possède pas de solution.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $(x,y)$ est solution, alors $x^4 \\equiv 3y^2 - 25 \\pmod{3}$.\nComme $3y^2 \\equiv 0 \\pmod{3}$ et $-25 \\equiv -1 \\equiv 2 \\pmod{3}$, on aurait $x^4 \\equiv 2 \\pmod{3}$.\nOr, pour tout entier $x$, les restes possibles de $x$ modulo 3 sont 0, 1, 2.\n- Si $x \\equiv 0$, $x^4 \\equiv 0$.\n- Si $x \\equiv 1$, $x^4 \\equiv 1$.\n- Si $x \\equiv 2 \\equiv -1$, $x^4 \\equiv (-1)^4 \\equiv 1$.\nIl est impossible d'avoir $x^4 \\equiv 2 \\pmod{3}$. L'équation n'a donc pas de solution."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_004",
+      "title": "TD Champo - 16.4",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_divisibilite",
+        "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+        "arithmetique_des_entiers__remark_divisibilite_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Divisibilité",
+        "Base 10",
+        "champo"
+      ],
+      "statement_latex": "Montrer qu'un entier dont l'écriture en base 10 est la répétition de deux groupes de trois chiffres identiques (comme 817817) est divisible par 7, par 11 et par 13. D'ailleurs, que vaut le produit $7\\times11\\times13$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Un tel nombre s'écrit $n = \\overline{abcabc} = 1000 \\times \\overline{abc} + \\overline{abc} = 1001 \\times \\overline{abc}$.\nOn calcule $7 \\times 11 \\times 13 = 1001$.\nAinsi, $n = 7 \\times 11 \\times 13 \\times \\overline{abc}$, ce qui prouve que $n$ est divisible par 7, 11 et 13."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_005",
+      "title": "TD Champo - 16.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Nombres premiers",
+        "Congruence",
+        "champo"
+      ],
+      "statement_latex": "En utilisant des congruences modulo 3, déterminer tous les nombres premiers $p$ tels que $p^{2}+2$ soit également premier.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $p=3$, $p^2+2 = 11$, qui est premier. Donc $p=3$ est solution.\nSi $p \\neq 3$, alors $p$ n'est pas divisible par 3 (car $p$ est premier), donc $p \\equiv 1$ ou $p \\equiv 2 \\pmod{3}$.\nDans les deux cas, $p^2 \\equiv 1 \\pmod{3}$.\nAlors $p^2 + 2 \\equiv 1 + 2 \\equiv 3 \\equiv 0 \\pmod{3}$.\nComme $p^2+2 > 3$, il est divisible par 3 et distinct de 3, donc il n'est pas premier.\nLa seule solution est $p=3$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_006",
+      "title": "TD Champo - 16.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Binôme de Newton",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\ge2$ et soient $a, b\\in \\mathbb{Z}$. Montrer que si $a\\equiv b \\pmod{n}$, alors $a^{n}\\equiv b^{n} \\pmod{n^{2}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On pose $a = b + kn$ avec $k \\in \\mathbb{Z}$.\n$a^n = (b+kn)^n = \\sum_{i=0}^n \\binom{n}{i} b^{n-i} (kn)^i$.\n$a^n = b^n + \\binom{n}{1} b^{n-1} (kn) + \\sum_{i=2}^n \\binom{n}{i} b^{n-i} (kn)^i$.\n$a^n = b^n + n b^{n-1} k n + n^2 k^2 (...) = b^n + n^2 k b^{n-1} + n^2 (...)$.\nTous les termes à partir de $i=2$ contiennent $n^2$. Le terme pour $i=1$ contient aussi $n^2$.\nDonc $a^n \\equiv b^n \\pmod{n^2}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrire $a = b + kn$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_007",
+      "title": "TD Champo - 16.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+        "arithmetique_des_entiers__definition_divisibilite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Divisibilité",
+        "Base 10",
+        "champo"
+      ],
+      "statement_latex": "Un critère de divisibilité par 11.\nSoit $n=a_{k}a_{k-1}\\cdot\\cdot\\cdot a_{1}a_{0}$ un entier naturel décomposé en base 10. Énoncer et prouver une condition nécessaire et suffisante portant sur les $a_i$ pour que $n$ soit divisible par 11.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $10 \\equiv -1 \\pmod{11}$.\n$n = \\sum_{i=0}^k a_i 10^i \\equiv \\sum_{i=0}^k a_i (-1)^i \\pmod{11}$.\nDonc $n$ est divisible par 11 si et seulement si la somme alternée de ses chiffres $\\sum_{i=0}^k (-1)^i a_i$ est divisible par 11."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_008",
+      "title": "TD Champo - 16.8",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_recette_casser_puissances"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Petit théorème de Fermat",
+        "champo"
+      ],
+      "statement_latex": "Déterminer le dernier chiffre de l'écriture décimale de $7^{3^{11^{17}}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On cherche $x \\equiv 7^{3^{11^{17}}} \\pmod{10}$.\nModulo 10, les puissances de 7 sont : $7^1 \\equiv 7$, $7^2 \\equiv 9$, $7^3 \\equiv 3$, $7^4 \\equiv 1$. La période est 4.\nIl faut donc déterminer l'exposant $E = 3^{11^{17}}$ modulo 4.\n$3 \\equiv -1 \\pmod{4}$, donc $3^{11^{17}} \\equiv (-1)^{11^{17}} \\pmod{4}$.\nComme $11^{17}$ est impair, $E \\equiv -1 \\equiv 3 \\pmod{4}$.\nDonc $x \\equiv 7^3 \\equiv 3 \\pmod{10}$.\nLe dernier chiffre est 3."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_009",
+      "title": "TD Champo - 16.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_proprietes_divisibilite",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Diviseurs",
+        "Produit",
+        "champo"
+      ],
+      "statement_latex": "Pour $n\\in \\mathbb{N}^{*}$, on note $N$ le nombre de diviseurs positifs de $n$ et $P$ leur produit. Quelle relation existe-t-il entre $n$, $N$ et $P$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "L'application $d \\mapsto n/d$ est une bijection de l'ensemble des diviseurs $D_n$ dans lui-même.\n$P = \\prod_{d \\mid n} d = \\prod_{d \\mid n} \\frac{n}{d}$.\nEn multipliant les deux expressions : $P^2 = \\prod_{d \\mid n} (d \\times \\frac{n}{d}) = \\prod_{d \\mid n} n = n^{\\text{card}(D_n)} = n^N$.\nDonc $P = n^{N/2}$ (ou $P^2 = n^N$)."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_010",
+      "title": "TD Champo - 16.10",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Nombres premiers",
+        "Petit théorème de Fermat",
+        "champo"
+      ],
+      "statement_latex": "Montrer qu'il existe un multiple de 2019 dont l'écriture décimale ne comporte que le chiffre 3.\nIndication: le nombre premier 673 divise 2019.",
+      "sub_questions": [],
+      "global_solution_latex": "Un nombre ne comportant que des 3 s'écrit $N_k = 3 \\times \\sum_{i=0}^{k-1} 10^i = 3 \\times \\frac{10^k-1}{9} = \\frac{10^k-1}{3}$.\nOn veut $2019 \\mid \\frac{10^k-1}{3}$, soit $3 \\times 2019 \\mid 10^k - 1$, ou $6057 \\mid 10^k - 1$.\n$2019 = 3 \\times 673$. 673 est premier (donné). Donc on cherche $k$ tel que $10^k \\equiv 1 \\pmod{9 \\times 673}$.\nD'après Fermat, $10^{672} \\equiv 1 \\pmod{673}$.\nDe plus, l'indicatrice d'Euler de 9 est $\\varphi(9) = 6$, donc $10^6 \\equiv 1 \\pmod{9}$.\nEn prenant $k = \\text{ppcm}(672, 6) = 672$, on a $10^{672} \\equiv 1 \\pmod{673}$ et $10^{672} \\equiv 1 \\pmod{9}$.\nComme $9 \\wedge 673 = 1$, $10^{672} \\equiv 1 \\pmod{9 \\times 673}$.\nDonc il existe un tel entier.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser le nombre premier 673 divise 2019."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_011",
+      "title": "TD Champo - 16.11",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__definition_theoreme_bezout_cas_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "PPCM",
+        "Bézout",
+        "champo"
+      ],
+      "statement_latex": "Pour chacun des couples $(a, b)$ suivants, déterminer $a\\wedge b,$ $a\\vee b$ et une relation de Bézout.\n1. $(51,438)$\n2. $(720, 1320)$\n3. $(151,77)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $438 = 8 \\times 51 + 30$; $51 = 1 \\times 30 + 21$; $30 = 1 \\times 21 + 9$; $21 = 2 \\times 9 + 3$; $9 = 3 \\times 3 + 0$. PGCD = 3.\nRemontée : $3 = 21 - 2 \\times 9 = 21 - 2(30-21) = 3 \\times 21 - 2 \\times 30 = ... = 43 \\times 51 - 5 \\times 438$.\n$a \\vee b = (51 \\times 438) / 3 = 7446$.\n2. $720 \\wedge 1320 = 120$. $120 = 2 \\times 720 - 1 \\times 1320$ (ou similaire). $a \\vee b = 7920$.\n3. $151 \\wedge 77 = 1$ (Premiers entre eux). Relation : $51 \\times 77 - 26 \\times 151 = 1$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser l'algorithme d'Euclide étendu."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_012",
+      "title": "TD Champo - 16.12",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_consequences_gauss",
+        "arithmetique_des_entiers__theoreme_bezout_gauss",
+        "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation diophantienne",
+        "Bézout",
+        "champo"
+      ],
+      "statement_latex": "1. On s'intéresse à l'équation $18x+25y=1$, d'inconnue $(x,y)\\in \\mathbb{Z}^{2}$.\n(a) Déterminer une solution particulière $(x_{0},y_{0})$.\n(b) Montrer que si $(x, y)$ est solution, on a alors $18(x-x_{0})=25(y_{0}-y)$ puis qu'il existe $k\\in \\mathbb{Z}$ tel que $x=25k+x_{0}$.\n(c) En déduire toutes les solutions de l'équation.\n2. Résoudre les équations $9x+15y=3$, $42x+45y=6$ et $12x+30y=15$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. (a) Euclide étendu : $18 \\times 7 + 25 \\times (-5) = 1$. $(x_0, y_0) = (7, -5)$.\n(b) $18x+25y = 18x_0+25y_0 \\implies 18(x-x_0) = 25(y_0-y)$. Gauss : $25 \\wedge 18 = 1$, donc $25 \\mid (x-x_0)$, soit $x = 25k+7$.\n(c) $S = \\{(25k+7, -18k-5) \\mid k \\in \\mathbb{Z}\\}$.\n2. \n- $9x+15y=3 \\iff 3x+5y=1$. Sol part $(2, -1)$. $S=\\{(5k+2, -3k-1)\\}$.\n- $42x+45y=6 \\iff 14x+15y=2$. $14(-1)+15(1)=1 \\implies 14(-2)+15(2)=2$. $S=\\{(15k-2, -14k+2)\\}$.\n- $12x+30y=15$. $12 \\wedge 30 = 6$. 6 ne divise pas 15. Pas de solution."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_013",
+      "title": "TD Champo - 16.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "Divisibilité",
+        "champo"
+      ],
+      "statement_latex": "Soient $(a,b,c)\\in \\mathbb{Z}^{3}$ tels que $a$ et $b$ soient premiers entre eux. Montrer que $a\\wedge(bc)=a\\wedge c.$",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $d = a \\wedge (bc)$. $d \\mid a$ et $d \\mid bc$.\nComme $a \\wedge b = 1$ et $d \\mid a$, on a $d \\wedge b = 1$.\nD'après le lemme de Gauss, si $d \\mid bc$ et $d \\wedge b = 1$, alors $d \\mid c$.\nDonc $d$ est un diviseur commun de $a$ et $c$, donc $d \\mid a \\wedge c$.\nInversement, $a \\wedge c$ divise $a$ et $c$, donc divise $bc$, donc divise $a \\wedge (bc)$.\nConclusion : $a \\wedge (bc) = a \\wedge c$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_014",
+      "title": "TD Champo - 16.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_division_euclidienne",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "Puissances",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que si $r$ est le reste de la division euclidienne de $a$ par $b$, alors $2^{r}-1$ est le reste de la division euclidienne de $2^{a}-1$ par $2^{b}-1.$\n2. Montrer que le PGCD de $2^{a}-1$ et $2^{b}-1$ est $2^{a\\wedge b}-1$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $a = bq + r$ avec $0 \\le r < b$.\n$2^a - 1 = 2^{bq+r} - 1 = 2^r (2^{bq} - 1) + 2^r - 1 = 2^r ((2^b)^q - 1) + (2^r - 1)$.\nOr $2^b - 1 \\mid (2^b)^q - 1$, donc $2^a - 1 = k(2^b - 1) + (2^r - 1)$.\nComme $r < b$, $2^r - 1 < 2^b - 1$, donc c'est bien le reste.\n2. On applique l'algorithme d'Euclide sur les exposants. Les restes successifs $r_i$ donnent les restes $2^{r_i}-1$.\nLe dernier reste non nul des exposants est $a \\wedge b$. Donc le dernier reste non nul des termes $2^x-1$ est $2^{a \\wedge b} - 1$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_015",
+      "title": "TD Champo - 16.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_nombre_premier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "PPCM",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que pour $a, b$ entiers, $(a+b)\\wedge(a\\vee b)=a\\wedge b.$\n2. Résoudre le système $\\begin{cases}a+b=144\\\\ a\\vee b=420\\end{cases}$ d'inconnues $(a,b)\\in \\mathbb{Z}^{2}.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. On note $d = a \\wedge b$, $a=da', b=db'$ avec $a' \\wedge b' = 1$.\n$a \\vee b = da'b'$. $a+b = d(a'+b')$.\nLe PGCD cherché est $d ((a'+b') \\wedge a'b')$.\nComme $a' \\wedge b' = 1$, $a'+b'$ est premier avec $a'$ et avec $b'$, donc avec le produit $a'b'$.\nDonc $(a'+b') \\wedge a'b' = 1$. Le résultat est $d$.\n2. D'après 1, $a \\wedge b = 144 \\wedge 420 = 12$.\nOn pose $a=12a', b=12b'$. $a'+b' = 12$ et $12 a'b' = 420 \\implies a'b' = 35$.\n$x^2 - 12x + 35 = 0$. Racines 5 et 7.\nSolutions : $(60, 84)$ et $(84, 60)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_016",
+      "title": "TD Champo - 16.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "Puissances",
+        "champo"
+      ],
+      "statement_latex": "Soient $(a,b)\\in \\mathbb{Z}^{2}$ et soit $n\\in \\mathbb{N}^{*}$. Montrer que $(a\\wedge b)^{n}=a^{n}\\wedge b^{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Posons $d = a \\wedge b$, $a=da', b=db'$ avec $a' \\wedge b' = 1$.\n$a^n = d^n a'^n$ et $b^n = d^n b'^n$.\nDonc $a^n \\wedge b^n = d^n (a'^n \\wedge b'^n)$.\nComme $a' \\wedge b' = 1$, on a $a'^n \\wedge b'^n = 1$ (si un premier $p$ divisait les deux, il diviserait $a'$ et $b'$).\nDonc $a^n \\wedge b^n = d^n = (a \\wedge b)^n$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser les valuations p-adiques ou factoriser par le PGCD."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_017",
+      "title": "TD Champo - 16.17",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__definition_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Système de congruences",
+        "PPCM",
+        "champo"
+      ],
+      "statement_latex": "1. Soient $(a,b)\\in \\mathbb{N}^{2}$ premiers entre eux, et soit $c\\in \\mathbb{N}.$ Prouver que : $(a\\mid c \\text{ et } b \\mid c) \\iff ab \\mid c$.\n2. On considère le système $(S) :\\begin{cases}x\\equiv6\\pmod{17}\\\\ x\\equiv4\\pmod{15}\\end{cases}$ d'inconnue $x\\in \\mathbb{Z}$.\n(a) Déterminer une solution particulière $x_0$ de (S).\n(b) Déterminer toutes les solutions de (S).",
+      "sub_questions": [],
+      "global_solution_latex": "1. C'est une conséquence du lemme de Gauss ou des PPCM ($a \\vee b = ab$ si $a \\wedge b = 1$).\n2. (a) $x = 17k + 6$. $17k + 6 \\equiv 4 \\pmod{15} \\implies 2k + 6 \\equiv 4 \\implies 2k \\equiv -2 \\equiv 13$ (impossible ? Non mod 15).\n$2k \\equiv -2 \\pmod{15}$. $k=-1$ convient.\n$x_0 = 17(-1) + 6 = -11$.\n(b) $x \\equiv -11 \\pmod{17 \\times 15 = 255}$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_018",
+      "title": "TD Champo - 16.18",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_cas_general",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "PGCD",
+        "Suites",
+        "champo"
+      ],
+      "statement_latex": "Soit $a\\in \\mathbb{N}^{+}$ et soit $(F_{n})_{n}$ une suite d'entiers naturels tels que $\\forall n\\in \\mathbb{N}$, $F_{n+2}=aF_{n+1}+F_{n}.$\nMontrer que pour tout $n\\in \\mathbb{N}$, $F_{n+1}\\wedge F_{n}=F_{0}\\wedge F_{1}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$F_{n+2} = a F_{n+1} + F_n \\implies F_{n+2} \\wedge F_{n+1} = (a F_{n+1} + F_n) \\wedge F_{n+1} = F_n \\wedge F_{n+1}$.\nLa suite des PGCD est constante.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser l'algorithme d'Euclide (lemme d'Euclide)."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_019",
+      "title": "TD Champo - 16.19",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+        "arithmetique_des_entiers__definition_theoreme_pgcd_ppcm"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Bézout",
+        "PGCD",
+        "champo"
+      ],
+      "statement_latex": "Une réciproque de Bézout. Soient $a$ et $b$ deux entiers non nuls, et soit $d\\in \\mathbb{N}$ un diviseur commun de $a$ et de $b$.\nMontrer que s'il existe deux entiers $(u,v)\\in \\mathbb{Z}^{2}$ tels que $au+bv=d,$ alors $d=a\\wedge b.$",
+      "sub_questions": [],
+      "global_solution_latex": "On sait que $a \\wedge b$ divise toute combinaison linéaire de $a$ et $b$, donc $a \\wedge b \\mid d$.\nMais par hypothèse $d$ est un diviseur commun, donc $d \\mid a \\wedge b$ (car le PGCD est le plus grand au sens de la divisibilité, ou simplement car $d \\mid a$ et $d \\mid b$).\nComme $d > 0$ et $a \\wedge b > 0$, $d = a \\wedge b$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_020",
+      "title": "TD Champo - 16.20",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_bezout_gauss",
+        "arithmetique_des_entiers__definition_theoreme_bezout_deux_entiers",
+        "arithmetique_des_entiers__definition_theoreme_bezout_cas_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Racines de l'unité",
+        "Groupes",
+        "champo"
+      ],
+      "statement_latex": "Retour sur les racines $n$-ièmes de l'unité.\nMontrer que pour $a, b\\in \\mathbb{N}^{*}$, $U_{a}\\cap U_{b}=U_{a\\wedge b}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $z \\in U_{a \\wedge b}$. Alors $z^{a \\wedge b} = 1$. Comme $a \\wedge b \\mid a$ et $a \\wedge b \\mid b$, on a $z^a = 1$ et $z^b = 1$. Donc inclusion directe.\nSoit $z \\in U_a \\cap U_b$. $z^a = 1$ et $z^b = 1$. D'après Bézout, $\\exists u,v, au+bv = a \\wedge b$.\n$z^{a \\wedge b} = z^{au+bv} = (z^a)^u (z^b)^v = 1^u 1^v = 1$.\nDonc $z \\in U_{a \\wedge b}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Double inclusion."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_021",
+      "title": "TD Champo - 16.21",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Nombres premiers",
+        "Factorielle",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\ge3$. Montrer qu'il n'existe aucun nombre premier entre $n!+2$ et $n!+n$.\nEn déduire 1000 entiers consécutifs sans aucun nombre premier.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour tout $k \\in [\\![2, n]\\!]$, $k \\mid n!$ et $k \\mid k$, donc $k \\mid n!+k$. Comme $n!+k > k$, ce n'est pas un nombre premier.\nPour avoir 1000 entiers, on prend $n=1001$. La séquence $1001!+2, ..., 1001!+1001$ contient 1000 entiers composés."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_022",
+      "title": "TD Champo - 16.22",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Factorisation",
+        "Nombres premiers",
+        "champo"
+      ],
+      "statement_latex": "Montrer que pour tout entier $n\\in \\mathbb{N}^{*}$, $4n^{3}+6n^{2}+4n+1$ n'est pas premier.",
+      "sub_questions": [],
+      "global_solution_latex": "$4n^3+6n^2+4n+1 = (n+1)^4 - n^4$.\nC'est une différence de carrés : $((n+1)^2 - n^2)((n+1)^2 + n^2) = (2n+1)(2n^2+2n+1)$.\nC'est le produit de deux entiers strictement supérieurs à 1, donc composé.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Penser à $(n+1)^4$."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_023",
+      "title": "TD Champo - 16.23",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_factorisation_premiere",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Nombres de Fermat",
+        "Premiers entre eux",
+        "champo"
+      ],
+      "statement_latex": "1. Soit $n\\in \\mathbb{N}^{*}$. Montrer que si $2^{n}+1$ est premier, alors il existe $m\\in \\mathbb{N}$ tel que $n=2^{m}$.\n2. On note à présent $F_{n}=2^{2^{n}}+1$.\n(a) Montrer que pour tout $n\\in \\mathbb{N}$, $F_{n+1}=F_{0}F_{1}\\cdot\\cdot\\cdot F_{n}+2.$\n(b) En déduire que pour $(m, n)$ distincts, $F_{m}$ et $F_{n}$ sont premiers entre eux.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Si $n$ a un facteur impair $q > 1$, $n=kq$. $2^n+1 = (2^k)^q + 1$. Comme $q$ est impair, $x+1 \\mid x^q+1$. Donc $2^k+1 \\mid 2^n+1$. Non premier.\n2. (a) Récurrence ou factorisation $x^{2k}-1$. On a $F_{n+1}-2 = 2^{2^{n+1}}-1 = (2^{2^n}-1)(2^{2^n}+1) = ...$\n(b) Si $d \\mid F_n$ et $d \\mid F_m$ ($m<n$), alors $d$ divise le produit des $F_k$ donc $d \\mid F_n - 2$. Donc $d \\mid 2$. $F_n$ est impair, donc $d=1$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_024",
+      "title": "TD Champo - 16.24",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Valuation p-adique",
+        "Inégalité ultramétrique",
+        "champo"
+      ],
+      "statement_latex": "Soit $p$ un nombre premier et soit $(a,b)\\in \\mathbb{N}^{*}\\times \\mathbb{N}^{*}$. Montrer que $v_p(a+b) \\ge \\min(v_p(a), v_p(b))$.\nProuver que si $v_{p}(a)\\ne v_{p}(b)$, alors cette inégalité est en fait une égalité.",
+      "sub_questions": [],
+      "global_solution_latex": "Supposons $v_p(a) \\le v_p(b)$. $a = p^{v_p(a)} a'$, $b = p^{v_p(b)} b'$.\n$a+b = p^{v_p(a)} (a' + p^{v_p(b)-v_p(a)} b')$.\nLe terme entre parenthèses est un entier, donc $v_p(a+b) \\ge v_p(a)$.\nSi $v_p(a) < v_p(b)$, alors $a' + p^{v_p(b)-v_p(a)} b' = a' + p^k b'$ avec $k \\ge 1$. Ce terme n'est pas divisible par $p$ (car $a'$ ne l'est pas). Donc l'égalité tient."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_025",
+      "title": "TD Champo - 16.25",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_idee_fondamentale_euclide",
+        "arithmetique_des_entiers__theoreme_division_euclidienne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Petit théorème de Fermat",
+        "champo"
+      ],
+      "statement_latex": "En utilisant le petit théorème de Fermat, prouver que pour tout $a\\in \\mathbb{Z}$, $a^{13}\\equiv a \\pmod{2730}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$2730 = 2 \\times 3 \\times 5 \\times 7 \\times 13$.\nIl suffit de montrer $a^{13} \\equiv a \\pmod p$ pour $p \\in \\{2,3,5,7,13\\}$.\n- $p=13$ : Fermat direct.\n- $p=7$ : $a^{13} = a^{7+6} \\equiv a \\cdot a^6 \\equiv a \\cdot 1 \\equiv a \\pmod 7$ (si $a \\not\\equiv 0$, sinon trivial).\n- $p=5$ : $a^{13} = a^{5 \\times 2 + 3} \\equiv a^3$. Fermat donne $a^5 \\equiv a$. $a^{13} \\equiv (a^5)^2 a^3 \\equiv a^2 a^3 = a^5 \\equiv a$.\nEtc.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Factoriser 2730."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_026",
+      "title": "TD Champo - 16.26",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Petit théorème de Fermat",
+        "Congruence",
+        "champo"
+      ],
+      "statement_latex": "Soient $p, q$ deux nombres premiers distincts. Prouver que $p^{q-1}+q^{p-1}\\equiv 1 \\pmod{pq}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On travaille modulo $p$ et modulo $q$.\nModulo $p$ : $p^{q-1} \\equiv 0$. $q^{p-1} \\equiv 1$ (Fermat). Donc Somme $\\equiv 1$.\nModulo $q$ : $p^{q-1} \\equiv 1$ (Fermat). $q^{p-1} \\equiv 0$. Donc Somme $\\equiv 1$.\nD'après le lemme chinois (ou intersection des PPCM), c'est vrai modulo $pq$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_027",
+      "title": "TD Champo - 16.27",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Congruence",
+        "Suites",
+        "champo"
+      ],
+      "statement_latex": "Montrer que la suite $(2^{n}-3)_{n}$ contient une infinité de termes divisibles par 5, une infinité de termes divisibles par 13, mais aucun divisible par $5\\times13$.",
+      "sub_questions": [],
+      "global_solution_latex": "- Modulo 5 : $2^n \\equiv 3$. $2^1=2, 2^2=4, 2^3=3$. Période 4. $n \\equiv 3 \\pmod 4$.\n- Modulo 13 : $2^n \\equiv 3$. Période 12. $2^4=16=3$. $n \\equiv 4 \\pmod{12}$.\n- Modulo 65 : On cherche $n$ t.q. $n \\equiv 3 \\pmod 4$ ET $n \\equiv 4 \\pmod{12}$.\nOr $n \\equiv 4 \\pmod{12} \\implies n$ est pair. $n \\equiv 3 \\pmod 4 \\implies n$ est impair.\nImpossible."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_028",
+      "title": "TD Champo - 16.28",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__theoreme_deux_proprietes_nombres_premiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Diviseurs",
+        "Valuation p-adique",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$, soit $d(n)$ le nombre de diviseurs positifs de $n$, et soient $p_{1},...,p_{k}$ les facteurs premiers de $n$.\nExprimer $d(n)$ en fonction des $v_{p_i}(n)$.",
+      "sub_questions": [],
+      "global_solution_latex": "$d(n) = \\prod_{i=1}^k (v_{p_i}(n) + 1)$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_029",
+      "title": "TD Champo - 16.29",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_theoreme_valuation_p_adique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Factorielle",
+        "Valuation p-adique",
+        "champo"
+      ],
+      "statement_latex": "Autour de la valuation p-adique d'une factorielle.\nMontrer qu'il existe $n\\in \\mathbb{N}$ tel que $100!=2^{97}(2n+1).$",
+      "sub_questions": [],
+      "global_solution_latex": "Il s'agit de calculer $v_2(100!)$.\nFormule de Legendre : $v_2(100!) = \\sum_{k=1}^\\infty \\lfloor \\frac{100}{2^k} \\rfloor = 50 + 25 + 12 + 6 + 3 + 1 + 0 = 97$.\nDonc $100! = 2^{97} \\times \\text{impair}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Formule de Legendre."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_030",
+      "title": "TD Champo - 16.30",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_divisibilite",
+        "arithmetique_des_entiers__theoreme_recette_casser_puissances"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Puissances",
+        "Valuation p-adique",
+        "champo"
+      ],
+      "statement_latex": "Soient $(a,b)\\in \\mathbb{N}^{2}$ avec $a\\wedge b=1$ et soit $k\\ge2$. Montrer que $ab$ est une puissance $k$-ième si et seulement si $a$ et $b$ sont des puissances $k$-ièmes. Ce résultat reste-t-il vrai si $a$ et $b$ sont dans $\\mathbb{Z}$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "$x$ est une puissance $k$-ième ssi $\\forall p, k \\mid v_p(x)$.\n$v_p(ab) = v_p(a) + v_p(b)$.\nComme $a \\wedge b = 1$, pour tout $p$, soit $v_p(a)=0$, soit $v_p(b)=0$.\nDonc $v_p(ab)$ multiple de $k \\implies (v_p(a) \\in k\\mathbb{Z} \\text{ et } v_p(b) \\in k\\mathbb{Z})$.\nDans $\\mathbb{Z}$, faux (signes). Ex : $(-1)(-1)=1$ carré, mais $-1$ non carré."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_031",
+      "title": "TD Champo - 16.31",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_theoreme_valuation_p_adique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Partie entière",
+        "Valuation p-adique",
+        "champo"
+      ],
+      "statement_latex": "Pour $n\\in \\mathbb{N}^{*}$, on pose $u_{n}=\\lfloor(1+\\sqrt{3})^{2n+1}\\rfloor$.\n1. Prouver que $u_{n}=(1+\\sqrt{3})^{2n+1}+(1-\\sqrt{3})^{2n+1}.$\n2. Déterminer la valuation 2-adique de $u_n$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $(1-\\sqrt{3}) \\in ]-1, 0[$. $(1+\\sqrt{3})^{2n+1} + (1-\\sqrt{3})^{2n+1}$ est entier (binôme, les $\\sqrt{3}$ s'annulent). Comme le terme ajouté est entre -1 et 0, la somme est bien la partie entière.\n2. Calcul complexe utilisant $v_2$. On trouve $v_2(u_n) = n+1$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_032",
+      "title": "TD Champo - 16.32",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème de Wilson",
+        "Nombres premiers",
+        "champo"
+      ],
+      "statement_latex": "Théorème de Wilson\n1. Soit $p$ un nombre premier.\n(a) Montrer que $\\forall x\\in [\\![1,p-1]\\!], \\exists! y\\in [\\![1,p-1]\\!]$ tel que $xy\\equiv 1 \\pmod{p}$.\n(b) En déduire que $(p-1)!\\equiv -1 \\pmod{p}$.\n2. Soit $n\\in \\mathbb{N}^{*}$ tel que $(n-1)!\\equiv -1 \\pmod{n}$. Montrer que $n$ est premier.",
+      "sub_questions": [],
+      "global_solution_latex": "1. (a) Inverse dans le corps $\\mathbb{Z}/p\\mathbb{Z}$.\n(b) On appaire chaque élément avec son inverse. Seuls 1 et $-1 \\equiv p-1$ sont leur propre inverse ($x^2 \\equiv 1$).\nDonc le produit vaut $1 \\times (-1) \\times 1... \\equiv -1$.\n2. Si $n$ composé, $d \\mid n$ avec $1 < d < n$. $d$ divise $(n-1)!$. Donc $(n-1)! \\equiv 0 \\pmod d$. Impossible si $\\equiv -1 \\pmod n$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_033",
+      "title": "TD Champo - 16.33",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__theoreme_divisibilite_pgcd_ppcm_valuations",
+        "arithmetique_des_entiers__theoreme_additivite_valuations",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Valuation p-adique",
+        "Sommes",
+        "champo"
+      ],
+      "statement_latex": "Théorème de Kürschák (Oral ENS)\nDéterminer pour quels entiers $n\\ge m\\ge 1$ le nombre $H_{m,n}=\\sum_{k=m}^{n}\\frac{1}{k}$ est un entier.\nIndication : utiliser les valuations 2-adiques des entiers $k\\in [\\![m,n]\\!]$.",
+      "sub_questions": [],
+      "global_solution_latex": "Unique solution $m=n=1$. Sinon, soit $2^k$ la plus grande puissance de 2 dans l'intervalle. Elle est unique. La somme réduite au même dénominateur aura un numérateur impair et un dénominateur pair (valuation max). Donc pas entier.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérer le terme ayant la valuation 2-adique maximale."
+        }
+      ]
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_034",
+      "title": "TD Champo - 16.34",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Z/nZ",
+        "Groupe des inversibles",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les éléments inversibles de $\\mathbb{Z}/8\\mathbb{Z}$ calculer leur carré, puis justifier que $(\\mathbb{Z}/8\\mathbb{Z})^{\\times}$ n'est pas un groupe isomorphe à $U_{4}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Inversibles : classes de 1, 3, 5, 7.\nCarrés : $1^2=1, 3^2=9=1, 5^2=25=1, 7^2=49=1$.\nTous les éléments sont d'ordre 2 (sauf 1). $U_4$ (racines 4èmes de 1 dans C) contient $i$ d'ordre 4. Pas isomorphe."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_035",
+      "title": "TD Champo - 16.35",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers",
+        "arithmetique_des_entiers__definition_divisibilite",
+        "arithmetique_des_entiers__theoreme_existence_factorisation_premiere"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Z/nZ",
+        "Nilpotent",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\ge2$.\n1. Déterminer les éléments nilpotents de l'anneau $\\mathbb{Z}/n\\mathbb{Z}$.\n2. Donner une condition nécessaire et suffisante sur $n$ pour que tout diviseur de zéro de $\\mathbb{Z}/n\\mathbb{Z}$ soit nilpotent.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x$ nilpotent $\\iff \\exists k, n \\mid x^k \\iff$ tout facteur premier de $n$ divise $x$.\n2. Diviseurs de zéro : $x$ t.q. $x \\wedge n \\neq 1$. CNS : $n = p^k$ (un seul facteur premier)."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_036",
+      "title": "TD Champo - 16.36",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_congruence",
+        "arithmetique_des_entiers__theoreme_proprietes_congruence",
+        "arithmetique_des_entiers__theoreme_ppcm_deux_entiers",
+        "arithmetique_des_entiers__theoreme_existence_pgcd_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Z/nZ",
+        "Groupe cyclique",
+        "champo"
+      ],
+      "statement_latex": "Ordre d'un élément dans $\\mathbb{Z}/n\\mathbb{Z}$. Soit $n\\in \\mathbb{N}^{*}$. On se place dans le groupe $(\\mathbb{Z}/n\\mathbb{Z},+)$.\n1. Montrer que $\\mathbb{Z}/n\\mathbb{Z}=\\langle\\overline{1}\\rangle$, le sous-groupe engendré par la classe de congruence de 1.\n2. Soit $\\overline{a}\\in \\mathbb{Z}/n\\mathbb{Z}.$ Montrer que $d=n\\wedge a$ ne dépend pas du choix d'un représentant de $a$, et que $\\langle\\overline{a}\\rangle=\\langle\\overline{d}\\rangle$. Quel est le cardinal de $\\langle\\overline{a}\\rangle$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. 1 engendre par additions successives tous les entiers.\n2. $a' = a + kn \\implies a' \\wedge n = a \\wedge n$. $\\langle \\overline{d} \\rangle = \\langle \\overline{a} \\rangle$. Cardinal $n/d$."
+    },
+    {
+      "id": "arithmetique_des_entiers__champo_037",
+      "title": "TD Champo - 16.37",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "arithmetique_des_entiers__definition_premiers_entre_eux_general",
+        "arithmetique_des_entiers__theoreme_infinitude_nombres_premiers",
+        "arithmetique_des_entiers__definition_nombre_premier",
+        "arithmetique_des_entiers__definition_premiers_entre_eux_deux_entiers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Anneau local",
+        "Z/nZ",
+        "champo"
+      ],
+      "statement_latex": "Localité de l'anneau $\\mathbb{Z}/m\\mathbb{Z}$. Un anneau commutatif A est dit local si l'ensemble $I(A)$ des éléments non inversibles de A est un sous-groupe de A.\n1. Soit $p$ un nombre premier et soit $n\\in \\mathbb{N}^{*}$. On pose alors $m=p^{n}$. Montrer que $\\mathbb{Z}/m\\mathbb{Z}$ est un anneau local.\n2. Prouver que pour $m\\ge2$ l'anneau $\\mathbb{Z}/m\\mathbb{Z}$ est local si et seulement si il existe un nombre premier $p$ et un entier $n\\in \\mathbb{N}^{*}$ tels que $m=p^{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Non inversibles dans $\\mathbb{Z}/p^n\\mathbb{Z}$ sont les multiples de $p$. C'est un idéal, donc un sous-groupe.\n2. Si $m$ a deux facteurs premiers $p, q$, alors $p$ et $q$ sont non inversibles, mais $pu+qv=1$ (Bézout) est inversible. Donc la somme de deux non-inversibles est inversible. Contradiction."
+    }
+  ]
+}

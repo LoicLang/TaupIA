@@ -1,0 +1,715 @@
+{
+  "chapter_official_id": "analyse_asymptotique_de_niveau_1",
+  "chapter_name": "Analyse asymptotique de niveau 1",
+  "source_document": "Cours - Analyse asymptotique de niveau 1.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "analyse_asymptotique_de_niveau_1__definition_negligeabilite",
+      "type": "definition",
+      "title": "Définition : Négligeabilité",
+      "content_latex": "\\textbf{Fonctions :} Soient $f : E \\to \\mathbb{R}$ et $g : E \\to \\mathbb{R}$ deux fonctions et $a \\in \\overline{E}$ adhérent à $E$. On dit que $f$ est négligeable devant $g$ au voisinage de $a$ s'il existe un voisinage $V_a$ de $a$ et une fonction $\\epsilon : E \\to \\mathbb{R}$ pour lesquels $f = \\epsilon g$ sur $E \\cap V_a$ et $\\epsilon \\xrightarrow[x \\to a]{} 0$. On note cette relation $f = \\underset{a}{o}(g)$ ou $f(x) = \\underset{x \\to a}{o}(g(x))$ et on dit que $f$ est un petit $o$ de $g$ au voisinage de $a$.\\par\\par Dans le cas où $g$ ne s'annule pas au voisinage de $a$ — sauf éventuellement en $a$ avec dans ce cas $f(a) = 0$ — il est équivalent d'exiger que $\\frac{f(x)}{g(x)} \\xrightarrow[x \\to a]{} 0$.\\par\\par \\textbf{Suites :} Soient $(u_n)_{n \\in \\mathbb{N}}$ et $(v_n)_{n \\in \\mathbb{N}}$ deux suites. On dit que $(u_n)_{n \\in \\mathbb{N}}$ est négligeable devant $(v_n)_{n \\in \\mathbb{N}}$ s'il existe un rang $N$ et une suite $(\\epsilon_n)_{n \\geq N}$ pour lesquels $u_n = \\epsilon_n v_n$ pour tout $n \\geq N$ et $\\epsilon_n \\xrightarrow[n \\to +\\infty]{} 0$. On note cette relation $u_n = \\underset{n \\to +\\infty}{o}(v_n)$ et on dit que $u_n$ est un petit $o$ de $v_n$.\\par\\par Dans le cas où $v_n \\neq 0$ à partir d'un certain rang, il est équivalent d'exiger que $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_quotients_neg",
+      "type": "remark",
+      "title": "Remarque : Négligeabilité en termes de quotients",
+      "content_latex": "ON PENSERA EN PRATIQUE LA NÉGLIGEABILITÉ EN TERMES DE QUOTIENS même si la définition à base de fonctions $\\epsilon$ ou de suites $(\\epsilon_n)_{n \\in \\mathbb{N}}$ est un peu plus générale. J'ai pris le parti de rédiger toutes les preuves de ce chapitre en termes de quotients par souci de clarté car les preuves obtenues sont courtes et limpides, mais il ne serait pas beaucoup plus long d'en revenir toujours à des fonctions $\\epsilon$ ou des suites $(\\epsilon_n)_{n \\in \\mathbb{N}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_negligeabilite",
+      "type": "example",
+      "title": "Exemple : Exemples de négligeabilité",
+      "content_latex": "$x^2 = \\underset{x \\to +\\infty}{o}(x^4)$, mais $x^4 \\neq \\underset{x \\to +\\infty}{o}(x^2)$.\\par $\\frac{1}{x} = \\underset{x \\to \\infty}{o}\\left(\\frac{1}{x^2}\\right)$, mais $\\frac{1}{x^2} \\neq \\underset{x \\to \\infty}{o}\\left(\\frac{1}{x}\\right)$.\\par $n \\ln n = \\underset{n \\to +\\infty}{o}(n^2)$.\\par $2^n = \\underset{n \\to +\\infty}{o}(3^n)$.\\par\\par Les petits $o$ sont la formalisation définitive des croissances comparées. Certains infinis sont plus infinis que d'autres, certains zéros sont plus zéros que d'autres. Dire que $x^2 = \\underset{x \\to +\\infty}{o}(x^4)$, c'est affirmer l'immensité de $x^4$ par rapport à $x^2$ quand $x$ est grand. Dire que $x^4 = \\underset{x \\to 0}{o}(x^2)$, c'est affirmer l'infinie petitesse de $x^4$ par rapport à $x^2$ quand $x$ est petit.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_croissances_comparees",
+      "type": "theorem",
+      "title": "Théorème : Croissances comparées usuelles",
+      "content_latex": "Soient $a, b, \\alpha, \\beta \\in \\mathbb{R}$.\\par\\par \\textbf{Au voisinage de $+\\infty$ :}\\par — Si $\\alpha < \\beta$ : $x^\\alpha = \\underset{x \\to +\\infty}{o}(x^\\beta)$.\\par — Si $0 < a < b$ : $a^x = \\underset{x \\to +\\infty}{o}(b^x)$.\\par — Si $\\alpha > 0$ : $(\\ln x)^\\beta = \\underset{x \\to +\\infty}{o}(x^\\alpha)$.\\par — Si $\\alpha > 0$ : $x^\\alpha = \\underset{x \\to +\\infty}{o}(a^x)$ pour $a > 1$.\\par\\par \\textbf{Au voisinage de $0$ :}\\par — Si $\\alpha < \\beta$ : $x^\\beta = \\underset{x \\to 0}{o}(x^\\alpha)$.\\par — Si $\\alpha > 0$ : $x^\\alpha = \\underset{x \\to 0}{o}\\left(\\frac{1}{|\\ln x|^\\beta}\\right)$.\\par\\par Les croissances comparées usuelles des fonctions en $+\\infty$ peuvent bien sûr être exprimées en termes de suites — remplacer $x$ par $n$. Par ailleurs, $a^n = \\underset{n \\to +\\infty}{o}(n!)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_notation_o_cache",
+      "type": "remark",
+      "title": "Remarque : Notation $f = g + o(h)$",
+      "content_latex": "Nous avons introduit la notation des petits $o$ sous sa forme la plus élémentaire — mise en relation de deux fonctions ou de deux suites — mais on la rencontre en réalité le plus souvent sous la forme : $f = \\underset{a}{g} + o(h)$ pour les fonctions et $u_n = \\underset{n \\to +\\infty}{v_n} + o(w_n)$ pour les suites.\\par\\par Ce qui est affirmé ici, c'est que $f = g + \\underset{a}{o}(h)$ et que $u_n = v_n + \\underset{n \\to +\\infty}{o}(w_n)$, i.e. que $o(h)$ est une certaine fonction négligeable devant $h$ au voisinage de $a$ et $o(w_n)$ une certaine suite négligeable devant $(w_n)_{n \\in \\mathbb{N}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_ex_1_x_o_x",
+      "type": "example",
+      "title": "Exemple : Simplification des petits $o$",
+      "content_latex": "Partons de l'affirmation : $e^x = \\underset{x \\to 0}{1 + x + x^2} + o(x)$ selon laquelle, grosso modo, $e^x \\approx 1 + x + x^2$ pour $x$ proche de $0$. Cette approximation n'a de sens que si l'on peut y mesurer l'erreur commise. En l'occurrence, ici, $e^x = 1 + x + x^2$ à un $o(x)$ près.\\par\\par Le terme $x^2$ est inutile dans la relation $e^x = \\underset{x \\to 0}{1 + x + x^2} + o(x)$ parce que $x^2 = \\underset{x \\to 0}{o}(x)$, nous pouvons donc lui couper la tête et écrire : $e^x = \\underset{x \\to 0}{1 + x} + o(x)$. Cette nouvelle proposition n'est ni plus ni moins précise que la précédente, mais elle est plus lisible et plus économe.\\par\\par Tout petit $o$ est un niveau de précision, un seuil de visibilité. De vous-mêmes, à chaque instant, faites le ménage et coupez la tête de tous les invisibles !",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+      "type": "theorem",
+      "title": "Théorème : Limites finies et petits $o$",
+      "content_latex": "\\textbf{Fonctions :} Soient $f : E \\to \\mathbb{R}$ une fonction, $a \\in \\overline{E}$ adhérent à $E$ et $\\ell \\in \\mathbb{R}$.\\par Alors : $f \\xrightarrow[a]{} \\ell \\iff f = \\underset{a}{\\ell} + o(1)$.\\par En particulier : $f \\xrightarrow[a]{} 0 \\iff f = \\underset{a}{o}(1)$.\\par $o(1)$ = une fonction de limite nulle en $a$.\\par\\par \\textbf{Suites :} Soient $(u_n)_{n \\in \\mathbb{N}}$ une suite et $\\ell \\in \\mathbb{R}$. Alors :\\par $u_n \\xrightarrow[n \\to +\\infty]{} \\ell \\iff u_n = \\underset{n \\to +\\infty}{\\ell} + o(1)$.\\par En particulier : $u_n \\xrightarrow[n \\to +\\infty]{} 0 \\iff u_n = \\underset{n \\to +\\infty}{o}(1)$.\\par $o(1)$ = une suite de limite nulle.",
+      "proof_latex": "$f \\xrightarrow[a]{} \\ell \\iff f - \\ell \\xrightarrow[a]{} 0 \\iff f - \\ell = \\underset{a}{o}(1) \\iff f = \\underset{a}{\\ell} + o(1)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_operations_o",
+      "type": "remark",
+      "title": "Remarque : Opérations sur les petits $o$",
+      "content_latex": "Les résultats de ce paragraphe sont importants, mais les exemples qui les suivent sont beaucoup plus utiles et éclairants que les énoncés théoriques. Limpides, les notations utilisées ne seront pas introduites proprement. En outre, j'ai allégé les résultats en ne présentant qu'une seule des deux versions de chacun — suites ou fonctions — mais pas les deux.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_o_absorbent_constantes",
+      "type": "theorem",
+      "title": "Théorème : Les petits $o$ absorbent les constantes multiplicatives",
+      "content_latex": "Soit $\\lambda \\in \\mathbb{R}^*$. Si $f = \\underset{a}{o}(g)$, alors $f = \\underset{a}{o}(\\lambda g)$ et $\\lambda f = \\underset{a}{o}(g)$.",
+      "proof_latex": "Si $\\frac{f}{g} \\xrightarrow[a]{} 0$, alors $\\frac{f}{\\lambda g} \\xrightarrow[a]{} 0$ et $\\frac{\\lambda f}{g} \\xrightarrow[a]{} 0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_o_constantes",
+      "type": "example",
+      "title": "Exemple : Absorption des constantes",
+      "content_latex": "Si on admet l'égalité : $e^{\\frac{1}{n}} = \\underset{n \\to +\\infty}{1 + \\frac{1}{n}} + o\\left(\\frac{1}{n}\\right)$,\\par alors : $2e^{\\frac{1}{n}} = \\underset{n \\to +\\infty}{2 + \\frac{2}{n}} + 2o\\left(\\frac{1}{n}\\right) = \\underset{n \\to +\\infty}{2 + \\frac{2}{n}} + o\\left(\\frac{1}{n}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_somme_o",
+      "type": "theorem",
+      "title": "Théorème : La somme de deux petits $o$ est un petit $o$",
+      "content_latex": "Si $u_n = \\underset{n \\to +\\infty}{o}(v_n)$ et $u'_n = \\underset{n \\to +\\infty}{o}(v_n)$, alors $u_n + u'_n = \\underset{n \\to +\\infty}{o}(v_n)$ et $u_n - u'_n = \\underset{n \\to +\\infty}{o}(v_n)$.",
+      "proof_latex": "Si $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 0$ et $\\frac{u'_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 0$, alors $\\frac{u_n + u'_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 0$ par somme."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_somme_o",
+      "type": "example",
+      "title": "Exemple : Somme de petits $o$",
+      "content_latex": "Si on admet les égalités : $e^x = \\underset{x \\to 0}{1 + x} + o(x)$ et $\\sin x = \\underset{x \\to 0}{x} + o(x)$, alors :\\par $e^x + \\sin x = \\underset{x \\to 0}{(1 + x + o(x)) + (x + o(x))} = \\underset{x \\to 0}{1 + 2x} + \\underbrace{o(x) + o(x)}_{o(x)} = \\underset{x \\to 0}{1 + 2x} + o(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_o_transitif",
+      "type": "theorem",
+      "title": "Théorème : Un petit $o$ d'un petit $o$ est un petit $o$",
+      "content_latex": "La relation « être négligeable » est transitive.\\par Si $f = \\underset{a}{o}(g)$ et $g = \\underset{a}{o}(h)$, alors $f = \\underset{a}{o}(h)$.",
+      "proof_latex": "Si $\\frac{f}{g} \\xrightarrow[a]{} 0$ et $\\frac{g}{h} \\xrightarrow[a]{} 0$, alors $\\frac{f}{h} \\xrightarrow[a]{} 0$ par produit."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_o_transitif",
+      "type": "example",
+      "title": "Exemple : Transitivité des petits $o$",
+      "content_latex": "Si on admet l'égalité : $e^{\\frac{1}{n^2}} = \\underset{n \\to +\\infty}{1 + o\\left(\\frac{1}{n}\\right)} + o\\left(\\frac{1}{n^2}\\right)$,\\par alors comme $\\frac{1}{n^2} = \\underset{n \\to +\\infty}{o}\\left(\\frac{1}{n}\\right)$ :\\par $e^{\\frac{1}{n^2}} = \\underset{n \\to +\\infty}{1 + \\underbrace{o\\left(\\frac{1}{n}\\right) + o\\left(\\frac{1}{n^2}\\right)}_{o\\left(\\frac{1}{n}\\right)}} = \\underset{n \\to +\\infty}{1 + o\\left(\\frac{1}{n}\\right)}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_produit_o",
+      "type": "theorem",
+      "title": "Théorème : Avec le produit, tout va bien",
+      "content_latex": "Si $u_n = \\underset{n \\to +\\infty}{o}(v_n)$ et $w_n = \\underset{n \\to +\\infty}{o}(w'_n)$, alors $u_n w_n = \\underset{n \\to +\\infty}{o}(v_n w'_n)$.\\par Si $u_n = \\underset{n \\to +\\infty}{o}(v_n)$, alors $u_n^e = \\underset{n \\to +\\infty}{o}(v_n^e)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_produit_o",
+      "type": "example",
+      "title": "Exemple : Produit de petits $o$",
+      "content_latex": "Si on admet les égalités : $e^x = \\underset{x \\to 0}{1 + x} + o(x)$ et $\\sin x = \\underset{x \\to 0}{x} + o(x)$, alors :\\par $e^x \\sin x = \\underset{x \\to 0}{(1 + x + o(x))(x + o(x))} = \\underset{x \\to 0}{x + o(x) + x^2 + \\underbrace{2x o(x)}_{o(x^2)} + \\underbrace{o(x) \\times o(x)}_{o(x^2)}} = \\underset{x \\to 0}{x + o(x) + \\underbrace{x^2 + o(x^2) + o(x^2)}_{o(x)}} = \\underset{x \\to 0}{x} + o(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+      "type": "theorem",
+      "title": "Théorème : Avec la composition à droite et les suites extraites, tout va bien",
+      "content_latex": "\\textbf{Fonctions :} Soient $b \\in \\overline{\\mathbb{R}}$ et $\\varphi$ une fonction définie au voisinage de $b$ à valeurs dans $E$. Si $f = \\underset{a}{o}(g)$ et $\\varphi \\xrightarrow[b]{} a$, alors $f \\circ \\varphi = \\underset{b}{o}(g \\circ \\varphi)$.\\par\\par \\textbf{Suites :} Soit $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ strictement croissante. Si $u_n = \\underset{n \\to +\\infty}{o}(v_n)$, alors $u_{\\varphi(n)} = \\underset{n \\to +\\infty}{o}(v_{\\varphi(n)})$.\\par\\par Pour $a = \\pm\\infty$, ce résultat permet de ramener par translation toute relation $f(x) = \\underset{x \\to a}{o}(g(x))$ au voisinage de $a$ à une relation $f(a+h) = \\underset{h \\to 0}{o}(g(a+h))$ au voisinage de $0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_composition_o",
+      "type": "example",
+      "title": "Exemple : Composition à droite",
+      "content_latex": "$\\sqrt{x} = \\underset{x \\to +\\infty}{o}(x)$, donc $\\sqrt{\\ln x} = \\underset{x \\to +\\infty}{o}(\\ln x)$ après composition à droite par $\\ln$.\\par Également, $2^n = \\underset{n \\to +\\infty}{o}(3^n)$ donc $2^{n^2} = \\underset{n \\to +\\infty}{o}(3^{n^2})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_composition_o",
+      "type": "warning",
+      "title": "Attention : Composition interdite à gauche",
+      "content_latex": "Il est formellement interdit de composer une relation de négligeabilité par la gauche. Par exemple, $\\ln x = \\underset{x \\to +\\infty}{o}(x)$ mais $\\frac{1}{\\ln x} \\neq \\underset{x \\to +\\infty}{o}\\left(\\frac{1}{x}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__intro_dl",
+      "type": "remark",
+      "title": "Introduction : Approximation locale au voisinage de 0",
+      "content_latex": "Nous cherchons dans ce paragraphe à approximer les fonctions par des fonctions polynomiales au voisinage d'un point, généralement $0$. Nous allons par exemple montrer que : $e^x = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}} + o(x^3)$. Ce résultat signifie que la fonction polynomiale de degré au plus $3$ la plus proche de l'exponentielle au voisinage de $0$ est la fonction $x \\mapsto 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__definition_dl",
+      "type": "definition",
+      "title": "Définition : Développement limité",
+      "content_latex": "Soient $f : E \\to \\mathbb{R}$ une fonction, $a \\in E$ et $n \\in \\mathbb{N}$. On dit que $f$ possède un développement limité à l'ordre $n$ au voisinage de $a$, ou plus simplement qu'elle possède un $DL_n(a)$, s'il existe des réels $a_0, \\ldots, a_n$ pour lesquels :\\par $f(x) = \\underset{x \\to a}{a_0 + a_1(x-a) + \\ldots + a_n(x-a)^n} + o((x-a)^n)$.\\par\\par Plus $n$ est grand, plus la quantité $(x-a)^n$ est petite au voisinage de $a$, donc plus $n$ est grand, plus l'approximation de $f$ obtenue au voisinage de $a$ est précise.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_1_sur_1-x",
+      "type": "example",
+      "title": "Exemple : DL de $\\frac{1}{1-x}$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$ : $\\frac{1}{1-x} = \\underset{x \\to 0}{\\sum_{k=0}^{n} x^k} + o(x^n) = \\underset{x \\to 0}{1 + x + x^2 + \\ldots + x^n} + o(x^n)$.",
+      "proof_latex": "Pour tout $x \\in \\mathbb{R} \\setminus \\{1\\}$ : $\\sum_{k=0}^{n} x^k = \\frac{1-x^{n+1}}{1-x}$ et $\\frac{x^{n+1}}{1-x} = x^n \\times \\frac{x}{1-x} \\xrightarrow[x \\to 0]{} 0$, donc :\\par $\\sum_{k=0}^{n} x^k = \\underset{x \\to 0}{\\sum_{k=0}^{n} x^k + x^n o(1)} = \\underset{x \\to 0}{\\sum_{k=0}^{n} x^k} + o(x^n)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_translation_dl",
+      "type": "remark",
+      "title": "Remarque : Translation des DL",
+      "content_latex": "On peut ramener tout développement limité au voisinage de $a$ à un développement limité au voisinage de $0$. Précisément, si $f(x) = \\underset{x \\to a}{a_0 + a_1(x-a) + \\ldots + a_n(x-a)^n} + o((x-a)^n)$, alors après composition à droite par la fonction $x \\mapsto x+a$ : $f(x+a) = \\underset{x \\to 0}{a_0 + a_1 x + \\ldots + a_n x^n} + o(x^n)$.\\par\\par Ensuite, si on dispose d'un développement limité de $f$ à l'ordre $n$ : $f(x) = \\underset{x \\to a}{a_0 + a_1(x-a) + \\ldots + a_n(x-a)^n} + o((x-a)^n)$, on dispose aussi d'un développement de $f$ à tout ordre $m \\leq n$ : $f(x) = \\underset{x \\to a}{a_0 + a_1(x-a) + \\ldots + a_m(x-a)^m} + o((x-a)^m)$.\\par Cette opération d'oubli des termes de degré compris entre $m+1$ et $n$ est appelée troncature à l'ordre $m$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients",
+      "type": "theorem",
+      "title": "Théorème : Unicité des coefficients d'un développement limité",
+      "content_latex": "En cas d'existence, la liste des coefficients d'un développement limité est unique.",
+      "proof_latex": "Soient $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. Par l'absurde, faisons l'hypothèse que $f$ possède deux $DL_n(a)$ distincts :\\par $f(x) = \\underset{x \\to a}{a_0 + \\ldots + a_n(x-a)^n} + o((x-a)^n) = \\underset{x \\\to a}{b_0 + \\ldots + b_n(x-a)^n} + o((x-a)^n)$\\par avec $a_0, \\ldots, a_n, b_0, \\ldots, b_n \\in \\mathbb{R}$.\\par Après troncature : si on note $p$ le plus petit indice pour lequel $a_p \\neq b_p$. Ainsi $(a_p - b_p)(x-a)^p + o((x-a)^p) = \\underset{x \\to a}{o}((x-a)^p)$, donc après division par $(x-a)^p$ : $a_p - b_p \\xrightarrow[x \\to a]{} 0$, donc $a_p = b_p$ — contradiction !"
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+      "type": "theorem",
+      "title": "Théorème : Lien développement limité/continuité/dérivabilité",
+      "content_latex": "Soient $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$.\\par\\par \\textbf{Continuité :} $f$ est continue en $a$ si et seulement si $f$ possède un $DL_0(a)$.\\par Précisément, dans ce cas : $f(x) = \\underset{x \\to a}{f(a)} + o(1)$.\\par\\par \\textbf{Dérivabilité :} $f$ est dérivable en $a$ si et seulement si $f$ possède un $DL_1(a)$.\\par Précisément, dans ce cas : $f(x) = \\underset{x \\to a}{f(a) + f'(a)(x-a)} + o(x-a)$.\\par\\par Dans un développement limité de $f$ au voisinage de $a$, le coefficient d'ordre $0$ est TOUJOURS $f(a)$ et le coefficient d'ordre $1$ TOUJOURS $f'(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+      "type": "theorem",
+      "title": "Théorème : Lien développement limité/parité/imparité",
+      "content_latex": "On suppose que $E$ contient $0$ et que $E$ est symétrique par rapport à $0$. Soit $f : E \\to \\mathbb{R}$ une fonction. On suppose que $f$ possède un développement limité au voisinage de $0$.\\par\\par \\textbf{Parité :} Si $f$ est paire, les coefficients de rang impair de son développement limité sont nuls.\\par\\par \\textbf{Imparité :} Si $f$ est impaire, les coefficients de rang pair de son développement limité sont nuls.\\par\\par Ainsi, au voisinage de $0$, pour une fonction impaire, seuls les monômes $x, x^3, x^5, x^7 \\ldots$ apparaissent réellement.",
+      "proof_latex": "Supposons $f$ est paire. Par hypothèse, $f(x) = \\underset{x \\to 0}{a_0 + a_1 x + \\ldots + a_n x^n} + o(x^n)$ pour certains $a_0, \\ldots, a_n \\in \\mathbb{R}$. Composons à droite par $x \\mapsto -x$ :\\par $f(x) = f(-x) = \\underset{x \\to 0}{a_0 - a_1 x + a_2 x^2 - \\ldots + (-1)^n a_n x^n} + o(x^n)$.\\par Par unicité des coefficients, $a_1 = -a_1$ donc $a_1 = 0$, puis $a_3 = -a_3$ donc $a_3 = 0$, etc."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+      "type": "theorem",
+      "title": "Théorème (Lemme) : Lemme de primitivation des développements limités",
+      "content_latex": "Soient $I$ un intervalle, $g \\in \\mathcal{D}^1(I, \\mathbb{R})$, $a \\in I$ et $n \\in \\mathbb{N}$. Si $g'(x) = \\underset{x \\to a}{o}((x-a)^n)$, alors $g(x) = \\underset{x \\to a}{g(a)} + o((x-a)^{n+1})$.",
+      "proof_latex": "Pour tout $x \\in I \\setminus \\{a\\}$, $g$ est continue sur $[a,x]$ (ou $[x,a]$) et dérivable sur $]a,x[$ (ou $]x,a[)$, donc :\\par $\\frac{g(x) - g(a)}{(x-a)^{n+1}} = \\frac{g'(c_x)}{(x-a)^n}$ pour un certain $c_x \\in ]a,x[$ (ou $]x,a[)$ d'après le théorème des accroissements finis.\\par Ce procédé nous fournit une fonction $c : I \\setminus \\{a\\} \\to I$ pour laquelle $|c_x - a| < |x - a| \\leq 1$ pour tout $x \\in I \\setminus \\{a\\}$. Ainsi, $c_x \\xrightarrow[x \\to a]{} a$ par encadrement, donc :\\par $\\left|\\frac{g'(c_x)}{(x-a)^n}\\right| = \\left|\\frac{g'(c_x)}{(c_x - a)^n}\\right| \\times \\left|\\frac{c_x - a}{x - a}\\right|^n \\xrightarrow[x \\to a]{} 0 \\times 1^n = 0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+      "type": "theorem",
+      "title": "Théorème : Primitivation des développements limités",
+      "content_latex": "Soient $I$ un intervalle, $f \\in \\mathcal{D}^1(I, \\mathbb{R})$ avec $n \\geq 1$ et $a \\in I$. Si $f'$ possède un $DL_n(a)$ :\\par $f'(x) = \\underset{x \\to a}{\\sum_{k=0}^{n} a_k (x-a)^k} + o((x-a)^n)$ avec $a_0, \\ldots, a_n \\in \\mathbb{R}$, alors $f$ possède un $DL_{n+1}(a)$ :\\par $f(x) = \\underset{x \\to a}{f(a) + \\sum_{k=0}^{n} \\frac{a_k}{k+1}(x-a)^{k+1}} + o((x-a)^{n+1})$.\\par\\par Ainsi, on peut toujours primitiver terme à terme le développement limité d'une dérivée.",
+      "proof_latex": "La fonction $x \\mapsto f(x) - f(a) - \\sum_{k=0}^{n} \\frac{a_k}{k+1}(x-a)^{k+1}$ est dérivable sur $I$ et sa dérivée est la fonction $x \\mapsto f'(x) - \\sum_{k=0}^{n} a_k (x-a)^k$. Or ici $g'(x) = \\underset{x \\to a}{o}((x-a)^n)$, donc $g(x) = \\underset{x \\to a}{g(a)} + o((x-a)^{n+1})$ d'après le lemme, et c'est exactement le résultat voulu."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_ln",
+      "type": "example",
+      "title": "Exemple : DL de $\\ln(1+x)$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$ : $\\ln(1+x) = \\underset{x \\to 0}{\\sum_{k=1}^{n} \\frac{(-1)^{k-1} x^k}{k}} + o(x^n) = \\underset{x \\to 0}{x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\ldots + \\frac{(-1)^{n-1} x^n}{n}} + o(x^n)$.",
+      "proof_latex": "$\\frac{1}{1+x} = \\underset{x \\to 0}{\\sum_{k=0}^{n-1} (-1)^k x^k} + o(x^{n-1})$ après composition par $x \\mapsto -x$. Primitivons :\\par $\\ln(1+x) = \\underset{x \\to 0}{\\sum_{k=1}^{n} \\frac{(-1)^{k-1} x^k}{k}} + o(x^n)$ sachant que $\\ln 1 = 0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_arctan",
+      "type": "example",
+      "title": "Exemple : DL de $\\arctan x$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$ : $\\arctan x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{2k+1}} + o(x^{2n+1}) = \\underset{x \\to 0}{x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\frac{x^7}{7} + \\ldots + \\frac{(-1)^n x^{2n+1}}{2n+1}} + o(x^{2n+1})$.\\par\\par On remarque que les coefficients de rang pair sont tous nuls — évidemment puisque la fonction arctangente est impaire.",
+      "proof_latex": "$\\frac{1}{1+x^2} = \\underset{x \\to 0}{\\sum_{k=0}^{n} (-1)^k x^{2k}} + o(x^{2n})$ après composition par $x \\mapsto -x^2$. Primitivons : $\\arctan x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{2k+1}} + o(x^{2n+1})$ sachant que $\\arctan 0 = 0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+      "type": "theorem",
+      "title": "Théorème : Formule de Taylor-Young",
+      "content_latex": "Soient $I$ un intervalle, $f \\in \\mathcal{C}^n(I, \\mathbb{R})$ et $a \\in I$. Alors $f$ possède un $DL_n(a)$, et plus précisément :\\par $f(x) = \\underset{x \\to a}{\\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^n)$.\\par\\par Ce résultat est avant tout un théorème d'EXISTENCE de développements limités.",
+      "proof_latex": "Par récurrence sur $n \\geq 1$. L'intervalle $I$ et le point $a$ sont fixés et notre propriété au rang $n$ est la suivante :\\par « Pour toute fonction $n$ fois dérivable $f : I \\to \\mathbb{R}$ : $f(x) = \\underset{x \\to a}{\\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^n)$. »\\par\\par \\textbf{Initialisation :} Nous savons déjà que pour toute fonction $f \\in \\mathcal{D}^1(I, \\mathbb{R})$ : $f(x) = \\underset{x \\to a}{f(a) + f'(a)(x-a)} + o(x-a)$.\\par\\par \\textbf{Hérédité :} Soit $n \\in \\mathbb{N}^*$. On suppose la proposition vraie au rang $n$. Soit $f : I \\to \\mathbb{R}$ une fonction $n+1$ fois dérivable. La fonction $f'$ est $n$ fois dérivable sur $I$, donc par hypothèse de récurrence :\\par $f'(x) = \\underset{x \\to a}{\\sum_{k=0}^{n} \\frac{(f')^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^n) = \\underset{x \\to a}{\\sum_{k=0}^{n} \\frac{f^{(k+1)}(a)}{k!}(x-a)^k} + o((x-a)^n)$.\\par\\par Le théorème de primitivation des développements limités montre aussitôt le résultat souhaité :\\par $f(x) = \\underset{x \\to a}{f(a) + \\sum_{k=0}^{n} \\frac{f^{(k+1)}(a)}{k!} \\times \\frac{(x-a)^{k+1}}{k+1}} + o((x-a)^{n+1}) = \\underset{x \\to a}{f(a) + \\sum_{k=1}^{n+1} \\frac{f^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^{n+1}) = \\underset{x \\to a}{\\sum_{k=0}^{n+1} \\frac{f^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^{n+1})$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_taylor_exp_ch_sh",
+      "type": "example",
+      "title": "Exemple : DL de $e^x$, $\\ch x$, $\\sh x$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$ :\\par $e^x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^k}{k!}} + o(x^n) = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + \\ldots + \\frac{x^n}{n!}} + o(x^n)$.\\par\\par $\\ch x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^{2k}}{(2k)!}} + o(x^{2n}) = \\underset{x \\to 0}{1 + \\frac{x^2}{2} + \\frac{x^4}{24} + \\ldots + \\frac{x^{2n}}{(2n)!}} + o(x^{2n})$.\\par\\par $\\sh x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^{2k+1}}{(2k+1)!}} + o(x^{2n+1}) = \\underset{x \\to 0}{x + \\frac{x^3}{6} + \\frac{x^5}{120} + \\ldots + \\frac{x^{2n+1}}{(2n+1)!}} + o(x^{2n+1})$.",
+      "proof_latex": "L'exponentielle est de classe $\\mathcal{C}^\\infty$ sur $\\mathbb{R}$, donc possède un $DL_n(0)$ d'après la formule de Taylor-Young et : $e^x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{\\exp^{(k)}(0)}{k!}x^k} + o(x^n) = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^k}{k!}} + o(x^n)$.\\par\\par Ensuite : $\\sh x = \\frac{e^x - e^{-x}}{2} = \\underset{x \\to 0}{\\frac{1}{2}\\sum_{k=0}^{2n+1} \\frac{x^k}{k!} - \\frac{1}{2}\\sum_{k=0}^{2n+1} \\frac{(-1)^k x^k}{k!}} + o(x^{2n+1}) = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^{2k+1}}{(2k+1)!}} + o(x^{2n+1})$.\\par\\par Les termes de rang pair se simplifient deux à deux tandis que les termes de rang impair sont comptés deux fois mais aussitôt divisés par $2$. Même type de raisonnement pour la fonction $\\ch$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_taylor_binome",
+      "type": "example",
+      "title": "Exemple : DL de $(1+x)^\\alpha$",
+      "content_latex": "Pour tous $\\alpha \\in \\mathbb{R}$ et $n \\in \\mathbb{N}$ :\\par $(1+x)^\\alpha = \\underset{x \\to 0}{1 + \\alpha x + \\frac{\\alpha(\\alpha-1)}{2}x^2 + \\frac{\\alpha(\\alpha-1)(\\alpha-2)}{6}x^3 + \\ldots + \\frac{\\alpha(\\alpha-1)\\ldots(\\alpha-n+1)}{n!}x^n} + o(x^n)$.\\par\\par Si $\\alpha \\in \\mathbb{N}$, ce développement s'obtient par troncature à partir de la formule du binôme, car dans ce cas, pour tout $k \\in \\mathbb{N}$ : $\\binom{\\alpha}{k} = \\frac{\\alpha(\\alpha-1)\\ldots(\\alpha-k+1)}{k!}$.\\par\\par Par exemple : $(1+x)^5 = 1 + 5x + 10x^2 + 10x^3 + 5x^4 + x^5 = \\underset{x \\to 0}{1 + 5x + 10x^2 + 10x^3} + o(x^3)$.",
+      "proof_latex": "La fonction $x \\mapsto (1+x)^\\alpha$ est de classe $\\mathcal{C}^\\infty$ sur $]-1, +\\infty[$ et sa dérivée $k$-ème est la fonction $x \\mapsto \\alpha(\\alpha-1)\\ldots(\\alpha-k+1)(1+x)^{\\alpha-k}$ pour tout $k \\in \\mathbb{N}$. On conclut grâce à la formule de Taylor."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_taylor_cos_sin",
+      "type": "example",
+      "title": "Exemple : DL de $\\cos x$ et $\\sin x$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$ :\\par $\\cos x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k}}{(2k)!}} + o(x^{2n}) = \\underset{x \\to 0}{1 - \\frac{x^2}{2} + \\frac{x^4}{24} + \\ldots + \\frac{(-1)^n x^{2n}}{(2n)!}} + o(x^{2n})$.\\par\\par $\\sin x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}} + o(x^{2n+1}) = \\underset{x \\to 0}{x - \\frac{x^3}{6} + \\frac{x^5}{120} + \\ldots + \\frac{(-1)^n x^{2n+1}}{(2n+1)!}} + o(x^{2n+1})$.",
+      "proof_latex": "Pour tous $k \\in \\mathbb{N}$ et $x \\in \\mathbb{R}$ : $\\cos^{(k)}(x) = \\cos\\left(x + \\frac{k\\pi}{2}\\right)$ et $\\sin^{(k)}(x) = \\sin\\left(x + \\frac{k\\pi}{2}\\right)$, donc :\\par $\\begin{cases} \\cos^{(2k)}(0) = (-1)^k & \\cos^{(2k+1)}(0) = 0 \\\\ \\sin^{(2k)}(0) = 0 & \\sin^{(2k+1)}(0) = (-1)^k \\end{cases}$\\par On conclut grâce à la formule de Taylor-Young."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_taylor_tan",
+      "type": "example",
+      "title": "Exemple : DL de $\\tan x$",
+      "content_latex": "$\\tan x = \\underset{x \\to 0}{x + \\frac{x^3}{3}} + o(x^3)$.\\par\\par On peut déterminer explicitement un développement limité de tangente à tout ordre au voisinage de $0$, mais le résultat est hautement complexe et hors programme.",
+      "proof_latex": "La fonction tangente est de classe $\\mathcal{C}^3$ sur $\\left]-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right[$, donc possède un $DL_3(0)$ d'après la formule de Taylor-Young. Ensuite :\\par $\\tan 0 = 0$, $\\tan' 0 = 1$, $\\tan'' 0 = 0$ et $\\tan''' 0 = 2$ car $\\tan' = 1 + \\tan^2$, $\\tan'' = 2\\tan \\tan'$ et $\\tan''' = 2\\tan'^2 + 2\\tan \\tan''$, donc : $\\tan x = \\underset{x \\to 0}{x + \\frac{x^3}{3}} + o(x^3)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_derivation_dl",
+      "type": "remark",
+      "title": "Remarque : Dérivation des développements limités",
+      "content_latex": "Intéressons-nous à présent brièvement à la dérivation des développements limités. Soient $f \\in \\mathcal{C}^n(I, \\mathbb{R})$ avec $n \\geq 1$ et $a \\in I$. D'après la formule de Taylor-Young, $f$ possède un $DL_n(a)$ et $f'$ un $DL_{n-1}(a)$ :\\par $f(x) = \\underset{x \\to a}{\\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(x-a)^k} + o((x-a)^n)$ et $f'(x) = \\underset{x \\to a}{\\sum_{k=0}^{n-1} \\frac{f^{(k+1)}(a)}{k!}(x-a)^k} + o((x-a)^{n-1})$.\\par\\par Il se trouve alors — essayez ! — que le développement limité de $f'$ s'obtient en dérivant terme à terme celui de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_derivation_dl",
+      "type": "example",
+      "title": "Exemple : Dérivation d'un DL",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$ : $\\frac{1}{(1-x)^2} = \\underset{x \\to 0}{\\sum_{k=0}^{n} (k+1)x^k} + o(x^n) = \\underset{x \\to 0}{1 + 2x + 3x^2 + 4x^3 + \\ldots + (n+1)x^n} + o(x^n)$.",
+      "proof_latex": "Comme $x \\mapsto \\frac{1}{1-x}$ est de classe $\\mathcal{C}^{n+1}$ sur $]-\\infty, 1[$, on n'a qu'à dériver son développement limité à l'ordre $n+1$ au voisinage de $0$ :\\par $\\frac{1}{1-x} = \\underset{x \\to 0}{\\sum_{k=0}^{n+1} x^k} + o(x^{n+1}) = \\underset{x \\to 0}{1 + x + x^2 + x^3 + \\ldots + x^{n+1}} + o(x^{n+1})$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_derivation_dl",
+      "type": "warning",
+      "title": "Attention : On ne peut pas toujours dériver les développements limités",
+      "content_latex": "Notons $f$ la fonction $x \\mapsto \\begin{cases} x^2 \\sin\\left(\\frac{1}{x^2}\\right)e^{-\\frac{1}{x^2}} & \\text{si } x \\neq 0 \\\\ 0 & \\text{si } x = 0 \\end{cases}$ de classe $\\mathcal{C}^\\infty$ sur $\\mathbb{R}^*$.\\par\\par Pour tout $n \\in \\mathbb{N}$ : $\\frac{f(x)}{x^n} = x^{2-\\frac{n}{2}}e^{-\\frac{1}{x^2}} \\sin\\left(\\frac{1}{x^2}\\right) \\xrightarrow[x \\to 0]{} 0$ car $u^{\\frac{n}{2}}e^{-u} \\xrightarrow[u \\to +\\infty]{} 0$ et la fonction $x \\mapsto \\sin\\left(\\frac{1}{x^2}\\right)$ est bornée, donc $f$ possède un DL à tout ordre au voisinage de $0$.\\par\\par C'est beaucoup en apparence, mais pas tant que ça en réalité.\\par\\par \\textbf{Une fonction peut avoir un DL à tout ordre sans être deux fois dérivable :} Pour tout $x \\in \\mathbb{R}^*$ :\\par $f'(x) = \\frac{2}{x^3}e^{-\\frac{1}{x^2}}\\sin\\left(\\frac{1}{x^2}\\right) - \\frac{2}{x^3}e^{-\\frac{1}{x^2}}\\cos\\left(\\frac{1}{x^2}\\right)$, donc $f'$ n'est même pas continue en $0$.\\par\\par \\textbf{Conclusion :} On ne peut pas toujours dériver les développements limités : $f$ possède un DL à tout ordre au voisinage de $0$, mais $f'$ n'est pas continue en $0$, donc ne possède même pas un $DL_0(0)$. Nous ne savons dériver que les développements limités issus de la formule de Taylor-Young.\\par\\par \\textbf{Deux fonctions qui ont les mêmes DL à tout ordre ne coïncident pas forcément localement :} $f$ et la fonction nulle ont les mêmes DL à tout ordre au voisinage de $0$, mais ne coïncident nullement au voisinage de $0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__dl_usuels_tableau",
+      "type": "remark",
+      "title": "Tableau des développements limités usuels",
+      "content_latex": "Les formules du tableau ci-dessous doivent être connues par cœur sans délai et sans la moindre hésitation.\\par\\par Pour les fonctions paires, les développements limités sont donnés à l'ordre $2n$ pour tout $n \\in \\mathbb{N}$, mais par exemple, puisque vous connaissez un développement limité de la fonction cosinus au voisinage de $0$ aux ordres $0, 2, 4, 6 \\ldots$, bien sûr que vous en connaissez un à l'ordre $3$, il suffit de tronquer au bon endroit :\\par $\\cos x = \\underset{x \\to 0}{1 - \\frac{x^2}{2}} + o(x^3)$. Notez bien que ce développement est plus fin que le développement à l'ordre $2$ : $\\cos x = \\underset{x \\to 0}{1 - \\frac{x^2}{2}} + o(x^2)$.\\par\\par Sur le développement à l'ordre $3$, on ne voit pas de terme d'ordre $3$ mais ce n'est qu'une impression, il y a un terme d'ordre $3$, avec un coefficient $0$. À l'ordre $2$, c'est différent, on ne voit pas de terme d'ordre $3$ parce qu'un tel terme est réellement invisible à ce niveau de précision.\\par\\par \\textbf{Tableau des DL usuels :}\\par\\par $\\frac{1}{1-x} = \\underset{x \\to 0}{\\sum_{k=0}^{n} x^k} + o(x^n) = \\underset{x \\to 0}{1 + x + x^2 + \\ldots + x^n} + o(x^n)$\\par\\par $\\frac{1}{1+x} = \\underset{x \\to 0}{\\sum_{k=0}^{n} (-1)^k x^k} + o(x^n) = \\underset{x \\to 0}{1 - x + x^2 - \\ldots + (-1)^n x^n} + o(x^n)$\\par\\par $e^x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^k}{k!}} + o(x^n) = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + \\ldots + \\frac{x^n}{n!}} + o(x^n)$\\par\\par $\\ln(1+x) = \\underset{x \\to 0}{\\sum_{k=1}^{n} \\frac{(-1)^{k-1} x^k}{k}} + o(x^n) = \\underset{x \\to 0}{x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\ldots + \\frac{(-1)^{n-1} x^n}{n}} + o(x^n)$\\par\\par $(1+x)^\\alpha = \\underset{x \\to 0}{1 + \\alpha x + \\frac{\\alpha(\\alpha-1)}{2}x^2 + \\frac{\\alpha(\\alpha-1)(\\alpha-2)}{6}x^3 + \\ldots + \\frac{\\alpha(\\alpha-1)\\ldots(\\alpha-n+1)}{n!}x^n} + o(x^n)$\\par\\par $\\cos x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k}}{(2k)!}} + o(x^{2n}) = \\underset{x \\to 0}{1 - \\frac{x^2}{2} + \\frac{x^4}{24} + \\ldots + \\frac{(-1)^n x^{2n}}{(2n)!}} + o(x^{2n})$\\par\\par $\\sin x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}} + o(x^{2n+1}) = \\underset{x \\to 0}{x - \\frac{x^3}{6} + \\frac{x^5}{120} + \\ldots + \\frac{(-1)^n x^{2n+1}}{(2n+1)!}} + o(x^{2n+1})$\\par\\par $\\arctan x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{2k+1}} + o(x^{2n+1}) = \\underset{x \\to 0}{x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\frac{x^7}{7} + \\ldots + \\frac{(-1)^n x^{2n+1}}{2n+1}} + o(x^{2n+1})$\\par\\par $\\tan x = \\underset{x \\to 0}{x + \\frac{x^3}{3}} + o(x^3)$\\par\\par $\\ch x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^{2k}}{(2k)!}} + o(x^{2n}) = \\underset{x \\to 0}{1 + \\frac{x^2}{2} + \\frac{x^4}{24} + \\ldots + \\frac{x^{2n}}{(2n)!}} + o(x^{2n})$\\par\\par $\\sh x = \\underset{x \\to 0}{\\sum_{k=0}^{n} \\frac{x^{2k+1}}{(2k+1)!}} + o(x^{2n+1}) = \\underset{x \\to 0}{x + \\frac{x^3}{6} + \\frac{x^5}{120} + \\ldots + \\frac{x^{2n+1}}{(2n+1)!}} + o(x^{2n+1})$",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_composition_simple",
+      "type": "example",
+      "title": "Exemple : Composition simple $x \\mapsto x^p$",
+      "content_latex": "$e^x = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2}} + o(x^2)$, donc $e^{x^3} = \\underset{x \\to 0}{1 + x^3 + \\frac{x^6}{2}} + o(x^6)$.\\par\\par De même : $\\ln(1+x) = \\underset{x \\to 0}{x - \\frac{x^2}{2}} + o(x^2)$, donc $\\ln(1+x^2) = \\underset{x \\to 0}{x^2 - \\frac{x^4}{2}} + o(x^4)$.\\par\\par Conclusion : quand on remplace simplement $x$ par $x^p$ dans un développement limité, l'ordre du résultat est simplement multiplié par $p$. Nous verrons plus loin que la situation est plus compliquée pour la composition en général.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_quotient_ln",
+      "type": "example",
+      "title": "Exemple : DL de $\\frac{\\ln(1+x^2)}{x}$ à l'ordre 5",
+      "content_latex": "On veut un développement limité de $\\frac{\\ln(1+x^2)}{x}$ à l'ordre 5 lorsque $x$ tend vers $0$.\\par\\par Pour obtenir un ordre 5, il nous faut un numérateur à l'ordre 6, et pour cela, on peut partir d'un développement limité de $\\ln(1+x)$ à l'ordre 3.\\par\\par Concrètement : $\\frac{\\ln(1+x^2)}{x} = \\underset{x \\to 0}{\\frac{x^2 - \\frac{x^4}{2} + \\frac{x^6}{3} + o(x^6)}{x}} = \\underset{x \\to 0}{x - \\frac{x^3}{2} + \\frac{x^5}{3}} + o(x^5)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__method_multiplication_dl",
+      "type": "method",
+      "title": "Méthode : Multiplication de développements limités",
+      "content_latex": "Quand on veut calculer un $DL_n(0)$ de $f \\times g$, on peut TOUJOURS multiplier un $DL_n(0)$ de $f$ et un $DL_n(0)$ de $g$, puis tronquer à l'ordre $n$, mais parfois on peut faire mieux.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_ex_cos",
+      "type": "example",
+      "title": "Exemple : DL de $e^x \\cos x$ à l'ordre 5",
+      "content_latex": "On veut un développement limité de $e^x \\cos x$ à l'ordre 5 lorsque $x$ tend vers $0$.\\par\\par Échec : $e^x \\cos x = \\underset{x \\to 0}{\\left(1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + o(x^3)\\right)\\left(1 - \\frac{x^2}{2} + o(x^2)\\right)} = \\underset{x \\to 0}{1 + x + o(x^2)}$. Pas assez fin !\\par\\par C'est irrémédiable, un $o(x^2)$ apparaît. Ordre 2 $\\times$ ordre 3 = ordre 2+3. En développant, on voit apparaître des $o(x^2)$, des $o(x^3)$, des $o(x^4)$ et des $o(x^5)$, donc le calcul est mené à la précision $o(x^2)$ et non pas à la précision $o(x^5)$.\\par\\par Succès : $e^x \\cos x = \\underset{x \\to 0}{\\left(1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + \\frac{x^5}{120} + o(x^5)\\right)\\left(1 - \\frac{x^2}{2} + \\frac{x^4}{24} + o(x^5)\\right)}$\\par $= \\underset{x \\to 0}{1 + x - \\frac{x^3}{3} - \\frac{x^4}{6} - \\frac{x^5}{30}} + o(x^5)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_strategie_mult",
+      "type": "remark",
+      "title": "Remarque : Stratégie de multiplication optimale",
+      "content_latex": "La stratégie qui consiste à multiplier un $DL_n(0)$ par un $DL_n(0)$ pour obtenir un $DL_n(0)$ est optimale quand les deux développements limités commencent par un terme d'ordre 0 NON NUL. Quand les premiers termes non nuls sont d'ordres plus grands, on a moins de calculs à mener si on s'y prend bien. Laissez-vous guider par les exemples qui suivent.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_ln_sin",
+      "type": "example",
+      "title": "Exemple : DL de $\\ln(1+x) \\sin x$ à l'ordre 4",
+      "content_latex": "On veut un développement limité de $\\ln(1+x) \\sin x$ à l'ordre 4 lorsque $x$ tend vers $0$.\\par\\par Semi-échec : $\\ln(1+x) \\sin x = \\underset{x \\to 0}{\\left(x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + o(x^4)\\right)\\left(x - \\frac{x^3}{6} + o(x^4)\\right)} = \\underset{x \\to 0}{x^2 - \\frac{x^3}{2} + \\frac{x^4}{6} - \\frac{x^5}{6} + o(x^5)}$. Cette fois c'est trop fin !\\par\\par Trop de finesse vaut mieux que pas assez, mais nous avons fait trop de calculs.\\par\\par Succès : Le fait que nos développements limités commencent par $x$ et non par un terme d'ordre 0 non nul nous autorise le calcul plus simple suivant.\\par $\\ln(1+x) \\sin x = \\underset{x \\to 0}{\\left(x - \\frac{x^2}{2} + \\frac{x^3}{3} + o(x^3)\\right)\\left(x - \\frac{x^3}{6} + o(x^3)\\right)} = \\underset{x \\to 0}{x^2 - \\frac{x^3}{2} + \\frac{x^4}{6}} + o(x^4)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_ex_sin_x2",
+      "type": "example",
+      "title": "Exemple : DL de $e^x \\sin(x^2)$ à l'ordre 7",
+      "content_latex": "On veut un développement limité de $e^x \\sin(x^2)$ à l'ordre 7 lorsque $x$ tend vers $0$.\\par\\par Analyse de la situation : $e^x \\sin(x^2) = \\underset{x \\to 0}{\\underbrace{(1 + \\ldots + o(x^{...}))}_{\\text{Il nous faut ici un } o(x^5)} \\times \\underbrace{(x^2 + \\ldots + o(x^{...}))}_{\\text{Il nous faut ici un } o(x^7)}}$.\\par\\par Or, pour avoir un développement limité de $\\sin(x^2)$ à l'ordre 7, il faut partir d'un développement limité de $\\sin x$ à l'ordre 4. Le reste n'est qu'un calcul :\\par $e^x \\sin(x^2) = \\underset{x \\to 0}{\\left(1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + o(x^4)\\right)\\left(x^2 - \\frac{x^6}{6} + o(x^7)\\right)}$\\par $= \\underset{x \\to 0}{x^2 + x^3 + \\frac{x^4}{2} + \\frac{x^5}{6} - \\frac{x^6}{2} - \\frac{x^7}{6} + \\frac{x^6}{24} + \\frac{x^7}{24} + o(x^7)} = \\underset{x \\to 0}{x^2 + x^3 + \\frac{x^4}{2} + \\frac{x^5}{6} - \\frac{11x^7}{120}} + o(x^7)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_arctan2_cos",
+      "type": "example",
+      "title": "Exemple : DL de $(\\arctan x)^2 \\cos x$ à l'ordre 5",
+      "content_latex": "On veut un développement limité de $(\\arctan x)^2 \\cos x$ à l'ordre 5 lorsque $x$ tend vers $0$.\\par\\par Quand on multiplie plus de deux développements limités, on peut trouver intéressant de factoriser d'emblée chaque développement par son premier terme non nul. On est alors ramené à un produit de développements limités qui ont tous un terme d'ordre 0 non nul — situation facile à gérer.\\par\\par Analyse rapide de la situation : $(\\arctan x)^2 \\cos x = \\underset{x \\to 0}{\\underbrace{(x + \\ldots + o(x^{...}))^2}_{x^2} \\times \\underbrace{(1 + \\ldots + o(x^{...}))}_{\\text{1}}}$.\\par\\par Avec $x^2$ en facteur, on vise la précision $o(x^3)$.\\par\\par Finalement : $(\\arctan x)^2 \\cos x = \\underset{x \\to 0}{x^2\\left(1 - \\frac{x^2}{3} + o(x^3)\\right)^2 \\left(1 - \\frac{x^2}{2} + o(x^3)\\right)} = \\underset{x \\to 0}{x^2 - \\frac{7x^4}{6}} + o(x^5)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_sh4",
+      "type": "example",
+      "title": "Exemple : DL de $\\sh^4 x$ à l'ordre 7",
+      "content_latex": "On veut un développement limité de $\\sh^4 x$ à l'ordre 7 lorsque $x$ tend vers $0$.\\par\\par Analyse rapide de la situation : $\\sh^4 x = \\underset{x \\to 0}{\\underbrace{(x + \\ldots + o(x^{...}))^4}_{x^4} \\times \\underbrace{(1 + \\ldots + o(x^{...}))^4}_{\\text{1}}}$.\\par\\par Avec $x^4$ en facteur, on vise la précision $o(x^3)$.\\par\\par Finalement : $\\sh^4 x = \\underset{x \\to 0}{x^4\\left(1 + \\frac{x^2}{6} + o(x^3)\\right)^4} = \\underset{x \\to 0}{x^4 + \\frac{2x^6}{3}} + o(x^7)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__method_inverse_dl",
+      "type": "method",
+      "title": "Méthode : Inverse d'un développement limité",
+      "content_latex": "Quand on veut calculer un $DL_n(0)$ de $\\frac{1}{1+f}$, on peut TOUJOURS composer un $DL_n(0)$ de $\\frac{1}{1+u}$ avec un $DL_n(0)$ de $f$, puis tronquer à l'ordre $n$.\\par\\par Vérifiez bien que $f(x) \\xrightarrow[x \\to 0]{} 0$.\\par\\par On peut calculer ainsi tous les inverses de développements limités qu'on veut à condition de se ramener toujours à un dénominateur de limite 1 en factorisant convenablement.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_simplification_o",
+      "type": "remark",
+      "title": "Remarque : Simplification des $o$ complexes",
+      "content_latex": "Les exemples qui suivent, tous liés à une composition de fonctions, nous mettent en présence de quantités du genre $o\\left(-\\frac{x^3}{2} + \\frac{x^4}{24} - \\frac{x^6}{720} + o(x^6)\\right)$. Comment les simplifier ?\\par\\par Tout simplement : $o\\left(-\\frac{x^3}{2} + \\frac{x^4}{24} - \\frac{x^6}{720} + o(x^6)\\right) = \\underset{x \\to 0}{o}(x^3)$ car $x^3$ domine les autres termes en $x^4$, $x^5$ et $o(x^5)$. En pratique, on ne prend même pas la peine d'écrire $o\\left(-\\frac{x^3}{2} + \\ldots\\right)$, on écrit directement $o(x^3)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_inv_ln",
+      "type": "example",
+      "title": "Exemple : DL de $\\frac{1}{1+\\ln(1+x)}$ à l'ordre 2",
+      "content_latex": "On veut un développement limité de $\\frac{1}{1+\\ln(1+x)}$ à l'ordre 2 lorsque $x$ tend vers $0$.\\par\\par Pour commencer : $\\frac{1}{1+u} = \\underset{u \\to 0}{1 - u + u^2} + o(u^2)$, et $\\ln(1+x) \\xrightarrow[x \\to 0]{} 0$.\\par\\par Ensuite : $\\ln(1+x) = \\underset{x \\to 0}{x - \\frac{x^2}{2}} + o(x^2)$, donc :\\par $\\frac{1}{1+\\ln(1+x)} = \\underset{x \\to 0}{1 - \\left(x - \\frac{x^2}{2}\\right) + \\left(x - \\frac{x^2}{2}\\right)^2} + o(x^2) = \\underset{x \\to 0}{1 - x + \\frac{3x^2}{2}} + o(x^2)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_inv_cos",
+      "type": "example",
+      "title": "Exemple : DL de $\\frac{1}{\\cos x}$ à l'ordre 4",
+      "content_latex": "On veut un développement limité de $\\frac{1}{\\cos x}$ à l'ordre 4 lorsque $x$ tend vers $0$.\\par\\par On peut partir de : $\\frac{1}{1+u} = \\underset{u \\to 0}{1 - u + u^2} + o(u^2)$, mais quand on remplace $u$ par $-\\frac{x^2}{2} + \\frac{x^4}{24} + o(x^4)$ dans $\\frac{1}{1+u}$, les termes $u^3$, $u^4$ et $o(u^4)$ sont tous des $o(x^4)$, donc ne servent à rien. Le développement $\\frac{1}{1+u} = \\underset{u \\to 0}{1 - u + u^2} + o(u^2)$ suffit.\\par\\par Et : $\\frac{1}{\\cos x} = \\underset{x \\to 0}{1 + \\frac{x^2}{2} + \\frac{5x^4}{24}} + o(x^4)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_x3_sur_sh",
+      "type": "example",
+      "title": "Exemple : DL de $\\frac{x^3}{\\sh x - x}$ à l'ordre 2",
+      "content_latex": "On veut un développement limité de $\\frac{x^3}{\\sh x - x}$ à l'ordre 2 lorsque $x$ tend vers $0$.\\par\\par Cette fois, le développement limité du dénominateur commence par $\\frac{x^3}{6}$, donc si nous voulons un dénominateur de limite 1 en $0$, nous allons devoir factoriser par $\\frac{x^3}{6}$ et adapter notre calcul en conséquence.\\par\\par Analyse rapide de la situation : $\\frac{x^3}{\\sh x - x} = \\underset{x \\to 0}{\\frac{x^3}{\\frac{x^3}{6} + \\frac{x^5}{120} + o(x^5)}} = \\underset{x \\to 0}{\\frac{6}{1 + \\frac{x^2}{20} + o(x^2)}}$.\\par\\par Du coup : $\\frac{x^3}{\\sh x - x} = \\underset{x \\to 0}{6\\left(1 - \\frac{x^2}{20} + o(x^2)\\right)} = \\underset{x \\to 0}{6 - \\frac{3x^2}{10}} + o(x^2)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__method_composition_dl",
+      "type": "method",
+      "title": "Méthode : Composition de développements limités",
+      "content_latex": "Quand on veut calculer un $DL_n(0)$ de $g \\circ f$, on peut TOUJOURS composer un $DL_n(0)$ de $g$ et un $DL_n(0)$ de $f$, puis tronquer à l'ordre $n$, mais parfois on peut faire mieux.\\par\\par Vérifiez bien que $f(x) \\xrightarrow[x \\to 0]{} 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_sqrt_arctan",
+      "type": "example",
+      "title": "Exemple : DL de $\\sqrt{1+\\arctan x}$ à l'ordre 3",
+      "content_latex": "On veut un développement limité de $\\sqrt{1+\\arctan x}$ à l'ordre 3 lorsque $x$ tend vers $0$.\\par\\par Pourquoi faut-il que $\\sqrt{1+u}$ et $\\arctan x$ soient développés TOUS LES DEUX à l'ordre 3 en général et pas moins ? C'est ce que nous allons tâcher de bien comprendre dans cet exemple.\\par\\par Échec n°1 : Partons des développements : $\\sqrt{1+u} = \\underset{u \\to 0}{1 + \\frac{u}{2}} + o(u)$ et $\\arctan x = \\underset{x \\to 0}{x} + o(x)$. Quand on remplace $u$ par $x + o(x)$ dans le premier terme non constant $\\frac{u}{2}$ de $\\sqrt{1+u}$, le $o(x)$ se retrouve tel quel dans le développement de $\\sqrt{1+\\arctan x}$ et nous empêche d'atteindre la précision $o(x^3)$.\\par\\par Échec n°2 : Partons des développements : $\\sqrt{1+u} = \\underset{u \\to 0}{1 + \\frac{u}{2} - \\frac{u^2}{8} + \\frac{u^3}{16}} + o(u^3)$ et $\\arctan x = \\underset{x \\to 0}{x - \\frac{x^3}{3}} + o(x^3)$. Quand on remplace $u$ par $x - \\frac{x^3}{3} + o(x^3)$ dans le $o(u)$ de $\\sqrt{1+u}$, $x$ domine $-\\frac{x^3}{3}$, donc on se retrouve à la tête d'un $o(x)$.\\par\\par Succès : $\\sqrt{1+u} = \\underset{u \\to 0}{1 + \\frac{u}{2} - \\frac{u^2}{8} + \\frac{u^3}{16}} + o(u^3)$ et $\\arctan x = \\underset{x \\to 0}{x - \\frac{x^3}{3}} + o(x^3)$, donc :\\par $\\sqrt{1+\\arctan x} = \\underset{x \\to 0}{1 + \\frac{x}{2} - \\frac{x^2}{8} - \\frac{5x^3}{48}} + o(x^3)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_ln_cos",
+      "type": "example",
+      "title": "Exemple : DL de $\\ln(\\cos x)$ à l'ordre 6",
+      "content_latex": "On veut un développement limité de $\\ln(\\cos x)$ à l'ordre 6 lorsque $x$ tend vers $0$.\\par\\par On pourrait partir d'un $DL_6(0)$ des deux fonctions $x \\mapsto \\ln(1+x)$ et $x \\mapsto \\cos x$, mais il est possible de faire mieux ici. Le développement limité de $\\cos x - 1$ commence par $-\\frac{x^2}{2}$, donc il n'est pas nécessaire de pousser $\\ln(1+u)$ au-delà de l'ordre 3.\\par\\par On part donc de : $\\ln(1+u) = \\underset{u \\to 0}{u - \\frac{u^2}{2} + \\frac{u^3}{3}} + o(u^3)$ et $\\cos x = \\underset{x \\to 0}{1 - \\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{x^6}{720}} + o(x^6)$.\\par\\par Aussitôt : $\\ln(\\cos x) = \\underset{x \\to 0}{-\\frac{x^2}{2} - \\frac{x^4}{12} - \\frac{x^6}{45}} + o(x^6)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_arctan_x3ex",
+      "type": "example",
+      "title": "Exemple : DL de $\\arctan(x^3 e^x)$ à l'ordre 7",
+      "content_latex": "On veut un développement limité de $\\arctan(x^3 e^x)$ à l'ordre 7 lorsque $x$ tend vers $0$.\\par\\par On pourrait là aussi partir d'un $DL_7(0)$ de $\\arctan u$ et $x^3 e^x$, mais quelle galère ! Le développement limité de $x^3 e^x$ commence par $x^3$, donc il n'est pas nécessaire de pousser $\\arctan u$ au-delà de l'ordre 3. En revanche, comme le développement limité de $\\arctan u$ commence par $u$, on est obligé de pousser $x^3 e^x$ à l'ordre 7, i.e. de pousser $e^x$ à l'ordre 4.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_racine_cubique",
+      "type": "example",
+      "title": "Exemple : DL de $\\sqrt[3]{e^x - 1 - x}$ à l'ordre 3",
+      "content_latex": "On veut un développement limité de $\\sqrt[3]{e^x - 1 - x}$ à l'ordre 3 lorsque $x$ tend vers $0$.\\par\\par Tout d'abord : $\\sqrt[3]{1+u} = (1+u)^{1/3} = \\underset{u \\to 0}{1 + \\frac{u}{3} - \\frac{u^2}{9} + \\frac{5u^3}{81}} + o(u^3)$.\\par\\par Également : $e^x - 1 - x = \\underset{x \\to 0}{\\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24}} + o(x^4)$, donc :\\par $\\sqrt[3]{e^x - 1 - x} = \\underset{x \\to 0}{\\frac{x}{\\sqrt[3]{2}}\\left(1 + \\frac{x}{3} - \\frac{x^2}{36} + o(x^2)\\right)^{1/3}} = \\underset{x \\to 0}{\\frac{x}{\\sqrt[3]{2}} + \\frac{x^2}{3\\sqrt[3]{2}} + \\frac{x^3}{8\\sqrt[3]{2}}} + o(x^3)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_translation",
+      "type": "example",
+      "title": "Exemple : DL au voisinage de 2",
+      "content_latex": "$\\ln x = \\underset{x \\to 2}{\\ln 2 + \\frac{x-2}{2} - \\frac{(x-2)^2}{8} + \\frac{(x-2)^3}{24}} + o((x-2)^3)$.",
+      "proof_latex": "On ramène le problème en 0 grâce au changement de variable $x = 2 + h$. Chercher un développement limité de $\\ln x$ à l'ordre 3 lorsque $x$ tend vers 2 revient alors à chercher un développement limité de $\\ln(2+h)$ à l'ordre 3 lorsque $h$ tend vers 0. Or :\\par $\\ln(2+h) = \\ln 2 + \\ln\\left(1 + \\frac{h}{2}\\right) = \\underset{h \\to 0}{\\ln 2 + \\frac{h}{2} - \\frac{h^2}{8} + \\frac{h^3}{24}} + o(h^3)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_dl_cos_pi4",
+      "type": "example",
+      "title": "Exemple : DL de $\\cos x$ au voisinage de $\\frac{\\pi}{4}$",
+      "content_latex": "$\\cos x = \\underset{x \\to \\frac{\\pi}{4}}{\\frac{1}{\\sqrt{2}} - \\frac{1}{\\sqrt{2}}\\left(x - \\frac{\\pi}{4}\\right) - \\frac{1}{2\\sqrt{2}}\\left(x - \\frac{\\pi}{4}\\right)^2 + \\frac{1}{6\\sqrt{2}}\\left(x - \\frac{\\pi}{4}\\right)^3} + o\\left(\\left(x - \\frac{\\pi}{4}\\right)^3\\right)$.",
+      "proof_latex": "On ramène le problème en 0 via le changement de variable $x = \\frac{\\pi}{4} + h$.\\par $\\cos\\left(\\frac{\\pi}{4} + h\\right) = \\frac{1}{\\sqrt{2}}(\\cos h - \\sin h) = \\underset{h \\to 0}{\\frac{1}{\\sqrt{2}}\\left(1 - \\frac{h^2}{2} + o(h^3) - h + \\frac{h^3}{6} + o(h^3)\\right)} = \\underset{h \\to 0}{\\frac{1}{\\sqrt{2}} - \\frac{h}{\\sqrt{2}} - \\frac{h^2}{2\\sqrt{2}} + \\frac{h^3}{6\\sqrt{2}}} + o(h^3)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__definition_equivalence",
+      "type": "definition",
+      "title": "Définition : Équivalence",
+      "content_latex": "\\textbf{Fonctions :} Soient $f : E \\to \\mathbb{R}$ et $g : E \\to \\mathbb{R}$ deux fonctions et $a \\in \\overline{E}$ adhérent à $E$. On dit que $f$ est équivalente à $g$ au voisinage de $a$ s'il existe un voisinage $V_a$ de $a$ et une fonction $\\eta : E \\to \\mathbb{R}$ pour lesquels $f = \\eta g$ sur $E \\cap V_a$ et $\\eta \\xrightarrow[x \\to a]{} 1$. On note cette relation $f \\underset{a}{\\sim} g$ ou $f(x) \\underset{x \\to a}{\\sim} g(x)$.\\par\\par Dans le cas où $g$ ne s'annule pas au voisinage de $a$ — sauf éventuellement en $a$ avec dans ce cas $f(a) = 0$ — il est équivalent d'exiger que $\\frac{f(x)}{g(x)} \\xrightarrow[x \\to a]{} 1$.\\par\\par \\textbf{Suites :} Soient $(u_n)_{n \\in \\mathbb{N}}$ et $(v_n)_{n \\in \\mathbb{N}}$ deux suites. On dit que $(u_n)_{n \\in \\mathbb{N}}$ est équivalente à $(v_n)_{n \\in \\mathbb{N}}$ s'il existe un rang $N$ et une suite $(\\eta_n)_{n \\geq N}$ pour lesquels $u_n = \\eta_n v_n$ pour tout $n \\geq N$ et $\\eta_n \\xrightarrow[n \\to +\\infty]{} 1$. On note cette relation $u_n \\underset{n \\to +\\infty}{\\sim} v_n$.\\par\\par Dans le cas où $v_n \\neq 0$ à partir d'un certain rang, il est équivalent d'exiger que $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_quotients_equiv",
+      "type": "remark",
+      "title": "Remarque : Équivalence en termes de quotients",
+      "content_latex": "Comme les petits $o$, ON PENSERA EN PRATIQUE LES ÉQUIVALENTS EN TERMES DE QUOTIENTS même si la définition à base de fonctions $\\eta$ ou de suites $(\\eta_n)_{n \\in \\mathbb{N}}$ est plus générale. J'ai rédigé toutes les preuves du paragraphe en termes de quotients.\\par J'ai par ailleurs allégé les résultats en ne présentant qu'une seule des deux versions chaque fois — suites ou fonctions — mais pas les deux.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_equivalences",
+      "type": "example",
+      "title": "Exemple : Exemples d'équivalents",
+      "content_latex": "$x^2 + x + 5 \\underset{x \\to +\\infty}{\\sim} x^2$.\\par $x + x^2 \\underset{x \\to 0}{\\sim} x$.\\par $\\frac{1}{n} + \\frac{1}{n^2} \\underset{n \\to +\\infty}{\\sim} \\frac{1}{n}$.\\par $3^n + 2^n \\underset{n \\to +\\infty}{\\sim} 3^n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv",
+      "type": "theorem",
+      "title": "Théorème : Lien petit $o$/équivalence",
+      "content_latex": "$f \\underset{a}{\\sim} g \\iff f = \\underset{a}{g} + o(g)$.\\par\\par Très très important : IL Y A TOUJOURS UN PETIT $o$ DANS UNE ÉQUIVALENCE, un petit $o$ caché qui contrôle l'approximation de $f$ par $g$ ou de $u_n$ par $v_n$.",
+      "proof_latex": "$f \\underset{a}{\\sim} g \\iff \\frac{f}{g} \\xrightarrow[a]{} 1 \\iff \\frac{f}{g} - 1 \\xrightarrow[a]{} 0 \\iff \\frac{f-g}{g} = \\underset{a}{o}(1) \\iff f - g = \\underset{a}{o}(g) \\iff f = \\underset{a}{g} + o(g)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+      "type": "theorem",
+      "title": "Théorème : Lien développement limité/équivalence",
+      "content_latex": "Soient $f : E \\to \\mathbb{R}$ une fonction, $a \\in E$, $n, p \\in \\mathbb{N}$ avec $p \\leq n$ et $a_p, \\ldots, a_n \\in \\mathbb{R}$. Si $f(x) = \\underset{x \\to a}{a_p(x-a)^p + \\ldots + a_n(x-a)^n} + o((x-a)^n)$ avec $a_p \\neq 0$, alors :\\par $f(x) \\underset{x \\to a}{\\sim} a_p(x-a)^p$.\\par\\par En résumé, le PREMIER TERME NON NUL d'un développement limité peut tenir lieu d'équivalent. Par exemple :\\par $\\ln(1+x) \\underset{x \\to 0}{\\sim} x$,\\par $e^x - 1 \\underset{x \\to 0}{\\sim} x$,\\par $\\sin x - x \\underset{x \\to 0}{\\sim} -\\frac{x^3}{6}$,\\par $\\arctan x \\underset{x \\to 0}{\\sim} x$...",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_equiv_somme",
+      "type": "warning",
+      "title": "Attention : Un équivalent n'est jamais une somme",
+      "content_latex": "Un équivalent n'a jamais aucune bonne raison d'être présenté comme une somme de deux ou trois termes de tailles distinctes. Par exemple, si on vous demande un équivalent de $3x^2 + x^5$ lorsque $x$ tend vers 0, ne répondez pas $3x^2 + o(x)$ donc $3x^2$ même si c'est correct. Allez plus loin et comparez $x$ et $x^2$. En l'occurrence, $x^2 = \\underset{x \\to 0}{o}(x)$ donc $3x^2 + x^5 \\underset{x \\to 0}{\\sim} 3x^2 + x^5 \\underset{x \\to 0}{\\sim} x \\underset{x \\to 0}{\\sim} 3x^2 + x^5 \\underset{x \\to 0}{\\sim} x$. En résumé, faites le ménage : IL NE DOIT EN RESTER QU'UN.\\par\\par Pour la même raison, ne confondez pas $e^x - 1 \\underset{x \\to 0}{\\sim} 1 + x$ et $e^x - 1 \\underset{x \\to 0}{\\sim} x$. La deuxième équivalence cache un $o(x)$ alors que la première cache un $o(1+x)$, i.e. un $o(1)$, et n'affirme rien de plus que ceci en dépit des apparences : $e^x - 1 \\underset{x \\to 0}{\\sim} 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels",
+      "type": "theorem",
+      "title": "Théorème : Nouveaux équivalents usuels au voisinage de 0",
+      "content_latex": "$\\arcsin x \\underset{x \\to 0}{\\sim} x$.\\par\\par $\\arccos x = \\underset{x \\to 0}{\\frac{\\pi}{2} - x} + o(x)$, donc $\\arccos x - \\frac{\\pi}{2} \\underset{x \\to 0}{\\sim} -x$.\\par\\par $\\tanh x \\underset{x \\to 0}{\\sim} x$.",
+      "proof_latex": "Les fonctions $\\arcsin$, $\\arccos$ et $\\tanh$ sont de classe $\\mathcal{C}^1$ au voisinage de 0, on peut donc utiliser la formule de Taylor-Young à l'ordre 1."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_equiv_relation",
+      "type": "theorem",
+      "title": "Théorème : La relation « être équivalente à » est une relation d'équivalence",
+      "content_latex": "Qu'on parle de fonctions au voisinage d'un point ou de suites, la relation « être équivalente à » est une relation d'équivalence.",
+      "proof_latex": "\\textbf{Réflexivité :} $\\frac{u_n}{u_n} \\xrightarrow[n \\to +\\infty]{} 1$.\\par\\par \\textbf{Symétrie :} Si $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 1$, alors $\\frac{v_n}{u_n} \\xrightarrow[n \\to +\\infty]{} 1$.\\par\\par \\textbf{Transitivité :} Si $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 1$ et $\\frac{v_n}{w_n} \\xrightarrow[n \\to +\\infty]{} 1$, alors $\\frac{u_n}{w_n} \\xrightarrow[n \\to +\\infty]{} 1$ par produit."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+      "type": "theorem",
+      "title": "Théorème : Lien limite/équivalence et conservation du signe",
+      "content_latex": "(i) Si $u_n \\underset{n \\to +\\infty}{\\sim} v_n$, alors soit $(u_n)_{n \\in \\mathbb{N}}$ et $(v_n)_{n \\in \\mathbb{N}}$ ont toutes les deux une limite, en l'occurrence la même, soit aucune des deux ne possède de limite.\\par\\par (ii) Si $u_n \\xrightarrow[n \\to +\\infty]{} \\ell$ avec $\\ell$ à la fois RÉEL et NON NUL, alors $u_n \\underset{n \\to +\\infty}{\\sim} \\ell$.\\par\\par (iii) Si $u_n \\underset{n \\to +\\infty}{\\sim} v_n$ avec $v_n > 0$ à partir d'un certain rang, alors $u_n > 0$ à partir d'un certain rang.",
+      "proof_latex": "(i) Si $u_n \\underset{n \\to +\\infty}{\\sim} v_n$ et si $(v_n)_{n \\in \\mathbb{N}}$ possède une limite $\\ell \\in \\overline{\\mathbb{R}}$, alors $\\lim_{n \\to +\\infty} u_n = \\lim_{n \\to +\\infty} \\frac{u_n}{v_n} \\times v_n = 1 \\times \\ell = \\ell$, et vice versa par symétrie des rôles de $(u_n)_{n \\in \\mathbb{N}}$ et $(v_n)_{n \\in \\mathbb{N}}$.\\par\\par (ii) Si $u_n \\xrightarrow[n \\to +\\infty]{} \\ell$, alors $u_n = \\underset{n \\to +\\infty}{\\frac{u_n}{\\ell}} \\times \\ell \\xrightarrow[n \\to +\\infty]{} 1 \\times \\ell = \\ell$, donc $u_n \\underset{n \\to +\\infty}{\\sim} \\ell$.\\par\\par (iii) Si $u_n \\underset{n \\to +\\infty}{\\sim} v_n$, alors $u_n = \\frac{u_n}{v_n} \\times v_n > 0$ à partir du rang $\\max(N, N')$ où $\\frac{u_n}{v_n} > 0$ à partir du rang $N$ et $v_n > 0$ à partir du rang $N'$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_limite_equiv",
+      "type": "warning",
+      "title": "Attention : Limite n'implique pas équivalence",
+      "content_latex": "$\\lim_a f = \\lim_a g = 0 \\kern-3pt\\not\\kern3pt\\kern-3pt\\implies f \\underset{a}{\\sim} g$.\\par $\\lim_{n \\to +\\infty} u_n = \\lim_{n \\to +\\infty} v_n = +\\infty \\kern-3pt\\not\\kern3pt\\kern-3pt\\implies u_n \\underset{n \\to +\\infty}{\\sim} v_n$.\\par\\par Ne pas comprendre ceci, c'est vraiment ne rien comprendre au chapitre.\\par\\par Par exemple, $\\lim_{x \\to +\\infty} x = \\lim_{x \\to +\\infty} x^2 = +\\infty$ mais $x \\underset{x \\to +\\infty}{\\not\\sim} x^2$.\\par\\par De même, $\\lim_{x \\to 0} x = \\lim_{x \\to 0} x^2 = 0$ mais $x^2 \\underset{x \\to 0}{\\not\\sim} x$.\\par\\par Enfin, $\\lim_{n \\to +\\infty} 2^n = \\lim_{n \\to +\\infty} 2^{n+1} = +\\infty$ mais $2^{n+1} \\underset{n \\to +\\infty}{\\not\\sim} 2^n$. Pensez à la suite $(2^n)_{n \\in \\mathbb{N}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_tiroirs",
+      "type": "remark",
+      "title": "Remarque : Tiroirs et sous-tiroirs asymptotiques",
+      "content_latex": "Résumons-nous. Dans l'armoire des suites, la notion de limite crée des tiroirs qui opèrent un premier tri. Dans le tiroir $+\\infty$ sont rangées toutes les suites de limite $+\\infty$, dans le tiroir 0 toutes les suites de limite 0, dans le tiroir 2 toutes les suites de limite 2, etc. Or dans certains tiroirs, il serait intéressant que de nouveaux sous-tiroirs soient créés. Par exemple, $(n^2)_{n \\in \\mathbb{N}}$ et $(n^2 + n)_{n \\in \\mathbb{N}}$ sont dans le tiroir $+\\infty$, mais $(n^2)_{n \\in \\mathbb{N}}$ et $(2^n)_{n \\in \\mathbb{N}}$ portent des infinis de tailles différentes tandis que $(n^2)_{n \\in \\mathbb{N}}$ et $(n^2 + n)_{n \\in \\mathbb{N}}$ portent le même infini. Les classes d'équivalence de la relation « être équivalente à » sont exactement les sous-tiroirs en question.\\par\\par Le fait que deux suites équivalentes aient toujours la même limite nous garantit que les nouveaux tiroirs créés sont bien des sous-tiroirs des tiroirs-limites. Nous avons vu en outre que toute suite de limite $\\ell \\in \\mathbb{R}^*$ est équivalente à la suite constante $(\\ell)_{n \\in \\mathbb{N}}$. Ce résultat signifie que nous n'avons pas créé le moindre nouveau sous-tiroir dans le tiroir-limite $\\ell$. Quatre tiroirs-limites seulement voient leur contenu hiérarchisé à présent par de nouveaux sous-tiroirs — le tiroir $+\\infty$, le tiroir 0, le tiroir $-\\infty$ et le tiroir des sans-limites.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_remplacement_o",
+      "type": "theorem",
+      "title": "Théorème : Dans les petits $o$, on peut remplacer par un équivalent",
+      "content_latex": "Si $u_n = \\underset{n \\to +\\infty}{o}(v_n)$ et $v_n \\underset{n \\to +\\infty}{\\sim} v'_n$, alors $u_n = \\underset{n \\to +\\infty}{o}(v'_n)$.",
+      "proof_latex": "Si $\\frac{u_n}{v_n} \\xrightarrow[n \\to +\\infty]{} 0$ et $\\frac{v_n}{v'_n} \\xrightarrow[n \\to +\\infty]{} 1$, alors $\\frac{u_n}{v'_n} = \\frac{u_n}{v_n} \\times \\frac{v_n}{v'_n} \\xrightarrow[n \\to +\\infty]{} 0 \\times 1 = 0$ par produit."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_sin_sin",
+      "type": "example",
+      "title": "Exemple : Équivalent de $\\sin(\\sin x)$",
+      "content_latex": "$\\sin(\\sin x) = \\underset{x \\to 0}{\\sin(x + o(x))} = \\underset{x \\to 0}{(x + o(x)) + o(x + o(x))} = \\underset{x \\to 0}{x} + o(x)$, donc $\\sin(\\sin x) \\underset{x \\to 0}{\\sim} x$.\\par\\par On aurait pu procéder autrement en composant l'équivalence $\\sin x \\underset{x \\to 0}{\\sim} x$ avec elle-même : $\\sin(\\sin x) \\underset{x \\to 0}{\\sim} \\sin x \\underset{x \\to 0}{\\sim} x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_produit_equiv",
+      "type": "theorem",
+      "title": "Théorème : Avec le produit, l'inverse et les puissances, tout va bien",
+      "content_latex": "\\textbf{Produit :} Si $f \\underset{a}{\\sim} f'$ et $g \\underset{a}{\\sim} g'$, alors $fg \\underset{a}{\\sim} f'g'$.\\par\\par \\textbf{Inverse :} Si $f \\underset{a}{\\sim} g$ et si $f$ ne s'annule pas au voisinage de $a$, alors $\\frac{1}{f} \\underset{a}{\\sim} \\frac{1}{g}$.\\par\\par \\textbf{Puissances :} Si $f \\underset{a}{\\sim} g$ avec $g$ strictement positive au voisinage de $a$, alors pour tout $\\alpha \\in \\mathbb{R}$ : $f^\\alpha \\underset{a}{\\sim} g^\\alpha$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+      "type": "theorem",
+      "title": "Théorème : Avec la composition à droite et les suites extraites, tout va bien",
+      "content_latex": "\\textbf{Fonctions :} Soient $b \\in \\overline{\\mathbb{R}}$ et $\\varphi$ une fonction définie au voisinage de $b$ à valeurs dans $I$. Si $f \\underset{a}{\\sim} g$ et $\\varphi \\xrightarrow[b]{} a$, alors $f \\circ \\varphi \\underset{b}{\\sim} g \\circ \\varphi$.\\par\\par \\textbf{Suites :} Soit $\\varphi : \\mathbb{N} \\to \\mathbb{N}$ une fonction strictement croissante. Si $u_n \\underset{n \\to +\\infty}{\\sim} v_n$, alors $u_{\\varphi(n)} \\underset{n \\to +\\infty}{\\sim} v_{\\varphi(n)}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_operations_interdites",
+      "type": "warning",
+      "title": "Attention : Opérations interdites avec les équivalents",
+      "content_latex": "Avec les équivalents, deux opérations sont formellement interdites.\\par\\par \\textbf{Addition :} $x + 1 \\underset{x \\to +\\infty}{\\sim} x$ et $-x + 3 \\underset{x \\to +\\infty}{\\sim} -x$, mais $4 \\underset{x \\to +\\infty}{\\not\\sim} 1$.\\par\\par \\textbf{Composition à gauche :} $n + \\ln n \\underset{n \\to +\\infty}{\\sim} n$, mais si on compose par $x \\mapsto e^x$ à gauche : $e^{n+\\ln n} \\underset{n \\to +\\infty}{\\not\\sim} e^n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv",
+      "type": "theorem",
+      "title": "Théorème : Théorème d'encadrement version équivalents",
+      "content_latex": "Si $m_n \\leq u_n \\leq M_n$ à partir d'un certain rang avec $m_n \\underset{n \\to +\\infty}{\\sim} M_n$, alors $u_n \\underset{n \\to +\\infty}{\\sim} m_n \\underset{n \\to +\\infty}{\\sim} M_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_sqrt_x2_ln",
+      "type": "example",
+      "title": "Exemple : Équivalent de $\\sqrt{x^2 + \\ln x} - x$",
+      "content_latex": "$\\sqrt{x^2 + \\ln x} - x \\underset{x \\to +\\infty}{\\sim} \\frac{\\ln x}{2x}$.",
+      "proof_latex": "$\\frac{\\ln x}{2x} = \\frac{\\ln x}{x^2} \\times \\frac{x}{2} \\xrightarrow[x \\to +\\infty]{} 0$, donc :\\par $\\sqrt{x^2 + \\ln x} - x = x\\left(\\sqrt{1 + \\frac{\\ln x}{x^2}} - 1\\right) \\underset{x \\to +\\infty}{\\sim} x \\times \\frac{\\ln x}{2x^2} = \\frac{\\ln x}{2x}$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_etan_sqrt",
+      "type": "example",
+      "title": "Exemple : Équivalent de $e^{\\tan x} - \\sqrt{1+x^2}$",
+      "content_latex": "$e^{\\tan x} - \\sqrt{1+x^2} \\underset{x \\to 0}{\\sim} x$.",
+      "proof_latex": "Nous ne savons pas ici à l'avance à quel ordre nous devons pousser nos développements limités de $e^{\\tan x}$ et $\\sqrt{1+x^2}$ lorsque $x$ tend vers 0, nous devons donc avancer à tâtons et anticiper au mieux.\\par\\par $e^{\\tan x} - \\sqrt{1+x^2} = \\underset{x \\to 0}{e^{x+o(x)} - (1+o(x))} = \\underset{x \\to 0}{(1+x+o(x)) - (1+o(x))} = \\underset{x \\to 0}{x} + o(x)$,\\par donc $e^{\\tan x} - \\sqrt{1+x^2} \\underset{x \\to 0}{\\sim} x$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_ln_sin2",
+      "type": "example",
+      "title": "Exemple : Équivalent de $\\ln(1+x^2) - \\sin^2 x$",
+      "content_latex": "$\\ln(1+x^2) - \\sin^2 x \\underset{x \\to 0}{\\sim} -\\frac{x^4}{6}$.",
+      "proof_latex": "Le tâtonnement s'impose, espérons juste que le premier terme non nul n'est pas d'ordre 50.\\par\\par $\\ln(1+x^2) - \\sin^2 x = \\underset{x \\to 0}{\\left(x^2 - \\frac{x^4}{2} + o(x^4)\\right) - \\left(x - \\frac{x^3}{6} + o(x^4)\\right)^2} = \\underset{x \\to 0}{\\left(x^2 - \\frac{x^4}{2} + o(x^4)\\right) - \\left(x^2 - \\frac{x^4}{3} + o(x^4)\\right)} = \\underset{x \\to 0}{-\\frac{x^4}{6}} + o(x^4)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_ch_cos",
+      "type": "example",
+      "title": "Exemple : Équivalent de $\\ch(e^{-n}) - \\cos\\left(\\frac{\\pi}{n}\\right)$",
+      "content_latex": "$\\ch(e^{-n}) - \\cos\\left(\\frac{\\pi}{n}\\right) \\underset{n \\to +\\infty}{\\sim} \\frac{\\pi^2}{2n^2}$.",
+      "proof_latex": "Composons les limites $e^{-n} \\xrightarrow[n \\to +\\infty]{} 0$ et $\\frac{\\pi}{n} \\xrightarrow[n \\to +\\infty]{} 0$ avec les développements limités $\\ch x = \\underset{x \\to 0}{1} + o(x)$ et $\\cos x = \\underset{x \\to 0}{1 - \\frac{x^2}{2}} + o(x^2)$.\\par\\par $\\ch(e^{-n}) - \\cos\\left(\\frac{\\pi}{n}\\right) = \\underset{n \\to +\\infty}{\\left(1 + o(e^{-n})\\right) - \\left(1 - \\frac{\\pi^2}{2n^2} + o\\left(\\frac{1}{n^2}\\right)\\right)} = \\underset{n \\to +\\infty}{\\frac{\\pi^2}{2n^2}} + o\\left(\\frac{1}{n^2}\\right)$ car $e^{-n} = \\underset{n \\to +\\infty}{o}\\left(\\frac{1}{n^2}\\right)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_ln_fractions",
+      "type": "example",
+      "title": "Exemple : Équivalent de $\\frac{\\ln(n+1)}{n} - \\frac{\\ln n}{n+1}$",
+      "content_latex": "$\\frac{\\ln(n+1)}{n} - \\frac{\\ln n}{n+1} \\underset{n \\to +\\infty}{\\sim} \\frac{\\ln n}{n^2}$.",
+      "proof_latex": "Il nous suffit de trouver séparément un équivalent du numérateur et un équivalent du dénominateur.\\par\\par Au dénominateur : $n(n+1) \\underset{n \\to +\\infty}{\\sim} n^2$.\\par\\par Et au numérateur : $(n+1)\\ln(n+1) - n\\ln n = (n+1)\\ln\\left(1 + \\frac{1}{n}\\right) + \\ln n = \\underset{n \\to +\\infty}{(n+1)\\left(\\frac{1}{n} + o\\left(\\frac{1}{n}\\right)\\right) + \\ln n} = \\underset{n \\to +\\infty}{1 + o(1) + \\ln n} \\underset{n \\to +\\infty}{\\sim} \\ln n$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_n_plus",
+      "type": "example",
+      "title": "Exemple : Équivalent et développement de $\\frac{1}{(n+1)(n+2)}$",
+      "content_latex": "$\\frac{1}{(n+1)(n+2)} \\underset{n \\to +\\infty}{\\sim} \\frac{1}{n^2}$, mais que faire si on veut un $o\\left(\\frac{1}{n^2}\\right)$ ?\\par\\par $\\frac{1}{(n+1)(n+2)} = \\underset{n \\to +\\infty}{\\frac{1}{n^2}\\left(1 + \\frac{1}{n}\\right)^{-1}\\left(1 + \\frac{2}{n}\\right)^{-1}} = \\underset{n \\to +\\infty}{\\frac{1}{n^2}\\left(1 - \\frac{1}{n} + \\frac{1}{n^2} + o\\left(\\frac{1}{n^2}\\right)\\right)\\left(1 - \\frac{2}{n} + \\frac{4}{n^2} + o\\left(\\frac{1}{n^2}\\right)\\right)}$\\par\\par $= \\underset{n \\to +\\infty}{\\frac{1}{n^2}\\left(1 - \\frac{3}{n} + \\frac{7}{n^2} + o\\left(\\frac{1}{n^2}\\right)\\right)} = \\underset{n \\to +\\infty}{\\frac{1}{n^2} - \\frac{3}{n^3} + \\frac{7}{n^4}} + o\\left(\\frac{1}{n^4}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__definition_domination",
+      "type": "definition",
+      "title": "Définition : Domination",
+      "content_latex": "\\textbf{Fonctions :} Soient $f : E \\to \\mathbb{R}$ et $g : E \\to \\mathbb{R}$ deux fonctions et $a \\in \\overline{E}$ adhérent à $E$. On dit que $f$ est dominée par $g$ au voisinage de $a$ s'il existe un voisinage $V_a$ de $a$ et une fonction bornée $\\lambda : E \\to \\mathbb{R}$ pour lesquels $f = \\lambda g$ sur $E \\cap V_a$. On note cette relation $f = \\underset{a}{O}(g)$ ou $f(x) = \\underset{x \\to a}{O}(g(x))$ et on dit que $f$ est un grand $O$ de $g$ au voisinage de $a$.\\par\\par En particulier : $O(1)$ = une fonction bornée au voisinage de $a$.\\par\\par Dans le cas où $g$ ne s'annule pas au voisinage de $a$ — sauf éventuellement en $a$ avec dans ce cas $f(a) = 0$ — il est équivalent d'exiger que la fonction $\\frac{f}{g}$ soit bornée au voisinage de $a$.\\par\\par \\textbf{Suites :} Soient $(u_n)_{n \\in \\mathbb{N}}$ et $(v_n)_{n \\in \\mathbb{N}}$ deux suites. On dit que $(u_n)_{n \\in \\mathbb{N}}$ est dominée par $(v_n)_{n \\in \\mathbb{N}}$ s'il existe un rang $N$ et une suite bornée $(\\lambda_n)_{n \\geq N}$ pour lesquels $u_n = \\lambda_n v_n$ pour tout $n \\geq N$. On note cette relation $u_n = \\underset{n \\to +\\infty}{O}(v_n)$ et on dit que $u_n$ est un grand $O$ de $v_n$.\\par\\par En particulier : $O(1)$ = une suite bornée.\\par\\par Dans le cas où $v_n \\neq 0$ à partir d'un certain rang $N$, il est équivalent d'exiger que la suite $\\left(\\frac{u_n}{v_n}\\right)_{n \\geq N}$ soit bornée.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_domination",
+      "type": "example",
+      "title": "Exemple : Exemples de domination",
+      "content_latex": "$\\sin x = \\underset{x \\to +\\infty}{O}(1)$ et $\\lfloor x \\rfloor = \\underset{x \\to +\\infty}{O}(x)$.\\par\\par Également : $\\frac{(-1)^n}{\\sqrt{n}} = \\underset{n \\to +\\infty}{O}\\left(\\frac{1}{n}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_lien_O_o_equiv",
+      "type": "theorem",
+      "title": "Théorème : Lien grand $O$/petit $o$/équivalence",
+      "content_latex": "Si $f = \\underset{a}{o}(g)$ ou $f \\underset{a}{\\sim} g$, alors $f = \\underset{a}{O}(g)$.",
+      "proof_latex": "Si $\\frac{f}{g}$ possède une limite finie en $a$, par exemple 0 ou 1, $\\frac{f}{g}$ est bornée au voisinage de $a$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__warning_domination",
+      "type": "warning",
+      "title": "Attention : La domination n'implique ni la négligeabilité, ni l'équivalence",
+      "content_latex": "La domination n'implique ni la négligeabilité, ni l'équivalence — c'est le contraire qui est vrai. Par exemple, $2x^2 = \\underset{x \\to 0}{O}(x^2)$ mais $2x^2 \\neq \\underset{x \\to 0}{o}(x^2)$ et $2x^2 \\underset{x \\to +\\infty}{\\not\\sim} x^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_ex_O",
+      "type": "example",
+      "title": "Exemple : DL avec grand $O$",
+      "content_latex": "Sachant que $e^x = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}} + o(x^3)$, on peut aussi dire que $e^x = \\underset{x \\to 0}{1 + x + \\frac{x^2}{2}} + O(x^3)$. Ce résultat est plus fin qu'un développement limité à l'ordre 2, mais plus grossier qu'un développement limité à l'ordre 3. À bien comprendre.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__remark_operations_O",
+      "type": "remark",
+      "title": "Remarque : Opérations sur les grands $O$",
+      "content_latex": "Pour finir, les théorèmes du paragraphe « Opérations sur les petits $o$ » demeurent vrais avec des grands $O$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+      "type": "theorem",
+      "title": "Théorème : Développement asymptotique de la série harmonique et constante d'Euler",
+      "content_latex": "$\\sum_{k=1}^{n} \\frac{1}{k} = \\underset{n \\to +\\infty}{\\ln n + \\gamma} + o(1)$ pour un certain réel $\\gamma$ appelé la constante d'Euler : $\\gamma \\approx 0,577$.\\par\\par En particulier : $\\sum_{k=1}^{n} \\frac{1}{k} = \\underset{n \\to +\\infty}{\\ln n} + O(1)$, et même : $\\sum_{k=1}^{n} \\frac{1}{k} \\underset{n \\to +\\infty}{\\sim} \\ln n$.",
+      "proof_latex": "En deux mots, les suites $\\left(\\sum_{k=1}^{n} \\frac{1}{k} - \\ln(n+1)\\right)_{n \\in \\mathbb{N}^*}$ et $\\left(\\sum_{k=1}^{n} \\frac{1}{k} - \\ln n\\right)_{n \\in \\mathbb{N}^*}$ sont adjacentes."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_limite_racines",
+      "type": "example",
+      "title": "Exemple : Calcul de limite avec racines",
+      "content_latex": "$\\frac{\\sqrt{1+x} - \\sqrt{1-x}}{x^5} \\xrightarrow[x \\to 0]{} +\\infty$.",
+      "proof_latex": "Forme indéterminée $\\frac{0}{0}$ au premier abord. Comme il est facile de diviser les équivalents, nous allons chercher un équivalent du numérateur et un équivalent du dénominateur séparément.\\par\\par $\\sqrt{1+x} - \\sqrt{1-x} = \\underset{x \\to 0}{\\left(1 + \\frac{x}{2} - \\frac{x^2}{8} + \\frac{x^3}{16} + o(x^3)\\right) - \\left(1 - \\frac{x}{2} - \\frac{x^2}{8} - \\frac{x^3}{16} + o(x^3)\\right)} = \\underset{x \\to 0}{x + \\frac{x^3}{8}} + o(x^3)$,\\par donc $\\sqrt{1+x} - \\sqrt{1-x} \\underset{x \\to 0}{\\sim} x$, et enfin : $\\frac{\\sqrt{1+x} - \\sqrt{1-x}}{x^5} \\underset{x \\to 0}{\\sim} \\frac{1}{8x^2} \\xrightarrow[x \\to 0]{} +\\infty$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_limite_arccos",
+      "type": "example",
+      "title": "Exemple : Limite avec $\\arccos$",
+      "content_latex": "$n \\left(\\arccos\\frac{1}{n} - \\frac{\\pi}{2}\\right) + 1 \\xrightarrow[n \\to +\\infty]{} 1$.",
+      "proof_latex": "Forme indéterminée $+\\infty \\times 0$ au premier abord, mais $\\arccos\\frac{1}{n} - \\frac{\\pi}{2} + \\frac{1}{n} = \\underset{n \\to +\\infty}{-\\frac{1}{n} + o\\left(\\frac{1}{n}\\right) + \\frac{1}{n}} = \\underset{n \\to +\\infty}{o\\left(\\frac{1}{n}\\right)}$,\\par donc $n\\left(\\arccos\\frac{1}{n} - \\frac{\\pi}{2}\\right) + 1 = \\underset{n \\to +\\infty}{o(1)} \\xrightarrow[n \\to +\\infty]{} 0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_limite_complexe",
+      "type": "example",
+      "title": "Exemple : Limite complexe avec plusieurs fonctions",
+      "content_latex": "$\\frac{\\sqrt[5]{1+6x} - \\sqrt[3]{1+x}}{3\\sin x - \\ln(1+x)} \\xrightarrow[x \\to 0]{} \\frac{13}{30}$.",
+      "proof_latex": "Forme indéterminée $\\frac{0}{0}$ au premier abord. On cherche séparément un équivalent du numérateur et un équivalent du dénominateur.\\par\\par $\\sqrt[5]{1+6x} - \\sqrt[3]{1+x} = \\underset{x \\to 0}{\\left(1 + \\frac{6x}{5} + o(x)\\right) - \\left(1 + \\frac{x}{3} + o(x)\\right)} = \\underset{x \\to 0}{\\frac{13x}{15}} + o(x)$,\\par donc $\\sqrt[5]{1+6x} - \\sqrt[3]{1+x} \\underset{x \\to 0}{\\sim} \\frac{13x}{15}$.\\par\\par $3\\sin x - \\ln(1+x) = \\underset{x \\to 0}{3(x + o(x)) - (x + o(x))} = \\underset{x \\to 0}{2x} + o(x)$,\\par donc $3\\sin x - \\ln(1+x) \\underset{x \\to 0}{\\sim} 2x$.\\par\\par Conclusion : $\\frac{\\sqrt[5]{1+6x} - \\sqrt[3]{1+x}}{3\\sin x - \\ln(1+x)} \\underset{x \\to 0}{\\sim} \\frac{13x/15}{2x} = \\frac{13}{30} \\xrightarrow[x \\to 0]{} \\frac{13}{30}$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_limite_a_b",
+      "type": "example",
+      "title": "Exemple : Limite avec puissances",
+      "content_latex": "Pour tous $a, b > 0$ : $\\left(\\frac{a^{\\frac{1}{x}} + b^{\\frac{1}{x}}}{2}\\right)^x \\xrightarrow[x \\to +\\infty]{} \\sqrt{ab}$.",
+      "proof_latex": "D'abord, $\\frac{a^{\\frac{1}{x}} + b^{\\frac{1}{x}}}{2} - 1 \\xrightarrow[x \\to +\\infty]{} 0$ donc :\\par $a^{\\frac{1}{x}} = e^{\\frac{\\ln a}{x}} = \\underset{x \\to +\\infty}{1 + \\frac{\\ln a}{x} + o\\left(\\frac{1}{x}\\right)}$.\\par\\par Et un coup de logarithme à gauche : $\\ln\\left(\\frac{a^{\\frac{1}{x}} + b^{\\frac{1}{x}}}{2}\\right) = \\underset{x \\to +\\infty}{\\ln\\left(1 + \\frac{\\ln a + \\ln b}{2x} + o\\left(\\frac{1}{x}\\right)\\right)} = \\underset{x \\to +\\infty}{\\frac{\\ln\\sqrt{ab}}{x} + o\\left(\\frac{1}{x}\\right)}$,\\par puis on multiplie par $x$ : $x \\ln\\left(\\frac{a^{\\frac{1}{x}} + b^{\\frac{1}{x}}}{2}\\right) = \\underset{x \\to +\\infty}{\\ln\\sqrt{ab} + o(1)} \\xrightarrow[x \\to +\\infty]{} \\ln\\sqrt{ab}$,\\par on compose enfin à gauche par la fonction exponentielle."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__theorem_position_tangente",
+      "type": "theorem",
+      "title": "Théorème : Position locale par rapport à une tangente",
+      "content_latex": "Soient $I$ un intervalle, $f \\in \\mathcal{C}^n(I, \\mathbb{R})$ avec $n \\geq 2$ et $a \\in I$. D'après la formule de Taylor-Young, $f$ possède ainsi un $DL_n(a)$. Faisons l'hypothèse qu'il peut être écrit :\\par $f(x) = \\underset{x \\to a}{a_0 + a_1(x-a) + a_n(x-a)^n} + o((x-a)^n)$ avec $a_n \\neq 0$.\\par\\par En d'autres termes, les coefficients d'ordre $2, 3, \\ldots, n-1$ sont nuls. Dans ces conditions, $a_0 = f(a)$, $a_1 = f'(a)$ et $f$ admet la droite d'équation $y = f(a) + f'(a)(x-a)$ pour tangente en $a$, mais plus précisément :\\par $f(x) - (f(a) + f'(a)(x-a)) \\underset{x \\to a}{\\sim} a_n(x-a)^n$.\\par\\par La position du graphe de $f$ au voisinage de $a$ par rapport à sa tangente en $a$ dépend du signe de la fonction $x \\mapsto a_n(x-a)^n$ :\\par\\par — Si $n$ est pair, $x \\mapsto a_n(x-a)^n$ a le signe de $a_n$ au voisinage de $a$. Le graphe de $f$ est situé au-dessus de sa tangente en $a$ au voisinage de $a$ si $a_n > 0$ et en-dessous si $a_n < 0$. Si de plus $a_1 = 0$, $f$ possède un extremum local en $a$ — un maximum local si $a_n < 0$, un minimum local si $a_n > 0$.\\par\\par — Et si $n$ est impair ? Les développements limités issus de la formule de Taylor-Young peuvent être dérivés, donc $f''(x) = \\underset{x \\to a}{n(n-1)a_n(x-a)^{n-2} + o((x-a)^{n-2})}$, i.e. $f''(x) \\underset{x \\to a}{\\sim} n(n-1)a_n(x-a)^{n-2}$. Ainsi, $f''$ s'annule en changeant de signe en $a$ au voisinage de $a$, donc $f$ possède un point d'inflexion en $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_minimum_local",
+      "type": "example",
+      "title": "Exemple : Minimum local",
+      "content_latex": "La fonction $x \\mapsto \\frac{x \\sin x}{1+x^2}$ possède un minimum local en $0$.",
+      "proof_latex": "Nous cherchons le premier terme non nul d'ordre au moins 2 dans le développement limité de $f$ au voisinage de $0$. Il est impossible de savoir à l'avance à quel ordre nous allons trouver ce terme, espérons juste qu'il n'est pas trop grand. Ici, $f(x) \\underset{x \\to 0}{\\sim} x^2$ tout simplement, donc $f(x) = \\underset{x \\to 0}{x^2} + o(x^2)$. En particulier, $f$ est positive au voisinage de $0$ avec $f(0) = 0$, donc possède un minimum local en $0$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_inflexion",
+      "type": "example",
+      "title": "Exemple : Point d'inflexion",
+      "content_latex": "La fonction $x \\mapsto \\frac{\\ln(1-2x)}{1+x}$ possède en $0$ un point d'inflexion de tangente la droite d'équation $y = -2x$.",
+      "proof_latex": "Un calcul à l'ordre 2 ne suffit pas ici, on pousse à l'ordre 3 — mais pas moyen de le deviner à l'avance !\\par\\par $g(x) = \\underset{x \\to 0}{\\frac{-2x - 2x^2 - \\frac{8x^3}{3} + o(x^3)}{1+x}} = \\underset{x \\to 0}{(-2x - 2x^2 - \\frac{8x^3}{3} + o(x^3))(1 - x + x^2 + o(x^2))} = \\underset{x \\to 0}{-2x - \\frac{8x^3}{3}} + o(x^3)$.\\par\\par Ainsi, la tangente de $g$ en $0$ a pour équation $y = -2x$, et comme $g(x) + 2x = \\underset{x \\to 0}{-\\frac{8x^3}{3}} + o(x^3) \\underset{x \\to 0}{\\sim} -\\frac{8x^3}{3}$, le graphe de $g$ est au-dessus de sa tangente en $0$ au voisinage de $0$ à gauche et en-dessous à droite — point d'inflexion !"
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_arctan_minoration",
+      "type": "example",
+      "title": "Exemple : Minoration de $\\arctan x$",
+      "content_latex": "Il existe un réel $\\alpha > 0$ pour lequel pour tout $x \\in [0, \\alpha[$ : $\\arctan x \\geq x - \\frac{x^3}{2}$.",
+      "proof_latex": "Nos développements limités usuels montrent que $\\arctan x - x + \\frac{x^3}{2} = \\underset{x \\to 0}{\\frac{x^3}{6}} + o(x^3)$, donc la fonction $x \\mapsto \\arctan x - x + \\frac{x^3}{2}$ est minorée par $\\frac{x^3}{3}$ au voisinage de $0$ par définition de la limite, disons sur $]0, \\alpha[$. Ainsi, pour tout $x \\in ]0, \\alpha[$, $\\arctan x - x + \\frac{x^3}{2} \\geq \\frac{x^3}{3} \\geq 0$ car $x^3 \\geq 0$, donc $\\arctan x \\geq x - \\frac{x^3}{2}$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__definition_asymptote",
+      "type": "definition",
+      "title": "Définition : Asymptote d'une fonction en $\\pm\\infty$",
+      "content_latex": "Soit $f$ une fonction réelle définie au voisinage de $+\\infty$ — et $a, b \\in \\mathbb{R}$. On dit que $f$ admet la droite d'équation $y = ax + b$ pour asymptote au voisinage de $+\\infty$ si $f(x) = \\underset{x \\to +\\infty}{ax + b} + o(1)$. — on ferait de même en $-\\infty$.\\par\\par En particulier : $\\frac{f(x)}{x} \\xrightarrow[x \\to +\\infty]{} a$ et $f(x) - ax \\xrightarrow[x \\to +\\infty]{} b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_asymptote_partie_entiere",
+      "type": "example",
+      "title": "Exemple : Asymptote avec partie entière",
+      "content_latex": "La fonction $x \\mapsto \\frac{x^3 + 2\\lfloor x \\rfloor}{x^2 + 2}$ admet la droite d'équation $y = x + 1$ pour asymptote au voisinage de $\\pm\\infty$.",
+      "proof_latex": "Tout d'abord, $\\frac{x^3 + 2\\lfloor x \\rfloor}{x^2 + 2} = \\frac{x^3 + O(x)}{x^2 + 2} = \\frac{x^3}{x^2} \\times \\frac{1 + O(1/x^2)}{1 + 2/x^2} = x(1 + O(1/x^2))(1 + O(1/x^2)) = x + O(1/x)$.\\par\\par Par conséquent : $\\frac{x^3 + 2\\lfloor x \\rfloor}{x^2 + 2} = \\underset{x \\to \\pm\\infty}{x + 1 + O\\left(\\frac{1}{x}\\right)} = \\underset{x \\to \\pm\\infty}{x + 1 + o(1)}$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__example_asymptote_position",
+      "type": "example",
+      "title": "Exemple : Asymptote et position du graphe",
+      "content_latex": "La fonction $x \\mapsto \\frac{x^2}{x+1}e^{\\cos\\frac{1}{x}}$ possède une asymptote au voisinage de $+\\infty$ d'équation $y = ex - e$ et son graphe est situé au-dessus de cette asymptote au voisinage de $+\\infty$.",
+      "proof_latex": "Se demander si $f$ possède une asymptote au voisinage de $+\\infty$, c'est se demander s'il existe des réels $a$ et $b$ pour lesquels $f(x) = \\underset{x \\to +\\infty}{ax + b} + o(1)$, mais si on veut aussi connaître la position du graphe de $f$ par rapport à son asymptote au voisinage de $+\\infty$, on cherche plutôt un équivalent de $f(x) - (ax+b)$ au voisinage de $+\\infty$, i.e. un terme plus fin que le $o(1)$.\\par\\par C'est parti : $f(x) = \\frac{x^2}{x+1}e^{\\cos\\frac{1}{x}} = \\underset{x \\to +\\infty}{x\\left(1 - \\frac{1}{x} + \\frac{1}{x^2} + o\\left(\\frac{1}{x^2}\\right)\\right)e^{1 - \\frac{1}{2x^2} + o\\left(\\frac{1}{x^2}\\right)}} = \\underset{x \\to +\\infty}{xe\\left(1 - \\frac{1}{x} + \\frac{1}{x^2} + o\\left(\\frac{1}{x^2}\\right)\\right)\\left(1 - \\frac{1}{2x^2} + o\\left(\\frac{1}{x^2}\\right)\\right)}$\\par\\par $= \\underset{x \\to +\\infty}{xe\\left(1 - \\frac{1}{x} + \\frac{1}{2x^2} + o\\left(\\frac{1}{x^2}\\right)\\right)} = \\underset{x \\to +\\infty}{ex - e + \\frac{e}{2x}} + o\\left(\\frac{1}{x}\\right)$.\\par\\par Ainsi, $f$ admet la droite d'équation $y = ex - e$ pour asymptote et la fonction $x \\mapsto f(x) - (ex - e) = \\underset{x \\to +\\infty}{\\frac{e}{2x}} + o\\left(\\frac{1}{x}\\right) \\underset{x \\to +\\infty}{\\sim} \\frac{e}{2x}$ est strictement positive au voisinage de $+\\infty$, donc le graphe de $f$ se trouve au-dessus de son asymptote au voisinage de $+\\infty$."
+    }
+  ],
+  "exercises": []
+}

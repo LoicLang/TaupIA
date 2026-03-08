@@ -1,0 +1,2787 @@
+{
+  "chapter_official_id": "relations_binaires_et_applications",
+  "chapter_name": "Relations binaires et applications",
+  "source_document": "Exercices - Relations binaires et applications.pdf",
+  "exercises": [
+    {
+      "id": "relations_binaires_et_applications__ex_001",
+      "title": "Relation d'ordre par la puissance",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__definition_relation_binaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation_binaire",
+        "relation_ordre",
+        "ordre_total"
+      ],
+      "statement_latex": "Pour tous $x,y\\in\\mathbb{N}$ on dit que $x\\le y$ si $y=x^{n}$ pour un certain $n\\in\\mathbb{N}$. Montrer que $\\le$ est une relation d'ordre. Cette relation est-elle totale ?",
+      "sub_questions": [],
+      "global_solution_latex": "$\\textbf{Réflexivité :}$ Pour tout $x \\in \\mathbb{N}$, on a $x = x^1$, donc $x \\le x$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Supposons $x \\le y$ et $y \\le x$. Alors $y = x^n$ et $x = y^m$ pour certains $n,m \\in \\mathbb{N}$. En substituant, $x = (x^n)^m = x^{nm}$. Si $x = 0$, alors $y = 0$. Si $x \\geq 1$, alors $nm = 1$, donc $n = m = 1$, d'où $x = y$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $x \\le y$ et $y \\le z$, alors $y = x^n$ et $z = y^m = x^{nm}$, donc $x \\le z$.\\\\par\\noindent$\\textbf{Totalité :}$ La relation n'est pas totale. Contre-exemple : $2 \\not\\le 3$ car aucun $n \\in \\mathbb{N}$ ne vérifie $3 = 2^n$, et $3 \\not\\le 2$ car aucun $m$ ne vérifie $2 = 3^m$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Revenez aux définitions : vous devez vérifier la réflexivité, l'antisymétrie et la transitivité pour prouver qu'il s'agit d'une relation d'ordre."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour l'antisymétrie, si $y=x^n$ et $x=y^m$, on obtient $x=x^{nm}$. Quelles sont les seules possibilités dans $\\mathbb{N}$ ? Pour le caractère total, essayez de trouver deux entiers (comme 2 et 3) qui ne peuvent pas s'exprimer comme puissance l'un de l'autre."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_002",
+      "title": "Produit cartésien et ordre lexicographique",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation_ordre",
+        "ordre_produit",
+        "ordre_lexicographique"
+      ],
+      "statement_latex": "Soient $E$ un ensemble et $\\le$ une relation d'ordre sur $E$. Pour tous $x,y\\in E$, on notera $xy$ le couple $(x, y)$ pour alléger.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Pour tous $xy,x^{\\prime}y^{\\prime}\\in E^{2}$, on dit que $xy\\le^{\\circ}x^{\\prime}y^{\\prime}$ si $x\\le x^{\\prime}$ et $y\\le y^{\\prime}$.\\par Montrer que $\\le^{\\circ}$ est une relation d'ordre.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez un par un les axiomes de la relation d'ordre sur $E^2$ en utilisant les propriétés de l'ordre $\\le$ sur $E$."
+            }
+          ],
+          "solution_latex": "$\\textbf{Réflexivité :}$ Pour tout $(x,y) \\in E^2$, on a $x \\le x$ et $y \\le y$ par réflexivité de $\\le$ sur $E$, donc $(x,y) \\le^\\circ (x,y)$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Si $(x,y) \\le^\\circ (x',y')$ et $(x',y') \\le^\\circ (x,y)$, alors $x \\le x'$, $y \\le y'$, $x' \\le x$ et $y' \\le y$. Par antisymétrie de $\\le$ sur $E$, on obtient $x = x'$ et $y = y'$, donc $(x,y) = (x',y')$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $(x,y) \\le^\\circ (x',y')$ et $(x',y') \\le^\\circ (x'',y'')$, alors $x \\le x'$, $x' \\le x''$, $y \\le y'$ et $y' \\le y''$. Par transitivité de $\\le$, on obtient $x \\le x''$ et $y \\le y''$, donc $(x,y) \\le^\\circ (x'',y'')$. La relation est donc une relation d'ordre."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $E$ possède au moins deux éléments, $\\le^{\\circ}$ n'est pas totale.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez deux éléments distincts comparables $a < b$ dans $E$, et essayez de comparer les couples $ab$ et $ba$."
+            }
+          ],
+          "solution_latex": "$\\textbf{Réflexivité :}$ Pour tout $(x,y) \\in E^2$, on a $x \\le x$ et $y \\le y$ par réflexivité de $\\le$ sur $E$, donc $(x,y) \\le^\\circ (x,y)$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Si $(x,y) \\le^\\circ (x',y')$ et $(x',y') \\le^\\circ (x,y)$, alors $x \\le x'$, $y \\le y'$, $x' \\le x$ et $y' \\le y$. Par antisymétrie de $\\le$ sur $E$, on obtient $x = x'$ et $y = y'$, donc $(x,y) = (x',y')$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $(x,y) \\le^\\circ (x',y')$ et $(x',y') \\le^\\circ (x'',y'')$, alors $x \\le x'$, $x' \\le x''$, $y \\le y'$ et $y' \\le y''$. Par transitivité de $\\le$, on obtient $x \\le x''$ et $y \\le y''$, donc $(x,y) \\le^\\circ (x'',y'')$. La relation est donc une relation d'ordre."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Pour tous $xy,x^{\\prime}y^{\\prime}\\in E^{2}$ on dit que $xy\\le^{*}x^{\\prime}y^{\\prime}$ si $x<x^{\\prime}$ ou ($x=x^{\\prime}$ et $y\\le y^{\\prime}$).\\par Montrer que $\\le^{*}$ est une relation d'ordre.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit de l'ordre lexicographique. Soyez particulièrement minutieux pour prouver la transitivité en distinguant les cas stricts et d'égalité."
+            }
+          ],
+          "solution_latex": "$\\textbf{Réflexivité :}$ Pour $(x,y) \\in E^2$, on a $x = x$, donc $(x,y) \\le^* (x,y)$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x,y)$. De $(x,y) \\le^* (x',y')$, soit $x < x'$, soit ($x = x'$ et $y \\le y'$). De $(x',y') \\le^* (x,y)$, soit $x' < x$, soit ($x' = x$ et $y' \\le y$). Si $x < x'$, la deuxième condition impose $x' < x$, contradiction. Donc $x = x'$. Alors $y \\le y'$ et $y' \\le y$, d'où $y = y'$ par antisymétrie de $\\le$ sur $E$.\\\\par\\noindent$\\textbf{Transitivité :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x'',y'')$. Distinguons les cas : si $x < x'$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x'$ et $x' < x''$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x' = x''$, alors de la première relation $y \\le y'$ et de la deuxième $y' \\le y''$, donc $y \\le y''$ par transitivité de $\\le$, d'où $(x,y) \\le^* (x'',y'')$. La relation est donc une relation d'ordre."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que si $\\le$ est totale, $\\le^{*}$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soient deux couples $xy$ et $x'y'$. Utilisez le fait que $x$ et $x'$ sont toujours comparables pour diviser en cas ($x<x'$, $x'<x$, ou $x=x'$)."
+            }
+          ],
+          "solution_latex": "$\\textbf{Réflexivité :}$ Pour $(x,y) \\in E^2$, on a $x = x$, donc $(x,y) \\le^* (x,y)$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x,y)$. De $(x,y) \\le^* (x',y')$, soit $x < x'$, soit ($x = x'$ et $y \\le y'$). De $(x',y') \\le^* (x,y)$, soit $x' < x$, soit ($x' = x$ et $y' \\le y$). Si $x < x'$, la deuxième condition impose $x' < x$, contradiction. Donc $x = x'$. Alors $y \\le y'$ et $y' \\le y$, d'où $y = y'$ par antisymétrie de $\\le$ sur $E$.\\\\par\\noindent$\\textbf{Transitivité :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x'',y'')$. Distinguons les cas : si $x < x'$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x'$ et $x' < x''$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x' = x''$, alors de la première relation $y \\le y'$ et de la deuxième $y' \\le y''$, donc $y \\le y''$ par transitivité de $\\le$, d'où $(x,y) \\le^* (x'',y'')$. La relation est donc une relation d'ordre."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "La relation $\\le$ est totale sur $\\mathbb{R}$, donc $\\le^{*}$ l'est sur $\\mathbb{R}^{2}$ d'après 2)b), donc $\\mathbb{R}^{2}$ peut être vu comme une sorte de droite.\\par La voyez-vous, cette droite ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Imaginez le plan $\\mathbb{R}^2$. Comment sont ordonnés les points sur une même ligne verticale, et comment sont ordonnées les lignes verticales entre elles ?"
+            }
+          ],
+          "solution_latex": "$\\textbf{Réflexivité :}$ Pour $(x,y) \\in E^2$, on a $x = x$, donc $(x,y) \\le^* (x,y)$.\\\\par\\noindent$\\textbf{Antisymétrie :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x,y)$. De $(x,y) \\le^* (x',y')$, soit $x < x'$, soit ($x = x'$ et $y \\le y'$). De $(x',y') \\le^* (x,y)$, soit $x' < x$, soit ($x' = x$ et $y' \\le y$). Si $x < x'$, la deuxième condition impose $x' < x$, contradiction. Donc $x = x'$. Alors $y \\le y'$ et $y' \\le y$, d'où $y = y'$ par antisymétrie de $\\le$ sur $E$.\\\\par\\noindent$\\textbf{Transitivité :}$ Supposons $(x,y) \\le^* (x',y')$ et $(x',y') \\le^* (x'',y'')$. Distinguons les cas : si $x < x'$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x'$ et $x' < x''$, alors $x < x''$, donc $(x,y) \\le^* (x'',y'')$. Si $x = x' = x''$, alors de la première relation $y \\le y'$ et de la deuxième $y' \\le y''$, donc $y \\le y''$ par transitivité de $\\le$, d'où $(x,y) \\le^* (x'',y'')$. La relation est donc une relation d'ordre."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_003",
+      "title": "Majorants, minorants et extrema",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_iterees_point_fixe",
+        "relations_binaires_et_applications__definition_image_directe_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "majorant",
+        "plus_grand_element",
+        "divisibilite",
+        "inclusion"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $E$ un ensemble, $\\le$ une relation d'ordre sur $E$ et $A$ une partie de $E$.\\par On dit que $A$ est majorée si :\\par $\\exists M\\in E, \\forall a\\in A, a\\le M.$\\par Le cas échéant, $M$ est appelé UN majorant de $A$. On appelle plus grand élément de $A$ tout élément de $A$ qui majore $A$.\\par Montrer que si $A$ possède un plus grand élément, celui-ci est unique.\\par On définit de façon analogue les notions de minorant et plus petit élément.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_iterees_point_fixe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par l'absurde ou supposez l'existence de deux plus grands éléments $M_1$ et $M_2$, puis utilisez la définition et l'antisymétrie de l'ordre."
+            }
+          ],
+          "solution_latex": "Supposons que $A$ possède deux plus grands éléments $M_1$ et $M_2$. Alors $M_1, M_2 \\in A$ et pour tout $a \\in A$, on a $a \\le M_1$ et $a \\le M_2$. En particulier, $M_2 \\le M_1$ (car $M_2 \\in A$) et $M_1 \\le M_2$ (car $M_1 \\in A$). Par antisymétrie de $\\le$, on obtient $M_1 = M_2$. Le plus grand élément, s'il existe, est donc unique."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On munit $\\mathbb{N}$ de la relation de divisibilité $|$.\\par L'ensemble $\\{8, 10, 12\\}$ est-il majoré ? Possède-t-il un plus grand élément ? Déterminer l'ensemble de ses minorants.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_partition_depart",
+            "relations_binaires_et_applications__theorem_classes_equivalence",
+            "relations_binaires_et_applications__definition_relation_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un majorant doit être un multiple commun de 8, 10 et 12. Un minorant doit être un diviseur commun."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le plus grand élément devrait appartenir à l'ensemble tout en étant un multiple des autres éléments de l'ensemble. Est-ce possible ici ?"
+            }
+          ],
+          "solution_latex": "Un majorant de $\\{8, 10, 12\\}$ doit être divisible par 8, 10 et 12 (être un multiple commun). Des majorants existent : par exemple, $\\text{ppcm}(8,10,12) = 120$. L'ensemble des majorants est $\\{120k \\mid k \\in \\mathbb{N}^*\\}$.\\\\par\\noindent Aucun plus grand élément n'existe car l'ensemble des majorants est infini et non borné.\\\\par\\noindent Un minorant doit diviser 8, 10 et 12 (être un diviseur commun). Les minorants sont les diviseurs de $\\gcd(8,10,12) = 2$, à savoir $\\{1, 2\\}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Les ensembles suivants possèdent-ils un plus grand élément ? un plus petit élément ?\\par $\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_ensemble_applications"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quel entier divise tous les entiers (plus petit élément) et quel entier est divisible par tous les entiers (plus grand élément, attention au cas particulier de 0) ?"
+            }
+          ],
+          "solution_latex": "Sur $\\mathbb{N}$ avec la divisibilité, $\\mathbb{N}$ possède un plus petit élément : $1$ (qui divise tous les entiers). Pour le plus grand élément, on note que $0$ est divisible par tous les entiers, donc $0$ est un majorant. Cependant, $0 \\not\\in \\mathbb{N}$ (selon la convention). Si $0 \\in \\mathbb{N}$, alors $0$ est le plus grand élément. Sinon, aucun plus grand élément n'existe."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Les ensembles suivants possèdent-ils un plus grand élément ? un plus petit élément ?\\par $\\mathbb{N}\\backslash\\{0,1\\}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_ensemble_applications"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Réfléchissez au sens de la divisibilité sans les éléments triviaux 0 et 1."
+            }
+          ],
+          "solution_latex": "Sur $\\mathbb{N}$ avec la divisibilité, $\\mathbb{N}$ possède un plus petit élément : $1$ (qui divise tous les entiers). Pour le plus grand élément, on note que $0$ est divisible par tous les entiers, donc $0$ est un majorant. Cependant, $0 \\not\\in \\mathbb{N}$ (selon la convention). Si $0 \\in \\mathbb{N}$, alors $0$ est le plus grand élément. Sinon, aucun plus grand élément n'existe."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "Les ensembles suivants possèdent-ils un plus grand élément ? un plus petit élément ?\\par $\\{2^{n}|n\\in\\mathbb{N}\\}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_ensemble_applications"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment les puissances de 2 se divisent-elles entre elles ?"
+            }
+          ],
+          "solution_latex": "Sur $\\mathbb{N}$ avec la divisibilité, $\\mathbb{N}$ possède un plus petit élément : $1$ (qui divise tous les entiers). Pour le plus grand élément, on note que $0$ est divisible par tous les entiers, donc $0$ est un majorant. Cependant, $0 \\not\\in \\mathbb{N}$ (selon la convention). Si $0 \\in \\mathbb{N}$, alors $0$ est le plus grand élément. Sinon, aucun plus grand élément n'existe."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Soit $E$ un ensemble. On munit $\\mathcal{P}(E)$ de la relation d'inclusion $\\subset$.\\par $\\mathcal{P}(E)$ possède-t-il un plus grand/petit élément ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__theorem_classes_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quel ensemble est inclus dans toutes les parties de $E$ ? Quelle partie contient toutes les autres ?"
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "À quelle condition nécessaire et suffisante l'ensemble $\\{\\{x\\}|x\\in E\\}$ possède-t-il un plus grand élément ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_classes_equivalence",
+            "relations_binaires_et_applications__theorem_partition_depart",
+            "relations_binaires_et_applications__definition_surjection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un plus grand élément de cet ensemble doit être un singleton qui contient tous les autres singletons. Que cela implique-t-il sur le cardinal de $E$ ?"
+            }
+          ],
+          "solution_latex": "[Vérifier l'existence en testant les conditions du problème]"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_004",
+      "title": "Théorème du point fixe sur P(E)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_iterees_point_fixe",
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__theorem_relation_stricte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inclusion",
+        "application_croissante",
+        "point_fixe"
+      ],
+      "statement_latex": "Soit $E$ un ensemble. On munit $\\mathcal{P}(E)$ de la relation d'inclusion $\\subset$. On veut montrer que toute application croissante de $\\mathcal{P}(E)$ dans lui-même possède un point fixe.\\par Soit $f$ une telle application :\\par $\\forall X,Y\\in\\mathcal{P}(E), X\\subset Y \\Rightarrow f(X)\\subset f(Y)$.\\par On pose $\\mathcal{M}=\\{X\\in\\mathcal{P}(E)|X\\subset f(X)\\}$, puis $M$ la réunion des éléments de $\\mathcal{M}$. Montrer que $M\\subset f(M)$ puis que $f(M)=M$.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour montrer $M \\subset f(M)$, prenez un élément $x \\in M$ et traduisez son appartenance par rapport aux éléments de $\\mathcal{M}$ et à la croissance de $f$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Une fois que vous avez prouvé $M \\subset f(M)$, appliquez $f$ aux deux membres en utilisant sa croissance pour montrer que $f(M) \\in \\mathcal{M}$, ce qui permet de conclure par double inclusion."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_005",
+      "title": "Inégalité arithmético-géométrique",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__definition_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inegalite",
+        "moyenne",
+        "algorithme",
+        "optimisation"
+      ],
+      "statement_latex": "Pour tout $X=(x_{1},...,x_{n})\\in(\\mathbb{R}_{+}^{*})^{n}$ on pose :\\par $A_{X}=\\frac{1}{n}\\sum_{k=1}^{n}x_{k}$ et $G_{X}=\\sqrt[n]{\\prod_{k=1}^{n}x_{k}}$.\\par Soit $m>0$ fixé. On pose $\\mathcal{H}=\\{X\\in(\\mathbb{R}_{+}^{*})^{n}|A_{X}=m\\}$, et pour tout $X\\in\\mathcal{H}$, on note $\\mu(X)$ le nombre d'apparitions de $m$ dans $X$. Pour tous $X, Y\\in\\mathcal{H}$ on dit que $X<Y$ si $G_{X}<G_{Y}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "La relation $<$ est-elle réflexive ? transitive ? antisymétrique ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez les axiomes classiques pour cette relation stricte. L'antisymétrie a-t-elle un sens usuel pour un ordre strict ?"
+            }
+          ],
+          "solution_latex": "[Vérifiez les axiomes classiques pour cette relation stricte. L'antisymétrie a-t-elle un sens usuel pour un ordre strict ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $X\\in\\mathcal{H}$. On suppose $\\mu(X)<n$.\\par Montrer que pour certains $i,j\\in[\\![1,n]\\!]$ : $x_{i}<m<x_{j}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque la moyenne des $x_k$ vaut $m$ et que tous les $x_k$ ne sont pas égaux à $m$, il doit nécessairement y avoir des éléments plus petits et d'autres plus grands pour compenser."
+            }
+          ],
+          "solution_latex": "[Puisque la moyenne des $x_k$ vaut $m$ et que tous les $x_k$ ne sont pas égaux à $m$, il doit nécessairement y avoir des éléments plus petits et d'autres plus grands pour compenser.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $x_{i}x_{j}<m(x_{i}+x_{j}-m)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Basculer tout du même côté et factoriser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudiez le signe de $(x_i - m)(x_j - m)$."
+            }
+          ],
+          "solution_latex": "[Basculer tout du même côté et factoriser.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire l'existence d'une famille $Y\\in\\mathcal{H}$ pour laquelle $X<Y$ et $\\mu(X)<\\mu(Y)$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $x_{i}$ et $x_{j}$ par..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construisez la famille $Y$ en remplaçant $x_i$ par $m$ et $x_j$ par $x_i + x_j - m$. Vérifiez que la moyenne reste $m$ et utilisez 2)b) pour comparer les produits."
+            }
+          ],
+          "solution_latex": "[Remplacer $x_{i}$ et $x_{j}$ par...] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $G_{X}\\le A_{X}$ pour tout $X\\in(\\mathbb{R}_{+}^{*})^{n}$ (inégalité arithmético-géométrique) et étudier le cas d'égalité.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer 2) encore et encore."
+            },
+            {
+              "level": 2,
+              "content_latex": "Quitte à renormaliser par homothétie, on peut supposer $A_X = m$. Montrez par itération qu'on peut toujours augmenter le produit strict tant que les termes ne sont pas tous égaux à $m$."
+            }
+          ],
+          "solution_latex": "[Appliquer 2) encore et encore.] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_006",
+      "title": "Clôture transitive d'une relation",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_binaire",
+        "relations_binaires_et_applications__definition_proprietes_relations"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "cloture_transitive",
+        "relation_binaire",
+        "theoreme_spilrajn"
+      ],
+      "statement_latex": "Soit $E$ un ensemble.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $\\mathcal{R}$ une relation binaire sur $E$. Pour tous $x,y\\in E$, on dit que $x\\mathcal{R}^{tr}y$ si :\\par $\\exists n\\in\\mathbb{N}^{*}, \\exists x_{0},...,x_{n}\\in E, x=x_{0}$ et $(\\forall k\\in[\\![0,n-1]\\!], x_{k}\\mathcal{R}x_{k+1})$ et $x_{n}=y$.\\par La relation ainsi définie est appelée la clôture transitive de $\\mathcal{R}$.\\par Montrer que $\\mathcal{R}^{tr}$ est transitive.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_binaire",
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reprenez la définition de la clôture transitive. Si $x\\mathcal{R}^{tr}y$ et $y\\mathcal{R}^{tr}z$, vous disposez de deux chaînes d'éléments reliés par $\\mathcal{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Concaténez la chaîne reliant $x$ à $y$ avec celle reliant $y$ à $z$ pour construire une nouvelle chaîne valide de $x$ à $z$."
+            }
+          ],
+          "solution_latex": "[Reprenez la définition de la clôture transitive. Si $x\\mathcal{R}^{tr}y$ et $y\\mathcal{R}^{tr}z$, vous disposez de deux chaînes d'éléments reliés par $\\mathcal{R}$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $\\mathcal{R}$ est réflexive, $\\mathcal{R}^{tr}$ l'est aussi.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que se passe-t-il pour une chaîne de longueur $n=1$ reliant un élément à lui-même ?"
+            }
+          ],
+          "solution_latex": "[Que se passe-t-il pour une chaîne de longueur $n=1$ reliant un élément à lui-même ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que si $\\mathcal{R}$ est symétrique, $\\mathcal{R}^{tr}$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_permutation",
+            "relations_binaires_et_applications__method_montrer_bijection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si vous avez une chaîne de $x$ vers $y$, comment utiliser la symétrie de $\\mathcal{R}$ sur chaque maillon pour aller de $y$ vers $x$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Renversez l'ordre des éléments de la suite $(x_0, ..., x_n)$."
+            }
+          ],
+          "solution_latex": "[Si vous avez une chaîne de $x$ vers $y$, comment utiliser la symétrie de $\\mathcal{R}$ sur chaque maillon pour aller de $y$ vers $x$ ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On rappelle qu'une relation binaire sur $E$ n'est jamais qu'une partie de $E\\times E$.\\par Soient $\\le$ une relation d'ordre sur $E$ et $u,v\\in E$ deux éléments pour lesquels $u\\not\\le v$ et $v\\not\\le u$. Montrer que $(\\le\\cup\\{(u,v)\\})^{tr}$ est une relation d'ordre sur $E$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__definition_relation_binaire",
+            "relations_binaires_et_applications__theorem_relation_stricte"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La nouvelle relation est transitive par construction (question 1a) et réflexive. Le point délicat est l'antisymétrie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'antisymétrie, supposez qu'il existe un cycle en utilisant la nouvelle relation. Montrez que ce cycle devrait nécessairement emprunter la paire $(u,v)$, et aboutissez à une contradiction avec le fait que $v\\not\\le u$."
+            }
+          ],
+          "solution_latex": "Vérifiez réflexivité, antisymétrie et transitivité selon les définitions de relation d'ordre."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que si $E$ est fini, toute relation d'ordre sur $E$ est incluse dans une relation d'ordre totale (théorème d'extension de Spilrajn).",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__theorem_proprietes_equipotence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si la relation n'est pas totale, il existe au moins une paire d'éléments non comparables. Appliquez la construction de la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Raisonnez par récurrence sur le nombre de paires d'éléments non comparables (qui est fini puisque $E$ est fini)."
+            }
+          ],
+          "solution_latex": "[Si la relation n'est pas totale, il existe au moins une paire d'éléments non comparables. Appliquez la construction de la question précédente.] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_007",
+      "title": "Relation d'équivalence associée à une fonction",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__definition_injection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation_equivalence",
+        "classe_equivalence",
+        "ensemble_quotient",
+        "representants"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ et $F$ deux ensembles et $f:E\\longrightarrow F$ une application.\\par Pour tous $x,x^{\\prime}\\in E$, on dit que $x\\sim x^{\\prime}$ si $f(x)=f(x^{\\prime})$. Montrer que $\\sim$ est une relation d'équivalence sur $E$ et décrire la classe d'équivalence de $x$ pour tout $x\\in E$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_proprietes_equipotence",
+            "relations_binaires_et_applications__definition_relation_equivalence",
+            "relations_binaires_et_applications__definition_proprietes_relations"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez la réflexivité, la symétrie et la transitivité en utilisant les propriétés basiques de l'égalité dans $F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La classe d'équivalence de $x$ est exactement l'image réciproque par $f$ du singleton $\\{f(x)\\}$."
+            }
+          ],
+          "solution_latex": "Pour montrer qu'une relation est une relation d'équivalence, on vérifie trois propriétés.\\\\par\\noindent$\\textbf{Réflexivité :}$ Tout élément est en relation avec lui-même.\\\\par\\noindent$\\textbf{Symétrie :}$ Si $x$ est en relation avec $y$, alors $y$ est en relation avec $x$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $x$ est en relation avec $y$ et $y$ avec $z$, alors $x$ est en relation avec $z$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Dans cette question, $E=\\mathbb{C}$, $F=\\mathbb{R}_{+}$ et $f$ est la fonction $z\\mapsto|z|$.\\par Déterminer un ensemble de représentants des classes d'équivalence de $\\sim$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_classes_equivalence",
+            "relations_binaires_et_applications__definition_relation_equivalence",
+            "relations_binaires_et_applications__theorem_proprietes_equipotence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que représente géométriquement l'ensemble des complexes ayant un même module donné ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour chaque classe (c'est-à-dire chaque cercle centré en l'origine), il suffit de choisir un unique point. Quel sous-ensemble de $\\mathbb{C}$ coupe chaque cercle exactement une fois ?"
+            }
+          ],
+          "solution_latex": "Pour montrer qu'une relation est une relation d'équivalence, on vérifie trois propriétés.\\\\par\\noindent$\\textbf{Réflexivité :}$ Tout élément est en relation avec lui-même.\\\\par\\noindent$\\textbf{Symétrie :}$ Si $x$ est en relation avec $y$, alors $y$ est en relation avec $x$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $x$ est en relation avec $y$ et $y$ avec $z$, alors $x$ est en relation avec $z$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Dans cette question, $E=\\mathbb{R}_{+}^{*}$, $F=\\mathbb{R}$ et $f$ est la fonction $x\\mapsto x\\ln x$. Calculer le cardinal de la classe d'équivalence de $x$ pour $\\sim$ pour tout $x\\in\\mathbb{R}_{+}^{*}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_equivalence",
+            "relations_binaires_et_applications__theorem_proprietes_equipotence",
+            "relations_binaires_et_applications__definition_proprietes_relations"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier les variations de la fonction $x\\mapsto x\\ln x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dressez le tableau de variations complet. Le cardinal de la classe de $x$ correspond au nombre d'antécédents de la valeur $y = x\\ln x$. Discutez selon la valeur de $y$."
+            }
+          ],
+          "solution_latex": "Pour montrer qu'une relation est une relation d'équivalence, on vérifie trois propriétés.\\\\par\\noindent$\\textbf{Réflexivité :}$ Tout élément est en relation avec lui-même.\\\\par\\noindent$\\textbf{Symétrie :}$ Si $x$ est en relation avec $y$, alors $y$ est en relation avec $x$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $x$ est en relation avec $y$ et $y$ avec $z$, alors $x$ est en relation avec $z$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soient $A$ un ensemble et $B\\in\\mathcal{P}(A)$. Dans cette question, $E=F=\\mathcal{P}(A)$ et $f$ est l'application $X\\mapsto X\\cap B$. Montrer que $\\mathcal{P}(B)$ est un ensemble de représentants des classes d'équivalence de $\\sim$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_classes_equivalence",
+            "relations_binaires_et_applications__theorem_partition_depart",
+            "relations_binaires_et_applications__definition_relation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il faut montrer que tout élément de l'ensemble quotient possède un et un seul représentant dans $\\mathcal{P}(B)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $X \\subset A$, montrez que la partie $X \\cap B$ appartient à $\\mathcal{P}(B)$ et qu'elle est en relation avec $X$."
+            }
+          ],
+          "solution_latex": "Pour montrer qu'une relation est une relation d'équivalence, on vérifie trois propriétés.\\\\par\\noindent$\\textbf{Réflexivité :}$ Tout élément est en relation avec lui-même.\\\\par\\noindent$\\textbf{Symétrie :}$ Si $x$ est en relation avec $y$, alors $y$ est en relation avec $x$.\\\\par\\noindent$\\textbf{Transitivité :}$ Si $x$ est en relation avec $y$ et $y$ avec $z$, alors $x$ est en relation avec $z$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "On revient au cas général de la question 1) et on note $\\overline{x}$ la classe d'équivalence de $x$ pour $\\sim$ pour tout $x\\in E$. On veut définir une application $\\overline{f}:E/_{\\sim}\\longrightarrow F$ en posant $\\overline{f}(\\overline{x})=f(x)$ pour tout $x\\in E$, mais cette définition pose a priori problème.\\par Quel problème ? Montrer que le problème n'en est pas un, puis que $\\overline{f}$ est injective.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_classes_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le problème est que l'image de la classe $\\overline{x}$ est définie à partir d'un de ses représentants ($x$). Que se passerait-il si on choisissait un autre représentant $y$ pour la même classe ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que si $\\overline{x} = \\overline{y}$, alors $f(x) = f(y)$ par définition de la relation $\\sim$, ce qui prouve que $\\overline{f}$ est bien définie. L'injectivité découle directement de la même définition."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_008",
+      "title": "Inverses à gauche et à droite",
+      "type": "counterexample",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__method_montrer_bijection",
+        "relations_binaires_et_applications__theorem_surjectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__theorem_injectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "surjection",
+        "bijection",
+        "composition"
+      ],
+      "statement_latex": "On note $f$ l'application $n\\mapsto n+1$ sur $\\mathbb{N}$ et $g$ l'application $n\\mapsto \\max\\{0,n-1\\}$ sur $\\mathbb{N}$. Montrer que $g\\circ f=Id_{\\mathbb{N}}$ mais que $f$ et $g$ ne sont pas bijectives de $\\mathbb{N}$ sur $\\mathbb{N}$. Que faut-il en retenir ?",
+      "sub_questions": [],
+      "global_solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculez explicitement $g(f(n))$ pour tout entier naturel $n$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la non-bijectivité, remarquez que $0$ n'a pas d'antécédent par $f$, et trouvez deux éléments ayant la même image par $g$. On retient qu'un inverse à gauche n'implique que l'injectivité, pas la bijectivité complète."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_009",
+      "title": "Bijection entre intervalles",
+      "type": "application",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__method_montrer_bijection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "bijection",
+        "intervalle",
+        "fonction_affine"
+      ],
+      "statement_latex": "Proposer une bijection de $[-1,1]$ sur $[a, b]$ pour tous $a, b\\in\\mathbb{R}$ pour lesquels $a<b$.",
+      "sub_questions": [],
+      "global_solution_latex": "[Cherchez une fonction affine, de la forme $f(x) = cx + d$.] En appliquant cette indication, on démontre le résultat demandé.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Cherchez une fonction affine, de la forme $f(x) = cx + d$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Imposez les conditions aux bords : $f(-1) = a$ et $f(1) = b$. Résolvez le système pour trouver les constantes $c$ et $d$."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_010",
+      "title": "Étude d'injectivité et de surjectivité",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_surjectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "surjection",
+        "bijection",
+        "systeme_lineaire"
+      ],
+      "statement_latex": "Les applications suivantes sont-elles injectives ? surjectives ? bijectives ?",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "$(x,y)\\mapsto2y$ de $\\mathbb{R}^{2}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'injectivité, demandez-vous si deux couples distincts (par exemple $(0, 1)$ et $(1, 1)$) peuvent donner la même image."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la surjectivité, tout réel $z$ peut-il s'écrire sous la forme $2y$ ?"
+            }
+          ],
+          "solution_latex": "[Pour l'injectivité, demandez-vous si deux couples distincts (par exemple $(0, 1)$ et $(1, 1)$) peuvent donner la même image.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "$(x,y)\\mapsto(1,x-y,y)$ de $\\mathbb{R}^{2}$ dans $\\mathbb{R}^{3}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Examinez la première coordonnée de l'image. Est-il possible d'atteindre le triplet $(0,0,0)$ dans $\\mathbb{R}^3$ ?"
+            }
+          ],
+          "solution_latex": "[Examinez la première coordonnée de l'image. Est-il possible d'atteindre le triplet $(0,0,0)$ dans $\\mathbb{R}^3$ ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "$(x,y)\\mapsto(2x+y,3x-2y)$ de $\\mathbb{R}^{2}$ dans $\\mathbb{R}^{2}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez le système linéaire $2x+y=u$ et $3x-2y=v$. Admet-il toujours une solution unique pour tout couple $(u,v)$ ?"
+            }
+          ],
+          "solution_latex": "[Posez le système linéaire $2x+y=u$ et $3x-2y=v$. Admet-il toujours une solution unique pour tout couple $(u,v)$ ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "$(x,y,z)\\mapsto(x+y+z,x-y-z,x)$ de $\\mathbb{R}^{3}$ dans $\\mathbb{R}^{3}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__method_montrer_bijection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Même méthode que précédemment : résolvez le système de 3 équations à 3 inconnues en l'égalisant à $(u,v,w)$."
+            }
+          ],
+          "solution_latex": "[Même méthode que précédemment : résolvez le système de 3 équations à 3 inconnues en l'égalisant à $(u,v,w)$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "$x\\mapsto x^{2}+1$ de $\\mathbb{R}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_reunions_intersections_images",
+            "relations_binaires_et_applications__theorem_surjectivite_composition",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparez les images de $1$ et de $-1$ pour l'injectivité. Que dire des images négatives pour la surjectivité ?"
+            }
+          ],
+          "solution_latex": "[Comparez les images de $1$ et de $-1$ pour l'injectivité. Que dire des images négatives pour la surjectivité ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "$z\\mapsto z^{2}+1$ de $\\mathbb{C}$ dans $\\mathbb{C}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le domaine change. Dans $\\mathbb{C}$, l'équation $z^2 + 1 = c$ possède-t-elle toujours au moins une solution pour tout $c$ ? A-t-elle une unique solution ?"
+            }
+          ],
+          "solution_latex": "[Le domaine change. Dans $\\mathbb{C}$, l'équation $z^2 + 1 = c$ possède-t-elle toujours au moins une solution pour tout $c$ ? A-t-elle une unique solution ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$f\\mapsto f(1)-f(0)$ de $\\mathbb{R}^{\\mathbb{R}}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_partition_depart",
+            "relations_binaires_et_applications__theorem_classes_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'espace de départ est l'ensemble des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$. Trouvez deux fonctions très simples (par exemple constantes) qui donnent la même différence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la surjectivité, étant donné un réel $c$, pouvez-vous construire une fonction (par exemple affine) qui vérifie $f(1)-f(0) = c$ ?"
+            }
+          ],
+          "solution_latex": "[L'espace de départ est l'ensemble des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$. Trouvez deux fonctions très simples (par exemple constantes) qui donnent la même différence.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$(a,b)\\mapsto a+b\\sqrt{2}$ de $\\mathbb{Z}\\times\\mathbb{Z}$ dans $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'injectivité, supposez $a+b\\sqrt{2} = a' + b'\\sqrt{2}$ et exploitez l'irrationalité de $\\sqrt{2}$. L'image peut-elle être l'ensemble des réels tout entier (considérations de cardinalité ou contre-exemple explicite) ?"
+            }
+          ],
+          "solution_latex": "[Pour l'injectivité, supposez $a+b\\sqrt{2} = a' + b'\\sqrt{2}$ et exploitez l'irrationalité de $\\sqrt{2}$. L'image peut-elle être l'ensemble des réels tout entier (considérations de cardinalité ou contre-exemple explicite) ?] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_011",
+      "title": "Image réciproque de la partie fractionnaire",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_indicatrice",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_iterees_point_fixe",
+        "relations_binaires_et_applications__definition_image_directe_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "image_reciproque",
+        "partie_entiere",
+        "partie_fractionnaire",
+        "double_inclusion"
+      ],
+      "statement_latex": "On note $f$ la fonction $x\\mapsto x-\\lfloor x\\rfloor$ sur $\\mathbb{R}$. Montrer que $f^{-1}(A)=(A\\cap[0,1[)+\\mathbb{Z}$ pour toute partie $A$ de $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "[Raisonner calmement par double inclusion.] En appliquant cette indication, on démontre le résultat demandé.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner calmement par double inclusion."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour l'inclusion directe, si $x \\in f^{-1}(A)$, alors $x - \\lfloor x \\rfloor \\in A$. Posez $k = \\lfloor x \\rfloor$ et remarquez que $x - k \\in [0,1[$. Pour la réciproque, prenez un élément de la forme $a + k$ avec $a \\in A \\cap [0,1[$ et $k \\in \\mathbb{Z}$, et évaluez $f(a+k)$."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_012",
+      "title": "Images directes et réciproques (fonctions usuelles)",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_reunions_intersections_images"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "image_directe",
+        "image_reciproque",
+        "etude_de_fonction",
+        "trigonometrie"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On note $f$ la fonction $x\\mapsto\\sin\\frac{\\pi}{x}$ sur $\\mathbb{R}_{+}^{*}$. Déterminer $f(]0,1])$ et $f^{-1}(\\{0\\})$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_classes_equivalence",
+            "relations_binaires_et_applications__definition_surjection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour $f(]0,1])$, étudiez les valeurs prises par $\\frac{\\pi}{x}$ lorsque $x$ décrit $]0,1]$. Pour l'image réciproque, résolvez $\\sin(\\frac{\\pi}{x}) = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction sinus prend toutes ses valeurs dans $[-1, 1]$ sur tout intervalle de longueur $2\\pi$. Que fait l'argument $\\frac{\\pi}{x}$ près de 0 ?"
+            }
+          ],
+          "solution_latex": "[Décrire l'ensemble demandé en appliquant la définition appropriée]"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer l'image réciproque de $[-1,2]$ par la fonction $x\\mapsto\\sqrt{x^{2}+x+1}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+            "relations_binaires_et_applications__definition_image_directe_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit de résoudre l'encadrement $-1 \\le \\sqrt{x^2+x+1} \\le 2$. Le membre de gauche apporte-t-il une vraie contrainte ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Une racine carrée étant toujours positive, il suffit de résoudre $\\sqrt{x^2+x+1} \\le 2$, ce qui équivaut à $x^2+x+1 \\le 4$ par croissance du carré sur $\\mathbb{R}_+$."
+            }
+          ],
+          "solution_latex": "L'image réciproque de $B$ par $f$ est $f^{-1}(B) = \\{x \\in E \\mid f(x) \\in B\\}$. C'est l'ensemble des antécédents des éléments de $B$, même si $f$ n'est pas bijective."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On note $f$ la fonction $x\\mapsto\\frac{x}{1+x^{2}}$. Déterminer l'image de $f$ et $f^{-1}([\\frac{1}{4},1])$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__theorem_reunions_intersections_images"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dressez le tableau de variations complet de $f$ sur $\\mathbb{R}$ pour déterminer son image globale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'image réciproque, résolvez la double inéquation $\\frac{1}{4} \\le \\frac{x}{1+x^2} \\le 1$. Ramenez-vous à l'étude du signe de polynômes du second degré."
+            }
+          ],
+          "solution_latex": "L'image de $A$ par $f$ est $f(A) = \\{f(a) \\mid a \\in A\\} = \\{y \\in F \\mid \\exists a \\in A, f(a) = y\\}$. C'est l'ensemble des images des éléments de $A$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_013",
+      "title": "Injectivité, surjectivité et image (plusieurs variables)",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_reunions_intersections_images",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "surjection",
+        "systeme_equations",
+        "parties_d_un_ensemble"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On note $f$ l'application $(x,y)\\mapsto\\frac{2x+3y}{x+y}$ de $(\\mathbb{R}_{+}^{*})^{2}$ dans $\\mathbb{R}_{+}^{*}$.\\par $f$ est-elle injective ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "À défaut d'intuition, transformer pas à pas l'égalité $f(x,y)=f(x^{\\prime},y^{\\prime})$ en une condition sur laquelle la réponse apparaît clairement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Réduisez au même dénominateur et simplifiez pour obtenir une relation de proportionnalité entre $x, y, x', y'$. Trouvez deux couples non égaux qui la vérifient."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Déterminer son image.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_reunions_intersections_images"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On peut geler momentanément une variable, ou bien observer que $f(x,y)$ dépend du rapport $\\frac{x}{y}$ plus que du couple $(x, y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En posant $t = \\frac{x}{y} > 0$, étudiez la fonction $t \\mapsto \\frac{2t+3}{t+1}$ sur $]0, +\\infty[$ pour trouver l'ensemble des valeurs atteintes."
+            }
+          ],
+          "solution_latex": "L'image de $A$ par $f$ est $f(A) = \\{f(a) \\mid a \\in A\\} = \\{y \\in F \\mid \\exists a \\in A, f(a) = y\\}$. C'est l'ensemble des images des éléments de $A$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On note $f$ l'application $(x,y)\\mapsto(2x+y,x^{2}+y)$ de $\\mathbb{R}^{2}$ dans $\\mathbb{R}^{2}$.\\par $f$ est-elle injective ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez $f(x,y) = f(x',y')$. En soustrayant les deux équations obtenues, vous devriez pouvoir factoriser."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "$f$ est-elle surjective ? Déterminer son image.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__definition_image_directe_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez un couple $(u,v) \\in \\mathbb{R}^2$ et essayez de résoudre le système $2x+y=u$ et $x^2+y=v$. Sous quelle condition sur $u$ et $v$ ce système a-t-il des solutions réelles ?"
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est surjective, on prend un élément $y \\in F$ quelconque, et on doit construire (ou démontrer l'existence de) un élément $x \\in E$ tel que $f(x) = y$. Cela signifie que chaque élément de $F$ a au moins un antécédent par $f$."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Soient $E$ un ensemble et $A$ et $B$ deux parties de $E$. On note $f$ l'application $X\\mapsto(X\\cap A,X\\cap B)$ de $\\mathcal{P}(E)$ dans $\\mathcal{P}(A)\\times\\mathcal{P}(B)$.\\par Montrer que :\\par $f$ est injective si et seulement si $A\\cup B=E$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_partition_depart",
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_relation_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par double implication. Si $A\\cup B \\neq E$, il existe un élément hors de $A$ et hors de $B$. Utilisez cet élément pour construire deux parties distinctes ayant la même image."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "Montrer que :\\par $f$ est surjective si et seulement si $A\\cap B=\\emptyset$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__theorem_surjectivite_composition",
+            "relations_binaires_et_applications__theorem_bijection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si l'intersection n'est pas vide, prenez un élément $x \\in A\\cap B$ et essayez d'atteindre le couple $(\\{x\\}, \\emptyset)$. Pour la réciproque, si l'intersection est vide, proposez un antécédent explicite pour un couple $(X_A, X_B)$."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est surjective, on prend un élément $y \\in F$ quelconque, et on doit construire (ou démontrer l'existence de) un élément $x \\in E$ tel que $f(x) = y$. Cela signifie que chaque élément de $F$ a au moins un antécédent par $f$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_014",
+      "title": "Restriction bijective",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__definition_image_directe_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "restriction",
+        "bijection",
+        "domaine_definition"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "a)",
+          "statement_latex": "$f$ est-elle injective ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_injectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'énoncé dans le PDF source semble incomplet (la fonction $f$ n'est pas explicitement définie avant). Néanmoins, s'il s'agit d'une fonction polynomiale ou rationnelle classique étudiée en cours, cherchez un contre-exemple simple."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "b)",
+          "statement_latex": "Montrer que $f|_{[1,+\\infty[\\times\\mathbb{R}}$ est bijective de $[1,+\\infty[\\times\\mathbb{R}$ sur son image (à préciser).",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez le système $f(x,y) = (u,v)$ pour $x \\ge 1$ et montrez qu'il admet une unique solution."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_015",
+      "title": "Équations fonctionnelles sur N",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "equation_fonctionnelle",
+        "recurrence",
+        "injection",
+        "arithmetique"
+      ],
+      "statement_latex": "Déterminer toutes les injections $f:\\mathbb{N}\\longrightarrow\\mathbb{N}$ pour lesquelles $f(n)\\le n$ pour tout $n\\in\\mathbb{N}$.\\par Déterminer toutes les fonctions $f:\\mathbb{N}\\longrightarrow\\mathbb{N}$ pour lesquelles $f(n)+f\\circ f(n)=2n$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Des solutions évidentes ? Analyse-synthèse et récurrence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la première équation, que peut valoir $f(0)$ ? Montrez par récurrence que $f(n) = n$. Pour la seconde, testez la fonction identité, puis prouvez que c'est l'unique solution en exploitant les contraintes de monotonie ou en posant $u_k = f^{(k)}(n)$."
+            }
+          ],
+          "solution_latex": "[Des solutions évidentes ? Analyse-synthèse et récurrence.] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_016",
+      "title": "Bijections classiques avec N",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__theorem_surjectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "bijection",
+        "injection",
+        "denombrabilite",
+        "arithmetique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Proposer une bijection explicite de $\\mathbb{N}$ sur $\\mathbb{Z}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_bijection",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+            "relations_binaires_et_applications__method_montrer_bijection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparez le cas des entiers naturels pairs et impairs. Associez par exemple les pairs aux entiers positifs ou nuls, et les impairs aux entiers strictement négatifs."
+            }
+          ],
+          "solution_latex": "[Séparez le cas des entiers naturels pairs et impairs. Associez par exemple les pairs aux entiers positifs ou nuls, et les impairs aux entiers strictement négatifs.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En exploitant le théorème de factorisation première, proposer une injection de $\\mathbb{N}^{k}$ dans $\\mathbb{N}$ pour tout $k\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_injectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chaque entier naturel s'écrit de manière unique comme produit de puissances de nombres premiers. Utilisez les $k$ premiers nombres premiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez l'application $(n_1, n_2, ..., n_k) \\mapsto p_1^{n_1}p_2^{n_2}...p_k^{n_k}$, où $p_i$ est le $i$-ème nombre premier. L'unicité de la décomposition donne l'injectivité."
+            }
+          ],
+          "solution_latex": "[Chaque entier naturel s'écrit de manière unique comme produit de puissances de nombres premiers. Utilisez les $k$ premiers nombres premiers.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que l'application : $(m,n)\\mapsto\\frac{(m+n)(m+n+1)}{2}+n$ est bijective de $\\mathbb{N}^{2}$ sur $\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__method_montrer_bijection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_surjectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la surjectivité, exprimer $f(m,n+1)$ en fonction de $f(m+1,n)$ et $f(n+1,0)$ en fonction de $f(0,n)$. Et pour l'injectivité, comparer $f(m,n)$ et $f(m^{\\prime},n^{\\prime})$ sous l'hypothèse que $m+n<m^{\\prime}+n^{\\prime}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit du procédé de numérotation diagonale de Cantor. Visualisez comment les couples $(m,n)$ sont disposés dans un tableau et comment la fonction les énumère diagonale par diagonale."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_017",
+      "title": "Applications sur l'ensemble des parties P(E)",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__method_montrer_bijection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensemble_des_parties",
+        "bijection",
+        "intersection",
+        "reunion"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'application : $(A,B)\\mapsto(2A)\\cup(2B+1)$ est bijective de $\\mathcal{P}(\\mathbb{N})^{2}$ sur $\\mathcal{P}(\\mathbb{N})$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__method_montrer_bijection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_surjectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observez la parité : $2A$ ne contient que des nombres pairs, et $2B+1$ ne contient que des nombres impairs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étant donné un ensemble $C \\in \\mathcal{P}(\\mathbb{N})$, séparez ses éléments pairs et impairs pour trouver l'unique antécédent $(A,B)$."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On note $\\phi$ l'application $X\\mapsto X\\cap2\\mathbb{N}$ de $\\mathcal{P}(\\mathbb{N})$ dans $\\mathcal{P}(\\mathbb{N})$.\\par $\\phi$ est-elle injective ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'opération d'intersection avec l'ensemble des entiers pairs modifie-t-elle les éléments impairs d'un ensemble ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez $X = \\{2\\}$ et $Y = \\{1, 2\\}$. Comparez leurs images par $\\phi$."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "$\\phi$ est-elle surjective ? Déterminer son image.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__definition_image_directe_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tous les sous-ensembles de $\\mathbb{N}$ peuvent-ils être atteints ? Que peut-on dire de la parité des éléments de l'image de $\\phi$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'image ne contient que des sous-ensembles de $2\\mathbb{N}$. Montrez que tout sous-ensemble de $2\\mathbb{N}$ possède un antécédent (lui-même)."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est surjective, on prend un élément $y \\in F$ quelconque, et on doit construire (ou démontrer l'existence de) un élément $x \\in E$ tel que $f(x) = y$. Cela signifie que chaque élément de $F$ a au moins un antécédent par $f$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soient $E$ un ensemble et $A$ une partie de $E$. On note $\\psi$ l'application $X\\mapsto X\\cup A$ de $\\mathcal{P}(E)$ dans lui-même. L'application est-elle injective ? surjective ? Déterminer son image.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__definition_surjection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites une analogie avec la question précédente. Si $X \\cup A = Y \\cup A$, a-t-on nécessairement $X = Y$ ? (Regardez ce qui se passe pour les éléments de $A$)."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'application n'est ni injective (sauf si $A=\\emptyset$) ni surjective (sauf si $A=\\emptyset$). L'image est l'ensemble des parties de $E$ qui contiennent $A$."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_018",
+      "title": "Différence symétrique de deux ensembles",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_indicatrice",
+        "relations_binaires_et_applications__definition_iterees_point_fixe",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_relation_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "difference_symetrique",
+        "fonction_indicatrice",
+        "algebre_de_boole"
+      ],
+      "statement_latex": "Soit $E$ un ensemble. Pour toutes parties $A, B$ de $E$, on appelle différence symétrique de $A$ et $B$ la partie :\\par $A\\Delta B=(A\\setminus B)\\cup(B\\setminus A)$ de $E$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Exprimer $\\mathbb{1}_{A\\Delta B}$ en fonction de $\\mathbb{1}_{A}$ et $\\mathbb{1}_{B}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous que $\\mathbb{1}_{A \\setminus B} = \\mathbb{1}_A(1 - \\mathbb{1}_B)$ et $\\mathbb{1}_{C \\cup D} = \\mathbb{1}_C + \\mathbb{1}_D - \\mathbb{1}_{C \\cap D}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez et simplifiez pour obtenir $\\mathbb{1}_{A\\Delta B} = \\mathbb{1}_A + \\mathbb{1}_B - 2\\mathbb{1}_A\\mathbb{1}_B$. On peut aussi remarquer que c'est équivalent à $\\mathbb{1}_A + \\mathbb{1}_B \\pmod 2$."
+            }
+          ],
+          "solution_latex": "[Rappelez-vous que $\\mathbb{1}_{A \\setminus B} = \\mathbb{1}_A(1 - \\mathbb{1}_B)$ et $\\mathbb{1}_{C \\cup D} = \\mathbb{1}_C + \\mathbb{1}_D - \\mathbb{1}_{C \\cap D}$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $A\\Delta B=(A\\cup B)\\setminus(A\\cap B)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer $\\mathbb{1}_{(A\\cup B)\\setminus(A\\cap B)}=\\mathbb{1}_{A\\Delta B}$ grâce au résultat de la question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez $\\mathbb{1}_{A \\cup B}$ et $\\mathbb{1}_{A \\cap B}$ en fonction de $\\mathbb{1}_A$ et $\\mathbb{1}_B$, puis remplacez dans la formule de l'indicatrice de la différence."
+            }
+          ],
+          "solution_latex": "[Montrer $\\mathbb{1}_{(A\\cup B)\\setminus(A\\cap B)}=\\mathbb{1}_{A\\Delta B}$ grâce au résultat de la question 1).] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $\\Delta$ est associative, i.e. que pour tous $A,B, C\\in\\mathcal{P}(E)$ : $A\\Delta(B\\Delta C)=(A\\Delta B)\\Delta C$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans un premier temps, dessiner des patates pour y voir clair, mais attention aux cas particuliers !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que $\\mathbb{1}_{A\\Delta(B\\Delta C)}=\\mathbb{1}_{(A\\Delta B)\\Delta C}$ grâce au résultat de la question 1) en utilisant le développement analytique complet."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_019",
+      "title": "Idempotence et bijectivité",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_application"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "idempotence",
+        "injection",
+        "surjection",
+        "composition"
+      ],
+      "statement_latex": "Soient $E$ un ensemble et $f:E\\longrightarrow E$ une application.\\par On suppose que $f\\circ f=f$ et que $f$ est injective ou surjective. Montrer que $f=Id_{E}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Séparez l'étude en deux cas disjoints. Cas 1 : $f$ est injective. Cas 2 : $f$ est surjective."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si $f$ est injective, partez de $f(f(x)) = f(x)$ et appliquez l'injectivité. Si $f$ est surjective, tout $x$ s'écrit $f(y)$. Calculez alors $f(x)$."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_020",
+      "title": "Itérée troisième et bijectivité",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_application"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "injection",
+        "surjection",
+        "equivalence"
+      ],
+      "statement_latex": "Soient $E$ un ensemble et $f:E\\longrightarrow E$ une application. On suppose que $f\\circ f\\circ f=f$.\\par Montrer que $f$ est injective si et seulement si elle est surjective.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Procédez par double implication. Supposez d'abord $f$ injective pour montrer qu'elle est surjective, puis inversez les rôles."
+        },
+        {
+          "level": 2,
+          "content_latex": "Sens direct : soit $y \\in E$. On a $f(f(f(y))) = f(y)$. Utilisez l'injectivité pour \"simplifier\" par $f$. Sens réciproque : supposez $f(x)=f(y)$ et appliquez $f$ deux fois."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_021",
+      "title": "Composition et bijectivité globale",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_surjectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__method_montrer_bijection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "injection",
+        "surjection",
+        "bijection",
+        "recurrence"
+      ],
+      "statement_latex": "Soient $E$ un ensemble et $f_{1},...,f_{n}$ des applications de $E$ dans $E$. Montrer que si $f_{1}\\circ f_{2}\\circ...\\circ f_{n}$ est injective et $f_{n}\\circ f_{n-1}\\circ...\\circ f_{1}$ surjective, alors $f_{1},...,f_{n}$ sont bijectives.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Récurrence : soit on fixe $n$ ainsi que $f_{1},...,f_{n}$ et on fait une récurrence sur l'indice $k$ de $f_{k}$, soit on fait une récurrence sur $n$ et on incorpore un quantificateur $\\forall f_{1},...,f_{n}$ dans l'hypothèse de récurrence car $f_{1},...,f_{n}$ au nombre de $n$, ne peuvent donc pas être fixées en amont."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si vous choisissez la première méthode (sans récurrence sur $n$), commencez par remarquer que $f_1$ est injective (comme fonction la plus à gauche d'une composée injective) et $f_n$ est surjective (la plus à gauche d'une composée surjective)."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_022",
+      "title": "Restriction et propriétés d'une application",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__definition_iterees_point_fixe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "restriction",
+        "injection",
+        "surjection",
+        "suite_de_parties",
+        "reunion"
+      ],
+      "statement_latex": "Soient $E$ et $F$ des ensembles et $f:E\\longrightarrow F$ une application.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $A$ une partie de $E$. Vrai ou faux ? Justifier.\\par Si $f$ est injective, alors $f|_{A}$ l'est aussi. Et la réciproque ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'implication directe, revenez à la définition : si $x,y \\in A$ vérifient $f(x)=f(y)$, que permet de déduire l'injectivité de $f$ sur $E$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, cherchez un contre-exemple simple. Prenez par exemple une fonction non injective sur $\\mathbb{R}$ (comme le carré) et restreignez-la à un intervalle où elle l'est (comme $\\mathbb{R}_+$)."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Soit $A$ une partie de $E$. Vrai ou faux ? Justifier.\\par Si $f$ est surjective, alors $f|_{A}$ l'est aussi. Et la réciproque ?",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__definition_iterees_point_fixe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'image de $A$ par $f$ est-elle nécessairement égale à l'image de $E$ entière ? Cherchez un contre-exemple."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, si tout élément de $F$ possède un antécédent dans $A$, a-t-il a fortiori un antécédent dans $E$ ?"
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est surjective, on prend un élément $y \\in F$ quelconque, et on doit construire (ou démontrer l'existence de) un élément $x \\in E$ tel que $f(x) = y$. Cela signifie que chaque élément de $F$ a au moins un antécédent par $f$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $(A_{n})_{n\\in\\mathbb{N}}$ une suite de parties de $E$ de réunion $E$ et croissante pour l'inclusion. Montrer que si $f|_{A_{n}}$ est injective pour tout $n\\in\\mathbb{N}$, alors $f$ l'est aussi.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_injectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soient $x$ et $y$ deux éléments de $E$ tels que $f(x)=f(y)$. Puisque la réunion des $A_n$ est $E$, $x$ appartient à un certain $A_p$ et $y$ à un certain $A_q$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la croissance de la suite $(A_n)$. $x$ et $y$ appartiennent tous les deux à $A_{\\max(p,q)}$. Appliquez alors l'injectivité de la restriction correspondante."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_023",
+      "title": "Produit cartésien et réunion disjointe",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_surjectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit_cartesien",
+        "reunion_disjointe",
+        "injection",
+        "surjection",
+        "bijection"
+      ],
+      "statement_latex": "Soient $E_{1}$, $F_{1}$, $E_{2}$, $F_{2}$ quatre ensembles non vides et $f_{1}:E_{1}\\longrightarrow F_{1}$ et $f_{2}:E_{2}\\longrightarrow F_{2}$ deux applications.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Pour tout $(x_{1},x_{2})\\in E_{1}\\times E_{2}$, on pose : $\\varphi(x_{1},x_{2})=(f_{1}(x_{1}),f_{2}(x_{2}))$.\\par Montrer que $\\varphi$ est injective sur $E_{1}\\times E_{2}$ si et seulement si $f_{1}$ l'est sur $E_{1}$ et $f_{2}$ l'est sur $E_{2}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_injectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sens direct : supposez $\\varphi$ injective. Prenez $x_1, y_1 \\in E_1$ tels que $f_1(x_1)=f_1(y_1)$. En fixant une valeur $a \\in E_2$, évaluez $\\varphi(x_1, a)$ et $\\varphi(y_1, a)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Sens réciproque : supposez $f_1$ et $f_2$ injectives. Si $\\varphi(x_1,x_2)=\\varphi(y_1,y_2)$, l'égalité des couples implique l'égalité coordonnée par coordonnée."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est injective, on suppose que $f(x) = f(x')$ pour $x, x' \\in E$, et on doit en déduire $x = x'$. Cela signifie que chaque élément de $F$ a au plus un antécédent par $f$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Même question avec « surjective » à la place d'« injective ».",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez de la même manière. L'image de $\\varphi$ est le produit cartésien $f_1(E_1) \\times f_2(E_2)$. Comparez cela à $F_1 \\times F_2$."
+            }
+          ],
+          "solution_latex": "[Procédez de la même manière. L'image de $\\varphi$ est le produit cartésien $f_1(E_1) \\times f_2(E_2)$. Comparez cela à $F_1 \\times F_2$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On suppose que $E_{1}\\cap E_{2}=F_{1}\\cap F_{2}=\\emptyset$ et que $f_{1}$ et $f_{2}$ sont bijectives.\\par Construire une bijection de $E_{1}\\sqcup E_{2}$ sur $F_{1}\\sqcup F_{2}$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__theorem_bijection",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie",
+            "relations_binaires_et_applications__theorem_surjectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Définissez une fonction $h$ par cas. Si $x \\in E_1$, $h(x) = f_1(x)$. Que vaut $h(x)$ si $x \\in E_2$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'injectivité et la surjectivité découlent du fait que les ensembles d'arrivée $F_1$ et $F_2$ sont disjoints, garantissant que les images ne se « croisent » pas."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est bijective, on doit montrer à la fois l'injectivité et la surjectivité.\\\\par\\noindent$\\textbf{Injectivité :}$ Si $f(x) = f(x')$, alors $x = x'$.\\\\par\\noindent$\\textbf{Surjectivité :}$ Pour tout $y \\in F$, il existe $x \\in E$ tel que $f(x) = y$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_024",
+      "title": "Théorème de factorisation d'une application",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_ensemble_applications",
+        "relations_binaires_et_applications__definition_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorisation",
+        "application",
+        "composition",
+        "implication"
+      ],
+      "statement_latex": "Soient $E$, $F$ et $G$ trois ensembles et $f:E\\longrightarrow F$ et $g:E\\longrightarrow G$ deux applications.\\par Montrer que $g=h\\circ f$ pour une certaine application $h:F\\longrightarrow G$ si et seulement si :\\par $\\forall x,x^{\\prime}\\in E, (f(x)=f(x^{\\prime})\\Rightarrow g(x)=g(x^{\\prime}))$.",
+      "sub_questions": [],
+      "global_solution_latex": "[Sens direct : trivial en écrivant $g(x) = h(f(x))$. Pour la réciproque, il faut *construire* la fonction $h$.] En appliquant cette indication, on démontre le résultat demandé.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Sens direct : trivial en écrivant $g(x) = h(f(x))$. Pour la réciproque, il faut *construire* la fonction $h$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Soit $y \\in f(E)$. Il existe au moins un antécédent $x \\in E$ tel que $y=f(x)$. On pose alors $h(y) = g(x)$. L'hypothèse garantit précisément que cette valeur ne dépend pas du choix de l'antécédent $x$. (Complétez arbitrairement pour $y \\notin f(E)$)."
+        }
+      ]
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_025",
+      "title": "Propriétés des images directes et réciproques",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_ensemble_applications",
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_iterees_point_fixe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "image_directe",
+        "image_reciproque",
+        "inclusion",
+        "ensemble_des_parties"
+      ],
+      "statement_latex": "Soient $E, F$ et $G$ trois ensembles et $f:E\\longrightarrow F, g:F\\longrightarrow G$ deux applications.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $A\\in\\mathcal{P}(E)$ et $B\\in\\mathcal{P}(F)$ : $f(A\\cap f^{-1}(B))=f(A)\\cap B$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__theorem_indicatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par double inclusion. Prenez un élément $y$ dans le membre de gauche et traduisez son appartenance par des quantificateurs."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que l'application $A\\mapsto f(A)$ est croissante de $\\mathcal{P}(E)$ dans $\\mathcal{P}(F)$ (au sens de l'inclusion), i.e. que pour tous $A,A^{\\prime}\\in\\mathcal{P}(E)$ : $A\\subset A^{\\prime}\\Rightarrow f(A)\\subset f(A^{\\prime})$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez $A\\subset A'$. Prenez $y \\in f(A)$. Il existe donc $x \\in A$ tel que $y = f(x)$. Où se trouve ce $x$ par rapport à $A'$ ?"
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer de même que l'application $B\\mapsto f^{-1}(B)$ est croissante de $\\mathcal{P}(F)$ dans $\\mathcal{P}(E)$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez $B \\subset B'$. Prenez $x \\in f^{-1}(B)$. Que peut-on dire de $f(x)$ ?"
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tous $A\\in\\mathcal{P}(E)$ et $C\\in\\mathcal{P}(G)$ : $(g\\circ f)(A)=g(f(A))$ et $(g\\circ f)^{-1}(C)=f^{-1}(g^{-1}(C))$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_relation_stricte",
+            "relations_binaires_et_applications__definition_iterees_point_fixe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenez simplement aux définitions des ensembles. Par exemple, $x \\in (g\\circ f)^{-1}(C) \\iff (g\\circ f)(x) \\in C \\iff g(f(x)) \\in C$."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_026",
+      "title": "Images directes et réciproques de parties",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_reunions_intersections_images"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "image_directe",
+        "image_reciproque",
+        "inclusion",
+        "injection",
+        "surjection"
+      ],
+      "statement_latex": "Soient $E$ et $F$ deux ensembles et $f:E\\longrightarrow F$ une application.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Comparer $f^{-1}(f(A))$ et $A$ pour toute partie $A$ de $E$. Commencer par un dessin.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dessinez l'ensemble de départ $E$, l'ensemble d'arrivée $F$, une patate pour $A$, son image $f(A)$, puis entourez tous les éléments de $E$ qui atterrissent dans $f(A)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Tout élément de $A$ a son image dans $f(A)$, donc il appartient forcément à l'image réciproque de $f(A)$. L'inclusion $A \\subset f^{-1}(f(A))$ est donc toujours vraie."
+            }
+          ],
+          "solution_latex": "[Dessinez l'ensemble de départ $E$, l'ensemble d'arrivée $F$, une patate pour $A$, son image $f(A)$, puis entourez tous les éléments de $E$ qui atterrissent dans $f(A)$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que si $f$ est injective, alors pour tout $A\\in\\mathcal{P}(E)$ : $f^{-1}(f(A))=A$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_relation_ordre",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'une des inclusions a été traitée en 1)a). Pour l'autre, prenez un élément $x \\in f^{-1}(f(A))$ et traduisez cette appartenance."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x \\in f^{-1}(f(A))$, alors $f(x) \\in f(A)$. Il existe donc $a \\in A$ tel que $f(x) = f(a)$. Concluez avec l'injectivité de $f$."
+            }
+          ],
+          "solution_latex": "Pour l'ordre d'inclusion sur $\\mathcal{P}(E)$ : le plus petit élément est $\\emptyset$ (car $\\emptyset \\subset X$ pour tout $X \\in \\mathcal{P}(E)$), et le plus grand élément est $E$ (car $X \\subset E$ pour tout $X \\in \\mathcal{P}(E)$)."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer la réciproque.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__theorem_injectivite_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez que pour TOUT ensemble $A$, on a $f^{-1}(f(A))=A$. Vous devez prouver que $f$ est injective. Prenez $x, y \\in E$ tels que $f(x)=f(y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez l'hypothèse au singleton $A = \\{x\\}$. Que vaut $f(A)$ ? Que vaut $f^{-1}(f(A))$ si $f(x)=f(y)$ ?"
+            }
+          ],
+          "solution_latex": "[Supposez que pour TOUT ensemble $A$, on a $f^{-1}(f(A))=A$. Vous devez prouver que $f$ est injective. Prenez $x, y \\in E$ tels que $f(x)=f(y)$.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Comparer $f(f^{-1}(B))$ et $B$ pour toute partie $B$ de $F$. Commencer par un dessin.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_application",
+            "relations_binaires_et_applications__definition_iterees_point_fixe",
+            "relations_binaires_et_applications__definition_image_directe_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dessinez $E$ et $F$, une patate pour $B$ dans $F$, puis ses antécédents dans $E$. Que se passe-t-il si une partie de $B$ n'a aucun antécédent ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $y \\in f(f^{-1}(B))$, alors $y = f(x)$ avec $x \\in f^{-1}(B)$. Or $x \\in f^{-1}(B)$ signifie $f(x) \\in B$. L'inclusion $f(f^{-1}(B)) \\subset B$ est donc toujours vraie."
+            }
+          ],
+          "solution_latex": "[Dessinez $E$ et $F$, une patate pour $B$ dans $F$, puis ses antécédents dans $E$. Que se passe-t-il si une partie de $B$ n'a aucun antécédent ?] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que si $f$ est surjective, alors pour tout $B\\in\\mathcal{P}(F)$ : $f(f^{-1}(B))=B$.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__theorem_surjectivite_composition",
+            "relations_binaires_et_applications__theorem_bijection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il reste à prouver $B \\subset f(f^{-1}(B))$. Soit $y \\in B$. Puisque $f$ est surjective, $y$ possède au moins un antécédent $x \\in E$."
+            }
+          ],
+          "solution_latex": "Pour montrer que $f : E \\to F$ est surjective, on prend un élément $y \\in F$ quelconque, et on doit construire (ou démontrer l'existence de) un élément $x \\in E$ tel que $f(x) = y$. Cela signifie que chaque élément de $F$ a au moins un antécédent par $f$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Montrer la réciproque.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_reciproque",
+            "relations_binaires_et_applications__definition_image_directe_reciproque",
+            "relations_binaires_et_applications__theorem_bijection_image_reciproque"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez l'égalité vraie pour tout $B$. Prenez un élément $y$ quelconque de $F$ et appliquez l'hypothèse à $B = \\{y\\}$."
+            }
+          ],
+          "solution_latex": "[Supposez l'égalité vraie pour tout $B$. Prenez un élément $y$ quelconque de $F$ et appliquez l'hypothèse à $B = \\{y\\}$.] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": "On pourra retenir de cet exercice que si $f$ est bijective, les applications $A\\mapsto f(A)$ de $\\mathcal{P}(E)$ dans $\\mathcal{P}(F)$ et $B\\mapsto f^{-1}(B)$ de $\\mathcal{P}(F)$ dans $\\mathcal{P}(E)$ sont bijectives et réciproques l'une de l'autre."
+    },
+    {
+      "id": "relations_binaires_et_applications__ex_027",
+      "title": "Applications induites sur les parties",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_image_directe_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "application_induite",
+        "injection",
+        "surjection",
+        "ensemble_des_parties",
+        "equivalence"
+      ],
+      "statement_latex": "Soient $E$ et $F$ deux ensembles et $f:E\\longrightarrow F$ une application.\\par On note $\\delta$ l'application $A\\mapsto f(A)$ de $\\mathcal{P}(E)$ dans $\\mathcal{P}(F)$ et $\\rho$ l'application $B\\mapsto f^{-1}(B)$ de $\\mathcal{P}(F)$ dans $\\mathcal{P}(E)$. Montrer les équivalences suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$f$ injective $\\iff\\delta$ injective $\\iff\\rho$ surjective.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_surjectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer que trois propositions sont équivalentes, on peut se contenter de prouver trois implications en forme de boucle, mais si on n'y arrive pas, on fait comme on peut."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez abondamment les résultats de l'exercice précédent. Par exemple, si $f$ est injective, on sait que $\\rho(\\delta(A)) = A$ pour tout $A$, ce qui implique que $\\delta$ est injective (elle admet un inverse à gauche)."
+            }
+          ],
+          "solution_latex": "[Pour montrer que trois propositions sont équivalentes, on peut se contenter de prouver trois implications en forme de boucle, mais si on n'y arrive pas, on fait comme on peut.] En appliquant cette indication, on démontre le résultat demandé."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$f$ surjective $\\iff\\delta$ surjective $\\iff\\rho$ injective.",
+          "knowledge_nodes_tested": [
+            "relations_binaires_et_applications__definition_surjection",
+            "relations_binaires_et_applications__definition_injection",
+            "relations_binaires_et_applications__theorem_surjectivite_composition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez avec la même stratégie de boucle. L'exercice précédent a prouvé que $f$ surjective équivaut à $\\delta(\\rho(B)) = B$ pour tout $B$."
+            }
+          ],
+          "solution_latex": "[Procédez avec la même stratégie de boucle. L'exercice précédent a prouvé que $f$ surjective équivaut à $\\delta(\\rho(B)) = B$ pour tout $B$.] En appliquant cette indication, on démontre le résultat demandé."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_001",
+      "title": "TD Champo - 11.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_application"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "lecture graphique",
+        "image directe",
+        "image réciproque",
+        "champo"
+      ],
+      "statement_latex": "Soit $f$ la fonction définie sur $[-1,6[$ dont le graphe est donné. Déterminer :\n1. $f([-1,6[)$\n2. $f([1,2[)$\n3. $f^{-1}([0,6])$\n4. $f^{-1}([-2,6[)$\n5. $f^{-1}([4,5])$\n6. $f^{-1}([2,3])$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $f([-1,6[) = [1,4[ \\cup [5,6]$.\n2. $f([1,2[) = ]5, 6]$.\n3. $f^{-1}([0,6]) = [-1,6[$.\n4. $f^{-1}([-2,6[) = [-1,6[ \\setminus \\{1\\}$.\n5. $f^{-1}([4,5]) = \\{2\\}$.\n6. $f^{-1}(]2,3]) = ]-1,0] \\cup [2,3[$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_002",
+      "title": "TD Champo - 11.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_reunions_intersections_images"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "complexes",
+        "image directe",
+        "image réciproque",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{C} \\to \\mathbb{C}$ définie par $z \\mapsto z^{2}+z+1$.\n1. Déterminer $f(\\mathbb{C})$, $f(\\mathbb{C}^{*})$ et $f(\\mathbb{R})$.\n2. Déterminer $f^{-1}(\\mathbb{C})$, $f^{-1}(\\mathbb{C}^{*})$ et $f^{-1}(\\mathbb{R})$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $f(\\mathbb{C}) = \\mathbb{C}$ (tout complexe a un antécédent car équation du 2nd degré).\n$f(\\mathbb{C}^{*}) = \\mathbb{C}$ car $0$ a pour image $1$ et $1$ a pour antécédent $-1 \\in \\mathbb{C}^*$.\n$f(\\mathbb{R}) = [\\frac{3}{4}, +\\infty[$.\n2. $f^{-1}(\\mathbb{C}) = \\mathbb{C}$.\n$f^{-1}(\\mathbb{C}^{*}) = \\mathbb{C} \\setminus \\{j, \\bar{j}\\}$.\n$f^{-1}(\\mathbb{R}) = \\mathbb{R} \\cup \\{ z \\in \\mathbb{C} \\mid \\text{Re}(z) = -1/2 \\}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_003",
+      "title": "TD Champo - 11.3",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_proprietes_equipotence",
+        "relations_binaires_et_applications__theorem_indicatrice",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indicatrice",
+        "différence symétrique",
+        "ensembles",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble. Pour $A, B \\in \\mathcal{P}(E)$, on pose $A \\Delta B = (A \\cup B) \\setminus (A \\cap B)$.\n1. Montrer que $\\mathbb{1}_{A \\Delta B} = (\\mathbb{1}_{A} - \\mathbb{1}_{B})^{2}$.\n2. Montrer que pour $A, B, C \\in \\mathcal{P}(E)$, on a :\n$A \\Delta B = \\overline{A} \\Delta \\overline{B}$,\n$A \\cap (B \\Delta C) = (A \\cap B) \\Delta (A \\cap C)$,\n$A \\Delta (B \\Delta C) = (A \\Delta B) \\Delta C$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Vérification cas par cas sur l'appartenance de $x$ à $A$ et $B$.\n2. Utiliser la relation avec l'indicatrice ou les propriétés algébriques (anneau de Boole)."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_004",
+      "title": "TD Champo - 11.4",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__theorem_indicatrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "image directe",
+        "image réciproque",
+        "ensembles",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : E \\to F$. Prouver que :\n1. Pour tout $A \\in \\mathcal{P}(E)$, $A \\subset f^{-1}(f(A))$ et pour tout $B \\in \\mathcal{P}(F)$, $f(f^{-1}(B)) \\subset B$.\n2. Pour tout $A, A' \\in \\mathcal{P}(E)$, $f(A \\cup A') = f(A) \\cup f(A')$ et $f(A \\cap A') \\subset f(A) \\cap f(A')$.\n3. Pour tout $B, B' \\in \\mathcal{P}(F)$, $f^{-1}(B \\cup B') = f^{-1}(B) \\cup f^{-1}(B')$ et $f^{-1}(B \\cap B') = f^{-1}(B) \\cap f^{-1}(B')$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Soit $x \\in A$. Alors $f(x) \\in f(A)$, donc $x \\in f^{-1}(f(A))$. Soit $y \\in f(f^{-1}(B))$. Il existe $x \\in f^{-1}(B)$ tel que $y=f(x)$. Or $f(x) \\in B$, donc $y \\in B$.\n2. et 3. Démonstrations classiques par double inclusion ou équivalence logique."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_005",
+      "title": "TD Champo - 11.5",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_reunions_intersections_images",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "image directe",
+        "image réciproque",
+        "champo"
+      ],
+      "statement_latex": "Soient $f : E \\to F$ et $g : F \\to G$. Montrer que :\n$\\forall A \\in \\mathcal{P}(E), \\; (g \\circ f)(A) = g(f(A))$\net $\\forall C \\in \\mathcal{P}(G), \\; (g \\circ f)^{-1}(C) = f^{-1}(g^{-1}(C))$.",
+      "sub_questions": [],
+      "global_solution_latex": "Démonstrations directes par définition des images directes et réciproques."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_006",
+      "title": "TD Champo - 11.6",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_surjectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "logique",
+        "quantificateurs",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : E \\to F$. Écrire avec des quantificateurs :\n1. « $f$ n'est pas injective »\n2. « $f$ n'est pas surjective »\n3. « tout élément de $F$ admet au moins deux antécédents par $f$ »",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\exists x,y \\in E, x \\neq y \\text{ et } f(x)=f(y)$.\n2. $\\exists y \\in F, \\forall x \\in E, f(x) \\neq y$.\n3. $\\forall z \\in F, \\exists x,y \\in E, x \\neq y \\text{ et } f(x)=f(y)=z$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_007",
+      "title": "TD Champo - 11.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__theorem_bijection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "surjection",
+        "bijection",
+        "champo"
+      ],
+      "statement_latex": "Les applications suivantes sont-elles injectives ? Surjectives ? Bijectives ?\n1. $f : \\mathbb{R}^2 \\to \\mathbb{R}, (x,y) \\mapsto x+y$\n2. $g : \\mathbb{R}^2 \\to \\mathbb{R}^3, (x,y) \\mapsto (x, x-y, y)$\n3. $h : \\mathbb{R}^2 \\to \\mathbb{R}^2, (x,y) \\mapsto (2x+y, y-x)$\n4. $i : \\mathbb{R}^3 \\to \\mathbb{R}^3, (x,y,z) \\mapsto (x+2y+z, y, -x-4y+z)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Non injective ($f(0,0)=f(1,-1)$), surjective (pour tout $z$, $f(z,0)=z$).\n2. Injective ($g(x,y)=g(x',y') \\implies x=x', y=y'$), non surjective (ex: $(0,-1,0)$ n'a pas d'antécédent).\n3. Bijective (système linéaire inversible).\n4. Non surjective (image plane ou droite, à vérifier par calcul du rang ou résolution)."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_008",
+      "title": "TD Champo - 11.8",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__theorem_bijection_composition",
+        "relations_binaires_et_applications__definition_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "complexes",
+        "bijection",
+        "champo"
+      ],
+      "statement_latex": "Soit $a \\in \\mathbb{C}$ tel que $|a| \\ne 1$. Montrer que $f_a : z \\mapsto \\frac{z+a}{\\bar{a}z+1}$ réalise une bijection de $\\mathbb{U}$ sur $\\mathbb{U}$, et déterminer sa bijection réciproque.",
+      "sub_questions": [],
+      "global_solution_latex": "Vérifier que si $|z|=1$, alors $|f_a(z)|=1$ par calcul du module carré. Résoudre $y = \\frac{z+a}{\\bar{a}z+1}$ donne $z = \\frac{y-a}{1-\\bar{a}y}$. La réciproque est $f_{-a}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_009",
+      "title": "TD Champo - 11.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système somme-produit",
+        "injection",
+        "surjection",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R}^2 \\to \\mathbb{R}^2$ définie par $f(x,y) = (x+y, xy)$. $f$ est-elle injective ? Surjective ?\nMêmes questions en changeant espace de départ et d'arrivée en $\\mathbb{C}^2$.",
+      "sub_questions": [],
+      "global_solution_latex": "Sur $\\mathbb{R}^2$ : Non injective ($f(1,2)=f(2,1)$). Non surjective (image liée au discriminant $\\ge 0$).\nSur $\\mathbb{C}^2$ : Non injective. Surjective (tout système somme-produit a des solutions complexes)."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_010",
+      "title": "TD Champo - 11.10",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_surjectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__theorem_bijection_composition",
+        "relations_binaires_et_applications__theorem_bijection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "bijection",
+        "ensembles",
+        "champo"
+      ],
+      "statement_latex": "Soient $f : \\mathbb{N} \\to \\mathbb{N}, n \\mapsto n+1$ et $g : \\mathbb{N} \\to \\mathbb{N}, n \\mapsto \\begin{cases} 0 & \\text{si } n=0 \\\\ n-1 & \\text{sinon} \\end{cases}$.\n1. Montrer que $g \\circ f = \\text{id}_{\\mathbb{N}}$. Que vaut $f \\circ g$ ?\n2. Les applications $f$ et $g$ sont-elles bijectives ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. $g(f(n)) = g(n+1) = (n+1)-1 = n$. $f \\circ g (n) = n$ si $n \\ne 0$, et $f(g(0))=f(0)=1 \\ne 0$. Donc $f \\circ g \\neq \\text{id}$.\n2. $f$ injective non surjective. $g$ surjective non injective."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_011",
+      "title": "TD Champo - 11.11",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_surjection",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_surjectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "parties",
+        "application induite",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble non vide, et soit $A \\in \\mathcal{P}(E)$. On note $\\psi : \\mathcal{P}(E) \\to \\mathcal{P}(E), X \\mapsto X \\cap A$.\n1. Déterminer $\\text{Im}(\\psi)$. En déduire une CNS pour que $\\psi$ soit surjective.\n2. Soit $B \\in \\text{Im}(\\psi)$. Déterminer $\\psi^{-1}(\\{B\\})$. En déduire une CNS pour que $\\psi$ soit injective.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\text{Im}(\\psi) = \\mathcal{P}(A)$. Surjective ssi $A=E$.\n2. $\\psi^{-1}(\\{B\\}) = \\{ B \\cup Y, Y \\in \\mathcal{P}(\\overline{A}) \\}$. Injective ssi $\\overline{A} = \\emptyset \\iff A=E$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_012",
+      "title": "TD Champo - 11.12",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__definition_reciproque"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "image directe",
+        "image réciproque",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : E \\to F$. Montrer que $f$ est injective si et seulement si $\\forall A \\in \\mathcal{P}(E)$, $f^{-1}(f(A)) = A$.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $f$ injective, $f(x)=f(y) \\implies x=y$, on montre l'égalité. Réciproque : prendre $A=\\{x\\}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_013",
+      "title": "TD Champo - 11.13",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__method_montrer_bijection",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "injection",
+        "surjection",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble, et soit $f : E \\to E$ une application telle que $f \\circ f \\circ f = f$. Montrer que $f$ est injective si et seulement si elle est surjective.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $f$ injective, simplifier $f \\circ f \\circ f = f$ par $f$ donne $f \\circ f = \\text{id}$, donc bijective.\nSi $f$ surjective, simplifier à droite donne $f \\circ f = \\text{id}$, donc bijective."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_014",
+      "title": "TD Champo - 11.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__method_montrer_bijection",
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__theorem_surjectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "vrai ou faux",
+        "ensembles",
+        "applications",
+        "champo"
+      ],
+      "statement_latex": "Vrai ou faux. Soient $f : E \\to F$ et $g : F \\to E$, $A \\in \\mathcal{P}(E)$ et $B \\in \\mathcal{P}(F)$.\n1. Si $f$ est surjective, $f$ réalise une bijection de $E$ sur $F$.\n2. $f$ réalise une bijection de $E$ sur $f(E)$.\n3. Si $f$ est injective, alors $f$ réalise une bijection de $E$ sur $f(E)$.\n4. Si $f$ est injective et $g$ surjective, alors $g \\circ f$ est bijective.\n5. Si $(g \\circ f)^3$ est bijective, alors $f$ est injective et $g$ surjective.\n6. $g \\circ f$ est injective si et seulement si $f$ et $g$ sont injectives.\n7. Si $f$ est surjective, alors $f(f^{-1}(B)) = B$.\n8. $f(A) = B \\iff f^{-1}(B) = A$.\n9. Si $f$ est injective, alors $f(\\overline{A}) \\subset \\overline{f(A)}$.\n10. $f^{-1}(\\overline{B}) = \\overline{f^{-1}(B)}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Faux. 2. Faux. 3. Vrai. 4. Faux. 5. Vrai. 6. Faux. 7. Vrai. 8. Faux. 9. Vrai. 10. Vrai."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_015",
+      "title": "TD Champo - 11.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__definition_application"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "injection",
+        "surjection",
+        "champo"
+      ],
+      "statement_latex": "Soient $E, F, G$ trois ensembles non vides et soient $f : E \\to F$ et $g : F \\to G$.\n1. Montrer que si $g \\circ f$ est surjective et $g$ injective, alors $f$ est surjective.\n2. Montrer que si $g \\circ f$ est injective et $f$ surjective, alors $g$ est injective.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $g$ injective $\\implies g$ bijective sur son image ? Plus simple : $(g \\circ f)(E) = G \\implies g(f(E)) = G$. Comme $g$ injective, elle induit une bijection $F \\to g(F)$. Si $g(F) \\supset G$, ok. Ici $g$ injective suffit pour \"remonter\".\n2. Si $f$ surjective, tout $y$ est un $f(x)$..."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_016",
+      "title": "TD Champo - 11.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__theorem_identite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "entiers",
+        "récurrence",
+        "champo"
+      ],
+      "statement_latex": "Déterminer toutes les injections $f : \\mathbb{N} \\to \\mathbb{N}$ telles que $\\forall n \\in \\mathbb{N}, \\; f(n) \\le n$.",
+      "sub_questions": [],
+      "global_solution_latex": "Seule l'identité convient. Preuve par récurrence forte : $f(0) \\le 0 \\implies f(0)=0$. Si $f(0)=0, \\dots, f(n)=n$, alors $f(n+1) \\le n+1$ et ne peut prendre les valeurs $0 \\dots n$ par injectivité, donc $f(n+1)=n+1$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_017",
+      "title": "TD Champo - 11.17",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+        "relations_binaires_et_applications__theorem_bijection_composition",
+        "relations_binaires_et_applications__method_montrer_bijection",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "bijection",
+        "complémentaire",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : E \\to F$. Montrer que $f$ est bijective si et seulement si $\\forall A \\in \\mathcal{P}(E)$, $f(\\overline{A}) = \\overline{f(A)}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $f$ bijective, l'égalité est vraie. Réciproque : tester $A=\\emptyset \\implies f(E)=F$ (surjective), tester $A=\\{x\\}$ pour l'injectivité."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_018",
+      "title": "TD Champo - 11.18",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__method_montrer_bijection",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "parties",
+        "application",
+        "partition",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble, et soient $A$ et $B$ deux parties de $E$. On considère l'application $f : \\mathcal{P}(E) \\to \\mathcal{P}(A) \\times \\mathcal{P}(B)$ définie par $f(X) = (X \\cap A, X \\cap B)$.\nDonner une condition nécessaire et suffisante pour que $f$ soit injective (resp. surjective, resp. bijective).",
+      "sub_questions": [],
+      "global_solution_latex": "Injective ssi $A \\cup B = E$. Surjective ssi $A \\cap B = \\emptyset$. Bijective ssi $(A,B)$ est une partition de $E$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_019",
+      "title": "TD Champo - 11.19",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__definition_application",
+        "relations_binaires_et_applications__theorem_injectivite_composition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "inverse à gauche",
+        "monomorphisme",
+        "champo"
+      ],
+      "statement_latex": "Soient $E$ et $F$ deux ensembles non vides, et soit $f : E \\to F$.\n1. Une application $g : F \\to E$ est appelée un inverse à gauche de $f$ si $g \\circ f = \\text{id}_{E}$. Montrer que $f$ est injective si et seulement s'il existe un inverse à gauche de $f$.\n2. On dit que $f$ est un monomorphisme si pour tout ensemble $G$ et quelles que soient $g_1, g_2 : G \\to E$, $f \\circ g_1 = f \\circ g_2 \\implies g_1 = g_2$. Montrer que $f$ est un monomorphisme si et seulement si elle est injective.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Classique.\n2. Si $f$ injective, simplification à gauche ok. Si monomorphisme, prendre $G=\\{0\\}$ et envoyer sur $x_1, x_2$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_020",
+      "title": "TD Champo - 11.20",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_injectivite_composition",
+        "relations_binaires_et_applications__theorem_injectivite_monotonie",
+        "relations_binaires_et_applications__definition_injection",
+        "relations_binaires_et_applications__definition_ensemble_applications"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation fonctionnelle",
+        "récurrence forte",
+        "oral X",
+        "champo"
+      ],
+      "statement_latex": "Déterminer toutes les applications $f : \\mathbb{N}^{*} \\to \\mathbb{N}^{*}$ telles que $f + f \\circ f + f \\circ f \\circ f = 3\\text{id}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$f=\\text{id}$ est l'unique solution. Preuve par injectivité et récurrence forte."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_021",
+      "title": "TD Champo - 11.21",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__definition_relation_binaire",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "classes d'équivalence",
+        "champo"
+      ],
+      "statement_latex": "Sur $\\mathbb{Z}$, on définit une relation binaire $\\mathcal{R}$ par : $\\forall (a,b) \\in \\mathbb{Z}^{2}, \\; a\\mathcal{R}b \\iff a^{3}-b^{3} = a-b$.\nMontrer que $\\mathcal{R}$ est une relation d'équivalence et déterminer la classe d'équivalence d'un élément $a \\in \\mathbb{Z}$.",
+      "sub_questions": [],
+      "global_solution_latex": "C'est $f(a)=f(b)$ avec $f(x)=x^3-x$. $\\text{cl}(0)=\\{-1,0,1\\}$, $\\text{cl}(a)=\\{a\\}$ si $|a| \\ge 2$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_022",
+      "title": "TD Champo - 11.22",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__definition_relation_binaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "entiers",
+        "champo"
+      ],
+      "statement_latex": "On définit une relation sur $\\mathbb{N}$ en posant $p \\le q \\iff \\exists n \\in \\mathbb{N}, q = p^n$.\nMontrer que c'est une relation d'ordre. Est-ce un ordre total ?",
+      "sub_questions": [],
+      "global_solution_latex": "Réflexive ($n=1$), Antisymétrique (si $p^n=q$ et $q^m=p$, $p^{nm}=p \\implies nm=1$ sauf cas 0,1), Transitive. Partiel."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_023",
+      "title": "TD Champo - 11.23",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "relation d'ordre",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble non vide. On suppose qu'il existe sur $E$ une relation $\\mathcal{R}$ qui soit à la fois une relation d'ordre et une relation d'équivalence.\nQue dire des classes d'équivalence de $\\mathcal{R}$ ? Si on suppose de plus que l'ordre est total, que dire de $E$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Symétrie + Antisymétrie $\\implies x\\mathcal{R}y \\iff x=y$. Classes = singletons (égalité). Si ordre total, $\\forall x,y, x=y$, donc $E$ est un singleton."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_024",
+      "title": "TD Champo - 11.24",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_proprietes_equipotence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "complexes",
+        "champo"
+      ],
+      "statement_latex": "Montrer que la relation définie sur $\\mathbb{C}$ par $z \\mathcal{R} z' \\iff |z| = |z'|$ est une relation d'équivalence. Décrire géométriquement ses classes d'équivalence.",
+      "sub_questions": [],
+      "global_solution_latex": "Relation d'égalité des modules. Classes = cercles centrés en l'origine."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_025",
+      "title": "TD Champo - 11.25",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_proprietes_equipotence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "étude de fonction",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que la relation $\\mathcal{R}$ définie sur $\\mathbb{R}$ par $x \\mathcal{R} y \\iff x e^y = y e^x$ est une relation d'équivalence.\n2. Déterminer le cardinal des classes d'équivalence de la relation $\\mathcal{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x e^{-x} = y e^{-y}$. Relation induite par $f(t) = t e^{-t}$.\n2. Étude de $f$. Classes de cardinal 1 ou 2 selon la valeur."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_026",
+      "title": "TD Champo - 11.26",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_relation_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "parties",
+        "quotient",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble, et soit $A \\in \\mathcal{P}(E)$. On définit une relation sur $\\mathcal{P}(E)$ par $X \\sim Y \\iff X \\cap A = Y \\cap A$.\n1. Montrer que $\\sim$ est une relation d'équivalence.\n2. Prouver que l'application qui à un élément $X$ de $\\mathcal{P}(A)$ associe sa classe d'équivalence pour $\\sim$ est une bijection de $\\mathcal{P}(A)$ sur l'ensemble des classes d'équivalence.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Évident (relation induite par l'application intersection).\n2. La bijection associe $B \\in \\mathcal{P}(A)$ à $\\text{cl}(B)$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_027",
+      "title": "TD Champo - 11.27",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__definition_relation_binaire",
+        "relations_binaires_et_applications__theorem_classes_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "fonctions",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble non vide, et soit $F = \\mathbb{R}^E$. On définit une relation binaire sur $F$ : $f \\le g \\iff \\forall x \\in E, f(x) \\le g(x)$.\nMontrer que $\\le$ est une relation d'ordre. À quelle condition est-ce un ordre total ?",
+      "sub_questions": [],
+      "global_solution_latex": "Ordre produit usuel. Total ssi $E$ est un singleton."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_028",
+      "title": "TD Champo - 11.28",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "complexes",
+        "champo"
+      ],
+      "statement_latex": "Sur $E = \\{ z \\in \\mathbb{C} \\mid \\text{Im}(z) \\ge 0 \\}$, on définit une relation $\\le$ par :\n$\\forall (z,z') \\in E^2, \\; z \\le z' \\iff (|z| < |z'|) \\text{ ou } (|z| = |z'| \\text{ et } \\text{Re}(z) \\le \\text{Re}(z'))$.\nMontrer que $(E, \\le)$ est un ensemble totalement ordonné.",
+      "sub_questions": [],
+      "global_solution_latex": "Ordre lexicographique sur $(|z|, \\text{Re}(z))$. Total car modules comparables et parties réelles comparables."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_029",
+      "title": "TD Champo - 11.29",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__theorem_relation_stricte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "partition",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble non vide et soit $\\mathcal{A} \\subset \\mathcal{P}(E)$ une partition de $E$. Montrer qu'il existe une unique relation d'équivalence $\\sim$ sur $E$ telle que $\\mathcal{A}$ soit l'ensemble des classes d'équivalence de $\\sim$.",
+      "sub_questions": [],
+      "global_solution_latex": "Définir $x \\sim y \\iff \\exists X \\in \\mathcal{A}, \\{x,y\\} \\subset X$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_030",
+      "title": "TD Champo - 11.30",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__theorem_partition_depart",
+        "relations_binaires_et_applications__definition_surjection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "ensembles",
+        "inclusion",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble possédant au moins deux éléments. Montrer que $\\mathcal{P}(E) \\setminus \\{E\\}$ ne possède pas de plus grand élément pour l'inclusion.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $A$ était le plus grand, pour $x \\notin A$, $A \\cup \\{x\\}$ contredirait la maximalité, sauf si $A=E$, exclu."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_031",
+      "title": "TD Champo - 11.31",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_iterees_point_fixe",
+        "relations_binaires_et_applications__definition_image_directe_reciproque",
+        "relations_binaires_et_applications__theorem_indicatrice",
+        "relations_binaires_et_applications__theorem_classes_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "infini",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble ordonné tel que toute partie non vide de $E$ possède un plus grand et un plus petit élément. Montrer que $E$ est fini.",
+      "sub_questions": [],
+      "global_solution_latex": "Sinon, construire une suite strictement croissante par récurrence ($x_{n+1} = \\min(E \\setminus \\{x_0 \\dots x_n\\})$), l'ensemble des termes n'aurait pas de plus grand élément."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_032",
+      "title": "TD Champo - 11.32",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__definition_relation_equivalence",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_classes_equivalence",
+        "relations_binaires_et_applications__theorem_proprietes_equipotence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'équivalence",
+        "fonctions",
+        "germe",
+        "champo"
+      ],
+      "statement_latex": "Soit $E = \\mathcal{F}(\\mathbb{R}, \\mathbb{R})$ et soit $a \\in \\mathbb{R}$. Montrer que la relation définie sur $E$ par $f \\sim g$ si et seulement s'il existe un intervalle ouvert $I$ contenant $a$ tel que $f_{|I} = g_{|I}$ est une relation d'équivalence sur $E$.",
+      "sub_questions": [],
+      "global_solution_latex": "Vérification des axiomes. Transitivité : intersection de deux ouverts contenant $a$ est un ouvert contenant $a$."
+    },
+    {
+      "id": "relations_binaires_et_applications__champo_033",
+      "title": "TD Champo - 11.33",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "relations_binaires_et_applications__theorem_bijection",
+        "relations_binaires_et_applications__definition_relation_ordre",
+        "relations_binaires_et_applications__theorem_relation_stricte",
+        "relations_binaires_et_applications__theorem_classes_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation d'ordre",
+        "lemme de Szpilrajn",
+        "extension d'ordre",
+        "champo"
+      ],
+      "statement_latex": "Lemme de Szpilrajn. Soit $(E, \\le)$ un ensemble ordonné fini de cardinal $n$.\n1. Montrer qu'il existe une bijection $\\varphi : E \\to [[1,n]]$ croissante.\n2. En déduire qu'il existe une relation d'ordre total $\\preceq$ sur $E$ telle que $\\forall x,y \\in E, x \\le y \\implies x \\preceq y$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Récurrence sur $n$. Utiliser un élément maximal.\n2. Définir $x \\preceq y \\iff \\varphi(x) \\le \\varphi(y)$."
+    }
+  ]
+}

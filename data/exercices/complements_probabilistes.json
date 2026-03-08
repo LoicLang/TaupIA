@@ -1,0 +1,1624 @@
+{
+  "chapter_official_id": "complements_probabilistes",
+  "chapter_name": "Compléments probabilistes",
+  "source_document": "Exercices - Complements probabilistes.pdf",
+  "exercises": [
+    {
+      "id": "complements_probabilistes__ex_001",
+      "title": "Minimisation de l'écart quadratique moyen",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variance",
+        "espérance",
+        "minimisation"
+      ],
+      "statement_latex": "Soit $X$ une variable aléatoire réelle. Pour quel(s) réel(s) $x$ la quantité $E((X-x)^{2})$ est-elle minimale ?",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Minimisation de E((X-x)²)}\\\\par\nOn cherche le réel $x$ minimisant $E((X-x)^2)$. En développant :\n$$E((X-x)^2) = E(X^2) - 2xE(X) + x^2.$$\nC'est une fonction quadratique en $x$ de la forme $ax^2 + bx + c$ avec $a = 1 > 0$. Le minimum s'atteint en $x = \\frac{2E(X)}{2} = E(X)$.\\\\par\nLa valeur minimale est :\n$$E((X-E(X))^2) = E(X^2) - E(X)^2 = V(X).$$\nDonc $E((X-x)^2)$ est minimal pour $x = E(X)$, et le minimum vaut $V(X)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Développer l'expression $E((X-x)^{2})$ en utilisant la linéarité de l'espérance."
+        },
+        {
+          "level": 2,
+          "content_latex": "Reconnaître un trinôme du second degré en $x$ et chercher la valeur pour laquelle son minimum est atteint."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_002",
+      "title": "Majoration de la variance",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_proprietes_variance",
+        "complements_probabilistes__definition_covariance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variance",
+        "inégalités",
+        "loi de Bernoulli"
+      ],
+      "statement_latex": "Soient $a$ et $b$ deux réels pour lesquels $a\\le b$ et $X$ une variable aléatoire à valeurs dans $[a, b]$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que $V(X) \\le (b-E(X))(E(X)-a)$ en factorisant $V(X)+E((b-X)(X-a))$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer l'expression $V(X)+E((b-X)(X-a))$ et simplifier en utilisant la définition de la variance $V(X) = E(X^2) - E(X)^2$ et la linéarité de l'espérance."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le fait que $X$ prend ses valeurs dans $[a,b]$, ce qui implique que $(b-X)(X-a) \\ge 0$ presque sûrement, et donc $E((b-X)(X-a)) \\ge 0$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Inégalité de variance pour X uniform sur [[a,b]]}\\\\par\nMontrons que $V(X) \\\\leq (b - E(X))(E(X) - a)$.\\\\par\nOn calcule :\n$$V(X) + E((b-X)(X-a)) = E(X^2) - E(X)^2 + E((b-X)(X-a)).$$\nDéveloppons $E((b-X)(X-a)) = E(bX - X^2 - ab + aX) = (a+b)E(X) - E(X^2) - ab$.\\\\par\nDonc :\n$$V(X) + E((b-X)(X-a)) = E(X^2) - E(X)^2 + (a+b)E(X) - E(X^2) - ab = (a+b)E(X) - ab - E(X)^2.$$\nRéorganisant :\n$$= -(E(X)^2 - (a+b)E(X) + ab) = -(E(X) - a)(E(X) - b) = (E(X) - a)(b - E(X)) \\\\geq 0.$$\nPar conséquent, $V(X) \\\\leq (b - E(X))(E(X) - a)$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "En déduire que $V(X)\\le\\frac{(b-a)^{2}}{4}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité arithmético-géométrique ou étudier le maximum de la fonction $t \\mapsto (b-t)(t-a)$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Borne supérieure par AM-GM}\\\\par\nPar l'inégalité arithmético-géométrique :\n$$(b - E(X))(E(X) - a) \\\\leq \\\\left(\\\\frac{(b - E(X)) + (E(X) - a)}{2}\\\\right)^2 = \\\\left(\\\\frac{b - a}{2}\\\\right)^2 = \\\\frac{(b-a)^2}{4}.$$\nAinsi $V(X) \\\\leq \\\\frac{(b-a)^2}{4}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer la variance de $(b-a)X+a$ dans le cas où $X$ suit la loi de Bernoulli $\\mathcal{B}(\\frac{1}{2})$. Qu'en déduit-on ?",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappeler la variance d'une loi de Bernoulli $\\mathcal{B}(p)$ et utiliser la propriété $V(cX+d) = c^2 V(X)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comparer le résultat obtenu avec la borne maximale démontrée à la question 1)b)."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Optimalité de la borne}\\\\par\nConsidérons la variable transformée $Y = (b-a)X + a$ où $X \\\\sim \\\\text{Bernoulli}(1/2)$.\\\\par\nAlors $V(Y) = (b-a)^2 V(X) = (b-a)^2 \\\\cdot \\\\frac{1}{4} = \\\\frac{(b-a)^2}{4}$.\\\\par\nDe plus, $Y$ est uniform sur $\\\\{a, b\\\\}$, donc $E(Y) = \\\\frac{a+b}{2}$. On vérifie :\n$$(b - E(Y))(E(Y) - a) = \\\\left(b - \\\\frac{a+b}{2}\\\\right)\\\\left(\\\\frac{a+b}{2} - a\\\\right) = \\\\frac{b-a}{2} \\\\cdot \\\\frac{b-a}{2} = \\\\frac{(b-a)^2}{4}.$$\nLa borne de la question 1)b) est donc atteinte et optimale."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_003",
+      "title": "Combinaison linéaire d'indicatrices",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_proprietes_variance",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indicatrice",
+        "loi",
+        "espérance",
+        "variance"
+      ],
+      "statement_latex": "Soient $A$ et $B$ deux événements pour lesquels : $P(A)=\\frac{1}{2}$, $P(B)=\\frac{1}{3}$ et $P(A\\cap B)=\\frac{1}{4}$. Déterminer la loi, l'espérance et l'écart-type de $\\mathbb{I}_{A}+2\\mathbb{I}_{B}$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Loi et moments de $1_A + 2 \\\\cdot 1_B$}\\\\par\nDonnées : $P(A) = 1/2$, $P(B) = 1/3$, $P(A \\\\cap B) = 1/4$.\\\\par\nCalculons les probabilités des événements disjoints :\n\\\\begin{align*}\nP(A \\\\cap B) &= 1/4, \\\\\\\\\nP(A \\\\cap B^c) &= P(A) - P(A \\\\cap B) = 1/2 - 1/4 = 1/4, \\\\\\\\\nP(A^c \\\\cap B) &= P(B) - P(A \\\\cap B) = 1/3 - 1/4 = 1/12, \\\\\\\\\nP(A^c \\\\cap B^c) &= 1 - P(A \\\\cup B) = 1 - (1/4 + 1/4 + 1/12) = 1 - 7/12 = 5/12.\n\\\\end{align*}\\\\par\nLa variable $Z = 1_A + 2 \\\\cdot 1_B$ prend les valeurs :\n\\\\begin{align*}\nZ = 0 & \\\\text{ si } A^c \\\\cap B^c, & P(Z=0) &= 5/12, \\\\\\\\\nZ = 1 & \\\\text{ si } A \\\\cap B^c, & P(Z=1) &= 1/4, \\\\\\\\\nZ = 2 & \\\\text{ si } A^c \\\\cap B, & P(Z=2) &= 1/12, \\\\\\\\\nZ = 3 & \\\\text{ si } A \\\\cap B, & P(Z=3) &= 1/4.\n\\\\end{align*}\\\\par\n\\\\textbf{Espérance} : $E(Z) = P(A) + 2P(B) = 1/2 + 2/3 = 7/6$.\\\\par\n\\\\textbf{Variance} : $V(Z) = V(1_A) + 4V(1_B) + 4\\\\text{cov}(1_A, 1_B)$ où\n\\\\begin{align*}\nV(1_A) &= 1/4, \\\\quad V(1_B) = 2/9, \\\\\\\\\n\\\\text{cov}(1_A, 1_B) &= P(A \\\\cap B) - P(A)P(B) = 1/4 - 1/6 = 1/12.\n\\\\end{align*}\nDonc : $V(Z) = 1/4 + 8/9 + 1/3 = 9/36 + 32/36 + 12/36 = 53/36$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Quelles sont les valeurs possibles pour la variable aléatoire $X = \\mathbb{I}_{A}+2\\mathbb{I}_{B}$ ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "Traduire chaque valeur possible de $X$ en une combinaison d'événements élémentaires (par exemple, $X=3$ correspond à l'événement $A \\cap B$)."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_004",
+      "title": "Variance de la loi uniforme discrète",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_proprietes_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__definition_covariance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi uniforme",
+        "variance",
+        "sommes de référence"
+      ],
+      "statement_latex": "Soient $m, n \\in \\mathbb{Z}$ deux entiers pour lesquels $m\\le n$ et $U$ une variable uniforme sur $[[m, n]]$. Calculer la variance de $U$ sous l'hypothèse que $m=1$ puis dans le cas général.",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Variance de l'uniforme discret sur [[m,n]]}\\\\par\nPour $U$ uniforme sur $\\\\{m, m+1, \\\\ldots, n\\\\}$, le nombre de valeurs est $N = n - m + 1$.\\\\par\nL'espérance est :\n$$E(U) = \\\\frac{m + n}{2}.$$\nLe second moment est calculé par :\n$$E(U^2) = \\\\frac{1}{N}\\\\sum_{k=m}^{n} k^2.$$\nLa variance est :\n$$V(U) = E(U^2) - E(U)^2.$$\nPour le cas général [[m,n]], après calcul on obtient :\n$$V(U) = \\\\frac{(n-m)(n-m+2)}{12}.$$\nEn particulier, pour $m=1$ : $V(U) = \\\\frac{(n-1)(n+1)}{12} = \\\\frac{n^2-1}{12}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour $m=1$, calculer $E(U)$ et $E(U^2)$ en utilisant les formules des sommes $\\sum_{k=1}^n k$ et $\\sum_{k=1}^n k^2$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Dans le cas général, translater."
+        },
+        {
+          "level": 3,
+          "content_latex": "Écrire $U = U' + (m-1)$ où $U'$ est une variable aléatoire suivant une loi uniforme sur un intervalle d'entiers commençant à 1, et utiliser l'invariance de la variance par translation."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_005",
+      "title": "Covariance et minoration de probabilité",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "covariance",
+        "indicatrice",
+        "Cauchy-Schwarz"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A$ et $B$ deux événements de $\\Omega$. Simplifier $cov(\\mathbb{I}_{A},\\mathbb{I}_{B})$, puis en déduire que : $|P(A\\cap B)-P(A)P(B)|\\le\\frac{1}{4}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la formule $cov(X,Y) = E(XY) - E(X)E(Y)$ en remarquant que le produit d'indicatrices $\\mathbb{I}_{A}\\mathbb{I}_{B}$ est égal à l'indicatrice de l'intersection $\\mathbb{I}_{A\\cap B}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la majoration, exprimer la covariance et utiliser l'inégalité de Cauchy-Schwarz sur la covariance : $|cov(X,Y)| \\le \\sigma(X)\\sigma(Y)$, puis utiliser la majoration de la variance vue dans l'exercice 2."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Borne sur la covariance des indicatrices}\\\\par\nNous avons :\n$$\\\\text{cov}(1_A, 1_B) = E(1_A \\\\cdot 1_B) - E(1_A)E(1_B) = P(A \\\\cap B) - P(A)P(B).$$\nPar Cauchy-Schwarz :\n$$|\\\\text{cov}(1_A, 1_B)| \\\\leq \\\\sqrt{V(1_A) \\\\cdot V(1_B)} = \\\\sqrt{P(A)(1-P(A)) \\\\cdot P(B)(1-P(B))}.$$\nChaque facteur est majoré par $1/4$ (maximum de $t(1-t)$ atteint en $t=1/2$). Donc :\n$$|P(A \\\\cap B) - P(A)P(B)| \\\\leq \\\\sqrt{1/4 \\\\cdot 1/4} = 1/4."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $X$ une variable aléatoire à valeurs dans $\\mathbb{N}$ d'espérance strictement positive. Montrer que : $P(X\\ge1)\\ge\\frac{E(X)^{2}}{E(X^{2})}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer que $X \\mathbb{I}_{(X\\ge1)}=X.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz à l'espérance du produit $X \\mathbb{I}_{(X\\ge1)}$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Inégalité pour P(X≥1)}\\\\par\nPar Cauchy-Schwarz :\n$$E(X) = E(X \\\\cdot 1_{X \\\\geq 1}) \\\\leq \\\\sqrt{E(X^2)} \\\\cdot \\\\sqrt{P(X \\\\geq 1)}.$$\nEn élevant au carré :\n$$E(X)^2 \\\\leq E(X^2) \\\\cdot P(X \\\\geq 1).$$\nDonc :\n$$P(X \\\\geq 1) \\\\geq \\\\frac{E(X)^2}{E(X^2)}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_006",
+      "title": "Coefficient de corrélation linéaire",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corrélation linéaire",
+        "covariance",
+        "Cauchy-Schwarz"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. Sous l'hypothèse qu'elles ne sont pas presque sûrement constantes, on appelle coefficient de corrélation linéaire de $X$ et $Y$ le réel $\\rho(X,Y)=\\frac{cov(X,Y)}{\\sigma(X)\\sigma(Y)}$.\\par Montrer que $\\rho(X,Y)\\in\\{-1,1\\}$ si et seulement si, presque sûrement, $Y=aX+b$ pour certains $a, b\\in\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Corrélation linéaire}\\\\par\n\\\\textbf{Sens direct} : Si $Y = aX + b$ p.s., alors\n$$\\\\text{cov}(X,Y) = a \\\\cdot V(X), \\\\quad V(Y) = a^2 V(X), \\\\quad \\\\sigma(Y) = |a| \\\\sigma(X).$$\nDonc :\n$$\\\\rho(X,Y) = \\\\frac{a \\\\cdot V(X)}{\\\\sigma(X) \\\\cdot |a| \\\\sigma(X)} = \\\\text{sign}(a) = \\\\pm 1.$$\n\\\\textbf{Sens inverse} : Si $|\\\\rho(X,Y)| = 1$, alors $|\\\\text{cov}(X,Y)| = \\\\sigma(X)\\\\sigma(Y)$. Posons $a = \\\\text{cov}(X,Y)/V(X)$. Alors :\n$$V(Y - aX) = V(Y) - 2a\\\\text{cov}(X,Y) + a^2 V(X) = 0.$$\nDonc $Y - aX$ est p.s. constante, soit $Y = aX + b$ p.s.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer la variance de $Y - aX$ ou utiliser le cas d'égalité de l'inégalité de Cauchy-Schwarz."
+        },
+        {
+          "level": 2,
+          "content_latex": "Traduire $\\rho(X,Y) = \\pm 1$ par $cov(X,Y)^2 = V(X)V(Y)$ et se ramener au cas d'égalité de Cauchy-Schwarz sur le produit scalaire $(U, V) \\mapsto E(UV)$ avec des variables centrées."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_007",
+      "title": "Inégalité de Paley-Zygmund",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_inegalite_markov",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Paley-Zygmund",
+        "inégalités",
+        "Cauchy-Schwarz"
+      ],
+      "statement_latex": "Soient $\\eta\\in[0,1]$ et $X$ une variable aléatoire positive pour laquelle $E(X^{2})>0$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que : $E(X\\mathbb{I}_{\\{X\\ge\\eta E(X)\\}})^{2}\\le E(X^{2})P(X\\ge\\eta E(X))$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Inégalité de Cauchy-Schwarz."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz aux variables aléatoires $X \\mathbb{I}_{\\{X\\ge\\eta E(X)\\}}$ et $\\mathbb{I}_{\\{X\\ge\\eta E(X)\\}}$. Remarquer que l'espérance du carré d'une indicatrice est la probabilité de l'événement."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Majoration par Cauchy-Schwarz}\\\\par\nAppliquons Cauchy-Schwarz à $X \\\\cdot 1_{X \\\\geq \\\\eta E(X)}$ et $1_{X \\\\geq \\\\eta E(X)}$ :\n$$\\\\left(E\\\\left(X \\\\cdot 1_{X \\\\geq \\\\eta E(X)}\\\\right)\\\\right)^2 \\\\leq E(X^2) \\\\cdot E\\\\left(1_{X \\\\geq \\\\eta E(X)}\\\\right)^2 = E(X^2) \\\\cdot P(X \\\\geq \\\\eta E(X))."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire l'inégalité de Paley-Zygmund : $P(X\\ge\\eta E(X))\\ge(1-\\eta)^{2}\\frac{E(X)^{2}}{E(X^{2})}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Minoriser $E(X\\mathbb{I}_{\\{X\\ge\\eta E(X)\\}})$ en utilisant l'événement complémentaire $\\{X < \\eta E(X)\\}__."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $E(X) = E(X\\mathbb{I}_{\\{X\\ge\\eta E(X)\\}}) + E(X\\mathbb{I}_{\\{X<\\eta E(X)\\}})$, majorer le second terme, puis isoler $E(X\\mathbb{I}_{\\{X\\ge\\eta E(X)\\}})$ pour utiliser l'inégalité de la question 1."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Minoration de l'espérance tronquée}\\\\par\nOn écrit :\n$$E(X) = E(X \\\\cdot 1_{X \\\\geq \\\\eta E(X)}) + E(X \\\\cdot 1_{X < \\\\eta E(X)}).$$\nLe deuxième terme vérifie :\n$$E(X \\\\cdot 1_{X < \\\\eta E(X)}) \\\\leq \\\\eta E(X) \\\\cdot P(X < \\\\eta E(X)) \\\\leq \\\\eta E(X).$$\nDonc :\n$$E(X \\\\cdot 1_{X \\\\geq \\\\eta E(X)}) \\\\geq E(X) - \\\\eta E(X) = (1 - \\\\eta)E(X).$$\nCombiné avec le résultat de 1), on obtient :\n$$((1-\\\\eta)E(X))^2 \\\\leq E(X^2) \\\\cdot P(X \\\\geq \\\\eta E(X)), \\\\quad \\\\text{d'où} \\\\quad P(X \\\\geq \\\\eta E(X)) \\\\geq \\\\frac{(1-\\\\eta)^2 E(X)^2}{E(X^2)}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_008",
+      "title": "Déterminant d'une matrice aléatoire",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_proprietes_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "matrice aléatoire",
+        "Rademacher",
+        "Bienaymé-Tchebychev"
+      ],
+      "statement_latex": "Soit $M=(R_{ij})_{1\\le i,j\\le n}$ une matrice aléatoire dont les coefficients sont des variables indépendantes de Rademacher. On pose $D=det(M)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer l'espérance et la variance de $D$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenir à la définition $\\sum_{\\sigma\\in S_{n}}\\epsilon(\\sigma)...$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $D^{2}$, multiplier la somme par elle-même et laisser l'espérance faire le tri."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Espérance et variance du déterminant}\\\\par\nLe déterminant s'écrit $D = \\\\sum_{\\\\sigma \\\\in S_n} \\\\varepsilon(\\\\sigma) \\\\prod_i R_{i,\\\\sigma(i)}$.\\\\par\n\\\\textbf{Espérance} : \n$$E(D) = \\\\sum_{\\\\sigma} \\\\varepsilon(\\\\sigma) E\\\\left(\\\\prod_i R_{i,\\\\sigma(i)}\\\\right) = \\\\sum_{\\\\sigma} \\\\varepsilon(\\\\sigma) \\\\prod_i E(R_{i,\\\\sigma(i)}) = 0$$\npuisque $E(R_{ij}) = 0$ pour tout $(i,j)$.\\\\par\n\\\\textbf{Variance} : \n$$E(D^2) = \\\\sum_{\\\\sigma,\\\\tau} \\\\varepsilon(\\\\sigma)\\\\varepsilon(\\\\tau) E\\\\left(\\\\prod_i R_{i,\\\\sigma(i)} R_{i,\\\\tau(i)}\\\\right).$$\nPour que l'espérance soit non nulle, il faut $\\\\sigma = \\\\tau$ (par indépendance des entrées). Donc :\n$$E(D^2) = \\\\sum_{\\\\sigma} E\\\\left(\\\\left(\\\\prod_i R_{i,\\\\sigma(i)}\\\\right)^2\\\\right) = \\\\sum_{\\\\sigma} \\\\prod_i E(R_{i,\\\\sigma(i)}^2) = n!$$\npuisque $E(R_{ij}^2) = 1$ pour tout $(i,j)$. Ainsi $V(D) = n!$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $P(|D|\\ge\\sqrt{(n+1)!}) \\longrightarrow 0$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Inégalité de Bienaymé-Tchebychev."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer cette inégalité à la variable $D$ centrée, avec la variance trouvée à la question précédente."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Convergence probabiliste du déterminant}\\\\par\nPar l'inégalité de Markov :\n$$P(|D| \\\\geq \\\\sqrt{(n+1)!}) \\\\leq \\\\frac{E(D^2)}{(n+1)!} = \\\\frac{n!}{(n+1)!} = \\\\frac{1}{n+1} \\\\to 0.$$\nDonc le déterminant converge en probabilité vers $0$ (ou plus précisément, reste asymptotiquement petit)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_009",
+      "title": "Permutation aléatoire et points fixes",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "permutation aléatoire",
+        "points fixes",
+        "indicatrices",
+        "cycles"
+      ],
+      "statement_latex": "Soit $\\sigma$ une permutation aléatoire de $[[1, n]]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi de $\\sigma(i)$ pour tout $i\\in[[1,n]]$, puis son espérance et sa variance.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que par symétrie, $\\sigma(i)$ a la même probabilité d'atteindre n'importe quelle valeur de $[[1, n]]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "$\\sigma(i)$ suit donc une loi uniforme sur $[[1, n]]$. Appliquer les formules connues pour l'espérance et la variance."
+            }
+          ],
+          "solution_latex": "Soit $\\sigma$ une permutation uniforme de $[[1,n]]$. Pour tout $i \\in [[1,n]]$, la variable $\\sigma(i)$ est uniformément distribuée sur $[[1,n]]$. Donc :\n$$E(\\sigma(i)) = \\frac{1}{n}\\sum_{k=1}^{n} k = \\frac{n+1}{2}$$\nEt:\n$$E(\\sigma(i)^2) = \\frac{1}{n}\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6n} = \\frac{(n+1)(2n+1)}{6}$$\n$$V(\\sigma(i)) = E(\\sigma(i)^2) - E(\\sigma(i))^2 = \\frac{(n+1)(2n+1)}{6} - \\frac{(n+1)^2}{4} = \\frac{n^2-1}{12}$$"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On note $F$ le nombre de points fixes de $\\sigma$ et pour tout $i\\in[[1,n]]$, $E_{i}$ l'événement $\\{\\sigma(i)=i\\}$.\\par a) Calculer l'espérance de $F$ sans déterminer sa loi.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_loi_faible_grands_nombres",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $F$ comme une somme de variables aléatoires bien choisies."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser $F = \\sum_{i=1}^n \\mathbb{I}_{E_i}$ et la linéarité de l'espérance."
+            }
+          ],
+          "solution_latex": "Soit $E_i = \\{\\sigma(i) = i\\}$ l'événement que $i$ est un point fixe. Alors $F = \\sum_{i=1}^{n} \\mathbf{1}_{E_i}$ est le nombre de points fixes.\n$$E(\\mathbf{1}_{E_i}) = P(\\sigma(i) = i) = \\frac{1}{n}$$\nDonc:\n$$E(F) = \\sum_{i=1}^{n} E(\\mathbf{1}_{E_i}) = n \\cdot \\frac{1}{n} = 1$$"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "b) Calculer $cov(\\mathbb{I}_{E_{i}},\\mathbb{I}_{E_{j}})$ pour tous $i,j\\in[[1,n]]$, puis en déduire la variance de $F$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Indicatrices !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $E(\\mathbb{I}_{E_i} \\mathbb{I}_{E_j}) = P(E_i \\cap E_j)$ pour $i \\ne j$, puis utiliser la bilinéarité de la variance pour obtenir $V(F)$."
+            }
+          ],
+          "solution_latex": "Pour $i \\neq j$:\n$$E(\\mathbf{1}_{E_i} \\cdot \\mathbf{1}_{E_j}) = P(\\sigma(i) = i \\text{ et } \\sigma(j) = j) = \\frac{(n-2)!}{n!} = \\frac{1}{n(n-1)}$$\n$$\\text{cov}(\\mathbf{1}_{E_i}, \\mathbf{1}_{E_j}) = \\frac{1}{n(n-1)} - \\frac{1}{n^2} = \\frac{1}{n^2(n-1)}$$\nDonc:\n$$V(F) = \\sum_{i=1}^{n} V(\\mathbf{1}_{E_i}) + 2\\sum_{i < j} \\text{cov}(\\mathbf{1}_{E_i}, \\mathbf{1}_{E_j}) = n \\cdot \\frac{1}{n} \\cdot \\left(1 - \\frac{1}{n}\\right) + \\binom{n}{2} \\cdot 2 \\cdot \\frac{1}{n^2(n-1)}$$\n$$= \\frac{n-1}{n} + \\frac{n(n-1)}{n^2(n-1)} = \\frac{n-1}{n} + \\frac{1}{n} = 1$$"
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "c) Montrer que $P(F\\ge4)\\le\\frac{1}{9}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Inégalité de Bienaymé-Tchebychev."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité à la variable $F$, en utilisant l'espérance et la variance calculées précédemment."
+            }
+          ],
+          "solution_latex": "Par l'inégalité de Bienaymé-Tchebychev:\n$$P(F \\geq 4) = P(F - 1 \\geq 3) \\leq P(|F - 1| \\geq 3) \\leq \\frac{V(F)}{9} = \\frac{1}{9}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On note $L$ la longueur du cycle dans lequel $1$ apparaît dans la décomposition de $\\sigma$ en produit de cycles disjoints. Montrer que $L$ suit la loi uniforme sur $[[1, n]]$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la probabilité que $L=k$ pour un entier $k$ donné."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dénombrer les possibilités : choisir les $k-1$ éléments du cycle de $1$, arranger ces éléments dans le cycle, puis compléter avec une permutation quelconque des éléments restants."
+            }
+          ],
+          "solution_latex": "Soit $L$ la longueur du cycle contenant l'élément 1. On montre que $L$ est uniformément distribuée sur $[[1,n]]$. \\par Le nombre de permutations de $[[1,n]]$ où le cycle contenant 1 a longueur $k$ est: choisir $k-1$ éléments parmi $\\{2,\\ldots,n\\}$ ($\\binom{n-1}{k-1}$ façons), les arranger en cycle avec 1 ($(k-1)!$ façons), puis permuter les $n-k$ éléments restants ($(n-k)!$ façons). \\par Total: $\\binom{n-1}{k-1} \\cdot (k-1)! \\cdot (n-k)! = (n-1)!$ \\par Donc: $P(L = k) = \\frac{(n-1)!}{n!} = \\frac{1}{n}$ pour tout $k \\in [[1,n]]$."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Dans cette question, $n$ n'est plus fixé et on se donne pour tout $n\\in\\mathbb{N}^{*}$ une permutation aléatoire $\\sigma_{n}$ de $[[1,n]]$. Pour tout $n\\in\\mathbb{N}^{*}$, on note $N_{n}$ le nombre de cycles de la décomposition de $\\sigma_{n}$ en produit de cycles disjoints et, pour tout $k\\in\\mathbb{N}$, $c_{n,k}$ le nombre de permutations de $[[1,n]]$ dont la décomposition en produit de cycles disjoints contient exactement $k$ cycles.\\par a) Montrer que $c_{n+1,k}=c_{n,k-1}+n c_{n,k}$ pour tous $k\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par disjonction de cas sur la place de l'élément $n+1$ dans les cycles d'une permutation de $[[1, n+1]]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $n+1$ forme un cycle à lui tout seul (et il reste $k-1$ cycles à former avec les $n$ autres éléments), soit il s'insère dans un cycle existant (et il y a $n$ positions d'insertion possibles)."
+            }
+          ],
+          "solution_latex": "Les nombres de Stirling non signés $c_{n,k}$ (nombre de permutations de $[[1,n]]$ avec exactement $k$ cycles) vérifient la récurrence: quand on ajoute l'élément $n+1$, soit il forme un nouveau cycle à lui seul (ce qui donne une permutation de $[[1,n]]$ avec $k-1$ cycles), soit on l'insère dans l'un des $n$ cycles existants d'une permutation de $[[1,n]]$ avec $k$ cycles.\n$$c_{n+1,k} = c_{n,k-1} + n \\cdot c_{n,k}$$"
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "b) En déduire une expression de $E(N_{n+1})$ en fonction $E(N_{n})$ pour tout $n\\in\\mathbb{N}^{*}$, puis un équivalent de $E(N_{n})$ lorsque $n$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $E(N_n)$ en fonction de la somme des $k \\cdot c_{n,k}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Sommer la relation de la question 4)a) sur $k$ en multipliant par $k$, afin de faire apparaître $E(N_{n+1})$ et $E(N_n)$. Reconnaître ensuite la série harmonique pour l'équivalent."
+            }
+          ],
+          "solution_latex": "Soit $N_n$ le nombre de cycles d'une permutation uniforme de $[[1,n]]$. En utilisant la récurrence $c_{n+1,k} = c_{n,k-1} + n \\cdot c_{n,k}$, on obtient:\n$$E(N_{n+1}) = \\sum_{k=1}^{n+1} k \\cdot \\frac{c_{n+1,k}}{(n+1)!} = \\sum_{k=1}^{n+1} k \\cdot \\frac{c_{n,k-1} + n \\cdot c_{n,k}}{(n+1)!}$$\nAprès simplification:\n$$E(N_{n+1}) = E(N_n) + \\frac{1}{n+1}$$\nDonc: $E(N_n) = \\sum_{k=1}^{n} \\frac{1}{k} = H_n \\sim \\ln n$ (nombre harmonique)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_010",
+      "title": "Espérance conditionnelle",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "espérance conditionnelle",
+        "somme aléatoire",
+        "transfert"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "1) Soient $X$ et $Y$ deux variables aléatoires complexes. Sous l'hypothèse que $P(Y=y)>0$ pour tout $y\\in Y(\\Omega)$, on appelle espérance conditionnelle de $X$ sachant $\\{Y=y\\}$ notée $E_{\\{Y=y\\}}(X)$, l'espérance de $X$ pour la probabilité $P_{\\{Y=y\\}}$.\\par a) Que vaut $E_{\\{Y=y\\}}(X)$ pour tout $y\\in Y(\\Omega)$ si $X$ et $Y$ sont indépendantes ?",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenir à la définition de l'indépendance de deux variables aléatoires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $X$ et $Y$ sont indépendantes, la loi conditionnelle de $X$ sachant $Y=y$ est simplement la loi non conditionnelle de $X$."
+            }
+          ],
+          "solution_latex": "L'espérance conditionnelle de $X$ sachant $Y = y$ est définie par:\n$$E_{Y=y}(X) = E(X \\mid Y = y) = \\sum_{x} x \\cdot P(X = x \\mid Y = y) = \\sum_{x} x \\cdot \\frac{P(X=x, Y=y)}{P(Y=y)}$$\nSi $X$ et $Y$ sont indépendantes, alors $P(X = x \\mid Y = y) = P(X = x)$ pour tout $y$, donc: $E_{Y=y}(X) = E(X)$ indépendamment de $y$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "b) Montrer que $E(X)=\\sum_{y\\in Y(\\Omega)}P(Y=y)E_{\\{Y=y\\}}(X)$.\\par Cette formule reste vraie si $P(Y=y)=0$ pour certains $y\\in Y(\\Omega)$. Le réel $E_{\\{Y=y\\}}(X)$ n'est pas défini dans ce cas, mais on peut considérer par convention que $P(Y=y)E_{\\{Y=y\\}}(X)=0$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le théorème de transfert ou la formule des probabilités totales."
+            }
+          ],
+          "solution_latex": "Formule de l'espérance totale: $E(X) = \\sum_{y} P(Y = y) \\cdot E_{Y=y}(X)$. \\par Preuve:\n$$\\sum_{y} P(Y = y) \\cdot E_{Y=y}(X) = \\sum_{y} P(Y = y) \\sum_{x} x \\cdot P(X = x \\mid Y = y)$$\n$$= \\sum_{y} \\sum_{x} x \\cdot P(X = x, Y = y) = \\sum_{x} x \\sum_{y} P(X = x, Y = y) = \\sum_{x} x \\cdot P(X = x) = E(X)$$"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "2) Soient $X_{1},...,X_{n}$ et $T$ des variables aléatoires réelles indépendantes. On suppose $T$ à valeurs dans $[[1,n]]$ et $X_{1},...,X_{n}$ de même loi. On pose $S_{T}=X_{1}+...+X_{T}$.\\par a) Montrer que pour toute fonction $f:S_{T}(\\Omega)\\longrightarrow\\mathbb{C}$ et pour tout $t\\in[[1,n]]$ :\\par $P(T=t)E_{\\{T=t\\}}(f(S_{T}))=P(T=t)E_{\\{T=t\\}}(f(S_{t}))$.\\par En dépit des apparences, ce n'est pas évident.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer l'espérance conditionnelle en revenant à la définition avec la probabilité conditionnelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Justifier rigoureusement que sur l'événement $\\{T=t\\}$, on a exactement $S_T = S_t$, puis s'en servir dans la somme qui définit l'espérance."
+            }
+          ],
+          "solution_latex": "Puisque $T$ est indépendant des variables $X_1, X_2, \\ldots$ et que $S_t = X_1 + \\cdots + X_t$ ne dépend que de $X_1, \\ldots, X_t$, pour tout $t$ fixé, on a:\n$$E_{T=t}(f(S_T)) = E_{T=t}(f(S_t)) = E(f(S_t))$$\ncar $S_t$ est indépendant de l'événement $\\{T = t\\}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "b) Montrer que $E(S_{T})=E(T)E(X_{1})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la formule de l'espérance totale démontrée à la question 1)b)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer cette formule avec le système complet d'événements induit par $T$, en utilisant le résultat de la question 2)a) et l'indépendance entre $T$ et les $X_i$."
+            }
+          ],
+          "solution_latex": "Par la formule de l'espérance totale:\n$$E(S_T) = \\sum_{t=1}^{\\infty} P(T = t) \\cdot E_{T=t}(S_T) = \\sum_{t=1}^{\\infty} P(T = t) \\cdot E(S_t)$$\n$$= \\sum_{t=1}^{\\infty} P(T = t) \\cdot t \\cdot E(X_1) = E(T) \\cdot E(X_1)$$"
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "c) Montrer que si $X_{1},...,X_{n}$ sont centrées, alors $V(S_{T})=E(T)V(X_{1})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer $E(S_T^2)$ avec la même méthode, puisque $E(S_T)=0$ sous l'hypothèse des variables centrées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule connue pour la variance d'une somme de variables aléatoires indépendantes $V(S_t)$ dans le développement."
+            }
+          ],
+          "solution_latex": "Supposons les $X_i$ centrées: $E(X_i) = 0$. Alors $E(S_t) = 0$ pour tout $t$.\n$$E(S_T^2) = \\sum_{t=1}^{\\infty} P(T = t) \\cdot E(S_t^2) = \\sum_{t=1}^{\\infty} P(T = t) \\cdot t \\cdot V(X_1) = E(T) \\cdot V(X_1)$$\nComme $V(S_T) = E(S_T^2) - E(S_T)^2 = E(S_T^2)$, on obtient: $V(S_T) = E(T) \\cdot V(X_1)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_011",
+      "title": "Indépendance linéaire de variables décorrélées",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "décorrélation",
+        "variance",
+        "famille libre"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires réelles deux à deux décorrélées d'écarts-types strictement positifs.\\par On pose $X_{0}=1$. Simplifier $V(\\lambda_{0}X_{0}+...+\\lambda_{n}X_{n})$ pour tous $\\lambda_{0},...,\\lambda_{n}\\in\\mathbb{R}$ et en déduire que la famille $(X_{0},...,X_{n})$ est libre dans $\\mathbb{R}^{\\Omega}$ puis que $|\\Omega|\\ge n+1$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Indépendance linéaire et cardinal de $\\Omega$.}\\par On pose $X_0 = 1$ (constante). Les variables $X_1, \\ldots, X_n$ sont deux à deux décorrélées et d'écarts-types strictement positifs $\\sigma_1, \\ldots, \\sigma_n > 0$.\\par Soit $(\\lambda_0, \\ldots, \\lambda_n) \\in \\mathbb{R}^{n+1}$. Calculons :\\par $V(\\lambda_0 X_0 + \\lambda_1 X_1 + \\ldots + \\lambda_n X_n) = V(\\lambda_1 X_1 + \\ldots + \\lambda_n X_n)$\\par puisque $X_0 = 1$ est constante. Comme les $X_i$ sont deux à deux décorrélées :\\par $V(\\lambda_1 X_1 + \\ldots + \\lambda_n X_n) = \\sum_{i=1}^{n} \\lambda_i^2 V(X_i) = \\sum_{i=1}^{n} \\lambda_i^2 \\sigma_i^2$.\\par Si $(\\lambda_0, \\ldots, \\lambda_n) \\neq (0, \\ldots, 0)$ et $\\lambda_0 X_0 + \\ldots + \\lambda_n X_n = 0$ p.s., alors la variance est nulle, donc $\\lambda_i = 0$ pour tout $i \\geq 1$, puis $\\lambda_0 \\cdot 1 = 0$ p.s. donc $\\lambda_0 = 0$. Contradiction.\\par Donc $(X_0, X_1, \\ldots, X_n)$ est une famille libre dans l'espace vectoriel des variables aléatoires sur $(\\Omega, P)$ avec $\\Omega$ fini. La dimension de cet espace est $|\\Omega|$ (en identifiant une v.a. à une fonction sur $\\Omega$). On a donc $n + 1 \\leq |\\Omega|$, soit $|\\Omega| \\geq n + 1$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Développer la variance d'une somme de variables aléatoires deux à deux décorrélées. Que vaut la variance de la constante $X_0$ ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour montrer que la famille est libre, supposer qu'une combinaison linéaire $\\sum \\lambda_i X_i = 0$. Sa variance doit donc être nulle. Exploiter la stricte positivité des écarts-types."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_012",
+      "title": "Inégalité de Hölder",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres",
+        "complements_probabilistes__theorem_inegalite_markov",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité de Hölder",
+        "convexité",
+        "espérance"
+      ],
+      "statement_latex": "Soient $p$ et $q$ deux réels strictement positifs pour lesquels $\\frac{1}{p}+\\frac{1}{q}=1$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $x,y\\ge0$ : $xy\\le\\frac{x^{p}}{p}+\\frac{y^{q}}{q}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la concavité de la fonction logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de concavité aux points $x^p$ et $y^q$ avec les poids respectifs $\\frac{1}{p}$ et $\\frac{1}{q}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité de Young:} Pour $x, y \\geq 0$ et $p, q > 1$ avec $\\frac{1}{p} + \\frac{1}{q} = 1$:\n$$xy \\leq \\frac{x^p}{p} + \\frac{y^q}{q}$$\n\\par Preuve par convexité de $\\exp$: la fonction $\\exp$ est convexe, donc:\n$$xy = e^{\\ln(xy)} = e^{\\frac{1}{p}\\ln(x^p) + \\frac{1}{q}\\ln(y^q)} \\leq \\frac{1}{p} e^{\\ln(x^p)} + \\frac{1}{q} e^{\\ln(y^q)} = \\frac{x^p}{p} + \\frac{y^q}{q}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires positives. Montrer que si $E(X^{p})=E(Y^{q})=1$ alors $E(XY)\\le1$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance",
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité démontrée à la question 1 avec les variables aléatoires $X$ et $Y$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Passer à l'espérance en utilisant la croissance et la linéarité de l'espérance."
+            }
+          ],
+          "solution_latex": "Appliquons l'inégalité de Young à chaque point $\\omega$:\n$$X(\\omega)Y(\\omega) \\leq \\frac{|X(\\omega)|^p}{p} + \\frac{|Y(\\omega)|^q}{q}$$\nEn prenant l'espérance des deux côtés et en supposant que $E(|X|^p) = E(|Y|^q) = 1$:\n$$E(|XY|) \\leq \\frac{1}{p} E(|X|^p) + \\frac{1}{q} E(|Y|^q) = \\frac{1}{p} + \\frac{1}{q} = 1$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que si $E(X^{p})>0$ et $E(Y^{q})>0$ : $E(XY)\\le E(X^{p})^{\\frac{1}{p}}E(Y^{q})^{\\frac{1}{q}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener au cas de la question 2 en normalisant judicieusement les variables $X$ et $Y$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer les variables $X' = \\frac{X}{E(X^p)^{1/p}}$ et $Y' = \\frac{Y}{E(Y^q)^{1/q}}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité de Hölder:} Si $E(|X|^p) < \\infty$ et $E(|Y|^q) < \\infty$, on pose:\n$$X' = \\frac{X}{E(|X|^p)^{1/p}}, \\quad Y' = \\frac{Y}{E(|Y|^q)^{1/q}}$$\nAlors $E(|X'|^p) = E(|Y'|^q) = 1$, donc par 2):\n$$E(|X'Y'|) \\leq 1$$\nCe qui donne:\n$$E(|XY|) \\leq E(|X|^p)^{1/p} \\cdot E(|Y|^q)^{1/q}$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "En déduire, en toute généralité, que : $E(XY)\\le E(X^{p})^{\\frac{1}{p}}E(Y^{q})^{\\frac{1}{q}}$ (inégalité de Hölder).",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il reste à traiter le cas où l'une des deux espérances, par exemple $E(X^p)$, est nulle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $E(X^p) = 0$ pour une variable positive, que peut-on dire de $X$ presque sûrement ? Et donc de $XY$ ?"
+            }
+          ],
+          "solution_latex": "Si $E(|X|^p) = 0$, alors $X = 0$ p.s., donc $XY = 0$ p.s. et l'inégalité est triviale. De même si $E(|Y|^q) = 0$. Sinon, on applique le résultat de la question 3)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_013",
+      "title": "Inégalité de Cantelli",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+        "complements_probabilistes__theorem_inegalite_markov"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité de Cantelli",
+        "Markov",
+        "optimisation",
+        "variance"
+      ],
+      "statement_latex": "Soient $X$ une variable aléatoire réelle et $a>0$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $P(X-E(X)\\ge a)\\le\\frac{t^{2}+V(X)}{(t+a)^{2}}$ pour tout $t\\ge0$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Markov à : $P((X-E(X)+t)^{2}\\ge(t+a)^{2})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer l'espérance du carré et simplifier en utilisant la définition de la variance $V(X)$."
+            }
+          ],
+          "solution_latex": "Pour $a, t > 0$, par l'inégalité de Markov appliquée à $(X - E(X) + t)^2$:\n$$P(X - E(X) \\geq a) = P(X - E(X) + t \\geq a + t) \\leq P((X - E(X) + t)^2 \\geq (a + t)^2)$$\n$$\\leq \\frac{E((X - E(X) + t)^2)}{(a+t)^2} = \\frac{V(X) + t^2}{(a+t)^2}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire l'inégalité de Cantelli : $P(X-E(X)\\ge a)\\le\\frac{V(X)}{V(X)+a^{2}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Optimiser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier la fonction $f(t) = \\frac{t^{2}+V(X)}{(t+a)^{2}}$ sur $\\mathbb{R}^+$ pour déterminer en quel point elle atteint son minimum."
+            }
+          ],
+          "solution_latex": "Pour minimiser $f(t) = \\frac{V(X) + t^2}{(a+t)^2}$ sur $t \\geq 0$, on calcule la dérivée:\n$$f'(t) = \\frac{2t(a+t)^2 - 2(a+t)(V(X) + t^2)}{(a+t)^4} = \\frac{2(a+t)[t(a+t) - (V(X) + t^2)]}{(a+t)^4}$$\n$$= \\frac{2(at - V(X))}{(a+t)^3}$$\nDonc $f'(t) = 0$ quand $t = \\frac{V(X)}{a}$. En substituant:\n$$f\\left(\\frac{V(X)}{a}\\right) = \\frac{V(X) + \\frac{V(X)^2}{a^2}}{\\left(a + \\frac{V(X)}{a}\\right)^2} = \\frac{\\frac{V(X)(a^2 + V(X)^2)}{a^2}}{\\frac{(a^2 + V(X)^2)^2}{a^2}} = \\frac{V(X)}{a^2 + V(X)^2}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $P(|X-E(X)|\\ge a)\\le\\frac{2 V(X)}{V(X)+a^{2}}$ puis comparer avec l'inégalité de Bienaymé-Tchebychev.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à $-X$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Décomposer l'événement $\\{|X-E(X)|\\ge a\\}$ en l'union disjointe de $\\{X-E(X)\\ge a\\}$ et $\\{X-E(X)\\le -a\\}$. Appliquer Cantelli à la variable $X$ puis à la variable $-X$."
+            }
+          ],
+          "solution_latex": "Par symétrie, $P(E(X) - X \\geq a) \\leq \\frac{V(X)}{V(X) + a^2}$. Donc:\n$$P(|X - E(X)| \\geq a) \\leq 2 \\cdot \\frac{V(X)}{V(X) + a^2}$$\nCette borne (inégalité de Cantelli) est meilleure que celle de Bienaymé-Tchebychev ($\\frac{V(X)}{a^2}$) quand $a^2 \\geq V(X)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_014",
+      "title": "Inégalité de concentration pour une variable bornée",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_inegalite_markov",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "concentration",
+        "Markov",
+        "transformée de Laplace"
+      ],
+      "statement_latex": "Soit $X$ une variable aléatoire centrée à valeurs dans $[-1,1]$ d'écart-type $\\sigma$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $P(X\\ge\\alpha)\\le e^{-\\alpha t}E(e^{tX})$ pour tous $t\\ge0$ et $\\alpha\\ge0$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Markov, mais pas directement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que l'événement $\\{X \\ge \\alpha\\}$ est équivalent à $\\{e^{tX} \\ge e^{t\\alpha}\\}$ pour $t \\ge 0$, et appliquer Markov à la variable positive $e^{tX}$."
+            }
+          ],
+          "solution_latex": "Pour $t > 0$, par l'inégalité de Markov:\n$$P(X \\geq \\alpha) = P(e^{tX} \\geq e^{t\\alpha}) \\leq \\frac{E(e^{tX})}{e^{t\\alpha}} = e^{-t\\alpha} E(e^{tX})$$"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "a) Déterminer le minimum sur $[-1, 1]$ de la fonction $u\\longmapsto(1+u+u^{2})e^{-u}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la dérivée de la fonction et étudier son signe sur l'intervalle $[-1, 1]$."
+            }
+          ],
+          "solution_latex": "Soit $f(u) = (1 + u + u^2) e^{-u}$ sur $[-1, 1]$. On calcule:\n$$f'(u) = (1 + 2u) e^{-u} - (1 + u + u^2) e^{-u} = (-u^2 + u) e^{-u} = u(1 - u) e^{-u}$$\nDonc $f'(u) \\geq 0$ sur $[0, 1]$ et $f'(u) \\leq 0$ sur $[-1, 0]$. Le minimum est atteint en $u = -1$ ou $u = 0$. On a $f(-1) = (1 - 1 + 1)e = e$ et $f(0) = 1$. Donc le minimum est $f(0) = 1$ et:\n$$(1 + u + u^2) e^{-u} \\geq 1 \\text{ pour tout } u \\in [-1, 1]$$"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "b) En déduire que $E(e^{tX})\\le 1+\\sigma^{2}t^{2}\\le e^{\\sigma^{2}t^{2}}$ pour tout $t\\in[0,1]$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité trouvée à la question précédente en l'appliquant bien (poser $u = -tX$). Remarquer que puisque $X \\in [-1,1]$ et $t \\in [0,1]$, on a bien $-tX \\in [-1,1]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Passer à l'espérance en exploitant le fait que la variable $X$ est centrée ($E(X)=0$) et que sa variance est $\\sigma^2$ ($E(X^2)=\\sigma^2$). Pour la dernière majoration, utiliser $1+x \\le e^x$."
+            }
+          ],
+          "solution_latex": "Si $X$ est une variable aléatoire centrée avec $|X| \\leq 1$ p.s., alors pour $t \\in [0, 1]$:\n$$e^{tX} \\leq (1 + tX + t^2 X^2) e^{-tX} \\cdot e^{tX} = 1 + tX + t^2 X^2$$\nEn prenant l'espérance (utilisant $E(X) = 0$):\n$$E(e^{tX}) \\leq 1 + t^2 E(X^2) = 1 + t^2 \\sigma^2 \\leq e^{t^2 \\sigma^2}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $P(|X|\\ge\\lambda\\sigma)\\le 2 e^{-\\frac{\\lambda^{2}}{4}}$ pour tout $\\lambda\\in[0,2\\sigma]$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la fin, s'intéresser à $-X$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Combiner 1) et 2)b) pour obtenir une majoration de $P(X \\ge \\lambda\\sigma)$ fonction de $t$. Optimiser cette majoration en choisissant la meilleure valeur possible pour $t \\in [0,1]$. Répéter l'opération pour $-X$ afin de borner la valeur absolue."
+            }
+          ],
+          "solution_latex": "De 1) et 2) b), pour $X$ centrée avec $|X| \\leq \\sigma$ p.s.:\n$$P(X \\geq \\alpha) \\leq e^{-t\\alpha + t^2 \\sigma^2}$$\nEn optimisant sur $t = \\frac{\\alpha}{2\\sigma^2}$:\n$$P(X \\geq \\alpha) \\leq e^{-\\frac{\\alpha^2}{4\\sigma^2}}$$\nEn posant $\\alpha = \\lambda \\sigma$ et en appliquant aussi à $-X$:\n$$P(|X| \\geq \\lambda \\sigma) \\leq 2 e^{-\\lambda^2/4}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_015",
+      "title": "Concentration pour la loi binomiale",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "borne de Chernoff",
+        "Markov"
+      ],
+      "statement_latex": "Soient $n\\in\\mathbb{N}^{*}$, $p\\in]0,1[$, $\\epsilon>0$ et $X$ une variable aléatoire de loi binomiale $\\mathcal{B}(n,p)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $t>0$ : $P(X\\ge n(p+\\epsilon))\\le e^{-n(p+\\epsilon)t}(1-p+p e^{t})^{n}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Markov, mais pas directement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exponentier l'événement comme dans l'exercice précédent pour utiliser $P(e^{tX} \\ge e^{tn(p+\\epsilon)})$. Calculer ensuite $E(e^{tX})$ en se rappelant que $X$ est une somme de variables de Bernoulli indépendantes."
+            }
+          ],
+          "solution_latex": "Soit $X \\sim B(n, p)$ et $\\alpha = n(p + \\varepsilon)$ avec $\\varepsilon > 0$. Pour $t > 0$:\n$$P(X \\geq n(p + \\varepsilon)) \\leq e^{-t \\cdot n(p+\\varepsilon)} E(e^{tX})$$\nOr $E(e^{tX}) = (1 - p + p e^t)^n$, donc:\n$$P(X \\geq n(p + \\varepsilon)) \\leq e^{-tn(p+\\varepsilon)} (1 - p + p e^t)^n = \\left(\\frac{1 - p + p e^t}{e^{t(p+\\varepsilon)}}\\right)^n$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $P(X\\ge n(p+\\epsilon))\\le\\eta^{n}$ pour un certain réel $\\eta\\in]0, 1[$ indépendant de $n$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire tendre $t$ vers 0 et calculer un développement limité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier la fonction $f(t) = e^{-(p+\\epsilon)t}(1-p+p e^t)$. Montrer en utilisant un DL ou l'étude des variations que pour $t>0$ suffisamment petit, $f(t) < 1$. Poser alors $\\eta = f(t)$ pour cette valeur."
+            }
+          ],
+          "solution_latex": "Soit $g(t) = -(p + \\varepsilon)t + \\ln(1 - p + p e^t)$. On a $g(0) = 0$ et:\n$$g'(t) = -(p + \\varepsilon) + \\frac{p e^t}{1 - p + p e^t}$$\nEn $t = 0$: $g'(0) = -(p + \\varepsilon) + p = -\\varepsilon < 0$. Donc $g(t) < 0$ pour $t$ petit et positif. Ainsi:\n$$P(X \\geq n(p + \\varepsilon)) \\leq \\eta^n \\text{ avec } \\eta = e^{g(t_0)} < 1$$\npour un certain $t_0 > 0$. La probabilité décroît exponentiellement en $n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_016",
+      "title": "Inégalité de Hoeffding",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres",
+        "complements_probabilistes__definition_moments_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Hoeffding",
+        "concentration",
+        "transformée de Laplace",
+        "convexité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $x\\le e^{\\frac{x^{2}}{2}}$ pour tout $x\\in\\mathbb{R}$ en développant en série entière des deux côtés.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer l'exponentielle en série entière."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comparer terme à terme les coefficients de la série entière de $e^{x^2/2}$ avec le terme $x$. Distinguer les cas selon le signe de $x$."
+            }
+          ],
+          "solution_latex": "On a $\\cosh x = \\sum_{k=0}^{\\infty} \\frac{x^{2k}}{(2k)!}$ et $e^{x^2/2} = \\sum_{k=0}^{\\infty} \\frac{x^{2k}}{2^k k!}$. Puisque $(2k)! = (2k)(2k-1) \\cdots (k+1) \\cdot k! \\geq 2^k \\cdot k!$ (chaque facteur $2j \\geq 2$ pour $j = 1, \\ldots, k$), on obtient:\n$$\\cosh x \\leq e^{x^2/2}$$"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que pour tous $x\\in[-1,1]$ et $\\lambda\\in\\mathbb{R}$ : $e^{\\lambda x}\\le ch~\\lambda+x~sh~\\lambda$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Convexité !"
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction $y \\longmapsto e^{\\lambda y}$ est convexe. Remarquer que tout $x \\in [-1, 1]$ peut s'écrire comme barycentre de $-1$ et $1$."
+            }
+          ],
+          "solution_latex": "La fonction $u \\mapsto e^{\\lambda u}$ est convexe. Donc pour $x \\in [-1, 1]$:\n$$e^{\\lambda x} \\leq \\frac{1 + x}{2} e^{\\lambda} + \\frac{1 - x}{2} e^{-\\lambda} = \\cosh \\lambda + x \\sinh \\lambda$$"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit $X$ une variable aléatoire centrée à valeurs dans $[-1,1]$. Montrer que pour tout $\\lambda\\in\\mathbb{R}$ : $E(e^{\\lambda X})\\le ch~\\lambda$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer à l'espérance dans l'inégalité précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la linéarité de l'espérance et le fait que $X$ est une variable aléatoire centrée (donc $E(X) = 0$)."
+            }
+          ],
+          "solution_latex": "Si $E(X) = 0$ et $X \\in [-1, 1]$ p.s., on prend l'espérance de l'inégalité de 2) a):\n$$E(e^{\\lambda X}) \\leq \\cosh \\lambda + E(X) \\sinh \\lambda = \\cosh \\lambda$$"
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires réelles indépendantes de même loi, centrées et bornées par $1$ en valeur absolue. On pose $M=\\frac{1}{n}\\sum_{i=1}^{n}X_{i}$.\\par Montrer que pour tout $\\lambda\\in\\mathbb{R}$ : $E(e^{\\lambda M})\\le e^{\\frac{\\lambda^{2}}{2n}}$, puis que $E(e^{\\lambda|M|})\\le 2 e^{\\frac{\\lambda^{2}}{2n}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Espérance d'un produit, questions précédentes..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par indépendance, $E(e^{\\lambda M}) = \\prod E(e^{\\frac{\\lambda}{n} X_i})$. Majorer chaque terme avec 2)b) puis utiliser $\\cosh(u) \\le e^{u^2/2}$ en s'inspirant de la question 1."
+            }
+          ],
+          "solution_latex": "Soit $M = \\frac{1}{n}\\sum_{i=1}^{n} X_i$ où les $X_i$ sont i.i.d., centrées et bornées par 1. Alors:\n$$E(e^{\\lambda M}) = E\\left(e^{\\lambda \\sum X_i / n}\\right) = \\prod_{i=1}^{n} E(e^{\\lambda X_i / n}) \\leq \\left(\\cosh\\frac{\\lambda}{n}\\right)^n$$\nPar l'inégalité de 1): $\\cosh\\frac{\\lambda}{n} \\leq e^{\\lambda^2/(2n^2)}$, donc:\n$$E(e^{\\lambda M}) \\leq e^{\\lambda^2/(2n)}$$\nApliquant aussi à $-M$: $E(e^{\\lambda |M|}) \\leq 2 e^{\\lambda^2/(2n)}$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "En déduire que pour tous $t>0$ et $\\lambda\\ge0$ : $P(|M|\\ge\\frac{t}{\\sqrt{n}})\\le 2 e^{\\frac{\\lambda^{2}}{2n}-\\frac{\\lambda t}{\\sqrt{n}}}$, puis que pour tout $t>0$ : $P(|M|\\ge\\frac{t}{\\sqrt{n}})\\le 2 e^{-\\frac{t^{2}}{2}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Markov, mais pas directement, puis optimiser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Markov à $e^{\\lambda |M|}$. Pour obtenir la borne finale, chercher la valeur de $\\lambda$ qui minimise la quantité $\\frac{\\lambda^{2}}{2n}-\\frac{\\lambda t}{\\sqrt{n}}$."
+            }
+          ],
+          "solution_latex": "Par l'inégalité de Markov:\n$$P(|M| \\geq t/\\sqrt{n}) \\leq e^{-\\lambda t/\\sqrt{n}} E(e^{\\lambda |M|}) \\leq 2 e^{-\\lambda t/\\sqrt{n} + \\lambda^2/(2n)}$$\nEn optimisant sur $\\lambda$ (posant $\\lambda = t\\sqrt{n}$):\n$$P(|M| \\geq t/\\sqrt{n}) \\leq 2 e^{-t^2/2 + t^2/2} = 2$$\nplus précisément: $P(|M| \\geq t/\\sqrt{n}) \\leq 2 e^{-t^2/2}$ pour $t > 0$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soient $a>0$ et $X_{1},...,X_{n}$ des variables aléatoires réelles indépendantes de même loi, d'espérance commune $m$ et pour lesquelles $|X_{i}-m|\\le a$ pour tout $i\\in[[1,n]]$.\\par On pose $M=\\frac{1}{n}\\sum_{i=1}^{n}X_{i}$. Montrer que pour tout $t>0$ (inégalité de Hoeffding) : $P(|M-m|\\ge\\frac{t}{\\sqrt{n}})\\le 2 e^{-\\frac{t^{2}}{2a^{2}}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_covariance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener au cadre de la question 3 en normalisant les variables."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer les variables $Y_i = \\frac{X_i - m}{a}$. Elles sont indépendantes, centrées et bornées par $1$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité de Hoeffding:} Si $X_1, \\ldots, X_n$ sont i.i.d., avec $a \\leq X_i \\leq b$ p.s., et $M = \\frac{1}{n}\\sum X_i$, alors:\n$$P(|M - E(X_1)| \\geq t) \\leq 2 \\exp\\left(-\\frac{2nt^2}{(b-a)^2}\\right)$$\nElle généralise le résultat de la question 3) aux variables bornées par un intervalle quelconque."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Soient $n\\in\\mathbb{N}^{*}$, $p\\in[0,1]$ et $X$ une variable aléatoire de loi binomiale $\\mathcal{B}(n,p)$.\\par Montrer que pour tout $\\epsilon>0$ : $P(|X-np|\\ge n\\epsilon)\\le 2e^{-\\frac{n\\epsilon^{2}}{2}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$X$ n'est pas forcément la somme de $n$ variables aléatoires indépendantes de Bernoulli, mais il suffit de faire le calcul dans ce cas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $X$ comme la somme de $n$ variables de Bernoulli indépendantes de paramètre $p$. Appliquer l'inégalité de Hoeffding en déterminant correctement la borne $a$."
+            }
+          ],
+          "solution_latex": "Soit $X \\sim B(n, p)$, i.e., $X = \\sum_{i=1}^{n} B_i$ avec $B_i$ i.i.d. $\\sim B(p)$. Soit $M = X/n$ le nombre moyen de succès. On a $|B_i| \\leq 1$ p.s., donc par Hoeffding:\n$$P(|M - p| \\geq \\varepsilon) \\leq 2 \\exp(-2n\\varepsilon^2)$$\nCe qui équivaut à:\n$$P(|X - np| \\geq n\\varepsilon) \\leq 2 \\exp\\left(-\\frac{n\\varepsilon^2}{2}\\right)$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_017",
+      "title": "Inégalité maximale de Kolmogorov",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres",
+        "complements_probabilistes__theorem_inegalite_markov"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Kolmogorov",
+        "inégalité maximale",
+        "variables centrées"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires réelles centrées indépendantes et $x>0$.\\par On pose $\\sigma_{k}=\\sigma(X_{k})$ et $S_{k}=X_{1}+...+X_{k}$ pour tout $k\\in[[1,n]]$, puis $\\sigma=\\sqrt{\\sigma_{1}^{2}+...+\\sigma_{n}^{2}}$, et enfin :\\par $A_{k}=\\{|S_{k}|\\ge x\\}\\cap\\bigcap_{1\\le i<k}\\{|S_{i}|<x\\}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $P(|S_{k}|\\ge x)\\le\\frac{\\sigma^{2}}{x^{2}}$ pour tout $k\\in[[1,n]]$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Bienaymé-Tchebychev."
+            },
+            {
+              "level": 2,
+              "content_latex": "La variable $S_k$ est centrée. Sa variance est $\\sum_{i=1}^k \\sigma_i^2$, qui est majorée par $\\sigma^2$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Inégalité de Bienaymé-Tchebychev appliquée à $S_k$}\\\\par\nPour $k \\leq n$ fixé, on a $V(S_k) = V(X_1) + \\cdots + V(X_k) = \\sigma_1^2 + \\cdots + \\sigma_k^2 \\leq \\sigma_1^2 + \\cdots + \\sigma_n^2 = \\sigma^2$.\\\\par\nPar l'inégalité de Bienaymé-Tchebychev appliquée à $S_k$ (qui est centrée) :\n$$P(|S_k| \\geq x) \\leq \\frac{V(S_k)}{x^2} \\leq \\frac{\\sigma^2}{x^2}.$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Exprimer $\\{\\max\\{|S_{1}|,...,|S_{n}|\\}\\ge x\\}$ en fonction de $A_{1},...,A_{n}$, puis montrer que $\\sum_{k=1}^{n}E(S_{n}^{2}\\mathbb{I}_{A_{k}})\\le\\sigma^{2}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que les événements $A_k$ forment une partition de l'événement où le maximum dépasse $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $\\sum E(S_{n}^{2}\\mathbb{I}_{A_{k}}) = E(S_n^2 \\mathbb{I}_{\\cup A_k})$. Majorer l'indicatrice par 1 et utiliser la définition de $\\sigma^2$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Décomposition disjointe et majoration}\\\\par\nDéfinissons $A_k = \\{|S_k| \\geq x\\} \\cap \\bigcap_{i<k} \\{|S_i| < x\\}$ pour $k=1,\\ldots,n$.\\\\par\nLes événements $A_k$ sont deux à deux disjoints et $\\{\\max_{1 \\leq k \\leq n} |S_k| \\geq x\\} = \\bigsqcup_{k=1}^n A_k$.\\\\par\nPar décomposition :\n$$E(S_n^2) = \\sum_{k=1}^n E(S_n^2 \\cdot \\mathbf{1}_{A_k}) + E(S_n^2 \\cdot \\mathbf{1}_{\\bigcap_{k} \\{|S_k| < x\\}}).$$\nPuisque le dernier terme est positif, on obtient :\n$$\\sum_{k=1}^n E(S_n^2 \\cdot \\mathbf{1}_{A_k}) \\leq E(S_n^2) = \\sigma^2.$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tout $k\\in[[1,n]]$ : $E(S_{k}^{2}\\mathbb{I}_{A_{k}})\\le E(S_{n}^{2}\\mathbb{I}_{A_{k}})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$S_{n}-S_{k}$ ne dépend pas de $X_{1},...,X_{k}$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer $S_n^2 = (S_k + (S_n - S_k))^2$. L'événement $A_k$ ne dépend que de $X_1, \\dots, X_k$. Utiliser cette indépendance pour annuler le double produit en passant à l'espérance."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Majoration de $E(S_k^2 \\cdot \\mathbf{1}_{A_k})$ par $E(S_n^2 \\cdot \\mathbf{1}_{A_k})$}\\\\par\nÉcrivons $S_n = S_k + (S_n - S_k)$ où $S_n - S_k = X_{k+1} + \\cdots + X_n$ est indépendant de $(S_k, \\mathbf{1}_{A_k})$.\\\\par\nEn développant $S_n^2 \\cdot \\mathbf{1}_{A_k}$ :\n$$E(S_n^2 \\cdot \\mathbf{1}_{A_k}) = E(S_k^2 \\cdot \\mathbf{1}_{A_k}) + 2E(S_k(S_n-S_k) \\cdot \\mathbf{1}_{A_k}) + E((S_n-S_k)^2 \\cdot \\mathbf{1}_{A_k}).$$\nPar indépendance et $E(S_n - S_k) = 0$ : le terme croisé vaut $2E(S_k \\cdot \\mathbf{1}_{A_k}) \\cdot E(S_n - S_k) = 0$.\\\\par\nLe dernier terme est positif. Donc :\n$$E(S_n^2 \\cdot \\mathbf{1}_{A_k}) \\geq E(S_k^2 \\cdot \\mathbf{1}_{A_k}).$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "En déduire l'inégalité maximale de Kolmogorov : $P(\\max\\{|S_{1}|,...,|S_{n}|\\}\\ge x)\\le\\frac{\\sigma^{2}}{x^{2}}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Minorer $E(S_{k}^{2}\\mathbb{I}_{A_{k}})$ en utilisant la définition de $A_k$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Sur $A_k$, on a $|S_k| \\ge x$ donc $S_k^2 \\ge x^2$. En déduire que $x^2 P(A_k) \\le E(S_k^2 \\mathbb{I}_{A_k})$, puis sommer sur $k$ en combinant avec les questions 2 et 3."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Conclusion : inégalité maximale de Kolmogorov}\\\\par\nEn combinant les résultats précédents :\n$$\\sigma^2 \\geq \\sum_{k=1}^n E(S_n^2 \\cdot \\mathbf{1}_{A_k}) \\geq \\sum_{k=1}^n E(S_k^2 \\cdot \\mathbf{1}_{A_k}) \\geq \\sum_{k=1}^n x^2 P(A_k) = x^2 \\sum_{k=1}^n P(A_k) = x^2 P\\left(\\max_{1 \\leq k \\leq n} |S_k| \\geq x\\right).$$\nDonc :\n$$P\\left(\\max_{1 \\leq k \\leq n} |S_k| \\geq x\\right) \\leq \\frac{\\sigma^2}{x^2}.$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_018",
+      "title": "Une inégalité de probabilité via l'espérance",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "méthode probabiliste",
+        "espérance",
+        "raisonnement par l'absurde"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On suppose $Y$ strictement positive. Montrer que : $P(\\frac{X}{Y}\\le\\frac{E(X)}{E(Y)})>0$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Inégalité de probabilité par l'absurde}\\\\par\nOn montre que $P\\left(\\frac{X}{Y} \\leq \\frac{E(X)}{E(Y)}\\right) > 0$ par contradiction.\\\\par\nSupposons que $P\\left(\\frac{X}{Y} > \\frac{E(X)}{E(Y)}\\right) = 1$, c'est-à-dire $X > \\frac{E(X)}{E(Y)} \\cdot Y$ presque sûrement.\\\\par\nEn prenant l'espérance des deux côtés (qui est justifiée car l'inégalité est stricte p.s.) :\n$$E(X) > \\frac{E(X)}{E(Y)} \\cdot E(Y) = E(X),$$\nce qui est une contradiction.\\\\par\nPar conséquent, il existe un événement de probabilité positive tel que $\\frac{X}{Y} \\leq \\frac{E(X)}{E(Y)}$, d'où :\n$$P\\left(\\frac{X}{Y} \\leq \\frac{E(X)}{E(Y)}\\right) > 0.$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "S'intéresser à $X-\\frac{E(X)}{E(Y)}Y$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Calculer l'espérance de cette variable aléatoire. Si la probabilité cherchée était nulle, que pourrait-on dire du signe de cette variable presque sûrement, et donc de son espérance ?"
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_019",
+      "title": "Théorème d'Erdös sur les parties sans somme",
+      "type": "application",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__theorem_loi_faible_grands_nombres",
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Erdös",
+        "méthode probabiliste",
+        "sans somme",
+        "arithmétique modulaire"
+      ],
+      "statement_latex": "On dit qu'une partie $X$ d'un groupe (additif) commutatif est sans somme si $x+y\\notin X$ pour tous $x,y\\in X$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer qu'il existe une infinité de nombres premiers congrus à $2$ modulo $3$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_loi_faible_grands_nombres"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde en s'inspirant de la preuve d'Euclide sur l'infinité des nombres premiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "S'il n'y en a qu'un nombre fini $p_1, \\dots, p_r$, considérer l'entier $N = 3p_1 \\dots p_r - 1$. Étudier ses facteurs premiers modulo 3."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Infinitude des premiers $\\equiv 2 \\pmod{3}$}\\\\par\nConsidérons les classes de résidus modulo 3. Le produit de nombres congrus à 1 modulo 3 est congru à 1 modulo 3.\\\\par\nSupposons par l'absurde qu'il n'existe qu'un nombre fini de premiers $p \\equiv 2 \\pmod{3}$. Soit $n = 3M + 2$ pour $M > 0$ assez grand.\\\\par\nTout nombre congru à 2 modulo 3 possède un diviseur premier : ce diviseur est soit 3 (impossible car $3 \\nmid 3M+2$), soit $\\equiv 1 \\pmod{3}$, soit $\\equiv 2 \\pmod{3}$.\\\\par\nSi seuls finiment de premiers $\\equiv 2 \\pmod{3}$ existent, leur produit $Q$ est fixe. Alors il existe $n = 3M+2$ non divisible par $Q$ et par les premiers $\\equiv 1 \\pmod{3}$ : mais $n$ doit avoir un diviseur premier $\\equiv 2 \\pmod{3}$. Contradiction.\\\\par\nDonc il existe infiniment de premiers $p \\equiv 2 \\pmod{3}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $A$ une partie finie de $\\mathbb{Z}-\\{0\\}$. On veut montrer que $A$ possède une partie $B$ sans somme pour laquelle $|B|>\\frac{|A|}{3}$ (théorème d'Erdös).\\par D'après 1), on peut se donner un nombre premier $p$ congru à $2$ modulo $3$ pour lequel $A\\subset[[-k,k]]$ où $k=\\frac{p-2}{3}$. On pose $I=\\{\\overline{k+1},\\overline{k+2},...,\\overline{2k+1}\\}$. Soit enfin $\\Lambda$ une variable aléatoire uniforme sur $(\\mathbb{Z}/p\\mathbb{Z})^{*}$.\\par a) Montrer que $I$ est sans somme dans $\\mathbb{Z}/p\\mathbb{Z}$ puis que l'ensemble $B=\\{a\\in A|\\overline{\\Lambda a}\\in I\\}$ est sans somme dans $\\mathbb{Z}$.\\par b) Quelle est la loi de $\\Lambda^{-1}\\overline{a}$ pour tout $a\\in A$ ? En déduire l'espérance de $|B|$ et conclure.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_loi_faible_grands_nombres",
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Indicatrices ! Montrer que $E(|B|)=\\frac{(k+1)|A|}{p-1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), écrire le cardinal de $B$ comme la somme des indicatrices des événements $\\{\\overline{\\Lambda a} \\in I\\}$ pour $a \\in A$. Puis utiliser la méthode probabiliste : s'il existe une espérance strictement supérieure à $|A|/3$, alors il existe au moins une réalisation de $\\Lambda$ (et donc un ensemble $B$) qui dépasse cette taille."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Construction de la partie sans somme}\\\\par\nSoit $p$ un premier congru à 2 modulo 3 avec $p > 2|A|$. On considère l'intervalle $I = \\{k+1, k+2, \\ldots, 2k\\} \\subset \\mathbb{Z}/p\\mathbb{Z}$ où $k = \\lfloor(p-1)/2\\rfloor$.\\\\par\n$I$ est sans somme : si $a, b \\in I$ alors $2k + 2 \\leq a + b \\leq 4k < 2p$, donc $(a+b \\bmod p) > 2k$, ce qui n'intersecte pas $I$.\\\\par\nSoit $\\Lambda$ uniforme sur $(\\mathbb{Z}/p\\mathbb{Z})^*$ et $B = \\{a \\in A : \\Lambda a \\in I\\}$. Alors $B$ est sans somme.\\\\par\n$$E(|B|) = |A| \\cdot \\frac{|I|}{p-1} = |A| \\cdot \\frac{k}{(p-1)/2} \\approx |A| \\cdot \\frac{2}{3} \\geq |A| \\cdot \\frac{1}{3}.$$\nIl existe donc une réalisation où $|B| \\geq \\lceil |A|/3 \\rceil$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_020",
+      "title": "Existence d'une petite partie dominante dans un graphe",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__definition_graphe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "graphes",
+        "partie dominante",
+        "méthode probabiliste"
+      ],
+      "statement_latex": "Soit $G=(S,A)$ un graphe fini dont tout sommet possède au moins $d$ voisins. On dit qu'une partie $T$ de $S$ est dominante si tout sommet de $S\\backslash T$ est adjacent à au moins un sommet de $T$. On veut montrer que $S$ possède une partie dominante de cardinal au plus : $|S|\\times\\frac{\\ln(d+1)+1}{d+1}$.\\par Soient $p\\in]0, 1[$ et $(X_{s})_{s\\in S}$ une famille de variables aléatoires indépendantes de Bernoulli de paramètre $p$. On pose $U=\\{s\\in S|X_{s}=1\\}$ et on note $V$ l'ensemble des sommets de $S\\backslash U$ qui n'ont pas de voisin dans $U$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $P(s\\in V)\\le(1-p)^{d+1}$ pour tout $s\\in S$, puis que : $\\frac{1}{|S|}E(|U|+|V|)\\le p+(1-p)^{d+1}\\le p+e^{-(d+1)p}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si un sommet $s$ appartient à $V$, alors $X_{s}=0$ et $X_{v}=0$ pour tout voisin $v$ de $s$. Pour les calculs d'espérance, indicatrices !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'indépendance des variables aléatoires associées au sommet $s$ et à ses $d$ (ou plus) voisins pour majorer la probabilité. Puis linéarité de l'espérance."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Probabilité qu'un sommet n'appartient pas à $U \\cup V$}\\\\par\nPour un sommet $s$, soit $d_s \\geq d$ le nombre de voisins.\\\\par\nAlors :\n$$P(s \\notin U) = 1 - p, \\quad P(\\text{tous voisins de } s \\notin U) \\leq (1-p)^d.$$\nSi $s \\notin U$ et au moins un voisin est dans $U$, alors $s \\in V$. Sinon $s \\in U$.\\\\par\nDonc $P(s \\notin U \\cup V) = P(s \\notin U) \\cdot P(\\text{tous voisins} \\notin U \\mid s \\notin U) = (1-p)^{d+1}$ (incluant $s$ lui-même).\\\\par\nPar l'union : $E(|U| + |V|) \\leq |S| \\cdot (p + (1-p)^{d+1})$.\\\\par\nMinimiser en $p$ : $\\frac{\\partial}{\\partial p}[p + (1-p)^{d+1}] = 1 - (d+1)(1-p)^d = 0$ donne $p = \\frac{\\ln(d+1)}{d+1}$.\\\\par\nLa valeur minimale est $\\frac{\\ln(d+1) + 1}{d+1}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $U\\cup V$ est une partie dominante de $S$, puis conclure.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__definition_graphe",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__definition_covariance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Optimiser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si un sommet n'est ni dans $U$ ni dans $V$, pourquoi a-t-il obligatoirement un voisin dans $U$ ? Pour conclure, choisir astucieusement le paramètre $p$ pour minimiser la borne trouvée en 1), et appliquer l'argument de la méthode probabiliste."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Domination par $U \\cup V$}\\\\par\nTout sommet $s$ satisfait : soit $s \\in U$, soit $s \\notin U$. Si $s \\notin U$, alors soit $s$ possède un voisin dans $U$ (donc $s$ est adjacent à $U$), soit tous ses voisins sont hors de $U$, auquel cas $s \\in V$ par définition.\\\\par\nDonc $U \\cup V$ est dominating.\\\\par\nPar le résultat de la question 1), il existe un choix de $U$ tel que :\n$$|U| + |V| \\leq E(|U| + |V|) \\leq |S| \\cdot \\frac{\\ln(d+1) + 1}{d+1}.$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_021",
+      "title": "Existence d'une anticlique via la méthode probabiliste",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__definition_graphe",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__theorem_loi_faible_grands_nombres"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "graphes",
+        "anticlique",
+        "méthode probabiliste"
+      ],
+      "statement_latex": "Soit $G=(S,A)$ un graphe fini. On suppose que $|A|\\ge\\frac{|S|}{2}$. On dit qu'une partie $T$ de $S$ est une anticlique si deux sommets de $T$ ne sont jamais adjacents. On veut montrer que $S$ contient une anticlique de cardinal au moins $\\frac{|S|^{2}}{4|A|}$.\\par On pose $p=\\frac{|S|}{2|A|}\\in[0,1]$. Soit $(X_{s})_{s\\in S}$ une famille de variables aléatoires indépendantes de Bernoulli de paramètre $p$. On pose $U=\\{s\\in S|X_{s}=1\\}$ et $B$ l'ensemble des arêtes de $A$ dont les deux sommets sont dans $U$. Montrer que $E(|U|-|B|)=\\frac{|S|^{2}}{4|A|}$ puis conclure.",
+      "sub_questions": [],
+      "global_solution_latex": "\\\\textbf{Anticlique via méthode probabiliste}\\\\par\nSoit $p = |S|/(2|A|)$. Pour chaque sommet $s$, soit $X_s \\sim \\text{Bernoulli}(p)$ i.i.d.\\\\par\nPose $U = \\{s : X_s = 1\\}$ et $B = $ ensemble des arêtes ayant les deux extrémités dans $U$.\\\\par\nAlors $E(|U|) = |S| \\cdot p = |S|^2/(2|A|)$ et $E(|B|) = |A| \\cdot p^2 = |A| \\cdot |S|^2/(4|A|^2) = |S|^2/(4|A|)$.\\\\par\nDonc $E(|U| - |B|) = |S|^2/(2|A|) - |S|^2/(4|A|) = |S|^2/(4|A|)$.\\\\par\nEn supprimant un endpoint de chaque arête de $B$, on obtient une anticlique de taille $\\geq |U| - |B|$.\\\\par\nIl existe un choix où la taille de l'anticlique est $\\geq |S|^2/(4|A|)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour créer l'anticlique souhaitée, partir de $U$ et retirer certains sommets."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si on retire de l'ensemble $U$ un sommet par arête présente dans $B$, on détruit toutes les arêtes internes à $U$. L'ensemble restant est donc une anticlique de taille au moins $|U|-|B|$. Utiliser la linéarité de l'espérance pour calculer $E(|U|-|B|)$ et conclure avec l'argument classique de la méthode probabiliste."
+        }
+      ]
+    },
+    {
+      "id": "complements_probabilistes__ex_022",
+      "title": "Marches aléatoires biaisées",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "marches aléatoires",
+        "Markov",
+        "asymptotique"
+      ],
+      "statement_latex": "Soient $p\\in]\\frac{1}{2},1[$ et $(X_{n})_{n\\in\\mathbb{N}^{*}}$ une suite de variables aléatoires indépendantes de même loi définie par $P(X_{1}=1)=p$ et $P(X_{1}=-1)=1-p$. On pose $S_{0}=0$ et $S_{n}=X_{1}+...+X_{n}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $P(S_{2n+1}=0)$ et la loi de $\\frac{S_{n}+n}{2}$ pour tout $n\\in\\mathbb{N}$, puis en déduire l'espérance et la variance de $S_{n}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelle est la loi de $\\frac{X_{k}+1}{2}$ pour tout $k\\in\\mathbb{N}^{*}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que $\\frac{X_k+1}{2}$ suit une loi de Bernoulli. La somme de ces variables indépendantes permet d'identifier la loi de $\\frac{S_n+n}{2}$ comme une loi binomiale. Utiliser cela pour trouver $E(S_n)$ et $V(S_n)$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Loi et parité de $S_{2n+1}$}\\\\par\nPuisque $X_i \\in \\{+1, -1\\}$, la somme $S_n = X_1 + \\cdots + X_n$ a la même parité que $n$.\\\\par\nDonc $S_{2n+1}$ est toujours impair, en particulier $P(S_{2n+1} = 0) = 0$.\\\\par\nPosons $N_n = \\#\\{i : X_i = +1\\} \\leq n$. Alors $S_n = 2N_n - n$, et $N_n \\sim \\text{Binomial}(n, p)$.\\\\par\nDonc $E(S_n) = E(2N_n - n) = 2np - n = n(2p - 1)$.\\\\par\nLa variance : $V(S_n) = 4V(N_n) = 4np(1-p)$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "a) Montrer que $P(S_{n}<0)\\le E(e^{-tS_{n}})$ pour tous $n\\in\\mathbb{N}^{*}$ et $t>0$, puis en déduire l'existence d'un réel $\\eta\\in[0,1[$ pour lequel $P(S_{n}<0)\\le\\eta^{n}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_inegalite_markov",
+            "complements_probabilistes__theorem_inegalite_bienayme_tchebychev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Markov, puis faire tendre $t$ vers 0 et calculer un développement limité. On peut aussi optimiser en étudiant une fonction si on veut un résultat plus précis."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour appliquer Markov, réécrire l'événement $\\{S_n < 0\\}$ (ou $\\{-S_n > 0\\}$) sous la forme $\\{e^{-tS_n} > 1\\}$. Calculer ensuite l'espérance de ce produit de variables indépendantes."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Probabilité de dérive négative : $P(S_n < 0) \\leq \\eta^n$}\\\\par\nPour $t > 0$, par l'inégalité de Markov : $P(S_n < 0) = P(-S_n > 0) \\leq E(e^{-tS_n})$.\\\\par\nPuisque $X_i \\in \\{+1, -1\\}$ : $E(e^{-tX_i}) = pe^{-t} + (1-p)e^t$.\\\\par\nDonc $E(e^{-tS_n}) = [pe^{-t} + (1-p)e^t]^n$.\\\\par\nMinimisons $\\phi(t) = pe^{-t} + (1-p)e^t$ : $\\phi'(t) = -pe^{-t} + (1-p)e^t = 0$ donne $e^{2t} = p/(1-p)$, soit $t^* = \\frac{1}{2}\\ln\\frac{p}{1-p} > 0$ (car $p > 1/2$).\\\\par\nAlors $\\phi(t^*) = 2\\sqrt{p(1-p)} = \\eta < 1$.\\\\par\nDonc $P(S_n < 0) \\leq \\eta^n$ où $\\eta = 2\\sqrt{p(1-p)} < 1$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "b) Que devient la majoration géométrique de la question a) si $p\\in]0,\\frac{1}{2}[$ ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire de $(-X_{n})_{n\\in\\mathbb{N}^{*}}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $p < 1/2$, alors on se ramène au cas précédent en inversant le rôle des variables (la probabilité que $-X_1 = 1$ devient $1-p > 1/2$)."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Cas $p < 1/2$ : dérive vers la gauche}\\\\par\nSi $p < 1/2$, alors $E(S_n) = n(2p - 1) < 0$. La marche dérive négativement.\\\\par\nPar symétrie du raisonnement précédent avec $q = 1-p > 1/2$ : $P(S_n > 0) \\leq \\eta^n$ où $\\eta = 2\\sqrt{p(1-p)} < 1$.\\\\par\nLa marche tend à rester négative."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "complements_probabilistes__ex_023",
+      "title": "Marche aléatoire symétrique et chemins",
+      "type": "application",
+      "difficulty": 4,
+      "estimated_duration_minutes": 50,
+      "knowledge_nodes_tested": [
+        "complements_probabilistes__definition_covariance",
+        "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+        "complements_probabilistes__definition_moments_variance",
+        "complements_probabilistes__theorem_proprietes_variance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "marche aléatoire",
+        "dénombrement",
+        "formule de Stirling",
+        "principe de réflexion"
+      ],
+      "statement_latex": "Soient $(X_{n})_{n\\in\\mathbb{N}^{*}}$ une suite de variables aléatoires indépendantes de Rademacher. On pose $S_{0}=0$ ainsi que $S_{n}=X_{1}+...+X_{n}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $P(S_{2n+1}=0)$ et la loi de $\\frac{S_{n}+n}{2}$ pour tout $n\\in\\mathbb{N}$, puis en déduire l'espérance et la variance de $S_{n}$. Calculer aussi un équivalent de $P(S_{2n}=0)$ lorsque $n$ tend vers $+\\infty$ et exprimer $P(S_{2n+2}=0)$ en fonction de $P(S_{2n}=0)$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance",
+            "complements_probabilistes__theorem_proprietes_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'équivalent, Wallis ou Stirling !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme dans l'exercice précédent, identifier la loi binomiale sous-jacente. Pour l'équivalent de la probabilité centrale d'une loi binomiale, utiliser la formule de Stirling sur les factorielles du coefficient binomial."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Parité et loi de $S_n$}\\\\par\nAvec $X_i$ Rademacher (i.e., $P(X_i = \\pm 1) = 1/2$ chacun), la somme $S_n$ a la même parité que $n$.\\\\par\nDonc $P(S_{2n+1} = 0) = 0$.\\\\par\nPour $S_{2n}$ pair : le nombre d'étapes $+1$ est $k = (2n + S_{2n})/2$. Donc :\n$$P(S_{2n} = 2m) = \\binom{2n}{n+m} \\cdot 2^{-2n} \\quad \\text{pour } m \\in \\{-n, \\ldots, n\\}.$$\nEn particulier, $P(S_{2n} = 0) = \\binom{2n}{n} \\cdot 2^{-2n} \\sim \\frac{1}{\\sqrt{\\pi n}}$ par Stirling."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) Montrer que $|k+1|+|k-1|=2|k|+2\\delta_{k,0}$ pour tout $k\\in\\mathbb{Z}$, puis que pour tout $n\\in\\mathbb{N}^{*}$ : $E(|S_{n+1}|)=E(|S_{n}|)+P(S_{n}=0)$.\\par b) En déduire que $E(|S_{2n}|)=2nP(S_{2n}=0)$ pour tout $n\\in\\mathbb{N}$, puis déterminer un équivalent de $E(|S_{n}|)$ lorsque $n$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "a) Appliquer la formule de transfert à $(S_{n},X_{n+1})$. b) Récurrence !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), conditionner sur les valeurs de $S_n$ et utiliser l'indépendance avec $X_{n+1}$. Pour b), la récurrence se construit facilement en exploitant le lien entre l'étape $n$ et l'étape $n+1$ trouvé en a)."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Espérance de la valeur absolue}\\\\par\nConditionnant sur $S_n$ : $E(|S_{n+1}|) = E[E(|S_n + X_{n+1}| \\mid S_n)]$.\\\\par\nPour $S_n = k$ : $E(|k + X_{n+1}|) = \\frac{1}{2}(|k+1| + |k-1|)$.\\\\par\nSi $k \\neq 0$ : $|k+1| + |k-1| = 2|k|$, donc $E(|k + X_{n+1}|) = |k|$.\\\\par\nSi $k = 0$ : $|1| + |-1| = 2$, donc $E(|X_{n+1}|) = 1 = |0| + 1$.\\\\par\nPar itération : $E(|S_{n+1}|) = E(|S_n|) + P(S_n = 0)$.\\\\par\nSommant : $E(|S_n|) = \\sum_{j=0}^{n-1} P(S_j = 0) = P(S_0 = 0) + \\sum_{j=1}^{n-1} P(S_{2j} = 0) \\sim \\sqrt{\\frac{2n}{\\pi}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "La marche aléatoire $(S_{n})_{n\\in\\mathbb{N}}$ est une suite de sauts sur $\\mathbb{Z}$, mais on peut aussi la représenter dans le plan $\\mathbb{R}^{2}$ en prenant l'axe des abscisses pour axe des temps. Pour tous $m,n\\in\\mathbb{N}$ pour lesquels $m\\le n$ et pour tous $a,b\\in\\mathbb{Z}$, on appellera chemin de $(m,a)$ à $(n,b)$ toute famille de points $(m,y_{m}),(m+1,y_{m+1}),...,(n,y_{n})$ pour laquelle $y_{m}=a$, $y_{n}=b$ et $y_{k+1}=y_{k}\\pm 1$ pour tout $k\\in[[m,n-1]]$.\\par Soient $m,n\\in\\mathbb{N}$ avec $m\\le n$ et $a,b\\in\\mathbb{Z}$. Montrer que le nombre $C_{(m,a)}^{(n,b)}$ de chemins possibles de $(m,a)$ à $(n,b)$ vaut $\\binom{n-m}{k}$ avec $k=\\frac{n-m+a-b}{2}$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+            "complements_probabilistes__definition_moments_variance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Des anagrammes ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Chaque chemin est une suite de pas 'vers le haut' ou 'vers le bas'. Déterminer le nombre de pas vers le haut nécessaires pour aller de l'ordonnée $a$ à l'ordonnée $b$ en exactement $n-m$ pas."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Dénombrement des chemins}\\\\par\nUn chemin de $(0,0)$ à $(n,k)$ en $n$ étapes (up/down) existe si $n+k$ est pair.\\\\par\nSi oui, il y a $\\frac{n+k}{2}$ étapes up et $\\frac{n-k}{2}$ étapes down.\\\\par\nNombre de chemins : $\\binom{n}{(n+k)/2}$ si $n + k$ pair et $|k| \\leq n$, sinon 0.\\\\par\nNotation : $C_{(0,0)}^{(n,k)} = \\begin{cases}\\binom{n}{(n+k)/2} & \\text{si } n+k \\text{ pair} \\\\\\\\ 0 & \\text{sinon}\\end{cases}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "a) Montrer qu'il existe exactement $C_{(1,-1)}^{(n,k)}$ chemins de $(1,1)$ à $(n,k)$ qui touchent l'axe des abscisses.\\par b) Calculer le nombre de chemins de $(0,0)$ à $(n,k)$ qui ne touchent pas l'axe des abscisses, puis montrer que ce nombre vaut $\\frac{k}{n}C_{(0,0)}^{(n,k)}$.\\par c) En déduire que : $P(S_{1}\\ne 0,...,S_{n}\\ne 0,S_{n}=k)=\\frac{k}{n}P(S_{n}=k)$.",
+          "knowledge_nodes_tested": [
+            "complements_probabilistes__theorem_variance_bernoulli_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "a) Symétriser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), utiliser le principe de réflexion : un chemin allant de $(1,1)$ à $(n,k)$ (avec $k>0$) qui touche l'axe des abscisses peut être mis en bijection avec un chemin allant de $(1,-1)$ à $(n,k)$ en symétrisant la partie du chemin avant le premier contact avec l'axe."
+            }
+          ],
+          "solution_latex": "\\textbf{Chemins touchant l'axe et principe de réflexion.}\\par \\textbf{a)} Un chemin de $(1,1)$ à $(n,k)$ avec $k > 0$ qui touche l'axe des abscisses peut être réfléchi au premier point de contact avec l'axe. Par le principe de réflexion, le nombre de tels chemins est exactement le nombre de chemins de $(1,-1)$ à $(n,k)$, soit $C_{(1,-1)}^{(n,k)}$.\\par En effet, tout chemin de $(1,-1)$ à $(n,k)$ avec $k > 0$ doit croiser l'axe (car il part de $-1$ et arrive à $k > 0$). La bijection par réflexion au premier passage par zéro donne la correspondance.\\par Le nombre de chemins de $(1,-1)$ à $(n,k)$ est $\\binom{n-1}{\\frac{n-1+k+1}{2}} = \\binom{n-1}{\\frac{n+k}{2}}$.\\par \\textbf{b)} Le nombre de chemins de $(0,0)$ à $(n,k)$ ne touchant pas l'axe (sauf au départ) est :\\par $C_{(0,0)}^{(n,k)} - C_{(1,-1)}^{(n,k)} = \\binom{n}{\\frac{n+k}{2}} - \\binom{n-1}{\\frac{n+k}{2}}$.\\par Or $\\binom{n}{m} - \\binom{n-1}{m} = \\binom{n-1}{m-1}$. Avec $m = \\frac{n+k}{2}$ :\\par $= \\binom{n-1}{\\frac{n+k}{2}-1} = \\binom{n-1}{\\frac{n+k-2}{2}}$.\\par Ce nombre vaut $\\frac{k}{n} \\binom{n}{\\frac{n+k}{2}} = \\frac{k}{n} C_{(0,0)}^{(n,k)}$.\\par \\textbf{c)} Donc $P(S_1 \\neq 0, \\ldots, S_n \\neq 0, S_n = k) = \\frac{k}{n} P(S_n = k)$ pour $k > 0$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Montrer que pour tous $n\\in\\mathbb{N}^{*}$ et $k\\in\\mathbb{Z}$ : $P(S_{1}\\ne 0,...,S_{n}\\ne 0,S_{n}=k)=\\frac{|k|}{n}P(S_{n}=k)$, puis en déduire que : $P(S_{1}\\ne 0,...,S_{n}\\ne 0)\\underset{n\\rightarrow+\\infty}{\\sim}\\sqrt{\\frac{2}{n\\pi}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à $(-X_{1},...,-X_{n})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $k < 0$, appliquer la même logique que la question 4 en symétrisant toute la trajectoire par rapport à l'axe des abscisses. Pour l'équivalent, sommer sur toutes les valeurs possibles de $k$ et utiliser l'équivalent de $E(|S_n|)$ trouvé à la question 2)b)."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Probabilité que la marche reste positive}\\\\par\nPour tout $k \\in \\mathbb{Z}$ :\n$$P(S_1 \\neq 0, \\ldots, S_n \\neq 0, S_n = k) = \\frac{|k|}{n} P(S_n = k).$$\nEn sommant sur $k$ :\n$$P(S_1 \\neq 0, \\ldots, S_n \\neq 0) = \\sum_k \\frac{|k|}{n} P(S_n = k) = \\frac{1}{n} E(|S_n|) \\sim \\frac{1}{n} \\sqrt{\\frac{2n}{\\pi}} = \\sqrt{\\frac{2}{\\pi n}}.$$"
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

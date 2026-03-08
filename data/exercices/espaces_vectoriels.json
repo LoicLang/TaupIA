@@ -1,0 +1,2463 @@
+{
+  "chapter_official_id": "espaces_vectoriels",
+  "chapter_name": "Espaces vectoriels, Sous-espaces vectoriels",
+  "source_document": "Exercices - Espaces vectoriels.pdf",
+  "exercises": [
+    {
+      "id": "espaces_vectoriels__ex_001",
+      "title": "Combinaisons linéaires",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+        "espaces_vectoriels__theorem_solutions_systeme_homogene",
+        "espaces_vectoriels__definition_combinaison_lineaire_finie",
+        "espaces_vectoriels__theorem_formule_grassmann"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "combinaison linéaire",
+        "vecteurs",
+        "fonctions",
+        "système linéaire"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Dans $\\mathbb{R}^{3}$ à quelle condition nécessaire et suffisante sur $a\\in\\mathbb{R}$ le vecteur $(1, -a, 1)$ est-il combinaison linéaire de $(1, 1, 1)$ et $(a, 0, 2)$ ?",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__definition_combinaison_lineaire_finie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la question par une équation vectorielle en introduisant deux scalaires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez le système linéaire associé à l'équation $(1,-a,1) = \\lambda(1,1,1) + \\mu(a,0,2)$ et déterminez pour quelles valeurs de $a$ ce système admet des solutions."
+            }
+          ],
+          "solution_latex": "Suppose $(1, -a, 1) = \\lambda(1, 1, 1) + \\mu(a, 0, 2)$ pour certains $\\lambda, \\mu \\in \\mathbb{R}$.\\par Ceci donne le système :\\par $\\begin{cases} 1 = \\lambda + \\mu a \\\\ -a = \\lambda \\\\ 1 = \\lambda + 2\\mu \\end{cases}$\\par De la deuxième équation, $\\lambda = -a$. De la troisième, $\\mu = \\frac{1-\\lambda}{2} = \\frac{1+a}{2}$. En reportant dans la première :\\par $1 = -a + \\frac{1+a}{2} \\cdot a = -a + \\frac{a(1+a)}{2} = \\frac{-2a + a + a^2}{2} = \\frac{a^2 - a}{2}$.\\par Donc $2 = a^2 - a$, soit $a^2 - a - 2 = 0$, d'où $(a-2)(a+1) = 0$.\\par \\textbf{Réponse :} $a \\in \\{-1, 2\\}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Dans $\\mathbb{R}^{\\mathbb{R}}$ $x\\mapsto\\cos^{2}x$ est-elle combinaison linéaire de $x\\mapsto1$ et $x\\mapsto\\cos(2x)$ ?",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__theorem_formule_grassmann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez aux formules classiques de trigonométrie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Rappelez-vous de la formule de duplication exprimant $\\cos(2x)$ en fonction de $\\cos^{2}(x)$."
+            }
+          ],
+          "solution_latex": "Utilisons la formule de duplication : $\\cos(2x) = 2\\cos^2(x) - 1$, donc $\\cos^2(x) = \\frac{1 + \\cos(2x)}{2}$.\\par Ceci montre que $\\cos^2(x) = \\frac{1}{2} \\cdot 1 + \\frac{1}{2} \\cos(2x)$.\\par \\textbf{Réponse :} Oui, $\\cos^2$ est combinaison linéaire de $1$ et $\\cos(2x)$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Dans $\\mathbb{R}^{\\mathbb{R}}$ $x\\mapsto\\sin(2x)$ est-elle combinaison linéaire des fonctions cosinus et sinus ?",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__definition_combinaison_lineaire_finie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par l'absurde en supposant qu'il existe deux réels $\\lambda$ et $\\mu$ tels que pour tout $x$, $\\sin(2x) = \\lambda\\cos(x) + \\mu\\sin(x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez cette égalité pour des valeurs particulières de $x$ (par exemple $0$, $\\pi/2$, $\\pi$) pour trouver les valeurs forcées de $\\lambda$ et $\\mu$, puis cherchez une contradiction."
+            }
+          ],
+          "solution_latex": "Supposons par l'absurde que $\\sin(2x) = \\lambda \\cos(x) + \\mu \\sin(x)$ pour tous $x$ et certains $\\lambda, \\mu \\in \\mathbb{R}$.\\par Pour $x = 0$ : $0 = \\lambda$.\\par Pour $x = \\pi/2$ : $0 = \\mu$.\\par Donc $\\lambda = \\mu = 0$, mais $\\sin(2x) \\not\\equiv 0$.\\par \\textbf{Réponse :} Non, $\\sin(2x)$ n'est pas combinaison linéaire de $\\cos$ et $\\sin$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_002",
+      "title": "Reconnaissance de sous-espaces vectoriels (1)",
+      "type": "application",
+      "difficulty": 1,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_supplementaires",
+        "espaces_vectoriels__definition_sous_espace_vectoriel",
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_sev_engendre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace vectoriel",
+        "définition",
+        "système d'équations",
+        "polynômes"
+      ],
+      "statement_latex": "Les ensembles suivants sont-ils des sous-espaces vectoriels ?",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{(x,y)\\in\\mathbb{R}_{+}^{2}|x=y\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__definition_espace_vectoriel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez si l'ensemble contient le vecteur nul et s'il est stable par combinaison linéaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que se passe-t-il si vous multipliez un vecteur de cet ensemble par un scalaire strictement négatif ?"
+            }
+          ],
+          "solution_latex": "L'ensemble est $\\{(x,x) : x \\in \\mathbb{R}_+\\}$. Le vecteur nul $(0,0) \\notin \\mathbb{R}_+^2$ (car $\\mathbb{R}_+ = ]0, +\\infty[$). Donc pas d'élément nul.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{(x,y)\\in\\mathbb{R}^{2}|2x-5y-1=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_sous_espace_vectoriel",
+            "espaces_vectoriels__definition_sev_engendre",
+            "espaces_vectoriels__definition_espace_vectoriel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La première étape pour vérifier qu'un sous-ensemble est un sous-espace vectoriel est souvent de regarder s'il contient l'élément neutre."
+            }
+          ],
+          "solution_latex": "L'équation $2x - 5y - 1 = 0$ ne passe pas par l'origine (pour $x=y=0$, on a $-1 \\ne 0$). Donc ce n'est pas un sous-espace vectoriel.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\{(x,2x,3x)|x\\in\\mathbb{R}\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__definition_sous_espace_vectoriel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pouvez-vous exprimer cet ensemble sous la forme $\\text{Vect}(u)$ pour un certain vecteur $u$ ?"
+            }
+          ],
+          "solution_latex": "C'est l'ensemble $\\{x(1, 2, 3) : x \\in \\mathbb{R}\\} = \\mathbb{R}(1,2,3)$, une droite vectorielle. Contient $0$, stable par addition et multiplication scalaire.\\par \\textbf{Réponse :} Oui."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\{(x,y)\\in\\mathbb{R}^{2}|x^{3}+x+y^{2}=0\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Testez la stabilité par multiplication par un scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez un vecteur non nul dans l'ensemble et regardez si son double ou son opposé y est encore."
+            }
+          ],
+          "solution_latex": "Test de stabilité scalaire : si $(x,y)$ vérifie $x^3 + x + y^2 = 0$ et $\\lambda \\in \\mathbb{R}$, alors $(\\lambda x)^3 + \\lambda x + (\\lambda y)^2 = \\lambda^3 x^3 + \\lambda x + \\lambda^2 y^2 \\ne \\lambda(x^3+x+y^2)$ en général.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\{(x,y,z)\\in\\mathbb{R}^{3}|x=y \\text{ et } 3y-2z=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__theorem_inversibilite_matrice_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observez la nature des équations qui définissent cet ensemble."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est l'ensemble des solutions d'un système linéaire homogène."
+            }
+          ],
+          "solution_latex": "De $x = y$ et $3y - 2z = 0$, on a $z = \\frac{3x}{2}$. L'ensemble est $\\{(x, x, \\frac{3x}{2}) : x \\in \\mathbb{R}\\} = \\mathbb{R}(1, 1, \\frac{3}{2})$, une droite vectorielle.\\par \\textbf{Réponse :} Oui."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "\\{P\\in\\mathbb{R}[X]| P= 0 \\text{ ou } \\text{deg}(P)\\ge2\\}.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__theorem_liberte_polynomes_echelonnes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez la stabilité par addition."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez deux polynômes de degré 2 dont la somme est de degré 1. Par exemple $P = X^{2}+X$ et $Q = -X^{2}$."
+            }
+          ],
+          "solution_latex": "L'ensemble contient $0$, mais si $P$ a degré $\\ge 2$ et $\\lambda = 0$, alors $\\lambda P = 0$ a degré $-\\infty$, pas $\\ge 2$. Pas stable par multiplication scalaire par $0$.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\{P\\in\\mathbb{R}[X]|P(X^{2})=P^{\\prime}+X^{4}P\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez l'application $\\phi(P) = P(X^2) - P^{\\prime} - X^4P$. Est-elle linéaire ?"
+            }
+          ],
+          "solution_latex": "Teste stabilité : $P(X^2) = P' + X^4 P$ et $Q(X^2) = Q' + X^4 Q$ impliquent $(P+Q)(X^2) = (P+Q)' + X^4(P+Q)$. ✓ Pour $\\lambda$, $(lambda P)(X^2) = (\\lambda P)' + X^4(\\lambda P)$. ✓\\par \\textbf{Réponse :} Oui."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\{f\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})|f(0)+f(1)=f^{\\prime}(0)\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prouvez la stabilité par combinaison linéaire en utilisant les propriétés des dérivées et de l'évaluation de fonctions."
+            }
+          ],
+          "solution_latex": "Si $f(0)+f(1)=f'(0)$ et $g(0)+g(1)=g'(0)$, alors $(f+g)(0)+(f+g)(1)=(f+g)'(0)$. ✓ Pour $\\lambda$, $(\\lambda f)(0)+(\\lambda f)(1)=\\lambda f'(0)=(\\lambda f)'(0)$. ✓\\par \\textbf{Réponse :} Oui."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_003",
+      "title": "Reconnaissance de sous-espaces vectoriels (2)",
+      "type": "application",
+      "difficulty": 1,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux",
+        "espaces_vectoriels__definition_supplementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace vectoriel",
+        "fonctions",
+        "contre-exemple",
+        "analyse"
+      ],
+      "statement_latex": "Les ensembles suivants sont-ils des sous-espaces vectoriels de $\\mathbb{R}^{\\mathbb{R}}$ ?",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "L'ensemble des fonctions 1-périodiques.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_famille_presque_nulle",
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez si la fonction nulle est 1-périodique et si une combinaison linéaire de fonctions 1-périodiques l'est encore."
+            }
+          ],
+          "solution_latex": "Propriétés de périodicité : $f(x+1)=f(x)$ et $g(x+1)=g(x)$ impliquent $(f+g)(x+1)=(f+g)(x)$ et $(\\lambda f)(x+1)=\\lambda f(x)=(\\lambda f)(x)$. La fonction nulle est périodique.\\par \\textbf{Réponse :} Oui."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "L'ensemble des fonctions croissantes.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene",
+            "espaces_vectoriels__definition_sous_espace_vectoriel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez à la stabilité par multiplication par un scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que se passe-t-il si vous multipliez une fonction strictement croissante par $-1$ ?"
+            }
+          ],
+          "solution_latex": "Si $f$ croissante et $\\lambda < 0$, alors $\\lambda f$ décroissante. Pas stable par multiplication scalaire négative.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "L'ensemble des fonctions monotones.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La multiplication par un scalaire pose-t-elle toujours problème ici ? Qu'en est-il de la stabilité par addition ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Essayez d'additionner une fonction croissante et une fonction décroissante. Par exemple, considérez les fonctions $x \\mapsto x$ et $x \\mapsto x^2$ restreintes à certains intervalles pour construire un contre-exemple sur $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Une fonction monotone croissante plus une décroissante ne reste pas monotone en général. Pas stable par addition.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "L'ensemble des fonctions qui sont la somme d'une fonction croissante et d'une fonction décroissante.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_somme_sev",
+            "espaces_vectoriels__definition_somme_directe",
+            "espaces_vectoriels__definition_combinaison_lineaire_infinie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez $f = f_c + f_d$ et $g = g_c + g_d$. Pouvez-vous écrire $\\lambda f + g$ sous la même forme, que $\\lambda$ soit positif ou négatif ?"
+            }
+          ],
+          "solution_latex": "Une fonction somme de croissante et décroissante : pas stable en général (Jordan : tout fonction est décomposable, donc l'ensemble = $\\mathbb{R}^{\\mathbb{R}}$, qui contient des non-linéaires).\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "L'ensemble des fonctions majorées.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Testez la stabilité par multiplication par un scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $f$ est majorée mais non minorée (comme $x \\mapsto -x^2$), que dire de $-f$ ?"
+            }
+          ],
+          "solution_latex": "Majorée par $M$ et par $N$ : majorée par $M+N$. ✓ Mais $\\lambda < 0$ : $\\lambda f$ minorée au lieu de majorée. Pas stable.\\par \\textbf{Réponse :} Non."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "L'ensemble des fonctions bornées.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_famille_presque_nulle",
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_homogene"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous la définition d'une fonction bornée : il existe $M > 0$ tel que pour tout $x$, $|f(x)| \\le M$. Utilisez l'inégalité triangulaire pour montrer la stabilité par addition."
+            }
+          ],
+          "solution_latex": "Bornée + bornée = bornée. ✓ $\\lambda \\cdot$ bornée = bornée. ✓ Fonction nulle bornée. ✓\\par \\textbf{Réponse :} Oui."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_004",
+      "title": "Réunion de sous-espaces vectoriels",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_supplementaires",
+        "espaces_vectoriels__definition_sous_espace_vectoriel",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__definition_somme_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace vectoriel",
+        "réunion",
+        "famille de sous-espaces",
+        "démonstration"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $(F_{i})_{i\\in I}$ une suite de sous-espaces vectoriels de $E$. On suppose que :\\par $\\forall i,j\\in I, \\exists k\\in I \\quad F_{i}\\cup F_{j}\\subset F_{k}$.\\par Montrer que $\\bigcup_{i\\in I} F_{i}$ est un sous-espace vectoriel de $E$.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que $E = \\bigcup_{i \\in I} F_i$ est un sous-espace vectoriel sous l'hypothèse de chaîne ($F_i \\subseteq F_j$ ou vice versa).\\par \\textbf{Élément nul :} $0 \\in F_i$ pour tous $i$, donc $0 \\in E$.\\par \\textbf{Addition :} Si $x \\in F_i, y \\in F_j$, alors par hypothèse $F_i \\subseteq F_j$ ou $F_j \\subseteq F_i$. WLOG $x,y \\in F_j$, donc $x+y \\in F_j \\subseteq E$.\\par \\textbf{Multiplication scalaire :} Si $x \\in F_i$ et $\\lambda \\in \\mathbb{K}$, alors $\\lambda x \\in F_i \\subseteq E$.\\par \\textbf{Conclusion :} $E$ est un sous-espace vectoriel.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Revenez à la définition d'un sous-espace vectoriel : il faut vérifier qu'il est non vide (contient $0$) et stable par combinaison linéaire."
+        },
+        {
+          "level": 2,
+          "content_latex": "Prenez deux vecteurs $x$ et $y$ dans la réunion. Par définition de la réunion, ils appartiennent respectivement à certains sous-espaces, disons $F_i$ et $F_j$. Utilisez l'hypothèse de l'énoncé pour justifier que $x$ et $y$ se retrouvent tous les deux dans un même $F_k$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_005",
+      "title": "Reconnaissance de sous-espaces affines",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_sous_espace_affine",
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+        "espaces_vectoriels__theorem_caracterisation_affine_direction_point",
+        "espaces_vectoriels__theorem_intersection_sous_espaces_affines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace affine",
+        "équations",
+        "solution particulière",
+        "espace directeur"
+      ],
+      "statement_latex": "Montrer que les ensembles suivants sont des sous-espaces affines :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{(x,y,z)\\in\\mathbb{R}^{3}|x-y+z=2 \\text{ et } 2x+y+2z=1\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_sous_espace_affine",
+            "espaces_vectoriels__definition_dimension_affine",
+            "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher une solution particulière $x_{part}$ du problème sous-jacent, vérifier que les solutions du problème homogène associé forment un sous-espace vectoriel $F$ et montrer enfin que l'ensemble étudié s'écrit $x_{part}+F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez un triplet $(x_0, y_0, z_0)$ vérifiant le système, puis considérez le système sans second membre pour déterminer la direction."
+            }
+          ],
+          "solution_latex": "Système : $x-y+z=2, 2x+y+2z=1$. Point particulier : pour $z=0$, $x-y=2$ et $2x+y=1$ donnent $x=1, y=-1$. Soit $a_0=(1,-1,0)$.\\par Sous-espace directeur : $F_0 = \\{(x,y,z) : x-y+z=0, 2x+y+2z=0\\}$. De $z=y-x$ et $3y=0$, on a $y=0, z=-x$. Donc $F_0=\\mathbb{R}(1,0,-1)$.\\par \\textbf{Réponse :} $F=a_0+F_0$ est un sous-espace affine."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{M\\in\\mathcal{M}_{n}(\\mathbb{K})|\\text{tr}(M)=1\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_sous_espace_affine",
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_dimension_affine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher une solution particulière $x_{part}$ du problème sous-jacent, vérifier que les solutions du problème homogène associé forment un sous-espace vectoriel $F$ et montrer enfin que l'ensemble étudié s'écrit $x_{part}+F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez une matrice simple (comme un multiple de l'identité ou une matrice avec un seul coefficient non nul) dont la trace vaut 1. L'équation homogène est $\\text{tr}(M)=0$."
+            }
+          ],
+          "solution_latex": "Matrice particulière avec trace 1 : $M_0=\\mathrm{diag}(1,0,...,0)$. Sous-espace directeur : matrices de trace 0 (sous-espace vectoriel). \\par \\textbf{Réponse :} Sous-espace affine de direction $\\{N : \\mathrm{tr}(N)=0\\}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\{f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})|f(1)=2 \\text{ et } f(2)=-3\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_sous_espace_affine",
+            "espaces_vectoriels__definition_dimension_affine",
+            "espaces_vectoriels__definition_sous_espace_vectoriel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher une solution particulière $x_{part}$ du problème sous-jacent, vérifier que les solutions du problème homogène associé forment un sous-espace vectoriel $F$ et montrer enfin que l'ensemble étudié s'écrit $x_{part}+F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construisez une fonction continue (par exemple, un polynôme de degré 1) qui passe par les points de coordonnées $(1,2)$ et $(2,-3)$."
+            }
+          ],
+          "solution_latex": "Fonction particulière : $f_0(x)=7-5x$ vérifie $f_0(1)=2, f_0(2)=-3$. Sous-espace directeur : $\\{g : g(1)=g(2)=0\\}$ (sous-espace vectoriel).\\par \\textbf{Réponse :} Sous-espace affine."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "\\{P\\in\\mathbb{R}[X]|\\forall k\\in[[1,n]],P(k)=\\sqrt{k}\\}.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+            "espaces_vectoriels__definition_sous_espace_affine",
+            "espaces_vectoriels__definition_dimension_affine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher une solution particulière $x_{part}$ du problème sous-jacent, vérifier que les solutions du problème homogène associé forment un sous-espace vectoriel $F$ et montrer enfin que l'ensemble étudié s'écrit $x_{part}+F$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'existence d'un polynôme interpolateur (comme celui de Lagrange) garantit l'existence de la solution particulière. Quel est l'ensemble des polynômes qui s'annulent en tous les entiers de $1$ à $n$ ?"
+            }
+          ],
+          "solution_latex": "Par interpolation Lagrange, polynôme unique $P_0$ de degré $\\le n-1$ avec $P_0(k)=\\sqrt{k}$ pour $k \\in [[1,n]]$. Sous-espace directeur : polynômes divisibles par $(X-1)...(X-n)$.\\par \\textbf{Réponse :} Sous-espace affine."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_006",
+      "title": "Opérations sur les Vect",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_proprietes_vect"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace vectoriel",
+        "espace engendré",
+        "polynômes",
+        "égalité d'ensembles"
+      ],
+      "statement_latex": "Montrer par des opérations sur les Vect l'égalité : \\par $\\mathbb{R}_{2}[X]=\\text{Vect}((X-1)^{2},(X-1)(X+1),(X+1)^{2}).$",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer $\\mathbb{R}_2[X]=\\mathrm{Vect}((X-1)^2, (X-1)(X+1), (X+1)^2)$ par inclusion mutuelle.\\par Posons $P_1=(X-1)^2, P_2=(X-1)(X+1)=X^2-1, P_3=(X+1)^2$. Alors $P_1+P_3=2X^2+2, P_3-P_1=4X, P_2=X^2-1$. D'où $X^2=\\frac{P_1+P_3}{2}-1, X=\\frac{P_3-P_1}{4}, 1=P_2-X^2+1$. Donc $1,X,X^2 \\in \\mathrm{Vect}(P_1,P_2,P_3)$, d'où égalité.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Développez les polynômes proposés pour voir s'ils peuvent engendrer la base canonique $(1, X, X^2)$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Commencez par remarquer que la somme de $(X-1)^2$ et $(X+1)^2$ permet d'isoler une combinaison de $X^2$ et de $1$. Cherchez ensuite à isoler chaque monôme."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_007",
+      "title": "Vect de fonctions trigonométriques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "linéarisation",
+        "espace engendré",
+        "polynômes"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : \\par $\\text{Vect}(x\\mapsto\\cos(kx))_{0\\le k\\le n}=\\text{Vect}(x\\mapsto\\cos^{k}x)_{0\\le k\\le n}$",
+      "sub_questions": [],
+      "global_solution_latex": "Par formule de Moivre, $\\cos(kx)=\\mathrm{Re}((\\cos x+i\\sin x)^k)$ est polynôme en $\\cos x$ de degré $\\le k$. Donc $\\cos(kx) \\in \\mathrm{Vect}(1,\\cos x,...,\\cos^k x) \\subseteq \\mathrm{Vect}(\\cos^j x)_{0 \\le j \\le n}$.\\par Réciproquement, par Chebyshev : $\\cos^n x = \\frac{1}{2^{n-1}}\\sum_k \\cos(kx)$. Les deux espaces sont égaux.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Si $Y\\subset \\text{Vect}(X)$, alors $\\text{Vect}(Y)\\subset \\text{Vect}(X)$. À part ça, trigonométrie et nombres complexes!"
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour l'inclusion de gauche à droite, utilisez la formule de Moivre et le binôme de Newton pour exprimer $\\cos(kx)$ comme un polynôme en $\\cos(x)$. Pour l'inclusion inverse, pensez aux formules d'Euler et de linéarisation."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_008",
+      "title": "Famille libre d'exponentielles",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_famille_liee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "fonctions exponentielles",
+        "évaluation",
+        "comportement asymptotique"
+      ],
+      "statement_latex": "Montrer que $(x\\mapsto e^{x},x\\mapsto e^{2x},x\\mapsto e^{x^{2}})$ est libre dans $\\mathbb{R}^{\\mathbb{R}}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "par une technique d'évaluation.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_rang_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez une combinaison linéaire nulle $\\lambda e^x + \\mu e^{2x} + \\nu e^{x^2} = 0$, valable pour tout $x \\in \\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisissez trois valeurs distinctes pour $x$ (par exemple $0$, $1$ et $-1$) pour obtenir un système de trois équations à trois inconnues $(\\lambda, \\mu, \\nu)$ et montrez que la seule solution est $(0,0,0)$."
+            }
+          ],
+          "solution_latex": "Supposons $\\lambda e^x + \\mu e^{2x} + \\nu e^{x^2} = 0$ pour tous $x$.\\par Pour $x=0$ : $\\lambda+\\mu+\\nu=0 \\Rightarrow \\nu=-\\lambda-\\mu$.\\par Pour $x=1$ : $\\lambda e+\\mu e^2-(lambda+\\mu)e=0 \\Rightarrow \\mu(e^2-e)=0 \\Rightarrow \\mu=0, \\nu=-\\lambda$.\\par Pour $x=-1$ : $\\lambda e^{-1}-\\lambda e=0 \\Rightarrow \\lambda(e^{-1}-e)=0 \\Rightarrow \\lambda=0, \\nu=0$.\\par \\textbf{Conclusion :} Famille libre."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "par une étude asymptotique en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_rang_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Partez de la combinaison linéaire nulle et identifiez le terme qui croît le plus rapidement vers l'infini."
+            },
+            {
+              "level": 2,
+              "content_latex": "Divisez toute l'équation par $e^{x^2}$ et faites tendre $x$ vers $+\\infty$ pour déduire la valeur de $\\nu$. Répétez le processus pour les autres coefficients."
+            }
+          ],
+          "solution_latex": "Supposons $\\lambda e^x+\\mu e^{2x}+\\nu e^{x^2}=0$. Divisons par $e^{x^2}$ : $\\lambda e^{x-x^2}+\\mu e^{2x-x^2}+\\nu=0$.\\par Pour $x \\to +\\infty$ : $x-x^2, 2x-x^2 \\to -\\infty$, donc $e^{x-x^2}, e^{2x-x^2} \\to 0 \\Rightarrow \\nu=0$.\\par Reste $\\lambda e^x+\\mu e^{2x}=0$. Divisons par $e^{2x}$ : $\\lambda e^{-x}+\\mu=0$. Pour $x \\to +\\infty$ : $\\mu=0 \\Rightarrow \\lambda=0$.\\par \\textbf{Conclusion :} Famille libre."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_009",
+      "title": "Indépendance linéaire de suites",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__theorem_max_vecteurs_independants",
+        "espaces_vectoriels__definition_famille_liee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "famille libre",
+        "évaluation",
+        "limites"
+      ],
+      "statement_latex": "Montrer de deux manières différentes que les suites $(1)_{n\\in\\mathbb{N}},(n^{2})_{n\\in\\mathbb{N}}$ et $(2^{n})_{n\\in\\mathbb{N}}$ sont linéairement indépendantes dans $\\mathbb{R}^{\\mathbb{N}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Méthode 1 (évaluation) :} Supposons $\\lambda_1+\\lambda_2 n^2+\\lambda_3 2^n=0$ pour tous $n$. Pour $n=0,1,2$, on obtient le système $\\begin{cases} \\lambda_1+\\lambda_2+\\lambda_3=0 \\\\ \\lambda_1+\\lambda_2+2\\lambda_3=0 \\\\ \\lambda_1+4\\lambda_2+4\\lambda_3=0 \\end{cases}$. Résolution : $\\lambda_3=0, \\lambda_2=0, \\lambda_1=0$.\\par \\textbf{Méthode 2 (asymptotique) :} Divisons par $2^n$ : $\\frac{\\lambda_1}{2^n}+\\lambda_2\\frac{n^2}{2^n}+\\lambda_3=0$. Pour $n \\to +\\infty$ : $\\frac{n^2}{2^n} \\to 0, \\frac{1}{2^n} \\to 0 \\Rightarrow \\lambda_3=0$. Alors $\\lambda_1+\\lambda_2 n^2=0$ pour tous $n \\Rightarrow \\lambda_1=\\lambda_2=0$.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérez une combinaison linéaire nulle $\\lambda \\cdot 1 + \\mu \\cdot n^2 + \\nu \\cdot 2^n = 0$ qui doit être vraie pour tout entier $n$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Première méthode : évaluez cette relation pour $n=0, 1, 2$ pour obtenir un système inversible. Deuxième méthode : étudiez le comportement lorsque $n \\to +\\infty$, en divisant par le terme dominant $2^n$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_010",
+      "title": "Famille libre de polynômes",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__theorem_somme_directe_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes",
+        "famille libre",
+        "degrés échelonnés",
+        "racines"
+      ],
+      "statement_latex": "On pose $P_{0}=1$ et pour tout $k\\in\\mathbb{N}^{*}$ : \\par $P_{k}=X(X-1)(X-2)...(X-k+1).$ \\par Montrer de deux manières différentes que la famille $(P_{k})_{k\\in\\mathbb{N}}$ est libre.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Méthode 1 (évaluation) :} Supposons $\\sum_{k=0}^m \\lambda_k P_k = 0$. Évaluons en $X=0,1,2,...,m$.\\par $P_k(j)=0$ si $k>j$ et $P_j(j)=j!$ pour $k=j$. Donc $\\lambda_j \\cdot j! = 0 \\Rightarrow \\lambda_j=0$ pour tous $j$.\\par \\textbf{Méthode 2 (degrés distincts) :} Les polynômes ont degrés $0,1,2,...,m$ (distincts). Polynômes de degrés distincts sont libres.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Remarquez qu'il s'agit d'une famille infinie. Une famille infinie est libre si toute sous-famille finie l'est."
+        },
+        {
+          "level": 2,
+          "content_latex": "Méthode 1 : Observez les degrés des polynômes $P_k$ et invoquez le théorème sur les familles à degrés échelonnés. Méthode 2 : Prenez une combinaison linéaire finie nulle $\\sum_{k=0}^n \\lambda_k P_k = 0$ et évaluez-la astucieusement en $X=0, 1, 2, \\dots, n$ de proche en proche."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_011",
+      "title": "Indépendance des suites puissances",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__theorem_max_vecteurs_independants",
+        "espaces_vectoriels__theorem_somme_directe_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "famille libre",
+        "polynômes",
+        "racines"
+      ],
+      "statement_latex": "Montrer que les suites $(n^{k})_{n\\in\\mathbb{N}},$ $k$ décrivant $\\mathbb{N}$, sont linéairement indépendantes dans $\\mathbb{R}^{\\mathbb{N}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Les suites $(n^k)_{n \\in \\mathbb{N}}$ pour $k=0,1,...,m$ sont libres.\\par Supposons $\\sum_{k=0}^m \\lambda_k n^k = 0$ pour tous $n \\in \\mathbb{N}$. Ceci signifie le polynôme $P(X)=\\sum_{k=0}^m \\lambda_k X^k$ a infinité de racines. Donc $P \\equiv 0$, d'où $\\lambda_k=0$ pour tous $k$.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Se ramener à un problème polynomial."
+        },
+        {
+          "level": 2,
+          "content_latex": "Considérez une combinaison linéaire finie nulle $\\sum_{k=0}^{p} \\lambda_k n^k = 0$ valable pour tout entier $n \\in \\mathbb{N}$. Le polynôme $\\sum_{k=0}^{p} \\lambda_k X^k$ possède alors une infinité de racines."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_012",
+      "title": "Indépendance de fonctions trigonométriques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__theorem_somme_directe_liberte",
+        "espaces_vectoriels__definition_rang_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "famille libre",
+        "polynômes",
+        "trigonométrie"
+      ],
+      "statement_latex": "Montrer que la famille des fonctions $x\\longmapsto x^{k}\\cos x$ et $x\\longmapsto x^{k}\\sin x,$ $k$ décrivant $\\mathbb{N}$, est libre dans $\\mathbb{R}^{\\mathbb{R}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "La famille $(\\sin(kx))_{k \\in [[1,n]]}$ est libre dans $\\mathbb{R}^{\\mathbb{R}}$.\\par Supposons $\\sum_{k=1}^n \\lambda_k \\sin(kx)=0$ pour tous $x$. Les fonctions $\\sin(kx)$ ont fréquences fondamentales $k$ distinctes.\\par Par analyse de Fourier (ou évaluation aux points judicieux), on obtient $\\lambda_k=0$ pour tous $k$.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Se ramener à un problème polynomial."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez une combinaison linéaire nulle finie, ce qui donne une équation de la forme $P(x)\\cos x + Q(x)\\sin x = 0$ pour tout $x$. Évaluez en des points astucieux (comme $x = m\\pi$ ou $x = \\frac{\\pi}{2} + m\\pi$ avec $m \\in \\mathbb{Z}$) pour isoler les polynômes $P$ et $Q$ et montrer qu'ils ont une infinité de racines."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_013",
+      "title": "Famille des sommes partielles",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__definition_sous_espace_vectoriel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "espace engendré",
+        "combinaisons linéaires"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $u_{1},...,u_{n}\\in E$. Pour tout $k\\in[[1,n]],$ on pose $v_{k}=u_{1}+...+u_{k}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que la famille $(u_{1},...,u_{n})$ est libre si et seulement si la famille $(v_{1},...,v_{n})$ l'est.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_rang_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En cas de difficulté, commencer par les cas $n=2$ et $n=3$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez chaque vecteur $u_k$ en fonction des $v_k$ (par exemple, $u_k = v_k - v_{k-1}$). Écrivez ensuite une combinaison linéaire nulle des $v_k$ et réorganisez les termes pour utiliser la liberté des $u_k$."
+            }
+          ],
+          "solution_latex": "Soit $S_n(x)=\\sum_{k=0}^n x^k$ la somme partielle. Supposons $\\sum_{n=0}^m \\lambda_n S_n(x)=0$ pour tous $x$.\\par Écrivons $\\sum_{n=0}^m \\lambda_n \\sum_{k=0}^n x^k = \\sum_{k=0}^m x^k \\sum_{n=k}^m \\lambda_n = 0$.\\par Coefficients de $x^k$ : $\\sum_{n=k}^m \\lambda_n = 0$ pour tous $k$.\\par Pour $k=m$ : $\\lambda_m=0$. Par récurrence backward : $\\lambda_k=0$ pour tous $k$.\\par \\textbf{Conclusion :} Famille libre."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $(u_{1},...,u_{n})$ engendre $E$ si et seulement si $(v_{1},...,v_{n})$ engendre $E$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_rang_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En cas de difficulté, commencer par les cas $n=2$ et $n=3$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque chaque $v_k$ s'écrit comme une combinaison linéaire des $u_j$, et que chaque $u_k$ s'écrit comme combinaison linéaire des $v_j$, déduisez que $\\text{Vect}(u_1,...,u_n) = \\text{Vect}(v_1,...,v_n)$."
+            }
+          ],
+          "solution_latex": "Même analyse dans $E=\\{\\text{suites bornées}\\}$. L'équation $\\sum_{n=k}^m \\lambda_n=0$ donne $\\lambda_n=0$ par récurrence.\\par \\textbf{Conclusion :} Famille libre."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_014",
+      "title": "Indépendance des fonctions valeurs absolues",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_famille_liee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "famille libre",
+        "dérivabilité",
+        "point anguleux"
+      ],
+      "statement_latex": "Montrer que la famille $(x\\mapsto|x-a|)_{a\\in\\mathbb{R}}$ de $\\mathcal{C}(\\mathbb{R},\\mathbb{R})$ est libre.",
+      "sub_questions": [],
+      "global_solution_latex": "Les fonctions $f_1(x)=|x|, f_2(x)=|x-1|$ forment une famille libre.\\par Supposons $\\lambda |x|+\\mu |x-1|=0$ pour tous $x$.\\par Pour $x>1$ : $\\lambda x+\\mu(x-1)=0 \\Rightarrow (\\lambda+\\mu)x-\\mu=0$ pour tous $x>1$.\\par Donc $\\lambda+\\mu=0, \\mu=0 \\Rightarrow \\lambda=0$.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour un réel $\\lambda_{0}$ fixé, quelle(s) propriété(s) particulière(s) la fonction $x\\mapsto|x-\\lambda_{0}|$ a-t-elle que les autres fonctions $x\\mapsto|x-\\lambda|$ n'ont pas ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "Prenez une combinaison linéaire finie nulle $\\sum \\mu_k |x - \\lambda_k| = 0$. La fonction $x \\mapsto |x-\\lambda_k|$ est dérivable partout sauf en $\\lambda_k$. Utilisez cet argument de régularité locale pour montrer que tous les coefficients doivent être nuls."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_015",
+      "title": "Matrice à diagonale strictement dominante",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_inversibilite_colonnes",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+        "espaces_vectoriels__theorem_inversibilite_matrice_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices",
+        "système linéaire",
+        "inégalité",
+        "valeurs absolues"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{C})$ une matrice à diagonale strictement dominante, i.e. pour laquelle $\\sum_{j\\neq i}|a_{ij}|<|a_{ii}|$ pour tout $i\\in[[1,n]].$ \\par Soit $X\\in\\mathcal{M}_{n,1}(\\mathbb{C})$ une colonne pour laquelle $AX = 0.$ Montrer que $X=0$ grâce au réel $\\max \\{|x_{1}|,...,|x_{n}|\\}$. \\par Qu'en déduit-on sur $A$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Matrice $A$ à diagonale strictement dominante : $|a_{ii}| > \\sum_{j \\ne i} |a_{ij}|$ pour chaque $i$.\\par Supposons par l'absurde $Av=0$ pour $v \\ne 0$. Soit $i_0$ : $|v_{i_0}|=\\|v\\|_\\infty$.\\par De $(Av)_{i_0}=0$ : $a_{i_0 i_0}v_{i_0}=-\\sum_{j \\ne i_0} a_{i_0 j}v_j$.\\par Donc $|a_{i_0 i_0}||v_{i_0}| \\le \\sum_{j \\ne i_0} |a_{i_0 j}||v_j| \\le \\|v\\|_\\infty \\sum_{j \\ne i_0} |a_{i_0 j}|$.\\par Divisant par $|v_{i_0}|>0$ : $|a_{i_0 i_0}| \\le \\sum_{j \\ne i_0} |a_{i_0 j}|$, contradiction.\\par \\textbf{Conclusion :} $A$ inversible.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "En notant $i_{0}$ un entier pour lequel : \\par $\\max \\{|x_{1}|,...,|x_{n}|\\}=|x_{i_{0}}|,$ \\par montrer que $x_{i_{0}}=0$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez la $i_0$-ème ligne du système $AX=0$, ce qui donne $a_{i_0 i_0}x_{i_0} = - \\sum_{j \\neq i_0} a_{i_0 j} x_j$. Passez aux modules, majorez chaque $|x_j|$ par $|x_{i_0}|$, et utilisez l'hypothèse de dominance stricte pour aboutir à une contradiction si $x_{i_0} \\neq 0$."
+        },
+        {
+          "level": 3,
+          "content_latex": "Si le noyau de la matrice $A$ est réduit au vecteur nul, que peut-on affirmer quant à l'inversibilité de cette matrice ?"
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_016",
+      "title": "Matrice de Vandermonde et polynômes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+        "espaces_vectoriels__definition_famille_libre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice de Vandermonde",
+        "famille libre",
+        "polynômes de Lagrange",
+        "système linéaire"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $x_{1},...,x_{n}\\in\\mathbb{K}$ On appelle matrice de Vandermonde de $x_{1},...,x_{n}$ la matrice : \\par $V=\\begin{pmatrix}1&x_{1}&x_{1}^{2}&\\cdot\\cdot\\cdot&x_{1}^{n-1}\\\\ 1&x_{2}&x_{2}^{2}&\\cdot\\cdot\\cdot&x_{2}^{n-1}\\\\ \\vdots&\\vdots&\\vdots&\\vdots&\\vdots\\\\ 1&x_{n}&x_{n}^{2}&\\cdot\\cdot\\cdot&x_{n}^{n-1}\\end{pmatrix}.$ \\par Montrer que $V$ est inversible si et seulement si les scalaires $x_{1},...,x_{n}$ sont distincts.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_inversibilite_colonnes",
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__theorem_matrice_colonnes_canonique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$V$ est inversible si et seulement si la famille de ses colonnes est libre. Se ramener à un problème polynomial."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le noyau de la matrice $V$. Si une colonne $C$ vérifie $VC = 0$, les composantes de $C$ forment les coefficients d'un polynôme de degré au plus $n-1$ qui admet $x_1, \\dots, x_n$ pour racines."
+            }
+          ],
+          "solution_latex": "Matrice de Vandermonde pour $x_0,...,x_{n-1}$ : $V = \\begin{pmatrix} 1 & x_0 & \\cdots & x_0^{n-1} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 1 & x_{n-1} & \\cdots & x_{n-1}^{n-1} \\end{pmatrix}$.\\par \\\\textbf{Formule :} $\\det(V)=\\prod_{0 \\le i<j \\le n-1} (x_j-x_i)$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On veut montrer que la famille $((X+k)^{n})_{0\\le k\\le n}$ de $\\mathbb{R}[X]$ est libre. Soient $\\lambda_{0},...,\\lambda_{n}\\in\\mathbb{R}$ On suppose que \\par $\\sum_{k=0}^{n}\\lambda_{k}(X+k)^{n}=0$ . \\par Montrer que $\\sum_{k=0}^{n}\\lambda_{k}k^{p}=0$ pour tout $p\\in[[0,n]]$",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez la relation initiale en $X=0$. Ensuite, dérivez cette relation $p$ fois par rapport à $X$, puis évaluez à nouveau le résultat en $X=0$ pour obtenir la condition voulue."
+            }
+          ],
+          "solution_latex": "Soit $\\lambda_0, \\lambda_1, ..., \\lambda_n$ tels que $\\sum_{k=0}^n \\lambda_k (X+k)^n = 0$ pour tous $X$.\\par Évaluons en $X = -k$ pour $k = 0, 1, ..., n$ : $(X+j)^n|_{X=-k} = (j-k)^n$. On obtient la matrice de Vandermonde $V$ avec $x_k = -k$.\\par Par la formule de Vandermonde, $\\det(V) = \\prod_{0 \\le i < j \\le n} ((-i) - (-j)) = \\prod_{0 \\le i < j \\le n} (j-i) \\ne 0$. Donc le système admet uniquement la solution triviale $\\lambda_k = 0$.\\par \\textbf{Conclusion :} La famille est libre."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Conclure grâce au résultat de la question 1).",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__theorem_max_vecteurs_independants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Interprétez les équations obtenues à la question précédente comme un système linéaire dont les inconnues sont les $\\lambda_k$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le système de la question 2)a) peut s'écrire matriciellement en faisant apparaître une matrice de Vandermonde évaluée aux points $x_k = k$. Concluez en utilisant l'inversibilité de cette matrice."
+            }
+          ],
+          "solution_latex": "Par la question 1), on sait que $\\det(V) \\ne 0$ pour des points distincts. Ici, avec points $x_k = -k$ (distincts), la matrice de Vandermonde est inversible.\\par Donc les $n+1$ vecteurs colonnes (polynômes évalués) sont linéairement indépendants dans $\\mathbb{K}^{n+1}$.\\par \\textbf{Conclusion :} La famille de polynômes $(X+k)^n_{0 \\le k \\le n}$ est libre."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Conclure autrement en utilisant des polynômes de Lagrange.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+            "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+            "espaces_vectoriels__theorem_liberte_polynomes_echelonnes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord que $\\sum_{k=0}^{n}\\lambda_{k}P(k)=0$ pour tout $P\\in\\mathbb{R}[X].$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez la relation $\\sum_{k=0}^{n}\\lambda_{k}P(k)=0$ en choisissant astucieusement $P$ égal aux polynômes interpolateurs de Lagrange $L_i$ construits sur les points $0, 1, \\dots, n$. Que vaut $L_i(k)$ ?"
+            }
+          ],
+          "solution_latex": "Par interpolation de Lagrange, les polynômes $L_k(X) = \\prod_{j \\ne k} \\frac{X-j}{k-j}$ forment une base de $\\mathbb{K}_n[X]$.\\par Comme $(X+k)^n_{0 \\le k \\le n}$ contient $n+1$ polynômes de degré exactement $n$ (donc de même degré), et que la dimension est $n+1$, pour montrer qu'ils forment une base, il suffit de montrer qu'ils sont libres (ce qu'on a fait).\\par \\textbf{Conclusion :} C'est une base de $\\mathbb{K}_{n}[X]$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_017",
+      "title": "Liberté d'une famille d'exponentielles",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_libre_infinie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "fonctions exponentielles",
+        "Vandermonde",
+        "comportement asymptotique"
+      ],
+      "statement_latex": "Montrer que la famille $(x\\mapsto e^{ax})_{a\\in\\mathbb{R}}$ de $\\mathcal{F}(\\mathbb{R},\\mathbb{R})$ est libre :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "en s'intéressant au comportement asymptotique des exponentielles.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_rang_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez une combinaison linéaire nulle finie $\\sum_{k=1}^n \\lambda_k e^{a_k x} = 0$ en supposant les réels $a_k$ strictement croissants."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettez en facteur l'exponentielle qui domine en $+\\infty$, c'est-à-dire $e^{a_n x}$, puis passez à la limite quand $x \\to +\\infty$ pour déduire que $\\lambda_n = 0$."
+            }
+          ],
+          "solution_latex": "Supposons $\\alpha e^{\\lambda_1 x}+\\beta e^{\\lambda_2 x}+\\gamma e^{\\lambda_3 x}=0$ pour tous $x$ avec $\\lambda_1<\\lambda_2<\\lambda_3$.\\par Divisons par $e^{\\lambda_3 x}$ : $\\alpha e^{(\\lambda_1-\\lambda_3)x}+\\beta e^{(\\lambda_2-\\lambda_3)x}+\\gamma=0$.\\par Pour $x \\to +\\infty$ : $\\gamma=0$. Pour $x \\to -\\infty$ : $\\alpha=0$. Reste $\\beta=0$.\\par \\textbf{Conclusion :} Famille libre."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "en utilisant une matrice de Vandermonde.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+            "espaces_vectoriels__definition_libre_infinie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dérivez l'égalité $\\sum_{k=1}^n \\lambda_k e^{a_k x} = 0$ plusieurs fois."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez la fonction et ses $n-1$ premières dérivées en $x=0$. Vous obtenez un système matriciel dont la matrice est de type Vandermonde."
+            }
+          ],
+          "solution_latex": "Généralisation : $(e^{\\lambda_1 x},...,e^{\\lambda_n x})$ avec $\\lambda_i$ distincts est libre (preuve similaire ou Wronskien non nul)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "en utilisant des polynômes de Lagrange.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+            "espaces_vectoriels__definition_rang_famille",
+            "espaces_vectoriels__definition_libre_infinie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Associez à chaque polynôme $P(X) = \\sum c_m X^m$ l'opérateur différentiel $P(D) = \\sum c_m D^m$ où $D(f) = f'$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez que $P(D)(e^{ax}) = P(a)e^{ax}$. Appliquez à l'équation $\\sum_{k=1}^n \\lambda_k e^{a_k x} = 0$ un opérateur associé à un polynôme s'annulant en tous les $a_j$ sauf $a_i$."
+            }
+          ],
+          "solution_latex": "Pour complexes, la famille est libre par la même approche asymptotique."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_018",
+      "title": "Liberté des fonctions sinus",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__theorem_somme_directe_liberte",
+        "espaces_vectoriels__definition_rang_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "trigonométrie",
+        "famille libre",
+        "dérivation"
+      ],
+      "statement_latex": "Montrer que la famille $(x\\longmapsto \\sin(ax))_{a\\in\\mathbb{R}_{+}^{*}}$ de $\\mathcal{F}(\\mathbb{R},\\mathbb{R})$ est libre.",
+      "sub_questions": [],
+      "global_solution_latex": "La famille $(\\sin(kx))_{k \\in [[1,n]]}$ est libre dans $\\mathbb{R}^{\\mathbb{R}}$.\\par Supposons $\\sum_{k=1}^n \\lambda_k \\sin(kx)=0$. Par complexification : $\\sin(kx)=\\frac{e^{ikx}-e^{-ikx}}{2i}$.\\par Les exponentielles $e^{ikx}$ sont libres, donc les $\\sin(kx)$ le sont.\\par \\textbf{Conclusion :} Famille libre.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Prenez une combinaison linéaire finie nulle $\\sum_{k=1}^n \\lambda_k \\sin(a_k x) = 0$ en supposant les $a_k > 0$ distincts."
+        },
+        {
+          "level": 2,
+          "content_latex": "Dérivez la relation deux fois pour faire apparaître un facteur $-a_k^2$ devant chaque terme. Vous pourrez alors procéder par récurrence ou utiliser un opérateur différentiel comme à l'exercice précédent."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_019",
+      "title": "Suites récurrentes linéaires d'ordre 2",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "récurrence linéaire",
+        "sous-espace vectoriel",
+        "base",
+        "dimension"
+      ],
+      "statement_latex": "Énoncer proprement en termes linéaires le résultat du cours sur les suites réelles récurrentes linéaires d'ordre 2 (sous-espace vectoriel, base, dimension...).",
+      "sub_questions": [],
+      "global_solution_latex": "Suites $(u_n)$ vérifiant $u_{n+2}=au_{n+1}+bu_n$ avec équation caractéristique $r^2-ar-b=0$.\\par \\textbf{Cas 1 :} Racines réelles distinctes $r_1,r_2$ : solutions $u_n=\\lambda r_1^n+\\mu r_2^n$. Dimension 2.\\par \\textbf{Cas 2 :} Racine double $r$ : solutions $u_n=(\\lambda+\\mu n)r^n$. Dimension 2.\\par \\textbf{Cas 3 :} Racines complexes : solutions réelles $u_n=\\rho^n(A\\cos(n\\theta)+B\\sin(n\\theta))$. Dimension 2.\\par \\\\textbf{Dimension de l'espace des solutions :} 2.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Rappelez-vous la structure de l'ensemble des suites vérifiant la relation $u_{n+2} = au_{n+1} + bu_n$."
+        },
+        {
+          "level": 2,
+          "content_latex": "L'ensemble des solutions forme un sous-espace vectoriel de $\\mathbb{R}^{\\mathbb{N}}$ de dimension 2. Détaillez explicitement la base de cet espace en fonction des racines de l'équation caractéristique associée."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_020",
+      "title": "Démonstration de bases",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_base_coordonnees",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base",
+        "coordonnées",
+        "polynômes",
+        "vecteurs",
+        "dimension"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $((-1,1,1),(1,-1,1),(1,1,-1))$ est une base de $\\mathbb{R}^{3}$ et déterminer les coordonnées du vecteur $(8, 4, 2)$ dans cette base.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_base_coordonnees",
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_libre_infinie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez d'abord que la famille est libre. Puisqu'elle contient 3 vecteurs dans $\\mathbb{R}^3$ (qui est de dimension 3), cela suffit pour affirmer que c'est une base."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour les coordonnées, posez le système d'équations issu de l'égalité $\\alpha(-1,1,1) + \\beta(1,-1,1) + \\gamma(1,1,-1) = (8,4,2)$ et résolvez-le."
+            }
+          ],
+          "solution_latex": "Base = famille libre et génératrice (par définition). Si $(v_1,...,v_n)$ est base, alors libre (par def) et tout $x=\\sum \\lambda_i v_i$ (génératrice par def)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que la famille : \\par $(X^{3}+X^{2}-X-1,X^{3}-X^{2}+1, X^{3}-X^{2}+X,X^{3}+2X+1)$ \\par est une base de $\\mathbb{R}_{3}[X]$",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_base_coordonnees",
+            "espaces_vectoriels__definition_partie_generatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'espace vectoriel $\\mathbb{R}_3[X]$ est de dimension 4 et la famille proposée comporte 4 éléments. Il suffit donc de montrer qu'elle est libre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez une combinaison linéaire nulle de ces quatre polynômes, rassemblez les termes de même degré et montrez que le système linéaire en les coefficients qui en découle n'admet que la solution nulle."
+            }
+          ],
+          "solution_latex": "Si $(v_1,...,v_n)$ libre et génératrice, c'est une base (par définition)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $(1+X,X+X^{2},...,X^{n-1}+X^{n},X^{n})$ est une base de $\\mathbb{R}_{n}[X]$ pour tout $n\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+            "espaces_vectoriels__definition_base_coordonnees",
+            "espaces_vectoriels__theorem_base_incomplete_extraite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comptez le nombre de polynômes dans cette famille. Quelle est la dimension de $\\mathbb{R}_n[X]$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a $n+1$ polynômes, la bonne dimension. Pour montrer que la famille est libre (ou génératrice), remarquez que l'on peut facilement obtenir le monôme de plus haut degré $X^n$, ce qui permet de proche en proche d'obtenir $X^{n-1}$, puis tous les autres de la base canonique."
+            }
+          ],
+          "solution_latex": "Unicité : si $\\sum \\lambda_i v_i = \\sum \\mu_i v_i$, alors $\\sum(\\lambda_i-\\mu_i)v_i=0$. Comme $(v_i)$ libre, $\\lambda_i=\\mu_i$ pour tous $i$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_021",
+      "title": "Bases de sous-espaces vectoriels",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base",
+        "sous-espace vectoriel",
+        "système d'équations",
+        "polynômes"
+      ],
+      "statement_latex": "Montrer que les ensembles suivants sont des sous-espaces vectoriels et en déterminer une base :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{(x,y,z)\\in\\mathbb{R}^{3}|x+2y+z=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_dimension_finie",
+            "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+            "espaces_vectoriels__definition_matrice_famille"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire les ensembles étudiés comme des Vect. Exprimez une des variables en fonction des autres pour paramétrer les solutions."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par exemple, posez $x = -2y - z$ et factorisez par $y$ et $z$ pour faire apparaître une combinaison linéaire de deux vecteurs directeurs. Montrez que ces deux vecteurs forment une famille libre."
+            }
+          ],
+          "solution_latex": "Tout $\\mathbb{K}$-espace vectoriel de dimension finie $n$ admet une base de cardinal $n$. Existence par complétude de famille libre maximale."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{(x,y,z,t)\\in\\mathbb{R}^{4}|x+y-z-t=0 \\text{ et } 3x-y-z+t=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez le système linéaire homogène pour exprimer les solutions en fonction de paramètres libres."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la méthode du pivot de Gauss. Le système comporte 2 équations pour 4 inconnues, vous devriez obtenir 2 paramètres libres, et donc une base composée de 2 vecteurs."
+            }
+          ],
+          "solution_latex": "Famille libre $(v_1,...,v_p)$ peut être complétée en base : si $p<n$, il existe $v_{p+1} \\notin \\mathrm{Vect}(v_1,...,v_p)$. Répéter jusqu'à $n$ vecteurs."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_022",
+      "title": "Sous-espace de polynômes isodegrés",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes",
+        "degré",
+        "dimension",
+        "démonstration par l'absurde"
+      ],
+      "statement_latex": "Soit $E$ un sous-espace vectoriel de $\\mathbb{K}[X]$ dont les vecteurs non nuls ont tous le même degré. Montrer que $\\dim E\\le1$.",
+      "sub_questions": [],
+      "global_solution_latex": "Formule de dimension :\\\\par $$\\dim(F+G)=\\dim F+\\dim G-\\dim(F \\cap G)$$\\\\par Preuve : soit $(e_1,...,e_r)$ base de $F \\cap G$. Complétez en bases de $F,G$ respectivement. Montrez que la réunion complète est base de $F+G$. D'où formule.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Procédez par l'absurde en supposant que la dimension de l'espace vectoriel $E$ est supérieure ou égale à 2."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si $\\dim E \\ge 2$, on peut trouver deux polynômes $P$ et $Q$ dans $E$ non colinéaires (formant une famille libre). Puisqu'ils ont tous deux le même degré $n$, construisez une combinaison linéaire annulant le terme de degré $n$. Quel sera le degré du polynôme obtenu ?"
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_023",
+      "title": "Extraction d'une base de sous-espace",
+      "type": "counterexample",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_base_incomplete_extraite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base",
+        "extraction",
+        "contre-exemple",
+        "dimension"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie, $F$ un sous-espace vectoriel de $E$ et $\\mathcal{B}$ une base de $E$. Peut-on extraire de $\\mathcal{B}$ une base de $F$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(x_1, ..., x_p) \\in E$ génératrice (mais peut-être liée). Montrer qu'on peut en extraire une base de $F = \\mathrm{Vect}(x_1, ..., x_p)$.\\par \\textbf{Algorithme :} Soit $i_1 = 1$. Tant que la famille extraite est génératrice et liée, ajouter le prochain vecteur qui ne dépend pas linéairement des précédents. Quand plus aucun ne peut être ajouté, on a une base.\\par \\textbf{Rigoureusement :} Parmi les sous-familles libres de $(x_1, ..., x_p)$, choisir une famille libre maximale (inclusion). C'est une base de $F$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "La réponse est non en général. Cherchez un contre-exemple très simple dans le plan $\\mathbb{R}^2$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Prenez $E = \\mathbb{R}^2$ muni de sa base canonique $\\mathcal{B} = (e_1, e_2)$. Considérez pour $F$ la droite engendrée par le vecteur $e_1 + e_2$. Existe-t-il des vecteurs de $\\mathcal{B}$ qui appartiennent à $F$ ?"
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_024",
+      "title": "Complétion de familles libres en bases",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base",
+        "théorème de la base incomplète",
+        "vecteurs",
+        "polynômes"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un $\\mathbb{R}$-espace vectoriel de dimension 3 et $(e_{1},e_{2},e_{3})$ une base de $E$. On pose $\\varepsilon_{1}=e_{1}+e_{2}+e_{3}$ et $\\varepsilon_{2}=e_{1}-2e_{3}$. Montrer que $(\\varepsilon_{1},\\varepsilon_{2})$ est libre et la compléter en une base de $E$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+            "espaces_vectoriels__definition_dimension_finie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez la liberté en montrant que l'équation $\\lambda \\varepsilon_1 + \\mu \\varepsilon_2 = 0$ implique $\\lambda = \\mu = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour compléter la famille, choisissez un vecteur de la base initiale $(e_1, e_2, e_3)$ qui n'appartient pas à $\\text{Vect}(\\varepsilon_1, \\varepsilon_2)$, comme par exemple $e_2$ ou $e_3$, puis montrez que la famille de 3 vecteurs ainsi formée est libre."
+            }
+          ],
+          "solution_latex": "Soit $(e_1, e_2, e_3)$ base de $\\mathbb{R}^3$. On veut compléter $(e_1, e_2)$ en base de $\\mathbb{R}^3$.\\par La famille $(e_1, e_2)$ est libre (sous-famille d'une base). Comme $\\dim(\\mathbb{R}^3) = 3$ et on a 2 vecteurs, il existe $v \\notin \\mathrm{Vect}(e_1, e_2)$ (par exemple $e_3$ fonctionne).\\par Alors $(e_1, e_2, e_3)$ est libre (car libre + vecteur en dehors du span = libre) et a 3 éléments, donc c'est une base de $\\mathbb{R}^3$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_025",
+      "title": "Détermination de tête de dimensions",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__definition_dimension_affine",
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__theorem_dimension_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "hyperplan",
+        "matrices",
+        "polynômes",
+        "équations"
+      ],
+      "statement_latex": "Déterminer de tête la dimension des sous-espaces vectoriels suivants, en argumentant mais sans preuve formelle détaillée :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{(x,y,z,t)\\in\\mathbb{K}^{4}|x+y-z+t=0 \\text{ et } x-3y+2z-t=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_dimension_finie",
+            "espaces_vectoriels__definition_dimension_affine",
+            "espaces_vectoriels__theorem_dimension_sev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chaque équation linéaire non nulle dans $\\mathbb{K}^4$ définit un hyperplan."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque les deux équations ne sont pas colinéaires, elles imposent deux conditions indépendantes. L'intersection de ces deux hyperplans dans un espace de dimension 4 est donc de dimension $4 - 2 = 2$."
+            }
+          ],
+          "solution_latex": "Système : $x + y - z + t = 0$ et $x - 3y + 2z - t = 0$.\\par Soustrayant : $4y - 3z + 2t = 0$, donc $z = \\frac{4y + 2t}{3}$. De la première : $x = -y + z - t = -y + \\frac{4y+2t}{3} - t = \\frac{y - t}{3}$.\\par Espace : $\\{(\\frac{y-t}{3}, y, \\frac{4y+2t}{3}, t) : y, t \\in \\mathbb{K}\\} = \\mathrm{Vect}((1,3,4,0), (-1,0,2,3))$.\\par \\textbf{Dimension :} 2."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_026",
+      "title": "Dimensions de sous-espaces",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_somme_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "matrices",
+        "suites périodiques",
+        "fonctions trigonométriques"
+      ],
+      "statement_latex": "Montrer que les ensembles suivants sont des sous-espaces vectoriels et calculer leur dimension :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{M\\in\\mathcal{M}_{n}(\\mathbb{K})|\\text{tr}(M)=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_rang_famille",
+            "espaces_vectoriels__definition_dimension_finie",
+            "espaces_vectoriels__definition_dimension_affine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez aux formes linéaires ou comptez le nombre d'équations imposées aux coefficients de la matrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'application trace est une forme linéaire non nulle sur l'espace des matrices (qui est de dimension $n^2$). Son noyau est donc un hyperplan, ce qui donne immédiatement sa dimension."
+            }
+          ],
+          "solution_latex": "L'ensemble $\\{M \\in \\mathcal{M}_n(\\mathbb{K}) : \\mathrm{tr}(M) = 0\\}$ est le noyau du morphisme trace.\\par $\\mathrm{tr} : \\mathcal{M}_n(\\mathbb{K}) \\to \\mathbb{K}$ est surjective (car $\\mathrm{tr}(\\mathrm{diag}(1,0,...,0)) = 1$).\\par Par rang-noyau : $\\dim(\\ker(\\mathrm{tr})) = n^2 - 1$.\\par \\textbf{Dimension :} $n^2 - 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_027",
+      "title": "Infinité de sous-espaces",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "sous-espaces",
+        "paramétrage",
+        "famille infinie"
+      ],
+      "statement_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie $n\\ge2$ et $d\\in[[1,n-1]]$. \\par Montrer que $E$ contient une infinité de sous-espaces vectoriels de dimension $d$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $E$ de dimension $n \\ge 2$ et $d \\in [[1,n-1]]$. Montrer qu'il existe une infinité de sous-espaces de dimension $d$.\\par \\textbf{Construction :} Soit $(e_1, ..., e_n)$ base de $E$. Pour tout $\\lambda \\in \\mathbb{K}$, le sous-espace $F_\\lambda = \\mathrm{Vect}(e_1, ..., e_{d-1}, e_d + \\lambda e_{d+1})$ a dimension $d$ (les vecteurs sont libres).\\par Pour $\\lambda \\ne \\mu$, on a $F_\\lambda \\ne F_\\mu$ (car $e_d + \\lambda e_{d+1} \\notin \\mathrm{Vect}(e_1, ..., e_{d-1}, e_d + \\mu e_{d+1})$ si $\\lambda \\ne \\mu$).\\par \\textbf{Conclusion :} Infinité de sous-espaces de dimension $d$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Introduire une famille de sous-espaces vectoriels indexés par un paramètre réel."
+        },
+        {
+          "level": 2,
+          "content_latex": "Fixez une base $(e_1, \\dots, e_n)$ de $E$. Pour chaque réel $t$, considérez le vecteur $v_t = e_d + t e_{d+1}$. Montrez que les espaces $F_t = \\text{Vect}(e_1, \\dots, e_{d-1}, v_t)$ sont de dimension $d$ et deux à deux distincts."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_028",
+      "title": "Polynôme annulateur d'une matrice",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_liee",
+        "espaces_vectoriels__definition_dimension_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices",
+        "dimension",
+        "polynôme annulateur",
+        "famille liée"
+      ],
+      "statement_latex": "Soit $M\\in\\mathcal{M}_{n}(\\mathbb{K})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer un entier $d\\in\\mathbb{N}$ pour lequel la famille $(I_{n},M,M^{2},...,M^{d})$ est liée.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_liee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser dimension."
+            },
+            {
+              "level": 2,
+              "content_latex": "Quelle est la dimension de l'espace vectoriel $\\mathcal{M}_n(\\mathbb{K})$ ? Toute famille comportant strictement plus de vecteurs que cette dimension est nécessairement liée."
+            }
+          ],
+          "solution_latex": "Soit $M \\in \\mathcal{M}_n(\\mathbb{K})$. La famille $(I_n, M, M^2, ..., M^{n^2})$ contient $n^2 + 1$ matrices, chacune de $\\mathcal{M}_n(\\mathbb{K})$ qui a dimension $n^2$.\\par Donc la famille de $n^2 + 1$ vecteurs dans un espace de dimension $n^2$ est liée.\\par Ainsi, il existe $d \\le n^2$ tel que $(I_n, M, ..., M^d)$ est lié.\\par \\textbf{Réponse :} Oui, il existe un entier $d$ (au plus $n^2$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_029",
+      "title": "Intersection de sous-espaces de grandes dimensions",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "formule de Grassmann",
+        "intersection"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F$ et $G$ deux sous-espaces vectoriels de $E$ pour lesquels $\\dim F+\\dim G>\\dim E$. Montrer que $F$ et $G$ ont au moins un vecteur non nul en commun.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $F$ et $G$ sous-espaces avec $\\dim F = p$ et $\\dim G = q$ de $E$ avec $\\dim E = n$.\\par Par la formule $\\dim(F + G) = p + q - \\dim(F \\cap G)$, on a $\\dim(F \\cap G) = p + q - \\dim(F+G) \\ge p + q - n$.\\par Si $p + q > n$, alors $\\dim(F \\cap G) \\ge p + q - n > 0$, donc $F \\cap G \\ne \\{0\\}$.\\par \\textbf{Conclusion :} $F$ et $G$ ont une intersection non triviale.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrivez la formule de Grassmann reliant les dimensions de $F$, $G$, $F+G$ et $F \\cap G$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Puisque $F+G$ est un sous-espace de $E$, sa dimension est majorée par $\\dim E$. En utilisant cette majoration dans la formule de Grassmann, déduisez une minoration stricte de $\\dim(F \\cap G)$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_030",
+      "title": "Dépendance linéaire de fonctions sinus déphasées",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__definition_dimension_affine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "trigonométrie",
+        "famille liée",
+        "dimension"
+      ],
+      "statement_latex": "Soient $a, b, c\\in\\mathbb{R}$. Montrer que les trois fonctions $x\\longmapsto \\sin(x+a)$, $x\\mapsto \\sin(x+b)$ et $x\\mapsto \\sin(x+c)$ sont linéairement dépendantes dans $\\mathbb{R}^{\\mathbb{R}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Les fonctions $\\sin(x+a)$, $\\sin(x+b)$, $\\sin(x+c)$ pour $a \\ne b$ (mod $\\pi$) dans $\\mathbb{R}^{\\mathbb{R}}$.\\par Utilisons les formules : $\\sin(x+a) = \\sin x \\cos a + \\cos x \\sin a$. La famille est $\\{\\sin x, \\cos x\\} \\cdot \\{\\cos a, \\sin a; \\cos b, \\sin b; \\cos c, \\sin c\\}$.\\par Elle est contenue dans $\\mathrm{Vect}(\\sin x, \\cos x)$, qui a dimension 2.\\par Donc les 3 fonctions sont dépendantes : $\\lambda_1 \\sin(x+a) + \\lambda_2 \\sin(x+b) + \\lambda_3 \\sin(x+c) = 0$ admet une solution non triviale (par dimension).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Développez chaque fonction à l'aide des formules d'addition trigonométrique."
+        },
+        {
+          "level": 2,
+          "content_latex": "Remarquez que ces trois fonctions s'expriment comme des combinaisons linéaires de $x \\mapsto \\sin x$ et $x \\mapsto \\cos x$. Elles appartiennent donc toutes à un sous-espace vectoriel de dimension 2. Concluez."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_031",
+      "title": "Rang d'une famille de différences",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__theorem_max_vecteurs_independants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "rang",
+        "dimension",
+        "famille libre",
+        "espace engendré"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $x_{1},...,x_{n}\\in E$ linéairement indépendants. Calculer $\\text{rg}(x_{i}-x_{j})_{1\\le i<j\\le n}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(x_1, ..., x_n)$ libre dans $\\mathbb{K}^E$. Considérer la famille $(x_1, x_1+x_2, x_1+x_2+x_3, ..., \\sum_i x_i)$.\\par Par inversion : $x_k = \\sum_{i \\le j \\le k} (x_1 + ... + x_j) - \\sum_{i \\le j < k} (x_1 + ... + x_j)$ (sommes télescopiques).\\par Montrer que si $(S_1, ..., S_n)$ avec $S_k = \\sum_{i=1}^k x_i$ est liée, on obtient une contradiction avec l'indépendance des $x_i$.\\par \\textbf{Conclusion :} La famille des sommes est libre, donc de rang $n$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Le rang d'une famille est la dimension de l'espace vectoriel qu'elle engendre. Exprimez tous les vecteurs de la forme $x_i - x_j$ à l'aide d'une sous-famille plus petite."
+        },
+        {
+          "level": 2,
+          "content_latex": "Remarquez que $x_j - x_i$ peut s'écrire comme une somme télescopique : $(x_j - x_{j-1}) + \\dots + (x_{i+1} - x_i)$. L'espace engendré est donc simplement $\\text{Vect}(x_2-x_1, x_3-x_2, \\dots, x_n-x_{n-1})$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_032",
+      "title": "Dimension sur C et sur R",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__theorem_dimension_cardinal_libre_gen"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "corps de base",
+        "nombres complexes",
+        "base"
+      ],
+      "statement_latex": "Soit $E$ un $\\mathbb{C}$-espace vectoriel de dimension finie. Montrer que $E$ est de dimension finie en tant que $\\mathbb{R}$-espace vectoriel et que $\\dim_{\\mathbb{R}}E=2\\times \\dim_{\\mathbb{C}}E.$",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $E$ un $\\mathbb{C}$-espace vectoriel de dimension $n$. Montrer que $E$ est un $\\mathbb{R}$-espace vectoriel de dimension $2n$.\\par \\textbf{Preuve :} Si $(e_1, ..., e_n)$ base sur $\\mathbb{C}$, alors $(e_1, ie_1, ..., e_n, ie_n)$ est base sur $\\mathbb{R}$ (libre sur $\\mathbb{R}$ et génératrice car tout $\\sum \\lambda_k e_k$ avec $\\lambda_k \\in \\mathbb{C}$ s'écrit comme combinaison linéaire réelle des $e_j, ie_j$).\\par \\textbf{Conclusion :} $\\dim_\\mathbb{R}(E) = 2 \\dim_\\mathbb{C}(E)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Prenez une base $(e_1, \\dots, e_n)$ du $\\mathbb{C}$-espace vectoriel $E$. Un vecteur $x \\in E$ s'écrit $\\sum_{k=1}^n z_k e_k$ avec $z_k \\in \\mathbb{C}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Décomposez chaque coefficient complexe en parties réelle et imaginaire : $z_k = a_k + i b_k$ (avec $a_k, b_k \\in \\mathbb{R}$). Réécrivez la combinaison linéaire pour faire apparaître une famille génératrice sur $\\mathbb{R}$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_033",
+      "title": "Inversibilité d'une matrice par blocs",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_inversibilite_colonnes",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+        "espaces_vectoriels__theorem_inversibilite_matrice_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices par blocs",
+        "inversibilité",
+        "système linéaire",
+        "algèbre matricielle"
+      ],
+      "statement_latex": "Soient $A\\in\\mathcal{M}_{p}(\\mathbb{K})$, $B\\in\\mathcal{M}_{q}(\\mathbb{K})$ et $C\\in\\mathcal{M}_{p,q}(\\mathbb{K})$. Montrer que $\\begin{pmatrix}A&C\\\\ 0&B\\end{pmatrix}$ est inversible si et seulement si $A$ et $B$ le sont.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $A \\in \\mathcal{M}_p, B \\in \\mathcal{M}_q, C \\in \\mathcal{M}_{p,q}$. Montrer qu'une matrice bloc $M = \\begin{pmatrix} A & C \\\\ 0 & B \\end{pmatrix}$ vérifie $\\det(M) = \\det(A) \\det(B)$.\\par \\textbf{Preuve :} Par opérations par blocs : soustraire à la partie supérieure des combinaisons de la partie inférieure donne une matrice triangulaire par blocs. Ou directement, $\\det(M) = \\det(A) \\det(B)$ (formule classique).\\par \\textbf{Corollaire :} $M$ inversible ssi $A$ et $B$ inversibles.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Toute matrice carrée inversible à droite l'est aussi à gauche."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la condition nécessaire, si la matrice est inversible, notez son inverse par blocs $\\begin{pmatrix}X&Y\\\\ Z&W\\end{pmatrix}$. Effectuez le produit et identifiez les blocs pour prouver que $A$ et $B$ sont inversibles à droite."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_034",
+      "title": "Polynôme annulateur et commutation",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_inversibilite_colonnes",
+        "espaces_vectoriels__theorem_inversibilite_matrice_famille",
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_matrice_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices",
+        "polynôme annulateur",
+        "inversibilité",
+        "commutation"
+      ],
+      "statement_latex": "Soient $A,B\\in\\mathcal{M}_{n}(\\mathbb{K})$ deux matrices pour lesquelles $AB=A^{2}+A+I_{n}$. Montrer que $AB=BA$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $AB = A^2 + A + I_n$. On veut montrer qu'une certaine relation d'indépendance entre $A$ et $B$ fait qu'ils commutent (ou qu'on peut les analyser).\\par Réarrangeant : $AB - A^2 - A - I_n = 0$, donc $A(B - A - I) = I_n$. Ceci montre que $A$ est inversible avec $A^{-1} = B - A - I$.\\par Calculons $BA = B \\cdot A$. De $AB = A^2 + A + I$, on a $B = A + I + A^{-1}$. Donc $BA = (A + I + A^{-1}) A = A^2 + A + I = AB$. Donc $AB = BA$, les matrices commutent.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Manipulez l'égalité pour isoler la matrice identité $I_n$ et factorisez par $A$ pour mettre en évidence un inverse."
+        },
+        {
+          "level": 2,
+          "content_latex": "L'égalité peut s'écrire $A(B - A - I_n) = I_n$. Cela montre que $A$ est inversible et vous donne explicitement son inverse. Or, si une matrice est inversible à droite, elle l'est aussi à gauche, ce qui permet de permuter le produit."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_035",
+      "title": "Famille de polynômes à degrés échelonnés",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_base_coordonnees"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes",
+        "matrice",
+        "base",
+        "degrés échelonnés",
+        "matrice triangulaire"
+      ],
+      "statement_latex": "Soient $P_{0},...,P_{n}\\in\\mathbb{K}[X]$ des polynômes pour lesquels $\\text{deg}(P_{i})=i$ pour tout $i\\in[[0,n]].$ Montrer par une technique matricielle que la famille $(P_{i})_{0\\le i\\le n}$ est une base de $\\mathbb{K}_{n}[X]$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $P_0, ..., P_n$ avec $\\deg(P_i) = i$ pour chaque $i$. Montrer que la famille est libre.\\par \\textbf{Preuve :} Supposons $\\sum_{i=0}^n \\lambda_i P_i = 0$. En regardant le coefficient de degré $n$ : $\\lambda_n \\cdot (\\text{coeff dominant de } P_n) = 0$, donc $\\lambda_n = 0$ (car coeff dominant non nul). Récurrence backward sur les degrés donne $\\lambda_i = 0$ pour tous $i$.\\par \\textbf{Conclusion :} Famille libre, donc base si on a $n+1$ polynômes.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Construisez la matrice représentative de cette famille de polynômes en prenant comme base de référence la base canonique $(1, X, X^2, \\dots, X^n)$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Puisque $\\text{deg}(P_i) = i$, que pouvez-vous dire de la forme de cette matrice ? C'est une matrice triangulaire dont les coefficients diagonaux sont les coefficients dominants des polynômes (qui sont non nuls). Déduisez-en son inversibilité."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_036",
+      "title": "Les familles sont-elles des bases ?",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__theorem_base_incomplete_extraite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base",
+        "famille libre",
+        "rang",
+        "matrices"
+      ],
+      "statement_latex": "Les familles suivantes sont-elles des bases ?",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(u_{1},...,u_{n})$ avec $u_{k}=(k,k-1,...,2,1,0,...,0)$ pour tout $k\\in[[1,n]].$",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__definition_famille_libre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Construisez la matrice dont les colonnes sont formées par les vecteurs $u_k$ dans la base canonique de $\\mathbb{K}^n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Observez la forme de cette matrice : elle est triangulaire inférieure (ou supérieure selon l'ordre choisi) et ses coefficients diagonaux sont non nuls. Que peut-on en déduire sur son inversibilité ?"
+            }
+          ],
+          "solution_latex": "Pour $k \\in [[1, n]]$, soit $u_k = (k, k-1, ..., 2, 1, 0, ..., 0)$ (composantes jusqu'à position $k$, puis zéros).\\par Par exemple : $u_1 = (1, 0, ..., 0)$, $u_2 = (2, 1, 0, ..., 0)$, ..., $u_n = (n, n-1, ..., 1)$.\\par Les coefficients dominants (en position $k$) sont tous non nuls, donc cette famille est triangulaire dans un certain sens. Elle est libre (par échelonnement).\\par Avec $n$ vecteurs libres dans $\\mathbb{K}^n$, c'est une base."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_037",
+      "title": "Liberté d'une somme circulaire de vecteurs",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__definition_famille_liee",
+        "espaces_vectoriels__theorem_dimension_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "matrice",
+        "système linéaire"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $(u_{1},...,u_{2n+1})$ une famille libre de $E$. Montrer que la famille : \\par $(u_{1}+u_{2},u_{2}+u_{3},...,u_{2n}+u_{2n+1},u_{2n+1}+u_{1})$ \\par est libre elle aussi par une technique matricielle.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(u_1, ..., u_{2n+1})$ une famille de $2n+1$ vecteurs d'un espace $E$. Montrer l'affirmation demandée (la question semble tronquée dans l'énoncé). Généralement : si la famille a $2n+1$ vecteurs et la dimension est $\\le 2n$, alors elle est liée. Ou : si $2n+1$ éléments forment deux sous-familles de tailles $n+1$, l'une est libre implique l'autre est liée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "$E$ n'est pas de dimension finie, mais $\\text{Vect}(u_{1},...,u_{2n+1})$ l'est."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez la matrice de cette nouvelle famille de vecteurs dans la base $(u_1, \\dots, u_{2n+1})$ de l'espace qu'ils engendrent."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_038",
+      "title": "Réunion et somme de sous-espaces",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_supplementaires",
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__definition_sev_engendre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace vectoriel",
+        "somme",
+        "réunion",
+        "démonstration par l'absurde"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels de $E$. Montrer que $F\\cup G=F+G$ si et seulement si $F\\subset G$ ou $G\\subset F$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $F$ et $G$ deux sous-espaces de $E$. Montrer : $F + G$ est un sous-espace vectoriel. En effet : $0 \\in F$ et $0 \\in G$, donc $0 = 0 + 0 \\in F + G$. ✓ Si $x = f_1 + g_1$ et $y = f_2 + g_2$, alors $x + y = (f_1 + f_2) + (g_1 + g_2) \\in F + G$ car $F, G$ stables. ✓ Pour $\\lambda \\in \\mathbb{K}$, $\\lambda x = \\lambda f_1 + \\lambda g_1 \\in F + G$. ✓",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "L'implication réciproque est évidente. Pour le sens direct, procédez par contraposée ou par l'absurde en supposant que $F \\not\\subset G$ et $G \\not\\subset F$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si $F \\not\\subset G$ et $G \\not\\subset F$, vous pouvez choisir un vecteur $x \\in F \\setminus G$ et un vecteur $y \\in G \\setminus F$. Considérez alors le vecteur $z = x+y$. Appartient-il à $F+G$ ? Appartient-il à $F \\cup G$ ?"
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_039",
+      "title": "Calculs de dimensions (F, G, F+G, F∩G)",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie",
+        "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "somme",
+        "intersection",
+        "formule de Grassmann",
+        "rang"
+      ],
+      "statement_latex": "On pose $a=(0,0,1,0)$ $b=(1,1,0,-1)$, puis $u=(1,0,1,0)$ $v=(0,1,-1,0)$ et $w=(1,1,1,1)$ ainsi que $F=\\text{Vect}(a,b)$ et $G=\\text{Vect}(u,v,w).$ Calculer les dimensions de $F$, $G$, $F+G$ et $F\\cap G$.",
+      "sub_questions": [],
+      "global_solution_latex": "Vecteurs : $a=(0,0,1,0), b=(1,1,0,-1), u=(1,0,1,0), v=(0,1,-1,0), w=(1,1,0,0)$. Vérifier des relations : par exemple, $u + v = (1,1,0,0) = w$. Vérifier $a, b, u, v$ indépendance, ou montrer $\\mathrm{Vect}(u,v,w) = \\mathrm{Vect}(u,v)$ car $w = u + v$. Dimension du span, décomposition.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Déterminez d'abord $\\dim F$ et $\\dim G$ en vérifiant si les familles génératrices données sont libres."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour trouver la dimension de $F+G$, cherchez le rang de la famille concaténée $(a,b,u,v,w)$ en l'échelonnant dans une matrice."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_040",
+      "title": "Condition pour des espaces supplémentaires",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_rang_famille",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_existence_supplementaires_dim_finie",
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "espaces supplémentaires",
+        "base",
+        "paramètre",
+        "système linéaire"
+      ],
+      "statement_latex": "Soit $\\lambda\\in\\mathbb{R}.$ À quelle condition nécessaire et suffisante $\\text{Vect}((\\lambda,\\lambda,1))$ et $\\text{Vect}((1,\\lambda,1),(2,1,1))$ sont-ils supplémentaires dans $\\mathbb{R}^{3}$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\lambda \\in \\mathbb{R}$. Question : à quelle condition $\\mathrm{Vect}(...) = \\mathbb{R}^4$ ou une certaine dimension ? Dépend de la famille (énoncé tronqué). Si matrice paramètrée par $\\lambda$, examiner le rang : il est égal à 4 ssi le déterminant est non nul, donc ssi $\\lambda$ évite certaines valeurs.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Dire que deux sous-espaces sont supplémentaires dans $\\mathbb{R}^3$ revient à dire que la réunion de leurs bases forme une base de $\\mathbb{R}^3$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Vérifiez d'abord que les deux vecteurs du deuxième sous-espace sont libres. Ensuite, formez la matrice $3 \\times 3$ constituée des trois vecteurs et déterminez pour quelles valeurs de $\\lambda$ son rang est maximal (ou son déterminant non nul)."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_041",
+      "title": "Propriétés de la somme directe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_intersection_sev",
+        "espaces_vectoriels__definition_supplementaires",
+        "espaces_vectoriels__definition_sev_engendre",
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme directe",
+        "intersection",
+        "contre-exemple",
+        "démonstration"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$, $G$ et $H$ trois sous-espaces vectoriels de $E$. On suppose que : $F=(F\\cap G)\\oplus H$. \\par Montrer que $F+G=G\\oplus H$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_intersection_sev",
+            "espaces_vectoriels__definition_supplementaires",
+            "espaces_vectoriels__definition_sev_engendre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer l'égalité des ensembles $F+G = G+H$, procédez par double inclusion en utilisant le fait que $F \\subset (F\\cap G) + H$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver que la somme $G+H$ est directe, prenez un vecteur $x \\in G \\cap H$. Puisque $H \\subset F$, $x$ appartient aussi à $F \\cap G$. Déduisez-en que $x = 0$ grâce à l'hypothèse de somme directe initiale."
+            }
+          ],
+          "solution_latex": "Soient $F, G, H$ trois sous-espaces. Montrer : $F + (G \\cap H) \\subseteq (F + G) \\cap (F + H)$.\\par Preuve : Si $x \\in F + (G \\cap H)$, alors $x = f + y$ où $f \\in F, y \\in G \\cap H$. Donc $x \\in F + G$ (car $y \\in G$) et $x \\in F + H$ (car $y \\in H$). ✓\\par Note : inclusion réciproque est fausse en général (contre-exemple : droites dans le plan)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_042",
+      "title": "Fonctions paires et impaires",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_supplementaires",
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_sev_engendre",
+        "espaces_vectoriels__definition_somme_directe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "parité",
+        "espaces supplémentaires",
+        "analyse-synthèse"
+      ],
+      "statement_latex": "Montrer que l'ensemble des fonctions paires de $\\mathbb{R}$ dans $\\mathbb{R}$ et l'ensemble des fonctions impaires de $\\mathbb{R}$ dans $\\mathbb{R}$ sont deux sous-espaces vectoriels supplémentaires de $\\mathbb{R}^{\\mathbb{R}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $P$ l'ensemble des fonctions paires de $\\mathbb{R}$ à $\\mathbb{R}$. C'est un sous-espace vectoriel : $0$ est paire (paire), $f+g$ paire si $f,g$ paires ($(f+g)(-x)=f(-x)+g(-x)=f(x)+g(x)=(f+g)(x)$), $\\lambda f$ paire si $f$ paire.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonnez par analyse-synthèse pour montrer que toute fonction se décompose de manière unique."
+        },
+        {
+          "level": 2,
+          "content_latex": "Analyse : supposez que $f = p + i$ où $p$ est paire et $i$ impaire. Évaluez $f(-x)$ puis exprimez $p(x)$ et $i(x)$ en fonction de $f(x)$ et $f(-x)$ en résolvant un petit système."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_043",
+      "title": "Intersection de sous-espaces affines",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux",
+        "espaces_vectoriels__theorem_intersection_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espaces affines",
+        "intersection",
+        "somme",
+        "géométrie"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $\\mathcal{F}$ et $\\mathcal{G}$ deux sous-espaces affines de $E$ de directions respectives $F$ et $G$. Montrer que si $E=F+G$, alors $\\mathcal{F}\\cap \\mathcal{G}\\neq\\emptyset$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $\\mathcal{F}$ et $\\mathcal{G}$ deux familles de sous-espaces vectoriels. Montrer : $\\mathrm{Vect}(\\mathcal{F} \\cup \\mathcal{G}) = \\mathrm{Vect}(\\mathrm{Vect}(\\mathcal{F}) \\cup \\mathrm{Vect}(\\mathcal{G}))$ ou une égalité de sums. Généralement : $\\sum_{F \\in \\mathcal{F} \\cup \\mathcal{G}} F = (\\sum_{F \\in \\mathcal{F}} F) + (\\sum_{G \\in \\mathcal{G}} G)$ (associativité de $+$ sur sous-espaces).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Fixer $M\\in\\mathcal{F}$ et $N\\in\\mathcal{G}$ et décomposer le vecteur $\\vec{MN}$. Tout ceci se voit très bien sur un dessin."
+        },
+        {
+          "level": 2,
+          "content_latex": "Puisque $E = F+G$, le vecteur $\\vec{MN}$ s'écrit $u + v$ avec $u \\in F$ et $v \\in G$. Cherchez le point d'intersection en utilisant la relation de Chasles pour translater $M$ le long de $u$ et $N$ le long de $-v$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_044",
+      "title": "Détermination de supplémentaires",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+        "espaces_vectoriels__definition_rang_famille"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "espaces supplémentaires",
+        "base",
+        "polynômes",
+        "fonctions",
+        "équations différentielles"
+      ],
+      "statement_latex": "Déterminer un supplémentaire des sous-espaces vectoriels suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\text{Vect}((1,2,1,1),(2,2,1,1))$ dans $\\mathbb{R}^{4}.$",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__theorem_caracterisation_bases_dim_finie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Complétez cette famille libre de 2 vecteurs avec 2 vecteurs de la base canonique de $\\mathbb{R}^4$."
+            }
+          ],
+          "solution_latex": "Trouver dimension de $\\mathrm{Vect}((1,2,1,1), (2,2,1,1))$ dans $\\mathbb{R}^4$. Les deux vecteurs sont-ils proportionnels ? $(2,2,1,1) \\ne k(1,2,1,1)$ pour aucun $k$ (car $2 = k \\cdot 1$ et $2 = k \\cdot 2$ donne $k = 1, 2$ contradiction). Donc libres. $\\dim = 2$. Base : $\\{(1,2,1,1), (2,2,1,1)\\}$ ou après réduction."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{(x,y,z,t)\\in\\mathbb{R}^{4}|x+y+2z-t=0 \\text{ et } 2x+y-z+t=0\\}$ dans $\\mathbb{R}^{4}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_rang_famille",
+            "espaces_vectoriels__definition_matrice_famille",
+            "espaces_vectoriels__definition_dimension_finie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ce sous-espace est l'intersection de deux hyperplans de $\\mathbb{R}^4$, il est donc de dimension 2. Trouvez-en une base, puis complétez-la."
+            }
+          ],
+          "solution_latex": "Trouver dimension de $\\{(x,y,z,t) : x+y+2z-t=0, 2x+y-z+t=0\\}$. C'est le noyau de la matrice $\\begin{pmatrix} 1 & 1 & 2 & -1 \\\\ 2 & 1 & -1 & 1 \\end{pmatrix}$. Rang : par Gauss, $\\begin{pmatrix} 1 & 1 & 2 & -1 \\\\ 0 & -1 & -5 & 3 \\end{pmatrix}$ a rang 2. Donc $\\dim(\\ker) = 4 - 2 = 2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_045",
+      "title": "Supplémentaire commun",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "supplémentaire",
+        "dimension finie",
+        "récurrence",
+        "algorithme de la base incomplète"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F$ et $G$ deux sous-espaces vectoriels de mêmes dimensions de $E$. Montrer que $F$ et $G$ ont un supplémentaire commun dans $E$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $F, G$ sous-espaces de $\\mathbb{K}$-espace $E$ de dimension finie. Montrer : $E = F \\oplus G$ ssi $F \\cap G = \\{0\\}$ et $F + G = E$. Ou ssi $F + G = E$ et $\\dim F + \\dim G = \\dim E$ (formule de dimension).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Si $\\dim F=\\dim G\\le \\dim E-1$, alors $E\\ne F\\cup G$ et pour tout $a\\in E\\setminus(F\\cup G),$ $F\\oplus \\text{Vect}(a)$ et $G\\oplus \\text{Vect}(a)$ ont un supplémentaire commun par récurrence, donc $F$ et $G$ aussi."
+        },
+        {
+          "level": 2,
+          "content_latex": "Utiliser l'algorithme de la base incomplète."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_046",
+      "title": "Équivalence de sommes directes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__definition_somme_sev",
+        "espaces_vectoriels__definition_supplementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme directe",
+        "sous-espace vectoriel",
+        "démonstration",
+        "équivalence"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$, $G$ et $H$ trois sous-espaces vectoriels de $E$. Montrer que les propositions suivantes sont équivalentes : \\par (i) $F$ et $G$ sont en somme directe, de même que $F+G$ et $H$. \\par (ii) $F$, $G$ et $H$ sont en somme directe.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": null,
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la définition de la somme directe pour l'assertion (i) et pour l'assertion (ii)."
+            }
+          ],
+          "solution_latex": "(Énoncé manquant). Voir contexte du PDF ou chapitres précédents pour complément."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_047",
+      "title": "Extraction d'une somme directe",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__definition_somme_directe",
+        "espaces_vectoriels__theorem_caracterisation_somme_directe_deux",
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme directe",
+        "dimension finie",
+        "supplémentaire",
+        "sous-espaces"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F_{1},...,F_{p}$ des sous-espaces vectoriels de $E$ pour lesquels $E=F_{1}+...+F_{p}$. Montrer qu'il existe des sous-espaces vectoriels $G_{1},...,G_{p}$ de $E$ pour lesquels $G_{i}\\subset F_{i}$ pour tout $i\\in[[1,p]]$ et $E=G_{1}\\oplus...\\oplus G_{p}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $F_1, ..., F_p$ sous-espaces de $E$. Montrer : $E = F_1 \\oplus ... \\oplus F_p$ ssi pour chaque $i$, $F_i \\cap (F_1 + ... + F_{i-1} + F_{i+1} + ... + F_p) = \\{0\\}$ et $F_1 + ... + F_p = E$. Ou de manière équivalente : les sous-espaces sont en somme directe ssi tout $x \\in E$ s'écrit de manière unique comme $x = f_1 + ... + f_p$ avec $f_i \\in F_i$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Construisez les espaces $G_i$ progressivement en utilisant le théorème de la base incomplète ou l'existence de supplémentaires en dimension finie."
+        },
+        {
+          "level": 2,
+          "content_latex": "Procédez par récurrence sur le nombre d'espaces $p$. Pour l'hérédité, écrivez $E = (F_1 + ... + F_{p-1}) + F_p$. Prenez un supplémentaire $G_p$ de $F_1 + ... + F_{p-1}$ inclus dans $F_p$, puis appliquez l'hypothèse de récurrence au sous-espace $F_1 + ... + F_{p-1}$."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_048",
+      "title": "Décompositions en sommes directes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_liberte_polynomes_echelonnes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme directe",
+        "polynômes",
+        "fonctions complexes",
+        "analyse-synthèse"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathbb{K}[X]=E_{0}\\oplus...\\oplus E_{n-1}$ pour tout $n\\in\\mathbb{N}^{*}$ où pour tout $i\\in[[0,n-1]]$ : \\par $E_{i}=\\{X^{i}P(X^{n})|P\\in\\mathbb{K}[X]\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_liberte_polynomes_echelonnes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le plus simple consiste ici à chercher d'abord une base de $E_{i}$ pour tout $i\\in[[0,n-1]].$"
+            }
+          ],
+          "solution_latex": "Montrer $\\mathbb{K}[X] = E_0 \\oplus ... \\oplus E_{n-1}$ où $E_k = \\{P \\in \\mathbb{K}[X] : \\deg(P) \\le k \\text{ ou } P = 0\\}$. En effet : chaque polynôme se décompose uniquement en termes de degrés $< n$ (degré $\\ge n$ demande plus). Plutôt : $\\mathbb{K}[X] = \\bigoplus_{d=0}^\\infty \\mathbb{K}_1[X]_d$ (polynômes homogènes de degré $d$, ou monômes isolés)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_049",
+      "title": "Dimension sur des corps de base exotiques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__definition_dimension_affine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps de base",
+        "dimension",
+        "bases",
+        "algèbre multilinéaire"
+      ],
+      "statement_latex": "Soient $\\mathbb{M}$ un corps, $\\mathbb{L}$ un sous-corps de $\\mathbb{M}$ et $\\mathbb{K}$ un sous-corps de $\\mathbb{L}$. On suppose $\\mathbb{M}$ de dimension finie sur $\\mathbb{L}$ et $\\mathbb{L}$ de dimension finie sur $\\mathbb{K}$. Montrer que $\\mathbb{M}$ est de dimension finie sur $\\mathbb{K}$ et que : \\par $\\dim_{\\mathbb{K}}\\mathbb{M}=\\dim_{\\mathbb{L}}\\mathbb{M}\\times \\dim_{\\mathbb{K}}\\mathbb{L}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $\\mathbb{M}$ corps, $\\mathbb{L}$ sous-corps, $E$ $\\mathbb{L}$-espace vectoriel. Montrer : $\\dim_\\mathbb{L}(E) \\ge \\dim_\\mathbb{M}(E)$ ou une formule de dimension. Par la chaîne : $[E : \\mathbb{L}] = [E : \\mathbb{M}] \\cdot [\\mathbb{M} : \\mathbb{L}]$ en degré de corps. Ici, $\\dim_\\mathbb{L}(E) = \\dim_\\mathbb{M}(E) \\cdot [\\mathbb{M} : \\mathbb{L}]$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérez une base $(e_1, \\dots, e_p)$ de $\\mathbb{M}$ vu comme $\\mathbb{L}$-espace vectoriel, et une base $(f_1, \\dots, f_q)$ de $\\mathbb{L}$ vu comme $\\mathbb{K}$-espace vectoriel."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_050",
+      "title": "Indépendance linéaire sur Q",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_famille_libre",
+        "espaces_vectoriels__definition_libre_infinie",
+        "espaces_vectoriels__theorem_espace_vectoriel_produit",
+        "espaces_vectoriels__theorem_dimension_espace_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps des rationnels",
+        "arithmétique",
+        "famille libre",
+        "nombres premiers"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que la famille $(\\ln p)_{p\\in\\mathbb{P}}$ est $\\mathbb{Q}$-libre, i.e. libre dans le $\\mathbb{Q}$-espace vectoriel $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__definition_famille_libre",
+            "espaces_vectoriels__definition_libre_infinie",
+            "espaces_vectoriels__theorem_espace_vectoriel_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener à un problème d'arithmétique des entiers."
+            }
+          ],
+          "solution_latex": "Montrer que la famille $(\\ln p)_{p \\in \\mathbb{P}}$ (logarithmes des nombres premiers) est $\\mathbb{Q}$-libre.\\par Supposons $\\sum_{p \\in \\mathbb{P}} q_p \\ln p = 0$ pour $q_p \\in \\mathbb{Q}$ à support fini. En exponentiant : $\\prod_p p^{q_p} = 1$. Par unicité de la factorisation en nombres premiers, tous les $q_p = 0$.\\par \\textbf{Conclusion :} Famille libre sur $\\mathbb{Q}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_051",
+      "title": "Espaces vectoriels sur un corps fini",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps fini",
+        "dénombrement",
+        "base",
+        "groupe linéaire"
+      ],
+      "statement_latex": "Soient $p\\in\\mathbb{P}$, $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $d\\in[[0,n]]$, tout sous-espace vectoriel de $\\mathbb{F}_{p}^{n}$ de dimension $d$ est de cardinal $p^{d}$.",
+          "knowledge_nodes_tested": [
+            "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+            "espaces_vectoriels__definition_dimension_finie",
+            "espaces_vectoriels__theorem_dimension_sev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le fait qu'un espace de dimension $d$ possède une base de $d$ vecteurs et comptez le nombre de combinaisons linéaires possibles avec des scalaires dans $\\mathbb{F}_p$."
+            }
+          ],
+          "solution_latex": "Montrer : pour tout $d \\in [[0, n]]$, il existe un sous-espace de $\\mathbb{F}_q^n$ (espace sur corps fini $\\mathbb{F}_q$) de dimension exactement $d$.\\par Construction : si $(e_1, ..., e_n)$ est base, alors $\\mathrm{Vect}(e_1, ..., e_d)$ a dimension $d$. Ceci pour tout $d$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__ex_052",
+      "title": "Cardinal d'un corps fini",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev",
+        "espaces_vectoriels__theorem_dimension_espace_produit",
+        "espaces_vectoriels__definition_dimension_affine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps fini",
+        "caractéristique",
+        "dimension",
+        "dénombrement"
+      ],
+      "statement_latex": "Montrer que tout corps fini est de cardinal une puissance de nombre premier.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer que tout corps fini a cardinal une puissance de nombre premier.\\par Preuve : Soit $K$ corps fini. La caractéristique est un nombre premier $p$ (car dans un corps, la caractéristique est 0 ou première). Donc $K$ contient le sous-corps premier $\\mathbb{F}_p$. Comme espace vectoriel sur $\\mathbb{F}_p$, $K$ a dimension finie $d$. Donc $|K| = p^d$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Exploiter les résultats de l'exercice sur la caractéristique d'un corps du chapitre « Groupes et anneaux »."
+        }
+      ]
+    },
+    {
+      "id": "espaces_vectoriels__ex_053",
+      "title": "Structure des sous-groupes de GLn",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+        "espaces_vectoriels__definition_matrice_famille",
+        "espaces_vectoriels__definition_dimension_finie",
+        "espaces_vectoriels__theorem_dimension_sev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps fini",
+        "groupe linéaire",
+        "matrices triangulaires"
+      ],
+      "statement_latex": "On note $G$ l'ensemble des matrices triangulaires supérieures de $\\mathcal{M}_{n}(\\mathbb{F}_{p})$ dont les coefficients diagonaux valent 1. Montrer que $G$ est un sous-groupe de $GL_{n}(\\mathbb{F}_{p})$ et vérifier que $|G|$ est la plus grande puissance de $p$ qui divise $|GL_{n}(\\mathbb{F}_{p})|$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $G$ ensemble des matrices triangulaires supérieures de $\\mathcal{M}_n(\\mathbb{K})$. Montrer : $G$ est un sous-espace vectoriel de dimension $\\frac{n(n+1)}{2}$.\\par Preuve : Élément nul (matrice nulle) appartient. Somme de deux triangulaires = triangulaire. Multiplication scalaire préserve la structure triangulaire. Base : matrices $E_{ij}$ pour $i \\le j$, soit $n + (n-1) + ... + 1 = \\frac{n(n+1)}{2}$ matrices.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour montrer que c'est un sous-groupe, vérifiez la stabilité par produit matriciel. Pour le cardinal, comptez le nombre de coefficients strictement au-dessus de la diagonale, qui peuvent être choisis librement dans $\\mathbb{F}_p$."
+        }
+      ]
+    }
+  ]
+}

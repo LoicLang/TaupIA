@@ -1,0 +1,134 @@
+{
+  "chapter_official_id": "analyse_asymptotique_de_niveau_2",
+  "chapter_name": "Analyse asymptotique de niveau 2",
+  "source_document": "Cours - Analyse asymptotique de niveau 2.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "analyse_asymptotique_de_niveau_2__intro_niveau_2",
+      "type": "remark",
+      "title": "Introduction",
+      "content_latex": "Ce chapitre est avant tout un recueil de problèmes typiques d'analyse asymptotique, mais plus délicats et plus intéressants que ceux que nous avons résolus au chapitre « Analyse asymptotique de niveau 1 ». Il ne s'agit pas tant de connaître ici que de méditer et d'expérimenter.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__remark_encadrement_integrale",
+      "type": "remark",
+      "title": "Remarque : Encadrement pour équivalent d'intégrale",
+      "content_latex": "Comme pour les limites, il suffit parfois d'un simple encadrement pour trouver un équivalent d'intégrale.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_integrale_2t_lnt",
+      "type": "example",
+      "title": "Exemple : Équivalent d'une intégrale par encadrement",
+      "content_latex": "$\\int_x^{x+1} 2^t \\ln t \\, dt \\underset{x \\to +\\infty}{\\sim} \\frac{2^x \\ln x}{\\ln 2}$.",
+      "proof_latex": "Quand $x$ est grand et $t \\in [x, x+1]$, $\\ln t$ est presque constant de valeur $\\ln x$ alors que $2^t$ voit ses valeurs doubler en passant de $2^x$ à $2^{x+1}$. Il est ainsi raisonnable d'espérer que :\\par $\\int_x^{x+1} 2^t \\ln t \\, dt \\approx \\int_x^{x+1} 2^t \\ln x \\, dt = \\ln x \\times \\frac{2^{x+1} - 2^x}{\\ln 2} = \\frac{2^x \\ln x}{\\ln 2}$.\\par\\par Et maintenant, place à la rigueur. Pour tout $x > 0$ :\\par $\\ln x \\int_x^{x+1} 2^t \\, dt \\leq \\int_x^{x+1} 2^t \\ln t \\, dt \\leq \\ln(x+1) \\int_x^{x+1} 2^t \\, dt$,\\par donc $\\frac{2^x \\ln x}{\\ln 2} \\leq \\int_x^{x+1} 2^t \\ln t \\, dt \\leq \\frac{2^x \\ln(x+1)}{\\ln 2}$, et le résultat en découle par encadrement car $\\ln(x+1) \\underset{x \\to +\\infty}{\\sim} \\ln x$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__remark_ipp_integrale",
+      "type": "remark",
+      "title": "Remarque : Intégration par parties pour développement asymptotique",
+      "content_latex": "Encadrer ne suffit pas toujours, cela dit, mais une intégration par parties transforme toujours une intégrale en une somme de deux termes — un crochet et une autre intégrale. Quand on s'y prend bien, un développement asymptotique en découle.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_integrale_tn_f",
+      "type": "example",
+      "title": "Exemple : Développement asymptotique de $\\int_0^1 t^n f(t) \\, dt$",
+      "content_latex": "Soit $f \\in \\mathcal{C}^1([0,1], \\mathbb{R})$. Alors $\\int_0^1 t^n f(t) \\, dt = \\underset{n \\to +\\infty}{\\frac{f(1)}{n}} + o\\left(\\frac{1}{n}\\right)$, donc si $f(1) \\neq 0$ : $\\int_0^1 t^n f(t) \\, dt \\underset{n \\to +\\infty}{\\sim} \\frac{f(1)}{n}$.\\par\\par Si $f$ est mieux que de classe $\\mathcal{C}^1$, on obtient un développement asymptotique plus précis en intégrant par parties plusieurs fois d'affilée.",
+      "proof_latex": "\\int_0^1 t^n f(t) \\, dt \\underset{IPP}{=} \\left[\\frac{t^{n+1}}{n+1}f(t)\\right]_0^1 - \\frac{1}{n+1}\\int_0^1 t^{n+1} f'(t) \\, dt = \\frac{f(1)}{n+1} - \\frac{1}{n+1}\\int_0^1 t^{n+1} f'(t) \\, dt.\\par\\par Or $f'$ est continue sur le segment $[0,1]$, donc bornée d'après le théorème des bornes atteintes. Ainsi, pour tout $n \\in \\mathbb{N}$ :\\par $\\left|\\int_0^1 t^{n+1} f'(t) \\, dt\\right| \\leq \\|f'\\|_\\infty \\int_0^1 t^{n+1} \\, dt = \\frac{\\|f'\\|_\\infty}{n+2}$,\\par donc $\\int_0^1 t^{n+1} f'(t) \\, dt = \\underset{n \\to +\\infty}{O}\\left(\\frac{1}{n}\\right)$, ce qui est même un peu plus fin que le résultat souhaité.\\par\\par Conclusion : $\\int_0^1 t^n f(t) \\, dt = \\underset{n \\to +\\infty}{\\frac{f(1)}{n+1}} + O\\left(\\frac{1}{n^2}\\right) = \\underset{n \\to +\\infty}{\\frac{f(1)}{n}} + o\\left(\\frac{1}{n}\\right)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_integrale_exp_xt",
+      "type": "example",
+      "title": "Exemple : Développement asymptotique avec $e^{-xt}$",
+      "content_latex": "$\\int_0^1 \\frac{e^{-xt}}{1+t^2} \\, dt = \\underset{x \\to +\\infty}{\\frac{1}{x}} + O\\left(\\frac{1}{x^2}\\right)$.",
+      "proof_latex": "Pour commencer, pour tout $x > 0$ :\\par $\\int_0^1 \\frac{e^{-xt}}{1+t^2} \\, dt \\underset{IPP}{=} \\left[-\\frac{e^{-xt}}{x(1+t^2)}\\right]_0^1 - \\frac{2}{x}\\int_0^1 \\frac{t e^{-xt}}{(1+t^2)^2} \\, dt = \\frac{1}{x} - \\frac{e^{-x}}{2x} - \\frac{2}{x}\\int_0^1 \\frac{t e^{-xt}}{(1+t^2)^2} \\, dt$,\\par or : $\\left|\\int_0^1 \\frac{t e^{-xt}}{(1+t^2)^2} \\, dt\\right| \\leq \\int_0^1 e^{-xt} \\, dt = \\frac{1-e^{-x}}{x} \\leq \\frac{1}{x}$,\\par donc en effet : $\\int_0^1 \\frac{e^{-xt}}{1+t^2} \\, dt = \\underset{x \\to +\\infty}{\\frac{1}{x} - \\frac{e^{-x}}{2x} - \\frac{2}{x} O\\left(\\frac{1}{x}\\right)} = \\underset{x \\to +\\infty}{\\frac{1}{x}} + O\\left(\\frac{1}{x^2}\\right)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__intro_inegalites_tayloriennes",
+      "type": "remark",
+      "title": "Introduction : Inégalités tayloriennes",
+      "content_latex": "Le comportement asymptotique d'une intégrale ou d'une somme se révèle parfois quand on l'éclaire à l'aide d'une inégalité « taylorienne », i.e. d'une inégalité tirée d'un développement limité ou de l'inégalité de Taylor-Lagrange.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_ineg_taylor_integrale",
+      "type": "example",
+      "title": "Exemple : Développement asymptotique par inégalité taylorienne",
+      "content_latex": "$\\int_0^\\pi \\frac{\\sin x}{\\sqrt{n+x}} \\, dx = \\underset{n \\to +\\infty}{\\frac{2}{\\sqrt{n}} - \\frac{\\pi}{2n\\sqrt{n}}} + o\\left(\\frac{1}{n^2}\\right)$.",
+      "proof_latex": "Pour tout $x \\in [0, \\pi]$ :\\par $\\frac{\\sin x}{\\sqrt{n+x}} = \\frac{\\sin x}{\\sqrt{n}}\\left(1 + \\frac{x}{n}\\right)^{-1/2} = \\underset{n \\to +\\infty}{\\frac{\\sin x}{\\sqrt{n}}\\left(1 - \\frac{x}{2n} + O\\left(\\frac{1}{n^2}\\right)\\right)} = \\underset{n \\to +\\infty}{\\frac{\\sin x}{\\sqrt{n}} - \\frac{x \\sin x}{2n\\sqrt{n}} + o\\left(\\frac{1}{n^2}\\right)}$,\\par mais le problème, c'est qu'on ne sait pas intégrer une telle relation ! Notez bien d'ailleurs que le $o$ dépend ici de $x$ en dépit des apparences.\\par\\par On sait en revanche intégrer les inégalités. Or le développement limité $(1+u)^{-1/2} = \\underset{u \\to 0}{1 - \\frac{u}{2}} + O(u^2)$ garantit l'existence de deux réels $\\alpha > 0$ et $M \\geq 0$ pour lesquels pour tout $u \\in ]-\\alpha, \\alpha[$ : $\\left|(1+u)^{-1/2} - \\left(1 - \\frac{u}{2}\\right)\\right| \\leq M u^2$.\\par\\par Observons à présent que pour tous $n \\geq \\frac{\\pi}{\\alpha} + 1$ et $x \\in [0, \\pi]$ : $\\left|\\frac{x}{n}\\right| \\leq \\frac{\\pi}{n} < \\alpha$, donc :\\par $\\left|\\frac{\\sin x}{\\sqrt{n+x}} - \\frac{\\sin x}{\\sqrt{n}}\\left(1 - \\frac{x}{2n}\\right)\\right| \\leq \\frac{M x^2 \\sin x}{n^2 \\sqrt{n}}$.\\par\\par Conclusion : $\\int_0^\\pi \\frac{\\sin x}{\\sqrt{n+x}} \\, dx = \\underset{n \\to +\\infty}{\\frac{1}{\\sqrt{n}}\\int_0^\\pi \\sin x \\, dx - \\frac{1}{2n\\sqrt{n}}\\int_0^\\pi x \\sin x \\, dx + O\\left(\\frac{1}{n^2\\sqrt{n}}\\right)} = \\underset{n \\to +\\infty}{\\frac{2}{\\sqrt{n}} - \\frac{\\pi}{2n\\sqrt{n}}} + o\\left(\\frac{1}{n^2}\\right)$ après calcul des intégrales."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_somme_f_k_sur_n2",
+      "type": "example",
+      "title": "Exemple : Développement asymptotique d'une somme",
+      "content_latex": "Soit $f \\in \\mathcal{D}^1([0,1], \\mathbb{R})$. Alors $\\sum_{k=1}^n f\\left(\\frac{k}{n^2}\\right) = \\underset{n \\to +\\infty}{f(0)n + \\frac{f'(0)}{2}} + o(1)$.",
+      "proof_latex": "Par dérivabilité de $f$ en $0$, pour tout $k \\in \\{1, \\ldots, n\\}$ :\\par $f\\left(\\frac{k}{n^2}\\right) = \\underset{n \\to +\\infty}{f(0) + f'(0)\\frac{k}{n^2} + o\\left(\\frac{1}{n^2}\\right)}$,\\par mais on ne sait pas sommer ces relations de $1$ à $n$. Pour contourner la difficulté, transformons de nouveau le développement limité $f(x) = \\underset{x \\to 0}{f(0) + f'(0)x} + o(x)$ en inégalité. C'est un peu plus difficile que dans l'exemple précédent car nous ne pouvons pas profiter d'un reste en $O(x^2)$ ici, $f$ n'étant que dérivable a priori. Nous allons devoir revenir à la définition de la limite.\\par\\par Soit $\\epsilon > 0$. La dérivabilité de $f$ en $0$ garantit l'existence d'un réel $\\alpha > 0$ pour lequel pour tout $x \\in ]-\\alpha, \\alpha[$ : $\\left|\\frac{f(x) - f(0) - f'(0)x}{x}\\right| < \\epsilon$. Or pour tous $n \\geq \\frac{1}{\\alpha} + 1$ et $k \\in \\{1, \\ldots, n\\}$ : $\\frac{k}{n^2} \\leq \\frac{1}{n} < \\alpha$, donc :\\par $\\left|f\\left(\\frac{k}{n^2}\\right) - f(0) - f'(0)\\frac{k}{n^2}\\right| \\leq \\epsilon \\frac{k}{n^2}$.\\par\\par Conclusion : $\\left|\\sum_{k=1}^n f\\left(\\frac{k}{n^2}\\right) - f(0)n - \\frac{f'(0)}{2}\\frac{n+1}{n}\\right| \\leq \\epsilon \\frac{n+1}{2n} \\leq \\epsilon$,\\par donc $\\sum_{k=1}^n f\\left(\\frac{k}{n^2}\\right) = \\underset{n \\to +\\infty}{f(0)n + \\frac{f'(0)}{2}\\frac{n+1}{n}} + o(1) = \\underset{n \\to +\\infty}{f(0)n + \\frac{f'(0)}{2}} + o(1)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__intro_suites_recurrentes",
+      "type": "remark",
+      "title": "Introduction : Suites récurrentes",
+      "content_latex": "Dans l'exemple qui suit, les termes du développement asymptotique sont obtenus en boucle les uns après les autres du plus grand au plus petit. À chaque fois qu'on vient d'obtenir un terme d'une certaine précision, on le réinjecte dans la relation de récurrence et on obtient un nouveau terme. Hélas, plus on avance, plus les réinjections sont calculatoires !",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_suite_sqrt_un_n2",
+      "type": "example",
+      "title": "Exemple : Suite récurrente $u_{n+1} = \\sqrt{u_n + n^2}$",
+      "content_latex": "On note $(u_n)_{n \\in \\mathbb{N}}$ la suite définie par $u_0 = 0$ et $u_{n+1} = \\sqrt{u_n + n^2}$ pour tout $n \\in \\mathbb{N}$. Alors :\\par $u_n = \\underset{n \\to +\\infty}{n - \\frac{1}{2} - \\frac{3}{8n}} + O\\left(\\frac{1}{n^2}\\right)$.",
+      "proof_latex": "D'abord, $\\sqrt{x + n^2} \\geq 0$ pour tous $n \\in \\mathbb{N}$ et $x \\geq 0$ et $u_0 \\geq 0$, donc $(u_n)_{n \\in \\mathbb{N}}$ est bien définie.\\par\\par Ensuite, pour tout $n \\in \\mathbb{N}^*$ : $u_n = \\sqrt{u_{n-1} + (n-1)^2} \\geq \\sqrt{(n-1)^2} = n-1$.\\par\\par Montrons maintenant par récurrence que $u_n \\leq n$ pour tout $n \\in \\mathbb{N}$.\\par\\par Initialisation : Évidente.\\par\\par Hérédité : Soit $n \\in \\mathbb{N}$. Si $u_n \\leq n$, alors $u_{n+1} = \\sqrt{u_n + n^2} \\leq \\sqrt{n^2 + n} \\leq \\sqrt{n^2 + 2n + 1} = n+1$.\\par\\par À ce stade, $n-1 \\leq u_n \\leq n$ pour tout $n \\in \\mathbb{N}^*$, donc $u_n \\underset{n \\to +\\infty}{\\sim} n$ par encadrement, et même $u_n = \\underset{n \\to +\\infty}{n} + O(1)$.\\par\\par En retour : $u_n = \\sqrt{u_{n-1} + (n-1)^2} = \\sqrt{(n-1)^2 + (n-1) + O(1)} = (n-1)\\sqrt{1 + \\frac{1}{n-1} + O\\left(\\frac{1}{n^2}\\right)}$\\par $= \\underset{n \\to +\\infty}{(n-1)\\left(1 + \\frac{1}{2(n-1)} + O\\left(\\frac{1}{n^2}\\right)\\right)} = \\underset{n \\to +\\infty}{n - 1 + \\frac{1}{2}} + O\\left(\\frac{1}{n}\\right) = \\underset{n \\to +\\infty}{n - \\frac{1}{2}} + O\\left(\\frac{1}{n}\\right)$.\\par\\par Poursuivons sur cette lancée avec un développement limité plus fin de $x \\mapsto \\sqrt{1+x}$ au voisinage de $0$ : $\\sqrt{1+x} = \\underset{x \\to 0}{1 + \\frac{x}{2} - \\frac{x^2}{8}} + O(x^3)$,\\par donc : $u_n = \\sqrt{(n-1)^2 + (n-1) + \\frac{1}{2} + O\\left(\\frac{1}{n}\\right)} = (n-1)\\sqrt{1 + \\frac{1}{n-1} + \\frac{1}{2(n-1)^2} + O\\left(\\frac{1}{n^3}\\right)}$\\par $= \\underset{n \\to +\\infty}{(n-1)\\left(1 + \\frac{1}{2(n-1)} - \\frac{1}{8(n-1)^2} + \\frac{1}{4(n-1)^2} + O\\left(\\frac{1}{n^3}\\right)\\right)} = \\underset{n \\to +\\infty}{n - \\frac{1}{2} - \\frac{3}{8n}} + O\\left(\\frac{1}{n^2}\\right)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__theorem_sommation_comparison",
+      "type": "theorem",
+      "title": "Théorème : Sommation des relations de comparaison",
+      "content_latex": "Soient $(a_n)_{n \\in \\mathbb{N}^*}$ et $(b_n)_{n \\in \\mathbb{N}^*}$ deux suites réelles. On pose $A_n = \\sum_{k=1}^n a_k$ et $B_n = \\sum_{k=1}^n b_k$ pour tout $n \\in \\mathbb{N}^*$.\\par On suppose que $(b_n)_{n \\in \\mathbb{N}^*}$ est positive à partir d'un certain rang et que $B_n \\xrightarrow[n \\to +\\infty]{} +\\infty$.\\par\\par (i) Si $a_n = \\underset{n \\to +\\infty}{O}(b_n)$, alors $A_n = \\underset{n \\to +\\infty}{O}(B_n)$.\\par\\par (ii) Si $a_n = \\underset{n \\to +\\infty}{o}(b_n)$, alors $A_n = \\underset{n \\to +\\infty}{o}(B_n)$.\\par\\par (iii) Si $a_n \\underset{n \\to +\\infty}{\\sim} b_n$, alors $A_n \\underset{n \\to +\\infty}{\\sim} B_n$.\\par\\par Le théorème reste vrai si $(b_n)_{n \\in \\mathbb{N}^*}$ est négative à partir d'un certain rang et $B_n \\xrightarrow[n \\to +\\infty]{} -\\infty$.\\par\\par On généralise ici le théorème de Cesàro dans le cas fini. En effet, si $(a_n)_{n \\in \\mathbb{N}^*}$ converge vers un réel $\\ell$, alors $a_n = \\underset{n \\to +\\infty}{\\ell} + o(1)$ si $\\ell \\neq 0$, donc $A_n = \\underset{n \\to +\\infty}{\\ell n}$ si $\\ell \\neq 0$ et $A_n = \\underset{n \\to +\\infty}{o}(n)$ si $\\ell = 0$, et $a_n \\underset{n \\to +\\infty}{\\sim} \\ell$ dans les deux cas.",
+      "proof_latex": "(i) Faisons l'hypothèse que $a_n = \\underset{n \\to +\\infty}{O}(b_n)$. Nous pouvons ainsi nous donner un réel $M \\geq 0$ pour lequel $|a_n| \\leq M b_n$ à partir d'un certain rang $N$. Pour tout $n \\geq N$ :\\par $|A_n| \\leq |A_N| + \\sum_{k=N+1}^n |a_k| \\leq |A_N| + M \\sum_{k=N+1}^n b_k = |A_N| + M(B_n - B_N) = |A_N| - MB_N + MB_n$.\\par Or $B_n \\xrightarrow[n \\to +\\infty]{} +\\infty$, donc $|A_N| - MB_N \\leq B_n$ à partir d'un certain rang $N'$, donc $|A_n| \\leq (M+1)B_n$ pour tout $n \\geq \\max(N, N')$. Comme voulu, $A_n = \\underset{n \\to +\\infty}{O}(B_n)$.\\par\\par (ii) Faisons l'hypothèse que $a_n = \\underset{n \\to +\\infty}{o}(b_n)$. Soit $\\epsilon > 0$. Ainsi, $|a_n| \\leq \\frac{\\epsilon}{2} b_n$ à partir d'un certain rang $N$. Pour tout $n \\geq N$ :\\par $|A_n| \\leq |A_N| + \\sum_{k=N+1}^n |a_k| \\leq |A_N| + \\frac{\\epsilon}{2} \\sum_{k=N+1}^n b_k = |A_N| + \\frac{\\epsilon}{2}(B_n - B_N) = |A_N| - \\frac{\\epsilon}{2}B_N + \\frac{\\epsilon}{2}B_n$.\\par Or $B_n \\xrightarrow[n \\to +\\infty]{} +\\infty$, donc $|A_N| - \\frac{\\epsilon}{2}B_N \\leq \\frac{\\epsilon}{2}B_n$ à partir d'un certain rang $N'$, donc $|A_n| \\leq \\epsilon B_n$ pour tout $n \\geq \\max(N, N')$. Comme voulu, $A_n = \\underset{n \\to +\\infty}{o}(B_n)$.\\par\\par (iii) Si $a_n \\underset{n \\to +\\infty}{\\sim} b_n$, alors $a_n - b_n = \\underset{n \\to +\\infty}{o}(b_n)$, donc $A_n - B_n = \\underset{n \\to +\\infty}{o}(B_n)$ d'après (ii), donc $A_n \\underset{n \\to +\\infty}{\\sim} B_n$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_somme_arctan",
+      "type": "example",
+      "title": "Exemple : Somme des $\\arctan(1/k)$",
+      "content_latex": "$\\sum_{k=1}^n \\arctan\\frac{1}{k} \\underset{n \\to +\\infty}{\\sim} \\ln n$ car $\\arctan\\frac{1}{n} \\underset{n \\to +\\infty}{\\sim} \\frac{1}{n}$ avec $\\frac{1}{n} > 0$ pour tout $n \\in \\mathbb{N}^*$ et $\\sum_{k=1}^n \\frac{1}{k} \\underset{n \\to +\\infty}{\\sim} \\ln n$.\\par\\par Il n'est cela dit pas difficile de faire mieux. En effet, $\\arctan\\frac{1}{n} = \\underset{n \\to +\\infty}{\\frac{1}{n} - \\frac{1}{3n^3}} + o\\left(\\frac{1}{n^3}\\right)$ et la série de Riemann $\\sum \\frac{1}{n^3}$ converge car $3 > 1$, donc la série $\\sum \\left(\\arctan\\frac{1}{n} - \\frac{1}{n}\\right)$ converge aussi. En notant $\\lambda$ sa somme :\\par $\\sum_{k=1}^n \\arctan\\frac{1}{k} = \\sum_{k=1}^n \\frac{1}{k} + \\lambda + o(1) = \\underset{n \\to +\\infty}{\\ln n + \\gamma + \\lambda} + o(1)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__methode_suites_recurrentes",
+      "type": "method",
+      "title": "Méthode : Développement asymptotique des suites récurrentes",
+      "content_latex": "Il est souvent utile de savoir sommer les relations de comparaison quand on cherche un développement asymptotique de suite récurrente. Donnons-nous pour le comprendre une suite $(u_n)_{n \\in \\mathbb{N}}$ de limite nulle pour laquelle $u_{n+1} = f(u_n)$ pour tout $n \\in \\mathbb{N}$. Si on arrive à trouver un réel $\\alpha$ et un RÉEL NON NUL $\\ell$ pour lesquels $u_{n+1}^{-\\alpha} - u_n^{-\\alpha} \\xrightarrow[n \\to +\\infty]{} \\ell$, alors par sommation des relations de comparaison : $u_n^{-\\alpha} - u_0^{-\\alpha} = \\sum_{k=1}^n (u_k^{-\\alpha} - u_{k-1}^{-\\alpha}) \\underset{n \\to +\\infty}{\\sim} \\sum_{k=1}^n \\ell = \\ell n$, donc $u_n \\underset{n \\to +\\infty}{\\sim} (\\ell n)^{-1/\\alpha}$.\\par\\par En réalité, $\\alpha < 0$ car $u_n \\xrightarrow[n \\to +\\infty]{} 0$ par hypothèse.\\par\\par Concrètement, les réels $\\alpha$ et $\\ell$ s'obtiennent aisément à partir d'un développement limité de $f$. Faisons en effet l'hypothèse que $f(x) = \\underset{x \\to 0}{x + \\lambda x^\\beta} + o(x^\\beta)$ pour certains $\\beta > 1$ et $\\lambda \\in \\mathbb{R}^*$. Pour tout $\\alpha \\in \\mathbb{R}^*$ :\\par $\\frac{f(x)^\\alpha - x^\\alpha}{x^\\alpha} = \\left(1 + \\lambda x^{\\beta-1} + o(x^{\\beta-1})\\right)^\\alpha - 1 = \\underset{x \\to 0}{\\alpha \\lambda x^{\\beta-1}} + o(x^{\\beta-1})$,\\par donc $x \\mapsto \\frac{f(x)^\\alpha - x^\\alpha}{x^\\alpha}$ a une limite RÉELLE NON NULLE en $0$ si et seulement si $\\alpha = 1 - \\beta$, auquel cas $f(x)^\\alpha - x^\\alpha \\underset{x \\to 0}{\\sim} \\lambda(1-\\beta)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_suite_arctan",
+      "type": "example",
+      "title": "Exemple : Suite $u_{n+1} = \\arctan(u_n)$",
+      "content_latex": "On note $(u_n)_{n \\in \\mathbb{N}}$ la suite définie par $u_0 = 1$ et $u_{n+1} = \\arctan(u_n)$ pour tout $n \\in \\mathbb{N}$. Alors :\\par $u_n = \\underset{n \\to +\\infty}{\\sqrt{\\frac{3}{2n}} - \\frac{3\\sqrt{3} \\ln n}{20\\sqrt{2} n\\sqrt{n}}} + o\\left(\\frac{\\ln n}{n\\sqrt{n}}\\right)$.",
+      "proof_latex": "Pour commencer, $\\mathbb{R}_+$ est stable par la fonction arctangente et $0 \\leq \\arctan x \\leq x$ pour tout $x \\geq 0$, donc la suite $(u_n)_{n \\in \\mathbb{N}}$ est décroissante positive, donc convergente d'après le théorème de la limite monotone. Sa limite est un point fixe de la fonction continue arctangente, dont le seul point fixe est $0$, donc $u_n \\xrightarrow[n \\to +\\infty]{} 0$.\\par\\par À présent, pour tout $\\alpha \\in \\mathbb{R}$ :\\par $\\frac{(\\arctan x)^\\alpha - x^\\alpha}{x^\\alpha} = \\left(\\frac{x - \\frac{x^3}{3} + o(x^3)}{x}\\right)^\\alpha - 1 = \\left(1 - \\frac{x^2}{3} + o(x^2)\\right)^\\alpha - 1 \\underset{x \\to 0}{\\sim} -\\frac{\\alpha x^2}{3}$,\\par donc $(\\arctan x)^{-2} - x^{-2} \\underset{x \\to 0}{\\sim} \\frac{2}{3}$ pour $\\alpha = -2$. A fortiori $u_{n+1}^{-2} - u_n^{-2} \\underset{n \\to +\\infty}{\\sim} \\frac{2}{3}$, donc par sommation des équivalents : $u_n^{-2} - u_0^{-2} = \\sum_{k=1}^n (u_k^{-2} - u_{k-1}^{-2}) \\underset{n \\to +\\infty}{\\sim} \\sum_{k=1}^n \\frac{2}{3} = \\frac{2n}{3}$,\\par donc $u_n^{-2} \\underset{n \\to +\\infty}{\\sim} \\frac{2n}{3}$, et enfin $u_n \\underset{n \\to +\\infty}{\\sim} \\sqrt{\\frac{3}{2n}}$.\\par\\par Poussons maintenant la démarche un terme plus loin, mais sans détailler les calculs :\\par $(\\arctan x)^{-2} - x^{-2} = \\underset{x \\to 0}{\\frac{2}{3} - \\frac{x^2}{15}} + o(x^2)$, donc $u_{n+1}^{-2} - u_n^{-2} = \\underset{n \\to +\\infty}{\\frac{2}{3} - \\frac{3}{10n}} + o\\left(\\frac{1}{n}\\right)$,\\par donc par sommation des équivalents : $u_n^{-2} - \\frac{2n}{3} = \\sum_{k=1}^n \\left(u_k^{-2} - u_{k-1}^{-2} - \\frac{2}{3}\\right) \\underset{n \\to +\\infty}{\\sim} \\sum_{k=1}^n \\left(-\\frac{3}{10k}\\right) = -\\frac{3}{10} \\ln n$,\\par car $\\sum_{k=1}^n \\frac{1}{k} \\underset{n \\to +\\infty}{\\sim} \\ln n$ et $\\frac{\\ln n}{n} \\xrightarrow[n \\to +\\infty]{} 0$.\\par\\par Finalement : $u_n = \\left(\\frac{2n}{3} - \\frac{3\\ln n}{10} + o(\\ln n)\\right)^{-1/2} = \\sqrt{\\frac{3}{2n}}\\left(1 - \\frac{9\\ln n}{20n} + o\\left(\\frac{\\ln n}{n}\\right)\\right)^{-1/2}$\\par $= \\underset{n \\to +\\infty}{\\sqrt{\\frac{3}{2n}} + \\frac{9\\sqrt{3}\\ln n}{40\\sqrt{2}n\\sqrt{n}}} + o\\left(\\frac{\\ln n}{n\\sqrt{n}}\\right) = \\underset{n \\to +\\infty}{\\sqrt{\\frac{3}{2n}} - \\frac{3\\sqrt{3}\\ln n}{20\\sqrt{2}n\\sqrt{n}}} + o\\left(\\frac{\\ln n}{n\\sqrt{n}}\\right)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__intro_equations_implicites",
+      "type": "remark",
+      "title": "Introduction : Équations définies implicitement",
+      "content_latex": "Cette section présente des exemples où on cherche un développement asymptotique de la solution d'une équation définie implicitement, en fonction d'un paramètre.",
+      "proof_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_epsilon_x",
+      "type": "example",
+      "title": "Exemple : Équation $e^{-\\varepsilon x} = x$",
+      "content_latex": "Pour tout $\\varepsilon > 0$, l'équation $e^{-\\varepsilon x} = x$ d'inconnue $x$ possède une et une seule solution $x_\\varepsilon$ dans $\\mathbb{R}_+$. Alors $x_\\varepsilon = \\underset{\\varepsilon \\to 0}{1 - \\varepsilon + \\frac{3\\varepsilon^2}{2}} + o(\\varepsilon^2)$.",
+      "proof_latex": "Soit $\\varepsilon > 0$. La fonction $x \\mapsto e^{-\\varepsilon x} - x$ est continue et strictement décroissante sur $\\mathbb{R}_+$ par somme, de valeur $1$ en $0$ et de limite $-\\infty$ en $+\\infty$. D'après le TVI strictement monotone, $0$ possède un unique antécédent $x_\\varepsilon$ par cette fonction.\\par\\par Par positivité de $x_\\varepsilon$ pour tout $\\varepsilon > 0$ : $0 \\leq x_\\varepsilon = e^{-\\varepsilon x_\\varepsilon} \\leq 1$, puis en retour : $e^{-\\varepsilon} \\leq x_\\varepsilon \\leq 1$.\\par\\par Il en découle que $x_\\varepsilon \\xrightarrow[\\varepsilon \\to 0]{} 1$ par encadrement, i.e. que $x_\\varepsilon = \\underset{\\varepsilon \\to 0}{1} + o(1)$.\\par\\par Réinjectons ce résultat dans la relation qui définit $x_\\varepsilon$ :\\par $x_\\varepsilon = e^{-\\varepsilon x_\\varepsilon} = \\underset{\\varepsilon \\to 0}{e^{-\\varepsilon + o(\\varepsilon)}} = \\underset{\\varepsilon \\to 0}{1 - \\varepsilon} + o(\\varepsilon)$,\\par puis réinjectons une dernière fois :\\par $x_\\varepsilon = e^{-\\varepsilon x_\\varepsilon} = \\underset{\\varepsilon \\to 0}{e^{-\\varepsilon + \\varepsilon^2 + o(\\varepsilon^2)}} = \\underset{\\varepsilon \\to 0}{1 + (-\\varepsilon + \\varepsilon^2) + \\frac{(-\\varepsilon)^2}{2} + o(\\varepsilon^2)} = \\underset{\\varepsilon \\to 0}{1 - \\varepsilon + \\frac{3\\varepsilon^2}{2}} + o(\\varepsilon^2)$."
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_2__example_tan_sqrt",
+      "type": "example",
+      "title": "Exemple : Équation $\\tan x = \\sqrt{x}$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, l'équation $\\tan x = \\sqrt{x}$ d'inconnue $x \\in \\left]n\\pi - \\frac{\\pi}{2}, n\\pi + \\frac{\\pi}{2}\\right[$ possède une et une seule solution $x_n$ et $x_n = \\underset{n \\to +\\infty}{n\\pi + \\frac{\\pi}{2} - \\frac{1}{\\sqrt{n\\pi}}} + o\\left(\\frac{1}{\\sqrt{n}}\\right)$.",
+      "proof_latex": "Soit $n \\in \\mathbb{N}^*$. La fonction $x \\mapsto \\tan x - \\sqrt{x}$ est dérivable sur $\\left]n\\pi - \\frac{\\pi}{2}, n\\pi + \\frac{\\pi}{2}\\right[$ de dérivée $x \\mapsto 1 + \\tan^2 x - \\frac{1}{2\\sqrt{x}}$, strictement positive, car pour tout $x \\in \\left]n\\pi - \\frac{\\pi}{2}, n\\pi + \\frac{\\pi}{2}\\right[$ : $1 + \\tan^2 x \\geq 1 > \\frac{1}{4} \\geq \\frac{1}{2\\sqrt{x}}$.\\par\\par D'après le TVI strictement monotone, après un calcul de limites aux bornes, $f$ s'annule une et une seule fois sur $\\left]n\\pi - \\frac{\\pi}{2}, n\\pi + \\frac{\\pi}{2}\\right[$, disons en $x_n$.\\par\\par Pour tout $n \\in \\mathbb{N}^*$ : $n\\pi - \\frac{\\pi}{2} \\leq x_n \\leq n\\pi + \\frac{\\pi}{2}$,\\par donc $x_n - n\\pi - \\frac{\\pi}{2} \\xrightarrow[n \\to +\\infty]{} 0$, autrement dit $x_n = \\underset{n \\to +\\infty}{n\\pi + \\frac{\\pi}{2}} + o(1)$.\\par\\par Ensuite, pour tout $n \\in \\mathbb{N}^*$ :\\par $x_n - n\\pi - \\frac{\\pi}{2} = \\arctan\\left(\\tan\\left(x_n - n\\pi - \\frac{\\pi}{2}\\right)\\right) = \\arctan\\left(-\\frac{1}{\\tan x_n}\\right) = \\arctan\\left(-\\frac{1}{\\sqrt{x_n}}\\right)$.\\par\\par Rappelons enfin que pour tout $x > 0$ : $\\arctan x + \\arctan\\frac{1}{x} = \\frac{\\pi}{2}$, donc $x_n - n\\pi - \\frac{\\pi}{2} = \\arctan\\left(-\\frac{1}{\\sqrt{x_n}}\\right) = -\\arctan\\frac{1}{\\sqrt{x_n}}$,\\par et enfin $x_n = \\underset{n \\to +\\infty}{n\\pi + \\frac{\\pi}{2} - \\frac{1}{\\sqrt{n\\pi}}} + o\\left(\\frac{1}{\\sqrt{n}}\\right)$.\\par\\par Il en découle que : $\\frac{1}{x_n - n\\pi - \\frac{\\pi}{2}} = -\\sqrt{x_n} \\underset{n \\to +\\infty}{\\sim} -\\sqrt{n\\pi}$."
+    }
+  ],
+  "exercises": []
+}

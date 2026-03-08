@@ -1,0 +1,1285 @@
+{
+  "programme_chapter_id": "FONC_REELLE",
+  "programme_chapter_title": "Fonctions d'une variable réelle : limites, continuité, dérivabilité, convexité",
+  "semestre": 1,
+  "linked_course_chapters": [
+    "limites_et_continuite",
+    "derivabilite_et_convexite"
+  ],
+  "questions": [
+    {
+      "id": "FONC_REELLE__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Limite finie ou infinie d'une fonction en un point a de R̄.",
+      "programme_notion": "Limite finie ou infinie d'une fonction en un point a de R̄",
+      "answer_node_id": "limites_et_continuite__definition_limite_point",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. On dit que $f$ admet $l$ pour limite en $a$, ce qu'on note $f\\rightarrow l$ ou $\\lim_{x\\rightarrow a}f(x) = l$, si :\\par $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in \\mathcal{V}_{\\mathbb{R}}(a), f(E\\cap V_{a})\\subset V_{l}$.\\par i.e. si : $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in\\mathcal{V}_{\\mathbb{R}}(a), \\forall x\\in E\\cap V_{a}, f(x)\\in V_{l}$ à condition de noter $\\mathcal{V}_{\\mathbb{R}}(s)$ l'ensemble des voisinages de $s$ dans $\\mathbb{R}$ pour tout $s\\in\\mathbb{R}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_002",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Définitions avec inégalités larges.",
+      "programme_notion": "Définitions avec inégalités larges",
+      "answer_node_id": "limites_et_continuite__theorem_limites_inegalites_larges",
+      "answer_latex": "Soient $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions possédant une limite finie en $a$.\\par Si $f(x)\\le g(x)$ au voisinage de $a$, alors $\\lim_{a}f\\le \\lim_{a}g$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_003",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Définitions avec inégalités larges.",
+      "programme_notion": "Définitions avec inégalités larges",
+      "answer_node_id": "limites_et_continuite__theorem_limites_inegalites_larges",
+      "answer_latex": "Soient $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions possédant une limite finie en $a$.\\par Si $f(x)\\le g(x)$ au voisinage de $a$, alors $\\lim_{a}f\\le \\lim_{a}g$.\n\n\\textbf{Démonstration.} Par l'absurde, si $\\lim_{a}(g-f)<0$, le théorème précédent montre que $g(x)-f(x)<0$ au voisinage de $a$ : contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_004",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Unicité de la limite (notations f(x) →_{x→a} ℓ, lim_{x→a} f(x)).",
+      "programme_notion": "Unicité de la limite (notations f(x) →_{x→a} ℓ, lim_{x→a} f(x))",
+      "answer_node_id": "limites_et_continuite__theorem_unicite_limite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$.\\par (i) Si $f$ possède une limite en $a$, cette limite est unique et notée $\\lim_{a} f$ ou $\\lim_{x\\rightarrow a}f(x)$.\\par (ii) Si $f$ est définie en $a$ et y possède une limite, alors forcément : $\\lim_{x\\rightarrow a}f(x) = f(a)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_005",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Unicité de la limite (notations f(x) →_{x→a} ℓ, lim_{x→a} f(x)).",
+      "programme_notion": "Unicité de la limite (notations f(x) →_{x→a} ℓ, lim_{x→a} f(x))",
+      "answer_node_id": "limites_et_continuite__theorem_unicite_limite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$.\\par (i) Si $f$ possède une limite en $a$, cette limite est unique et notée $\\lim_{a} f$ ou $\\lim_{x\\rightarrow a}f(x)$.\\par (ii) Si $f$ est définie en $a$ et y possède une limite, alors forcément : $\\lim_{x\\rightarrow a}f(x) = f(a)$.\n\n\\textbf{Démonstration.} (i) Soient $l, l'\\in\\overline{\\mathbb{R}}$. On veut montrer, sous l'hypothèse que $f$ admet $l$ et $l'$ pour limites en $a$, que $l=l'$. Supposons par l'absurde que $l\\ne l'$. Il existe alors un voisinage $V_{l}$ de $l$ et un voisinage $V_{l'}$ de $l'$ pour lesquels $V_{l}\\cap V_{l'}=\\emptyset$. Or par hypothèse sur $f$, il existe deux voisinages $V_{a}$ et $V_{a}'$ de $a$ pour lesquels $f(E\\cap V_{a})\\subset V_{l}$ et $f(E\\cap V_{a}')\\subset V_{l'}$. Pourtant, $a$ est adhérent à $E$ et $V_{a}\\cap V_{a}'$ est un voisinage de $a$, donc $E\\cap V_{a}\\cap V_{a}'\\ne\\emptyset$. Il en découle que $f(E\\cap V_{a}\\cap V_{a}')\\subset V_{l}\\cap V_{l'}=\\emptyset$ : contradiction !\\par (ii) Faisons l'hypothèse que $f$ est définie en $a$ et possède une limite $l$ en $a$. Pour tout voisinage $V_{l}$ de $l$, il existe alors un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{l}$. En particulier, $f(a)$ appartient à TOUT voisinage de $l$ car $f$ est définie en $a$. Comme $]f(a), +\\infty[$ et $]-\\infty, f(a)[$ sont des voisinages de $+\\infty$ et $-\\infty$ respectivement ne contenant pas $f(a)$, il en découle que $l\\in\\mathbb{R}$. Finalement, $f(a)$ appartient au voisinage $]l-\\epsilon, l+\\epsilon[$ de $l$ pour tout $\\epsilon>0$, donc $l=f(a)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_006",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si f définie en a et a une limite en a, alors lim_{x→a} f(x) = f(a).",
+      "programme_notion": "Si f définie en a et a une limite en a, alors lim_{x→a} f(x) = f(a)",
+      "answer_node_id": "limites_et_continuite__definition_limite_point",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. On dit que $f$ admet $l$ pour limite en $a$, ce qu'on note $f\\rightarrow l$ ou $\\lim_{x\\rightarrow a}f(x) = l$, si :\\par $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in \\mathcal{V}_{\\mathbb{R}}(a), f(E\\cap V_{a})\\subset V_{l}$.\\par i.e. si : $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in\\mathcal{V}_{\\mathbb{R}}(a), \\forall x\\in E\\cap V_{a}, f(x)\\in V_{l}$ à condition de noter $\\mathcal{V}_{\\mathbb{R}}(s)$ l'ensemble des voisinages de $s$ dans $\\mathbb{R}$ pour tout $s\\in\\mathbb{R}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_007",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si f a une limite finie en a, alors f est bornée au voisinage de a.",
+      "programme_notion": "Si f a une limite finie en a, alors f est bornée au voisinage de a",
+      "answer_node_id": "limites_et_continuite__theorem_produit_bornee_limite_nulle",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $\\epsilon:E\\longrightarrow\\mathbb{R}$ deux fonctions et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$. Si $f$ est bornée au voisinage de $a$ et si $\\epsilon\\longrightarrow 0$, alors $\\epsilon(x)f(x)\\longrightarrow 0$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si f a une limite finie en a, alors f est bornée au voisinage de a.",
+      "programme_notion": "Si f a une limite finie en a, alors f est bornée au voisinage de a",
+      "answer_node_id": "limites_et_continuite__theorem_produit_bornee_limite_nulle",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $\\epsilon:E\\longrightarrow\\mathbb{R}$ deux fonctions et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$. Si $f$ est bornée au voisinage de $a$ et si $\\epsilon\\longrightarrow 0$, alors $\\epsilon(x)f(x)\\longrightarrow 0$.\n\n\\textbf{Démonstration.} Ce résultat est une application classique du théorème d'encadrement, en utilisant l'inégalité $0 \\le |\\epsilon(x)f(x)| \\le M |\\epsilon(x)|$ au voisinage de $a$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Limite à droite, limite à gauche.",
+      "programme_notion": "Limite à droite, limite à gauche",
+      "answer_node_id": "limites_et_continuite__definition_limite_gauche_droite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\mathbb{R}$ et $l\\in\\mathbb{R}$.\\par — **Limite à gauche** : Si $a$ est adhérent à $E\\cap]-\\infty, a[$, on dit que $f$ possède une limite à gauche en $a$ si $f_{|_{E\\cap]-\\infty,a[}}$ possède une limite en $a$. Cette limite est notée $\\lim_{a^{-}}f, \\lim_{x\\rightarrow a^{-}}f(x)$ ou encore $\\lim_{x\\xrightarrow{<} a}f(x)$.\\par En quantificateurs (si $l\\in\\mathbb{R}$) : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, a-\\alpha<x<a\\Rightarrow|f(x)-l|<\\epsilon$.\\par — **Limite à droite** : On définit de même la notion de limite à droite à partir de la fonction restreinte $f_{|_{E\\cap]a,+\\infty[}}$ si $a$ est adhérent à $E\\cap]a, +\\infty[$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_010",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation séquentielle de la limite.",
+      "programme_notion": "Caractérisation séquentielle de la limite",
+      "answer_node_id": "limites_et_continuite__theorem_caracterisation_sequentielle_limite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $f(x_{n})\\longrightarrow l$ pour toute suite $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ de limite $a$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_011",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation séquentielle de la limite.",
+      "programme_notion": "Caractérisation séquentielle de la limite",
+      "answer_node_id": "limites_et_continuite__theorem_caracterisation_sequentielle_limite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $f(x_{n})\\longrightarrow l$ pour toute suite $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ de limite $a$.\n\n\\textbf{Démonstration.} $(i)\\Rightarrow(ii)$ Faisons l'hypothèse que $f\\longrightarrow l$. Soit $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ une suite de limite $a$. Pour montrer que $f(x_{n})\\longrightarrow l$, donnons-nous un voisinage $V_{l}$ de $l$. Comme $f\\longrightarrow l$, il existe un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{l}$. Or $x_{n}\\longrightarrow a$, donc $x_{n}\\in V_{a}$ à partir d'un certain rang $N$. Plus précisément, $x_{n}\\in E\\cap V_{a}$ pour tout $n\\ge N$ donc $f(x_{n})\\in f(E\\cap V_{a})\\subset V_{l}$. Comme voulu, $f(x_{n})\\xrightarrow[n\\rightarrow+\\infty]{} l$.\\par $(ii)\\Rightarrow(i)$ Par contraposition, supposons que $f$ n'admet pas $l$ pour limite (cas $a, l\\in\\mathbb{R}$). Il existe alors un réel $\\epsilon_{0}>0$ pour lequel : $\\forall\\alpha>0, \\exists x\\in E, |x-a|<\\alpha$ et $|f(x)-l|\\ge\\epsilon_{0}$. En choisissant $\\alpha=\\frac{1}{n}$ pour tout $n\\in\\mathbb{N}^{*}$, nous héritons d'un élément $x_{n}$ de $E$ pour lequel $|x_{n}-a|<\\frac{1}{n}$ et $|f(x_{n})-l|\\ge\\epsilon_{0}$. La suite $(x_{n})_{n\\in\\mathbb{N}^{*}}$ ainsi construite est à valeurs dans $E$ et de limite $a$, et la suite $(f(x_{n}))_{n\\in\\mathbb{N}^{*}}$ n'admet pas $l$ pour limite.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_012",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations sur les limites : combinaison linéaire, produit, quotient, composition.",
+      "programme_notion": "Opérations sur les limites : combinaison linéaire, produit, quotient, composition",
+      "answer_node_id": "limites_et_continuite__theorem_composition_limites",
+      "answer_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$, $b\\in\\overline{\\mathbb{R}}$ adhérent à $F$ et $c\\in\\overline{\\mathbb{R}}$.\\par Si $f\\longrightarrow b$ et $g\\longrightarrow c$, alors $g\\circ f\\longrightarrow c$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_013",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Opérations sur les limites : combinaison linéaire, produit, quotient, composition.",
+      "programme_notion": "Opérations sur les limites : combinaison linéaire, produit, quotient, composition",
+      "answer_node_id": "limites_et_continuite__theorem_composition_limites",
+      "answer_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$, $b\\in\\overline{\\mathbb{R}}$ adhérent à $F$ et $c\\in\\overline{\\mathbb{R}}$.\\par Si $f\\longrightarrow b$ et $g\\longrightarrow c$, alors $g\\circ f\\longrightarrow c$.\n\n\\textbf{Démonstration.} Soit $V_{c}$ un voisinage de $c$. Par hypothèse, il existe un voisinage $V_{b}$ de $b$ pour lequel $g(F\\cap V_{b})\\subset V_{c}$ et un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{b}$. Par composition, $g\\circ f(E\\cap V_{a})\\subset g(F\\cap V_{b})\\subset V_{c}$, donc en effet $g\\circ f\\longrightarrow c$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_014",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Passage à la limite dans une inégalité large.",
+      "programme_notion": "Passage à la limite dans une inégalité large",
+      "answer_node_id": "limites_et_continuite__definition_limite_point",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. On dit que $f$ admet $l$ pour limite en $a$, ce qu'on note $f\\rightarrow l$ ou $\\lim_{x\\rightarrow a}f(x) = l$, si :\\par $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in \\mathcal{V}_{\\mathbb{R}}(a), f(E\\cap V_{a})\\subset V_{l}$.\\par i.e. si : $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in\\mathcal{V}_{\\mathbb{R}}(a), \\forall x\\in E\\cap V_{a}, f(x)\\in V_{l}$ à condition de noter $\\mathcal{V}_{\\mathbb{R}}(s)$ l'ensemble des voisinages de $s$ dans $\\mathbb{R}$ pour tout $s\\in\\mathbb{R}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_015",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence de limite par encadrement, minoration, majoration.",
+      "programme_notion": "Existence de limite par encadrement, minoration, majoration",
+      "answer_node_id": "limites_et_continuite__theorem_encadrement_minoration_majoration",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$, $m:E\\longrightarrow\\mathbb{R}$ et $M:E\\longrightarrow\\mathbb{R}$ trois fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{R}$.\\par (i) **Théorème d'encadrement** : Si $m(x)\\le f(x)\\le M(x)$ au voisinage de $a$ avec $m\\longrightarrow l$ et $M\\longrightarrow l$, alors $f\\longrightarrow l$.\\par (ii) **Théorème de minoration** : Si $f(x)\\ge m(x)$ au voisinage de $a$ avec $m\\longrightarrow +\\infty$, alors $f\\xrightarrow{a} +\\infty$.\\par (iii) **Théorème de majoration** : Si $f(x)\\le M(x)$ au voisinage de $a$ avec $M\\longrightarrow -\\infty$, alors $f\\xrightarrow{a} -\\infty$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_016",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence de limite par encadrement, minoration, majoration.",
+      "programme_notion": "Existence de limite par encadrement, minoration, majoration",
+      "answer_node_id": "limites_et_continuite__theorem_encadrement_minoration_majoration",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$, $m:E\\longrightarrow\\mathbb{R}$ et $M:E\\longrightarrow\\mathbb{R}$ trois fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{R}$.\\par (i) **Théorème d'encadrement** : Si $m(x)\\le f(x)\\le M(x)$ au voisinage de $a$ avec $m\\longrightarrow l$ et $M\\longrightarrow l$, alors $f\\longrightarrow l$.\\par (ii) **Théorème de minoration** : Si $f(x)\\ge m(x)$ au voisinage de $a$ avec $m\\longrightarrow +\\infty$, alors $f\\xrightarrow{a} +\\infty$.\\par (iii) **Théorème de majoration** : Si $f(x)\\le M(x)$ au voisinage de $a$ avec $M\\longrightarrow -\\infty$, alors $f\\xrightarrow{a} -\\infty$.\n\n\\textbf{Démonstration.} Pour (i), soit $\\epsilon>0$. Il existe un voisinage $V_{a}$ de $a$ sur lequel $m(x)\\le f(x)\\le M(x)$, un voisinage $V_{a}'$ sur lequel $m(x)>l-\\epsilon$, et un voisinage $V_{a}''$ sur lequel $M(x)<l+\\epsilon$. Par intersection, $V_{a}\\cap V_{a}'\\cap V_{a}''$ est aussi un voisinage de $a$ et $l-\\epsilon<m(x)\\le f(x)\\le M(x)<l+\\epsilon$ pour tout $x\\in E\\cap V_{a}\\cap V_{a}'\\cap V_{a}''$, donc $|f(x)-l|<\\epsilon$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_017",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de la limite monotone pour les fonctions.",
+      "programme_notion": "Théorème de la limite monotone pour les fonctions",
+      "answer_node_id": "limites_et_continuite__theorem_limite_monotone",
+      "answer_latex": "Toute fonction monotone possède une limite à gauche et une limite à droite en tout point en lequel cela a un sens.\\par Dans le cas d'une fonction $f:[a,b[\\longrightarrow\\mathbb{R}$ croissante avec $a\\in\\mathbb{R}$ et $b\\in]a,+\\infty]$, cela signifie concrètement que :\\par — $f$ possède une limite FINIE à droite en $a$, et de plus $f(a)\\le \\lim_{a^{+}}f$.\\par — pour tout $c\\in ]a, b[$, $f$ possède des limites FINIES à gauche et à droite en $c$, et de plus $\\lim_{c^{-}}f\\le f(c)\\le \\lim_{c^{+}}f$.\\par — $f$ possède une limite en $b$, soit finie soit $+\\infty$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_018",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème de la limite monotone pour les fonctions.",
+      "programme_notion": "Théorème de la limite monotone pour les fonctions",
+      "answer_node_id": "limites_et_continuite__theorem_limite_monotone",
+      "answer_latex": "Toute fonction monotone possède une limite à gauche et une limite à droite en tout point en lequel cela a un sens.\\par Dans le cas d'une fonction $f:[a,b[\\longrightarrow\\mathbb{R}$ croissante avec $a\\in\\mathbb{R}$ et $b\\in]a,+\\infty]$, cela signifie concrètement que :\\par — $f$ possède une limite FINIE à droite en $a$, et de plus $f(a)\\le \\lim_{a^{+}}f$.\\par — pour tout $c\\in ]a, b[$, $f$ possède des limites FINIES à gauche et à droite en $c$, et de plus $\\lim_{c^{-}}f\\le f(c)\\le \\lim_{c^{+}}f$.\\par — $f$ possède une limite en $b$, soit finie soit $+\\infty$.\n\n\\textbf{Démonstration.} Montrons seulement que $f$ possède une limite à droite en $a$ dans le cadre proposé ci-dessus. Par croissance de $f$, $f(]a,b[)$ est une partie non vide de $\\mathbb{R}$ minorée par $f(a)$, donc possède une borne inférieure $l\\in\\mathbb{R}$ d'après la propriété de la borne inférieure. En outre, $f(a)\\le l$. Montrons que $f\\xrightarrow{a^{+}} l$. Soit $\\epsilon>0$. Le réel $l+\\epsilon$ ne minore pas $f(]a,b[)$ car $l$ en est le plus grand minorant, donc $f(x_{0})<l+\\epsilon$ pour un certain $x_{0}\\in ]a, b[$. Posons $\\alpha=x_{0}-a>0$. Pour tout $x\\in]a,a+\\alpha[$ : $l-\\epsilon<l\\le f(x)\\le f(x_{0})<l+\\epsilon$, car $f$ est croissante d'une part et $l=\\inf f(]a,b[)$ d'autre part. Conclusion : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in]a,a+\\alpha[, |f(x)-l|<\\epsilon$, autrement dit $f\\xrightarrow{a^{+}} l$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_019",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Continuité en un point, prolongement par continuité.",
+      "programme_notion": "Continuité en un point, prolongement par continuité",
+      "answer_node_id": "limites_et_continuite__definition_prolongement_continuite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ et $a\\in\\mathbb{R}\\setminus E$ adhérent à $E$. Attention, $f$ n'est pas définie en $a$.\\par On dit que $f$ est prolongeable par continuité en $a$ si $f$ possède une limite finie en $a$.\\par Le prolongement $\\tilde{f}$ de $f$ à $E\\sqcup\\{a\\}$ obtenu en posant $\\tilde{f}(a)=\\lim_{a}f$ est alors continu en $a$.\\par On choisit généralement de noter encore $f$ le prolongement $\\tilde{f}$, i.e. d'identifier $f$ et $\\tilde{f}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_020",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Continuité en un point, prolongement par continuité.",
+      "programme_notion": "Continuité en un point, prolongement par continuité",
+      "answer_node_id": "limites_et_continuite__definition_prolongement_continuite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ et $a\\in\\mathbb{R}\\setminus E$ adhérent à $E$. Attention, $f$ n'est pas définie en $a$.\\par On dit que $f$ est prolongeable par continuité en $a$ si $f$ possède une limite finie en $a$.\\par Le prolongement $\\tilde{f}$ de $f$ à $E\\sqcup\\{a\\}$ obtenu en posant $\\tilde{f}(a)=\\lim_{a}f$ est alors continu en $a$.\\par On choisit généralement de noter encore $f$ le prolongement $\\tilde{f}$, i.e. d'identifier $f$ et $\\tilde{f}$.\n\n\\textbf{Démonstration.} Montrons que $\\tilde{f}$ est continue en $a$, i.e. que $\\tilde{f}\\longrightarrow \\tilde{f}(a)$. Or par hypothèse, $f\\longrightarrow \\tilde{f}(a)$, donc : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-\\tilde{f}(a)|<\\epsilon$.\\par C'est presque le résultat car $f$ et $\\tilde{f}$ coïncident sur $E$, mais pas tout à fait car $\\tilde{f}$ est aussi définie en $a$. Cela dit, l'implication reste vraie pour $x=a$, donc : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E\\sqcup\\{a\\}, |x-a|<\\alpha\\Rightarrow|\\tilde{f}(x)-\\tilde{f}(a)|<\\epsilon$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_021",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Continuité à gauche, à droite.",
+      "programme_notion": "Continuité à gauche, à droite",
+      "answer_node_id": "limites_et_continuite__definition_continuite_gauche_droite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$.\\par — **Continuité à gauche** : On dit que $f$ est continue à gauche en $a$ si $f_{|_{E\\cap]-\\infty,a]}}$ est continue en $a$, i.e. si $f\\xrightarrow{a^{-}} f(a)$.\\par — **Continuité à droite** : On dit que $f$ est continue à droite en $a$ si $f_{|_{E\\cap[a,+\\infty[}}$ est continue en $a$, i.e. si $f\\xrightarrow{a^{+}} f(a)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_022",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation séquentielle de la continuité.",
+      "programme_notion": "Caractérisation séquentielle de la continuité",
+      "answer_node_id": "limites_et_continuite__theorem_caracterisation_sequentielle_continuite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$. Les assertions suivantes sont équivalentes :\\par (i) $f$ est continue en $a$, i.e. $f(x)\\xrightarrow[x\\rightarrow a]{} f(a)$.\\par (ii) $f(x_{n})\\xrightarrow[n\\rightarrow+\\infty]{} f(a)$ pour toute suite $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ de limite $a$.\\par En résumé : Pour une fonction CONTINUE, $f(\\lim_{n\\rightarrow+\\infty} ...) = \\lim_{n\\rightarrow+\\infty} f(...)$ si la limite existe.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_023",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations sur les fonctions continues en un point.",
+      "programme_notion": "Opérations sur les fonctions continues en un point",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivees_successives",
+      "answer_latex": "Soit $k \\in \\mathbb{N} \\cup \\{\\infty\\}$.\\par\\par \\textbf{Combinaison linéaire, produit, quotient :} $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par combinaison linéaire et produit, ainsi que par quotient tant que le dénominateur ne s'annule pas.\\par\\par En outre, pour toutes fonctions $f, g \\in \\mathcal{C}^k(E, \\mathbb{C})$ : $(fg)^{(k)} = \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p)}$ (formule de Leibniz).\\par\\par \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{C}^k(E, \\mathbb{R})$ et $g \\in \\mathcal{C}^k(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est de classe $\\mathcal{C}^k$ sur $E$.\\par\\par \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{C}^k(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est de classe $\\mathcal{C}^k$ sur $J$.\\par\\par On peut remplacer dans chacune de ces assertions la classe $\\mathcal{C}^k$ par une hypothèse de dérivabilité $k$ fois.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_024",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Opérations sur les fonctions continues en un point.",
+      "programme_notion": "Opérations sur les fonctions continues en un point",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivees_successives",
+      "answer_latex": "Soit $k \\in \\mathbb{N} \\cup \\{\\infty\\}$.\\par\\par \\textbf{Combinaison linéaire, produit, quotient :} $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par combinaison linéaire et produit, ainsi que par quotient tant que le dénominateur ne s'annule pas.\\par\\par En outre, pour toutes fonctions $f, g \\in \\mathcal{C}^k(E, \\mathbb{C})$ : $(fg)^{(k)} = \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p)}$ (formule de Leibniz).\\par\\par \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{C}^k(E, \\mathbb{R})$ et $g \\in \\mathcal{C}^k(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est de classe $\\mathcal{C}^k$ sur $E$.\\par\\par \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{C}^k(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est de classe $\\mathcal{C}^k$ sur $J$.\\par\\par On peut remplacer dans chacune de ces assertions la classe $\\mathcal{C}^k$ par une hypothèse de dérivabilité $k$ fois.\n\n\\textbf{Démonstration.} On raisonne par récurrence sur $k$ avec des initialisations toutes triviales car être de classe $\\mathcal{C}^0$, c'est être continue. Le cas des combinaisons linéaires tombe sous le sens.\\par\\par \\textbf{Produit (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par produit et que la formule de Leibniz y est vraie pour les dérivées $k$èmes. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $fg$ aussi et $(fg)' = f'g + fg'$. Or $f'g$ et $fg'$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $(fg)'$ aussi par addition. Conclusion : $fg$ est de classe $\\mathcal{C}^{k+1}$. Ensuite : $(fg)^{(k+1)} = (f'g)^{(k)} + (fg')^{(k)} \\stackrel{\\text{HDR}}{=} \\sum_{p=0}^{k} \\binom{k}{p} f^{(p+1)} g^{(k-p)} + \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p+1)} = \\sum_{p=0}^{k+1} \\binom{k+1}{p} f^{(p)} g^{(k+1-p)}$ par Pascal.\\par\\par \\textbf{Quotient (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par quotient tant que le dénominateur ne s'annule pas. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. On suppose que $g$ ne s'annule pas sur $E$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $\\frac{f}{g}$ aussi et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$. Or $f'g - fg'$ et $g^2$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $\\frac{f}{g}$ aussi par quotient. Conclusion : $\\frac{f}{g}$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Composition (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $g \\circ f \\in \\mathcal{C}^k(E, \\mathbb{C})$ pour toutes fonctions $f \\in \\mathcal{C}^k(D, E)$ et $g \\in \\mathcal{C}^k(E, \\mathbb{C})$. Soient $f \\in \\mathcal{C}^{k+1}(D, E)$ et $g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $g \\circ f$ aussi et $(g \\circ f)' = f' \\times g' \\circ f$. Or $g'$ est de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $g' \\circ f$ aussi par composition, puis $(g \\circ f)'$ par produit. Conclusion : $g \\circ f$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Réciproque :} Imiter les preuves précédentes.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_025",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Continuité sur un intervalle.",
+      "programme_notion": "Continuité sur un intervalle",
+      "answer_node_id": "limites_et_continuite__definition_continuite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$. On dit que $f$ est continue en $a$ si $f\\longrightarrow f(a)$, i.e. si :\\par $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-f(a)|<\\epsilon$\\par Cela dit, $f$ étant définie en $a$, il est équivalent d'exiger que $f$ possède une limite en $a$, celle-ci vaut forcément $f(a)$.\\par On dit enfin que $f$ est continue sur $E$ si elle l'est en tout point de $E$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_026",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème des valeurs intermédiaires (TVI).",
+      "programme_notion": "Théorème des valeurs intermédiaires (TVI)",
+      "answer_node_id": "limites_et_continuite__theorem_tvi_existence_antecedents",
+      "answer_latex": "Soient $a$ et $b$ deux réels pour lesquels $a\\le b$ et $f\\in\\mathcal{C}([a,b],\\mathbb{R})$.\\par Tout réel compris entre $f(a)$ et $f(b)$ possède un antécédent par $f$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_027",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème des valeurs intermédiaires (TVI).",
+      "programme_notion": "Théorème des valeurs intermédiaires (TVI)",
+      "answer_node_id": "limites_et_continuite__theorem_tvi_existence_antecedents",
+      "answer_latex": "Soient $a$ et $b$ deux réels pour lesquels $a\\le b$ et $f\\in\\mathcal{C}([a,b],\\mathbb{R})$.\\par Tout réel compris entre $f(a)$ et $f(b)$ possède un antécédent par $f$.\n\n\\textbf{Démonstration.} Démonstration (n°1) : Quitte à remplacer $f$ par $-f$, on peut supposer que $f(a)\\le y\\le f(b)$ sans perte de généralité et poser $X=\\{t\\in[a,b] \\mid f(t)\\le y\\}$. L'ensemble $X$ est majoré par $b$ et contient $a$ car $f(a)\\le y$, donc possède une borne supérieure $x$ d'après la propriété de la borne supérieure. Montrons que $f(x)=y$ en prouvant successivement que $f(x)\\le y$ et $f(x)\\ge y$. D'après la caractérisation séquentielle de la borne supérieure, $x$ est la limite d'une suite $(x_{n})$ d'éléments de $X$, or $f(x_{n})\\le y$, donc d'après la caractérisation séquentielle de la continuité : $f(x)=f(\\lim_{n\\rightarrow+\\infty}x_{n})=\\lim_{n\\rightarrow+\\infty}f(x_{n})\\le y$. Ensuite, si $x=b$, alors $f(x)=f(b)\\ge y$. Si $x<b$, alors $x+\\frac{1}{n}$ appartient à $[a, b]$ à partir d'un certain rang mais pas à $X$, donc $f(x+\\frac{1}{n})>y$, donc après passage à la limite : $f(x)\\ge y$.\\par Démonstration (n°2, par dichotomie) : On pose $a_{0}=a$ et $b_{0}=b$. On construit par récurrence des intervalles $[a_{n},b_{n}]$ tels que $b_{n}-a_{n}=\\frac{b-a}{2^{n}}$ et $f(a_{n})\\le y\\le f(b_{n})$. Les suites $(a_{n})$ et $(b_{n})$ sont adjacentes, donc possèdent une limite finie commune $x\\in[a,b]$. En passant à la limite via la continuité, $f(x)\\le y\\le f(x)$ i.e. $y=f(x)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_028",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Principe de démonstration par dichotomie.",
+      "programme_notion": "Principe de démonstration par dichotomie",
+      "answer_node_id": "limites_et_continuite__theorem_produit_bornee_limite_nulle",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $\\epsilon:E\\longrightarrow\\mathbb{R}$ deux fonctions et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$. Si $f$ est bornée au voisinage de $a$ et si $\\epsilon\\longrightarrow 0$, alors $\\epsilon(x)f(x)\\longrightarrow 0$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_029",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Principe de démonstration par dichotomie.",
+      "programme_notion": "Principe de démonstration par dichotomie",
+      "answer_node_id": "limites_et_continuite__theorem_produit_bornee_limite_nulle",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $\\epsilon:E\\longrightarrow\\mathbb{R}$ deux fonctions et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$. Si $f$ est bornée au voisinage de $a$ et si $\\epsilon\\longrightarrow 0$, alors $\\epsilon(x)f(x)\\longrightarrow 0$.\n\n\\textbf{Démonstration.} Ce résultat est une application classique du théorème d'encadrement, en utilisant l'inégalité $0 \\le |\\epsilon(x)f(x)| \\le M |\\epsilon(x)|$ au voisinage de $a$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_030",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Image d'un intervalle par une fonction continue.",
+      "programme_notion": "Image d'un intervalle par une fonction continue",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_031",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Image d'un intervalle par une fonction continue.",
+      "programme_notion": "Image d'un intervalle par une fonction continue",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.\n\n\\textbf{Démonstration.} Soit $(y_{n})$ une suite d'éléments de $f(C)$. Montrons que $(y_{n})$ possède une suite extraite convergente de limite un élément de $f(C)$. Pour tout $n\\in\\mathbb{N}$, $y_{n}=f(x_{n})$ pour un certain $x_{n}\\in C$. Or $C$ étant compact, la suite $(x_{n})$ possède une suite extraite convergente $(x_{\\varphi(n)})$ de limite $l\\in C$. Par continuité de $f$ en $l$, il en découle que $y_{\\varphi(n)}=f(x_{\\varphi(n)})\\xrightarrow[n\\rightarrow+\\infty]{} f(l)\\in f(C)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_032",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Corollaire : cas d'une fonction continue strictement monotone.",
+      "programme_notion": "Corollaire : cas d'une fonction continue strictement monotone",
+      "answer_node_id": "limites_et_continuite__theorem_tvi_strictement_monotone",
+      "answer_latex": "Soient $a, b\\in\\mathbb{R}$ avec $a<b$. \\par (i) Toute fonction continue et strictement croissante $f:[a,b]\\longrightarrow\\mathbb{R}$ est bijective de $[a, b]$ sur $[f(a),f(b)]$.\\par (ii) Toute fonction continue et strictement décroissante $f:[a,b[\\longrightarrow\\mathbb{R}$ est bijective de $[a, b[$ sur $]\\lim_{b^{-}}f,f(a)]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_033",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème des bornes atteintes sur un segment.",
+      "programme_notion": "Théorème des bornes atteintes sur un segment",
+      "answer_node_id": "limites_et_continuite__theorem_bornes_atteintes",
+      "answer_latex": "Deux versions équivalentes :\\par (i) Toute fonction continue sur un SEGMENT y est bornée et atteint ses bornes.\\par (ii) L'image d'un segment par une fonction continue est un segment.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_034",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème des bornes atteintes sur un segment.",
+      "programme_notion": "Théorème des bornes atteintes sur un segment",
+      "answer_node_id": "limites_et_continuite__theorem_bornes_atteintes",
+      "answer_latex": "Deux versions équivalentes :\\par (i) Toute fonction continue sur un SEGMENT y est bornée et atteint ses bornes.\\par (ii) L'image d'un segment par une fonction continue est un segment.\n\n\\textbf{Démonstration.} Soient $f\\in\\mathcal{C}(E,\\mathbb{R})$ et $a$ et $b$ deux réels pour lesquels $a\\le b$ et $[a,b]\\subset E$. Le segment $[a, b]$ est compact, donc son image $f([a,b])$ aussi. Cela dit, $f([a,b])$ est aussi un intervalle d'après le TVI, donc $f([a,b])$ est un intervalle compact, i.e. un segment.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Image d'un segment par une fonction continue.",
+      "programme_notion": "Image d'un segment par une fonction continue",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_036",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Image d'un segment par une fonction continue.",
+      "programme_notion": "Image d'un segment par une fonction continue",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.\n\n\\textbf{Démonstration.} Soit $(y_{n})$ une suite d'éléments de $f(C)$. Montrons que $(y_{n})$ possède une suite extraite convergente de limite un élément de $f(C)$. Pour tout $n\\in\\mathbb{N}$, $y_{n}=f(x_{n})$ pour un certain $x_{n}\\in C$. Or $C$ étant compact, la suite $(x_{n})$ possède une suite extraite convergente $(x_{\\varphi(n)})$ de limite $l\\in C$. Par continuité de $f$ en $l$, il en découle que $y_{\\varphi(n)}=f(x_{\\varphi(n)})\\xrightarrow[n\\rightarrow+\\infty]{} f(l)\\in f(C)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_037",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Une fonction continue injective sur un intervalle est strictement monotone.",
+      "programme_notion": "Une fonction continue injective sur un intervalle est strictement monotone",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_038",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Une fonction continue injective sur un intervalle est strictement monotone.",
+      "programme_notion": "Une fonction continue injective sur un intervalle est strictement monotone",
+      "answer_node_id": "limites_et_continuite__theorem_image_compact",
+      "answer_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.\n\n\\textbf{Démonstration.} Soit $(y_{n})$ une suite d'éléments de $f(C)$. Montrons que $(y_{n})$ possède une suite extraite convergente de limite un élément de $f(C)$. Pour tout $n\\in\\mathbb{N}$, $y_{n}=f(x_{n})$ pour un certain $x_{n}\\in C$. Or $C$ étant compact, la suite $(x_{n})$ possède une suite extraite convergente $(x_{\\varphi(n)})$ de limite $l\\in C$. Par continuité de $f$ en $l$, il en découle que $y_{\\varphi(n)}=f(x_{\\varphi(n)})\\xrightarrow[n\\rightarrow+\\infty]{} f(l)\\in f(C)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_039",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction réciproque d'une fonction strictement monotone continue sur un intervalle.",
+      "programme_notion": "Fonction réciproque d'une fonction strictement monotone continue sur un intervalle",
+      "answer_node_id": "limites_et_continuite__theorem_continuite_reciproque",
+      "answer_latex": "Soient $I$ un intervalle et $f\\in\\mathcal{C}(I,\\mathbb{R})$. On note $J$ l'intervalle $f(I)$. Les assertions suivantes sont équivalentes :\\par (i) $f$ est strictement monotone sur $I$.\\par (ii) $f$ injective sur $I$ donc bijective de $I$ sur $J$.\\par Le cas échéant, $f^{-1}$ est continue et strictement monotone de même sens de variation que $f$ sur $J$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_040",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonction réciproque d'une fonction strictement monotone continue sur un intervalle.",
+      "programme_notion": "Fonction réciproque d'une fonction strictement monotone continue sur un intervalle",
+      "answer_node_id": "limites_et_continuite__theorem_continuite_reciproque",
+      "answer_latex": "Soient $I$ un intervalle et $f\\in\\mathcal{C}(I,\\mathbb{R})$. On note $J$ l'intervalle $f(I)$. Les assertions suivantes sont équivalentes :\\par (i) $f$ est strictement monotone sur $I$.\\par (ii) $f$ injective sur $I$ donc bijective de $I$ sur $J$.\\par Le cas échéant, $f^{-1}$ est continue et strictement monotone de même sens de variation que $f$ sur $J$.\n\n\\textbf{Démonstration.} Pour l'équivalence (i) et (ii), (i) implique (ii) sans hypothèse de continuité. Pour la réciproque, fixons $a, b\\in I$ avec $a<b$. Quitte à remplacer $f$ par $-f$, supposons $f(a)<f(b)$. Soient $x, y\\in I$ avec $x<y$. La fonction $\\varphi(\\lambda)=f((1-\\lambda)b+\\lambda y)-f((1-\\lambda)a+\\lambda x)$ est bien définie et continue sur $[0, 1]$. Par injectivité, $\\varphi$ ne s'annule pas sur $[0, 1]$. D'après le TVI, $\\varphi$ est de signe constant, or $\\varphi(0)>0$, donc $\\varphi(1)=f(y)-f(x)>0$. Donc $f$ est strictement croissante.\\par Pour la continuité de $f^{-1}$, d'après le théorème de la limite monotone, $f^{-1}$ possède une limite $l$ en $b$ à gauche. Par composition avec $f$ qui est continue : $f(f^{-1}(y))\\xrightarrow[y\\rightarrow b^{-}]{} f(l)$. Or $f(f^{-1}(y))=y\\rightarrow b$, donc $f(l)=b$ d'où $l=f^{-1}(b)$, ce qui montre la continuité de $f^{-1}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_041",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Fonctions complexes : extension des définitions sur limites et continuité.",
+      "programme_notion": "Fonctions complexes : extension des définitions sur limites et continuité",
+      "answer_node_id": "derivabilite_et_convexite__warning_rolle_complexe",
+      "answer_latex": "Par exemple, la fonction $t \\longmapsto e^{it}$ est continue sur $[0, 2\\pi]$, dérivable sur $]0, 2\\pi[$, et $e^{i0} = e^{2i\\pi} = 1$, mais sa dérivée $t \\longmapsto i e^{it}$ ne s'annule pas.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_042",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation en termes de parties réelle et imaginaire.",
+      "programme_notion": "Caractérisation en termes de parties réelle et imaginaire",
+      "answer_node_id": "limites_et_continuite__theorem_limite_complexe_parties",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $\\text{Re}(f)\\longrightarrow \\text{Re}(l)$ et $\\text{Im}(f)\\longrightarrow \\text{Im}(l)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_043",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation en termes de parties réelle et imaginaire.",
+      "programme_notion": "Caractérisation en termes de parties réelle et imaginaire",
+      "answer_node_id": "limites_et_continuite__theorem_limite_complexe_parties",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $\\text{Re}(f)\\longrightarrow \\text{Re}(l)$ et $\\text{Im}(f)\\longrightarrow \\text{Im}(l)$.\n\n\\textbf{Démonstration.} $(i)\\Rightarrow(ii)$ Pour tout $z\\in\\mathbb{C}$ : $|\\text{Re}(z)|\\le|z|$ et $|\\text{Im}(z)|\\le|z|$...\\par $(ii)\\Rightarrow(i)$ Pour tout $z\\in\\mathbb{C}$ : $|z|=\\sqrt{\\text{Re}(z)^{2}+\\text{Im}(z)^{2}}$...",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_044",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivabilité en un point, nombre dérivé.",
+      "programme_notion": "Dérivabilité en un point, nombre dérivé",
+      "answer_node_id": "derivabilite_et_convexite__definition_derivabilite",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$.\\par\\par \\textbf{Dérivabilité :} On dit que $f$ est dérivable en $a$ si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$.\\par\\par On dit que $f$ est dérivable sur $E$ si elle l'est en tout point de $E$.\\par\\par \\textbf{Tangente :} Si $f$ est dérivable en $a$, la droite d'équation $y = f(a) + f'(a)(x - a)$ est appelée la tangente de $f$ en $a$. Et si $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\pm\\infty$, la droite d'équation $x = a$ est appelée la tangente de $f$ en $a$.\\par\\par Si $f$ est dérivable en $a$ et si $x$ est proche de $a$, alors $\\frac{f(x) - f(a)}{x - a} \\approx f'(a)$, donc $f(x) \\approx f(a) + f'(a)(x - a)$. À défaut d'être rigoureux, c'est convaincant. La tangente de $f$ en $a$ est ainsi la droite la plus proche du graphe de $f$ au voisinage de $a$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_045",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : La dérivabilité entraîne la continuité.",
+      "programme_notion": "La dérivabilité entraîne la continuité",
+      "answer_node_id": "limites_et_continuite__definition_continuite",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$. On dit que $f$ est continue en $a$ si $f\\longrightarrow f(a)$, i.e. si :\\par $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-f(a)|<\\epsilon$\\par Cela dit, $f$ étant définie en $a$, il est équivalent d'exiger que $f$ possède une limite en $a$, celle-ci vaut forcément $f(a)$.\\par On dit enfin que $f$ est continue sur $E$ si elle l'est en tout point de $E$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_046",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivabilité à gauche, à droite.",
+      "programme_notion": "Dérivabilité à gauche, à droite",
+      "answer_node_id": "derivabilite_et_convexite__definition_derivabilite_gauche_droite",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$ un point au voisinage duquel $f$ est définie à gauche et à droite.\\par\\par \\textbf{Définition :} On dit que $f$ est dérivable à gauche en $a$ si $f|_{E \\cap ]-\\infty, a]}$ est dérivable en $a$, autrement dit si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie à gauche en $a$, notée $f'_g(a)$ le cas échéant.\\par\\par On définit la dérivabilité à droite en $a$ de façon analogue et on note $f'_d(a)$ le nombre dérivé à droite le cas échéant.\\par\\par \\textbf{Caractérisation de la dérivabilité à l'aide des dérivabilités à gauche/à droite :} $f$ est dérivable en $a$ si et seulement si $f$ est dérivable à gauche et à droite en $a$ avec de plus $f'_g(a) = f'_d(a)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_047",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Dérivabilité à gauche, à droite.",
+      "programme_notion": "Dérivabilité à gauche, à droite",
+      "answer_node_id": "derivabilite_et_convexite__definition_derivabilite_gauche_droite",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$ un point au voisinage duquel $f$ est définie à gauche et à droite.\\par\\par \\textbf{Définition :} On dit que $f$ est dérivable à gauche en $a$ si $f|_{E \\cap ]-\\infty, a]}$ est dérivable en $a$, autrement dit si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie à gauche en $a$, notée $f'_g(a)$ le cas échéant.\\par\\par On définit la dérivabilité à droite en $a$ de façon analogue et on note $f'_d(a)$ le nombre dérivé à droite le cas échéant.\\par\\par \\textbf{Caractérisation de la dérivabilité à l'aide des dérivabilités à gauche/à droite :} $f$ est dérivable en $a$ si et seulement si $f$ est dérivable à gauche et à droite en $a$ avec de plus $f'_g(a) = f'_d(a)$.\n\n\\textbf{Démonstration.} $f$ est dérivable en $a$ $\\Longleftrightarrow$ $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$ $\\Longleftrightarrow$ $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie à gauche et à droite en $a$ et ces limites sont égales $\\Longleftrightarrow$ $f$ est dérivable à gauche et à droite en $a$ et $f'_g(a) = f'_d(a)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_048",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation par DL à l'ordre 1 : f(a+h) = f(a) + f'(a)h + h·ε(h) avec ε(h) → 0.",
+      "programme_notion": "Caractérisation par DL à l'ordre 1 : f(a+h) = f(a) + f'(a)h + h·ε(h) avec ε(h) → 0",
+      "answer_node_id": "limites_et_continuite__theorem_limite_complexe_parties",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $\\text{Re}(f)\\longrightarrow \\text{Re}(l)$ et $\\text{Im}(f)\\longrightarrow \\text{Im}(l)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_049",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation par DL à l'ordre 1 : f(a+h) = f(a) + f'(a)h + h·ε(h) avec ε(h) → 0.",
+      "programme_notion": "Caractérisation par DL à l'ordre 1 : f(a+h) = f(a) + f'(a)h + h·ε(h) avec ε(h) → 0",
+      "answer_node_id": "limites_et_continuite__theorem_limite_complexe_parties",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $\\text{Re}(f)\\longrightarrow \\text{Re}(l)$ et $\\text{Im}(f)\\longrightarrow \\text{Im}(l)$.\n\n\\textbf{Démonstration.} $(i)\\Rightarrow(ii)$ Pour tout $z\\in\\mathbb{C}$ : $|\\text{Re}(z)|\\le|z|$ et $|\\text{Im}(z)|\\le|z|$...\\par $(ii)\\Rightarrow(i)$ Pour tout $z\\in\\mathbb{C}$ : $|z|=\\sqrt{\\text{Re}(z)^{2}+\\text{Im}(z)^{2}}$...",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_050",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation géométrique : tangente.",
+      "programme_notion": "Interprétation géométrique : tangente",
+      "answer_node_id": "derivabilite_et_convexite__definition_derivabilite",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$.\\par\\par \\textbf{Dérivabilité :} On dit que $f$ est dérivable en $a$ si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$.\\par\\par On dit que $f$ est dérivable sur $E$ si elle l'est en tout point de $E$.\\par\\par \\textbf{Tangente :} Si $f$ est dérivable en $a$, la droite d'équation $y = f(a) + f'(a)(x - a)$ est appelée la tangente de $f$ en $a$. Et si $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\pm\\infty$, la droite d'équation $x = a$ est appelée la tangente de $f$ en $a$.\\par\\par Si $f$ est dérivable en $a$ et si $x$ est proche de $a$, alors $\\frac{f(x) - f(a)}{x - a} \\approx f'(a)$, donc $f(x) \\approx f(a) + f'(a)(x - a)$. À défaut d'être rigoureux, c'est convaincant. La tangente de $f$ en $a$ est ainsi la droite la plus proche du graphe de $f$ au voisinage de $a$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_051",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation cinématique : vitesse instantanée.",
+      "programme_notion": "Interprétation cinématique : vitesse instantanée",
+      "answer_node_id": "derivabilite_et_convexite__definition_derivabilite",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$.\\par\\par \\textbf{Dérivabilité :} On dit que $f$ est dérivable en $a$ si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$.\\par\\par On dit que $f$ est dérivable sur $E$ si elle l'est en tout point de $E$.\\par\\par \\textbf{Tangente :} Si $f$ est dérivable en $a$, la droite d'équation $y = f(a) + f'(a)(x - a)$ est appelée la tangente de $f$ en $a$. Et si $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\pm\\infty$, la droite d'équation $x = a$ est appelée la tangente de $f$ en $a$.\\par\\par Si $f$ est dérivable en $a$ et si $x$ est proche de $a$, alors $\\frac{f(x) - f(a)}{x - a} \\approx f'(a)$, donc $f(x) \\approx f(a) + f'(a)(x - a)$. À défaut d'être rigoureux, c'est convaincant. La tangente de $f$ en $a$ est ainsi la droite la plus proche du graphe de $f$ au voisinage de $a$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_052",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Dérivabilité et dérivée sur un intervalle.",
+      "programme_notion": "Dérivabilité et dérivée sur un intervalle",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivabilite",
+      "answer_latex": "(i) \\textbf{Combinaison linéaire, produit, quotient :} Pour toutes fonctions $f, g \\in \\mathcal{D}(E, \\mathbb{C})$ et $\\lambda, \\mu \\in \\mathbb{C}$, les fonctions $\\lambda f + \\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f + \\mu g)' = \\lambda f' + \\mu g'$, $(fg)' = f'g + fg'$ et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$.\\par\\par (ii) \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{D}(E, \\mathbb{R})$ et $g \\in \\mathcal{D}(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est dérivable sur $E$ et : $(g \\circ f)' = f' \\times g' \\circ f$.\\par\\par (iii) \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{D}(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})' = \\frac{1}{f' \\circ f^{-1}}$.\\par\\par \\textbf{Attention !} Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale !",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_053",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Dérivabilité et dérivée sur un intervalle.",
+      "programme_notion": "Dérivabilité et dérivée sur un intervalle",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivabilite",
+      "answer_latex": "(i) \\textbf{Combinaison linéaire, produit, quotient :} Pour toutes fonctions $f, g \\in \\mathcal{D}(E, \\mathbb{C})$ et $\\lambda, \\mu \\in \\mathbb{C}$, les fonctions $\\lambda f + \\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f + \\mu g)' = \\lambda f' + \\mu g'$, $(fg)' = f'g + fg'$ et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$.\\par\\par (ii) \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{D}(E, \\mathbb{R})$ et $g \\in \\mathcal{D}(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est dérivable sur $E$ et : $(g \\circ f)' = f' \\times g' \\circ f$.\\par\\par (iii) \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{D}(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})' = \\frac{1}{f' \\circ f^{-1}}$.\\par\\par \\textbf{Attention !} Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale !\n\n\\textbf{Démonstration.} (i) Fixons $a \\in E$. La dérivabilité de $g$ en $a$ implique sa continuité, donc $g(x) \\xrightarrow[x \\to a]{} g(a)$.\\par Tout d'abord : $\\frac{(\\lambda f + \\mu g)(x) - (\\lambda f + \\mu g)(a)}{x - a} = \\lambda \\frac{f(x) - f(a)}{x - a} + \\mu \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} \\lambda f'(a) + \\mu g'(a)$.\\par Ensuite : $\\frac{(fg)(x) - (fg)(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times g(x) + f(a) \\times \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} f'(a)g(a) + f(a)g'(a)$.\\par Enfin, si $g(a) \\neq 0$ : $\\frac{\\frac{1}{g(x)} - \\frac{1}{g(a)}}{x - a} = \\frac{1}{g(x)g(a)} \\times \\frac{g(a) - g(x)}{x - a} \\xrightarrow[x \\to a]{} -\\frac{g'(a)}{g(a)^2}$.\\par\\par (ii) Fixons $a \\in E$. Pour tout $y \\in E$, posons $\\tau(y) = \\begin{cases} \\frac{g(y) - g(f(a))}{y - f(a)} & \\text{si } y \\neq f(a) \\\\ g'(f(a)) & \\text{si } y = f(a) \\end{cases}$. Par dérivabilité de $g$ en $f(a)$ : $\\tau(y) \\xrightarrow[y \\to f(a)]{} g'(f(a))$, et pour tout $x \\in E$ : $\\tau(f(x))(f(x) - f(a)) = g \\circ f(x) - g \\circ f(a)$, donc $\\frac{g \\circ f(x) - g \\circ f(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times \\tau(f(x)) \\xrightarrow[x \\to a]{} f'(a)g'(f(a))$.\\par\\par (iii) Fixons $b \\in J$. Par continuité de $f$ en $f^{-1}(b)$, $f^{-1}$ est continue en $b$, donc $f^{-1}(y) \\xrightarrow[y \\to b]{} f^{-1}(b)$. Ensuite : $\\frac{f^{-1}(y) - f^{-1}(b)}{y - b} = \\frac{f^{-1}(y) - f^{-1}(b)}{f(f^{-1}(y)) - f(f^{-1}(b))} \\xrightarrow[y \\to b]{} \\frac{1}{f'(f^{-1}(b))}$ car $f'$ ne s'annule pas en $f^{-1}(b)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_054",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Opérations : combinaison linéaire, produit, quotient, composée, réciproque.",
+      "programme_notion": "Opérations : combinaison linéaire, produit, quotient, composée, réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivabilite",
+      "answer_latex": "(i) \\textbf{Combinaison linéaire, produit, quotient :} Pour toutes fonctions $f, g \\in \\mathcal{D}(E, \\mathbb{C})$ et $\\lambda, \\mu \\in \\mathbb{C}$, les fonctions $\\lambda f + \\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f + \\mu g)' = \\lambda f' + \\mu g'$, $(fg)' = f'g + fg'$ et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$.\\par\\par (ii) \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{D}(E, \\mathbb{R})$ et $g \\in \\mathcal{D}(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est dérivable sur $E$ et : $(g \\circ f)' = f' \\times g' \\circ f$.\\par\\par (iii) \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{D}(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})' = \\frac{1}{f' \\circ f^{-1}}$.\\par\\par \\textbf{Attention !} Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_055",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Opérations : combinaison linéaire, produit, quotient, composée, réciproque.",
+      "programme_notion": "Opérations : combinaison linéaire, produit, quotient, composée, réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivabilite",
+      "answer_latex": "(i) \\textbf{Combinaison linéaire, produit, quotient :} Pour toutes fonctions $f, g \\in \\mathcal{D}(E, \\mathbb{C})$ et $\\lambda, \\mu \\in \\mathbb{C}$, les fonctions $\\lambda f + \\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f + \\mu g)' = \\lambda f' + \\mu g'$, $(fg)' = f'g + fg'$ et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$.\\par\\par (ii) \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{D}(E, \\mathbb{R})$ et $g \\in \\mathcal{D}(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est dérivable sur $E$ et : $(g \\circ f)' = f' \\times g' \\circ f$.\\par\\par (iii) \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{D}(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})' = \\frac{1}{f' \\circ f^{-1}}$.\\par\\par \\textbf{Attention !} Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale !\n\n\\textbf{Démonstration.} (i) Fixons $a \\in E$. La dérivabilité de $g$ en $a$ implique sa continuité, donc $g(x) \\xrightarrow[x \\to a]{} g(a)$.\\par Tout d'abord : $\\frac{(\\lambda f + \\mu g)(x) - (\\lambda f + \\mu g)(a)}{x - a} = \\lambda \\frac{f(x) - f(a)}{x - a} + \\mu \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} \\lambda f'(a) + \\mu g'(a)$.\\par Ensuite : $\\frac{(fg)(x) - (fg)(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times g(x) + f(a) \\times \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} f'(a)g(a) + f(a)g'(a)$.\\par Enfin, si $g(a) \\neq 0$ : $\\frac{\\frac{1}{g(x)} - \\frac{1}{g(a)}}{x - a} = \\frac{1}{g(x)g(a)} \\times \\frac{g(a) - g(x)}{x - a} \\xrightarrow[x \\to a]{} -\\frac{g'(a)}{g(a)^2}$.\\par\\par (ii) Fixons $a \\in E$. Pour tout $y \\in E$, posons $\\tau(y) = \\begin{cases} \\frac{g(y) - g(f(a))}{y - f(a)} & \\text{si } y \\neq f(a) \\\\ g'(f(a)) & \\text{si } y = f(a) \\end{cases}$. Par dérivabilité de $g$ en $f(a)$ : $\\tau(y) \\xrightarrow[y \\to f(a)]{} g'(f(a))$, et pour tout $x \\in E$ : $\\tau(f(x))(f(x) - f(a)) = g \\circ f(x) - g \\circ f(a)$, donc $\\frac{g \\circ f(x) - g \\circ f(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times \\tau(f(x)) \\xrightarrow[x \\to a]{} f'(a)g'(f(a))$.\\par\\par (iii) Fixons $b \\in J$. Par continuité de $f$ en $f^{-1}(b)$, $f^{-1}$ est continue en $b$, donc $f^{-1}(y) \\xrightarrow[y \\to b]{} f^{-1}(b)$. Ensuite : $\\frac{f^{-1}(y) - f^{-1}(b)}{y - b} = \\frac{f^{-1}(y) - f^{-1}(b)}{f(f^{-1}(y)) - f(f^{-1}(b))} \\xrightarrow[y \\to b]{} \\frac{1}{f'(f^{-1}(b))}$ car $f'$ ne s'annule pas en $f^{-1}(b)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_056",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Tangente au graphe d'une fonction réciproque.",
+      "programme_notion": "Tangente au graphe d'une fonction réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_057",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Tangente au graphe d'une fonction réciproque.",
+      "programme_notion": "Tangente au graphe d'une fonction réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.\n\n\\textbf{Démonstration.} Montrons que pour tout $t \\in I \\cap [y, +\\infty[$ : $\\frac{f(t) - f(y)}{t - y} \\geq \\frac{f(y) - f(x)}{y - x}$, i.e. que $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$. On travaillerait de même à gauche de $x$. Fixons $t \\in I \\cap [y, +\\infty[$.\\par\\par Or $x < y \\leq t$, donc le réel $\\lambda = \\frac{y - x}{t - x}$ appartient à $[0, 1]$, et il se trouve que $(1 - \\lambda)x + \\lambda t = x + \\frac{y - x}{t - x}(t - x) = y$. On conclut par convexité de $f$ : $f(y) = f((1 - \\lambda)x + \\lambda t) \\leq (1 - \\lambda)f(x) + \\lambda f(t) = \\frac{t - y}{t - x}f(x) + \\frac{y - x}{t - x}f(t)$, donc $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_058",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Condition nécessaire d'extremum local en un point intérieur.",
+      "programme_notion": "Condition nécessaire d'extremum local en un point intérieur",
+      "answer_node_id": "derivabilite_et_convexite__theorem_condition_extremum_local",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{R}$ une fonction et $a \\in E$ --- il est très important que $a$ soit intérieur à $E$. Si $f$ est dérivable en $a$ et possède un extremum local en $a$, $a$ est un point critique de $f$.\\par\\par \\textbf{Réciproque fausse :} Tout point critique n'est pas forcément le signe d'un extremum local.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_059",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Condition nécessaire d'extremum local en un point intérieur.",
+      "programme_notion": "Condition nécessaire d'extremum local en un point intérieur",
+      "answer_node_id": "derivabilite_et_convexite__theorem_condition_extremum_local",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{R}$ une fonction et $a \\in E$ --- il est très important que $a$ soit intérieur à $E$. Si $f$ est dérivable en $a$ et possède un extremum local en $a$, $a$ est un point critique de $f$.\\par\\par \\textbf{Réciproque fausse :} Tout point critique n'est pas forcément le signe d'un extremum local.\n\n\\textbf{Démonstration.} Étudions le cas d'un maximum local en $a$. Pour commencer, $a \\in \\overset{\\circ}{E}$ donc $]a - \\varepsilon, a + \\varepsilon[ \\subset E$ pour un certain $\\varepsilon > 0$. Ensuite, $f$ possède un maximum local en $a$, donc $f(x) \\leq f(a)$ pour tout $x \\in ]a - \\varepsilon, a + \\varepsilon[$ --- avec le même $\\varepsilon$ quitte à le diminuer. Par conséquent : $\\forall x \\in ]a - \\varepsilon, a[, \\quad \\frac{f(x) - f(a)}{x - a} \\geq 0$ et $\\forall x \\in ]a, a + \\varepsilon[, \\quad \\frac{f(x) - f(a)}{x - a} \\leq 0$.\\par\\par Cela dit, $f$ est dérivable en $a$, donc $f'(a) \\geq 0$ par passage à la limite dans l'inégalité de gauche et $f'(a) \\leq 0$ pour la même raison dans l'inégalité de droite. Conclusion : $f'(a) = 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_060",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Point critique (zéro de la dérivée).",
+      "programme_notion": "Point critique (zéro de la dérivée)",
+      "answer_node_id": "derivabilite_et_convexite__definition_extremum_local_point_critique",
+      "answer_latex": "Soient $f : E \\longrightarrow \\mathbb{R}$ une fonction et $a \\in E$.\\par\\par \\textbf{Extremum local :} On dit que $f$ possède un maximum (resp. minimum) local en $a$ si $f$ est majorée (resp. minorée) par $f(a)$ au voisinage de $a$.\\par\\par \\textbf{Point critique :} On dit que $a$ est un point critique de $f$ si $f$ est dérivable en $a$ avec $f'(a) = 0$.\\par\\par Un maximum local n'est pas forcément un maximum de la fonction sur tout son domaine de définition.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_061",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de Rolle.",
+      "programme_notion": "Théorème de Rolle",
+      "answer_node_id": "derivabilite_et_convexite__theorem_rolle",
+      "answer_latex": "Soit $f : [a, b] \\longrightarrow \\mathbb{R}$ une fonction continue sur $[a, b]$ et dérivable sur $]a, b[$ pour laquelle $f(a) = f(b)$. Il existe un réel $c \\in ]a, b[$ pour lequel $f'(c) = 0$.\\par\\par Chaque hypothèse du théorème a son importance.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_062",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème de Rolle.",
+      "programme_notion": "Théorème de Rolle",
+      "answer_node_id": "derivabilite_et_convexite__theorem_rolle",
+      "answer_latex": "Soit $f : [a, b] \\longrightarrow \\mathbb{R}$ une fonction continue sur $[a, b]$ et dérivable sur $]a, b[$ pour laquelle $f(a) = f(b)$. Il existe un réel $c \\in ]a, b[$ pour lequel $f'(c) = 0$.\\par\\par Chaque hypothèse du théorème a son importance.\n\n\\textbf{Démonstration.} Continue sur le segment $[a, b]$, $f$ y est bornée et possède un minimum $m$ et un maximum $M$ d'après le théorème des bornes atteintes.\\par\\par Si $f(a) = f(b) = M$, alors comme $f$ atteint ses bornes, $f(c) = M$ pour un certain $c \\in ]a, b[$. Par hypothèse, $c$ n'est alors pas une borne de $[a, b]$, donc $f'(c) = 0$ d'après le théorème précédent.\\par\\par Si $f(a) = f(b) = m$, même raisonnement.\\par\\par Pour finir, si $f(a) = f(b) = m = M$, alors $f$ est constante de valeur $M = m$ sur tout $[a, b]$ par définition de $m$ et $M$, donc $f'$ est nulle sur $[a, b]$ tout entier !",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_063",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Égalité des accroissements finis (TAF).",
+      "programme_notion": "Égalité des accroissements finis (TAF)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_064",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Égalité des accroissements finis (TAF).",
+      "programme_notion": "Égalité des accroissements finis (TAF)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.\n\n\\textbf{Démonstration.} Soient $x, y \\in I$ deux réels pour lesquels $x < y$.\\par\\par \\textbf{Cas où $f$ est réelle :} Comme $f$ est continue sur $[x, y]$ et dérivable sur $]x, y[$, alors $\\frac{f(x) - f(y)}{x - y} = f'(c)$ pour un certain $c \\in ]x, y[$ d'après le théorème des accroissements finis, et donc : $\\left|\\frac{f(x) - f(y)}{x - y}\\right| = |f'(c)| \\leq \\|f'\\|_\\infty$.\\par\\par \\textbf{Cas général :} Pour majorer le nombre complexe $f(x) - f(y)$ en module, ramenons-nous au cas précédent. En notant $\\theta$ un réel pour lequel $e^{-i\\theta}(f(x) - f(y))$ est réel et $\\phi$ la fonction $\\text{Re}(e^{-i\\theta}f)$ : $|f(x) - f(y)| = e^{-i\\theta}(f(x) - f(y)) = \\phi(x) - \\phi(y)$. Or $\\phi$ est dérivable sur $I$ et $|\\phi'| = |\\text{Re}(e^{-i\\theta}f')| \\leq |e^{-i\\theta}f'| = |f'| = |f'|$, donc d'après le cas réel : $\\frac{|f(x) - f(y)|}{|x - y|} = \\frac{|\\phi(x) - \\phi(y)|}{|x - y|} \\leq \\|\\phi'\\|_\\infty \\leq \\|f'\\|_\\infty$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_065",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétations géométrique et cinématique du TAF.",
+      "programme_notion": "Interprétations géométrique et cinématique du TAF",
+      "answer_node_id": "derivabilite_et_convexite__example_inegalite_arithmetico_geometrique",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_n > 0$ : $\\frac{n}{\\sum_{k=1}^{n} \\frac{1}{x_k}} \\leq \\sqrt[n]{\\prod_{k=1}^{n} x_k} \\leq \\frac{1}{n}\\sum_{k=1}^{n} x_k$.\\par\\par L'inégalité de droite s'appelle l'inégalité arithmético-géométrique.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_066",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Interprétations géométrique et cinématique du TAF.",
+      "programme_notion": "Interprétations géométrique et cinématique du TAF",
+      "answer_node_id": "derivabilite_et_convexite__example_inegalite_arithmetico_geometrique",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_n > 0$ : $\\frac{n}{\\sum_{k=1}^{n} \\frac{1}{x_k}} \\leq \\sqrt[n]{\\prod_{k=1}^{n} x_k} \\leq \\frac{1}{n}\\sum_{k=1}^{n} x_k$.\\par\\par L'inégalité de droite s'appelle l'inégalité arithmético-géométrique.\n\n\\textbf{Démonstration.} Comme $\\frac{1}{n} + \\ldots + \\frac{1}{n} = 1$, l'inégalité de Jensen appliquée à la fonction concave $x \\longmapsto \\ln x$ s'écrit : $\\ln\\left(\\frac{1}{n}\\sum_{k=1}^{n} x_k\\right) \\geq \\sum_{k=1}^{n} \\frac{1}{n}\\ln x_k = \\ln\\sqrt[n]{\\prod_{k=1}^{n} x_k}$, puis $\\frac{1}{n}\\sum_{k=1}^{n} x_k \\geq \\sqrt[n]{\\prod_{k=1}^{n} x_k}$ par croissance de l'exponentielle. Pour l'inégalité de gauche, remplacer $x_k$ par $\\frac{1}{x_k}$ pour tout $k \\in \\{1, n\\}$ dans l'inégalité de droite.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_067",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité des accroissements finis : si |f'| ≤ K alors f est K-lipschitzienne.",
+      "programme_notion": "Inégalité des accroissements finis : si |f'| ≤ K alors f est K-lipschitzienne",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_068",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité des accroissements finis : si |f'| ≤ K alors f est K-lipschitzienne.",
+      "programme_notion": "Inégalité des accroissements finis : si |f'| ≤ K alors f est K-lipschitzienne",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.\n\n\\textbf{Démonstration.} Soient $x, y \\in I$ deux réels pour lesquels $x < y$.\\par\\par \\textbf{Cas où $f$ est réelle :} Comme $f$ est continue sur $[x, y]$ et dérivable sur $]x, y[$, alors $\\frac{f(x) - f(y)}{x - y} = f'(c)$ pour un certain $c \\in ]x, y[$ d'après le théorème des accroissements finis, et donc : $\\left|\\frac{f(x) - f(y)}{x - y}\\right| = |f'(c)| \\leq \\|f'\\|_\\infty$.\\par\\par \\textbf{Cas général :} Pour majorer le nombre complexe $f(x) - f(y)$ en module, ramenons-nous au cas précédent. En notant $\\theta$ un réel pour lequel $e^{-i\\theta}(f(x) - f(y))$ est réel et $\\phi$ la fonction $\\text{Re}(e^{-i\\theta}f)$ : $|f(x) - f(y)| = e^{-i\\theta}(f(x) - f(y)) = \\phi(x) - \\phi(y)$. Or $\\phi$ est dérivable sur $I$ et $|\\phi'| = |\\text{Re}(e^{-i\\theta}f')| \\leq |e^{-i\\theta}f'| = |f'| = |f'|$, donc d'après le cas réel : $\\frac{|f(x) - f(y)|}{|x - y|} = \\frac{|\\phi(x) - \\phi(y)|}{|x - y|} \\leq \\|\\phi'\\|_\\infty \\leq \\|f'\\|_\\infty$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_069",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction lipschitzienne.",
+      "programme_notion": "Fonction lipschitzienne",
+      "answer_node_id": "derivabilite_et_convexite__theorem_lipschitz_implique_continue",
+      "answer_latex": "Toute fonction lipschitzienne est continue.\\par\\par Vous noterez en passant que la lipschitzianité est une propriété globale des fonctions, contrairement à la continuité qui est locale. La lipschitzianité est directement définie sur une partie de $\\mathbb{R}$, il n'aurait pas grand sens de la définir en un point.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_070",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonction lipschitzienne.",
+      "programme_notion": "Fonction lipschitzienne",
+      "answer_node_id": "derivabilite_et_convexite__theorem_lipschitz_implique_continue",
+      "answer_latex": "Toute fonction lipschitzienne est continue.\\par\\par Vous noterez en passant que la lipschitzianité est une propriété globale des fonctions, contrairement à la continuité qui est locale. La lipschitzianité est directement définie sur une partie de $\\mathbb{R}$, il n'aurait pas grand sens de la définir en un point.\n\n\\textbf{Démonstration.} Soit $f : E \\longrightarrow \\mathbb{C}$ une fonction $K$-lipschitzienne pour un certain $K \\geq 0$. Pour tous $a, x \\in E$ : $|f(x) - f(a)| \\leq K |x - a| \\xrightarrow[x \\to a]{} 0$, donc $f(x) \\xrightarrow[x \\to a]{} f(a)$ par encadrement, i.e. $f$ est continue en $a$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_071",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Application aux suites u_{n+1} = f(u_n).",
+      "programme_notion": "Application aux suites u_{n+1} = f(u_n)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_convexe_implique_continue",
+      "answer_latex": "Pour une fois, l'intervalle $I$ est supposé ouvert. Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction. Si $f$ est convexe sur $I$, alors $f$ est continue sur $I$.\\par\\par \\textbf{Attention !} Il est essentiel que l'intervalle $I$ soit ouvert. La fonction smiley ci-contre est convexe mais pas continue aux bornes. Vous noterez en passant qu'une fonction convexe n'est pas forcément dérivable sur son ensemble de définition, pensez à la fonction valeur absolue !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_072",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Application aux suites u_{n+1} = f(u_n).",
+      "programme_notion": "Application aux suites u_{n+1} = f(u_n)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_convexe_implique_continue",
+      "answer_latex": "Pour une fois, l'intervalle $I$ est supposé ouvert. Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction. Si $f$ est convexe sur $I$, alors $f$ est continue sur $I$.\\par\\par \\textbf{Attention !} Il est essentiel que l'intervalle $I$ soit ouvert. La fonction smiley ci-contre est convexe mais pas continue aux bornes. Vous noterez en passant qu'une fonction convexe n'est pas forcément dérivable sur son ensemble de définition, pensez à la fonction valeur absolue !\n\n\\textbf{Démonstration.} L'intervalle $I$ étant ouvert, nous pouvons nous donner un élément $b \\in I$ pour lequel $a < b$. Fixons $a \\in I$ et contentons-nous de montrer que $f$ est continue à gauche en $a$. Par convexité de $f$, la fonction $\\phi : x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$, donc croissante sur $I \\cap ]-\\infty, a[$ et majorée par $\\phi(b)$. Elle possède ainsi une limite finie à gauche en $a$ d'après d'après le théorème de la limite monotone. Il en découle que : $f(x) = \\frac{f(x) - f(a)}{x - a}(x - a) + f(a) \\xrightarrow[x \\to a^-]{} f(a)$, i.e. que $f$ est continue à gauche en $a$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_073",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des fonctions dérivables constantes, monotones, strictement monotones.",
+      "programme_notion": "Caractérisation des fonctions dérivables constantes, monotones, strictement monotones",
+      "answer_node_id": "derivabilite_et_convexite__theorem_fonctions_monotones",
+      "answer_latex": "Soient $I$ un INTERVALLE et $f \\in \\mathcal{D}(I, \\mathbb{R})$.\\par\\par (i) $f$ est croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$.\\par\\par (ii) $f$ est strictement croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$ et n'est identiquement nulle sur aucun intervalle $[a, b]$ avec $a < b$.\\par\\par En particulier, si $f'$ est strictement positive sur $I$, alors $f$ est strictement croissante sur $I$.\\par\\par \\textbf{Attention !} Mine de rien, il est indispensable que $I$ soit un INTERVALLE.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_074",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des fonctions dérivables constantes, monotones, strictement monotones.",
+      "programme_notion": "Caractérisation des fonctions dérivables constantes, monotones, strictement monotones",
+      "answer_node_id": "derivabilite_et_convexite__theorem_fonctions_monotones",
+      "answer_latex": "Soient $I$ un INTERVALLE et $f \\in \\mathcal{D}(I, \\mathbb{R})$.\\par\\par (i) $f$ est croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$.\\par\\par (ii) $f$ est strictement croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$ et n'est identiquement nulle sur aucun intervalle $[a, b]$ avec $a < b$.\\par\\par En particulier, si $f'$ est strictement positive sur $I$, alors $f$ est strictement croissante sur $I$.\\par\\par \\textbf{Attention !} Mine de rien, il est indispensable que $I$ soit un INTERVALLE.\n\n\\textbf{Démonstration.} (i) Remplacez simplement les inégalités par des égalités dans la preuve du théorème précédent.\\par\\par (ii) Supposons d'abord $f$ strictement croissante sur $I$. D'après (i), $f'$ est positive sur $I$. Ensuite, si $f'$ est identiquement nulle sur un intervalle $[a, b]$ avec $a \\leq b$, alors $f$ y est constante donc $f(a) = f(b)$, donc $a = b$ par stricte monotonie.\\par\\par Réciproquement, supposons que $f'$ est positive sur $I$ et qu'elle n'est identiquement nulle sur aucun intervalle $[a, b]$ avec $a < b$. D'après (i), $f$ est croissante. Soient $x, y \\in I$ deux réels pour lesquels $x < y$. Aussitôt, $f(x) \\leq f(y)$ par croissance. Et si $f(x) = f(y)$, la croissance de $f$ montre que $f$ est constante sur $[x, y]$, donc que $f'$ y est identiquement nulle, ce qui est faux. Forcément, $f(x) < f(y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_075",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de la limite de la dérivée.",
+      "programme_notion": "Théorème de la limite de la dérivée",
+      "answer_node_id": "derivabilite_et_convexite__theorem_limite_derivee",
+      "answer_latex": "Soient $I$ un intervalle, $a \\in I$, $\\ell \\in \\mathbb{R}$ et $f : I \\longrightarrow \\mathbb{R}$ une fonction dérivable sur $I \\setminus \\{a\\}$ et continue en $a$. Si $f'(x) \\xrightarrow[x \\to a]{} \\ell$, alors $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\ell$.\\par\\par La précision $x \\neq a$ en indice signifie qu'on s'intéresse à la limite en $a$ de la restriction $f'|_{I \\setminus \\{a\\}}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_076",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème de la limite de la dérivée.",
+      "programme_notion": "Théorème de la limite de la dérivée",
+      "answer_node_id": "derivabilite_et_convexite__theorem_limite_derivee",
+      "answer_latex": "Soient $I$ un intervalle, $a \\in I$, $\\ell \\in \\mathbb{R}$ et $f : I \\longrightarrow \\mathbb{R}$ une fonction dérivable sur $I \\setminus \\{a\\}$ et continue en $a$. Si $f'(x) \\xrightarrow[x \\to a]{} \\ell$, alors $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\ell$.\\par\\par La précision $x \\neq a$ en indice signifie qu'on s'intéresse à la limite en $a$ de la restriction $f'|_{I \\setminus \\{a\\}}$.\n\n\\textbf{Démonstration.} Pour tout $x \\in I \\cap ]a, +\\infty[$, $f$ est continue sur $[a, x]$ et dérivable sur $]a, x[$, donc d'après le théorème des accroissements finis, $\\frac{f(x) - f(a)}{x - a} = f'(c_x)$ pour un certain $c_x \\in ]a, x[$ --- idem si $x \\in I \\cap ]-\\infty, a[$.\\par\\par Nous héritons ainsi d'une fonction $c : I \\setminus \\{a\\} \\longrightarrow I \\setminus \\{a\\}$ pour laquelle $|c_x - a| \\leq |x - a|$ pour tout $x \\in I \\setminus \\{a\\}$. En particulier, $c_x \\xrightarrow[x \\to a]{} a$ par encadrement, donc $\\frac{f(x) - f(a)}{x - a} = f'(c_x) \\xrightarrow[x \\to a]{} \\ell$ par composition.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_077",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions de classe C^k pour k ∈ N ∪ {∞}.",
+      "programme_notion": "Fonctions de classe C^k pour k ∈ N ∪ {∞}",
+      "answer_node_id": "derivabilite_et_convexite__warning_rolle_complexe",
+      "answer_latex": "Par exemple, la fonction $t \\longmapsto e^{it}$ est continue sur $[0, 2\\pi]$, dérivable sur $]0, 2\\pi[$, et $e^{i0} = e^{2i\\pi} = 1$, mais sa dérivée $t \\longmapsto i e^{it}$ ne s'annule pas.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_078",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations sur les fonctions C^k : combinaison linéaire, produit (formule de Leibniz), quotient, composée, réciproque.",
+      "programme_notion": "Opérations sur les fonctions C^k : combinaison linéaire, produit (formule de Leibniz), quotient, composée, réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivees_successives",
+      "answer_latex": "Soit $k \\in \\mathbb{N} \\cup \\{\\infty\\}$.\\par\\par \\textbf{Combinaison linéaire, produit, quotient :} $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par combinaison linéaire et produit, ainsi que par quotient tant que le dénominateur ne s'annule pas.\\par\\par En outre, pour toutes fonctions $f, g \\in \\mathcal{C}^k(E, \\mathbb{C})$ : $(fg)^{(k)} = \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p)}$ (formule de Leibniz).\\par\\par \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{C}^k(E, \\mathbb{R})$ et $g \\in \\mathcal{C}^k(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est de classe $\\mathcal{C}^k$ sur $E$.\\par\\par \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{C}^k(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est de classe $\\mathcal{C}^k$ sur $J$.\\par\\par On peut remplacer dans chacune de ces assertions la classe $\\mathcal{C}^k$ par une hypothèse de dérivabilité $k$ fois.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_079",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Opérations sur les fonctions C^k : combinaison linéaire, produit (formule de Leibniz), quotient, composée, réciproque.",
+      "programme_notion": "Opérations sur les fonctions C^k : combinaison linéaire, produit (formule de Leibniz), quotient, composée, réciproque",
+      "answer_node_id": "derivabilite_et_convexite__theorem_operations_derivees_successives",
+      "answer_latex": "Soit $k \\in \\mathbb{N} \\cup \\{\\infty\\}$.\\par\\par \\textbf{Combinaison linéaire, produit, quotient :} $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par combinaison linéaire et produit, ainsi que par quotient tant que le dénominateur ne s'annule pas.\\par\\par En outre, pour toutes fonctions $f, g \\in \\mathcal{C}^k(E, \\mathbb{C})$ : $(fg)^{(k)} = \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p)}$ (formule de Leibniz).\\par\\par \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{C}^k(E, \\mathbb{R})$ et $g \\in \\mathcal{C}^k(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est de classe $\\mathcal{C}^k$ sur $E$.\\par\\par \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{C}^k(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est de classe $\\mathcal{C}^k$ sur $J$.\\par\\par On peut remplacer dans chacune de ces assertions la classe $\\mathcal{C}^k$ par une hypothèse de dérivabilité $k$ fois.\n\n\\textbf{Démonstration.} On raisonne par récurrence sur $k$ avec des initialisations toutes triviales car être de classe $\\mathcal{C}^0$, c'est être continue. Le cas des combinaisons linéaires tombe sous le sens.\\par\\par \\textbf{Produit (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par produit et que la formule de Leibniz y est vraie pour les dérivées $k$èmes. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $fg$ aussi et $(fg)' = f'g + fg'$. Or $f'g$ et $fg'$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $(fg)'$ aussi par addition. Conclusion : $fg$ est de classe $\\mathcal{C}^{k+1}$. Ensuite : $(fg)^{(k+1)} = (f'g)^{(k)} + (fg')^{(k)} \\stackrel{\\text{HDR}}{=} \\sum_{p=0}^{k} \\binom{k}{p} f^{(p+1)} g^{(k-p)} + \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p+1)} = \\sum_{p=0}^{k+1} \\binom{k+1}{p} f^{(p)} g^{(k+1-p)}$ par Pascal.\\par\\par \\textbf{Quotient (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par quotient tant que le dénominateur ne s'annule pas. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. On suppose que $g$ ne s'annule pas sur $E$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $\\frac{f}{g}$ aussi et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$. Or $f'g - fg'$ et $g^2$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $\\frac{f}{g}$ aussi par quotient. Conclusion : $\\frac{f}{g}$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Composition (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $g \\circ f \\in \\mathcal{C}^k(E, \\mathbb{C})$ pour toutes fonctions $f \\in \\mathcal{C}^k(D, E)$ et $g \\in \\mathcal{C}^k(E, \\mathbb{C})$. Soient $f \\in \\mathcal{C}^{k+1}(D, E)$ et $g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $g \\circ f$ aussi et $(g \\circ f)' = f' \\times g' \\circ f$. Or $g'$ est de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $g' \\circ f$ aussi par composition, puis $(g \\circ f)'$ par produit. Conclusion : $g \\circ f$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Réciproque :} Imiter les preuves précédentes.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_080",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Fonctions complexes : extension de la dérivabilité.",
+      "programme_notion": "Fonctions complexes : extension de la dérivabilité",
+      "answer_node_id": "derivabilite_et_convexite__warning_rolle_complexe",
+      "answer_latex": "Par exemple, la fonction $t \\longmapsto e^{it}$ est continue sur $[0, 2\\pi]$, dérivable sur $]0, 2\\pi[$, et $e^{i0} = e^{2i\\pi} = 1$, mais sa dérivée $t \\longmapsto i e^{it}$ ne s'annule pas.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_081",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité des accroissements finis pour une fonction complexe de classe C¹.",
+      "programme_notion": "Inégalité des accroissements finis pour une fonction complexe de classe C¹",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_082",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité des accroissements finis pour une fonction complexe de classe C¹.",
+      "programme_notion": "Inégalité des accroissements finis pour une fonction complexe de classe C¹",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "answer_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.\n\n\\textbf{Démonstration.} Soient $x, y \\in I$ deux réels pour lesquels $x < y$.\\par\\par \\textbf{Cas où $f$ est réelle :} Comme $f$ est continue sur $[x, y]$ et dérivable sur $]x, y[$, alors $\\frac{f(x) - f(y)}{x - y} = f'(c)$ pour un certain $c \\in ]x, y[$ d'après le théorème des accroissements finis, et donc : $\\left|\\frac{f(x) - f(y)}{x - y}\\right| = |f'(c)| \\leq \\|f'\\|_\\infty$.\\par\\par \\textbf{Cas général :} Pour majorer le nombre complexe $f(x) - f(y)$ en module, ramenons-nous au cas précédent. En notant $\\theta$ un réel pour lequel $e^{-i\\theta}(f(x) - f(y))$ est réel et $\\phi$ la fonction $\\text{Re}(e^{-i\\theta}f)$ : $|f(x) - f(y)| = e^{-i\\theta}(f(x) - f(y)) = \\phi(x) - \\phi(y)$. Or $\\phi$ est dérivable sur $I$ et $|\\phi'| = |\\text{Re}(e^{-i\\theta}f')| \\leq |e^{-i\\theta}f'| = |f'| = |f'|$, donc d'après le cas réel : $\\frac{|f(x) - f(y)|}{|x - y|} = \\frac{|\\phi(x) - \\phi(y)|}{|x - y|} \\leq \\|\\phi'\\|_\\infty \\leq \\|f'\\|_\\infty$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_083",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Convexité : définition par f((1-λ)x + λy) ≤ (1-λ)f(x) + λf(y).",
+      "programme_notion": "Convexité : définition par f((1-λ)x + λy) ≤ (1-λ)f(x) + λf(y)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_084",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Convexité : définition par f((1-λ)x + λy) ≤ (1-λ)f(x) + λf(y).",
+      "programme_notion": "Convexité : définition par f((1-λ)x + λy) ≤ (1-λ)f(x) + λf(y)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !\n\n\\textbf{Démonstration.} (i) Supposons d'abord $f$ convexe sur $I$. Fixons $a \\in I$ et montrons que la fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$. Soient $x, y \\in I \\setminus \\{a\\}$ deux réels pour lesquels $x < y$. Nous allons distinguer deux cas et les traiter chacun en comparant le graphe de $f$ à sa sécante passant par $(a, f(a))$ et $(x, f(x))$.\\par\\par --- Si $y > a$, $y$ est situé à l'extérieur du segment $[a, x]$ ou $[x, a]$, donc $f(y) \\geq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a > 0$.\\par\\par --- Si $y < a$, $y$ appartient au segment $[a, x]$ ou $[x, a]$, donc $f(y) \\leq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a < 0$.\\par\\par C'est l'inégalité souhaitée dans les deux cas.\\par\\par Réciproquement, supposons $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$ et montrons que $f$ est convexe. Fixons $x, y \\in I$ et $\\lambda \\in [0, 1]$. Pour montrer que $f((1 - \\lambda)x + \\lambda y) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$, on peut supposer sans perte de généralité que $\\lambda \\in ]0, 1[$ et $x \\neq y$, et même $x < y$ quitte à remplacer $\\lambda$ par $1 - \\lambda$. Posons maintenant $a = (1 - \\lambda)x + \\lambda y$, de sorte que $x < a < y$. La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ étant croissante par hypothèse : $(y - a)(f(x) - f(a)) \\geq (x - a)(f(y) - f(a))$ car $x - a < 0$ et $y - a > 0$, donc sachant que $y - x = y - a + a - x > 0$ : $f(a) \\leq \\frac{y - a}{y - x}f(x) + \\frac{a - x}{y - x}f(y)$, or cette inégalité s'écrit aussi $f(a) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$ par définition de $a$ et c'est le résultat voulu.\\par\\par (ii) La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$ d'après (i), donc $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a}$. De même, la fonction $t \\longmapsto \\frac{f(t) - f(c)}{t - c}$ est croissante sur $I \\setminus \\{c\\}$, donc $\\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_085",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation géométrique de la convexité.",
+      "programme_notion": "Interprétation géométrique de la convexité",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_086",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Interprétation géométrique de la convexité.",
+      "programme_notion": "Interprétation géométrique de la convexité",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !\n\n\\textbf{Démonstration.} (i) Supposons d'abord $f$ convexe sur $I$. Fixons $a \\in I$ et montrons que la fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$. Soient $x, y \\in I \\setminus \\{a\\}$ deux réels pour lesquels $x < y$. Nous allons distinguer deux cas et les traiter chacun en comparant le graphe de $f$ à sa sécante passant par $(a, f(a))$ et $(x, f(x))$.\\par\\par --- Si $y > a$, $y$ est situé à l'extérieur du segment $[a, x]$ ou $[x, a]$, donc $f(y) \\geq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a > 0$.\\par\\par --- Si $y < a$, $y$ appartient au segment $[a, x]$ ou $[x, a]$, donc $f(y) \\leq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a < 0$.\\par\\par C'est l'inégalité souhaitée dans les deux cas.\\par\\par Réciproquement, supposons $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$ et montrons que $f$ est convexe. Fixons $x, y \\in I$ et $\\lambda \\in [0, 1]$. Pour montrer que $f((1 - \\lambda)x + \\lambda y) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$, on peut supposer sans perte de généralité que $\\lambda \\in ]0, 1[$ et $x \\neq y$, et même $x < y$ quitte à remplacer $\\lambda$ par $1 - \\lambda$. Posons maintenant $a = (1 - \\lambda)x + \\lambda y$, de sorte que $x < a < y$. La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ étant croissante par hypothèse : $(y - a)(f(x) - f(a)) \\geq (x - a)(f(y) - f(a))$ car $x - a < 0$ et $y - a > 0$, donc sachant que $y - x = y - a + a - x > 0$ : $f(a) \\leq \\frac{y - a}{y - x}f(x) + \\frac{a - x}{y - x}f(y)$, or cette inégalité s'écrit aussi $f(a) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$ par définition de $a$ et c'est le résultat voulu.\\par\\par (ii) La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$ d'après (i), donc $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a}$. De même, la fonction $t \\longmapsto \\frac{f(t) - f(c)}{t - c}$ est croissante sur $I \\setminus \\{c\\}$, donc $\\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_087",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité de Jensen.",
+      "programme_notion": "Inégalité de Jensen",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_jensen",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe. Pour tous $x_1, \\ldots, x_n \\in I$ et $\\lambda_1, \\ldots, \\lambda_n \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_n = 1$ : $f\\left(\\sum_{k=1}^{n} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n} \\lambda_k f(x_k)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_088",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité de Jensen.",
+      "programme_notion": "Inégalité de Jensen",
+      "answer_node_id": "derivabilite_et_convexite__theorem_inegalite_jensen",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe. Pour tous $x_1, \\ldots, x_n \\in I$ et $\\lambda_1, \\ldots, \\lambda_n \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_n = 1$ : $f\\left(\\sum_{k=1}^{n} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n} \\lambda_k f(x_k)$.\n\n\\textbf{Démonstration.} Par récurrence sur $n$. Pour $n = 2$, le résultat est exactement la définition de la convexité.\\par\\par \\textbf{Initialisation :} Rien à démontrer pour $n = 1$.\\par\\par \\textbf{Hérédité :} Soit $n \\in \\mathbb{N}^*$. Faisons l'hypothèse que pour tous $x_1, \\ldots, x_n \\in I$ et $\\lambda_1, \\ldots, \\lambda_n \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_n = 1$ : $f\\left(\\sum_{k=1}^{n} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n} \\lambda_k f(x_k)$.\\par\\par Fixons $x_1, \\ldots, x_{n+1} \\in I$ et $\\lambda_1, \\ldots, \\lambda_{n+1} \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_{n+1} = 1$. Si $\\lambda_{n+1} = 0$, l'inégalité à prouver au rang $n + 1$ découle trivialement de l'hypothèse de récurrence. Supposons donc $\\lambda_{n+1} > 0$ et remplaçons la moyenne coefficientée des $n + 1$ réels $x_1, \\ldots, x_{n+1}$ par une moyenne coefficientée de $n$ réels auxquels nous pourrons appliquer l'hypothèse de récurrence.\\par\\par Posons pour cela $\\lambda'_n = \\lambda_n + \\lambda_{n+1} \\in [0, 1]$ et $x'_n = \\frac{\\lambda_n}{\\lambda'_n}x_n + \\frac{\\lambda_{n+1}}{\\lambda'_n}x_{n+1} \\in I$. Sachant que $\\lambda_1 + \\ldots + \\lambda_{n-1} + \\lambda'_n = 1$, appliquons l'hypothèse de récurrence aux $n$ réels $x_1, \\ldots, x_{n-1}, x'_n$ et aux $n$ coefficients $\\lambda_1, \\ldots, \\lambda_{n-1}, \\lambda'_n$ : $f\\left(\\sum_{k=1}^{n+1} \\lambda_k x_k\\right) = f(\\lambda_1 x_1 + \\ldots + \\lambda_{n-1} x_{n-1} + \\lambda'_n x'_n) \\leq \\lambda_1 f(x_1) + \\ldots + \\lambda_{n-1} f(x_{n-1}) + \\lambda'_n f(x'_n) \\stackrel{\\text{HDR}}{\\leq} \\lambda_1 f(x_1) + \\ldots + \\lambda_{n-1} f(x_{n-1}) + \\lambda'_n\\left(\\frac{\\lambda_n}{\\lambda'_n}f(x_n) + \\frac{\\lambda_{n+1}}{\\lambda'_n}f(x_{n+1})\\right) = \\sum_{k=1}^{n+1} \\lambda_k f(x_k)$, donc comme voulu : $f\\left(\\sum_{k=1}^{n+1} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n+1} \\lambda_k f(x_k)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_089",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation de la convexité par la croissance des pentes.",
+      "programme_notion": "Caractérisation de la convexité par la croissance des pentes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_090",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation de la convexité par la croissance des pentes.",
+      "programme_notion": "Caractérisation de la convexité par la croissance des pentes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "answer_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !\n\n\\textbf{Démonstration.} (i) Supposons d'abord $f$ convexe sur $I$. Fixons $a \\in I$ et montrons que la fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$. Soient $x, y \\in I \\setminus \\{a\\}$ deux réels pour lesquels $x < y$. Nous allons distinguer deux cas et les traiter chacun en comparant le graphe de $f$ à sa sécante passant par $(a, f(a))$ et $(x, f(x))$.\\par\\par --- Si $y > a$, $y$ est situé à l'extérieur du segment $[a, x]$ ou $[x, a]$, donc $f(y) \\geq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a > 0$.\\par\\par --- Si $y < a$, $y$ appartient au segment $[a, x]$ ou $[x, a]$, donc $f(y) \\leq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a < 0$.\\par\\par C'est l'inégalité souhaitée dans les deux cas.\\par\\par Réciproquement, supposons $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$ et montrons que $f$ est convexe. Fixons $x, y \\in I$ et $\\lambda \\in [0, 1]$. Pour montrer que $f((1 - \\lambda)x + \\lambda y) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$, on peut supposer sans perte de généralité que $\\lambda \\in ]0, 1[$ et $x \\neq y$, et même $x < y$ quitte à remplacer $\\lambda$ par $1 - \\lambda$. Posons maintenant $a = (1 - \\lambda)x + \\lambda y$, de sorte que $x < a < y$. La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ étant croissante par hypothèse : $(y - a)(f(x) - f(a)) \\geq (x - a)(f(y) - f(a))$ car $x - a < 0$ et $y - a > 0$, donc sachant que $y - x = y - a + a - x > 0$ : $f(a) \\leq \\frac{y - a}{y - x}f(x) + \\frac{a - x}{y - x}f(y)$, or cette inégalité s'écrit aussi $f(a) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$ par définition de $a$ et c'est le résultat voulu.\\par\\par (ii) La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$ d'après (i), donc $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a}$. De même, la fonction $t \\longmapsto \\frac{f(t) - f(c)}{t - c}$ est croissante sur $I \\setminus \\{c\\}$, donc $\\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_091",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Position du graphe d'une fonction convexe par rapport à ses sécantes.",
+      "programme_notion": "Position du graphe d'une fonction convexe par rapport à ses sécantes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_092",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Position du graphe d'une fonction convexe par rapport à ses sécantes.",
+      "programme_notion": "Position du graphe d'une fonction convexe par rapport à ses sécantes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.\n\n\\textbf{Démonstration.} Montrons que pour tout $t \\in I \\cap [y, +\\infty[$ : $\\frac{f(t) - f(y)}{t - y} \\geq \\frac{f(y) - f(x)}{y - x}$, i.e. que $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$. On travaillerait de même à gauche de $x$. Fixons $t \\in I \\cap [y, +\\infty[$.\\par\\par Or $x < y \\leq t$, donc le réel $\\lambda = \\frac{y - x}{t - x}$ appartient à $[0, 1]$, et il se trouve que $(1 - \\lambda)x + \\lambda t = x + \\frac{y - x}{t - x}(t - x) = y$. On conclut par convexité de $f$ : $f(y) = f((1 - \\lambda)x + \\lambda t) \\leq (1 - \\lambda)f(x) + \\lambda f(t) = \\frac{t - y}{t - x}f(x) + \\frac{y - x}{t - x}f(t)$, donc $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_093",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des fonctions convexes dérivables.",
+      "programme_notion": "Caractérisation des fonctions convexes dérivables",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexes_derivables",
+      "answer_latex": "Soit $f \\in \\mathcal{D}(I, \\mathbb{R})$. Les assertions suivantes sont équivalentes :\\par\\par (i) $f$ est convexe sur $I$.\\par\\par (ii) $f'$ est croissante sur $I$ --- ou bien $f'' \\geq 0$ si $f$ est deux fois dérivable sur $I$.\\par\\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_094",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des fonctions convexes dérivables.",
+      "programme_notion": "Caractérisation des fonctions convexes dérivables",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexes_derivables",
+      "answer_latex": "Soit $f \\in \\mathcal{D}(I, \\mathbb{R})$. Les assertions suivantes sont équivalentes :\\par\\par (i) $f$ est convexe sur $I$.\\par\\par (ii) $f'$ est croissante sur $I$ --- ou bien $f'' \\geq 0$ si $f$ est deux fois dérivable sur $I$.\\par\\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes.\n\n\\textbf{Démonstration.} (i) $\\Rightarrow$ (ii) Soient $x, y \\in I$ deux réels pour lesquels $x < y$. Pour tout $t \\in ]x, y[$ : $\\frac{f(t) - f(x)}{t - x} \\leq \\frac{f(y) - f(x)}{y - x} \\leq \\frac{f(t) - f(y)}{t - y}$ par convexité de $f$ d'après l'inégalité des pentes. Faisons tendre $t$ vers $x$ à droite, puis indépendamment vers $y$ à gauche : $f'(x) \\leq \\frac{f(y) - f(x)}{y - x} \\leq f'(y)$. Comme voulu, $f'$ est croissante sur $I$.\\par\\par (ii) $\\Rightarrow$ (iii) Fixons $a \\in I$ et montrons que le graphe de $f$ est situé au-dessus de sa tangente en $a$. Notons pour cela $\\phi$ la fonction $t \\longmapsto f(t) - f'(a)(t - a) - f(a)$. Cette fonction est dérivable sur $I$ et $\\phi'(x) = f'(x) - f'(a)$ pour tout $x \\in I$. Par croissance de $f'$, $\\phi'$ est négative à gauche de $a$ et positive à droite. Ainsi, $\\phi$ est décroissante à gauche de $a$ et croissante à droite, donc positive sur $I$ tout entier puisque $\\phi(a) = 0$.\\par\\par (iii) $\\Rightarrow$ (i) Montrons que $f$ est convexe sur $I$. Soient $x, y \\in I$ et $\\lambda \\in [0, 1]$. Posons $a = (1 - \\lambda)x + \\lambda y$. Pour tout $t \\in I$ : $f(t) \\geq f'(a)(t - a) + f(a)$, donc : $(1 - \\lambda)f(x) + \\lambda f(y) \\geq (1 - \\lambda)(f'(a)(x - a) + f(a)) + \\lambda(f'(a)(y - a) + f(a)) = f'(a)((1 - \\lambda)x + \\lambda y - a) + f(a) = f((1 - \\lambda)x + \\lambda y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_095",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Position du graphe par rapport aux tangentes.",
+      "programme_notion": "Position du graphe par rapport aux tangentes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_096",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Position du graphe par rapport aux tangentes.",
+      "programme_notion": "Position du graphe par rapport aux tangentes",
+      "answer_node_id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "answer_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.\n\n\\textbf{Démonstration.} Montrons que pour tout $t \\in I \\cap [y, +\\infty[$ : $\\frac{f(t) - f(y)}{t - y} \\geq \\frac{f(y) - f(x)}{y - x}$, i.e. que $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$. On travaillerait de même à gauche de $x$. Fixons $t \\in I \\cap [y, +\\infty[$.\\par\\par Or $x < y \\leq t$, donc le réel $\\lambda = \\frac{y - x}{t - x}$ appartient à $[0, 1]$, et il se trouve que $(1 - \\lambda)x + \\lambda t = x + \\frac{y - x}{t - x}(t - x) = y$. On conclut par convexité de $f$ : $f(y) = f((1 - \\lambda)x + \\lambda t) \\leq (1 - \\lambda)f(x) + \\lambda f(t) = \\frac{t - y}{t - x}f(x) + \\frac{y - x}{t - x}f(t)$, donc $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_097",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des fonctions convexes deux fois dérivables (f'' ≥ 0).",
+      "programme_notion": "Caractérisation des fonctions convexes deux fois dérivables (f'' ≥ 0)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexes_derivables",
+      "answer_latex": "Soit $f \\in \\mathcal{D}(I, \\mathbb{R})$. Les assertions suivantes sont équivalentes :\\par\\par (i) $f$ est convexe sur $I$.\\par\\par (ii) $f'$ est croissante sur $I$ --- ou bien $f'' \\geq 0$ si $f$ est deux fois dérivable sur $I$.\\par\\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_REELLE__qc_098",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des fonctions convexes deux fois dérivables (f'' ≥ 0).",
+      "programme_notion": "Caractérisation des fonctions convexes deux fois dérivables (f'' ≥ 0)",
+      "answer_node_id": "derivabilite_et_convexite__theorem_caracterisation_convexes_derivables",
+      "answer_latex": "Soit $f \\in \\mathcal{D}(I, \\mathbb{R})$. Les assertions suivantes sont équivalentes :\\par\\par (i) $f$ est convexe sur $I$.\\par\\par (ii) $f'$ est croissante sur $I$ --- ou bien $f'' \\geq 0$ si $f$ est deux fois dérivable sur $I$.\\par\\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes.\n\n\\textbf{Démonstration.} (i) $\\Rightarrow$ (ii) Soient $x, y \\in I$ deux réels pour lesquels $x < y$. Pour tout $t \\in ]x, y[$ : $\\frac{f(t) - f(x)}{t - x} \\leq \\frac{f(y) - f(x)}{y - x} \\leq \\frac{f(t) - f(y)}{t - y}$ par convexité de $f$ d'après l'inégalité des pentes. Faisons tendre $t$ vers $x$ à droite, puis indépendamment vers $y$ à gauche : $f'(x) \\leq \\frac{f(y) - f(x)}{y - x} \\leq f'(y)$. Comme voulu, $f'$ est croissante sur $I$.\\par\\par (ii) $\\Rightarrow$ (iii) Fixons $a \\in I$ et montrons que le graphe de $f$ est situé au-dessus de sa tangente en $a$. Notons pour cela $\\phi$ la fonction $t \\longmapsto f(t) - f'(a)(t - a) - f(a)$. Cette fonction est dérivable sur $I$ et $\\phi'(x) = f'(x) - f'(a)$ pour tout $x \\in I$. Par croissance de $f'$, $\\phi'$ est négative à gauche de $a$ et positive à droite. Ainsi, $\\phi$ est décroissante à gauche de $a$ et croissante à droite, donc positive sur $I$ tout entier puisque $\\phi(a) = 0$.\\par\\par (iii) $\\Rightarrow$ (i) Montrons que $f$ est convexe sur $I$. Soient $x, y \\in I$ et $\\lambda \\in [0, 1]$. Posons $a = (1 - \\lambda)x + \\lambda y$. Pour tout $t \\in I$ : $f(t) \\geq f'(a)(t - a) + f(a)$, donc : $(1 - \\lambda)f(x) + \\lambda f(y) \\geq (1 - \\lambda)(f'(a)(x - a) + f(a)) + \\lambda(f'(a)(y - a) + f(a)) = f'(a)((1 - \\lambda)x + \\lambda y - a) + f(a) = f((1 - \\lambda)x + \\lambda y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1415 @@
+{
+  "programme_chapter_id": "PROBA",
+  "programme_chapter_title": "Probabilités sur un univers fini",
+  "semestre": 2,
+  "linked_course_chapters": [
+    "probabilites_sur_un_univers_fini",
+    "complements_probabilistes"
+  ],
+  "questions": [
+    {
+      "id": "PROBA__qc_001",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Vocabulaire ensembliste et vocabulaire probabiliste.",
+      "programme_notion": "Vocabulaire ensembliste et vocabulaire probabiliste",
+      "answer_node_id": "complements_probabilistes__remark_methode_probabiliste",
+      "answer_latex": "Popularisée par le mathématicien hongrois Paul Erdös (1913-1996), la méthode probabiliste est un mode de raisonnement pour prouver l'existence de certains objets. L'idée est simple. Soient $E$ un ensemble — fini car nous sommes en MPSI — et $A$ une partie de $E$ définie explicitement par telle ou telle propriété. On souhaite montrer que $A$ est non vide. Pour cela, on se donne une variable aléatoire $X$ à valeurs dans $E$ définie sur un espace probabilisé $(\\Omega, \\mathbb{P})$ caché et on tente de montrer que $\\mathbb{P}(X \\in A) > 0$. Si on y arrive, l'événement $\\{X \\in A\\}$ est non vide, donc $A$ aussi a fortiori.\\par\\par Le plus souvent, cela dit, la méthode probabiliste conclut un calcul d'espérance plutôt qu'un calcul pur de probabilité. D'après le petit résultat qui suit, on peut en effet savoir qu'un objet existe en calculant une espérance.\\par\\par Reprenons maintenant les notations de l'introduction. Il arrive que la partie $A$ dont on veut montrer qu'elle est non vide soit définie par une fonction $f : E \to \\mathbb{R}$ par une condition du genre $A = \\{x \\in E \\mid f(x) \\leq m\\}$ pour un certain $m \\in \\mathbb{R}$. L'ensemble $\\{x \\in X(\\Omega) \\mid f(x) \\leq \\mathbb{E}(f(X))\\}$ est non vide d'après le théorème précédent, donc $A$ l'est aussi si on arrive à montrer que $\\mathbb{E}(f(X)) \\leq m$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_002",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Événement élémentaire (singleton), système complet d'événements.",
+      "programme_notion": "Événement élémentaire (singleton), système complet d'événements",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+      "answer_latex": "Soit $\\Omega$ un univers fini. On appelle système complet d'événements de $\\Omega$ tout ensemble $\\{A_{1}, \\ldots, A_{n}\\}$ d'événements deux à deux incompatibles dont la réunion est l'événement certain, i.e. pour lequel $\\Omega = A_{1} \\sqcup \\ldots \\sqcup A_{n}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_003",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Événements disjoints (incompatibles).",
+      "programme_notion": "Événements disjoints (incompatibles)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+      "answer_latex": "Soit $\\Omega$ un univers fini. On appelle système complet d'événements de $\\Omega$ tout ensemble $\\{A_{1}, \\ldots, A_{n}\\}$ d'événements deux à deux incompatibles dont la réunion est l'événement certain, i.e. pour lequel $\\Omega = A_{1} \\sqcup \\ldots \\sqcup A_{n}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_004",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable aléatoire X : application définie sur l'univers Ω à valeurs dans un ensemble E.",
+      "programme_notion": "Variable aléatoire X : application définie sur l'univers Ω à valeurs dans un ensemble E",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $E$ un ensemble quelconque.\\par On appelle variable aléatoire sur $\\Omega$ à valeurs dans $E$ toute application $X$ de $\\Omega$ dans $E$. Si $E = \\mathbb{R}$, on précise généralement que $X$ est une variable aléatoire réelle.\\par Événements construits à partir d'une variable aléatoire : Pour toute partie $A$ de $E$, l'événement $X^{-1}(A)$ est noté $\\{X \\in A\\}$ ou $(X \\in A)$ : $\\{X \\in A\\} = X^{-1}(A) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\in A\\}$.\\par En particulier, si $X$ est une variable aléatoire réelle, alors pour tout $x \\in \\mathbb{R}$ : $\\{X = x\\} = X^{-1}(\\{x\\}) = \\{\\omega \\in \\Omega \\mid X(\\omega) = x\\}$.\\par En particulier : $\\{X \\in E\\} = \\Omega$ et $\\{X \\le x\\} = X^{-1}(]-\\infty, x]) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\le x\\}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Notations {X ∈ A}, (X ∈ A).",
+      "programme_notion": "Notations {X ∈ A}, (X ∈ A)",
+      "answer_node_id": "complements_probabilistes__remark_interpretation_loi_faible",
+      "answer_latex": "Mais que raconte la loi faible ? On s'intéresse à une grandeur d'espérance $m$ et d'écart-type $\\sigma$. On la mesure dans un premier temps à l'occasion d'une unique expérience de résultat noté $X_1$. D'après l'inégalité de Bienaymé-Tchebychev, pour tout $\\epsilon > 0$ : $\\mathbb{P}(|X_1 - m| \\geq \\epsilon) \\leq \frac{\\sigma^2}{\\epsilon^2}$. La mesure $X_1$ est donc à distance supérieure à $\\epsilon$ de $m$ avec probabilité au plus $\frac{\\sigma^2}{\\epsilon^2}$.\\par\\par Si on souhaite estimer $m$ avec une certaine précision, l'expérience nous enseigne qu'une seule mesure a peu de chances de suffire. On obtient de meilleures estimations de $m$ en augmentant le nombre de mesures. La théorie des probabilités confirme-t-elle cette intuition ? Oui, et c'est au fond cela la loi faible des grands nombres. On effectue à présent $n$ mesures $X_1, \\ldots, X_n$ — indépendantes — de la grandeur étudiée. Avec les notations du théorème : $\\mathbb{E}\\left(\frac{S_n}{n}\right) = m$ et $\\mathbb{V}\\left(\frac{S_n}{n}\right) = \frac{\\sigma^2}{n}$, donc $\\sigma\\left(\frac{S_n}{n}\right) = \frac{\\sigma}{\\sqrt{n}}$.\\par\\par En résumé : La moyenne de $n$ variables aléatoires indépendantes de même loi, d'espérance $m$ et d'écart-type $\\sigma$, admet toujours $m$ pour espérance, mais $\frac{\\sigma}{\\sqrt{n}}$ pour écart-type. En d'autres termes, on gagne un facteur $\frac{1}{\\sqrt{n}}$ en écart-type en effectuant $n$ mesures plutôt qu'une seule. Chaque nouvelle mesure rapproche de la certitude que la moyenne empirique $\frac{S_n}{n}$ est proche de son espérance $m$.\\par\\par Les lois des grands nombres sont philosophiquement importantes car elles justifient l'interprétation fréquentiste que nous avons des probabilités. Qu'avons-nous en tête quand nous affirmons que la probabilité d'apparition de chaque face d'un dé équilibré à 6 faces vaut $\frac{1}{6}$ ? Nous signifions par là une vérité sur le monde qui n'a rien à voir avec le fait que de tels dés existent et qu'on peut les lancer un nombre indéfini de fois. Cette probabilité vaudrait $\frac{1}{6}$ même si l'humanité s'était de tout temps interdit de lancer un dé. Cela dit, le fait est que nous avons une autre notion de probabilité en tête simultanément, nous avons aussi l'habitude de constater que lorsqu'on lance un dé de nombreuses fois, la fréquence d'apparition de chaque face tend vers $\frac{1}{6}$ à mesure que ce nombre augmente. Les lois des grands nombres réconcilient les deux points de vue. Quand on répète indéfiniment une expérience aléatoire, la fréquence d'un événement tend vers la probabilité a priori de cet événement, i.e. vers sa probabilité indépendamment de toute expérience.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_006",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Probabilité sur un univers fini, espace probabilisé fini (Ω, P).",
+      "programme_notion": "Probabilité sur un univers fini, espace probabilisé fini (Ω, P)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+      "answer_latex": "Soit $\\Omega$ un univers fini. On appelle probabilité sur $\\Omega$ toute application $P : \\mathcal{P}(\\Omega) \\longrightarrow [0, 1]$ pour laquelle d'une part $P(\\Omega) = 1$ et d'autre part :\\par $\\forall A, B \\in \\mathcal{P}(\\Omega)$, $A \\cap B = \\emptyset \\Rightarrow P(A \\sqcup B) = P(A) + P(B)$ (additivité).\\par Le couple $(\\Omega, P)$ est alors appelé un espace probabilisé fini. Dans un tel cadre, deux événements $A$ et $B$ sont dits équiprobables si $P(A) = P(B)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_007",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Notations P(X ∈ A), P(X = x), P(X ≤ x).",
+      "programme_notion": "Notations P(X ∈ A), P(X = x), P(X ≤ x)",
+      "answer_node_id": "complements_probabilistes__remark_interpretation_loi_faible",
+      "answer_latex": "Mais que raconte la loi faible ? On s'intéresse à une grandeur d'espérance $m$ et d'écart-type $\\sigma$. On la mesure dans un premier temps à l'occasion d'une unique expérience de résultat noté $X_1$. D'après l'inégalité de Bienaymé-Tchebychev, pour tout $\\epsilon > 0$ : $\\mathbb{P}(|X_1 - m| \\geq \\epsilon) \\leq \frac{\\sigma^2}{\\epsilon^2}$. La mesure $X_1$ est donc à distance supérieure à $\\epsilon$ de $m$ avec probabilité au plus $\frac{\\sigma^2}{\\epsilon^2}$.\\par\\par Si on souhaite estimer $m$ avec une certaine précision, l'expérience nous enseigne qu'une seule mesure a peu de chances de suffire. On obtient de meilleures estimations de $m$ en augmentant le nombre de mesures. La théorie des probabilités confirme-t-elle cette intuition ? Oui, et c'est au fond cela la loi faible des grands nombres. On effectue à présent $n$ mesures $X_1, \\ldots, X_n$ — indépendantes — de la grandeur étudiée. Avec les notations du théorème : $\\mathbb{E}\\left(\frac{S_n}{n}\right) = m$ et $\\mathbb{V}\\left(\frac{S_n}{n}\right) = \frac{\\sigma^2}{n}$, donc $\\sigma\\left(\frac{S_n}{n}\right) = \frac{\\sigma}{\\sqrt{n}}$.\\par\\par En résumé : La moyenne de $n$ variables aléatoires indépendantes de même loi, d'espérance $m$ et d'écart-type $\\sigma$, admet toujours $m$ pour espérance, mais $\frac{\\sigma}{\\sqrt{n}}$ pour écart-type. En d'autres termes, on gagne un facteur $\frac{1}{\\sqrt{n}}$ en écart-type en effectuant $n$ mesures plutôt qu'une seule. Chaque nouvelle mesure rapproche de la certitude que la moyenne empirique $\frac{S_n}{n}$ est proche de son espérance $m$.\\par\\par Les lois des grands nombres sont philosophiquement importantes car elles justifient l'interprétation fréquentiste que nous avons des probabilités. Qu'avons-nous en tête quand nous affirmons que la probabilité d'apparition de chaque face d'un dé équilibré à 6 faces vaut $\frac{1}{6}$ ? Nous signifions par là une vérité sur le monde qui n'a rien à voir avec le fait que de tels dés existent et qu'on peut les lancer un nombre indéfini de fois. Cette probabilité vaudrait $\frac{1}{6}$ même si l'humanité s'était de tout temps interdit de lancer un dé. Cela dit, le fait est que nous avons une autre notion de probabilité en tête simultanément, nous avons aussi l'habitude de constater que lorsqu'on lance un dé de nombreuses fois, la fréquence d'apparition de chaque face tend vers $\frac{1}{6}$ à mesure que ce nombre augmente. Les lois des grands nombres réconcilient les deux points de vue. Quand on répète indéfiniment une expérience aléatoire, la fréquence d'un événement tend vers la probabilité a priori de cet événement, i.e. vers sa probabilité indépendamment de toute expérience.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_008",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Distribution de probabilités sur un ensemble fini.",
+      "programme_notion": "Distribution de probabilités sur un ensemble fini",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_distribution_probabilites",
+      "answer_latex": "Soit $E$ un ensemble fini. On appelle distribution de probabilités sur $E$ toute famille d'éléments de $[0, 1]$ indexée par $E$ dont la somme est égale à $1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_009",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : P déterminée par la distribution (P({ω}))_{ω∈Ω}.",
+      "programme_notion": "P déterminée par la distribution (P({ω}))_{ω∈Ω}",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_010",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : P déterminée par la distribution (P({ω}))_{ω∈Ω}.",
+      "programme_notion": "P déterminée par la distribution (P({ω}))_{ω∈Ω}",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.\n\n\\textbf{Démonstration.} — Analyse : Soit $P$ une probabilité sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = P(\\bigcup_{\\omega \\in A} \\{\\omega\\}) = \\sum_{\\omega \\in A} P(\\{\\omega\\}) = \\sum_{\\omega \\in A} p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$.\\par — Synthèse : Posons pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $P(A) \\in [0, 1]$ car $0 \\le P(A) \\le \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$. Ensuite : $P(\\Omega) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{\\Omega}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$ et pour tout $\\omega \\in \\Omega$ : $P(\\{\\omega\\}) = \\sum_{\\omega' \\in \\Omega} \\mathbb{I}_{\\{\\omega\\}}(\\omega') p_{\\omega'} = p_{\\omega}$.\\par Enfin, pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles : $\\mathbb{I}_{A \\sqcup B} = \\mathbb{I}_{A} + \\mathbb{I}_{B} - \\mathbb{I}_{A \\cap B} = \\mathbb{I}_{A} + \\mathbb{I}_{B}$, donc : $P(A \\sqcup B) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A \\sqcup B}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega} + \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{B}(\\omega) p_{\\omega} = P(A) + P(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_011",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Probabilité uniforme.",
+      "programme_notion": "Probabilité uniforme",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_012",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Probabilité uniforme.",
+      "programme_notion": "Probabilité uniforme",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.\n\n\\textbf{Démonstration.} $P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1$ et $P(A \\sqcup B) = \\frac{|A \\sqcup B|}{|\\Omega|} = \\frac{|A|}{|\\Omega|} + \\frac{|B|}{|\\Omega|} = P(A) + P(B)$ pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_013",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Probabilité de la réunion, différence, contraire de deux événements.",
+      "programme_notion": "Probabilité de la réunion, différence, contraire de deux événements",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+      "answer_latex": "Soit $\\Omega$ un univers fini. On appelle système complet d'événements de $\\Omega$ tout ensemble $\\{A_{1}, \\ldots, A_{n}\\}$ d'événements deux à deux incompatibles dont la réunion est l'événement certain, i.e. pour lequel $\\Omega = A_{1} \\sqcup \\ldots \\sqcup A_{n}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_014",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Croissance de la probabilité.",
+      "programme_notion": "Croissance de la probabilité",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+      "answer_latex": "Soit $\\Omega$ un univers fini. On appelle probabilité sur $\\Omega$ toute application $P : \\mathcal{P}(\\Omega) \\longrightarrow [0, 1]$ pour laquelle d'une part $P(\\Omega) = 1$ et d'autre part :\\par $\\forall A, B \\in \\mathcal{P}(\\Omega)$, $A \\cap B = \\emptyset \\Rightarrow P(A \\sqcup B) = P(A) + P(B)$ (additivité).\\par Le couple $(\\Omega, P)$ est alors appelé un espace probabilisé fini. Dans un tel cadre, deux événements $A$ et $B$ sont dits équiprobables si $P(A) = P(B)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_015",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Probabilité conditionnelle P(A|B) = P_B(A) = P(A∩B)/P(B) si P(B) > 0.",
+      "programme_notion": "Probabilité conditionnelle P(A|B) = P_B(A) = P(A∩B)/P(B) si P(B) > 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, le réel $P(A|B) = P_{B}(A) = \\frac{P(A \\cap B)}{P(B)}$ est appelé la probabilité conditionnelle de $A$ sachant $B$.\\par L'application $P_{B}$ est alors une probabilité sur $\\Omega$ appelée sa probabilité conditionnelle sachant $B$ (pour $P$).\\par On ne sait pas définir $P_{B}(A)$ lorsque $P(B) = 0$, mais par convention, l'égalité $P(A \\cap B) = P(B)P_{B}(A)$ est tenue pour vraie dans ce cas.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_016",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Probabilité conditionnelle P(A|B) = P_B(A) = P(A∩B)/P(B) si P(B) > 0.",
+      "programme_notion": "Probabilité conditionnelle P(A|B) = P_B(A) = P(A∩B)/P(B) si P(B) > 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, le réel $P(A|B) = P_{B}(A) = \\frac{P(A \\cap B)}{P(B)}$ est appelé la probabilité conditionnelle de $A$ sachant $B$.\\par L'application $P_{B}$ est alors une probabilité sur $\\Omega$ appelée sa probabilité conditionnelle sachant $B$ (pour $P$).\\par On ne sait pas définir $P_{B}(A)$ lorsque $P(B) = 0$, mais par convention, l'égalité $P(A \\cap B) = P(B)P_{B}(A)$ est tenue pour vraie dans ce cas.\n\n\\textbf{Démonstration.} Montrons que $P_{B}$ est une probabilité sur $\\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $0 \\le P(A \\cap B) \\le P(B)$ par croissance de $P$, donc $P_{B}(A) \\in [0, 1]$,. Ensuite, $P_{B}(\\Omega) = \\frac{P(\\Omega \\cap B)}{P(B)} = \\frac{P(B)}{P(B)} = 1$. Enfin, pour tous $A, A' \\in \\mathcal{P}(\\Omega)$ incompatibles, $A \\cap B$ et $A' \\cap B$ sont également incompatibles, donc : $P_{B}(A \\sqcup A') = \\frac{P((A \\sqcup A') \\cap B)}{P(B)} = \\frac{P((A \\cap B) \\sqcup (A' \\cap B))}{P(B)} = \\frac{P(A \\cap B) + P(A' \\cap B)}{P(B)} = P_{B}(A) + P_{B}(A')$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_017",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : P_B est une probabilité.",
+      "programme_notion": "P_B est une probabilité",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_018",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : P_B est une probabilité.",
+      "programme_notion": "P_B est une probabilité",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.\n\n\\textbf{Démonstration.} — Analyse : Soit $P$ une probabilité sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = P(\\bigcup_{\\omega \\in A} \\{\\omega\\}) = \\sum_{\\omega \\in A} P(\\{\\omega\\}) = \\sum_{\\omega \\in A} p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$.\\par — Synthèse : Posons pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $P(A) \\in [0, 1]$ car $0 \\le P(A) \\le \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$. Ensuite : $P(\\Omega) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{\\Omega}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$ et pour tout $\\omega \\in \\Omega$ : $P(\\{\\omega\\}) = \\sum_{\\omega' \\in \\Omega} \\mathbb{I}_{\\{\\omega\\}}(\\omega') p_{\\omega'} = p_{\\omega}$.\\par Enfin, pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles : $\\mathbb{I}_{A \\sqcup B} = \\mathbb{I}_{A} + \\mathbb{I}_{B} - \\mathbb{I}_{A \\cap B} = \\mathbb{I}_{A} + \\mathbb{I}_{B}$, donc : $P(A \\sqcup B) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A \\sqcup B}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega} + \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{B}(\\omega) p_{\\omega} = P(A) + P(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_019",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule des probabilités composées.",
+      "programme_notion": "Formule des probabilités composées",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_020",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule des probabilités composées.",
+      "programme_notion": "Formule des probabilités composées",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.\n\n\\textbf{Démonstration.} Si $P(A_{1} \\cap \\ldots \\cap A_{n-1}) = 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{n}) = 0$ par croissance de $P$ et le résultat s'écrit $0 = 0$. Si au contraire $P(A_{1} \\cap \\ldots \\cap A_{n-1}) > 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{i}) > 0$ pour tout $i \\in [\\![1, n-1]\\!]$ par croissance de $P$, donc par simplification télescopique : $P(A_{1})P_{A_{1}}(A_{2})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n}) = P(A_{1})\\prod_{k=2}^{n} P_{A_{1} \\cap \\ldots \\cap A_{k-1}}(A_{k}) = P(A_{1})\\prod_{k=2}^{n} \\frac{P(A_{1} \\cap \\ldots \\cap A_{k})}{P(A_{1} \\cap \\ldots \\cap A_{k-1})} = P(A_{1} \\cap \\ldots \\cap A_{n})$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_021",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule des probabilités totales.",
+      "programme_notion": "Formule des probabilités totales",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $\\{A_{1}, \\ldots, A_{n}\\}$ un système complet d'événements de $\\Omega$. Pour tout $B \\in \\mathcal{P}(\\Omega)$ : $P(B) = \\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_022",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule des probabilités totales.",
+      "programme_notion": "Formule des probabilités totales",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $\\{A_{1}, \\ldots, A_{n}\\}$ un système complet d'événements de $\\Omega$. Pour tout $B \\in \\mathcal{P}(\\Omega)$ : $P(B) = \\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)$.\n\n\\textbf{Démonstration.} $B = B \\cap \\Omega = B \\cap \\bigcup_{i=1}^{n} A_{i} = \\bigcup_{i=1}^{n} (B \\cap A_{i})$ donc $P(B) = P(\\bigcup_{i=1}^{n} (B \\cap A_{i})) = \\sum_{i=1}^{n} P(B \\cap A_{i}) = \\sum_{i=1}^{n} P(A_{i})P_{A_{i}}(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_023",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule de Bayes.",
+      "programme_notion": "Formule de Bayes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_024",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule de Bayes.",
+      "programme_notion": "Formule de Bayes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.\n\n\\textbf{Démonstration.} Si $P(A_{1} \\cap \\ldots \\cap A_{n-1}) = 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{n}) = 0$ par croissance de $P$ et le résultat s'écrit $0 = 0$. Si au contraire $P(A_{1} \\cap \\ldots \\cap A_{n-1}) > 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{i}) > 0$ pour tout $i \\in [\\![1, n-1]\\!]$ par croissance de $P$, donc par simplification télescopique : $P(A_{1})P_{A_{1}}(A_{2})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n}) = P(A_{1})\\prod_{k=2}^{n} P_{A_{1} \\cap \\ldots \\cap A_{k-1}}(A_{k}) = P(A_{1})\\prod_{k=2}^{n} \\frac{P(A_{1} \\cap \\ldots \\cap A_{k})}{P(A_{1} \\cap \\ldots \\cap A_{k-1})} = P(A_{1} \\cap \\ldots \\cap A_{n})$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_025",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Convention P(A|B)P(B) = 0 lorsque P(B) = 0.",
+      "programme_notion": "Convention P(A|B)P(B) = 0 lorsque P(B) = 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, le réel $P(A|B) = P_{B}(A) = \\frac{P(A \\cap B)}{P(B)}$ est appelé la probabilité conditionnelle de $A$ sachant $B$.\\par L'application $P_{B}$ est alors une probabilité sur $\\Omega$ appelée sa probabilité conditionnelle sachant $B$ (pour $P$).\\par On ne sait pas définir $P_{B}(A)$ lorsque $P(B) = 0$, mais par convention, l'égalité $P(A \\cap B) = P(B)P_{B}(A)$ est tenue pour vraie dans ce cas.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_026",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Convention P(A|B)P(B) = 0 lorsque P(B) = 0.",
+      "programme_notion": "Convention P(A|B)P(B) = 0 lorsque P(B) = 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $B \\in \\mathcal{P}(\\Omega)$ pour lequel $P(B) > 0$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, le réel $P(A|B) = P_{B}(A) = \\frac{P(A \\cap B)}{P(B)}$ est appelé la probabilité conditionnelle de $A$ sachant $B$.\\par L'application $P_{B}$ est alors une probabilité sur $\\Omega$ appelée sa probabilité conditionnelle sachant $B$ (pour $P$).\\par On ne sait pas définir $P_{B}(A)$ lorsque $P(B) = 0$, mais par convention, l'égalité $P(A \\cap B) = P(B)P_{B}(A)$ est tenue pour vraie dans ce cas.\n\n\\textbf{Démonstration.} Montrons que $P_{B}$ est une probabilité sur $\\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $0 \\le P(A \\cap B) \\le P(B)$ par croissance de $P$, donc $P_{B}(A) \\in [0, 1]$,. Ensuite, $P_{B}(\\Omega) = \\frac{P(\\Omega \\cap B)}{P(B)} = \\frac{P(B)}{P(B)} = 1$. Enfin, pour tous $A, A' \\in \\mathcal{P}(\\Omega)$ incompatibles, $A \\cap B$ et $A' \\cap B$ sont également incompatibles, donc : $P_{B}(A \\sqcup A') = \\frac{P((A \\sqcup A') \\cap B)}{P(B)} = \\frac{P((A \\cap B) \\sqcup (A' \\cap B))}{P(B)} = \\frac{P(A \\cap B) + P(A' \\cap B)}{P(B)} = P_{B}(A) + P_{B}(A')$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_027",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Loi P_X d'une variable aléatoire X à valeurs dans E.",
+      "programme_notion": "Loi P_X d'une variable aléatoire X à valeurs dans E",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ une variable aléatoire sur $\\Omega$. L'application $A \\mapsto P(X \\in A)$ est une probabilité sur $X(\\Omega)$ et on l'appelle la loi de $X$ (pour $P$).\\par Cette probabilité est entièrement déterminée par la distribution de probabilités $(P(X=x))_{x \\in X(\\Omega)}$ sur $X(\\Omega)$, qu'on appelle justement la distribution de probabilités de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = \\sum_{x \\in A} P(X=x)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_028",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Loi P_X d'une variable aléatoire X à valeurs dans E.",
+      "programme_notion": "Loi P_X d'une variable aléatoire X à valeurs dans E",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ une variable aléatoire sur $\\Omega$. L'application $A \\mapsto P(X \\in A)$ est une probabilité sur $X(\\Omega)$ et on l'appelle la loi de $X$ (pour $P$).\\par Cette probabilité est entièrement déterminée par la distribution de probabilités $(P(X=x))_{x \\in X(\\Omega)}$ sur $X(\\Omega)$, qu'on appelle justement la distribution de probabilités de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = \\sum_{x \\in A} P(X=x)$.\n\n\\textbf{Démonstration.} Montrons que $P_{X}$ est une probabilité sur $X(\\Omega)$. Or $P_{X}(X(\\Omega)) = P(X \\in X(\\Omega)) = P(\\Omega) = 1$ et pour tous $A, B \\in \\mathcal{P}(X(\\Omega))$ incompatibles : $P_{X}(A \\sqcup B) = P(X \\in A \\sqcup B) = P(\\{X \\in A\\} \\sqcup \\{X \\in B\\}) = P(X \\in A) + P(X \\in B) = P_{X}(A) + P_{X}(B)$.\\par Par ailleurs, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = P(\\bigcup_{x \\in A} \\{X = x\\}) = \\sum_{x \\in A} P(X = x)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_029",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Distribution de probabilités (P(X = x))_{x∈E}.",
+      "programme_notion": "Distribution de probabilités (P(X = x))_{x∈E}",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_distribution_probabilites",
+      "answer_latex": "Soit $E$ un ensemble fini. On appelle distribution de probabilités sur $E$ toute famille d'éléments de $[0, 1]$ indexée par $E$ dont la somme est égale à $1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_030",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Notation X ~ Y pour P_X = P_Y.",
+      "programme_notion": "Notation X ~ Y pour P_X = P_Y",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_031",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Notation X ~ Y pour P_X = P_Y.",
+      "programme_notion": "Notation X ~ Y pour P_X = P_Y",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_032",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable aléatoire f(X).",
+      "programme_notion": "Variable aléatoire f(X)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $E$ un ensemble quelconque.\\par On appelle variable aléatoire sur $\\Omega$ à valeurs dans $E$ toute application $X$ de $\\Omega$ dans $E$. Si $E = \\mathbb{R}$, on précise généralement que $X$ est une variable aléatoire réelle.\\par Événements construits à partir d'une variable aléatoire : Pour toute partie $A$ de $E$, l'événement $X^{-1}(A)$ est noté $\\{X \\in A\\}$ ou $(X \\in A)$ : $\\{X \\in A\\} = X^{-1}(A) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\in A\\}$.\\par En particulier, si $X$ est une variable aléatoire réelle, alors pour tout $x \\in \\mathbb{R}$ : $\\{X = x\\} = X^{-1}(\\{x\\}) = \\{\\omega \\in \\Omega \\mid X(\\omega) = x\\}$.\\par En particulier : $\\{X \\in E\\} = \\Omega$ et $\\{X \\le x\\} = X^{-1}(]-\\infty, x]) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\le x\\}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_033",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si X ~ Y alors f(X) ~ f(Y).",
+      "programme_notion": "Si X ~ Y alors f(X) ~ f(Y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $E$ un ensemble quelconque.\\par On appelle variable aléatoire sur $\\Omega$ à valeurs dans $E$ toute application $X$ de $\\Omega$ dans $E$. Si $E = \\mathbb{R}$, on précise généralement que $X$ est une variable aléatoire réelle.\\par Événements construits à partir d'une variable aléatoire : Pour toute partie $A$ de $E$, l'événement $X^{-1}(A)$ est noté $\\{X \\in A\\}$ ou $(X \\in A)$ : $\\{X \\in A\\} = X^{-1}(A) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\in A\\}$.\\par En particulier, si $X$ est une variable aléatoire réelle, alors pour tout $x \\in \\mathbb{R}$ : $\\{X = x\\} = X^{-1}(\\{x\\}) = \\{\\omega \\in \\Omega \\mid X(\\omega) = x\\}$.\\par En particulier : $\\{X \\in E\\} = \\Omega$ et $\\{X \\le x\\} = X^{-1}(]-\\infty, x]) = \\{\\omega \\in \\Omega \\mid X(\\omega) \\le x\\}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_034",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable uniforme sur un ensemble fini non vide E (notation X ~ U(E)).",
+      "programme_notion": "Variable uniforme sur un ensemble fini non vide E (notation X ~ U(E))",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+      "answer_latex": "— Loi uniforme : Soient $E$ un ensemble fini non vide et $X$ une variable aléatoire à valeurs dans $E$. On dit que $X$ suit la loi uniforme sur $E$ ou que $X$ est une variable uniforme sur $E$, ce qu'on note $X \\sim \\mathcal{U}(E)$, si $P_{X}$ est la probabilité uniforme sur $E$, i.e. si pour tout $A \\in \\mathcal{P}(E)$ : $P_{X}(A) = P(X \\in A) = \\frac{|A|}{|E|}$.\\par — Loi de Rademacher : La loi uniforme sur $\\{-1, 1\\}$ est appelée la loi de Rademacher. On dit donc d'une variable aléatoire $X$ pour laquelle $P(X = -1) = P(X = 1) = \\frac{1}{2}$ qu'elle suit la loi de Rademacher ou que c'est une variable de Rademacher.\\par La loi uniforme est la loi pour laquelle les événements $\\{X = x\\}$, $x$ décrivant $E$, sont équiprobables de probabilité $\\frac{1}{|E|}$.\\par La formule $P(X \\in A) = \\frac{|A|}{|E|} = \\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$ sur la loi uniforme est essentielle en pratique et ramène tout problème de calcul de probabilité à un problème de dénombrement.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable de Bernoulli de paramètre p (notation X ~ B(p)).",
+      "programme_notion": "Variable de Bernoulli de paramètre p (notation X ~ B(p))",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_bernoulli",
+      "answer_latex": "Soient $X$ une variable aléatoire à valeurs dans $\\{0, 1\\}$ et $p \\in [0, 1]$. On dit que $X$ suit la loi de Bernoulli de paramètre $p$ ou que $X$ est une variable de Bernoulli de paramètre $p$, ce qu'on note $X \\sim \\mathcal{B}(p)$, si $P(X = 1) = p$ et $P(X = 0) = 1 - p$.\\par Exemple fondamental : Pour tout espace probabilisé fini $(\\Omega, P)$ et pour tout $A \\in \\mathcal{P}(\\Omega)$ : $\\mathbb{I}_{A} \\sim \\mathcal{B}(P(A))$.\\par Toute variable aléatoire qui représente un cardinal peut être exprimée comme une somme d'indicatrices, i.e. comme une somme de variables aléatoires de loi de Bernoulli.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_036",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable binomiale de paramètres n et p (notation X ~ B(n,p)).",
+      "programme_notion": "Variable binomiale de paramètres n et p (notation X ~ B(n,p))",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+      "answer_latex": "Soient $X$ une variable aléatoire à valeurs dans $[\\![0, n]\\!]$ et $p \\in [0, 1]$. On dit que $X$ suit la loi binomiale de paramètre $(n, p)$ ou que $X$ est une variable binomiale de paramètre $(n, p)$, ce qu'on note $X \\sim \\mathcal{B}(n, p)$, si pour tout $k \\in [\\![0, n]\\!]$ : $P(X = k) = \\binom{n}{k} p^{k} (1-p)^{n-k}$.\\par Lorsqu'on répète $n$ fois indépendamment une expérience aléatoire à deux issues avec probabilité $p$ pour l'issue favorable, le NOMBRE D'ISSUES FAVORABLES suit la loi binomiale $\\mathcal{B}(n, p)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_037",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Loi conditionnelle d'une variable aléatoire sachant un événement.",
+      "programme_notion": "Loi conditionnelle d'une variable aléatoire sachant un événement",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ une variable aléatoire sur $\\Omega$. L'application $A \\mapsto P(X \\in A)$ est une probabilité sur $X(\\Omega)$ et on l'appelle la loi de $X$ (pour $P$).\\par Cette probabilité est entièrement déterminée par la distribution de probabilités $(P(X=x))_{x \\in X(\\Omega)}$ sur $X(\\Omega)$, qu'on appelle justement la distribution de probabilités de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = \\sum_{x \\in A} P(X=x)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_038",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Loi conditionnelle d'une variable aléatoire sachant un événement.",
+      "programme_notion": "Loi conditionnelle d'une variable aléatoire sachant un événement",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ une variable aléatoire sur $\\Omega$. L'application $A \\mapsto P(X \\in A)$ est une probabilité sur $X(\\Omega)$ et on l'appelle la loi de $X$ (pour $P$).\\par Cette probabilité est entièrement déterminée par la distribution de probabilités $(P(X=x))_{x \\in X(\\Omega)}$ sur $X(\\Omega)$, qu'on appelle justement la distribution de probabilités de $X$. En l'occurrence, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = \\sum_{x \\in A} P(X=x)$.\n\n\\textbf{Démonstration.} Montrons que $P_{X}$ est une probabilité sur $X(\\Omega)$. Or $P_{X}(X(\\Omega)) = P(X \\in X(\\Omega)) = P(\\Omega) = 1$ et pour tous $A, B \\in \\mathcal{P}(X(\\Omega))$ incompatibles : $P_{X}(A \\sqcup B) = P(X \\in A \\sqcup B) = P(\\{X \\in A\\} \\sqcup \\{X \\in B\\}) = P(X \\in A) + P(X \\in B) = P_{X}(A) + P_{X}(B)$.\\par Par ailleurs, pour tout $A \\in \\mathcal{P}(X(\\Omega))$ : $P_{X}(A) = P(X \\in A) = P(\\bigcup_{x \\in A} \\{X = x\\}) = \\sum_{x \\in A} P(X = x)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_039",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Couple de variables aléatoires, loi conjointe, lois marginales.",
+      "programme_notion": "Couple de variables aléatoires, loi conjointe, lois marginales",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_040",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Notation P(X = x, Y = y).",
+      "programme_notion": "Notation P(X = x, Y = y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_041",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Extension aux n-uplets de variables aléatoires.",
+      "programme_notion": "Extension aux n-uplets de variables aléatoires",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_042",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Indépendance de deux événements : P(A∩B) = P(A)P(B).",
+      "programme_notion": "Indépendance de deux événements : P(A∩B) = P(A)P(B)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__warning_independance_mutuelle_deux_a_deux",
+      "answer_latex": "Attention ! (Mutuellement) indépendants $\\Rightarrow$ DEUX À DEUX indépendants mais la réciproque est fausse !\\par Posons par exemple $\\Omega = [\\![1, 4]\\!]$ et notons $P$ la probabilité uniforme sur $\\Omega$. Posons en outre $A = \\{1, 2\\}$, $B = \\{1, 3\\}$ et $C = \\{2, 3\\}$. Alors $P(A) = P(B) = P(C) = \\frac{1}{2}$ et $P(A \\cap B) = P(A \\cap C) = P(B \\cap C) = \\frac{1}{4}$, donc $A, B$ et $C$ sont deux à deux indépendants.\\par Pourtant, $P(A \\cap B \\cap C) = P(\\emptyset) = 0 \\neq \\frac{1}{8} = P(A)P(B)P(C)$ donc $A, B$ et $C$ ne sont pas (mutuellement) indépendants.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_043",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si P(B) > 0, indépendance ⟺ P(A|B) = P(A).",
+      "programme_notion": "Si P(B) > 0, indépendance ⟺ P(A|B) = P(A)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Si $A_{1}, \\ldots, A_{n}$ sont indépendants, les événements $A_{1}^{\\circ}, \\ldots, A_{n}^{\\circ}$ le sont aussi pour tous $A_{1}^{\\circ} \\in \\{A_{1}, \\overline{A_{1}}\\}, \\ldots, A_{n}^{\\circ} \\in \\{A_{n}, \\overline{A_{n}}\\}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_044",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si P(B) > 0, indépendance ⟺ P(A|B) = P(A).",
+      "programme_notion": "Si P(B) > 0, indépendance ⟺ P(A|B) = P(A)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Si $A_{1}, \\ldots, A_{n}$ sont indépendants, les événements $A_{1}^{\\circ}, \\ldots, A_{n}^{\\circ}$ le sont aussi pour tous $A_{1}^{\\circ} \\in \\{A_{1}, \\overline{A_{1}}\\}, \\ldots, A_{n}^{\\circ} \\in \\{A_{n}, \\overline{A_{n}}\\}$.\n\n\\textbf{Démonstration.} Nous nous contenterons du cas de deux événements $A$ et $B$.\\par — Si $A$ et $B$ sont indépendants, alors $\\overline{A}$ et $B$ le sont aussi car : $P(\\overline{A} \\cap B) = P(B \\setminus A) = P(B) - P(A \\cap B) = P(B) - P(A)P(B) = (1 - P(A))P(B) = P(\\overline{A})P(B)$.\\par — Quitte à permuter $A$ et $B$, le premier point montre que si $A$ et $B$ sont indépendants, $A$ et $\\overline{B}$ le sont aussi, et donc a fortiori $\\overline{A}$ et $\\overline{B}$ aussi, toujours d'après le premier point.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_045",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Famille finie d'événements indépendants.",
+      "programme_notion": "Famille finie d'événements indépendants",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_evenements_independants",
+      "answer_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini.\\par — Cas de deux événements : Soient $A, B \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A$ et $B$ sont indépendants si : $P(A \\cap B) = P(A)P(B)$.\\par — Cas général : Soient $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A_{1}, \\ldots, A_{n}$ sont (mutuellement) indépendants si : $\\forall I \\in \\mathcal{P}([\\![1, n]\\!]), P(\\bigcap_{i \\in I} A_{i}) = \\prod_{i \\in I} P(A_{i})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_046",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : L'indépendance deux à deux n'implique pas l'indépendance mutuelle.",
+      "programme_notion": "L'indépendance deux à deux n'implique pas l'indépendance mutuelle",
+      "answer_node_id": "probabilites_sur_un_univers_fini__warning_independance_mutuelle_deux_a_deux",
+      "answer_latex": "Attention ! (Mutuellement) indépendants $\\Rightarrow$ DEUX À DEUX indépendants mais la réciproque est fausse !\\par Posons par exemple $\\Omega = [\\![1, 4]\\!]$ et notons $P$ la probabilité uniforme sur $\\Omega$. Posons en outre $A = \\{1, 2\\}$, $B = \\{1, 3\\}$ et $C = \\{2, 3\\}$. Alors $P(A) = P(B) = P(C) = \\frac{1}{2}$ et $P(A \\cap B) = P(A \\cap C) = P(B \\cap C) = \\frac{1}{4}$, donc $A, B$ et $C$ sont deux à deux indépendants.\\par Pourtant, $P(A \\cap B \\cap C) = P(\\emptyset) = 0 \\neq \\frac{1}{8} = P(A)P(B)P(C)$ donc $A, B$ et $C$ ne sont pas (mutuellement) indépendants.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_047",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si A et B indépendants, alors A et B̄ aussi.",
+      "programme_notion": "Si A et B indépendants, alors A et B̄ aussi",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_evenements_independants",
+      "answer_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini.\\par — Cas de deux événements : Soient $A, B \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A$ et $B$ sont indépendants si : $P(A \\cap B) = P(A)P(B)$.\\par — Cas général : Soient $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$ des événements. On dit que $A_{1}, \\ldots, A_{n}$ sont (mutuellement) indépendants si : $\\forall I \\in \\mathcal{P}([\\![1, n]\\!]), P(\\bigcap_{i \\in I} A_{i}) = \\prod_{i \\in I} P(A_{i})$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_048",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variables aléatoires X et Y indépendantes.",
+      "programme_notion": "Variables aléatoires X et Y indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_049",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Variables aléatoires X et Y indépendantes.",
+      "programme_notion": "Variables aléatoires X et Y indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.\n\n\\textbf{Démonstration.} Faisons l'hypothèse que $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ et montrons que $X_{1}, \\ldots, X_{n}$ sont indépendantes.\\par — Montrons d'abord que $P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n}) = P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n})$ pour toutes parties $B_{1}$ de $X_{1}(\\Omega), \\ldots, B_{n}$ de $X_{n}(\\Omega)$. En notant $\\boldsymbol{x}$ la proposition $(x_{1}, \\ldots, x_{n}) \\in B_{1} \\times \\ldots \\times B_{n}$ : $P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n}) = (\\sum_{x_{1} \\in B_{1}} P(X_{1} = x_{1})) \\ldots (\\sum_{x_{n} \\in B_{n}} P(X_{n} = x_{n})) = \\sum_{\\boldsymbol{x}} P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P((X_{1}, \\ldots, X_{n}) \\in B_{1} \\times \\ldots \\times B_{n}) = P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n})$.\\par — Fixons à présent des parties $A_{1}$ de $X_{1}(\\Omega), \\ldots,$ et $A_{n}$ de $X_{n}(\\Omega)$ ainsi qu'une partie $I$ de $[\\![1, n]\\!]$ et montrons que $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$. Posons pour cela $B_{i} = A_{i}$ si $i \\in I$, $X_{i}(\\Omega)$ sinon, pour tout $i \\in [\\![1, n]\\!]$. D'après le point précédent : $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = P(\\bigcap_{i=1}^{n} \\{X_{i} \\in B_{i}\\}) = \\prod_{i=1}^{n} P(X_{i} \\in B_{i}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_050",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Notation X ⫫ Y.",
+      "programme_notion": "Notation X ⫫ Y",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_051",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation : P((X,Y) = (x,y)) = P(X=x)P(Y=y).",
+      "programme_notion": "Caractérisation : P((X,Y) = (x,y)) = P(X=x)P(Y=y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_052",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation : P((X,Y) = (x,y)) = P(X=x)P(Y=y).",
+      "programme_notion": "Caractérisation : P((X,Y) = (x,y)) = P(X=x)P(Y=y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+      "answer_latex": "Soient $\\Omega$ un univers fini et $(p_{\\omega})_{\\omega \\in \\Omega}$ une distribution de probabilités sur $\\Omega$. Il existe une et une seule probabilité $P$ sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. En l'occurrence, pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in A} p_{\\omega}$.\\par En résumé, on connaît tout d'une probabilité quand on connaît la distribution de probabilités des événements élémentaires.\n\n\\textbf{Démonstration.} — Analyse : Soit $P$ une probabilité sur $\\Omega$ pour laquelle $P(\\{\\omega\\}) = p_{\\omega}$ pour tout $\\omega \\in \\Omega$. Pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = P(\\bigcup_{\\omega \\in A} \\{\\omega\\}) = \\sum_{\\omega \\in A} P(\\{\\omega\\}) = \\sum_{\\omega \\in A} p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$.\\par — Synthèse : Posons pour tout $A \\in \\mathcal{P}(\\Omega)$ : $P(A) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega}$. Pour tout $A \\in \\mathcal{P}(\\Omega)$, $P(A) \\in [0, 1]$ car $0 \\le P(A) \\le \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$. Ensuite : $P(\\Omega) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{\\Omega}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} p_{\\omega} = 1$ et pour tout $\\omega \\in \\Omega$ : $P(\\{\\omega\\}) = \\sum_{\\omega' \\in \\Omega} \\mathbb{I}_{\\{\\omega\\}}(\\omega') p_{\\omega'} = p_{\\omega}$.\\par Enfin, pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles : $\\mathbb{I}_{A \\sqcup B} = \\mathbb{I}_{A} + \\mathbb{I}_{B} - \\mathbb{I}_{A \\cap B} = \\mathbb{I}_{A} + \\mathbb{I}_{B}$, donc : $P(A \\sqcup B) = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A \\sqcup B}(\\omega) p_{\\omega} = \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{A}(\\omega) p_{\\omega} + \\sum_{\\omega \\in \\Omega} \\mathbb{I}_{B}(\\omega) p_{\\omega} = P(A) + P(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_053",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Extension aux n-uplets de variables aléatoires.",
+      "programme_notion": "Extension aux n-uplets de variables aléatoires",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_054",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Modélisation de n expériences indépendantes.",
+      "programme_notion": "Modélisation de n expériences indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_055",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Modélisation de n expériences indépendantes.",
+      "programme_notion": "Modélisation de n expériences indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$. On dit que $X_{1}, \\ldots, X_{n}$ sont (mutuellement) indépendantes si pour toutes parties $A_{1}$ de $X_{1}(\\Omega)$, \\ldots, $A_{n}$ de $X_{n}(\\Omega)$, les événements $\\{X_{1} \\in A_{1}\\}, \\ldots, \\{X_{n} \\in A_{n}\\}$ sont indépendants.\\par Il est équivalent d'exiger que pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ : $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ où $\\{X_{1} = x_{1}, \\ldots, X_{n} = x_{n}\\}$ est l'événement $\\{X_{1} = x_{1} \\text{ et } \\ldots \\text{ et } X_{n} = x_{n}\\} = \\{X_{1} = x_{1}\\} \\cap \\ldots \\cap \\{X_{n} = x_{n}\\}$.\n\n\\textbf{Démonstration.} Faisons l'hypothèse que $P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n})$ pour tous $x_{1} \\in X_{1}(\\Omega), \\ldots, x_{n} \\in X_{n}(\\Omega)$ et montrons que $X_{1}, \\ldots, X_{n}$ sont indépendantes.\\par — Montrons d'abord que $P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n}) = P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n})$ pour toutes parties $B_{1}$ de $X_{1}(\\Omega), \\ldots, B_{n}$ de $X_{n}(\\Omega)$. En notant $\\boldsymbol{x}$ la proposition $(x_{1}, \\ldots, x_{n}) \\in B_{1} \\times \\ldots \\times B_{n}$ : $P(X_{1} \\in B_{1}) \\ldots P(X_{n} \\in B_{n}) = (\\sum_{x_{1} \\in B_{1}} P(X_{1} = x_{1})) \\ldots (\\sum_{x_{n} \\in B_{n}} P(X_{n} = x_{n})) = \\sum_{\\boldsymbol{x}} P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P((X_{1}, \\ldots, X_{n}) \\in B_{1} \\times \\ldots \\times B_{n}) = P(X_{1} \\in B_{1}, \\ldots, X_{n} \\in B_{n})$.\\par — Fixons à présent des parties $A_{1}$ de $X_{1}(\\Omega), \\ldots,$ et $A_{n}$ de $X_{n}(\\Omega)$ ainsi qu'une partie $I$ de $[\\![1, n]\\!]$ et montrons que $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$. Posons pour cela $B_{i} = A_{i}$ si $i \\in I$, $X_{i}(\\Omega)$ sinon, pour tout $i \\in [\\![1, n]\\!]$. D'après le point précédent : $P(\\bigcap_{i \\in I} \\{X_{i} \\in A_{i}\\}) = P(\\bigcap_{i=1}^{n} \\{X_{i} \\in B_{i}\\}) = \\prod_{i=1}^{n} P(X_{i} \\in B_{i}) = \\prod_{i \\in I} P(X_{i} \\in A_{i})$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_056",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si X₁,...,X_n indépendantes de loi B(p), alors X₁+...+X_n ~ B(n,p).",
+      "programme_notion": "Si X₁,...,X_n indépendantes de loi B(p), alors X₁+...+X_n ~ B(n,p)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_057",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si X₁,...,X_n indépendantes de loi B(p), alors X₁+...+X_n ~ B(n,p).",
+      "programme_notion": "Si X₁,...,X_n indépendantes de loi B(p), alors X₁+...+X_n ~ B(n,p)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_058",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si X et Y indépendantes, alors f(X) et g(Y) indépendantes.",
+      "programme_notion": "Si X et Y indépendantes, alors f(X) et g(Y) indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_059",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si X et Y indépendantes, alors f(X) et g(Y) indépendantes.",
+      "programme_notion": "Si X et Y indépendantes, alors f(X) et g(Y) indépendantes",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_060",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Lemme des coalitions.",
+      "programme_notion": "Lemme des coalitions",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_061",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Lemme des coalitions.",
+      "programme_notion": "Lemme des coalitions",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_062",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Espérance E(X) = Σ x·P(X=x).",
+      "programme_notion": "Espérance E(X) = Σ x·P(X=x)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+      "answer_latex": "Soit $X$ une variable aléatoire complexe sur $\\Omega$.\\par On appelle espérance de $X$ le nombre complexe $E(X) = \\sum_{x \\in X(\\Omega)} P(X=x)x$.\\par On dit que $X$ est centrée si $E(X) = 0$.\\par L'espérance de $X$ est une moyenne des valeurs de $X$. Précisément, chaque valeur $x$, $x$ décrivant $X(\\Omega)$, s'y trouve comptabilisée en proportion de sa probabilité d'occurrence $P(X=x)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_063",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : L'espérance est un indicateur de position.",
+      "programme_notion": "L'espérance est un indicateur de position",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+      "answer_latex": "Soit $X$ une variable aléatoire complexe sur $\\Omega$.\\par On appelle espérance de $X$ le nombre complexe $E(X) = \\sum_{x \\in X(\\Omega)} P(X=x)x$.\\par On dit que $X$ est centrée si $E(X) = 0$.\\par L'espérance de $X$ est une moyenne des valeurs de $X$. Précisément, chaque valeur $x$, $x$ décrivant $X(\\Omega)$, s'y trouve comptabilisée en proportion de sa probabilité d'occurrence $P(X=x)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_064",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule E(X) = Σ_{ω∈Ω} X(ω)P({ω}).",
+      "programme_notion": "Formule E(X) = Σ_{ω∈Ω} X(ω)P({ω})",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_065",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule E(X) = Σ_{ω∈Ω} X(ω)P({ω}).",
+      "programme_notion": "Formule E(X) = Σ_{ω∈Ω} X(ω)P({ω})",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $A_{1}, \\ldots, A_{n} \\in \\mathcal{P}(\\Omega)$. Alors : $P(A_{1} \\cap \\ldots \\cap A_{n}) = P(A_{1})P_{A_{1}}(A_{2})P_{A_{1} \\cap A_{2}}(A_{3})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n})$.\n\n\\textbf{Démonstration.} Si $P(A_{1} \\cap \\ldots \\cap A_{n-1}) = 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{n}) = 0$ par croissance de $P$ et le résultat s'écrit $0 = 0$. Si au contraire $P(A_{1} \\cap \\ldots \\cap A_{n-1}) > 0$, alors $P(A_{1} \\cap \\ldots \\cap A_{i}) > 0$ pour tout $i \\in [\\![1, n-1]\\!]$ par croissance de $P$, donc par simplification télescopique : $P(A_{1})P_{A_{1}}(A_{2})\\ldots P_{A_{1} \\cap \\ldots \\cap A_{n-1}}(A_{n}) = P(A_{1})\\prod_{k=2}^{n} P_{A_{1} \\cap \\ldots \\cap A_{k-1}}(A_{k}) = P(A_{1})\\prod_{k=2}^{n} \\frac{P(A_{1} \\cap \\ldots \\cap A_{k})}{P(A_{1} \\cap \\ldots \\cap A_{k-1})} = P(A_{1} \\cap \\ldots \\cap A_{n})$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_066",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable aléatoire centrée.",
+      "programme_notion": "Variable aléatoire centrée",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+      "answer_latex": "Soit $X$ une variable aléatoire complexe sur $\\Omega$.\\par On appelle espérance de $X$ le nombre complexe $E(X) = \\sum_{x \\in X(\\Omega)} P(X=x)x$.\\par On dit que $X$ est centrée si $E(X) = 0$.\\par L'espérance de $X$ est une moyenne des valeurs de $X$. Précisément, chaque valeur $x$, $x$ décrivant $X(\\Omega)$, s'y trouve comptabilisée en proportion de sa probabilité d'occurrence $P(X=x)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_067",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Linéarité, positivité, croissance de l'espérance.",
+      "programme_notion": "Linéarité, positivité, croissance de l'espérance",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$.\\par (i) Une autre expression : $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)$.\\par (ii) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $E(\\lambda X + \\mu Y) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) Inégalité triangulaire : $|E(X)| \\le E(|X|)$.\\par (iv) Lien avec les parties réelle et imaginaire : $E(X) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par La dernière propriété concerne les variables aléatoires réelles :\\par (v) Croissance : Si $X \\le Y$, alors $E(X) \\le E(Y)$.\\par (vi) Positivité : Si $X \\ge 0$, alors $E(X) \\ge 0$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_068",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Linéarité, positivité, croissance de l'espérance.",
+      "programme_notion": "Linéarité, positivité, croissance de l'espérance",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$.\\par (i) Une autre expression : $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)$.\\par (ii) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $E(\\lambda X + \\mu Y) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) Inégalité triangulaire : $|E(X)| \\le E(|X|)$.\\par (iv) Lien avec les parties réelle et imaginaire : $E(X) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par La dernière propriété concerne les variables aléatoires réelles :\\par (v) Croissance : Si $X \\le Y$, alors $E(X) \\le E(Y)$.\\par (vi) Positivité : Si $X \\ge 0$, alors $E(X) \\ge 0$.\n\n\\textbf{Démonstration.} (i) Les événements $\\{X=x\\}$, $x$ décrivant $X(\\Omega)$, forment un système complet d'événements, donc : $\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) x = \\sum_{x \\in X(\\Omega)} P(X=x)x = E(X)$.\\par (ii) $E(\\lambda X + \\mu Y) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\lambda X + \\mu Y)(\\omega) = \\lambda \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) + \\mu \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) Y(\\omega) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) $|E(X)| = |\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)| \\le \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) |X(\\omega)| = E(|X|)$.\\par (iv) $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\text{Re}(X)(\\omega) + i\\text{Im}(X)(\\omega)) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Re}(X)(\\omega) + i \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Im}(X)(\\omega) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par (v) Positivité évidente par définition de l'espérance. Pour la croissance, si $X \\le Y$, alors $Y-X \\ge 0$, donc par linéarité et positivité : $E(Y) - E(X) = E(Y-X) \\ge 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_069",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité triangulaire pour l'espérance.",
+      "programme_notion": "Inégalité triangulaire pour l'espérance",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$.\\par (i) Une autre expression : $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)$.\\par (ii) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $E(\\lambda X + \\mu Y) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) Inégalité triangulaire : $|E(X)| \\le E(|X|)$.\\par (iv) Lien avec les parties réelle et imaginaire : $E(X) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par La dernière propriété concerne les variables aléatoires réelles :\\par (v) Croissance : Si $X \\le Y$, alors $E(X) \\le E(Y)$.\\par (vi) Positivité : Si $X \\ge 0$, alors $E(X) \\ge 0$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_070",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité triangulaire pour l'espérance.",
+      "programme_notion": "Inégalité triangulaire pour l'espérance",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires complexes sur $\\Omega$.\\par (i) Une autre expression : $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)$.\\par (ii) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $E(\\lambda X + \\mu Y) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) Inégalité triangulaire : $|E(X)| \\le E(|X|)$.\\par (iv) Lien avec les parties réelle et imaginaire : $E(X) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par La dernière propriété concerne les variables aléatoires réelles :\\par (v) Croissance : Si $X \\le Y$, alors $E(X) \\le E(Y)$.\\par (vi) Positivité : Si $X \\ge 0$, alors $E(X) \\ge 0$.\n\n\\textbf{Démonstration.} (i) Les événements $\\{X=x\\}$, $x$ décrivant $X(\\Omega)$, forment un système complet d'événements, donc : $\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) X(\\omega) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) x = \\sum_{x \\in X(\\Omega)} P(X=x)x = E(X)$.\\par (ii) $E(\\lambda X + \\mu Y) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\lambda X + \\mu Y)(\\omega) = \\lambda \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) + \\mu \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) Y(\\omega) = \\lambda E(X) + \\mu E(Y)$.\\par (iii) $|E(X)| = |\\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega)| \\le \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) |X(\\omega)| = E(|X|)$.\\par (iv) $E(X) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) X(\\omega) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\})(\\text{Re}(X)(\\omega) + i\\text{Im}(X)(\\omega)) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Re}(X)(\\omega) + i \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) \\text{Im}(X)(\\omega) = E(\\text{Re}(X)) + i E(\\text{Im}(X))$.\\par (v) Positivité évidente par définition de l'espérance. Pour la croissance, si $X \\le Y$, alors $Y-X \\ge 0$, donc par linéarité et positivité : $E(Y) - E(X) = E(Y-X) \\ge 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_071",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Espérance d'une variable constante, de Bernoulli, binomiale.",
+      "programme_notion": "Espérance d'une variable constante, de Bernoulli, binomiale",
+      "answer_node_id": "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+      "answer_latex": "Soient $X$ une variable aléatoire et $p \\in [0, 1]$.\\par (i) Si $X \\sim \\mathcal{B}(p)$, alors $\\mathbb{V}(X) = p(1-p)$.\\par (ii) Si $X \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X) = np(1-p)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_072",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Espérance d'une variable constante, de Bernoulli, binomiale.",
+      "programme_notion": "Espérance d'une variable constante, de Bernoulli, binomiale",
+      "answer_node_id": "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+      "answer_latex": "Soient $X$ une variable aléatoire et $p \\in [0, 1]$.\\par (i) Si $X \\sim \\mathcal{B}(p)$, alors $\\mathbb{V}(X) = p(1-p)$.\\par (ii) Si $X \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X) = np(1-p)$.\n\n\\textbf{Démonstration.} (i) $\\mathbb{E}(X^2) = \\mathbb{P}(X = 1) \\cdot 1^2 + \\mathbb{P}(X = 0) \\cdot 0^2 = p$, donc $\\mathbb{V}(X) = \\mathbb{E}(X^2) - \\mathbb{E}(X)^2 = p - p^2 = p(1-p)$.\\par\\par (ii) Soient $X_1, \\ldots, X_n$ des variables aléatoires indépendantes sur $\\Omega$ de même loi de Bernoulli $\\mathcal{B}(p)$. Comme $X_1 + \\ldots + X_n \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X_1 + \\ldots + X_n) \\stackrel{\text{Indép.}}{=} \\mathbb{V}(X_1) + \\ldots + \\mathbb{V}(X_n) = np(1-p)$. Ce calcul ne concerne a priori pas la variable aléatoire $X$ de l'énoncé, dont on ne sait pas si elle peut être décomposée ou non comme une somme de $n$ variables aléatoires indépendantes de loi $\\mathcal{B}(p)$, mais l'espérance d'une variable aléatoire ne dépend que de sa loi, donc le calcul que nous venons de faire dans le cas particulier de la somme $X_1 + \\ldots + X_n$ est en fait emblématique de toute situation binomiale.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_073",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : E(1_A) = P(A).",
+      "programme_notion": "E(1_A) = P(A)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__example_somme_indicatrices_lancers",
+      "answer_latex": "On lance $n$ fois un dé à $6$ faces. Si on note $A_{k}$ l'événement « On obtient $6$ au $k^{\\text{ème}}$ lancer » pour tout $k \\in [\\![1, n]\\!]$ et $N$ le nombre de $6$ obtenus, alors $N = \\mathbb{I}_{A_{1}} + \\ldots + \\mathbb{I}_{A_{n}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_074",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule de transfert : E(f(X)) = Σ f(x)P(X=x).",
+      "programme_notion": "Formule de transfert : E(f(X)) = Σ f(x)P(X=x)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_formule_de_transfert",
+      "answer_latex": "Soient $X$ une variable aléatoire sur $\\Omega$ et $f : X(\\Omega) \\longrightarrow \\mathbb{C}$ une fonction. L'espérance de $f(X)$ est entièrement déterminée par $f$ et la loi de $X$ : $E(f(X)) = \\sum_{x \\in X(\\Omega)} P(X=x)f(x)$.\\par On dispose bien sûr d'une version de la formule de transfert pour les couples. Si $X$ et $Y$ sont deux variables aléatoires sur $\\Omega$ et si $f : (X, Y)(\\Omega) \\longrightarrow \\mathbb{C}$ est une fonction, alors $E(f(X, Y)) = \\sum_{(x, y) \\in (X, Y)(\\Omega)} P(X=x, Y=y)f(x, y)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_075",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule de transfert : E(f(X)) = Σ f(x)P(X=x).",
+      "programme_notion": "Formule de transfert : E(f(X)) = Σ f(x)P(X=x)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_formule_de_transfert",
+      "answer_latex": "Soient $X$ une variable aléatoire sur $\\Omega$ et $f : X(\\Omega) \\longrightarrow \\mathbb{C}$ une fonction. L'espérance de $f(X)$ est entièrement déterminée par $f$ et la loi de $X$ : $E(f(X)) = \\sum_{x \\in X(\\Omega)} P(X=x)f(x)$.\\par On dispose bien sûr d'une version de la formule de transfert pour les couples. Si $X$ et $Y$ sont deux variables aléatoires sur $\\Omega$ et si $f : (X, Y)(\\Omega) \\longrightarrow \\mathbb{C}$ est une fonction, alors $E(f(X, Y)) = \\sum_{(x, y) \\in (X, Y)(\\Omega)} P(X=x, Y=y)f(x, y)$.\n\n\\textbf{Démonstration.} Les événements $\\{X=x\\}$, $x$ décrivant $X(\\Omega)$ forment un système complet d'événements, donc : $E(f(X)) = \\sum_{\\omega \\in \\Omega} P(\\{\\omega\\}) f(X(\\omega)) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) f(X(\\omega)) = \\sum_{x \\in X(\\Omega)} \\sum_{\\omega \\in \\{X=x\\}} P(\\{\\omega\\}) f(x) = \\sum_{x \\in X(\\Omega)} P(X=x)f(x)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_076",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Application aux couples et n-uplets.",
+      "programme_notion": "Application aux couples et n-uplets",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_077",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si X et Y indépendantes, alors E(XY) = E(X)E(Y).",
+      "programme_notion": "Si X et Y indépendantes, alors E(XY) = E(X)E(Y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_078",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si X et Y indépendantes, alors E(XY) = E(X)E(Y).",
+      "programme_notion": "Si X et Y indépendantes, alors E(XY) = E(X)E(Y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_079",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variance V(X) = E((X - E(X))²).",
+      "programme_notion": "Variance V(X) = E((X - E(X))²)",
+      "answer_node_id": "complements_probabilistes__definition_moments_variance",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle.\\par\\par Moments : Pour tout $k \\in \\mathbb{N}$, $\\mathbb{E}(X^k)$ est appelé le moment d'ordre $k$ de $X$ et $\\mathbb{E}\\left((X - \\mathbb{E}(X))^k\right)$ son moment centré d'ordre $k$.\\par\\par Variance : On appelle variance de $X$ le réel positif $\\mathbb{V}(X) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)$ et écart-type de $X$ le réel $\\sigma(X) = \\sqrt{\\mathbb{V}(X)}$.\\par\\par On dit que $X$ est réduite si $\\mathbb{V}(X) = 1$.\\par\\par L'espérance de $X$ nous renseigne sur la position générale des valeurs de $X$ dans $\\mathbb{R}$ en nous indiquant leur moyenne pondérée, on dit que c'est un indicateur de position. L'écart-type, au contraire, est un indicateur de dispersion. Si par exemple $X$ représente une longueur, $\\mathbb{V}(X)$ représente une longueur au carré, donc il n'est pas possible de comparer directement la position moyenne $\\mathbb{E}(X)$ et sa dispersion moyenne $\\mathbb{V}(X)$ — un(e) physicien(ne) dirait que l'espérance et la variance ne sont pas homogènes. L'écart-type, au contraire, est homogène à une longueur, donc comparable à l'espérance.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_080",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Écart-type σ(X).",
+      "programme_notion": "Écart-type σ(X)",
+      "answer_node_id": "complements_probabilistes__definition_moments_variance",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle.\\par\\par Moments : Pour tout $k \\in \\mathbb{N}$, $\\mathbb{E}(X^k)$ est appelé le moment d'ordre $k$ de $X$ et $\\mathbb{E}\\left((X - \\mathbb{E}(X))^k\right)$ son moment centré d'ordre $k$.\\par\\par Variance : On appelle variance de $X$ le réel positif $\\mathbb{V}(X) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)$ et écart-type de $X$ le réel $\\sigma(X) = \\sqrt{\\mathbb{V}(X)}$.\\par\\par On dit que $X$ est réduite si $\\mathbb{V}(X) = 1$.\\par\\par L'espérance de $X$ nous renseigne sur la position générale des valeurs de $X$ dans $\\mathbb{R}$ en nous indiquant leur moyenne pondérée, on dit que c'est un indicateur de position. L'écart-type, au contraire, est un indicateur de dispersion. Si par exemple $X$ représente une longueur, $\\mathbb{V}(X)$ représente une longueur au carré, donc il n'est pas possible de comparer directement la position moyenne $\\mathbb{E}(X)$ et sa dispersion moyenne $\\mathbb{V}(X)$ — un(e) physicien(ne) dirait que l'espérance et la variance ne sont pas homogènes. L'écart-type, au contraire, est homogène à une longueur, donc comparable à l'espérance.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_081",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variance et écart-type sont des indicateurs de dispersion.",
+      "programme_notion": "Variance et écart-type sont des indicateurs de dispersion",
+      "answer_node_id": "complements_probabilistes__definition_moments_variance",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle.\\par\\par Moments : Pour tout $k \\in \\mathbb{N}$, $\\mathbb{E}(X^k)$ est appelé le moment d'ordre $k$ de $X$ et $\\mathbb{E}\\left((X - \\mathbb{E}(X))^k\right)$ son moment centré d'ordre $k$.\\par\\par Variance : On appelle variance de $X$ le réel positif $\\mathbb{V}(X) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)$ et écart-type de $X$ le réel $\\sigma(X) = \\sqrt{\\mathbb{V}(X)}$.\\par\\par On dit que $X$ est réduite si $\\mathbb{V}(X) = 1$.\\par\\par L'espérance de $X$ nous renseigne sur la position générale des valeurs de $X$ dans $\\mathbb{R}$ en nous indiquant leur moyenne pondérée, on dit que c'est un indicateur de position. L'écart-type, au contraire, est un indicateur de dispersion. Si par exemple $X$ représente une longueur, $\\mathbb{V}(X)$ représente une longueur au carré, donc il n'est pas possible de comparer directement la position moyenne $\\mathbb{E}(X)$ et sa dispersion moyenne $\\mathbb{V}(X)$ — un(e) physicien(ne) dirait que l'espérance et la variance ne sont pas homogènes. L'écart-type, au contraire, est homogène à une longueur, donc comparable à l'espérance.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_082",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Variable aléatoire réduite.",
+      "programme_notion": "Variable aléatoire réduite",
+      "answer_node_id": "complements_probabilistes__definition_moments_variance",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle.\\par\\par Moments : Pour tout $k \\in \\mathbb{N}$, $\\mathbb{E}(X^k)$ est appelé le moment d'ordre $k$ de $X$ et $\\mathbb{E}\\left((X - \\mathbb{E}(X))^k\right)$ son moment centré d'ordre $k$.\\par\\par Variance : On appelle variance de $X$ le réel positif $\\mathbb{V}(X) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)$ et écart-type de $X$ le réel $\\sigma(X) = \\sqrt{\\mathbb{V}(X)}$.\\par\\par On dit que $X$ est réduite si $\\mathbb{V}(X) = 1$.\\par\\par L'espérance de $X$ nous renseigne sur la position générale des valeurs de $X$ dans $\\mathbb{R}$ en nous indiquant leur moyenne pondérée, on dit que c'est un indicateur de position. L'écart-type, au contraire, est un indicateur de dispersion. Si par exemple $X$ représente une longueur, $\\mathbb{V}(X)$ représente une longueur au carré, donc il n'est pas possible de comparer directement la position moyenne $\\mathbb{E}(X)$ et sa dispersion moyenne $\\mathbb{V}(X)$ — un(e) physicien(ne) dirait que l'espérance et la variance ne sont pas homogènes. L'écart-type, au contraire, est homogène à une longueur, donc comparable à l'espérance.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_083",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation V(aX+b) = a²V(X).",
+      "programme_notion": "Relation V(aX+b) = a²V(X)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_084",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation V(aX+b) = a²V(X).",
+      "programme_notion": "Relation V(aX+b) = a²V(X)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.\n\n\\textbf{Démonstration.} $P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1$ et $P(A \\sqcup B) = \\frac{|A \\sqcup B|}{|\\Omega|} = \\frac{|A|}{|\\Omega|} + \\frac{|B|}{|\\Omega|} = P(A) + P(B)$ pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_085",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variable centrée réduite (X - E(X))/σ(X) si σ(X) > 0.",
+      "programme_notion": "Variable centrée réduite (X - E(X))/σ(X) si σ(X) > 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+      "answer_latex": "Soit $X$ une variable aléatoire complexe sur $\\Omega$.\\par On appelle espérance de $X$ le nombre complexe $E(X) = \\sum_{x \\in X(\\Omega)} P(X=x)x$.\\par On dit que $X$ est centrée si $E(X) = 0$.\\par L'espérance de $X$ est une moyenne des valeurs de $X$. Précisément, chaque valeur $x$, $x$ décrivant $X(\\Omega)$, s'y trouve comptabilisée en proportion de sa probabilité d'occurrence $P(X=x)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_086",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation V(X) = E(X²) - E(X)².",
+      "programme_notion": "Relation V(X) = E(X²) - E(X)²",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_087",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation V(X) = E(X²) - E(X)².",
+      "programme_notion": "Relation V(X) = E(X²) - E(X)²",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.\n\n\\textbf{Démonstration.} $P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1$ et $P(A \\sqcup B) = \\frac{|A \\sqcup B|}{|\\Omega|} = \\frac{|A|}{|\\Omega|} + \\frac{|B|}{|\\Omega|} = P(A) + P(B)$ pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_088",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variance d'une variable de Bernoulli, binomiale.",
+      "programme_notion": "Variance d'une variable de Bernoulli, binomiale",
+      "answer_node_id": "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+      "answer_latex": "Soient $X$ une variable aléatoire et $p \\in [0, 1]$.\\par (i) Si $X \\sim \\mathcal{B}(p)$, alors $\\mathbb{V}(X) = p(1-p)$.\\par (ii) Si $X \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X) = np(1-p)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_089",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Variance d'une variable de Bernoulli, binomiale.",
+      "programme_notion": "Variance d'une variable de Bernoulli, binomiale",
+      "answer_node_id": "complements_probabilistes__theorem_variance_bernoulli_binomiale",
+      "answer_latex": "Soient $X$ une variable aléatoire et $p \\in [0, 1]$.\\par (i) Si $X \\sim \\mathcal{B}(p)$, alors $\\mathbb{V}(X) = p(1-p)$.\\par (ii) Si $X \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X) = np(1-p)$.\n\n\\textbf{Démonstration.} (i) $\\mathbb{E}(X^2) = \\mathbb{P}(X = 1) \\cdot 1^2 + \\mathbb{P}(X = 0) \\cdot 0^2 = p$, donc $\\mathbb{V}(X) = \\mathbb{E}(X^2) - \\mathbb{E}(X)^2 = p - p^2 = p(1-p)$.\\par\\par (ii) Soient $X_1, \\ldots, X_n$ des variables aléatoires indépendantes sur $\\Omega$ de même loi de Bernoulli $\\mathcal{B}(p)$. Comme $X_1 + \\ldots + X_n \\sim \\mathcal{B}(n, p)$, alors $\\mathbb{V}(X_1 + \\ldots + X_n) \\stackrel{\text{Indép.}}{=} \\mathbb{V}(X_1) + \\ldots + \\mathbb{V}(X_n) = np(1-p)$. Ce calcul ne concerne a priori pas la variable aléatoire $X$ de l'énoncé, dont on ne sait pas si elle peut être décomposée ou non comme une somme de $n$ variables aléatoires indépendantes de loi $\\mathcal{B}(p)$, mais l'espérance d'une variable aléatoire ne dépend que de sa loi, donc le calcul que nous venons de faire dans le cas particulier de la somme $X_1 + \\ldots + X_n$ est en fait emblématique de toute situation binomiale.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_090",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Covariance de deux variables aléatoires.",
+      "programme_notion": "Covariance de deux variables aléatoires",
+      "answer_node_id": "complements_probabilistes__definition_covariance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On appelle covariance de $X$ et $Y$ le réel $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)$.\\par\\par On dit que $X$ et $Y$ sont décorrélées si $\text{cov}(X, Y) = 0$.\\par\\par Clairement : $\\mathbb{V}(X) = \text{cov}(X, X)$ et $\text{cov}(Y, X) = \text{cov}(X, Y)$.\\par\\par (i) Expression développée : $\text{cov}(X, Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par En particulier, si $X$ et $Y$ sont indépendantes, $X$ et $Y$ sont décorrélées.\\par\\par (ii) Variance d'une somme : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par Plus généralement, pour des variables aléatoires $X_1, \\ldots, X_n$ sur $\\Omega$ : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i) + 2\\sum_{1 \\leq i < j \\leq n} \text{cov}(X_i, X_j)$.\\par\\par D'après (i) et (ii), si $X$ et $Y$ sont indépendantes (ou seulement décorrélées) : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + \\mathbb{V}(Y)$. De même, si $X_1, \\ldots, X_n$ sont indépendantes (ou seulement deux à deux décorrélées) : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i)$.\\par\\par (iii) Inégalité de Cauchy-Schwarz version covariance : $|\text{cov}(X, Y)| \\leq \\sigma(X)\\sigma(Y)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_091",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Covariance de deux variables aléatoires.",
+      "programme_notion": "Covariance de deux variables aléatoires",
+      "answer_node_id": "complements_probabilistes__definition_covariance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On appelle covariance de $X$ et $Y$ le réel $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)$.\\par\\par On dit que $X$ et $Y$ sont décorrélées si $\text{cov}(X, Y) = 0$.\\par\\par Clairement : $\\mathbb{V}(X) = \text{cov}(X, X)$ et $\text{cov}(Y, X) = \text{cov}(X, Y)$.\\par\\par (i) Expression développée : $\text{cov}(X, Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par En particulier, si $X$ et $Y$ sont indépendantes, $X$ et $Y$ sont décorrélées.\\par\\par (ii) Variance d'une somme : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par Plus généralement, pour des variables aléatoires $X_1, \\ldots, X_n$ sur $\\Omega$ : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i) + 2\\sum_{1 \\leq i < j \\leq n} \text{cov}(X_i, X_j)$.\\par\\par D'après (i) et (ii), si $X$ et $Y$ sont indépendantes (ou seulement décorrélées) : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + \\mathbb{V}(Y)$. De même, si $X_1, \\ldots, X_n$ sont indépendantes (ou seulement deux à deux décorrélées) : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i)$.\\par\\par (iii) Inégalité de Cauchy-Schwarz version covariance : $|\text{cov}(X, Y)| \\leq \\sigma(X)\\sigma(Y)$.\n\n\\textbf{Démonstration.} (i) $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right) = \\mathbb{E}(XY - X\\mathbb{E}(Y) - \\mathbb{E}(X)Y + \\mathbb{E}(X)\\mathbb{E}(Y)) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y) - \\mathbb{E}(X)\\mathbb{E}(Y) + \\mathbb{E}(X)\\mathbb{E}(Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par\\par (ii) $\\mathbb{V}(X + Y) = \\mathbb{E}\\left((X + Y - \\mathbb{E}(X + Y))^2\right) = \\mathbb{E}\\left((X - \\mathbb{E}(X) + Y - \\mathbb{E}(Y))^2\right) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2 + 2(X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y)) + (Y - \\mathbb{E}(Y))^2\right) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par\\par (iii) D'après l'inégalité de Cauchy-Schwarz plus générale sur les variables aléatoires : $|\text{cov}(X, Y)| = \\left|\\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)\right| \\leq \\sqrt{\\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)}\\sqrt{\\mathbb{E}\\left((Y - \\mathbb{E}(Y))^2\right)} = \\sigma(X)\\sigma(Y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_092",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variables décorrélées (covariance nulle).",
+      "programme_notion": "Variables décorrélées (covariance nulle)",
+      "answer_node_id": "complements_probabilistes__definition_covariance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On appelle covariance de $X$ et $Y$ le réel $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)$.\\par\\par On dit que $X$ et $Y$ sont décorrélées si $\text{cov}(X, Y) = 0$.\\par\\par Clairement : $\\mathbb{V}(X) = \text{cov}(X, X)$ et $\text{cov}(Y, X) = \text{cov}(X, Y)$.\\par\\par (i) Expression développée : $\text{cov}(X, Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par En particulier, si $X$ et $Y$ sont indépendantes, $X$ et $Y$ sont décorrélées.\\par\\par (ii) Variance d'une somme : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par Plus généralement, pour des variables aléatoires $X_1, \\ldots, X_n$ sur $\\Omega$ : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i) + 2\\sum_{1 \\leq i < j \\leq n} \text{cov}(X_i, X_j)$.\\par\\par D'après (i) et (ii), si $X$ et $Y$ sont indépendantes (ou seulement décorrélées) : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + \\mathbb{V}(Y)$. De même, si $X_1, \\ldots, X_n$ sont indépendantes (ou seulement deux à deux décorrélées) : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i)$.\\par\\par (iii) Inégalité de Cauchy-Schwarz version covariance : $|\text{cov}(X, Y)| \\leq \\sigma(X)\\sigma(Y)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_093",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Variables décorrélées (covariance nulle).",
+      "programme_notion": "Variables décorrélées (covariance nulle)",
+      "answer_node_id": "complements_probabilistes__definition_covariance",
+      "answer_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On appelle covariance de $X$ et $Y$ le réel $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)$.\\par\\par On dit que $X$ et $Y$ sont décorrélées si $\text{cov}(X, Y) = 0$.\\par\\par Clairement : $\\mathbb{V}(X) = \text{cov}(X, X)$ et $\text{cov}(Y, X) = \text{cov}(X, Y)$.\\par\\par (i) Expression développée : $\text{cov}(X, Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par En particulier, si $X$ et $Y$ sont indépendantes, $X$ et $Y$ sont décorrélées.\\par\\par (ii) Variance d'une somme : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par Plus généralement, pour des variables aléatoires $X_1, \\ldots, X_n$ sur $\\Omega$ : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i) + 2\\sum_{1 \\leq i < j \\leq n} \text{cov}(X_i, X_j)$.\\par\\par D'après (i) et (ii), si $X$ et $Y$ sont indépendantes (ou seulement décorrélées) : $\\mathbb{V}(X + Y) = \\mathbb{V}(X) + \\mathbb{V}(Y)$. De même, si $X_1, \\ldots, X_n$ sont indépendantes (ou seulement deux à deux décorrélées) : $\\mathbb{V}\\left(\\sum_{i=1}^{n} X_i\right) = \\sum_{i=1}^{n} \\mathbb{V}(X_i)$.\\par\\par (iii) Inégalité de Cauchy-Schwarz version covariance : $|\text{cov}(X, Y)| \\leq \\sigma(X)\\sigma(Y)$.\n\n\\textbf{Démonstration.} (i) $\text{cov}(X, Y) = \\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right) = \\mathbb{E}(XY - X\\mathbb{E}(Y) - \\mathbb{E}(X)Y + \\mathbb{E}(X)\\mathbb{E}(Y)) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y) - \\mathbb{E}(X)\\mathbb{E}(Y) + \\mathbb{E}(X)\\mathbb{E}(Y) = \\mathbb{E}(XY) - \\mathbb{E}(X)\\mathbb{E}(Y)$.\\par\\par (ii) $\\mathbb{V}(X + Y) = \\mathbb{E}\\left((X + Y - \\mathbb{E}(X + Y))^2\right) = \\mathbb{E}\\left((X - \\mathbb{E}(X) + Y - \\mathbb{E}(Y))^2\right) = \\mathbb{E}\\left((X - \\mathbb{E}(X))^2 + 2(X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y)) + (Y - \\mathbb{E}(Y))^2\right) = \\mathbb{V}(X) + 2\text{cov}(X, Y) + \\mathbb{V}(Y)$.\\par\\par (iii) D'après l'inégalité de Cauchy-Schwarz plus générale sur les variables aléatoires : $|\text{cov}(X, Y)| = \\left|\\mathbb{E}\\left((X - \\mathbb{E}(X))(Y - \\mathbb{E}(Y))\right)\right| \\leq \\sqrt{\\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)}\\sqrt{\\mathbb{E}\\left((Y - \\mathbb{E}(Y))^2\right)} = \\sigma(X)\\sigma(Y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_094",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation Cov(X,Y) = E(XY) - E(X)E(Y).",
+      "programme_notion": "Relation Cov(X,Y) = E(XY) - E(X)E(Y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_095",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation Cov(X,Y) = E(XY) - E(X)E(Y).",
+      "programme_notion": "Relation Cov(X,Y) = E(XY) - E(X)E(Y)",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+      "answer_latex": "Soit $\\Omega$ un univers fini. L'application $A \\mapsto \\frac{|A|}{|\\Omega|}$ est une probabilité sur $\\Omega$ appelée sa probabilité uniforme. Pour cette probabilité, les événements élémentaires sont équiprobables de probabilité commune $\\frac{1}{|\\Omega|}$.\\par Vous connaissez bien la relation $P(A) = \\frac{|A|}{|\\Omega|}$ sous la forme $\\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$.\n\n\\textbf{Démonstration.} $P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1$ et $P(A \\sqcup B) = \\frac{|A \\sqcup B|}{|\\Omega|} = \\frac{|A|}{|\\Omega|} + \\frac{|B|}{|\\Omega|} = P(A) + P(B)$ pour tous $A, B \\in \\mathcal{P}(\\Omega)$ incompatibles.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_096",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si X et Y indépendantes, alors Cov(X,Y) = 0.",
+      "programme_notion": "Si X et Y indépendantes, alors Cov(X,Y) = 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_097",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si X et Y indépendantes, alors Cov(X,Y) = 0.",
+      "programme_notion": "Si X et Y indépendantes, alors Cov(X,Y) = 0",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par (i) Préservation de l'indépendance par composition : Soient $X$ et $Y$ deux variables aléatoires sur $\\Omega$, $E$ et $F$ deux ensembles et $f : X(\\Omega) \\longrightarrow E$ et $g : Y(\\Omega) \\longrightarrow F$ deux applications. Si $X$ et $Y$ sont indépendantes, alors $f(X)$ et $g(Y)$ le sont aussi.\\par (ii) Lemme des coalitions : Soient $X_{1}, \\ldots, X_{n}$ des variables aléatoires sur $\\Omega$ et $m \\in [\\![1, n]\\!]$. Si $X_{1}, \\ldots, X_{n}$ sont indépendantes, alors les coalitions $(X_{1}, \\ldots, X_{m})$ et $(X_{m+1}, \\ldots, X_{n})$ le sont aussi.\\par Cet énoncé se généralise sans difficulté au cas d'un nombre fini quelconque de variables aléatoires/coalitions.\n\n\\textbf{Démonstration.} (i) Sous l'hypothèse que $X$ et $Y$ sont indépendantes, montrons que $f(X)$ et $g(Y)$ le sont. Pour tous $a \\in f(X)(\\Omega)$ et $b \\in g(Y)(\\Omega)$ : $P(f(X) = a, g(Y) = b) = P(X \\in f^{-1}(\\{a\\}), Y \\in g^{-1}(\\{b\\})) = P(X \\in f^{-1}(\\{a\\}))P(Y \\in g^{-1}(\\{b\\})) = P(f(X) = a)P(g(Y) = b)$.\\par (ii) Posons $X = (X_{1}, \\ldots, X_{m})$ et $Y = (X_{m+1}, \\ldots, X_{n})$ et montrons que $X$ et $Y$ sont indépendantes. Pour tous $x = (x_{1}, \\ldots, x_{m}) \\in X(\\Omega)$ et $y = (x_{m+1}, \\ldots, x_{n}) \\in Y(\\Omega)$ : $P(X = x, Y = y) = P(X_{1} = x_{1}, \\ldots, X_{n} = x_{n}) = P(X_{1} = x_{1}) \\ldots P(X_{n} = x_{n}) = P(X_{1} = x_{1}, \\ldots, X_{m} = x_{m})P(X_{m+1} = x_{m+1}, \\ldots, X_{n} = x_{n}) = P(X = x)P(Y = y)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_098",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Variance d'une somme, cas de variables décorrélées.",
+      "programme_notion": "Variance d'une somme, cas de variables décorrélées",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+      "answer_latex": "Soient $E_{1}, \\ldots, E_{n}$ des ensembles finis et, pour tout $i \\in [\\![1, n]\\!]$, $P_{i}$ une probabilité sur $E_{i}$. Il existe un espace probabilisé fini $(\\Omega, P)$ et des variables aléatoires indépendantes $X_{1}, \\ldots, X_{n}$ sur $\\Omega$, d'images respectives $E_{1}, \\ldots, E_{n}$ pour lesquels $X_{i} \\sim P_{i}$ pour tout $i \\in [\\![1, n]\\!]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_099",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Variance d'une somme, cas de variables décorrélées.",
+      "programme_notion": "Variance d'une somme, cas de variables décorrélées",
+      "answer_node_id": "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+      "answer_latex": "Soient $E_{1}, \\ldots, E_{n}$ des ensembles finis et, pour tout $i \\in [\\![1, n]\\!]$, $P_{i}$ une probabilité sur $E_{i}$. Il existe un espace probabilisé fini $(\\Omega, P)$ et des variables aléatoires indépendantes $X_{1}, \\ldots, X_{n}$ sur $\\Omega$, d'images respectives $E_{1}, \\ldots, E_{n}$ pour lesquels $X_{i} \\sim P_{i}$ pour tout $i \\in [\\![1, n]\\!]$.\n\n\\textbf{Démonstration.} Pour plus de clarté, traitons seulement le cas $n=2$. Posons $p_{i,x} = P_{i}(\\{x\\})$ pour tous $i \\in \\{1, 2\\}$ et $x \\in E_{i}$, de sorte que $(p_{i,x})_{x \\in E_{i}}$ est la distribution de probabilités de $P_{i}$. La famille $(p_{1,x_{1}}p_{2,x_{2}})_{(x_{1},x_{2}) \\in E_{1} \\times E_{2}}$ est ainsi une distribution de probabilités sur $E_{1} \\times E_{2}$ car : $\\sum_{(x_{1},x_{2}) \\in E_{1} \\times E_{2}} p_{1,x_{1}}p_{2,x_{2}} = (\\sum_{x_{1} \\in E_{1}} p_{1,x_{1}})(\\sum_{x_{2} \\in E_{2}} p_{2,x_{2}}) = 1^2 = 1$.\\par Cette distribution de probabilités sur $E_{1} \\times E_{2}$ définit une probabilité $P$ sur $\\Omega = E_{1} \\times E_{2}$. Notons maintenant $X_{1}$ l'application $(x_{1}, x_{2}) \\mapsto x_{1}$ de $\\Omega$ dans $E_{1}$ et $X_{2}$ l'application $(x_{1}, x_{2}) \\mapsto x_{2}$ de $\\Omega$ dans $E_{2}$. Pour tous $x_{1} \\in E_{1}$ et $x_{2} \\in E_{2}$ : $P(X_{1} = x_{1}, X_{2} = x_{2}) = P(\\{(x_{1}, x_{2})\\}) = p_{1,x_{1}}p_{2,x_{2}}$.\\par Pour tout $x_{1} \\in E_{1}$ : $P(X_{1} = x_{1}) = \\sum_{x_{2} \\in E_{2}} P(X_{1} = x_{1}, X_{2} = x_{2}) = \\sum_{x_{2} \\in E_{2}} p_{1,x_{1}}p_{2,x_{2}} = p_{1,x_{1}} = P_{1}(\\{x_{1}\\})$, donc $X_{1} \\sim P_{1}$. De même, $X_{2} \\sim P_{2}$.\\par En retour, $X_{1}$ et $X_{2}$ sont indépendantes car $P(X_{1} = x_{1}, X_{2} = x_{2}) = p_{1,x_{1}}p_{2,x_{2}} = P(X_{1} = x_{1})P(X_{2} = x_{2})$ pour tous $x_{1} \\in E_{1}$ et $x_{2} \\in E_{2}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_100",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité de Markov.",
+      "programme_notion": "Inégalité de Markov",
+      "answer_node_id": "complements_probabilistes__theorem_inegalite_markov",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle. Pour tout $a > 0$ : $\\mathbb{P}(|X| \\geq a) \\leq \frac{\\mathbb{E}(|X|)}{a}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_101",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité de Markov.",
+      "programme_notion": "Inégalité de Markov",
+      "answer_node_id": "complements_probabilistes__theorem_inegalite_markov",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle. Pour tout $a > 0$ : $\\mathbb{P}(|X| \\geq a) \\leq \frac{\\mathbb{E}(|X|)}{a}$.\n\n\\textbf{Démonstration.} Comme $\\{|X| \\geq a\\} \\subset \\{|X| > a\\} \\subset \\{|X| \\geq a\\}$, on peut remplacer $\\mathbb{P}(|X| \\geq a)$ par $\\mathbb{P}(|X| > a)$ si on veut. Tout repose sur les inégalités suivantes : $a\\mathbf{1}_{|X| \\geq a} \\leq |X|\\mathbf{1}_{|X| \\geq a} \\leq |X|$. Par croissance de l'espérance : $a\\mathbb{P}(|X| \\geq a) = \\mathbb{E}\\left(a\\mathbf{1}_{|X| \\geq a}\right) \\leq \\mathbb{E}(|X|)$.\\par\\par À mon avis, c'est ainsi qu'il faut écrire cette preuve, dont on voit bien qu'elle repose sur la croissance de l'espérance, mais on peut aussi l'écrire avec des sommes si on craint les indicatrices : $a\\mathbb{P}(|X| \\geq a) = a\\sum_{\\substack{x \\in X(\\Omega) \\ |x| \\geq a}} \\mathbb{P}(X = x) \\leq \\sum_{\\substack{x \\in X(\\Omega) \\ |x| \\geq a}} |x|\\mathbb{P}(X = x) \\leq \\sum_{x \\in X(\\Omega)} |x|\\mathbb{P}(X = x) = \\mathbb{E}(|X|)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_102",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Application aux inégalités de concentration.",
+      "programme_notion": "Application aux inégalités de concentration",
+      "answer_node_id": "complements_probabilistes__remark_cauchy_schwarz_probabilites",
+      "answer_latex": "Nous disposons ainsi de deux inégalités de Cauchy-Schwarz en probabilités : $|\\mathbb{E}(XY)| \\leq \\sqrt{\\mathbb{E}(X^2)}\\sqrt{\\mathbb{E}(Y^2)}$ et $|\text{cov}(X, Y)| \\leq \\sigma(X)\\sigma(Y)$, mais la deuxième inégalité est une simple conséquence de la première.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_103",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité de Bienaymé-Tchebychev.",
+      "programme_notion": "Inégalité de Bienaymé-Tchebychev",
+      "answer_node_id": "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle. Pour tout $a > 0$ : $\\mathbb{P}\\left(|X - \\mathbb{E}(X)| \\geq a\right) \\leq \frac{\\mathbb{V}(X)}{a^2}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_104",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité de Bienaymé-Tchebychev.",
+      "programme_notion": "Inégalité de Bienaymé-Tchebychev",
+      "answer_node_id": "complements_probabilistes__theorem_inegalite_bienayme_tchebychev",
+      "answer_latex": "Soit $X$ une variable aléatoire réelle. Pour tout $a > 0$ : $\\mathbb{P}\\left(|X - \\mathbb{E}(X)| \\geq a\right) \\leq \frac{\\mathbb{V}(X)}{a^2}$.\n\n\\textbf{Démonstration.} Par croissance de la fonction $x \\mapsto x^2$ sur $\\mathbb{R}_+$ : $\\left\\{|X - \\mathbb{E}(X)| \\geq a\right\\} = \\left\\{(X - \\mathbb{E}(X))^2 \\geq a^2\right\\}$. En réalité, par croissance stricte, cette inclusion est même une égalité, mais on s'en fiche ici. D'après l'inégalité de Markov, il en découle que : $\\mathbb{P}\\left(|X - \\mathbb{E}(X)| \\geq a\right) = \\mathbb{P}\\left((X - \\mathbb{E}(X))^2 \\geq a^2\right) \\leq \frac{\\mathbb{E}\\left((X - \\mathbb{E}(X))^2\right)}{a^2} = \frac{\\mathbb{V}(X)}{a^2}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_105",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Application à une moyenne de variables indépendantes de même loi.",
+      "programme_notion": "Application à une moyenne de variables indépendantes de même loi",
+      "answer_node_id": "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+      "answer_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini et $X$ et $Y$ deux variables aléatoires sur $\\Omega$.\\par — Loi conjointe : L'application $\\omega \\mapsto (X(\\omega), Y(\\omega))$ est une variable aléatoire sur $\\Omega$ notée $(X, Y)$ et sa loi $P_{(X, Y)}$ est appelée la loi conjointe de $X$ et $Y$. Elle est entièrement déterminée par la distribution de probabilités $(P(X=x, Y=y))_{(x, y) \\in (X, Y)(\\Omega)}$ sur $(X, Y)(\\Omega)$.\\par — Lois marginales : La loi $P_{X}$ de $X$ est appelée la première loi marginale de $(X, Y)$ et la loi $P_{Y}$ de $Y$ sa deuxième loi marginale.\\par Ces définitions se généralisent sans difficulté aux familles d'un nombre fini quelconque de variables aléatoires. L'image $(X, Y)(\\Omega)$ du couple $(X, Y)$ est incluse dans le produit $X(\\Omega) \\times Y(\\Omega)$, sans égalité en général.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_106",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation fréquentiste.",
+      "programme_notion": "Interprétation fréquentiste",
+      "answer_node_id": "complements_probabilistes__remark_interpretation_loi_faible",
+      "answer_latex": "Mais que raconte la loi faible ? On s'intéresse à une grandeur d'espérance $m$ et d'écart-type $\\sigma$. On la mesure dans un premier temps à l'occasion d'une unique expérience de résultat noté $X_1$. D'après l'inégalité de Bienaymé-Tchebychev, pour tout $\\epsilon > 0$ : $\\mathbb{P}(|X_1 - m| \\geq \\epsilon) \\leq \frac{\\sigma^2}{\\epsilon^2}$. La mesure $X_1$ est donc à distance supérieure à $\\epsilon$ de $m$ avec probabilité au plus $\frac{\\sigma^2}{\\epsilon^2}$.\\par\\par Si on souhaite estimer $m$ avec une certaine précision, l'expérience nous enseigne qu'une seule mesure a peu de chances de suffire. On obtient de meilleures estimations de $m$ en augmentant le nombre de mesures. La théorie des probabilités confirme-t-elle cette intuition ? Oui, et c'est au fond cela la loi faible des grands nombres. On effectue à présent $n$ mesures $X_1, \\ldots, X_n$ — indépendantes — de la grandeur étudiée. Avec les notations du théorème : $\\mathbb{E}\\left(\frac{S_n}{n}\right) = m$ et $\\mathbb{V}\\left(\frac{S_n}{n}\right) = \frac{\\sigma^2}{n}$, donc $\\sigma\\left(\frac{S_n}{n}\right) = \frac{\\sigma}{\\sqrt{n}}$.\\par\\par En résumé : La moyenne de $n$ variables aléatoires indépendantes de même loi, d'espérance $m$ et d'écart-type $\\sigma$, admet toujours $m$ pour espérance, mais $\frac{\\sigma}{\\sqrt{n}}$ pour écart-type. En d'autres termes, on gagne un facteur $\frac{1}{\\sqrt{n}}$ en écart-type en effectuant $n$ mesures plutôt qu'une seule. Chaque nouvelle mesure rapproche de la certitude que la moyenne empirique $\frac{S_n}{n}$ est proche de son espérance $m$.\\par\\par Les lois des grands nombres sont philosophiquement importantes car elles justifient l'interprétation fréquentiste que nous avons des probabilités. Qu'avons-nous en tête quand nous affirmons que la probabilité d'apparition de chaque face d'un dé équilibré à 6 faces vaut $\frac{1}{6}$ ? Nous signifions par là une vérité sur le monde qui n'a rien à voir avec le fait que de tels dés existent et qu'on peut les lancer un nombre indéfini de fois. Cette probabilité vaudrait $\frac{1}{6}$ même si l'humanité s'était de tout temps interdit de lancer un dé. Cela dit, le fait est que nous avons une autre notion de probabilité en tête simultanément, nous avons aussi l'habitude de constater que lorsqu'on lance un dé de nombreuses fois, la fréquence d'apparition de chaque face tend vers $\frac{1}{6}$ à mesure que ce nombre augmente. Les lois des grands nombres réconcilient les deux points de vue. Quand on répète indéfiniment une expérience aléatoire, la fréquence d'un événement tend vers la probabilité a priori de cet événement, i.e. vers sa probabilité indépendamment de toute expérience.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_107",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Loi faible des grands nombres (approche non asymptotique).",
+      "programme_notion": "Loi faible des grands nombres (approche non asymptotique)",
+      "answer_node_id": "complements_probabilistes__theorem_loi_faible_grands_nombres",
+      "answer_latex": "Soient $X_1, \\ldots, X_n$ des variables aléatoires réelles indépendantes de même loi. On note $m$ leur espérance commune et $\\sigma$ leur écart-type et on pose $S_n = X_1 + \\ldots + X_n$. Pour tout $\\epsilon > 0$ : $\\mathbb{P}\\left(\\left|\frac{S_n}{n} - m\right| \\geq \\epsilon\right) \\leq \frac{\\sigma^2}{n\\epsilon^2}$.\\par\\par En particulier : $\\mathbb{P}\\left(\\left|\frac{S_n}{n} - m\right| \\geq \\epsilon\right) \\xrightarrow[n \to +\\infty]{} 0$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "PROBA__qc_108",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Loi faible des grands nombres (approche non asymptotique).",
+      "programme_notion": "Loi faible des grands nombres (approche non asymptotique)",
+      "answer_node_id": "complements_probabilistes__theorem_loi_faible_grands_nombres",
+      "answer_latex": "Soient $X_1, \\ldots, X_n$ des variables aléatoires réelles indépendantes de même loi. On note $m$ leur espérance commune et $\\sigma$ leur écart-type et on pose $S_n = X_1 + \\ldots + X_n$. Pour tout $\\epsilon > 0$ : $\\mathbb{P}\\left(\\left|\frac{S_n}{n} - m\right| \\geq \\epsilon\right) \\leq \frac{\\sigma^2}{n\\epsilon^2}$.\\par\\par En particulier : $\\mathbb{P}\\left(\\left|\frac{S_n}{n} - m\right| \\geq \\epsilon\right) \\xrightarrow[n \to +\\infty]{} 0$.\n\n\\textbf{Démonstration.} Il suffit d'appliquer l'inégalité de Bienaymé-Tchebychev à $\frac{S_n}{n}$. En effet : $\\mathbb{E}\\left(\frac{S_n}{n}\right) = \frac{\\mathbb{E}(X_1) + \\ldots + \\mathbb{E}(X_n)}{n} = \frac{nm}{n} = m$ et $\\mathbb{V}\\left(\frac{S_n}{n}\right) = \frac{\\mathbb{V}(S_n)}{n^2} \\stackrel{\text{Indép.}}{=} \frac{\\mathbb{V}(X_1) + \\ldots + \\mathbb{V}(X_n)}{n^2} = \frac{n\\sigma^2}{n^2} = \frac{\\sigma^2}{n}$.\\par\\par Comme voulu : $\\mathbb{P}\\left(\\left|\frac{S_n}{n} - m\right| \\geq \\epsilon\right) = \\mathbb{P}\\left(\\left|\frac{S_n}{n} - \\mathbb{E}\\left(\frac{S_n}{n}\right)\right| \\geq \\epsilon\right) \\leq \frac{\\mathbb{V}\\left(\frac{S_n}{n}\right)}{\\epsilon^2} = \frac{\\sigma^2}{n\\epsilon^2}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

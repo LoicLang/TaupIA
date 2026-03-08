@@ -1,0 +1,666 @@
+{
+  "chapter_official_id": "suites_reelles",
+  "chapter_name": "Suites Réelles",
+  "source_document": "Cours - Suites reelles.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "suites_reelles__def_majorants_minorants_borne",
+      "type": "definition",
+      "title": "Définition : Majorants/minorants d'une partie de $\\mathbb{R}$",
+      "content_latex": "\\textbf{Partie majorée :} On dit que $A$ est majorée si : $\\exists M\\in\\mathbb{R}, \\forall a\\in A, a\\le M$.\\par Un tel réel $M$ est appelé UN majorant de $A$. On dit aussi que $A$ est majorée par $M$ ou encore que $M$ majore $A$.\\par \\textbf{Partie minorée :} On dit que $A$ est minorée si : $\\exists m\\in\\mathbb{R}, \\forall a\\in A, m\\le a$.\\par Un tel réel $m$ est appelé UN minorant de $A$. On dit aussi que $A$ est minorée par $m$ ou encore que $m$ minore $A$.\\par \\textbf{Partie bornée :} On dit que $A$ est bornée si elle est à la fois majorée et minorée, i.e. si : $\\exists K\\ge0, \\forall a\\in A, |a|\\le K$. [cite: 6, 7, 8, 9, 10, 11, 12]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_un_majorant",
+      "type": "warning",
+      "title": "Attention : Terminologie du majorant",
+      "content_latex": "On ne parle jamais « du » majorant d'une partie majorée de $\\mathbb{R}$ mais bien toujours d'un majorant car une telle partie en possède toujours plein. Tout réel plus grand qu'un majorant est lui-même un majorant. [cite: 13, 14]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_intervalle_majore",
+      "type": "example",
+      "title": "Exemple : Majoration d'un intervalle",
+      "content_latex": "L'intervalle $]-\\infty, 1]$ est majoré par $1$, donc aussi par tout réel supérieur à $1$. Il n'est pas minoré en revanche.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__def_plus_grand_petit_element",
+      "type": "definition",
+      "title": "Définition : Plus grand/petit élément, maximum/minimum d'une partie de $\\mathbb{R}$",
+      "content_latex": "\\textbf{Plus grand élément :} On appelle plus grand élément de $A$ ou maximum de $A$ tout élément de $A$ qui majore $A$.\\par \\textbf{Plus petit élément :} On appelle plus petit élément de $A$ ou minimum de $A$ tout élément de $A$ qui minore $A$. [cite: 16, 17]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_unicite_plus_grand_petit_element",
+      "type": "theorem",
+      "title": "Théorème : Unicité du plus grand/petit élément",
+      "content_latex": "Si $A$ possède un plus grand (resp. petit) élément, celui-ci est unique. On peut donc l'appeler LE plus grand (resp. petit) élément de $A$ et le noter $\\max A$ (resp. $\\min A$). [cite: 18, 19]",
+      "proof_latex": "Soient $M, M'\\in\\mathbb{R}$. Si $M$ et $M'$ sont deux plus grands éléments de $A$, alors $M\\le M'$ car $M'$ majore $A$ et $M\\in A$, et de même $M'\\le M$ car $M$ majore $A$ et $M'\\in A$. Conclusion : $M=M'$."
+    },
+    {
+      "id": "suites_reelles__warning_existence_plus_grand_element",
+      "type": "warning",
+      "title": "Attention : Existence du plus grand/petit élément",
+      "content_latex": "Le plus grand/petit élément est unique... S'IL EXISTE !",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_intervalle_semi_ouvert_extremum",
+      "type": "example",
+      "title": "Exemple : Minimum et maximum de $[0, 1[$",
+      "content_latex": "L'intervalle $[0, 1[$ admet $0$ pour plus petit élément mais n'a pas de plus grand élément.",
+      "proof_latex": "$0$ appartient à $[0, 1[$ et le minore, donc en est le plus petit élément. Pour montrer que $[0, 1[$ n'a pas de plus grand élément, il nous suffit de montrer qu'aucun élément de $[0, 1[$ ne majore $[0,1[$. Or pour tout $x\\in[0,1[$, $x<\\frac{x+1}{2}$ alors que $\\frac{x+1}{2}\\in[0,1[$, donc on arrive toujours à trouver au-dessus de tout élément de $[0, 1[$ un élément de $[0, 1[$ strictement supérieur. [cite: 27, 28, 29]"
+    },
+    {
+      "id": "suites_reelles__thm_proprietes_N",
+      "type": "theorem",
+      "title": "Théorème : Deux propriétés de $\\mathbb{N}$",
+      "content_latex": "(i) Toute partie non vide de $\\mathbb{N}$ possède un plus petit élément.\\par (ii) Toute partie non vide majorée de $\\mathbb{N}$ possède un plus grand élément. [cite: 30, 31, 32]",
+      "proof_latex": "(i) Soit $A$ une partie de $\\mathbb{N}$, vide ou non. Supposons par contraposition que $A$ ne possède pas de plus petit élément. Aucun élément de $A$ ne peut alors minorer $A$. Or nous allons montrer par récurrence que $A$ est minorée par $n$ pour tout $n\\in\\mathbb{N}$. Il en découlera comme voulu que $A$ est vide.\\par Initialisation : $A$ est minorée par $0$ car toute partie de $\\mathbb{N}$ l'est.\\par Hérédité : Soit $n\\in\\mathbb{N}$. Supposons $A$ minorée par $n$. Comme par hypothèse $A$ ne possède pas de plus petit élément, forcément $n\\notin A$ donc $a>n$ pour tout $a\\in A$. Mais ceci revient à dire, parce que nous travaillons avec des ENTIERS, que $a\\ge n+1$ pour tout $a\\in A$. En d'autres termes, $A$ est minorée par $n+1$.\\par (ii) Soit $A$ une partie non vide majorée de $\\mathbb{N}$. Par hypothèse, l'ensemble des majorants ENTIERS de $A$ est non vide, donc possède un plus petit élément $m$ d'après (i).\\par $\\bullet$ Supposons d'abord que $m=0$. Dans ce cas, $a\\le m=0$ pour tout $a\\in A$ donc $a=0$ car $a\\in\\mathbb{N}$. Puisque $A$ est non vide, cela montre que $A=\\{0\\}$, et donc $A$ admet $0$ pour plus grand élément.\\par $\\bullet$ Supposons ensuite que $m\\ge 1$. Ainsi $m-1\\in\\mathbb{N}$, donc par minimalité de $m$, $m-1$ ne majore pas $A$, donc $m-1<a$ pour un certain $a\\in A$. Or l'inégalité entre ENTIERS $m-1<a\\le m$ est en fait une égalité, donc $m=a\\in A$. Conclusion : $m$ est un élément de $A$ qui majore $A$, i.e. le plus grand élément de $A$. [cite: 34, 35, 36, 39, 40, 41, 42, 43]"
+    },
+    {
+      "id": "suites_reelles__ex_decomposition_nombres_premiers",
+      "type": "example",
+      "title": "Exemple : Décomposition en nombres premiers",
+      "content_latex": "Tout entier naturel non nul est un produit de nombres premiers - éventuellement vide ou composé d'un seul nombre premier. [cite: 50, 51]",
+      "proof_latex": "Nous avons déjà montré ce résultat par récurrence forte. Cette fois, supposons par l'absurde que le résultat est faux et notons $E$ l'ensemble des entiers naturels non nuls qui ne sont pas un produit de nombres premiers. Par hypothèse, $E$ est une partie non vide de $\\mathbb{N}^*$, donc possède un plus petit élément $m$. En particulier, $m$ n'est pas premier, donc peut être écrit $m=ab$ pour certains $a,b\\in\\llbracket 1,m-1 \\rrbracket$. Par minimalité de $m$, $a$ et $b$ n'appartiennent pas à $E$, donc sont des produits de nombres premiers, donc $m=ab$ aussi - contradiction. [cite: 52, 53, 54, 55, 56]"
+    },
+    {
+      "id": "suites_reelles__def_borne_sup_inf",
+      "type": "definition",
+      "title": "Définition : Borne supérieure/inférieure d'une partie de $\\mathbb{R}$",
+      "content_latex": "\\textbf{Borne supérieure :} S'il existe, le plus petit majorant de $A$ est appelé LA borne supérieure de $A$ et noté $\\sup A$.\\par \\textbf{Borne inférieure :} S'il existe, le plus grand minorant de $A$ est appelé LA borne inférieure de $A$ et noté $\\inf A$. [cite: 60, 61, 62]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_borne_sup_intervalle",
+      "type": "example",
+      "title": "Exemple : Borne supérieure de $[0, 1[$",
+      "content_latex": "$\\sup [0,1[ = 1$.",
+      "proof_latex": "Pour commencer, $1$ majore $[0, 1[$, mais il reste à montrer qu'aucun réel strictement inférieur ne majore $[0, 1[$. Soit $x<1$. Si $x<0$, $x$ ne majore pas $[0,1[$ car $0\\in[0,1[$. Et si $x\\in[0,1[$, alors $x<\\frac{x+1}{2}$ et pourtant $\\frac{x+1}{2}\\in[0,1[$, donc $x$ ne majore pas $[0, 1[$. Dans les deux cas, $x$ ne majore pas $[0, 1[$. [cite: 66, 67, 68, 69]"
+    },
+    {
+      "id": "suites_reelles__thm_max_min_implique_sup_inf",
+      "type": "theorem",
+      "title": "Théorème : Max/min implique sup/inf",
+      "content_latex": "Si $A$ possède un plus grand élément, alors $A$ possède une borne supérieure et $\\sup A = \\max A$. De même, si $A$ possède un plus petit élément, alors $A$ possède une borne inférieure et $\\inf A = \\min A$. [cite: 74, 75]",
+      "proof_latex": "Faisons l'hypothèse que $A$ possède un plus grand élément et montrons que l'ensemble $M$ des majorants de $A$ possède un plus petit élément, en l'occurrence $\\max A$. Cela montrera à la fois que $A$ possédera une borne supérieure et que $\\sup A = \\max A$. Deux choses à vérifier : que $\\max A \\in M$, mais $\\max A$ majore $A$ par définition, et que $\\max A$ minore $M$, mais $\\max A \\in A$ par définition. [cite: 76, 77, 78, 79]"
+    },
+    {
+      "id": "suites_reelles__ex_borne_inf_R_plus",
+      "type": "example",
+      "title": "Exemple : Bornes de $\\mathbb{R}_+$",
+      "content_latex": "Non majoré, $\\mathbb{R}_+$ ne possède pas de borne supérieure. En revanche, parce que $0$ en est le plus petit élément, $0$ en est aussi la borne inférieure. [cite: 80, 81]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_operations_bornes_sup",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les bornes supérieures",
+      "content_latex": "On suppose que $A$ et $B$ possèdent chacune une borne supérieure.\\par (i) Inclusion : Si $A\\subset B$, alors $\\sup A \\le \\sup B$.\\par (ii) Réunion : L'ensemble $A\\cup B$ possède une borne supérieure et $\\sup(A\\cup B) = \\max\\{\\sup A, \\sup B\\}$.\\par (iii) Somme : L'ensemble $A+B = \\{a+b \\mid a\\in A, b\\in B\\}$ possède une borne supérieure et : $\\sup(A+B) = \\sup A + \\sup B$.\\par (iv) Multiplication par un réel strictement positif : Pour tout $\\lambda>0$, l'ensemble $\\lambda A = \\{\\lambda a \\mid a\\in A\\}$ possède une borne supérieure et $\\sup(\\lambda A) = \\lambda \\sup A$.\\par On dispose bien sûr de résultats analogues sur les bornes inférieures. [cite: 82, 83, 84, 85, 86, 87, 88]",
+      "proof_latex": "(i) Pour tout $x\\in A$, $x$ appartient à $B$, donc $x\\le \\sup B$ donc $\\sup B$ majore $A$, donc $\\sup A \\le \\sup B$.\\par (ii) Pour tout $x\\in A$ : $x\\le \\sup A \\le \\max\\{\\sup A, \\sup B\\}$, et pour tout $x\\in B$ : $x\\le \\sup B \\le \\max\\{\\sup A, \\sup B\\}$, donc $\\max\\{\\sup A, \\sup B\\}$ majore $A\\cup B$. Soit $s<\\max\\{\\sup A, \\sup B\\}$. Alors $s<\\sup A$ ou $s<\\sup B$, donc $s$ ne majore pas $A$ ou $s$ ne majore pas $B$, donc $s<x$ pour un certain $x\\in A\\cup B$ ce qui prouve que $s$ ne majore pas $A\\cup B$. Comme voulu, $\\max\\{\\sup A, \\sup B\\}$ est le plus petit majorant de $A\\cup B$.\\par (iii) Pour tout $x=a+b\\in A+B$ avec $a\\in A$ et $b\\in B$ : $x\\le \\sup A + \\sup B$, donc $\\sup A + \\sup B$ majore $A+B$. Soit $s<\\sup A + \\sup B$. Aussitôt $s-\\sup B < \\sup A$, donc $s-\\sup B$ ne majore pas $A$, donc $s-\\sup B < a$ pour un certain $a\\in A$. Ainsi $s-a < \\sup B$, donc $s-a$ ne majore pas $B$, donc $s-a < b$ pour un certain $b\\in B$. Finalement : $s<a+b$ et $a+b\\in A+B$, donc $s$ ne majore pas $A+B$. Comme voulu, $\\sup A + \\sup B$ est le plus petit majorant de $A+B$.\\par (iv) Pour tout $x=\\lambda a \\in \\lambda A$ avec $a\\in A$ : $x=\\lambda a \\le \\lambda \\sup A$ car $\\lambda > 0$, donc $\\lambda \\sup A$ majore $\\lambda A$. Soit $s<\\lambda \\sup A$. Aussitôt $\\frac{s}{\\lambda} < \\sup A$, donc $\\frac{s}{\\lambda}$ ne majore pas $A$, donc $\\frac{s}{\\lambda} < a$ pour un certain $a\\in A$. Finalement $s<\\lambda a$ et $\\lambda a\\in \\lambda A$ donc $s$ ne majore pas $\\lambda A$. Comme voulu, $\\lambda \\sup A$ est le plus petit majorant de $\\lambda A$. [cite: 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101]"
+    },
+    {
+      "id": "suites_reelles__thm_prop_borne_sup_inf",
+      "type": "theorem",
+      "title": "Théorème : Propriété de la borne supérieure/inférieure",
+      "content_latex": "\\textbf{Propriété de la borne supérieure :} Toute partie non vide majorée de $\\mathbb{R}$ possède une borne supérieure.\\par \\textbf{Propriété de la borne inférieure :} Toute partie non vide minorée de $\\mathbb{R}$ possède une borne inférieure. [cite: 116, 117, 118]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_propriete_borne",
+      "type": "warning",
+      "title": "Attention : Terminologie de \"LA\" propriété de la borne supérieure",
+      "content_latex": "Généralement, en mathématiques, le mot « propriété » renvoie à UNE propriété parmi d'autres d'un objet. Quand nous parlerons de LA propriété de la borne supérieure, il s'agira toujours du théorème fondamental qui précède. La propriété de la borne supérieure est un pur résultat d'EXISTENCE et ne raconte rien d'intéressant sur la VALEUR des bornes supérieures. [cite: 119, 120, 121]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_racines_carrees",
+      "type": "example",
+      "title": "Exemple : Existence des racines carrées",
+      "content_latex": "Pour tout $a\\ge 0$, $\\sqrt{a}$ est par définition l'unique réel positif $r$ pour lequel $r^2=a$, mais cette définition est un théorème d'existence et d'unicité avant d'être une définition. [cite: 124, 125]",
+      "proof_latex": "Fixons $a\\ge 0$. L'ensemble $R=\\{r\\ge 0 \\mid r^2\\le a\\}$ est non vide car il contient $0$. Ensuite, $R$ est majoré par $a+1$ car pour tout $r\\in R$, sachant que $a+1\\ge 1$ : $r^2\\le a\\le a+1\\le (a+1)^2$, donc $(a+1-r)(a+1+r)\\ge 0$ donc $a+1-r\\ge 0$, et enfin $r\\le a+1$. La propriété de la borne supérieure nous permet comme voulu de poser $\\sqrt{a} = \\sup\\{r\\ge 0 \\mid r^2\\le a\\}$. [cite: 129, 130, 131, 132]"
+    },
+    {
+      "id": "suites_reelles__ex_partie_entiere",
+      "type": "example",
+      "title": "Exemple : Existence de la partie entière",
+      "content_latex": "L'existence de la partie entière découle elle aussi de la propriété de la borne supérieure.",
+      "proof_latex": "Pour tout $x\\in\\mathbb{R}$, $\\lfloor x \\rfloor$ est par définition l'unique entier relatif $n$ pour lequel $n\\le x < n+1$, c'est-à-dire le plus grand élément de l'ensemble $E=\\{n\\in\\mathbb{Z} \\mid n\\le x\\}$. En fait, $E$ est une partie non vide majorée de $\\mathbb{R}$, donc possède une borne supérieure $\\lfloor x \\rfloor$ d'après la propriété de la borne supérieure, mais $\\lfloor x \\rfloor$ est un réel a priori et il faut PROUVER que c'est un entier. [cite: 135, 138]"
+    },
+    {
+      "id": "suites_reelles__def_droite_achevee",
+      "type": "definition",
+      "title": "Définition : Droite achevée $\\overline{\\mathbb{R}}$",
+      "content_latex": "On pose $\\overline{\\mathbb{R}} = \\mathbb{R} \\sqcup \\{-\\infty, +\\infty\\}$, puis on étend à $\\overline{\\mathbb{R}}$ la relation $\\le$, l'addition $+$ et la multiplication $\\times$ de $\\mathbb{R}$ de la façon suivante.\\par $\\bullet$ Prolongement de l'ordre : Pour tout $x\\in\\mathbb{R}$ : $-\\infty < x < +\\infty$.\\par $\\bullet$ Prolongement de l'addition : $x+(+\\infty) = (+\\infty)+x = +\\infty$ et $x+(-\\infty) = (-\\infty)+x = -\\infty$,\\par et pour tout $x\\in\\mathbb{R}$ : $(+\\infty)+(+\\infty) = +\\infty$ et $(-\\infty)+(-\\infty) = -\\infty$.\\par $\\bullet$ Prolongement de la multiplication : $\\frac{1}{+\\infty} = \\frac{1}{-\\infty} = 0$,\\par et pour tout $x\\in\\overline{\\mathbb{R}}-\\{0\\}$ : $x\\times(+\\infty) = (+\\infty)\\times x = \\begin{cases} +\\infty & \\text{si } x>0 \\\\ -\\infty & \\text{si } x<0 \\end{cases}$\\par et $x\\times(-\\infty) = (-\\infty)\\times x = \\begin{cases} -\\infty & \\text{si } x>0 \\\\ +\\infty & \\text{si } x<0 \\end{cases}$. [cite: 146, 147, 148, 149, 150, 151, 152, 153, 154]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_formes_indeterminees",
+      "type": "warning",
+      "title": "Attention : Formes indéterminées dans $\\overline{\\mathbb{R}}$",
+      "content_latex": "Nous ne donnons aucun sens aux expressions : $(+\\infty)-(+\\infty)$, $(-\\infty)-(-\\infty)$, $0\\times(\\pm\\infty)$, $(\\pm\\infty)\\times 0$ et $\\frac{\\pm\\infty}{\\pm\\infty}$. [cite: 157, 158, 159]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_prop_borne_sup_R_barre",
+      "type": "theorem",
+      "title": "Théorème : Propriété de la borne supérieure/inférieure dans $\\overline{\\mathbb{R}}$",
+      "content_latex": "$\\bullet$ TOUTE partie de $\\overline{\\mathbb{R}}$ possède une borne supérieure DANS $\\overline{\\mathbb{R}}$ - éventuellement $\\pm\\infty$.\\par $\\bullet$ Pour toute partie non vide majorée de $\\mathbb{R}$, borne supérieure dans $\\mathbb{R}$ et borne supérieure dans $\\overline{\\mathbb{R}}$ coïncident. [cite: 167, 168, 169]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__def_intervalle",
+      "type": "definition",
+      "title": "Définition : Intervalle de $\\overline{\\mathbb{R}}$",
+      "content_latex": "On appelle intervalle de $\\overline{\\mathbb{R}}$ toute partie $I$ de $\\overline{\\mathbb{R}}$ pour laquelle $\\forall x,y\\in I, [x,y]\\subset I$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_intervalles_usuels",
+      "type": "example",
+      "title": "Exemple : Les ensembles usuels sont des intervalles",
+      "content_latex": "Pour tous $a, b\\in\\overline{\\mathbb{R}}$ pour lesquels $a\\le b$, les ensembles $[a, b]$, $[a, b[$, $]a, b]$ et $]a, b[$ sont des intervalles au sens de la définition précédente.",
+      "proof_latex": "Montrons seulement que $[a, b[$ est un intervalle. Soient $x, y\\in[a,b[$ avec $x\\le y$. Montrons que $[x,y]\\subset[a,b[$. Or pour tout $t\\in[x,y]$ : $a\\le x\\le t\\le y<b$, donc $t\\in[a,b[$. [cite: 180, 181]"
+    },
+    {
+      "id": "suites_reelles__thm_carac_intervalles",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des intervalles de $\\overline{\\mathbb{R}}$",
+      "content_latex": "Les intervalles de $\\overline{\\mathbb{R}}$ sont exactement les ensembles $[a, b]$, $[a, b[$, $]a, b]$ et $]a, b[$, $a$ et $b$ décrivant $\\overline{\\mathbb{R}}$ avec $a\\le b$.",
+      "proof_latex": "Soit $I$ un intervalle non vide de $\\overline{\\mathbb{R}}$. La propriété de la borne inférieure/supérieure DANS $\\overline{\\mathbb{R}}$ montre que $I$ possède une borne inférieure $a$ et une borne supérieure $b$. Distinguons plusieurs cas.\\par $\\bullet$ Cas où $a\\in I$ et $b\\in I$ : Montrons que $I=[a,b]$. Montrons que $[a,b]\\subset I$. Or $I$ est un intervalle et contient $a$ et $b$, donc $[a,b]\\subset I$. Montrons que $I\\subset[a,b]$. Or pour tout $x\\in I$, $x\\in[a,b]$ car $a$ minore $I$ et $b$ le majore.\\par $\\bullet$ Cas où $a\\in I$ et $b\\notin I$ : Montrons que $I=[a,b[$. Montrons que $[a, b[\\subset I$. Soit $x\\in[a,b[$. Comme $x<b=\\sup I$, $x$ ne majore pas $I$, donc $x<b'$ pour un certain $b'\\in I$. Ainsi $a\\le x\\le b'$ avec $a\\in I$ et $b'\\in I$, donc $x\\in I$ car $I$ est un intervalle. Montrons que $I\\subset[a,b[$. Pour tout $x\\in I$, $a\\le x\\le b$ car $a$ minore $I$ et $b$ le majore, mais $x\\in I$ alors que $b\\notin I$, donc $a\\le x<b$, i.e. $x\\in[a,b[$.\\par $\\bullet$ Les cas où $a\\notin I$ et $b\\in I$ (où $I=]a,b]$) et où $a\\notin I$ et $b\\notin I$ (où $I=]a,b[$) se traitent de manière analogue en adaptant la preuve du cas précédent. [cite: 183, 184, 185, 186, 187, 188, 189, 190, 193, 194]"
+    },
+    {
+      "id": "suites_reelles__thm_densite_Q",
+      "type": "theorem",
+      "title": "Théorème : Les rationnels et les irrationnels sont partout",
+      "content_latex": "Tout intervalle qui n'est ni l'ensemble vide ni un singleton contient à la fois un rationnel et un irrationnel, et même une infinité de rationnels et une infinité d'irrationnels.",
+      "proof_latex": "Soient $a,b\\in\\mathbb{R}$ deux réels pour lesquels $a<b$. Montrons que $]a, b[$ contient à la fois un rationnel et un irrationnel. Posons $q=\\lfloor\\frac{1}{b-a}\\rfloor+1$, de telle sorte que $q\\in\\mathbb{N}^*$ et $1<q(b-a)$. Pour $p=\\lfloor qa\\rfloor+1$ : $qa<p\\le qa+1<qa+q(b-a)=qb$, donc $a<\\frac{p}{q}<b$. D'après ce qui précède, l'intervalle $]\\frac{a}{\\sqrt{2}}, \\frac{b}{\\sqrt{2}}[$ contient au moins un rationnel $r$, et $]\\frac{a}{\\sqrt{2}}, r[$ en contient lui-même un $r'$. L'un au moins de ces deux rationnels est non nul, par exemple $r$, et $r\\sqrt{2}\\in]a,b[$. Enfin, $r\\sqrt{2}$ est irrationnel sans quoi $\\sqrt{2}$ serait rationnel par produit ce qui est faux. [cite: 198, 201, 206, 208, 209, 210, 211]"
+    },
+    {
+      "id": "suites_reelles__def_voisinage",
+      "type": "definition",
+      "title": "Définition : Voisinage d'un point de $\\overline{\\mathbb{R}}$ dans $\\mathbb{R}$",
+      "content_latex": "$\\bullet$ Pour tout $a\\in\\mathbb{R}$, on appelle voisinage de $a$ (dans $\\mathbb{R}$) toute partie $V$ de $\\mathbb{R}$ pour laquelle : $\\exists\\epsilon>0$, $]a-\\epsilon,a+\\epsilon[\\subset V$.\\par $\\bullet$ On appelle voisinage de $+\\infty$ (dans $\\mathbb{R}$) toute partie $V$ de $\\mathbb{R}$ pour laquelle : $\\exists A\\in\\mathbb{R}$, $]A,+\\infty[\\subset V$.\\par $\\bullet$ On appelle voisinage de $-\\infty$ (dans $\\mathbb{R}$) toute partie $V$ de $\\mathbb{R}$ pour laquelle : $\\exists A\\in\\mathbb{R}$, $]-\\infty,A[\\subset V$. [cite: 214, 215, 216, 217, 218, 219, 220]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_prop_voisinages",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des voisinages",
+      "content_latex": "(i) Pour tout $a\\in\\overline{\\mathbb{R}}$, toute intersection FINIE de voisinages de $a$ est un voisinage de $a$.\\par (ii) Deux points distincts de $\\overline{\\mathbb{R}}$ possèdent des voisinages disjoints. En d'autres termes, pour tous $a, b\\in\\overline{\\mathbb{R}}$ distincts, il existe un voisinage $V_a$ de $a$ et un voisinage $V_b$ de $b$ pour lesquels $V_a\\cap V_b=\\emptyset$. [cite: 237, 238, 239, 240]",
+      "proof_latex": "(i) Soient $a\\in\\overline{\\mathbb{R}}$ et $V_1,...,V_r$ des voisinages de $a$. Cas où $a\\in\\mathbb{R}$ : Pour tout $i\\in\\llbracket 1,r \\rrbracket$, il existe un réel $\\epsilon_i>0$ pour lequel $]a-\\epsilon_i,a+\\epsilon_i[\\subset V_i$, donc $]a-\\epsilon_0,a+\\epsilon_0[\\subset V_1\\cap...\\cap V_r$ pour $\\epsilon_0=\\min\\{\\epsilon_1,...,\\epsilon_r\\}>0$, donc $V_1\\cap...\\cap V_r$ est un voisinage de $a$.\\par (ii) Soient $a,b\\in\\overline{\\mathbb{R}}$ deux réels pour lesquels $a<b$. Cas où $a, b\\in\\mathbb{R}$ : Posons $\\epsilon=\\frac{b-a}{3}>0$, puis $V_a = ]a - \\epsilon, a + \\epsilon[$ et $V_b=]b-\\epsilon,b+\\epsilon[$. Comme voulu, $V_a$ est un voisinage de $a$, $V_b$ un voisinage de $b$ et $V_a\\cap V_b=\\emptyset$. [cite: 244, 245, 247, 248, 250, 251]"
+    },
+    {
+      "id": "suites_reelles__def_suite_reelle",
+      "type": "definition",
+      "title": "Définition : Suite réelle",
+      "content_latex": "On appelle suite (réelle) toute fonction $u$ de $\\mathbb{N}$ dans $\\mathbb{R}$. Pour tout $n\\in\\mathbb{N}$, on préfère noter $u_n$ le réel $u(n)$, et $(u_n)_{n\\in\\mathbb{N}}$ ou $(u_n)_{n\\ge0}$ la suite $u$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__def_suite_monotone_majoree",
+      "type": "definition",
+      "title": "Définition : Suite monotone/majorée/bornée",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est :\\par $\\bullet$ majorée si $\\{u_n \\mid n\\in\\mathbb{N}\\}$ est une partie majorée de $\\mathbb{R}$, i.e. si : $\\exists M\\in\\mathbb{R}, \\forall n\\in\\mathbb{N}, u_n\\le M$.\\par $\\bullet$ positive (resp. strictement positive) si pour tout $n\\in\\mathbb{N}$ : $u_n\\ge 0$ (resp. $u_n>0$).\\par $\\bullet$ croissante (resp. strictement croissante) si pour tout $n\\in\\mathbb{N}$ : $u_n\\le u_{n+1}$ (resp. $u_n<u_{n+1}$).\\par $\\bullet$ bornée si elle est à la fois majorée et minorée, i.e. si : $\\exists K\\ge 0, \\forall n\\in\\mathbb{N}, |u_n|\\le K$.\\par $\\bullet$ monotone si elle est croissante ou décroissante, et strictement monotone si elle est strictement croissante ou strictement décroissante. [cite: 285, 286, 287, 289, 290, 294, 295]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__method_montrer_monotonie",
+      "type": "method",
+      "title": "Méthode : Montrer qu'une suite est monotone",
+      "content_latex": "Pour montrer qu'une suite $(u_n)_{n\\in\\mathbb{N}}$ est monotone, deux méthodes courantes :\\par $\\bullet$ étudier le signe de $u_{n+1}-u_n$,\\par $\\bullet$ étudier la position de $\\frac{u_{n+1}}{u_n}$ par rapport à $1$, mais seulement si $(u_n)_{n\\in\\mathbb{N}}$ est strictement positive. Méthode à privilégier quand $(u_n)_{n\\in\\mathbb{N}}$ est définie par des produits/quotients et qu'on peut espérer des simplifications. [cite: 296, 297, 298, 299]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_majorant_depend_n",
+      "type": "warning",
+      "title": "Attention : Les majorants d'une suite sont des constantes",
+      "content_latex": "Les majorants d'une suite sont par définition des constantes. Une majoration de $u_n$ pour tout $n\\in\\mathbb{N}$ par un réel QUI DÉPEND DE $n$ ne montre pas que la suite $(u_n)_{n\\in\\mathbb{N}}$ est majorée. [cite: 302, 303]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_comportement_partir_rang",
+      "type": "example",
+      "title": "Exemple : Comportement à partir d'un certain rang",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle.\\par $\\bullet$ Dire que $(u_n)_{n\\in\\mathbb{N}}$ est croissante à partir d'un certain rang, c'est dire que : $\\exists N\\in\\mathbb{N}, \\forall n\\ge N, u_n\\le u_{n+1}$.\\par $\\bullet$ Dire que $(u_n)_{n\\in\\mathbb{N}}$ est minorée par $2$ à partir d'un certain rang, c'est dire que : $\\exists N\\in\\mathbb{N}, \\forall n\\ge N, u_n\\ge 2$. [cite: 306, 307]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_rang_inegalites",
+      "type": "example",
+      "title": "Exemple : Recherche de rang pour des inégalités",
+      "content_latex": "Fixons $\\epsilon>0$ et $A>0$.\\par $\\bullet$ L'inégalité $\\frac{1}{n}<\\epsilon$ est vraie si et seulement si $n>\\frac{1}{\\epsilon}$, donc à partir du rang $\\lfloor\\frac{1}{\\epsilon}\\rfloor + 1$.\\par $\\bullet$ L'inégalité $n^2>A$ est vraie si et seulement si $n>\\sqrt{A}$, donc à partir du rang $\\lfloor\\sqrt{A}\\rfloor + 1$.\\par $\\bullet$ L'inégalité $\\frac{1}{2^n}<\\epsilon$ est vraie si et seulement si $n>-\\frac{\\ln \\epsilon}{\\ln 2}$, donc à partir du rang $\\max\\{0, \\lfloor-\\frac{\\ln \\epsilon}{\\ln 2}\\rfloor + 1\\}$. [cite: 308, 309, 310, 311, 312, 313, 315, 316, 317, 318, 319]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_suite_recurrente_monotonie",
+      "type": "warning",
+      "title": "Attention : Monotonie d'une suite récurrente et de sa fonction",
+      "content_latex": "Pour une suite récurrente $u_{n+1}=f(u_n)$ : le fait que $f$ soit croissante ou décroissante n'implique PAS directement que $(u_n)_{n\\in\\mathbb{N}}$ soit respectivement croissante ou décroissante. [cite: 334, 335, 336, 338]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_suites_arithmetiques_geometriques",
+      "type": "theorem",
+      "title": "Théorème : Suites arithmétiques/géométriques",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle et $q,r\\in\\mathbb{R}$.\\par $\\bullet$ Suites arithmétiques : On dit que $(u_n)_{n\\in\\mathbb{N}}$ est arithmétique de raison $r$ si pour tout $n\\in\\mathbb{N}$ : $u_{n+1}=u_n+r$. Dans ce cas, $u_n=u_0+nr$ pour tout $n\\in\\mathbb{N}$.\\par $\\bullet$ Suites géométriques : On dit que $(u_n)_{n\\in\\mathbb{N}}$ est géométrique de raison $q$ si pour tout $n\\in\\mathbb{N}$ : $u_{n+1}=qu_n$. Dans ce cas, $u_n=q^nu_0$ pour tout $n\\in\\mathbb{N}$. [cite: 348, 349, 350]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__def_thm_suites_arithmetico_geometriques",
+      "type": "definition",
+      "title": "Définition-théorème : Suites arithmético-géométriques",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle et $a,b\\in\\mathbb{R}$. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est arithmético-géométrique (de raison $a$) si pour tout $n\\in\\mathbb{N}$ : $u_{n+1}=au_n+b$.\\par Deux situations peuvent se présenter :\\par $\\bullet$ soit $a=1$, auquel cas $(u_n)_{n\\in\\mathbb{N}}$ est arithmétique,\\par $\\bullet$ soit $a\\ne 1$, auquel cas l'équation $ax+b=x$ d'inconnue $x\\in\\mathbb{R}$ possède une et une seule solution $l$. La suite $(u_n)_{n\\in\\mathbb{N}}$ est alors de la forme $(l+\\lambda a^n)_{n\\in\\mathbb{N}}$ pour un certain $\\lambda\\in\\mathbb{R}$. [cite: 354, 355, 356, 357, 358, 359]",
+      "proof_latex": "Supposons $a\\ne 1$. Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle pour laquelle $u_{n+1}=au_n+b$ pour tout $n\\in\\mathbb{N}$. L'équation $ax+b=x$ d'inconnue $x\\in\\mathbb{R}$ admet $l=\\frac{b}{1-a}$ pour seule solution. La suite $(u_n-l)_{n\\in\\mathbb{N}}$ est géométrique car pour tout $n\\in\\mathbb{N} : u_{n+1}-l = (au_n+b)-(al+b) = a(u_n-l)$. Ainsi, $u_n-l = a^n(u_0-l)$ pour tout $n\\in\\mathbb{N}$, donc $(u_n)_{n\\in\\mathbb{N}}$ est de la forme $(l+\\lambda a^n)_{n\\in\\mathbb{N}}$ pour un certain $\\lambda\\in\\mathbb{R}$. [cite: 360, 362]"
+    },
+    {
+      "id": "suites_reelles__ex_suite_arithmetico_geometrique",
+      "type": "example",
+      "title": "Exemple : Expression d'une suite arithmético-géométrique",
+      "content_latex": "On cherche une expression de la suite $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_0=1$ et $u_{n+1}=2u_n+1$ pour tout $n\\in\\mathbb{N}$.",
+      "proof_latex": "L'équation $2x+1=x$ a pour solution $-1$, donc $(u_n)_{n\\in\\mathbb{N}}$ est de la forme $(\\lambda 2^n - 1)_{n\\in\\mathbb{N}}$ pour un certain $\\lambda\\in\\mathbb{R}$. La condition initiale $u_0=1$ montre que $\\lambda 2^0 - 1 = 1$, i.e. que $\\lambda=2$, de sorte que $u_n = 2^{n+1}-1$ pour tout $n\\in\\mathbb{N}$."
+    },
+    {
+      "id": "suites_reelles__def_limite_suite",
+      "type": "definition",
+      "title": "Définition : Limite d'une suite",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle et $l\\in\\overline{\\mathbb{R}}$.\\par $\\bullet$ Définition générale : On dit que $(u_n)_{n\\in\\mathbb{N}}$ admet $l$ pour limite, ce qu'on note $u_n \\to l$, si tout voisinage de $l$ contient tous les $u_n$ à partir d'un certain rang, i.e. si : $\\forall V_l\\in\\mathcal{V}(l), \\exists N\\in\\mathbb{N}, \\forall n\\ge N, u_n\\in V_l$.\\par $\\bullet$ Cas particulier d'une limite finie : $l\\in\\mathbb{R}$, on dit que $(u_n)_{n\\in\\mathbb{N}}$ admet $l$ pour limite si : $\\forall\\epsilon>0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, |u_n-l|<\\epsilon$.\\par $\\bullet$ Cas particulier de la limite $+\\infty$ : On dit que $(u_n)_{n\\in\\mathbb{N}}$ admet $+\\infty$ pour limite si : $\\forall A>0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, u_n>A$.\\par $\\bullet$ Cas particulier de la limite $-\\infty$ : On dit que $(u_n)_{n\\in\\mathbb{N}}$ admet $-\\infty$ pour limite si : $\\forall A<0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, u_n<A$. [cite: 365, 366, 367, 368, 369, 370, 371, 372, 373]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_unicite_limite",
+      "type": "theorem",
+      "title": "Théorème : Unicité de la limite",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle et $l\\in\\overline{\\mathbb{R}}$. Si $(u_n)_{n\\in\\mathbb{N}}$ possède une limite, celle-ci est unique et notée $\\lim_{n\\to+\\infty} u_n$.",
+      "proof_latex": "Soient $l, l'\\in\\overline{\\mathbb{R}}$. Supposons par l'absurde que $l\\ne l'$. Il existe alors un voisinage $V_l$ de $l$ et un voisinage $V_{l'}$ de $l'$ pour lesquels $V_l\\cap V_{l'} = \\emptyset$. Or par hypothèse, $u_n\\in V_l$ à partir d'un certain rang $N$ et $u_n\\in V_{l'}$ à partir d'un certain rang $N'$, donc $u_{n_0}\\in V_l\\cap V_{l'} = \\emptyset$ pour $n_0 = \\max\\{N, N'\\}$ — contradiction! [cite: 399, 400]"
+    },
+    {
+      "id": "suites_reelles__ex_calcul_limite_zero",
+      "type": "example",
+      "title": "Exemple : Calcul formel de limite $0$",
+      "content_latex": "$\\frac{n\\sin n}{n^2+2} \\xrightarrow[n\\to+\\infty]{} 0$.",
+      "proof_latex": "Nous devons montrer que : $\\forall\\epsilon>0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, \\left|\\frac{n\\sin n}{n^2+2}\\right|<\\epsilon$. Soit $\\epsilon>0$. Pour tout $n\\in\\mathbb{N}$, majorons : $\\left|\\frac{n\\sin n}{n^2+2}\\right| = \\frac{n|\\sin n|}{n^2+2} \\le \\frac{n}{n^2+2} \\le \\frac{n}{n^2} = \\frac{1}{n}$. Posons $N=\\lfloor\\frac{1}{\\epsilon}\\rfloor+1$. À partir de $N$, l'inégalité $\\frac{1}{n}<\\epsilon$ est vraie, donc l'inégalité $\\left|\\frac{n\\sin n}{n^2+2}\\right|<\\epsilon$ aussi. [cite: 417, 418, 419, 422, 424, 425]"
+    },
+    {
+      "id": "suites_reelles__ex_calcul_limite_infini",
+      "type": "example",
+      "title": "Exemple : Calcul formel de limite $+\\infty$",
+      "content_latex": "$n^2+(-1)^n n \\xrightarrow[n\\to+\\infty]{} +\\infty$.",
+      "proof_latex": "Nous devons montrer que : $\\forall A>0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, n^2+(-1)^n n > A$. Soit $A>0$. Pour tout $n\\in\\mathbb{N}$, minorons : $n^2+(-1)^n n \\ge n^2-n = n(n-1) \\ge (n-1)^2$. Pour tout $n\\in\\mathbb{N}^*$, $(n-1)^2 > A$ est vrai si et seulement si $n > \\sqrt{A}+1$. Posons $N=\\lfloor\\sqrt{A}\\rfloor+2$. À partir de $N$, l'inégalité $(n-1)^2 > A$ est vraie, donc l'inégalité $n^2+(-1)^n n > A$ aussi. [cite: 428, 429, 430, 433, 434, 436, 437]"
+    },
+    {
+      "id": "suites_reelles__def_convergence_divergence",
+      "type": "definition",
+      "title": "Définition : Convergence/divergence",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est convergente ou qu'elle converge si elle possède une limite FINIE. On dit sinon qu'elle est divergente ou qu'elle diverge. [cite: 440, 441]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_convergence_limite_finie",
+      "type": "warning",
+      "title": "Attention : Définition stricte de converger et diverger",
+      "content_latex": "Converger, ce n'est pas avoir une limite mais avoir une limite FINIE. Diverger, ce n'est pas avoir $\\pm\\infty$ pour limite, mais éventuellement NE PAS AVOIR DE LIMITE. [cite: 442, 443]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_convergence_borne",
+      "type": "theorem",
+      "title": "Théorème : Convergence et caractère borné",
+      "content_latex": "Toute suite convergente est bornée.",
+      "proof_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle convergente de limite $l$. Pour $\\epsilon=1$, la définition de la limite affirme que $|u_n-l|<1$ à partir d'un certain rang $N$, donc pour tout $n\\ge N$ d'après l'inégalité triangulaire : $|u_n| = |(u_n-l)+l| \\le |u_n-l| + |l| \\le |l|+1$. Le réel $K=\\max\\{|u_0|,|u_1|,...,|u_{N-1}|,|l|+1\\}$ est alors plus grand que $|u_0|,...,|u_{N-1}|$, mais aussi que $|u_n|$ pour tout $n\\ge N$, donc $|u_n|\\le K$ pour TOUT $n\\in\\mathbb{N}$, donc $(u_n)_{n\\in\\mathbb{N}}$ est bornée. [cite: 446, 447, 448, 449, 450]"
+    },
+    {
+      "id": "suites_reelles__warning_borne_non_convergente",
+      "type": "warning",
+      "title": "Attention : Suite bornée non convergente",
+      "content_latex": "La réciproque du théorème de convergence est fausse, la suite $((-1)^n)_{n\\in\\mathbb{N}}$ est bornée sans être convergente. De plus, une suite non bornée n'admet pas forcément $+\\infty$ ou $-\\infty$ pour limite (ex: $((-1)^n n)_{n\\in\\mathbb{N}}$). [cite: 452, 453, 454, 455]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_operations_limites",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les limites",
+      "content_latex": "Règles usuelles d'opérations sur les limites (addition, produit, multiplication par un réel, inverse). Le symbole ??? signifie une forme indéterminée. [cite: 458, 459, 460, 461, 462, 463, 464, 465, 466]",
+      "proof_latex": "Exemple de preuve (Somme de deux limites finies) : On suppose que $u_n\\to l$ et $v_n\\to l'$. Soit $\\epsilon>0$. Pour tout $n\\in\\mathbb{N}$ d'après l'inégalité triangulaire : $|(u_n+v_n)-(l+l')| = |(u_n-l)+(v_n-l')| \\le |u_n-l|+|v_n-l'|$. Par hypothèse, $|u_n-l|<\\frac{\\epsilon}{2}$ à partir d'un rang $N$ et $|v_n-l'|<\\frac{\\epsilon}{2}$ à partir d'un rang $N'$, donc pour tout $n\\ge \\max\\{N, N'\\}$ : $|(u_n+v_n)-(l+l')| \\le |u_n-l|+|v_n-l'| < \\frac{\\epsilon}{2}+\\frac{\\epsilon}{2} = \\epsilon$. [cite: 485, 486, 489, 490, 491, 492]"
+    },
+    {
+      "id": "suites_reelles__warning_formes_indeterminees_2",
+      "type": "warning",
+      "title": "Attention : Comprendre les formes indéterminées",
+      "content_latex": "Le symbole ??? signifie qu'en cas d'opération $(+\\infty)-(+\\infty)$ ou $0\\times(+\\infty)$, on peut obtenir a priori n'importe quel résultat. On peut obtenir n'importe quel réel, $\\pm\\infty$, ou ne pas obtenir de limite selon les suites soustraites ou multipliées. [cite: 467, 468, 469, 470, 471, 472, 473, 474, 476, 477]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_composition_limite_fonction",
+      "type": "theorem",
+      "title": "Théorème : Composition à gauche par une fonction",
+      "content_latex": "Soient $I$ un intervalle, $f:I\\to\\mathbb{R}$ une fonction, $l\\in\\overline{\\mathbb{R}}$ un élément de $I$ ou une borne de $I$, $L\\in\\overline{\\mathbb{R}}$ et $(u_n)_{n\\in\\mathbb{N}}$ une suite à valeurs dans $I$. Si $u_n \\xrightarrow[n\\to+\\infty]{} l$ et $f(x) \\xrightarrow[x\\to l]{} L$, alors $f(u_n) \\xrightarrow[n\\to+\\infty]{} L$. [cite: 514, 515, 516, 517, 518, 519]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_limite_expo_n",
+      "type": "example",
+      "title": "Exemple : Limite usuelle avec exponentielle",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$ : $(1+\\frac{x}{n})^n \\xrightarrow[n\\to+\\infty]{} e^x$.",
+      "proof_latex": "On peut supposer $x\\ne 0$. Pour tout $n\\in\\mathbb{N}^*$ : $(1+\\frac{x}{n})^n = e^{n\\ln(1+\\frac{x}{n})}$. Or $\\frac{\\ln(1+t)}{t} \\xrightarrow[t\\to0]{} 1$, donc $\\frac{\\ln(1+\\frac{x}{n})}{\\frac{x}{n}} \\xrightarrow[n\\to+\\infty]{} 1$, i.e. $n\\ln(1+\\frac{x}{n}) \\xrightarrow[n\\to+\\infty]{} x$, et on compose enfin avec la limite $e^t \\xrightarrow[t\\to x]{} e^x$. [cite: 524, 525, 526, 527, 528, 533]"
+    },
+    {
+      "id": "suites_reelles__warning_1_puissance_infini",
+      "type": "warning",
+      "title": "Attention : Nouvelle forme indéterminée",
+      "content_latex": "$1^{+\\infty}$ est une nouvelle forme indéterminée.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__def_suite_extraite_valeur_adherence",
+      "type": "definition",
+      "title": "Définition : Fonction d'extraction, suite extraite, valeur d'adhérence",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle.\\par $\\bullet$ Fonction d'extraction : On appelle fonction d'extraction toute fonction strictement croissante de $\\mathbb{N}$ dans $\\mathbb{N}$.\\par $\\bullet$ Suite extraite : On appelle suite extraite (ou sous-suite) de $(u_n)_{n\\in\\mathbb{N}}$ toute suite $(u_{\\varphi(n)})_{n\\in\\mathbb{N}}$ dans laquelle $\\varphi$ est une fonction d'extraction.\\par $\\bullet$ Valeur d'adhérence : On appelle valeur d'adhérence de $(u_n)_{n\\in\\mathbb{N}}$ toute limite d'une suite extraite CONVERGENTE de $(u_n)_{n\\in\\mathbb{N}}$. [cite: 539, 540, 541]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_suites_extraites_adherence",
+      "type": "example",
+      "title": "Exemple : Fonctions d'extraction et valeurs d'adhérence",
+      "content_latex": "$\\bullet$ Les suites $(\\sqrt{2^n+4n})_{n\\in\\mathbb{N}}$ et $(n)_{n\\in\\mathbb{N}}$ sont deux suites extraites de la suite $(\\sqrt{n})_{n\\in\\mathbb{N}}$ associées respectivement aux fonctions d'extraction $n\\mapsto 2^n+4n$ et $n\\mapsto n^2$.\\par $\\bullet$ Les suites constantes égales à $1$ et $-1$ respectivement sont deux suites extraites de la suite $((-1)^n)_{n\\in\\mathbb{N}}$. Les réels $1$ et $-1$ sont donc deux valeurs d'adhérence de cette suite. [cite: 550, 551]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__warning_indices_suites_extraites",
+      "type": "warning",
+      "title": "Attention : Indices de suites extraites",
+      "content_latex": "Pour tout $k\\in\\mathbb{N}$, le terme qui vient après $u_{2k}$ dans la suite $(u_{2n})_{n\\in\\mathbb{N}}$ est $u_{2(k+1)}=u_{2k+2}$ et non pas $u_{2k+1}$. De même, le terme qui vient après $u_{2k+1}$ dans la suite $(u_{2n+1})_{n\\in\\mathbb{N}}$ est $u_{2(k+1)+1}=u_{2k+3}$ et non pas $u_{2k+2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_minoration_fonction_extraction",
+      "type": "theorem",
+      "title": "Théorème : Minoration des fonctions d'extraction",
+      "content_latex": "Soit $\\varphi$ une fonction d'extraction. Pour tout $n\\in\\mathbb{N}$ : $\\varphi(n)\\ge n$.",
+      "proof_latex": "Pour tout $k\\in\\mathbb{N} : \\varphi(k+1)-\\varphi(k)>0$, mais $\\varphi$ est à valeurs entières, donc $\\varphi(k+1)-\\varphi(k)\\ge 1$, donc pour tout $n\\in\\mathbb{N} : \\varphi(n) = \\varphi(0) + \\sum_{k=0}^{n-1} (\\varphi(k+1)-\\varphi(k)) \\ge 0 + \\sum_{k=0}^{n-1} 1 = n$."
+    },
+    {
+      "id": "suites_reelles__thm_limites_suites_extraites",
+      "type": "theorem",
+      "title": "Théorème : Limites de suites extraites",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle et $l\\in\\overline{\\mathbb{R}}$.\\par (i) Si $(u_n)_{n\\in\\mathbb{N}}$ admet $l$ pour limite, ses suites extraites admettent aussi toutes $l$ pour limite. En particulier, si $(u_n)_{n\\in\\mathbb{N}}$ converge, sa limite est sa seule valeur d'adhérence.\\par (ii) Si $u_{2n}\\to l$ et $u_{2n+1}\\to l$, alors $u_n\\to l$. [cite: 555, 556, 557, 558]",
+      "proof_latex": "(i) Faisons l'hypothèse que $u_n\\to l$. Soit $\\varphi$ une fonction d'extraction. Montrons que $u_{\\varphi(n)}\\to l$. Soit $V$ un voisinage de $l$. Par hypothèse, $u_n\\in V$ à partir d'un certain rang $N$, donc pour tout $n\\ge N, \\varphi(n)\\ge\\varphi(N)\\ge N$ par croissance de $\\varphi$, donc $u_{\\varphi(n)}\\in V$.\\par (ii) Faisons l'hypothèse que $u_{2n}\\to l$ et $u_{2n+1}\\to l$ et montrons que $u_n\\to l$. Soit $V$ un voisinage de $l$. Par hypothèse, $u_{2n}\\in V$ à partir d'un certain rang $N$ et $u_{2n+1}\\in V$ à partir d'un certain rang $N'$, donc $u_n\\in V$ pour tous $n\\ge 2N$ pair et $n\\ge 2N'+1$ impair, donc pour tout $n\\ge \\max\\{2N, 2N'+1\\}$. [cite: 560, 561, 562, 563, 564]"
+    },
+    {
+      "id": "suites_reelles__method_montrer_divergence_extraites",
+      "type": "method",
+      "title": "Méthode : Montrer qu'une suite n'a pas de limite avec des suites extraites",
+      "content_latex": "Pour montrer qu'une suite n'a pas de limite, il suffit d'en exhiber deux suites extraites n'ayant pas la même limite. [cite: 567, 568]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_divergence_moins_un_puissance_n",
+      "type": "example",
+      "title": "Exemple : Divergence de $((-1)^n)_{n\\in\\mathbb{N}}$",
+      "content_latex": "La suite $((-1)^n)_{n\\in\\mathbb{N}}$ n'a pas de limite car $(-1)^{2n} \\xrightarrow[n\\to+\\infty]{} 1$ alors que $(-1)^{2n+1} \\xrightarrow[n\\to+\\infty]{} -1$. [cite: 569, 571]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_divergence_partie_entiere_racine",
+      "type": "example",
+      "title": "Exemple : Divergence avec partie entière et racine",
+      "content_latex": "Pour tout $n\\in\\mathbb{N}$, on pose $u_n = \\frac{n}{9} - \\lfloor\\frac{\\sqrt{n}}{3}\\rfloor^2$. La suite $(u_n)_{n\\in\\mathbb{N}}$ n'a pas de limite. [cite: 572, 573]",
+      "proof_latex": "$u_{9n^2} = 0 \\xrightarrow[n\\to+\\infty]{} 0$ et $u_{(3n+1)^2} = \\frac{(3n+1)^2}{9} - \\lfloor\\frac{3n+1}{3}\\rfloor^2 = (n^2 + \\frac{6n+1}{9}) - n^2 = \\frac{6n+1}{9} \\xrightarrow[n\\to+\\infty]{} +\\infty$. [cite: 574, 575]"
+    },
+    {
+      "id": "suites_reelles__thm_limites_inegalites_strictes",
+      "type": "theorem",
+      "title": "Théorème : Limites et inégalités strictes",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle possédant une limite $l$ et $m, M\\in\\mathbb{R}$.\\par (i) Si $l<M$, alors $u_n<M$ à partir d'un certain rang.\\par (ii) Si $l>m$, alors $u_n>m$ à partir d'un certain rang.\\par (iii) Si $m<l<M$, alors $m<u_n<M$ à partir d'un certain rang. [cite: 579, 580, 581, 582, 583]",
+      "proof_latex": "Prouvons (i). Si $l=-\\infty$, les $u_n$ sont tous dans le voisinage $]-\\infty, M[$ de $l$ à partir d'un certain rang. Si $l\\in\\mathbb{R}$, alors $\\epsilon=M-l>0$ par hypothèse, donc les $u_n$ sont tous dans $]l-\\epsilon,l+\\epsilon[ \\subset ]-\\infty,M[$ à partir d'un certain rang. Dans les deux cas, $u_n<M$ à partir d'un certain rang. [cite: 589, 590, 591]"
+    },
+    {
+      "id": "suites_reelles__thm_passage_limite_inegalite_large",
+      "type": "theorem",
+      "title": "Théorème : Passage à la limite dans une inégalité large",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ deux suites réelles possédant une limite finie. Si $u_n\\le v_n$ à partir d'un certain rang, alors $\\lim_{n\\to+\\infty} u_n \\le \\lim_{n\\to+\\infty} v_n$. [cite: 592, 593]",
+      "proof_latex": "Par contraposition, si $\\lim_{n\\to+\\infty} (v_n-u_n) < 0$, le théorème précédent montre que $v_n-u_n<0$ à partir d'un certain rang. Il est donc faux que $u_n\\le v_n$ à partir d'un certain rang ! [cite: 599, 600, 601]"
+    },
+    {
+      "id": "suites_reelles__warning_limite_inegalite_stricte",
+      "type": "warning",
+      "title": "Attention : Faux avec des inégalités strictes",
+      "content_latex": "C'est faux avec des inégalités strictes ! Par exemple, $\\frac{1}{n} \\xrightarrow[n\\to+\\infty]{} 0$ alors que $\\frac{1}{n}>0$ pour tout $n\\in\\mathbb{N}^*$. [cite: 595, 596, 597, 598]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_encadrement_minoration_majoration",
+      "type": "theorem",
+      "title": "Théorème : Encadrement / Minoration / Majoration",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}, (m_n)_{n\\in\\mathbb{N}}$ et $(M_n)_{n\\in\\mathbb{N}}$ trois suites réelles et $l\\in\\mathbb{R}$.\\par (i) Théorème d'encadrement : Si $m_n\\le u_n\\le M_n$ à partir d'un certain rang avec $m_n \\to l$ et $M_n \\to l$, alors $u_n \\to l$.\\par (ii) Théorème de minoration : Si $u_n\\ge m_n$ à partir d'un certain rang avec $m_n \\to +\\infty$, alors $u_n \\to +\\infty$.\\par (iii) Théorème de majoration : Si $u_n\\le M_n$ à partir d'un certain rang avec $M_n \\to -\\infty$, alors $u_n \\to -\\infty$. [cite: 603, 604, 605, 606, 607, 608, 609, 612, 615, 618]",
+      "proof_latex": "(i) Soit $\\epsilon>0$. Par hypothèse, $m_n\\le u_n\\le M_n$ à partir d'un certain rang $N$, $m_n>l-\\epsilon$ à partir d'un rang $N'$ et $M_n<l+\\epsilon$ à partir d'un rang $N''$, donc pour tout $n\\ge \\max\\{N,N',N''\\}$ : $l-\\epsilon < m_n \\le u_n \\le M_n < l+\\epsilon$, et enfin $|u_n-l|<\\epsilon$.\\par (ii) Soit $A>0$. Par hypothèse, $u_n\\ge m_n$ à partir d'un certain rang $N$ et $m_n>A$ à partir d'un certain rang $N'$, donc pour tout $n\\ge \\max\\{N,N'\\}$ : $u_n\\ge m_n>A$ et enfin $u_n>A$. [cite: 622, 623]"
+    },
+    {
+      "id": "suites_reelles__warning_theoremes_existence",
+      "type": "warning",
+      "title": "Attention : Ce sont des théorèmes d'existence",
+      "content_latex": "Le théorème d'encadrement n'est pas du tout un théorème de passage à la limite. Quand on passe à la limite dans une inégalité, ON SAIT DÉJÀ que ses membres de gauche et de droite ont une limite, alors que dans le théorème d'encadrement, seules $\\lim m_n$ et $\\lim M_n$ sont réputées exister au départ. L'existence de $\\lim u_n$ en découle. Les théorèmes d'encadrement, de minoration et de majoration sont avant tout des théorèmes d'EXISTENCE. [cite: 627, 628, 629]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_factorielle_infinie",
+      "type": "example",
+      "title": "Exemple : Limite de la factorielle",
+      "content_latex": "$n! \\xrightarrow[n\\to+\\infty]{} +\\infty$ par minoration, car $n!\\ge n$ pour tout $n\\in\\mathbb{N}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_produit_suite_bornee_nulle",
+      "type": "theorem",
+      "title": "Théorème : Produit d'une suite bornée et d'une suite de limite nulle",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ et $(\\epsilon_n)_{n\\in\\mathbb{N}}$ deux suites réelles. Si $(u_n)_{n\\in\\mathbb{N}}$ est bornée et si $\\epsilon_n \\to 0$, alors $\\epsilon_n u_n \\to 0$. [cite: 634, 635]",
+      "proof_latex": "Par hypothèse, il existe un réel $K\\ge 0$ pour lequel $|u_n|\\le K$ pour tout $n\\in\\mathbb{N}$, donc après multiplication par $|\\epsilon_n|$ : $0\\le|\\epsilon_n u_n|\\le K|\\epsilon_n|$. Ainsi, $\\epsilon_n u_n \\to 0$ par encadrement car $K|\\epsilon_n| \\to 0$. [cite: 636, 637, 648]"
+    },
+    {
+      "id": "suites_reelles__ex_limite_sin_n_sur_n",
+      "type": "example",
+      "title": "Exemple : Limite de $\\frac{\\sin n}{n}$",
+      "content_latex": "$\\frac{\\sin n}{n} \\xrightarrow[n\\to+\\infty]{} 0$ car la suite $(\\sin n)_{n\\in\\mathbb{N}}$ est bornée et $\\frac{1}{n} \\to 0$. [cite: 639, 641, 645]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_suites_geometriques_limites",
+      "type": "theorem",
+      "title": "Théorème : Suites géométriques (limites et sommes)",
+      "content_latex": "Soit $x\\in\\mathbb{R}$.\\par $\\bullet$ Si $x>1$, $\\lim_{n\\to+\\infty} x^n = +\\infty$.\\par $\\bullet$ Si $x=1$, $\\lim_{n\\to+\\infty} x^n = 1$.\\par $\\bullet$ Si $|x|<1$, $\\lim_{n\\to+\\infty} x^n = 0$.\\par $\\bullet$ Si $x\\le -1$, pas de limite.\\par Par ailleurs, si $|x|<1$, alors $\\sum_{n=0}^{+\\infty} x^n = \\frac{1}{1-x}$. [cite: 642, 644, 647]",
+      "proof_latex": "$\\bullet$ Cas où $x>1$ : $x^n = (1+(x-1))^n = \\sum_{k=0}^n \\binom{n}{k}(x-1)^k \\ge 1+n(x-1)$, donc $x^n \\to +\\infty$ par minoration car $x-1>0$.\\par $\\bullet$ Cas où $|x|<1$ : $|x|^{-n} = (\\frac{1}{|x|})^n \\to +\\infty$ d'après le cas précédent, donc $|x^n| \\to 0$ par passage à l'inverse, i.e. $x^n \\to 0$.\\par $\\bullet$ Cas où $x<-1$ : Comme $x^2>1$, $x^{2n} \\to +\\infty$, puis $x^{2n+1} = x \\cdot x^{2n} \\to -\\infty$. Les suites extraites n'ayant pas même limite, $(x^n)_{n\\in\\mathbb{N}}$ n'a pas de limite.\\par $\\bullet$ Sommes géométriques : Si $|x|<1$, alors $\\sum_{k=0}^n x^k = \\frac{1-x^{n+1}}{1-x} \\xrightarrow[n\\to+\\infty]{} \\frac{1}{1-x}$. [cite: 650, 652, 653, 654, 657, 659, 663, 664, 665, 666, 667]"
+    },
+    {
+      "id": "suites_reelles__ex_critere_da_lambert_suites",
+      "type": "example",
+      "title": "Exemple : Ratio inférieur à $\\eta < 1$",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite strictement positive et $\\eta\\in ]0, 1[$. Si $\\frac{u_{n+1}}{u_n}\\le\\eta$ à partir d'un certain rang $N$, alors $u_n\\to 0$. En particulier, si $\\frac{u_{n+1}}{u_n} \\to 0$, alors $u_n \\to 0$. [cite: 671, 672, 673]",
+      "proof_latex": "Pour tout $n\\ge N$ : $\\frac{u_{n+1}}{\\eta^{n+1}} \\le \\frac{u_n}{\\eta^n}$, donc la suite $(\\frac{u_n}{\\eta^n})_{n\\ge N}$ est décroissante. Positive, elle est donc bornée. Cela dit, $\\eta^n \\to 0$ car $\\eta\\in]0,1[$, donc $u_n = \\frac{u_n}{\\eta^n} \\times \\eta^n \\xrightarrow[n\\to+\\infty]{} 0$ par produit d'une suite bornée et d'une suite de limite nulle. [cite: 674, 675, 676]"
+    },
+    {
+      "id": "suites_reelles__thm_croissance_comparee_exp_fact",
+      "type": "theorem",
+      "title": "Théorème : Comparaison exponentielles/factorielle",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$ : $\\frac{x^n}{n!} \\xrightarrow[n\\to+\\infty]{} 0$. [cite: 677, 678]",
+      "proof_latex": "Pour $x\\ne 0$, posons $u_n = \\frac{|x|^n}{n!} > 0$ pour tout $n\\in\\mathbb{N}$. Aussitôt : $\\frac{u_{n+1}}{u_n} = \\frac{|x|}{n+1} \\xrightarrow[n\\to+\\infty]{} 0$, donc $u_n \\to 0$ d'après l'exemple précédent. [cite: 679, 680, 681]"
+    },
+    {
+      "id": "suites_reelles__thm_limite_monotone",
+      "type": "theorem",
+      "title": "Théorème : Théorème de la limite monotone",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite réelle. Si $(u_n)_{n\\in\\mathbb{N}}$ est monotone, alors $(u_n)_{n\\in\\mathbb{N}}$ possède une limite. Plus précisément, si $(u_n)_{n\\in\\mathbb{N}}$ est croissante, $(u_n)_{n\\in\\mathbb{N}}$ converge si $(u_n)_{n\\in\\mathbb{N}}$ est majorée et $u_n \\to +\\infty$ sinon. En toute généralité, on peut donc affirmer que $\\lim_{n\\to+\\infty} u_n = \\sup_{\\overline{\\mathbb{R}}}\\{u_n \\mid n\\in\\mathbb{N}\\}$. On dispose bien sûr d'un résultat analogue sur les suites décroissantes. [cite: 688, 689, 690, 691]",
+      "proof_latex": "Traitons le cas d'une suite croissante.\\par $\\bullet$ Supposons $(u_n)$ majorée. L'ensemble $\\{u_n\\}$ est une partie non vide majorée de $\\mathbb{R}$, donc possède une borne supérieure $l\\in\\mathbb{R}$ d'après la propriété de la borne supérieure. Montrons que $u_n \\to l$. Soit $\\epsilon>0$. Par définition de $l$, $l-\\epsilon$ ne majore pas $(u_n)$, donc $u_N > l-\\epsilon$ pour un certain $N\\in\\mathbb{N}$, donc pour tout $n\\ge N, u_n \\ge u_N > l-\\epsilon$ par croissance, donc $l-\\epsilon < u_n \\le l < l+\\epsilon$, i.e. $|u_n-l|<\\epsilon$.\\par $\\bullet$ Supposons $(u_n)$ non majorée. Soit $A>0$. Comme $A$ ne majore pas $(u_n)$, $u_N>A$ pour un certain $N\\in\\mathbb{N}$, donc pour tout $n\\ge N$, $u_n>A$ par croissance. Comme voulu, $u_n \\to +\\infty$. [cite: 692, 695, 696, 697, 698]"
+    },
+    {
+      "id": "suites_reelles__warning_limite_majorant",
+      "type": "warning",
+      "title": "Attention : La limite n'est pas forcément le majorant proposé",
+      "content_latex": "Une suite croissante majorée par $M$ converge... MAIS PAS FORCÉMENT VERS $M$, qui n'est qu'un majorant parmi d'autres ! [cite: 701, 702]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_suite_somme_convergente",
+      "type": "example",
+      "title": "Exemple : Convergence d'une suite croissante majorée",
+      "content_latex": "On pose $u_n = \\sum_{k=0}^n \\frac{\\lfloor e^k \\rfloor}{3^k}$ pour tout $n\\in\\mathbb{N}$. La suite $(u_n)_{n\\in\\mathbb{N}}$ converge.",
+      "proof_latex": "D'après le théorème de la limite monotone, il suffit de montrer que $(u_n)_{n\\in\\mathbb{N}}$ est croissante et majorée. Or pour tout $n\\in\\mathbb{N}$ : $u_{n+1}-u_n = \\frac{\\lfloor e^{n+1} \\rfloor}{3^{n+1}} \\ge 0$ et $u_n \\le \\sum_{k=0}^n (\\frac{e}{3})^k = \\frac{3}{3-e}(1-(\\frac{e}{3})^{n+1}) \\le \\frac{3}{3-e}$. [cite: 704, 705, 706, 708]"
+    },
+    {
+      "id": "suites_reelles__thm_suites_adjacentes",
+      "type": "theorem",
+      "title": "Théorème : Théorème des suites adjacentes",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ deux suites réelles. On dit que $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ sont adjacentes si l'une de ces suites est croissante, l'autre décroissante et si $u_n-v_n \\to 0$. Le cas échéant, $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ sont convergentes de même limite. Si c'est $(u_n)_{n\\in\\mathbb{N}}$ qui est croissante et $(v_n)_{n\\in\\mathbb{N}}$ qui est décroissante et si on note $l$ leur limite commune, alors $u_m \\le l \\le v_n$ pour tous $m,n\\in\\mathbb{N}$. [cite: 710, 711, 712, 715]",
+      "proof_latex": "Supposons $(u_n)$ croissante et $(v_n)$ décroissante.\\par $\\bullet$ Montrons d'abord que $u_k\\le v_k$ pour tout $k\\in\\mathbb{N}$. Soit $k\\in\\mathbb{N}$. Pour tout $n\\ge k$, $u_k\\le u_n$ par croissance et $v_n\\le v_k$ par décroissance, donc $v_k-u_k \\ge v_n-u_n$ et ainsi $v_k-u_k\\ge 0$ par passage à la limite.\\par $\\bullet$ En retour, pour tout $k\\in\\mathbb{N}$, $u_0\\le u_k\\le v_k\\le v_0$ par monotonie, donc $(u_n)$ et $(v_n)$ sont monotones bornées. Elles convergent par conséquent toutes les deux d'après le théorème de la limite monotone, disons vers $l_u$ et $l_v$ respectivement. Enfin, $l_u=l_v$ car $u_n-v_n\\to 0$. [cite: 716, 717, 718, 719, 720]"
+    },
+    {
+      "id": "suites_reelles__ex_constante_euler",
+      "type": "example",
+      "title": "Exemple : Constante d'Euler par suites adjacentes",
+      "content_latex": "On pose $u_n = \\sum_{k=1}^n \\frac{1}{k} - \\ln(n+1)$ et $v_n = \\sum_{k=1}^n \\frac{1}{k} - \\ln n$ pour tout $n\\in\\mathbb{N}^*$. Les suites $(u_n)$ et $(v_n)$ sont adjacentes. En particulier, la suite $(u_n)$ converge vers un réel $\\gamma \\approx 0,577$ qu'on appelle la constante d'Euler. [cite: 721, 722]",
+      "proof_latex": "La suite $(u_n)$ est croissante et la suite $(v_n)$ décroissante car pour tout $n\\in\\mathbb{N}^*$ : $v_{n+1}-v_n = \\frac{1}{n+1} + \\ln(1-\\frac{1}{n+1}) < \\frac{1}{n+1} - \\frac{1}{n+1} = 0$ (en utilisant $\\ln(1+x)\\le x$) et $u_{n+1}-u_n = \\frac{1}{n+1} - \\ln(1+\\frac{1}{n+1}) \\ge 0$. Enfin $v_n-u_n = \\ln(n+1)-\\ln n = \\ln(1+\\frac{1}{n}) \\xrightarrow[n\\to+\\infty]{} 0$. [cite: 726, 727]"
+    },
+    {
+      "id": "suites_reelles__def_petit_o_equivalent",
+      "type": "definition",
+      "title": "Définition : Notation des petits o et des équivalents",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ deux suites réelles. On suppose $v_n\\ne 0$ à partir d'un certain rang.\\par $\\bullet$ Négligeabilité : On dit que $(u_n)_{n\\in\\mathbb{N}}$ est négligeable devant $(v_n)_{n\\in\\mathbb{N}}$, ce qu'on note $u_n =_{n\\to+\\infty} o(v_n)$ ou $u_n = o(v_n)$, si $\\frac{u_n}{v_n} \\to 0$. On dit généralement que $u_n$ est un petit o de $v_n$.\\par $\\bullet$ Équivalence : On dit que $(u_n)_{n\\in\\mathbb{N}}$ est équivalente à $(v_n)_{n\\in\\mathbb{N}}$, ce qu'on note $u_n \\sim_{n\\to+\\infty} v_n$, si $\\frac{u_n}{v_n} \\to 1$. [cite: 735, 736, 737, 738, 742, 743, 744, 745]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_petits_o_usuels",
+      "type": "example",
+      "title": "Exemple : Croissances comparées avec petits o",
+      "content_latex": "$\\ln n =_{n\\to+\\infty} o(n)$ et $2^n =_{n\\to+\\infty} o(n!)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_equivalents_usuels",
+      "type": "example",
+      "title": "Exemple : Équivalents simples",
+      "content_latex": "$n^3+n+1 \\sim_{n\\to+\\infty} n^3$, $4n^2+\\sqrt{n} \\sim_{n\\to+\\infty} 4n^2$, $\\frac{1}{n}+\\frac{1}{n^2} \\sim_{n\\to+\\infty} \\frac{1}{n}$ et $3^n+2^n \\sim_{n\\to+\\infty} 3^n$. [cite: 749, 751, 752, 754]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_liens_petits_o_limites_equivalents",
+      "type": "theorem",
+      "title": "Théorème : Les petits o sont partout",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ et $(v_n)_{n\\in\\mathbb{N}}$ deux suites réelles et $l\\in\\mathbb{R}$. On suppose $v_n\\ne 0$ à partir d'un certain rang.\\par (i) Les limites finies cachent des petits o : $u_n \\to l \\iff u_n =_{n\\to+\\infty} l + o(1)$. En particulier : $u_n \\to 0 \\iff u_n =_{n\\to+\\infty} o(1)$. $o(1)$ désigne une suite de limite nulle.\\par (ii) Les équivalents cachent des petits o : $u_n \\sim_{n\\to+\\infty} v_n \\iff u_n =_{n\\to+\\infty} v_n + o(v_n)$. [cite: 756, 757, 758, 762, 765, 766]",
+      "proof_latex": "(i) $u_n \\to l \\iff u_n-l \\to 0 \\iff \\frac{u_n-l}{1} \\to 0 \\iff u_n-l = o(1) \\iff u_n = l + o(1)$.\\par (ii) $u_n \\sim v_n \\iff \\frac{u_n}{v_n} \\to 1 \\iff \\frac{u_n-v_n}{v_n} \\to 0 \\iff u_n-v_n = o(v_n) \\iff u_n = v_n + o(v_n)$. [cite: 771, 772]"
+    },
+    {
+      "id": "suites_reelles__thm_developpement_asymptotique_harmonique",
+      "type": "theorem",
+      "title": "Théorème : Développement asymptotique de la série harmonique",
+      "content_latex": "Il existe un réel $\\gamma \\approx 0,577$, appelé constante d'Euler, pour lequel : $\\sum_{k=1}^n \\frac{1}{k} = \\ln n + \\gamma + o(1)$. [cite: 779, 780]",
+      "proof_latex": "$H_n - \\ln n \\to \\gamma$, donc $H_n - \\ln n = \\gamma + o(1)$ (développement asymptotique). En particulier, $H_n \\sim_{n\\to+\\infty} \\ln n$, ou $H_n = \\ln n + o(\\ln n)$. [cite: 781, 783, 784, 786, 789]"
+    },
+    {
+      "id": "suites_reelles__thm_existence_suites_recurrentes",
+      "type": "theorem",
+      "title": "Théorème : Existence de suites récurrentes $u_{n+1}=f(u_n)$",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}$ et $f:E\\to E$ une fonction — ainsi $E$ est stable par $f$. Pour tout $a\\in E$, il existe une et une seule suite $(u_n)_{n\\in\\mathbb{N}}$ pour laquelle $u_0=a$ et $u_{n+1}=f(u_n)$ pour tout $n\\in\\mathbb{N}$. Cette suite $(u_n)_{n\\in\\mathbb{N}}$ est à valeurs dans $E$ et pour tout $n\\in\\mathbb{N}$ : $u_n = f\\circ...\\circ f(u_0)$ ($n$ fois). [cite: 800, 801, 802]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_existence_suite_ln",
+      "type": "example",
+      "title": "Exemple : Suite récurrente avec logarithme",
+      "content_latex": "Il existe une et une seule suite $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_0=1$ et $u_{n+1}=\\ln(1+u_n)$ pour tout $n\\in\\mathbb{N}$.",
+      "proof_latex": "D'une part $1\\in\\mathbb{R}_+$, d'autre part $\\mathbb{R}_+$ est stable par la fonction $x\\mapsto\\ln(1+x)$ car pour tout $x\\ge 0$, $\\ln(1+x)\\ge 0$."
+    },
+    {
+      "id": "suites_reelles__ex_suite_divergente_exp",
+      "type": "example",
+      "title": "Exemple : Divergence d'une suite récurrente avec exponentielle",
+      "content_latex": "La suite $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_0=0$ et $u_{n+1}=u_n+e^{u_n}$ pour tout $n\\in\\mathbb{N}$ diverge vers $+\\infty$.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}$ : $u_{n+1}-u_n=e^{u_n}\\ge 0$, donc $(u_n)_{n\\in\\mathbb{N}}$ est croissante, donc possède une limite $l\\in\\mathbb{R}\\cup\\{+\\infty\\}$ d'après le théorème de la limite monotone. Montrons que $l=+\\infty$. Or par l'absurde, si $l\\in\\mathbb{R}$ alors : $l = \\lim_{n\\to+\\infty} u_{n+1} = \\lim_{n\\to+\\infty} (u_n+e^{u_n}) = l+e^l$ car $e^x\\to e^l$, donc $e^l=0$ — contradiction ! [cite: 809, 810]"
+    },
+    {
+      "id": "suites_reelles__ex_suite_convergente_fraction",
+      "type": "example",
+      "title": "Exemple : Convergence d'une suite rationnelle",
+      "content_latex": "La suite $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_0=1$ et $u_{n+1}=\\frac{u_n}{1+u_n^2}$ pour tout $n\\in\\mathbb{N}$ converge vers $0$.",
+      "proof_latex": "$\\mathbb{R}_+^*$ est stable par la fonction $x\\mapsto\\frac{x}{1+x^2}$ et $u_0=1\\in\\mathbb{R}_+^*$, donc $u_n>0$ pour tout $n\\in\\mathbb{N}$ et $u_{n+1}-u_n=-\\frac{u_n^3}{1+u_n^2}\\le 0$. Décroissante positive, $(u_n)_{n\\in\\mathbb{N}}$ converge donc d'après le théorème de la limite monotone, et en notant $l$ sa limite : $l = \\lim_{n\\to+\\infty} u_{n+1} = \\lim_{n\\to+\\infty} \\frac{u_n}{1+u_n^2} = \\frac{l}{1+l^2}$, donc $l-\\frac{l}{1+l^2} = \\frac{l^3}{1+l^2} = 0$, i.e. $l=0$. [cite: 812, 813, 814, 817, 818]"
+    },
+    {
+      "id": "suites_reelles__thm_monotonie_suite_recurrente",
+      "type": "theorem",
+      "title": "Théorème : Monotonie d'une suite récurrente $u_{n+1}=f(u_n)$",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}$ et $f:E\\to E$ une fonction — ainsi $E$ est stable par $f$. Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite pour laquelle $u_0\\in E$ et $u_{n+1}=f(u_n)$ pour tout $n\\in\\mathbb{N}$.\\par (i) Si $f(x)\\ge x$ pour tout $x\\in E$, $(u_n)_{n\\in\\mathbb{N}}$ est croissante, et si $f(x)\\le x$ pour tout $x\\in E$, $(u_n)_{n\\in\\mathbb{N}}$ est décroissante. Le signe de la fonction $x\\mapsto f(x)-x$ nous renseigne donc sur la monotonie de $(u_n)_{n\\in\\mathbb{N}}$.\\par (ii) Si $f$ est croissante sur $E$, $(u_n)_{n\\in\\mathbb{N}}$ est monotone. Son sens de variation dépend de la position de $u_0$ par rapport à $u_1$.\\par (iii) Si $f$ est décroissante sur $E$, $(u_{2n})_{n\\in\\mathbb{N}}$ et $(u_{2n+1})_{n\\in\\mathbb{N}}$ sont monotones de sens contraires. [cite: 820, 821, 822, 823, 824, 825, 826]",
+      "proof_latex": "La stabilité de $E$ par $f$ montre que $u_n\\in E$ POUR TOUT $n\\in\\mathbb{N}$. (i) Si $f(x)\\ge x$ pour tout $x\\in E$, alors $u_{n+1}=f(u_n)\\ge u_n$ pour tout $n\\in\\mathbb{N}$, donc $(u_n)_{n\\in\\mathbb{N}}$ est croissante. (ii) Supposons $f$ croissante avec $u_0\\le u_1$. Hérédité : Si $u_n\\le u_{n+1}$, alors par croissance de $f : u_{n+1}=f(u_n)\\le f(u_{n+1})=u_{n+2}$. (iii) Supposons $f$ décroissante avec $u_0\\le u_2$. Dans ces conditions, $f\\circ f$ est croissante et la suite $(u_{2n})_{n\\in\\mathbb{N}}$ est récurrente associée à la fonction $f\\circ f$, donc $(u_{2n})_{n\\in\\mathbb{N}}$ est croissante d'après (ii). Il en découle que $(u_{2n+1})_{n\\in\\mathbb{N}}$ est décroissante car pour tout $n\\in\\mathbb{N}$, par décroissance de $f : u_{2n+1}=f(u_{2n})\\ge f(u_{2n+2})=u_{2n+3}$. [cite: 836, 837, 838, 840, 841, 842]"
+    },
+    {
+      "id": "suites_reelles__warning_monotonie_domaine_stable",
+      "type": "warning",
+      "title": "Attention : Stabilité du domaine pour la monotonie",
+      "content_latex": "La monotonie de $f$ et le signe de $x\\mapsto f(x)-x$ ne peuvent être exploités QUE SUR UN DOMAINE STABLE PAR $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__thm_limite_suite_recurrente_convergente",
+      "type": "theorem",
+      "title": "Théorème : Limite d'une suite récurrente convergente $u_{n+1}=f(u_n)$",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}$ et $f:E\\to E$ une fonction — ainsi $E$ est stable par $f$. Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite pour laquelle $u_0\\in E$ et $u_{n+1}=f(u_n)$ pour tout $n\\in\\mathbb{N}$. Si $(u_n)_{n\\in\\mathbb{N}}$ converge vers $l\\in E$ et si $f$ est CONTINUE en $l$, alors $l$ est un point fixe de $f$, autrement dit $f(l)=l$. [cite: 843, 844]",
+      "proof_latex": "$f(u_n) \\to f(l)$ car $f(x)\\to f(l)$ par continuité de $f$ en $l$, mais par ailleurs $f(u_n)=u_{n+1} \\to l$, donc $f(l)=l$ par unicité de la limite. [cite: 851, 852]"
+    },
+    {
+      "id": "suites_reelles__warning_hypothese_continuite",
+      "type": "warning",
+      "title": "Attention : L'hypothèse de continuité est indispensable",
+      "content_latex": "L'hypothèse de continuité n'est pas là pour décorer. [cite: 846, 847]",
+      "proof_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_etude_ln_x_plus_3",
+      "type": "example",
+      "title": "Exemple : Étude de $u_{n+1}=\\ln(u_n+3)$",
+      "content_latex": "On note $(u_n)_{n\\in\\mathbb{N}}$ la suite définie par $u_0=0$ et $u_{n+1}=\\ln(u_n+3)$ pour tout $n\\in\\mathbb{N}$. Cette suite converge vers l'unique point fixe $\\alpha$ de $f:x\\mapsto \\ln(x+3)$ sur $\\mathbb{R}_+$.",
+      "proof_latex": "La fonction $g: x\\mapsto f(x)-x$ est continue et strictement décroissante sur $\\mathbb{R}_+$ avec $g(0)=\\ln 3$ et $\\lim_{+\\infty}g=-\\infty$, donc d'après le TVI, $g$ s'annule une et une seule fois sur $\\mathbb{R}_+$, disons en $\\alpha$. Montrons que $[0,\\alpha]$ est stable par $f$. Pour tout $x\\in[0,\\alpha]$ : $f(x)\\in[0,\\alpha]$ car $0\\le \\ln 3=f(0)\\le f(x)\\le f(\\alpha)=\\alpha$ par croissance. $(u_n)_{n\\in\\mathbb{N}}$ est bien définie et à valeurs dans $[0,\\alpha]$ car $u_0=0$. Or $g$ est positive sur $[0,\\alpha]$, donc $f(x)\\ge x$, donc $(u_n)_{n\\in\\mathbb{N}}$ est croissante. Majorée par $\\alpha$, elle converge vers un point fixe de $f$ par continuité, forcément $\\alpha$. [cite: 855, 856, 862, 863, 864]"
+    },
+    {
+      "id": "suites_reelles__ex_etude_suite_trinome",
+      "type": "example",
+      "title": "Exemple : Étude selon le premier terme pour un trinôme",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite pour laquelle $u_{n+1}=\\frac{u_n^2+u_n+3}{5}$ pour tout $n\\in\\mathbb{N}$. On étudie sa nature en fonction de $u_0$. [cite: 868, 869, 870]",
+      "proof_latex": "On note $f(x)=\\frac{x^2+x+3}{5}$. Pour tout $x\\in\\mathbb{R}$ : $f(x)-x = \\frac{x^2-4x+3}{5} = \\frac{(x-1)(x-3)}{5}$, donc $f$ admet $1$ et $3$ pour points fixes. Si $u_0\\in[0,1]$, l'intervalle est stable et $f(x)\\ge x$, la suite croît vers $1$. Si $u_0\\in]1,3[$, l'intervalle est stable et $f(x)\\le x$, la suite décroît vers $1$. Si $u_0=3$, la suite est constante. Si $u_0>3$, l'intervalle est stable et $f(x)\\ge x$, la suite croît vers $+\\infty$. Si $u_0<0$, alors $u_1=f(u_0)\\ge 0$, on retombe sur les cas précédents selon l'intervalle dans lequel atterrit $u_1$. [cite: 871, 873, 874, 878, 879, 881, 882, 883, 884, 885, 887, 888, 889, 893]"
+    },
+    {
+      "id": "suites_reelles__ex_suite_un_plus_un_sur_un",
+      "type": "example",
+      "title": "Exemple : Suite $u_{n+1}=1+\\frac{1}{u_n}$",
+      "content_latex": "On note $(u_n)_{n\\in\\mathbb{N}}$ la suite définie par $u_0=1$ et $u_{n+1}=1+\\frac{1}{u_n}$ pour tout $n\\in\\mathbb{N}$. La suite converge vers $\\frac{\\sqrt{5}+1}{2}$.",
+      "proof_latex": "L'intervalle $[1,2]$ est stable par $f:x\\mapsto 1+\\frac{1}{x}$ et $u_0\\in[1,2]$, donc la suite est bornée entre $1$ et $2$. Ensuite, $f$ est décroissante sur $[1,2]$, donc $(u_{2n})$ et $(u_{2n+1})$ sont monotones de sens contraires. Bornées, elles convergent, disons vers $l$ et $l'$. Les suites $(u_{2n})$ et $(u_{2n+1})$ étant récurrentes associées à $f\\circ f$ continue, leurs limites sont des points fixes de $f\\circ f$. Or pour tout $x\\in[1,2]$ : $f\\circ f(x)=x \\iff 1+\\frac{1}{1+\\frac{1}{x}}=x \\iff x^2-x-1=0$, qui a pour unique solution positive $x=\\frac{\\sqrt{5}+1}{2}$. Il en découle que $l=l'=\\frac{\\sqrt{5}+1}{2}$. [cite: 901, 902, 908, 911, 912, 913, 918]"
+    },
+    {
+      "id": "suites_reelles__thm_cesaro",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Cesàro",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}^*}$ une suite réelle et $l\\in\\overline{\\mathbb{R}}$. Si $u_n \\to l$, alors $\\frac{1}{n}\\sum_{k=1}^n u_k \\to l$. [cite: 921, 922]",
+      "proof_latex": "Cas où $l\\in\\mathbb{R}$ : Quitte à remplacer $(u_n)$ par $(u_n-l)$, il suffit de prouver le résultat pour $l=0$. Soit $\\epsilon>0$. Par définition, il existe un rang $N$ à partir duquel $|u_n|<\\frac{\\epsilon}{2}$. Pour tout $n\\ge N$ d'après l'inégalité triangulaire : $\\left|\\frac{1}{n}\\sum_{k=1}^n u_k\\right| \\le \\frac{1}{n}\\sum_{k=1}^N |u_k| + \\frac{1}{n}\\sum_{k=N+1}^n |u_k| < \\frac{M}{n} + \\frac{n-N}{n}\\times\\frac{\\epsilon}{2} \\le \\frac{M}{n} + \\frac{\\epsilon}{2}$ en posant $M=\\sum_{k=1}^N |u_k|$. Or $M$ est indépendant de $n$, donc $\\frac{M}{n} \\to 0$, donc $\\frac{M}{n}<\\frac{\\epsilon}{2}$ à partir d'un rang $N'$. Finalement, pour tout $n\\ge\\max\\{N,N'\\} : \\left|\\frac{1}{n}\\sum_{k=1}^n u_k\\right| < \\epsilon$. Le cas $\\pm\\infty$ se traite de façon analogue. [cite: 930, 932]"
+    },
+    {
+      "id": "suites_reelles__ex_application_cesaro",
+      "type": "example",
+      "title": "Exemple : Recherche d'équivalent via Cesàro",
+      "content_latex": "On note $(u_n)_{n\\in\\mathbb{N}}$ la suite définie par $u_0=1$ et $u_{n+1}=\\sqrt{u_n^2+u_n}$ pour tout $n\\in\\mathbb{N}$. On montre que $u_n \\sim_{n\\to+\\infty} \\frac{n}{2}$. [cite: 938, 946]",
+      "proof_latex": "La suite $(u_n)_{n\\in\\mathbb{N}}$ diverge vers $+\\infty$. Exploitons le théorème de Cesàro pour aller plus loin : $u_{n+1}-u_n = \\frac{(u_n^2+u_n)-u_n^2}{\\sqrt{u_n^2+u_n}+u_n} = \\frac{1}{\\sqrt{1+\\frac{1}{u_n}}+1} \\to \\frac{1}{2}$. Donc d'après le théorème de Cesàro : $\\frac{u_n-u_0}{n} = \\frac{1}{n}\\sum_{k=1}^n (u_k-u_{k-1}) \\to \\frac{1}{2}$. Finalement : $\\frac{u_n}{n} = \\frac{u_n-u_0}{n} + \\frac{u_0}{n} \\to \\frac{1}{2}$, donc $u_n \\sim \\frac{n}{2}$. [cite: 941, 942, 943, 944, 945]"
+    },
+    {
+      "id": "suites_reelles__thm_carac_seq_borne",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation séquentielle de la borne supérieure/inférieure",
+      "content_latex": "Soient $A$ une partie non vide de $\\mathbb{R}$ et $M\\in\\mathbb{R}$.\\par (i) $\\sup A=M$ si et seulement si $M$ majore $A$ et $M$ est la limite d'une suite d'éléments de $A$.\\par (ii) $A$ n'est pas majorée si et seulement s'il existe une suite d'éléments de $A$ de limite $+\\infty$.\\par On dispose bien sûr de résultats analogues sur les bornes inférieures et les parties non minorées. [cite: 949, 950, 951, 952, 953]",
+      "proof_latex": "(i) Supposons d'abord que $\\sup A=M$. Dans ce cas, pour tout $n\\in\\mathbb{N}^*$, $M-\\frac{1}{n}$ ne majore pas $A$, donc $a_n > M-\\frac{1}{n}$ pour un certain $a_n\\in A$. Ainsi, $M-\\frac{1}{n} \\le a_n \\le M$ pour tout $n\\in\\mathbb{N}^*$, donc $a_n \\to M$ par encadrement. Réciproquement, faisons l'hypothèse que $M$ majore $A$ et est la limite d'une suite $(a_n)_{n\\in\\mathbb{N}}$ d'éléments de $A$. Pour tout majorant $M'$ de $A$, $a_n\\le M'$ pour tout $n\\in\\mathbb{N}$, donc $M\\le M'$ par passage à la limite. En d'autres termes, $M$ est le plus petit majorant de $A$, donc $M=\\sup A$. [cite: 957, 958, 959]"
+    },
+    {
+      "id": "suites_reelles__ex_carac_seq_inf_sup",
+      "type": "example",
+      "title": "Exemple : Inf et Sup sur un ensemble de fractions",
+      "content_latex": "Si on note $A$ l'ensemble $\\left\\{\\frac{q^2}{2^p+q} \\mid p,q\\in\\mathbb{N}^*\\right\\}$, alors $A$ n'est pas majoré, mais $\\inf A = 0$. [cite: 962, 964]",
+      "proof_latex": "D'abord, $A$ n'est pas majoré car il contient la suite $\\frac{n^2}{2^1+n}$ de limite $+\\infty$. Montrons maintenant que $\\inf A = 0$. Or $\\frac{q^2}{2^p+q}\\ge 0$ pour tous $p,q\\in\\mathbb{N}^*$, donc $A$ est minoré par $0$ et contient la suite $\\frac{1}{2^n+1}$ (obtenue pour $q=1$ et $p=n$) de limite $0$. [cite: 965, 967, 968, 969]"
+    }
+  ],
+  "exercises": []
+}

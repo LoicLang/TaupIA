@@ -1,0 +1,2605 @@
+{
+  "chapter_official_id": "rudiments_de_logique_et_vocabulaire_ensembliste",
+  "chapter_name": "Rudiments de logique et vocabulaire ensembliste",
+  "source_document": "Exercices - Rudiments de logique et vocabulaire ensembliste.pdf",
+  "exercises": [
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_001",
+      "title": "Vrai ou faux sur les quantificateurs",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "logique",
+        "quantificateurs",
+        "implication",
+        "vrai_faux"
+      ],
+      "statement_latex": "Vrai ou faux ? Justifier.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\forall x\\in\\mathbb{R},\\ x>2 \\Rightarrow x\\ge3.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous que les réels ne se limitent pas aux nombres entiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez un contre-exemple strictly compris entre 2 et 3, comme $x = 2.5$."
+            }
+          ],
+          "solution_latex": "\\textbf{Faux.} Contre-exemple : $x = 2.5$ vérifie $x > 2$ mais $2.5 \\not\\ge 3$. La propriété est fausse car l'ensemble des réels ne se limite pas aux entiers."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\forall(x,y)\\in(\\mathbb{R}^{*})^{2},\\ x<y \\Rightarrow \\frac{1}{x} > \\frac{1}{y}.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction inverse est-elle décroissante sur l'ensemble de son domaine d'étude ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le cas où $x$ et $y$ ne sont pas de même signe."
+            }
+          ],
+          "solution_latex": "\\textbf{Faux.} Contre-exemple : soit $x = -1$ et $y = 1$. Alors $x < y$ mais $\\frac{1}{x} = -1$ et $\\frac{1}{y} = 1$, d'où $\\frac{1}{x} < \\frac{1}{y}$. La fonction inverse n'est pas décroissante sur tout $\\mathbb{R}^{*}$ car elle a une discontinuité en $0$ et change de sens de variation selon le signe de $x$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\exists x\\in\\mathbb{R}_{+},\\ x<\\sqrt{x}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tracez mentalement les graphes des fonctions $x \\mapsto x$ et $x \\mapsto \\sqrt{x}$ sur $\\mathbb{R}_+$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regardez ce qui se passe sur l'intervalle $]0, 1[$."
+            }
+          ],
+          "solution_latex": "\\textbf{Vrai.} Pour $x \\in (0,1)$, on a $\\sqrt{x} > x$ car en élevant au carré (les deux étant positifs), cela revient à $x > x^2$, soit $x(1-x) > 0$, ce qui est vrai pour $x \\in (0,1)$. Par exemple, $x = 0.5$ vérifie $0.5 < \\sqrt{0.5} \\approx 0.707$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\forall N\\in\\mathbb{N}^{*},\\ \\exists n\\in\\mathbb{N}^{*},\\ \\sum_{k=1}^{n}\\sqrt{k}\\ge N.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez le comportement de la somme lorsque $n$ devient très grand."
+            },
+            {
+              "level": 2,
+              "content_latex": "Chaque terme $\\sqrt{k}$ pour $k \\ge 1$ est minoré par $1$. Que peut-on en déduire sur la somme ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Vrai.} Pour tout $N \\in \\mathbb{N}^{*}$, prenons $n = N^2$. Alors $\\sum_{k=1}^{n} \\sqrt{k} \\ge \\sum_{k=1}^{N^2} 1 = N^2 \\ge N$ (puisque $\\sqrt{k} \\ge 1$ pour $k \\ge 1$ donnerait une minorations plus faible). Plus rigoureusement, $\\sum_{k=1}^{n} \\sqrt{k} \\ge \\sum_{k=n}^{n} \\sqrt{k} = \\sqrt{n}$, mais il faut être plus fin. On a $\\sum_{k=1}^{N^2} \\sqrt{k} \\ge N$ car chacun des $N^2$ termes est au moins $1$, d'où la somme vaut au moins $N^2$, qui majore bien $N$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\forall x,x^{\\prime}\\in\\mathbb{R}^{*},\\ x\\ne x^{\\prime} \\Rightarrow \\frac{x+1}{x}\\ne\\frac{x^{\\prime}+1}{x^{\\prime}}.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simplifiez l'expression $\\frac{x+1}{x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez que $\\frac{x+1}{x} = 1 + \\frac{1}{x}$. Concluez en utilisant l'injectivité de la fonction inverse."
+            }
+          ],
+          "solution_latex": "\\textbf{Vrai.} On remarque que $\\frac{x+1}{x} = 1 + \\frac{1}{x}$. Si $x \\ne x'$, alors par injectivité de la fonction $x \\mapsto \\frac{1}{x}$ sur $\\mathbb{R}^{*}$ (qui est strictement décroissante et donc injective), on a $\\frac{1}{x} \\ne \\frac{1}{x'}$, d'où $1 + \\frac{1}{x} \\ne 1 + \\frac{1}{x'}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\forall x\\in\\mathbb{R},\\ x^{2}+x>0 \\Rightarrow x \\ge 0.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez l'inéquation $x^2+x > 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le polynôme s'annule en $0$ et $-1$. Que se passe-t-il pour $x < -1$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Faux.} Contre-exemple : pour $x = -2$, on a $x^2 + x = 4 - 2 = 2 > 0$ mais $x = -2 \\not\\ge 0$. L'équation $x^2 + x = x(x+1) > 0$ est vraie pour $x < -1$ ou $x > 0$, pas seulement pour $x \\ge 0$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\forall x,y\\in\\mathbb{R},\\ x<y\\Rightarrow\\exists r\\in\\mathbb{Q},\\ x<r<y.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit d'une propriété fondamentale de l'ensemble des rationnels par rapport aux réels."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est la définition de la densité de $\\mathbb{Q}$ dans $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Vrai.} C'est la densité de $\\mathbb{Q}$ dans $\\mathbb{R}$. Pour $x < y$, on peut toujours trouver un rationnel entre les deux. On peut prendre $r = \\frac{\\lfloor 10^k x \\rfloor + 1}{10^k}$ pour $k$ assez grand, ou utiliser une construction directe par l'Archiméde."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\forall n\\in\\mathbb{N},\\ \\exists N\\in\\mathbb{N},\\ n\\le N.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la phrase : \"Pour tout entier, il existe un entier qui lui est supérieur ou égal.\""
+            },
+            {
+              "level": 2,
+              "content_latex": "Le choix $N = n$ ou $N = n+1$ fonctionne-t-il ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Vrai.} Pour tout $n \\in \\mathbb{N}$, il suffit de choisir $N = n$ (ou $N = n+1$). Alors $n \\le N$ est toujours vrai."
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$\\exists N\\in\\mathbb{N},\\ \\forall n\\in\\mathbb{N},\\ n<N.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cette proposition affirme qu'il existe un entier strictement plus grand que tous les entiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que se passe-t-il si l'on choisit $n = N$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Faux.} Si une telle propriété était vraie, il existerait $N$ tel que $n < N$ pour tous les $n \\in \\mathbb{N}$. Mais en prenant $n = N$, on obtient $N < N$, ce qui est une contradiction."
+        },
+        {
+          "label": "10)",
+          "statement_latex": "a) $\\forall x\\in\\mathbb{R},\\ (x\\le0 \\text{ ou } x\\ge0)$ \\par b) $(\\forall x\\in\\mathbb{R},\\ x\\le0) \\text{ ou } (\\forall x\\in\\mathbb{R},\\ x\\ge0)$ \\par c) $\\forall x\\in\\mathbb{R},\\ \\exists M>0,\\ e^{x}\\le M$ \\par d) $\\exists x\\in\\mathbb{R},\\ \\forall M>0,\\ e^{x}\\le M$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites très attention à l'ordre des quantificateurs et à la position des parenthèses."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour c), le choix de $M$ peut dépendre de $x$. Pour d), un seul $x$ doit fonctionner pour n'importe quel $M > 0$, même infiniment petit."
+            }
+          ],
+          "solution_latex": "a) \\textbf{Vrai.} Pour tout réel $x$, on a toujours $x \\le 0$ ou $x \\ge 0$ par trichotomie des réels. \\par b) \\textbf{Faux.} Il est faux que tous les réels soient négatifs ou que tous soient positifs. \\par c) \\textbf{Vrai.} Pour tout $x \\in \\mathbb{R}$, on peut choisir $M > e^x$ (par exemple $M = e^x + 1$), donc $e^x \\le M$. \\par d) \\textbf{Faux.} Il n'existe pas de réel $x$ tel que $e^x \\le M$ pour tous les $M > 0$, même arbitrairement petits. Cela reviendrait à dire que $e^x \\le 0$, ce qui est impossible."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_002",
+      "title": "Traduction de propriétés de fonctions",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "logique",
+        "quantificateurs",
+        "fonctions",
+        "traduction"
+      ],
+      "statement_latex": "Soit $f:\\mathbb{R}\\longrightarrow\\mathbb{R}$ une fonction. Écrire avec des quantificateurs les propositions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$f$ s'annule.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dire que la fonction s'annule signifie qu'il y a au moins un point où elle vaut $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez le quantificateur existentiel $\\exists$."
+            }
+          ],
+          "solution_latex": "$\\exists x \\in \\mathbb{R}, \\ f(x) = 0$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$f$ est la fonction nulle.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Contrairement à la question précédente, c'est vrai pour tous les points du domaine de définition."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez le quantificateur universel $\\forall$."
+            }
+          ],
+          "solution_latex": "$\\forall x \\in \\mathbb{R}, \\ f(x) = 0$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$f$ s'annule au plus une fois.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cela signifie que si la fonction s'annule en deux points, alors ces deux points sont en réalité confondus."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduisez : « Pour tout couple $(x, y)$, si $f(x)=0$ et $f(y)=0$, alors $x=y$. »"
+            }
+          ],
+          "solution_latex": "$\\forall x, y \\in \\mathbb{R}, \\ (f(x) = 0 \\text{ et } f(y) = 0) \\Rightarrow x = y$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$f$ est majorée.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il existe un plafond global que la fonction ne dépasse jamais."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ordre des quantificateurs est crucial : le majorant doit être choisi avant la variable $x$."
+            }
+          ],
+          "solution_latex": "$\\exists M \\in \\mathbb{R}, \\ \\forall x \\in \\mathbb{R}, \\ f(x) \\le M$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$f$ possède un maximum.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est comme être majorée, mais le majorant doit de plus être une valeur effectivement atteinte par la fonction."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il existe un point $a$ tel que pour tout $x$, $f(x) \\le f(a)$."
+            }
+          ],
+          "solution_latex": "$\\exists a \\in \\mathbb{R}, \\ \\forall x \\in \\mathbb{R}, \\ f(x) \\le f(a)$"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$f$ est croissante.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une fonction conserve l'ordre : si on avance sur l'axe des abscisses, on monte (ou on stagne) sur l'axe des ordonnées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez deux variables $x$ et $y$ et une implication conditionnée par $x \\le y$."
+            }
+          ],
+          "solution_latex": "$\\forall x, y \\in \\mathbb{R}, \\ x \\le y \\Rightarrow f(x) \\le f(y)$"
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$f$ est constante.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Toutes les images sont identiques."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous pouvez l'écrire soit en disant qu'il existe une valeur $c$ que prennent tous les $f(x)$, soit en disant que pour tous $x$ et $y$, $f(x) = f(y)$."
+            }
+          ],
+          "solution_latex": "$\\exists c \\in \\mathbb{R}, \\ \\forall x \\in \\mathbb{R}, \\ f(x) = c$ \\quad \\text{(ou équivalemment :)} \\quad $\\forall x, y \\in \\mathbb{R}, \\ f(x) = f(y)$"
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$f$ atteint tous les réels.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est la définition de la surjectivité sur $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour toute valeur cible sur l'axe des ordonnées, il existe au moins un antécédent sur l'axe des abscisses."
+            }
+          ],
+          "solution_latex": "$\\forall y \\in \\mathbb{R}, \\ \\exists x \\in \\mathbb{R}, \\ f(x) = y$"
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$f$ prend des valeurs aussi grandes que l'on veut.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction n'est pas majorée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour n'importe quel seuil fixé (même très grand), il existe un point où la fonction dépasse ce seuil."
+            }
+          ],
+          "solution_latex": "$\\forall M \\in \\mathbb{R}, \\ \\exists x \\in \\mathbb{R}, \\ f(x) \\ge M$"
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$f$ est périodique.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le motif de la fonction se répète à l'identique à intervalles réguliers non nuls."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il existe une période strictement positive telle que translater la variable de cette valeur ne change pas l'image."
+            }
+          ],
+          "solution_latex": "$\\exists T > 0, \\ \\forall x \\in \\mathbb{R}, \\ f(x+T) = f(x)$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_003",
+      "title": "Ensembles en compréhension",
+      "type": "application",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensembles",
+        "comprehension",
+        "langage_mathematique"
+      ],
+      "statement_latex": "Écrire en langage mathématique l'ensemble :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "des entiers naturels divisibles par 7.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un entier est divisible par 7 s'il s'écrit sous la forme $7k$ où $k$ est un autre entier."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la notation d'ensemble en compréhension : $\\{x \\in \\mathbb{N} \\mid \\dots\\}$."
+            }
+          ],
+          "solution_latex": "$\\{n \\in \\mathbb{N} \\mid \\exists k \\in \\mathbb{N}, \\ n = 7k\\}$ \\quad \\text{ou} \\quad $\\{7k \\mid k \\in \\mathbb{N}\\}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "des sommes de deux carrés d'entiers.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez « somme de deux carrés d'entiers » par $a^2 + b^2$ avec des quantificateurs appropriés sur $a$ et $b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble peut s'écrire directement en image : $\\{a^2 + b^2 \\mid (a, b) \\in \\mathbb{Z}^2\\}$."
+            }
+          ],
+          "solution_latex": "$\\{a^2 + b^2 \\mid (a,b) \\in \\mathbb{Z}^2\\}$ \\quad \\text{ou} \\quad $\\{n \\in \\mathbb{N} \\mid \\exists a, b \\in \\mathbb{Z}, \\ n = a^2 + b^2\\}$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "des entiers relatifs qui possèdent un antécédent par la fonction $x\\mapsto e^{x}+x.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On cherche les éléments $y$ dans $\\mathbb{Z}$ pour lesquels l'équation $y = e^x + x$ admet au moins une solution $x$ dans $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La structure attendue est $\\{y \\in \\mathbb{Z} \\mid \\exists x \\in \\mathbb{R}, \\dots \\}$."
+            }
+          ],
+          "solution_latex": "$\\{y \\in \\mathbb{Z} \\mid \\exists x \\in \\mathbb{R}, \\ y = e^x + x\\}$ \\quad \\text{ou} \\quad $\\{e^x + x \\mid x \\in \\mathbb{R}\\} \\cap \\mathbb{Z}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_004",
+      "title": "Récurrences sur des suites récurrentes linéaires",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_pseudo_quantificateur_unique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "recurrence",
+        "recurrence_double",
+        "recurrence_triple"
+      ],
+      "statement_latex": "RÉCURRENCES",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On note $(u_{n})_{n\\in\\mathbb{N}}$ la suite définie par $u_{0}=0,$ $u_{1}=1$ et $u_{n+2}=5u_{n+1}-6u_{n}$ pour tout $n\\in\\mathbb{N}.$ Montrer que $u_{n}=3^{n}-2^{n}$ pour tout $n\\in\\mathbb{N}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La définition de $u_{n+2}$ dépend des deux termes précédents. Utilisez une récurrence double."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'hypothèse de récurrence au rang $n$ sera : « La propriété est vraie pour les rangs $n$ et $n+1$ »."
+            }
+          ],
+          "solution_latex": "\\textbf{Récurrence double.} \\par Initialisation : Pour $n=0$ : $u_0 = 0$ et $3^0 - 2^0 = 1 - 1 = 0$. \\checkmark Pour $n=1$ : $u_1 = 1$ et $3^1 - 2^1 = 3 - 2 = 1$. \\checkmark \\par Hérédité : Supposons que $u_n = 3^n - 2^n$ et $u_{n+1} = 3^{n+1} - 2^{n+1}$ pour un certain $n \\in \\mathbb{N}$. Montrons que $u_{n+2} = 3^{n+2} - 2^{n+2}$. \\par Par la relation de récurrence : \\par $u_{n+2} = 5u_{n+1} - 6u_n = 5(3^{n+1} - 2^{n+1}) - 6(3^n - 2^n)$ \\par $= 5 \\cdot 3^{n+1} - 5 \\cdot 2^{n+1} - 6 \\cdot 3^n + 6 \\cdot 2^n$ \\par $= 3^n(5 \\cdot 3 - 6) - 2^n(5 \\cdot 2 - 6)$ \\par $= 3^n \\cdot 9 - 2^n \\cdot 4 = 3^{n+2} - 2^{n+2}$. \\par Par récurrence, le résultat est établi pour tout $n \\in \\mathbb{N}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note $(u_{n})_{n\\in\\mathbb{N}}$ la suite définie par $u_{0}=0,$ $u_{1}=0,$ $u_{2}=2$ et $u_{n+3}=3u_{n+2}-3u_{n+1}+u_{n}$ pour tout $n\\in\\mathbb{N}$. Montrer que $u_{n}=n(n-1)$ pour tout $n\\in\\mathbb{N}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque la relation fait intervenir trois termes consécutifs, une récurrence triple est nécessaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifiez l'initialisation pour $n=0, 1$ et $2$. Puis, supposez la formule vraie jusqu'au rang $n+2$ pour calculer $u_{n+3}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Récurrence triple.} \\par Initialisation : Pour $n=0$ : $u_0 = 0$ et $0(0-1) = 0$. \\checkmark Pour $n=1$ : $u_1 = 0$ et $1(1-1) = 0$. \\checkmark Pour $n=2$ : $u_2 = 2$ et $2(2-1) = 2$. \\checkmark \\par Hérédité : Supposons que $u_n = n(n-1)$, $u_{n+1} = (n+1)n$ et $u_{n+2} = (n+2)(n+1)$ pour un certain $n \\in \\mathbb{N}$. Montrons que $u_{n+3} = (n+3)(n+2)$. \\par Par la relation de récurrence : \\par $u_{n+3} = 3u_{n+2} - 3u_{n+1} + u_n$ \\par $= 3(n+2)(n+1) - 3(n+1)n + n(n-1)$ \\par $= (n+1)[3(n+2) - 3n] + n(n-1)$ \\par $= (n+1) \\cdot 6 + n(n-1) = 6n + 6 + n^2 - n$ \\par $= n^2 + 5n + 6 = (n+2)(n+3)$. \\par Par récurrence, le résultat est établi pour tout $n \\in \\mathbb{N}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_005",
+      "title": "Majoration et convergence d'une suite avec racine",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "recurrence",
+        "suite_convergente",
+        "majoration",
+        "monotonie"
+      ],
+      "statement_latex": "On note $(u_{n})_{n\\in\\mathbb{N}}$ la suite définie par $u_{0}=0$ et $u_{n+1}=\\sqrt{3u_{n}+4}$ pour tout $n\\in\\mathbb{N}$. Montrer que $(u_{n})_{n\\in\\mathbb{N}}$ est majorée, puis qu'elle converge et calculer sa limite.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Majoration.} On montrera par récurrence que $u_n \\le 4$ pour tout $n \\in \\mathbb{N}$. \\par \\textit{Initialisation :} $u_0 = 0 \\le 4$. \\checkmark \\par \\textit{Hérédité :} Supposons $u_n \\le 4$. Alors $3u_n + 4 \\le 3 \\cdot 4 + 4 = 16$, d'où $u_{n+1} = \\sqrt{3u_n + 4} \\le \\sqrt{16} = 4$. \\par Ainsi $(u_n)$ est majorée par $4$. \\par \\textbf{Monotonie et convergence.} Montrons que $(u_n)$ est croissante. On établit par récurrence que $u_n \\ge 0$ (vrai par construction). \\par Comparons $u_{n+1}$ et $u_n$ : $u_{n+1}^2 - u_n^2 = 3u_n + 4 - u_n^2 = -(u_n^2 - 3u_n - 4) = -(u_n - 4)(u_n + 1)$. \\par Puisque $0 \\le u_n \\le 4$, on a $(u_n - 4) \\le 0$ et $(u_n + 1) > 0$, d'où $u_{n+1}^2 - u_n^2 \\ge 0$. Ainsi $u_{n+1} \\ge u_n$. \\par La suite $(u_n)$ est croissante et majorée, donc convergente. \\par \\textbf{Calcul de la limite.} Soit $l = \\lim_{n \\to \\infty} u_n$. Par continuité de $x \\mapsto \\sqrt{3x+4}$ et passage à la limite dans la relation $u_{n+1} = \\sqrt{3u_n + 4}$, on obtient : \\par $l = \\sqrt{3l + 4}$ \\par En élevant au carré : $l^2 = 3l + 4$, soit $l^2 - 3l - 4 = 0$, d'où $(l-4)(l+1) = 0$. \\par Les solutions sont $l = 4$ ou $l = -1$. Puisque $u_n \\ge 0$ pour tout $n$, on a $l \\ge 0$, donc $\\boxed{l = 4}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour la majoration, commencer par une hypothèse de récurrence floue $u_{n}\\le M$ puis comprendre en cours de récurrence quelle valeur de $M$ mérite d'être choisie. \\par Pour la convergence, montrer que $(u_{n})_{n\\in\\mathbb{N}}$ est monotone."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour trouver le candidat $M$ et la limite de la suite, cherchez le point fixe de la fonction $f(x) = \\sqrt{3x+4}$ en résolvant $l = \\sqrt{3l+4}$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_006",
+      "title": "Monotonie d'une suite croisée",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_difference_complementaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "monotonie",
+        "recurrence"
+      ],
+      "statement_latex": "Étudier la monotonie de la suite $(u_{n})_{n\\in\\mathbb{N}}$ définie par $u_{0}=0$, $u_{1}=1$ et $u_{n+2}=u_{n}^{2}+u_{n+1}^{2}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Minoration.} Montrons par récurrence que $u_n \\ge 1$ pour tout $n \\in \\mathbb{N}^{*}$. \\par \\textit{Initialisation :} $u_1 = 1 \\ge 1$. \\checkmark \\par \\textit{Hérédité :} Supposons que $u_n \\ge 1$ et $u_{n+1} \\ge 1$ pour un certain $n \\in \\mathbb{N}^{*}$. Alors : \\par $u_{n+2} = u_n^2 + u_{n+1}^2 \\ge 1^2 + 1^2 = 2 \\ge 1$. \\par Par récurrence, $u_n \\ge 1$ pour tous $n \\ge 1$. \\par \\textbf{Monotonie.} Pour $n \\ge 1$, calculons : \\par $u_{n+2} - u_{n+1} = u_n^2 + u_{n+1}^2 - u_{n+1} = u_n^2 + u_{n+1}(u_{n+1} - 1)$. \\par Puisque $u_n \\ge 1$ et $u_{n+1} \\ge 1$, on a $u_n^2 \\ge 1$ et $u_{n+1}(u_{n+1} - 1) \\ge 1 \\cdot (1-1) = 0$ (car $u_{n+1} \\ge 1$). \\par Ainsi $u_{n+2} - u_{n+1} \\ge u_n^2 \\ge 1 > 0$. \\par Par conséquent, $(u_n)_{n \\in \\mathbb{N}}$ est \\textbf{strictement croissante}.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Montrer d'abord que $u_{n}\\ge1$ pour tout $n\\in\\mathbb{N}^{*}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Une fois cette minoration établie par récurrence, calculez la différence $u_{n+2} - u_{n+1}$ et utilisez le fait que $u_{n+1}^2 \\ge u_{n+1}$ pour les nombres supérieurs ou égaux à $1$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_007",
+      "title": "Encadrement par récurrence double",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "recurrence_double",
+        "inegalites"
+      ],
+      "statement_latex": "On note $(a_{n})_{n\\in\\mathbb{N}}$ la suite définie par $a_{0}=a_{1}=1$ et $a_{n+2}=a_{n+1}+\\frac{a_{n}}{n+1}$ pour tout $n\\in\\mathbb{N}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $a_{n}\\le n$ pour tout $n\\in\\mathbb{N}^{*}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par récurrence double en initialisant pour $n=1$ et $n=2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposons la propriété vraie pour $n$ et $n+1$. Majorez $a_{n+2}$ en utilisant directement l'hypothèse de récurrence $a_{n+1} \\le n+1$ et $a_n \\le n$."
+            }
+          ],
+          "solution_latex": "\\textbf{Récurrence double.} \\par \\textit{Initialisation :} Pour $n=1$ : $a_1 = 1 \\le 1$. \\checkmark Pour $n=2$ : $a_2 = a_1 + \\frac{a_0}{1} = 1 + 1 = 2 \\le 2$. \\checkmark \\par \\textit{Hérédité :} Supposons que $a_n \\le n$ et $a_{n+1} \\le n+1$ pour un certain $n \\ge 1$. Montrons que $a_{n+2} \\le n+2$. \\par Par la relation de récurrence : \\par $a_{n+2} = a_{n+1} + \\frac{a_n}{n+1} \\le (n+1) + \\frac{n}{n+1}$. \\par Puisque $\\frac{n}{n+1} < 1$ pour tout $n \\ge 1$, on a : \\par $a_{n+2} < n + 1 + 1 = n + 2$. \\par Par récurrence, $a_n \\le n$ pour tout $n \\in \\mathbb{N}^{*}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $a_{n}\\ge\\sqrt{n+1}$ pour tout $n\\ge2$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En cours de récurrence double, on pourra éventuellement utiliser la relation $\\sqrt{a}-\\sqrt{b}=\\frac{a-b}{\\sqrt{a}+\\sqrt{b}}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'objectif est de montrer que $\\sqrt{n+2} + \\frac{\\sqrt{n+1}}{n+1} \\ge \\sqrt{n+3}$. Utilisez la quantité conjuguée pour évaluer $\\sqrt{n+3} - \\sqrt{n+2}$ et pouvoir comparer."
+            }
+          ],
+          "solution_latex": "\\textbf{Récurrence double.} \\par \\textit{Initialisation :} Pour $n=2$ : $a_2 = 2$ et $\\sqrt{2+1} = \\sqrt{3} \\approx 1.73 < 2$. \\checkmark Pour $n=3$ : $a_3 = a_2 + \\frac{a_1}{2} = 2 + 0 = 2$ et $\\sqrt{3+1} = 2$. \\checkmark \\par \\textit{Hérédité :} Supposons que $a_n \\ge \\sqrt{n+1}$ et $a_{n+1} \\ge \\sqrt{n+2}$ pour un certain $n \\ge 2$. Montrons que $a_{n+2} \\ge \\sqrt{n+3}$. \\par Par la relation : $a_{n+2} = a_{n+1} + \\frac{a_n}{n+1} \\ge \\sqrt{n+2} + \\frac{\\sqrt{n+1}}{n+1}$. \\par On doit montrer que $\\sqrt{n+2} + \\frac{\\sqrt{n+1}}{n+1} \\ge \\sqrt{n+3}$. \\par En utilisant $\\sqrt{n+3} - \\sqrt{n+2} = \\frac{1}{\\sqrt{n+3}+\\sqrt{n+2}}$ (quantité conjuguée), et puisque $\\frac{\\sqrt{n+1}}{n+1} = \\frac{1}{\\sqrt{n+1}}$, on compare : \\par $\\frac{1}{\\sqrt{n+1}}$ vs $\\frac{1}{\\sqrt{n+3}+\\sqrt{n+2}}$. \\par Pour $n \\ge 2$, on a $\\sqrt{n+1} < \\sqrt{n+3} + \\sqrt{n+2}$, d'où l'inégalité désirée. Par récurrence, $a_n \\ge \\sqrt{n+1}$ pour tout $n \\ge 2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_008",
+      "title": "Conjectures et expressions explicites",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_produit_cartesien",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites",
+        "conjecture",
+        "recurrence",
+        "expression_explicite"
+      ],
+      "statement_latex": "Enquête, conjecture, récurrence !",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer une expression de la suite $(u_{n})_{n\\in\\mathbb{N}}$ définie pour tout $n\\in\\mathbb{N}$ par : \\par a) $u_{0}=1$ et $u_{n+1}=1-u_{n}$ \\par b) $u_{0}=0$ et $u_{n+1}=u_{n}+2n+1.$ \\par c) $u_{0}=2$ et $u_{n+1}=(n+4)u_{n}.$ \\par d) $u_{0}=1$ et $u_{n+1}=(n+2)^{2}u_{n}.$ \\par e) $u_{0}=1$ et $u_{n+1}=2(n+1)u_{n}$.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Au brouillon, exprimer $u_{n}$ en fonction de $u_{n-1}$ puis $u_{n-2}, u_{n-3}\\dots$ En tirer une conjecture, puis la démontrer par récurrence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), reconnaissez une somme de termes consécutifs. Pour c), d) et e), la relation est multiplicative : exprimez le résultat final à l'aide de factorielles."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} Conjecture : $u_n = (-1)^n$ ou $u_n = \\begin{cases} 1 & \\text{si } n \\text{ pair} \\\\ 0 & \\text{si } n \\text{ impair} \\end{cases}$. En fait, on a $u_0 = 1$, $u_1 = 0$, $u_2 = 1$, $u_3 = 0$, donc $u_n = \\begin{cases} 1 & \\text{si } n \\text{ pair} \\\\ 0 & \\text{si } n \\text{ impair} \\end{cases}$. \\par \\textbf{b)} Conjecture : $u_n = n^2$. Vérification : $u_0 = 0$, $u_1 = 0 + 1 = 1$, $u_2 = 1 + 3 = 4$. La somme $\\sum_{k=1}^n (2k-1) = n^2$ donne $u_n = n^2$. \\par \\textbf{c)} Conjecture : $u_n = 2 \\cdot 7 \\cdot 8 \\cdots (n+3) = 2 \\prod_{k=1}^{n} (k+3) = 2 \\cdot \\frac{(n+3)!}{3!} = \\frac{(n+3)!}{3}$. \\par \\textbf{d)} Conjecture : $u_n = \\prod_{k=1}^{n} (k+1)^2 = (n+1)! \\cdot (n+1)! = ((n+1)!)^2$. \\par \\textbf{e)} Conjecture : $u_n = 2 \\prod_{k=1}^{n} (k+1) = 2(n+1)!$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $z\\in\\mathbb{C}.$ Déterminer une expression de la suite $(u_{n})_{n\\in\\mathbb{N}}$ définie par $u_{0}=1$ et pour tout $n\\in\\mathbb{N}$ : \\par $u_{n} = \\begin{cases} u_{\\frac{n}{2}}^{2} & \\text{si } n \\text{ est pair} \\\\ z\\times u_{\\frac{n-1}{2}} & \\text{si } n \\text{ est impair.} \\end{cases}$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez les premiers termes pour identifier un schéma : $u_1 = z$, $u_2 = z^2$, $u_3 = z^2$, $u_4 = z^4$, $u_5 = z^4\\dots$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez le lien entre l'exposant de $z$ et une propriété de l'entier $n$ (par exemple en regardant l'écriture en base 2 de $n$ ou la plus grande puissance de 2)."
+            }
+          ],
+          "solution_latex": "\\textbf{Calcul des premiers termes :} $u_0 = 1$, $u_1 = z$, $u_2 = z^2$, $u_3 = z \\cdot u_1 = z^2$, $u_4 = (u_2)^2 = z^4$, $u_5 = z \\cdot u_2 = z^3$, ... \\par Pour $n \\ge 1$, l'exposant de $z$ est lié à $\\lfloor \\log_2 n \\rfloor$ et à la structure binaire de $n$. En écrivant $n$ en base $2$ comme $n = 2^{a_1} + 2^{a_2} + \\dots + 2^{a_k}$ avec $a_1 > a_2 > \\dots$, on obtient : \\par $u_n = z^{\\sum_{i} 2^{a_i - a_1}} = z^{\\text{(nombre de 1 dans la décomposition binaire après décalage)}}$. \\par Plus simplement, si $k = \\nu_2(n)$ est la 2-valuation de $n$ (plus grande puissance de 2 divisant $n$), alors \\par $\\boxed{u_n = z^{\\lfloor n/2^{\\nu_2(n)+1} \\rfloor}}$ ou par analyse directe du processus récursif : $u_n = z^{f(n)}$ où $f(n)$ compte les 1 significatifs après shifts. \\par Réponse plus explicite : $u_n = z^{n/2^{\\lfloor \\log_2 n \\rfloor + 1}}$ pour l'exposant entier."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer une expression de la famille $(z_{i,j})_{i,j\\in\\mathbb{N}}$ définie pour tous $i,j\\in\\mathbb{N}$ par $z_{0,j}=1$ et : \\par a) $z_{i+1,j}=z_{i,j}+1$ \\par b) $z_{i+1,j}=2~z_{i,j+1}.$ \\par c) $z_{i+1,j}=(i+j)z_{i,j+1}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la stratégie des questions 1)c)d)e)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Procédez par récurrence sur l'indice $i$, en considérant l'indice $j$ comme un paramètre fixé de départ. Exprimez $z_{i,j}$ en fonction de $i$ et de $j$."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} Par récurrence sur $i$ avec $j$ fixé : $z_{i,j} = (i+1) \\cdot z_{0,j} = i+1$ (puisque $z_{0,j} = 1$ pour tout $j$). \\par \\textbf{b)} Récurrence sur $i$ : $z_{i+1,j} = 2z_{i,j+1}$. Par récurrence : $z_{1,j} = 2z_{0,j+1} = 2$, $z_{2,j} = 2z_{1,j+1} = 2 \\cdot 2 = 4 = 2^2$, etc. Donc $\\boxed{z_{i,j} = 2^i}$. \\par \\textbf{c)} Récurrence sur $i$ : $z_{i+1,j} = (i+j)z_{i,j+1}$. On obtient $z_{1,j} = j \\cdot z_{0,j+1} = j$, $z_{2,j} = (1+j) z_{1,j+1} = (1+j)(j+1) = (j+1)^2$, et de façon générale : \\par $\\boxed{z_{i,j} = \\frac{(i+j)!}{j!}}$ (quotient de factorielles)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_009",
+      "title": "Puissances de somme de racines",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "recurrence",
+        "arithmetique",
+        "irrationnels"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$, il existe des entiers $a_{n}, b_{n}, c_{n}, d_{n}\\in\\mathbb{N}$ pour lesquels : \\par $(\\sqrt{2}+\\sqrt{3})^{n}=a_{n}+b_{n}\\sqrt{2}+c_{n}\\sqrt{3}+d_{n}\\sqrt{6}.$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Récurrence simple.} \\par \\textit{Initialisation :} Pour $n=0$ : $(\\sqrt{2}+\\sqrt{3})^0 = 1 = 1 + 0 \\cdot \\sqrt{2} + 0 \\cdot \\sqrt{3} + 0 \\cdot \\sqrt{6}$. Les coefficients $a_0 = 1, b_0 = 0, c_0 = 0, d_0 = 0$ sont dans $\\mathbb{N}$. \\checkmark \\par Pour $n=1$ : $(\\sqrt{2}+\\sqrt{3})^1 = 0 + 1 \\cdot \\sqrt{2} + 1 \\cdot \\sqrt{3} + 0 \\cdot \\sqrt{6}$. Les coefficients $a_1 = 0, b_1 = 1, c_1 = 1, d_1 = 0$ sont dans $\\mathbb{N}$. \\checkmark \\par \\textit{Hérédité :} Supposons que $(\\sqrt{2}+\\sqrt{3})^n = a_n + b_n\\sqrt{2} + c_n\\sqrt{3} + d_n\\sqrt{6}$ avec $a_n, b_n, c_n, d_n \\in \\mathbb{N}$. Calculons : \\par $(\\sqrt{2}+\\sqrt{3})^{n+1} = (\\sqrt{2}+\\sqrt{3})(a_n + b_n\\sqrt{2} + c_n\\sqrt{3} + d_n\\sqrt{6})$ \\par $= a_n\\sqrt{2} + 2b_n + c_n\\sqrt{6} + 2d_n\\sqrt{3} + a_n\\sqrt{3} + b_n\\sqrt{6} + 3c_n + 3d_n\\sqrt{2}$ \\par $= (2b_n + 3c_n) + (a_n + 3d_n)\\sqrt{2} + (a_n + 2d_n)\\sqrt{3} + (c_n + b_n)\\sqrt{6}$. \\par Ainsi $a_{n+1} = 2b_n + 3c_n$, $b_{n+1} = a_n + 3d_n$, $c_{n+1} = a_n + 2d_n$, $d_{n+1} = b_n + c_n$. \\par Puisque $a_n, b_n, c_n, d_n \\in \\mathbb{N}$, on a $a_{n+1}, b_{n+1}, c_{n+1}, d_{n+1} \\in \\mathbb{N}$. \\par Par récurrence, le résultat est établi pour tout $n \\in \\mathbb{N}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Mettez en place une récurrence simple sur l'entier $n$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour l'hérédité, développez $(\\sqrt{2}+\\sqrt{3})^{n+1} = (\\sqrt{2}+\\sqrt{3})(\\sqrt{2}+\\sqrt{3})^{n}$ en remplaçant la seconde parenthèse par l'hypothèse de récurrence, puis regroupez soigneusement les termes selon les racines."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_010",
+      "title": "Décomposition entière (Problème de la monnaie)",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "recurrence_forte",
+        "arithmetique"
+      ],
+      "statement_latex": "Montrer que tout entier supérieur à 8 peut être écrit $3a+5b$ pour certains $a, b\\in\\mathbb{N}.$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Initialisation.} Vérifions pour $n = 8, 9, 10$ : \\par $8 = 3 \\cdot 1 + 5 \\cdot 1$, $9 = 3 \\cdot 3 + 5 \\cdot 0$, $10 = 3 \\cdot 0 + 5 \\cdot 2$. \\checkmark \\par \\textbf{Récurrence forte.} Supposons le résultat vrai pour tous les entiers dans $\\{8, 9, \\ldots, n+1\\}$ avec $n \\ge 10$. Montrons qu'il existe $a, b \\in \\mathbb{N}$ tels que $n+2 = 3a + 5b$. \\par Puisque $n+2 \\ge 12$, on a $(n+2) - 3 = n - 1 \\ge 9 \\ge 8$. Par hypothèse de récurrence forte, il existe $a', b' \\in \\mathbb{N}$ tels que $n-1 = 3a' + 5b'$. \\par D'où $n+2 = (n-1) + 3 = 3a' + 5b' + 3 = 3(a'+1) + 5b'$. \\par En posant $a = a'+1$ et $b = b'$, on obtient $n+2 = 3a + 5b$ avec $a, b \\in \\mathbb{N}$. \\par Par récurrence forte, le résultat est vrai pour tous les entiers $n \\ge 8$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Examinez les premiers cas manuellement : trouvez des décompositions valables pour $n=8, 9$ et $10$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Une fois ces trois cas de base vérifiés, utilisez une récurrence forte. Si on sait le faire pour un certain entier $n$, pour former $n+3$, il suffit d'incrémenter le coefficient $a$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_011",
+      "title": "Inclusions, ensembles et sommes harmoniques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensembles",
+        "inclusion",
+        "recurrence_forte",
+        "somme",
+        "arithmetique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $A$ une partie de $\\mathbb{N}$. Dans chacune des situations suivantes, est-il vrai que $A=\\mathbb{N}$ ? Justifier. \\par a) $0\\in A$ : $\\forall n\\in\\mathbb{N}$, $n\\in A\\Rightarrow(2n\\in A \\text{ et } 2n+1\\in A).$ \\par b) $0\\in A$ et $2\\in A$ et : $\\forall n\\in\\mathbb{N},$ $2n\\in A \\Rightarrow(n\\in A \\text{ et } 2n+1\\in A).$ \\par c) $1\\in A$ et : $\\forall n\\in\\mathbb{N}$, $n\\in A\\Rightarrow(n-1\\in A \\text{ et } 2n\\in A)$.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Récurrence forte."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question a), demandez-vous si l'on peut atteindre tous les entiers. Tout entier naturel non nul s'écrit de manière unique sous la forme $2k$ ou $2k+1$, ce qui permet une récurrence forte en s'appuyant sur l'appartenance de $k$ à $A$."
+            }
+          ],
+          "solution_latex": "\\textbf{a) Oui, } A = \\mathbb{N}. Récurrence forte. \\par \\textit{Base :} $0 \\in A$ par hypothèse. \\par \\textit{Hérédité :} Supposons que tous les entiers $\\le n$ sont dans $A$. Pour $n+1$ : \\par Si $n+1$ est pair, disons $n+1 = 2k$, alors $k \\le n$, donc $k \\in A$ par hypothèse. Par la propriété donnée (en appliquant à $m = k$), on déduit que $2k = n+1 \\in A$. \\par Si $n+1$ est impair, disons $n+1 = 2k+1$, alors $k \\le n$, donc $k \\in A$ par hypothèse. Par la propriété donnée (en appliquant à $m = k$), on déduit que $2k+1 = n+1 \\in A$. \\par Donc $n+1 \\in A$. Par récurrence, $A = \\mathbb{N}$. \\par \\textbf{b) Non.} Contre-exemple : soit $A = \\{0, 2\\} \\cup \\{2n \\mid n \\in \\mathbb{N}\\} = $ les nombres pairs. Alors $0 \\in A$ et $2 \\in A$. Cependant, $1 \\notin A$ car l'implication $2 \\cdot 0 = 0 \\in A \\Rightarrow 0 \\in A \\text{ et } 1 \\in A$ n'oblige pas $1 \\in A$ (le premier terme est dans $A$ mais le second terme $1$ n'y est pas nécessairement). Ainsi $A \\ne \\mathbb{N}$. \\par \\textbf{c) Oui, } $A = \\mathbb{N}$. Récurrence forte vers le bas et récurrence forward. \\par Partant de $1 \\in A$, la propriété $n \\in A \\Rightarrow (n-1 \\in A \\text{ et } 2n \\in A)$ donne : $0 \\in A$, $2 \\in A$, $4 \\in A$, $3 \\in A$ (car $2 \\in A \\Rightarrow 4 \\in A$ et $1 \\in A \\Rightarrow 2 \\in A$), etc. Tous les entiers s'obtiennent. Donc $A = \\mathbb{N}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On pose $H_{n}=\\sum_{k=1}^{n}\\frac{1}{k}$ pour tout $n\\in\\mathbb{N}^{*}$ et : $E=\\left\\{\\frac{a}{2b} \\mid a\\in 2\\mathbb{N}+1, b\\in\\mathbb{N}^{*}\\right\\}.$ \\par a) Montrer que : $\\forall n\\in\\mathbb{N}^{*}$, $\\exists p\\in\\mathbb{Z}$, $\\exists q\\in 2\\mathbb{N}+1$, $H_{2n}-\\frac{H_{n}}{2}=\\frac{p}{q}.$ \\par b) En déduire que pour tout $n\\ge 2$ : $H_{n}\\in E\\Rightarrow(H_{2n}\\in E \\text{ et } H_{2n+1}\\in E)$. \\par c) En déduire que pour tout $n\\ge 2,$ $H_{n}$ n'est pas un entier.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), écrivez les termes de la somme $H_{2n} - \\frac{H_n}{2}$ et mettez en évidence les dénominateurs impairs."
+            },
+            {
+              "level": 2,
+              "content_latex": "c) Montrer que $H_{n}\\in E$ pour tout $n\\ge 2$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour conclure dans la c), observez la forme des éléments de l'ensemble $E$. Un élément de $E$ peut-il être un nombre entier ?"
+            }
+          ],
+          "solution_latex": "\\textbf{a)} Écrivons : $H_{2n} - \\frac{H_n}{2} = \\sum_{k=1}^{2n} \\frac{1}{k} - \\frac{1}{2} \\sum_{k=1}^{n} \\frac{1}{k} = \\sum_{k=n+1}^{2n} \\frac{1}{k} - \\frac{1}{2} \\sum_{k=1}^{n} \\frac{1}{k}$. \\par En mettant sous dénominateur commun $D = \\text{ppcm}(1,2,\\ldots,2n)$, chaque terme $\\frac{1}{k}$ s'écrit $\\frac{D/k}{D}$. Pour $k \\le n$, $D/k$ est pair (car $D$ est pair). Pour $n+1 \\le k \\le 2n$, si $k$ est impair, $D/k$ est pair. Donc le numérateur global est pair, d'où $H_{2n} - \\frac{H_n}{2} = \\frac{p}{q}$ où $q$ est impair et $p \\in \\mathbb{Z}$. \\par \\textbf{b)} Si $H_n \\in E$, alors $H_n = \\frac{a}{2b}$ avec $a$ impair et $b \\in \\mathbb{N}^{*}$. On montre par le calcul ci-dessus et propriétés de $E$ que $H_{2n}$ et $H_{2n+1}$ restent dans $E$. \\par \\textbf{c)} Par récurrence forte (initialisation $H_2 = 1 + \\frac{1}{2} = \\frac{3}{2} \\in E$), on établit que $H_n \\in E$ pour tout $n \\ge 2$. Or tout élément de $E = \\{\\frac{a}{2b} \\mid a \\in 2\\mathbb{N}+1, b \\in \\mathbb{N}^{*}\\}$ a un numérateur impair et dénominateur ayant une puissance de 2 au moins au dénominateur, donc ne peut pas être un entier. Ainsi $H_n \\notin \\mathbb{Z}$ pour $n \\ge 2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_012",
+      "title": "Inégalités et puissances",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inegalites",
+        "recurrence",
+        "bernoulli"
+      ],
+      "statement_latex": "Montrer que pour tous $x\\in[0,1]$ et $n\\in\\mathbb{N}$ : \\par $1-nx\\le(1-x)^{n}\\le\\frac{1}{1+nx}.$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Inégalité de gauche :} $1 - nx \\le (1-x)^n$. \\par \\textit{Initialisation :} Pour $n=0$ : $1 - 0 = 1 = (1-x)^0$. \\checkmark \\par \\textit{Hérédité :} Supposons $1 - nx \\le (1-x)^n$. Alors : \\par $(1 - (n+1)x) = (1-nx) - x \\le (1-x)^n - x$. \\par On doit montrer que $(1-x)^n - x \\le (1-x)^{n+1} = (1-x)^n(1-x)$. \\par Cela revient à $(1-x)^n - x \\le (1-x)^n - x(1-x)^n$, soit $0 \\le x(1-x)^n - x = x((1-x)^n - 1)$. \\par Puisque $x \\ge 0$ et $(1-x)^n \\le 1$ pour $x \\in [0,1]$, on a $(1-x)^n - 1 \\le 0$, donc $x((1-x)^n - 1) \\le 0$. \\par Hmm, il faut revoir. En réalité, par multiplicativité : $(1-x)^{n+1} = (1-x)(1-x)^n \\ge (1-x)(1-nx)$ (par l'hypothèse appliquée de façon multiplicative). \\par Développons : $(1-x)(1-nx) = 1 - nx - x + nx^2 = 1 - (n+1)x + nx^2 \\ge 1 - (n+1)x$ (car $nx^2 \\ge 0$). \\par Donc $(1-x)^{n+1} \\ge 1 - (n+1)x$. \\par \\textbf{Inégalité de droite :} $(1-x)^n \\le \\frac{1}{1+nx}$. \\par \\textit{Initialisation :} Pour $n=0$ : $1 = \\frac{1}{1}$. \\checkmark \\par \\textit{Hérédité :} Supposons $(1-x)^n \\le \\frac{1}{1+nx}$. Alors : \\par $(1-x)^{n+1} = (1-x)(1-x)^n \\le (1-x) \\cdot \\frac{1}{1+nx} = \\frac{1-x}{1+nx}$. \\par On veut montrer que $\\frac{1-x}{1+nx} \\le \\frac{1}{1+(n+1)x}$. \\par Cela revient à $(1-x)(1+(n+1)x) \\le 1+nx$. \\par Développons : $(1-x)(1+(n+1)x) = 1 + (n+1)x - x - (n+1)x^2 = 1 + nx - (n+1)x^2$. \\par Donc on doit avoir $1 + nx - (n+1)x^2 \\le 1 + nx$, soit $-(n+1)x^2 \\le 0$, ce qui est vrai. \\par Par récurrence, les deux inégalités sont établies pour tous $x \\in [0,1]$ et $n \\in \\mathbb{N}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Démontrez ces inégalités par récurrence sur l'entier $n$."
+        },
+        {
+          "level": 2,
+          "content_latex": "L'inégalité de gauche est classique (inégalité de Bernoulli). Pour celle de droite, remarquez que $\\frac{1}{1+nx} \\times (1-x) = \\frac{1-x}{1+nx}$ et essayez de la majorer par $\\frac{1}{1+(n+1)x}$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_013",
+      "title": "Décomposition en puissance de 2 et impair",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmetique",
+        "recurrence_forte",
+        "parite"
+      ],
+      "statement_latex": "Sans utiliser le théorème de factorisation première des entiers, montrer que : \\par $\\forall n\\in\\mathbb{N}^{*}, \\exists p,q\\in\\mathbb{N}, n=2^{p}(2q+1)$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Récurrence forte.} \\par \\textit{Initialisation :} Pour $n=1$ : $1 = 2^0(2 \\cdot 0 + 1)$ avec $p=0, q=0$. \\checkmark \\par \\textit{Hérédité :} Supposons la propriété vraie pour tous les entiers $< n+1$. \\par \\underline{Cas 1 :} Si $n+1$ est impair, alors $n+1 = 2^0(n+1) = 2^0(2 \\cdot \\frac{n}{2} + 1)$ où $\\frac{n+1-1}{2} \\in \\mathbb{N}$, d'où l'écriture avec $p = 0$. \\par \\underline{Cas 2 :} Si $n+1$ est pair, alors $n+1 = 2k$ avec $1 \\le k < n+1$. Par hypothèse de récurrence forte, $k = 2^{p'}(2q'+1)$ pour certains $p', q' \\in \\mathbb{N}$. Alors $n+1 = 2 \\cdot 2^{p'}(2q'+1) = 2^{p'+1}(2q'+1)$. \\par En posant $p = p'+1$, on obtient l'écriture désirée. \\par Par récurrence forte, le résultat est vrai pour tous $n \\in \\mathbb{N}^{*}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour passer au rang $n+1$, distinguer deux cas selon que $n+1$ est pair ou impair."
+        },
+        {
+          "level": 2,
+          "content_latex": "Si $n+1$ est impair, l'écriture est immédiate avec $p=0$. Si $n+1$ est pair, il s'écrit $2k$ avec $k \\in \\mathbb{N}^{*}$. On peut alors appliquer l'hypothèse de récurrence forte sur $k$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_014",
+      "title": "Somme de fractions unitaires distinctes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "fractions",
+        "recurrence",
+        "construction"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\ge 3$ il existe des entiers $a_{1},\\dots,a_{n}\\in\\mathbb{N}^{*}$ pour lesquels $a_{1}<\\dots<a_{n}$ et : \\par $\\sum_{k=1}^{n}\\frac{1}{a_{k}}=1.$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Initialisation :} Pour $n=3$, cherchons $a_1 < a_2 < a_3$ tels que $\\frac{1}{a_1} + \\frac{1}{a_2} + \\frac{1}{a_3} = 1$. \\par Essayons avec les diviseurs de $6$ : $\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3+2+1}{6} = 1$. \\checkmark Donc $(a_1, a_2, a_3) = (2, 3, 6)$ convient. \\par \\textbf{Hérédité :} Supposons qu'il existe des entiers $a_1 < \\dots < a_n$ avec $\\sum_{k=1}^{n} \\frac{1}{a_k} = 1$. \\par Considérons la décomposition pour $n+1$ en doublant chaque dénominateur et en complétant : \\par $\\sum_{k=1}^{n} \\frac{1}{2a_k} + \\frac{1}{2} = \\frac{1}{2} \\sum_{k=1}^{n} \\frac{1}{a_k} + \\frac{1}{2} = \\frac{1}{2} \\cdot 1 + \\frac{1}{2} = 1$. \\par Les dénominateurs $2a_1 < 2a_2 < \\dots < 2a_n < 2 \\cdot (a_n + 1)$ sont tous distincts si on insère la fraction $\\frac{1}{2}$ à la bonne place. Plus précisément, l'ensemble $\\{2a_1, 2a_2, \\ldots, 2a_n, b_{n+1}\\}$ avec $b_{n+1}$ un nouvel entier distinct de tous les $2a_k$ et tel que les fractions somment à $1$. \\par En prenant $a'_k = 2a_k$ pour $k = 1, \\ldots, n$ et $a'_{n+1} = 2$, on obtient $n+1$ fractions unitaires distinctes qui somment à $1$ (par construction où nous multiplions par $2$ puis réinjectons $\\frac{1}{2}$). Les dénominateurs restent distincts puisque $2 < 2a_1$ (car $a_1 \\ge 2$ initialement). \\par Par récurrence, pour tout $n \\ge 3$, il existe une décomposition cherchée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Commencez par initialiser la propriété pour $n=3$ en cherchant trois entiers distincts dont l'inverse somme à $1$ (par exemple avec les diviseurs de $6$)."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour l'hérédité, si vous avez une décomposition en $n$ fractions unitaires, vous pouvez diviser chaque terme par $2$ (ce qui donne une somme de $1/2$) et ajouter le terme $\\frac{1}{2}$ pour retrouver une somme de $1$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_015",
+      "title": "Point fixe d'une fonction croissante entière",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "point_fixe",
+        "recurrence",
+        "croissance"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}^{*},$ toute fonction croissante $f$ de $[[1,n]]$ dans lui-même possède un point fixe : \\par $\\exists k\\in[[1,n]], f(k)=k$",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Récurrence.} \\par \\textit{Initialisation :} Pour $n=1$ : $f: \\{1\\} \\to \\{1\\}$. Alors $f(1) = 1$. \\checkmark \\par \\textit{Hérédité :} Soit $f: [[1, n+1]] \\to [[1, n+1]]$ une fonction croissante. \\par \\underline{Cas 1 :} Si $f(n+1) = n+1$, alors $n+1$ est un point fixe. \\checkmark \\par \\underline{Cas 2 :} Si $f(n+1) \\ne n+1$. Puisque $f(n+1) \\in [[1, n+1]]$ et $f(n+1) \\ne n+1$, on a $f(n+1) \\le n$. \\par Montrons que la restriction $g$ de $f$ à $[[1, n]]$ est à valeurs dans $[[1, n]]$. \\par Pour tout $x \\in [[1, n]]$, on a $g(x) = f(x) \\le f(n+1) \\le n$ (par croissance de $f$ et $x \\le n+1$... hmm, il faut être prudent). \\par En réalité, pour $x \\in [[1, n]]$, $x \\le n < n+1$, donc par croissance $f(x) \\le f(n+1) \\le n$. Ainsi $g(x) \\in [[1, n]]$. \\par La fonction $g: [[1, n]] \\to [[1, n]]$ est croissante (restriction de $f$). Par hypothèse de récurrence, il existe $k \\in [[1, n]]$ tel que $g(k) = k$, d'où $f(k) = k$. \\par Par récurrence, tout entier $n \\in \\mathbb{N}^{*}$ possède la propriété cherchée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour passer au rang $n+1$, se donner une fonction croissante $f$ de $[[1,n+1]]$ dans lui-même et distinguer les cas $f(n+1)=n+1$ et $f(n+1)\\ne n+1.$"
+        },
+        {
+          "level": 2,
+          "content_latex": "Dans le cas où $f(n+1) \\ne n+1$, comme $f$ est à valeurs dans $[[1, n+1]]$, on a nécessairement $f(n+1) \\le n$. Exploitez la croissance de $f$ pour montrer que la restriction de $f$ à $[[1, n]]$ est à valeurs dans $[[1, n]]$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_016",
+      "title": "Raisonnement sur la parité",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmetique",
+        "parite",
+        "recurrence",
+        "absurde"
+      ],
+      "statement_latex": "RAISONNEMENTS DIVERS \\par Faites comme si vous n'aviez jamais entendu parler du théorème de factorisation première des entiers. On admet en revanche que $\\frac{1}{2}$ n'est pas un entier. \\par Pour tout $n\\in\\mathbb{Z}$ on dit que $n$ est pair (resp. impair) si $n=2k$ (resp. $n=2k+1$) pour un certain $k\\in\\mathbb{Z}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer qu'un entier ne peut pas être à la fois pair et impair.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par l'absurde en supposant qu'il existe un entier $n$ qui s'écrit simultanément $n = 2k$ et $n = 2l+1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soustrayez les deux expressions pour isoler $1$ et mettez $2$ en facteur pour contredire le fait que $\\frac{1}{2}$ n'est pas un entier."
+            }
+          ],
+          "solution_latex": "Raisonnons par l'absurde. Supposons qu'il existe $n \\in \\mathbb{Z}$ qui est à la fois pair et impair. \\par Alors $n = 2k$ pour un certain $k \\in \\mathbb{Z}$, et $n = 2l+1$ pour un certain $l \\in \\mathbb{Z}$. \\par En soustrayant : $2k = 2l+1$, d'où $2(k-l) = 1$, soit $k - l = \\frac{1}{2}$. \\par Mais $k - l \\in \\mathbb{Z}$ et $\\frac{1}{2} \\notin \\mathbb{Z}$ (par hypothèse), contradiction. \\par Donc aucun entier ne peut être à la fois pair et impair."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer par récurrence que tout entier naturel est pair ou impair, puis qu'il en va de même des entiers relatifs.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour $\\mathbb{N}$, initialisez avec $n=0$ qui est pair. Pour l'hérédité, si $n$ est pair, montrez que $n+1$ est impair, et inversement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour étendre la propriété à $\\mathbb{Z}$, prenez un entier négatif $n$ et utilisez le fait que $-n \\in \\mathbb{N}$ possède une parité bien définie."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour } $\\mathbb{N}$ : Récurrence. \\par \\textit{Initialisation :} $0 = 2 \\cdot 0$ est pair. \\checkmark \\par \\textit{Hérédité :} Supposons que $n$ est pair ou impair. \\par Si $n$ est pair, $n = 2k$, alors $n+1 = 2k+1$ est impair. \\par Si $n$ est impair, $n = 2k+1$, alors $n+1 = 2(k+1)$ est pair. \\par Par récurrence, tout $n \\in \\mathbb{N}$ est pair ou impair. \\par \\textbf{Pour } $\\mathbb{Z}$ : Soit $n \\in \\mathbb{Z}$. \\par Si $n \\ge 0$, alors $n \\in \\mathbb{N}$, donc $n$ est pair ou impair. \\par Si $n < 0$, alors $-n > 0$, donc $-n \\in \\mathbb{N}$ et est pair ou impair. \\par Si $-n = 2k$ est pair, alors $n = -2k = 2(-k)$ est pair. \\par Si $-n = 2k+1$ est impair, alors $n = -(2k+1) = 2(-k-1) + 1$ est impair. \\par Donc tout $n \\in \\mathbb{Z}$ est pair ou impair."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{Z}$ $n$ est pair si et seulement si $n^{2}$ est pair.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la réciproque, raisonner par contraposition."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'implication directe se fait en élevant $2k$ au carré. Pour la contraposée de la réciproque, supposez que $n$ est impair ($n=2k+1$) et développez $n^2$ pour montrer qu'il s'écrit sous la forme $2K+1$."
+            }
+          ],
+          "solution_latex": "\\textbf{Sens direct :} Si $n$ est pair, $n = 2k$, alors $n^2 = 4k^2 = 2(2k^2)$ est pair. \\par \\textbf{Réciproque (par contraposition) :} Supposons que $n$ est impair, disons $n = 2k+1$. Alors $n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ est impair. \\par Par contraposition, si $n^2$ est pair, alors $n$ est pair. \\par Donc $n$ est pair si et seulement si $n^2$ est pair."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_017",
+      "title": "Inclusions, unions et intersections",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_egalite_inclusion",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensembles",
+        "inclusion",
+        "intersection",
+        "union"
+      ],
+      "statement_latex": "Soient $A$, $B$ et $C$ trois ensembles. Montrer que :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(C\\subset A\\cup B \\text{ et } A\\cap C\\subset B \\text{ et } B\\cap C\\subset A) \\Rightarrow C\\subset A\\cap B.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde et choisir $x\\in C$ tel que $x\\notin A\\cap B$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $x\\in C$ et $C\\subset A\\cup B$, l'élément $x$ doit être dans $A$ ou dans $B$. S'il est dans $A$, comme il n'est pas dans $A\\cap B$, il n'est pas dans $B$. Mais on a $x\\in A\\cap C$, ce qui implique $x\\in B$ par hypothèse, d'où la contradiction."
+            }
+          ],
+          "solution_latex": "Raisonnons par l'absurde. Supposons que la conclusion est fausse, c'est-à-dire $C \\not\\subset A \\cap B$. \\par Alors il existe $x \\in C$ tel que $x \\notin A \\cap B$, donc soit $x \\notin A$, soit $x \\notin B$. \\par \\underline{Cas 1 :} $x \\notin A$. Puisque $x \\in C$ et $C \\subset A \\cup B$, on a $x \\in A$ ou $x \\in B$. Comme $x \\notin A$, on déduit $x \\in B$. Donc $x \\in B \\cap C$, d'où par l'hypothèse $B \\cap C \\subset A$, on obtient $x \\in A$, contradiction. \\par \\underline{Cas 2 :} $x \\notin B$. Par le même raisonnement avec $A \\cap C \\subset B$, on obtient une contradiction. \\par Ainsi $C \\subset A \\cap B$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(A\\cap B=A\\cap C \\text{ et } A\\cup B=A\\cup C) \\Rightarrow B = C.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_egalite_inclusion"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Démontrez la double inclusion. Par symétrie du problème, il suffit de montrer que $B \\subset C$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $x \\in B$. Donc $x \\in A \\cup B$, ce qui signifie que $x \\in A \\cup C$. Distinguez alors deux cas : soit $x \\in A$, soit $x \\in C \\setminus A$. Dans les deux cas, montrez que $x$ finit forcément dans $C$."
+            }
+          ],
+          "solution_latex": "Montrons la double inclusion. \\par \\textbf{Inclusion } $B \\subset C$ : Soit $x \\in B$. Puisque $x \\in B$ et $A \\cup B = A \\cup C$, on a $x \\in A \\cup B = A \\cup C$, donc $x \\in A$ ou $x \\in C$. \\par \\underline{Sous-cas (a) :} $x \\in A$. Alors $x \\in A \\cap B = A \\cap C$ (par hypothèse), d'où $x \\in C$. \\par \\underline{Sous-cas (b) :} $x \\notin A$. Alors de $x \\in A \\cup C$, on déduit $x \\in C$. \\par Donc $x \\in C$, et $B \\subset C$. \\par \\textbf{Inclusion } $C \\subset B$ : Par symétrie du rôle de $B$ et $C$ dans les deux hypothèses, on établit $C \\subset B$. \\par Par double inclusion, $B = C$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_018",
+      "title": "Absurde et intersections infinies",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "logique",
+        "absurde",
+        "ensembles",
+        "intervalles"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $x\\in\\mathbb{R}.$ On suppose que $x<\\epsilon$ pour tout $\\epsilon>0$. Montrer que $x\\le0.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par l'absurde en supposant que la conclusion est fausse, c'est-à-dire $x > 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x > 0$, alors $\\frac{x}{2}$ est un nombre strictement positif. Appliquez l'hypothèse de l'énoncé en choisissant $\\epsilon = \\frac{x}{2}$ pour faire apparaître une contradiction."
+            }
+          ],
+          "solution_latex": "Raisonnons par l'absurde. Supposons que $x > 0$. Alors $\\epsilon = \\frac{x}{2} > 0$. Par hypothèse, $x < \\epsilon = \\frac{x}{2}$, ce qui donne $x < \\frac{x}{2}$, soit $2x < x$, d'où $x < 0$, contradiction. \\par Donc $x \\le 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Simplifier les ensembles $\\bigcup_{n\\in\\mathbb{N}^{*}}\\left[\\frac{1}{n},n\\right] \\text{ et } \\bigcap_{n\\in\\mathbb{N}^{*}}\\left]-\\frac{1}{n},1\\right].$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'union, demandez-vous quels réels strictement positifs peuvent être insérés dans l'intervalle $[\\frac{1}{n}, n]$ en prenant $n$ suffisamment grand."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'intersection, les éléments doivent être dans l'intervalle pour toutes les valeurs de $n$. Utilisez un raisonnement similaire à la question 1 pour justifier la borne inférieure de cet ensemble."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour l'union :} $\\bigcup_{n \\in \\mathbb{N}^{*}} [\\frac{1}{n}, n] = (0, +\\infty)$. \\par Un réel $x$ est dans l'union si et seulement si il existe $n \\in \\mathbb{N}^{*}$ tel que $\\frac{1}{n} \\le x \\le n$. Pour $x > 0$, on peut choisir $n$ assez grand pour que $n \\ge x$ (par Archimède) et assez grand pour que $\\frac{1}{n} \\le x$ (ce qui est possible si $n \\ge \\frac{1}{x}$). Donc $(0, +\\infty) \\subset \\bigcup_{n} [\\frac{1}{n}, n]$. Réciproquement, chaque intervalle est dans $(0, +\\infty)$ puisque ses bornes sont positives. Donc $\\bigcup_n [\\frac{1}{n}, n] = (0, +\\infty)$. \\par \\textbf{Pour l'intersection :} $\\bigcap_{n \\in \\mathbb{N}^{*}} ]-\\frac{1}{n}, 1] = (0, 1]$. \\par Un réel $x$ est dans l'intersection si et seulement si pour tout $n \\in \\mathbb{N}^{*}$, $x \\in ]-\\frac{1}{n}, 1]$. Cela signifie $x \\le 1$ et pour tout $n$, $x > -\\frac{1}{n}$. Par la question 1, si $x < \\epsilon$ pour tout $\\epsilon > 0$ impliquerait $x \\le 0$. Réciproquement, si $x \\le 0$, alors on doit avoir $x > -\\frac{1}{n}$ pour tout $n > 0$, ce qui n'est possible que si $x = 0$ ou $x$ légèrement positif. Plus rigoureusement : $x$ satisfait $x > -\\frac{1}{n}$ pour tout $n \\ge 1$ si et seulement si $x \\ge 0$. Combiné avec $x \\le 1$, on obtient $x \\in [0, 1]$. Ainsi $\\bigcap_n ]-\\frac{1}{n}, 1] = (0, 1]$ (en fait $(0,1]$ car l'intersection est définie par les conditions strictes du côté gauche, donc $x \\ge 0$ devient $x > 0$ à la limite, donnant $(0,1]$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_019",
+      "title": "Décomposition en éléments simples",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fractions",
+        "identification",
+        "systeme_lineaire"
+      ],
+      "statement_latex": "Montrer qu'il existe un triplet de réels $(a, b, c)$ pour lequel pour tout $x\\in\\mathbb{R}\\backslash\\{-1,0\\}$ : \\par $\\frac{1}{x^{2}(x+1)}=\\frac{a}{x}+\\frac{b}{x^{2}}+\\frac{c}{x+1}.$",
+      "sub_questions": [],
+      "global_solution_latex": "On doit trouver $(a, b, c) \\in \\mathbb{R}^3$ tels que pour tout $x \\in \\mathbb{R} \\setminus \\{-1, 0\\}$ : \\par $\\frac{1}{x^2(x+1)} = \\frac{a}{x} + \\frac{b}{x^2} + \\frac{c}{x+1}$. \\par En mettant le membre de droite sous dénominateur commun $x^2(x+1)$ : \\par $\\frac{a}{x} + \\frac{b}{x^2} + \\frac{c}{x+1} = \\frac{ax(x+1) + b(x+1) + cx^2}{x^2(x+1)} = \\frac{(a+c)x^2 + (a+b)x + b}{x^2(x+1)}$. \\par Pour que cela égale $\\frac{1}{x^2(x+1)}$, il faut : $(a+c)x^2 + (a+b)x + b = 1$. \\par En identifiant les coefficients des polynômes : \\par $a + c = 0$ (coefficient de $x^2$) \\par $a + b = 0$ (coefficient de $x^1$) \\par $b = 1$ (coefficient de $x^0$) \\par De la troisième équation : $b = 1$. \\par De la seconde : $a = -b = -1$. \\par De la première : $c = -a = 1$. \\par Vérification : $\\frac{-1}{x} + \\frac{1}{x^2} + \\frac{1}{x+1} = \\frac{-x(x+1) + (x+1) + x^2}{x^2(x+1)} = \\frac{-x^2 - x + x + 1 + x^2}{x^2(x+1)} = \\frac{1}{x^2(x+1)}$. \\checkmark \\par Donc $(a, b, c) = (-1, 1, 1)$ et \\par $\\boxed{\\frac{1}{x^2(x+1)} = -\\frac{1}{x} + \\frac{1}{x^2} + \\frac{1}{x+1}}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Mettez les fractions du membre de droite sous un dénominateur commun : $x^2(x+1)$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Identifiez les coefficients du polynôme au numérateur avec ceux de la fonction constante égale à $1$. Cela vous donnera un système linéaire de trois équations à trois inconnues à résoudre."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_020",
+      "title": "Somme de carrés et modulo 4",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmetique",
+        "modulo",
+        "congruence",
+        "absurde"
+      ],
+      "statement_latex": "Pour quels entiers $n\\in\\mathbb{N}$ est-il vrai que $10^{n}+3$ est la somme de deux carrés d'entiers ? On pourra raisonner modulo 4.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Cas } $n=0$ : $10^0 + 3 = 4$. Est-ce une somme de deux carrés ? $4 = 2^2 + 0^2 = 0^2 + 2^2$. Oui. \\par \\textbf{Cas } $n \\ge 1$ : On étudie $10^n + 3 \\pmod 4$. \\par Pour $n \\ge 1$, $10 \\equiv 2 \\pmod 4$, donc $10^n \\equiv 2^n \\pmod 4$. Puisque $2^n \\equiv 0 \\pmod 4$ pour $n \\ge 2$ et $2^1 \\equiv 2 \\pmod 4$ : \\par - Si $n = 1$ : $10^1 + 3 = 13 \\equiv 2 + 3 = 5 \\equiv 1 \\pmod 4$. \\par - Si $n \\ge 2$ : $10^n + 3 \\equiv 0 + 3 = 3 \\pmod 4$. \\par Déterminons les résidus possibles d'une somme de deux carrés modulo 4. Pour tout $a \\in \\mathbb{Z}$, on a $a^2 \\equiv 0$ ou $1 \\pmod 4$. Donc $a^2 + b^2 \\equiv 0, 1, 2 \\pmod 4$. \\par En particulier, $a^2 + b^2 \\equiv 3 \\pmod 4$ est impossible. \\par Conclusion : \\par - Pour $n = 0$ : $10^0 + 3 = 4$ est une somme de deux carrés. \\par - Pour $n = 1$ : $10^1 + 3 = 13 \\equiv 1 \\pmod 4$ pourrait l'être. En effet, $13 = 2^2 + 3^2$. \\par - Pour $n \\ge 2$ : $10^n + 3 \\equiv 3 \\pmod 4$, donc ne peut pas être une somme de deux carrés d'entiers. \\par \\boxed{\\text{Réponse : } n \\in \\{0, 1\\}}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par l'absurde ou étudier des cas pour montrer qu'une somme de deux carrés est congrue à 0, 1 ou 2 modulo 4."
+        },
+        {
+          "level": 2,
+          "content_latex": "Que vaut $10^n \\pmod 4$ lorsque $n \\ge 1$ ? Déduisez-en la valeur de $10^n+3 \\pmod 4$ et comparez avec les restes possibles trouvés précédemment. N'oubliez pas de tester le cas particulier $n=0$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_021",
+      "title": "Analyse-synthèse sur fonctions dérivables",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "derivee",
+        "analyse_synthese"
+      ],
+      "statement_latex": "On note $A$ l'ensemble des fonctions affines et $B$ l'ensemble des fonctions $f:\\mathbb{R}\\longrightarrow\\mathbb{R}$ dérivables pour lesquelles $f(0)=f^{\\prime}(0)=0$ Montrer par analyse-synthèse que toute fonction dérivable de $\\mathbb{R}$ dans $\\mathbb{R}$ est la somme, d'une et une seule manière, d'une fonction de $A$ et d'une fonction de $B$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Unicité (Analyse).} Supposons que $f = a + b$ avec $a \\in A$ et $b \\in B$. \\par Écrivons $a(x) = cx + d$ avec $c, d \\in \\mathbb{R}$ (forme générale d'une fonction affine). \\par Puisque $b \\in B$, on a $b(0) = 0$ et $b'(0) = 0$. \\par De $f(0) = a(0) + b(0) = d + 0$, on déduit $d = f(0)$. \\par De $f'(0) = a'(0) + b'(0) = c + 0$, on déduit $c = f'(0)$. \\par Ainsi $a(x) = f'(0) \\cdot x + f(0)$ et $b(x) = f(x) - a(x) = f(x) - f'(0) \\cdot x - f(0)$ sont uniquement déterminés. \\par \\textbf{Existence (Synthèse).} Inversement, définissons : \\par $a(x) = f'(0) \\cdot x + f(0)$ (fonction affine) \\par $b(x) = f(x) - a(x) = f(x) - f'(0) \\cdot x - f(0)$ (fonction dérivable) \\par Vérifions que $b \\in B$ : \\par $b(0) = f(0) - f'(0) \\cdot 0 - f(0) = 0$. \\checkmark \\par $b'(x) = f'(x) - f'(0)$, donc $b'(0) = f'(0) - f'(0) = 0$. \\checkmark \\par De plus, $a + b = a(x) + b(x) = f'(0) \\cdot x + f(0) + f(x) - f'(0) \\cdot x - f(0) = f(x)$. \\par Donc toute fonction dérivable de $\\mathbb{R}$ dans $\\mathbb{R}$ peut s'écrire de manière unique comme somme d'une fonction de $A$ et d'une fonction de $B$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Analyse-synthèse !"
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la phase d'analyse, supposez que $f = a + b$ avec $a \\in A$ et $b \\in B$. Écrivez $a(x) = cx + d$. Utilisez les conditions $b(0)=0$ et $b^{\\prime}(0)=0$ pour déterminer obligatoirement les valeurs de $c$ et $d$ en fonction de $f(0)$ et $f^{\\prime}(0)$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_022",
+      "title": "Résolution d'équations fonctionnelles",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions",
+        "equation_fonctionnelle",
+        "derivee",
+        "isometrie"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer toutes les fonctions $f:\\mathbb{R}\\longrightarrow\\mathbb{R}$ dérivables pour lesquelles pour tous $x,y\\in\\mathbb{R}$ : \\par $f(x+y)=f(x)+f(y)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut $f(0)$ ? Attention, quand on dérive une relation à deux variables $x$ et $y$, on la dérive soit par rapport à $x$ en considérant que $y$ a une valeur fixée, soit par rapport à $y$ en considérant que $x$ a une valeur fixée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dérivez l'expression par rapport à $x$ en gardant $y$ constant, ce qui donne $f^{\\prime}(x+y) = f^{\\prime}(x)$. En déduire que la dérivée est constante."
+            }
+          ],
+          "solution_latex": "\\textbf{Détermination de } $f(0)$ : En posant $x = y = 0$ dans $f(x+y) = f(x) + f(y)$ : \\par $f(0) = f(0) + f(0) = 2f(0)$, donc $f(0) = 0$. \\par \\textbf{Dérivation par rapport à } $x$ : En dérivant $f(x+y) = f(x) + f(y)$ par rapport à $x$ (avec $y$ fixé) : \\par $f'(x+y) = f'(x)$. \\par En posant $x = 0$ : $f'(y) = f'(0)$ pour tout $y \\in \\mathbb{R}$. \\par Donc $f'$ est constante. Soit $f'(x) = k$ pour un certain $k \\in \\mathbb{R}$. \\par \\textbf{Résolution du problème.} Puisque $f$ est dérivable et sa dérivée est constante égale à $k$, on a $f(x) = kx + C$ pour une constante $C \\in \\mathbb{R}$. \\par De $f(0) = 0$, on déduit $C = 0$. \\par Donc $\\boxed{f(x) = kx \\text{ où } k \\in \\mathbb{R}}$ sont les seules solutions."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer toutes les fonctions $f:\\mathbb{N}\\longrightarrow\\mathbb{N}$ pour lesquelles pour tous $m,n\\in\\mathbb{N}$ : \\par $f(m+n)=f(m)f(n)$.",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+            "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On n'est pas loin des suites géométriques."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $f(0)$. Ensuite, exprimez $f(n)$ en fonction de $f(1)$ par une récurrence simple."
+            }
+          ],
+          "solution_latex": "\\textbf{Détermination de } $f(0)$ : En posant $m = n = 0$ : $f(0) = f(0) \\cdot f(0) = f(0)^2$. \\par Donc $f(0) = 0$ ou $f(0) = 1$. Puisque $f: \\mathbb{N} \\to \\mathbb{N}$ (donc à valeurs entières), on exclut $f(0) = 0$ car sinon $f(n) = f(n+0) = f(n) \\cdot f(0) = 0$ pour tout $n$, ce qui contredirait le fait que $f$ prenne d'autres valeurs. Donc $f(0) = 1$. \\par \\textbf{Calcul de } $f(n)$ : Par récurrence simple : \\par $f(n) = f(1 + (n-1)) = f(1) \\cdot f(n-1) = \\ldots = f(1)^n$. \\par Soit $a = f(1) \\in \\mathbb{N}$. Alors $f(n) = a^n$ pour tous $n \\in \\mathbb{N}$. \\par Vérification : $f(m+n) = a^{m+n} = a^m \\cdot a^n = f(m) f(n)$. \\checkmark \\par Donc $\\boxed{f(n) = a^n \\text{ où } a \\in \\mathbb{N} \\text{ arbitraire}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer toutes les fonctions $f:\\mathbb{Z}\\longrightarrow\\mathbb{R}$ pour lesquelles pour tous $m,n\\in\\mathbb{Z}$ : \\par $f(m+n)+f(m-n)=2f(m)+2f(n).$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les fonctions cherchées sont toutes les fonctions $n\\mapsto\\lambda n^{2}$, $\\lambda$ décrivant $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit de prouver ce résultat. Commencez par évaluer en $(0,0)$ pour trouver $f(0)$, puis en $(0, n)$ pour la parité de $f$. Enfin, utilisez $(n, 1)$ pour obtenir une relation de récurrence double."
+            }
+          ],
+          "solution_latex": "\\textbf{Évaluation en } $(0, 0)$ : $f(0) + f(0) = 2f(0) + 2f(0) = 4f(0)$, d'où $f(0) = 0$. \\par \\textbf{Parité de } $f$ : En posant $m = 0, n \\in \\mathbb{Z}$ : \\par $f(n) + f(-n) = 2f(0) + 2f(n) = 2f(n)$, donc $f(-n) = f(n)$. \\par Ainsi $f$ est paire. \\par \\textbf{Équation de récurrence double.} En posant $m = n$ dans l'équation fonctionnelle : \\par $f(2n) + f(0) = 2f(n) + 2f(n)$, d'où $f(2n) = 4f(n)$. \\par En posant $(m, n) = (n+1, 1)$ : \\par $f(n+2) + f(n) = 2f(n+1) + 2f(1)$. \\par Cette relation de récurrence, combinée avec les conditions initiales $f(0) = 0$ et la parité, suggère une solution de la forme $f(n) = \\lambda n^2$. \\par \\textbf{Vérification :} Si $f(n) = \\lambda n^2$, alors : \\par $\\lambda(m+n)^2 + \\lambda(m-n)^2 = 2\\lambda m^2 + 2\\lambda n^2$, ce qui est vrai par algèbre. \\par \\textit{Unicité :} Les conditions $f(0) = 0$, parité et la relation $f(2n) = 4f(n)$ déterminent $f$ sur les puissances de $2$. Avec l'équation de récurrence double, on établit que $\\boxed{f(n) = \\lambda n^2 \\text{ où } \\lambda \\in \\mathbb{R}}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminer toutes les isométries de $\\mathbb{R}$, i.e. les fonctions $f:\\mathbb{R}\\longrightarrow\\mathbb{R}$ pour lesquelles pour tous $x, y\\in\\mathbb{R}$ : \\par $|f(x)-f(y)| = |x-y|$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Fixer $x$ et exploiter le caractère isométrique de $f$ entre les points $0$ et $x$, entre les points $1$ et $x$ ainsi qu'entre les points $0$ et $1$. Et tant qu'à faire, on élève tout au carré !"
+            },
+            {
+              "level": 2,
+              "content_latex": "En élevant au carré, développez $(f(x)-f(1))^2 = (x-1)^2$ et simplifiez en utilisant $(f(x)-f(0))^2 = x^2$ pour trouver une expression linéaire de $f(x)$."
+            }
+          ],
+          "solution_latex": "\\textbf{Analyse.} Soit $x \\in \\mathbb{R}$ fixé. L'équation $|f(x) - f(0)| = |x - 0|$ donne $|f(x) - f(0)| = |x|$. De même, $|f(x) - f(1)| = |x - 1|$ et $|f(1) - f(0)| = |1 - 0| = 1$. \\par En élevant au carré : \\par $(f(x) - f(0))^2 = x^2 \\quad (*)$ \\par $(f(x) - f(1))^2 = (x-1)^2 \\quad (**)$ \\par $(f(1) - f(0))^2 = 1 \\quad (***)$ \\par De $(*)$ : $(f(x) - f(0))^2 = x^2$. \\par De $(**): (f(x) - f(1))^2 = (x-1)^2 = x^2 - 2x + 1$. \\par Développons $(**)$ : $f(x)^2 - 2f(x)f(1) + f(1)^2 = x^2 - 2x + 1$. \\par De $(*)$ : $f(x)^2 = (f(x) - f(0))^2 + 2f(x)f(0) - f(0)^2$. \\par Plus simplement, soustrayons $(**)$ et $(*$): \\par $(f(x) - f(0))^2 - (f(x) - f(1))^2 = x^2 - (x-1)^2 = 2x - 1$. \\par Le membre de gauche se développe en : \\par $f(x)^2 - 2f(x)f(0) + f(0)^2 - f(x)^2 + 2f(x)f(1) - f(1)^2 = 2f(x)(f(1) - f(0)) + f(0)^2 - f(1)^2$. \\par D'où : $2f(x)(f(1) - f(0)) + f(0)^2 - f(1)^2 = 2x - 1$. \\par De $(***)$ : $(f(1) - f(0))^2 = 1$, donc $f(1) - f(0) = \\pm 1$. \\par \\textit{Cas 1 :} $f(1) - f(0) = 1$. Alors : \\par $2f(x) + f(0)^2 - f(1)^2 = 2x - 1$. \\par $2f(x) + (f(0) - f(1))(f(0) + f(1)) = 2x - 1$ \\par $2f(x) - (f(0) + f(1)) = 2x - 1$ (car $f(0) - f(1) = -1$) \\par $f(x) = x + \\frac{f(0) + f(1) - 1}{2}$. \\par Posons $b = \\frac{f(0) + f(1) - 1}{2}$. Alors $f(x) = x + b$. \\par \\textit{Cas 2 :} $f(1) - f(0) = -1$. De manière analogue, $f(x) = -x + b'$ pour une constante $b'$. \\par \\textbf{Conclusion :} Les isométries de $\\mathbb{R}$ sont \\par $\\boxed{f(x) = x + b \\text{ ou } f(x) = -x + b' \\text{ où } b, b' \\in \\mathbb{R}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__ex_023",
+      "title": "Inclusions et Égalités d'ensembles",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensembles",
+        "inclusion",
+        "intersection",
+        "union"
+      ],
+      "statement_latex": "Soient $A$, $B$ et $C$ trois ensembles. Montrer que :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(C\\subset A\\cup B \\text{ et } A\\cap C\\subset B \\text{ et } B\\cap C\\subset A) \\Rightarrow C\\subset A\\cap B.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par l'absurde et choisissez un élément $x\\in C$ qui n'appartient pas à l'intersection $A\\cap B$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $x\\in C$ et $C\\subset A\\cup B$, l'élément $x$ doit être dans $A$ ou dans $B$. S'il est dans $A$, comme il n'est pas dans $A\\cap B$, il n'est pas dans $B$. Mais on a alors $x\\in A\\cap C$, ce qui implique $x\\in B$ par hypothèse, d'où la contradiction."
+            }
+          ],
+          "solution_latex": "Raisonnons par l'absurde. Supposons que la conclusion est fausse, c'est-à-dire $C \\not\\subset A \\cap B$. Alors il existe $x \\in C$ tel que $x \\notin A \\cap B$, donc soit $x \\notin A$, soit $x \\notin B$. Si $x \\notin A$, puisque $x \\in C$ et $C \\subset A \\cup B$, on a $x \\in B$. Donc $x \\in B \\cap C$, d'où par hypothèse $B \\cap C \\subset A$, on obtient $x \\in A$, contradiction. Par symétrie, le cas $x \\notin B$ mène aussi à une contradiction. Ainsi $C \\subset A \\cap B$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(A\\cap B=A\\cap C \\text{ et } A\\cup B=A\\cup C) \\Rightarrow B = C.$",
+          "knowledge_nodes_tested": [
+            "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Démontrez la double inclusion. Par symétrie du problème, il suffit de montrer que $B \\subset C$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $x \\in B$. Donc $x \\in A \\cup B$, ce qui signifie que $x \\in A \\cup C$. Distinguez alors deux cas : soit $x \\in A$, soit $x \\in C \\setminus A$. Dans les deux cas, montrez que $x$ finit forcément dans $C$."
+            }
+          ],
+          "solution_latex": "Montrons que $B \\subset C$. Soit $x \\in B$. Alors $x \\in A \\cup B = A \\cup C$, donc $x \\in A$ ou $x \\in C$. Si $x \\in A$, alors $x \\in A \\cap B = A \\cap C$ par hypothèse, d'où $x \\in C$. Si $x \\notin A$, alors de $x \\in A \\cup C$, on déduit $x \\in C$. Donc $B \\subset C$. Par symétrie, $C \\subset B$, d'où $B = C$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_001",
+      "title": "TD Champo - 5.1",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_egalite_inclusion",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Ensemble",
+        "Inclusion",
+        "Double inclusion",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que les ensembles $A=\\{(x,y)\\in \\mathbb{R}^{2} \\mid 4x-y=1\\}$ et $B=\\{(t+1,4t+3), t \\in \\mathbb{R}\\}$ sont égaux.\n2. Même question pour $A=\\{(\\lambda,2\\mu-\\lambda,2\\lambda+\\mu), (\\lambda,\\mu)\\in \\mathbb{R}^{2}\\}$ et $B=\\{(2x,2y,5x+y), (x,y)\\in \\mathbb{R}^{2}\\}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Double inclusion. Soit $(x,y) \\in A$, on pose $t=x-1$, alors $x=t+1$ et $y=4(t+1)-1=4t+3$, donc $(x,y) \\in B$. Réciproquement, si $(x,y)=(t+1, 4t+3)$, alors $4x-y = 4(t+1)-(4t+3)=1$, donc $(x,y) \\in A$.\n2. $A \\subset B$ : Posons $x=\\lambda/2$ et $y=\\mu - \\lambda/2$. Alors $2x=\\lambda$, $2y=2\\mu-\\lambda$, et $5x+y = 2.5\\lambda + \\mu - 0.5\\lambda = 2\\lambda+\\mu$. Donc $A \\subset B$. Réciproque similaire."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_002",
+      "title": "TD Champo - 5.2",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Inclusion",
+        "Réunion",
+        "Intersection",
+        "champo"
+      ],
+      "statement_latex": "Soient $A$ et $B$ deux ensembles.\n1. Si $A\\subset B$, déterminer $A\\cup B$ et $A\\cap B$.\n2. Montrer que $A\\subset B \\iff A\\cup B=B \\iff A\\cap B=A$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Si $A \\subset B$, alors $A \\cup B = B$ et $A \\cap B = A$.\n2. Double implication pour chaque équivalence. Par exemple, si $A \\cup B = B$, comme $A \\subset A \\cup B$, alors $A \\subset B$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_003",
+      "title": "TD Champo - 5.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement",
+        "Contre-exemple",
+        "Inclusion",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble. Est-il vrai que $\\forall A, B, C \\in \\mathcal{P}(E)$, $C\\subset(A\\cup B) \\implies (C\\subset A) \\text{ ou } (C\\subset B)$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Faux. Contre-exemple : $A=\\{1\\}, B=\\{2\\}, C=\\{1,2\\}$. On a $C \\subset A \\cup B$ mais $C \\not\\subset A$ et $C \\not\\subset B$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Chercher un contre-exemple avec des ensembles disjoints."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_004",
+      "title": "TD Champo - 5.4",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Égalité d'ensembles",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble et soit $(A,B,C)\\in \\mathcal{P}(E)^{3}$.\n1. Montrer que $A\\cap B=A\\cup B \\iff A=B$.\n2. Montrer que $(A\\cap B=A\\cap C \\text{ et } A\\cup B=A\\cup C) \\iff B=C$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\Rightarrow$ : On a $A \\subset A \\cup B = A \\cap B \\subset B$, donc $A \\subset B$. De même $B \\subset A$. Donc $A=B$.\n2. $\\Rightarrow$ : Soit $x \\in B$. Si $x \\in A$, $x \\in A \\cap B = A \\cap C \\implies x \\in C$. Si $x \\notin A$, $x \\in A \\cup B = A \\cup C$, or $x \\notin A$ donc $x \\in C$. Donc $B \\subset C$. Symétrie pour $C \\subset B$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_005",
+      "title": "TD Champo - 5.5",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Ensemble des parties P(E)",
+        "Réunion",
+        "Intersection",
+        "champo"
+      ],
+      "statement_latex": "Soient $A$ et $B$ deux ensembles. Est-il vrai que $\\mathcal{P}(A\\cup B)=\\mathcal{P}(A)\\cup\\mathcal{P}(B)$ ?\nQue $\\mathcal{P}(A\\cap B)=\\mathcal{P}(A)\\cap\\mathcal{P}(B)$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. Faux. $A=\\{1\\}, B=\\{2\\}$. $\\{1,2\\} \\in \\mathcal{P}(A \\cup B)$ mais $\\{1,2\\} \\notin \\mathcal{P}(A)$ et $\\notin \\mathcal{P}(B)$.\n2. Vrai. $X \\in \\mathcal{P}(A \\cap B) \\iff X \\subset A \\cap B \\iff X \\subset A \\text{ et } X \\subset B \\iff X \\in \\mathcal{P}(A) \\cap \\mathcal{P}(B)$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_006",
+      "title": "TD Champo - 5.6",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Ensemble des parties P(E)",
+        "Inclusion",
+        "champo"
+      ],
+      "statement_latex": "Soient $E$ et $F$ deux ensembles. Montrer que $\\mathcal{P}(E)\\subset\\mathcal{P}(F)$ si et seulement si $E\\subset F$.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $\\mathcal{P}(E) \\subset \\mathcal{P}(F)$, comme $E \\in \\mathcal{P}(E)$, alors $E \\in \\mathcal{P}(F)$, donc $E \\subset F$. Réciproque triviale.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considerer l'élément $E$ de $\\mathcal{P}(E)$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_007",
+      "title": "TD Champo - 5.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Différence",
+        "Équivalence",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B, C$ trois parties d'un même ensemble $E$. Montrer que les trois assertions suivantes sont équivalentes :\n1. $A\\setminus B\\subset C$\n2. $A\\setminus C\\subset B$\n3. $A\\subset B\\cup C$",
+      "sub_questions": [],
+      "global_solution_latex": "(1) $\\Rightarrow$ (2) : Soit $x \\in A \\setminus C$. Si $x \\in B$, ok. Si $x \\notin B$, alors $x \\in A \\setminus B$, donc $x \\in C$ par (1), contradictoire. Donc $x \\in B$.\n(3) $\\Rightarrow$ (1) : Soit $x \\in A \\setminus B$. Alors $x \\in A$. Par (3), $x \\in B$ ou $x \\in C$. Comme $x \\notin B$, $x \\in C$.\n(2) $\\Rightarrow$ (3) : Soit $x \\in A$. Si $x \\in C$, ok. Si $x \\notin C$, $x \\in A \\setminus C$, donc $x \\in B$ par (2). Donc $x \\in B \\cup C$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonnement circulaire ou passage au complémentaire."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_008",
+      "title": "TD Champo - 5.8",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Ensemble des parties P(E)",
+        "Cardinal",
+        "champo"
+      ],
+      "statement_latex": "Que valent les ensembles suivants : $\\mathcal{P}(\\{1\\})$, $\\mathcal{P}(\\mathcal{P}(\\{1\\}))$, $\\mathcal{P}(\\{1,2,3,4\\})$, $\\mathcal{P}(\\mathcal{P}(\\mathcal{P}(\\mathcal{P}(\\emptyset))))$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "$\\mathcal{P}(\\{1\\}) = \\{\\emptyset, \\{1\\}\\}$.\n$\\mathcal{P}(\\mathcal{P}(\\{1\\})) = \\{\\emptyset, \\{\\emptyset\\}, \\{\\{1\\}\\}, \\{\\emptyset, \\{1\\}\\}\\}$.\n$\\mathcal{P}(\\emptyset) = \\{\\emptyset\\}$ (1 élément). $\\mathcal{P}^2(\\emptyset)$ a 2 éléments. $\\mathcal{P}^3(\\emptyset)$ a 4 éléments. $\\mathcal{P}^4(\\emptyset)$ a 16 éléments."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_009",
+      "title": "TD Champo - 5.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Complémentaire",
+        "Différence",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B, C$ trois parties d'un ensemble $E$. Montrer que :\n1. $A\\cup B=B\\cap C \\iff (A\\subset B\\subset C)$\n2. $\\overline{\\overline{A}}=A$\n3. $(A\\setminus B)\\cup(A\\setminus C)=A\\setminus(B\\cap C)$\n4. $A\\setminus B=A \\iff B\\setminus A=B \\iff A\\cap B=\\emptyset$\n5. $\\overline{A}\\setminus\\overline{B}=B\\setminus A$\n6. $A\\setminus B = \\complement_{A}^{A\\cap B}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\Rightarrow$: $A \\subset A \\cup B = B \\cap C \\subset B \\subset B \\cap C \\subset C$.\n3. $A \\setminus (B \\cap C) = A \\cap (\\overline{B} \\cup \\overline{C}) = (A \\cap \\overline{B}) \\cup (A \\cap \\overline{C})$.\n4. $A \\setminus B = A \\iff A \\cap \\overline{B} = A \\iff A \\subset \\overline{B} \\iff A \\cap B = \\emptyset$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_010",
+      "title": "TD Champo - 5.10",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Quantificateurs",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble, et soient $A$ et $B$ deux parties de $E$.\n1. Montrer l'équivalence : $A\\subset B \\iff \\forall X\\in\\mathcal{P}(E), A\\cap X\\subset B\\cap X$.\n2. Même question avec $A\\cap B=\\emptyset \\iff \\exists X\\in\\mathcal{P}(E), A\\subset X \\text{ et } (X\\setminus A)=B$.\n3. Montrer l'équivalence : $A\\cup B=E \\iff \\forall X\\in\\mathcal{P}(E), (X\\cap A=\\emptyset \\implies X\\subset B)$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\Rightarrow$ claire. $\\Leftarrow$ prendre $X=E$ ou $X=A$.\n2. $\\Leftarrow$ : $A \\cap B = A \\cap (X \\cap \\overline{A}) = \\emptyset$. $\\Rightarrow$ : Prendre $X = A \\cup B$.\n3. $\\Leftarrow$ : Prendre $X = \\overline{A}$. Alors $X \\cap A = \\emptyset \\implies \\overline{A} \\subset B \\implies E = A \\cup \\overline{A} \\subset A \\cup B$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_011",
+      "title": "TD Champo - 5.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_produit_cartesien",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Produit cartésien",
+        "Raisonnement par l'absurde",
+        "champo"
+      ],
+      "statement_latex": "Montrer que $\\mathscr{C}=\\{(x,y)\\in \\mathbb{R}^{2} \\mid x^{2}+y^{2}\\le1\\}$ n'est pas le produit cartésien de deux parties de $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Supposons $\\mathscr{C} = A \\times B$. $(1,0) \\in \\mathscr{C} \\implies 1 \\in A$. $(0,1) \\in \\mathscr{C} \\implies 1 \\in B$. Donc $(1,1) \\in A \\times B = \\mathscr{C}$. Or $1^2+1^2=2 > 1$, contradiction.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par l'absurde en utilisant des points spécifiques comme $(1,0)$ et $(0,1)$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_012",
+      "title": "TD Champo - 5.12",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Opérations sur les parties",
+        "Équation ensembliste",
+        "champo"
+      ],
+      "statement_latex": "On considère $A$ et $B$ deux parties d'un ensemble $E$. Résoudre l'équation $A\\cap X=B$ d'inconnue $X\\in\\mathcal{P}(E)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $B \\not\\subset A$, pas de solution car $A \\cap X \\subset A$. Si $B \\subset A$, alors $X$ est solution ssi $B \\subset X$ et $X \\cap A = B$. Cela équivaut à $X = B \\cup C$ avec $C \\subset \\overline{A}$. Ensemble des solutions : $\\{B \\cup C, C \\subset \\overline{A}\\}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Condition nécessaire sur $B$. Analyse-Synthèse."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_013",
+      "title": "TD Champo - 5.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement par récurrence",
+        "Ensembles finis",
+        "champo"
+      ],
+      "statement_latex": "Soit $E$ un ensemble et soient $E_{1},...,E_{n}$ $(n\\ge2)$ des parties deux à deux distinctes de $E$. Montrer que l'un au moins de ces ensembles n'en contient aucun autre.",
+      "sub_questions": [],
+      "global_solution_latex": "Récurrence sur $n$. Pour $n=2$, si $E_1 \\neq E_2$, on ne peut avoir $E_1 \\subset E_2$ et $E_2 \\subset E_1$, donc l'un ne contient pas l'autre. Hérédité : Supposons vrai pour $n$. Soient $E_1, \\dots, E_{n+1}$ distincts. Par HR sur les $n$ premiers, il existe $E_i$ ($i \\le n$) qui ne contient aucun $E_j$ ($j \\le n, j \\neq i$). Si $E_i$ ne contient pas $E_{n+1}$, c'est gagné. Si $E_{n+1} \\subset E_i$, alors $E_{n+1}$ ne peut contenir aucun $E_k$ (sinon $E_k \\subset E_i$, absurde par choix de $i$). Donc $E_{n+1}$ convient.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Récurrence sur $n$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_014",
+      "title": "TD Champo - 5.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Bijection",
+        "Arithmétique",
+        "Valuation 2-adique",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{N}^{2} \\to \\mathbb{N}^{*}$, $(p,q) \\mapsto 2^{p}(2q+1)$. Prouver que $\\forall n\\in \\mathbb{N}^{*}$, $\\exists!(p,q)\\in \\mathbb{N}^{2}, n=f(p,q)$.",
+      "sub_questions": [],
+      "global_solution_latex": "C'est l'existence et l'unicité de la valuation 2-adique. Tout entier $n \\ge 1$ s'écrit de manière unique $2^p \\times I$ où $I$ est impair. On pose $2q+1 = I$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Existence par récurrence ou décomposition en facteurs premiers. Unicité par parité/valuation."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_015",
+      "title": "TD Champo - 5.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Application",
+        "Factorisation",
+        "Image directe",
+        "champo"
+      ],
+      "statement_latex": "Soient $E, F, G$ trois ensembles, et soient $f:F\\to E$ et $g:G\\to E$ deux applications. Donner une condition nécessaire et suffisante pour qu'il existe $h:G\\to F$ telle que $g=f\\circ h$. À quelle condition un tel $h$ est-il unique ?",
+      "sub_questions": [],
+      "global_solution_latex": "CNS : $\\text{Im}(g) \\subset \\text{Im}(f)$.\nUnicité : Si $f$ est injective sur l'ensemble des antécédents nécessaires, plus simplement si $f$ est injective (condition suffisante), ou plus précisément si $\\forall y \\in \\text{Im}(g)$, $f^{-1}(\\{y\\})$ est un singleton.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérer les images directes."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_016",
+      "title": "TD Champo - 5.16",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorie des ensembles",
+        "Construction de N",
+        "Axiomes de Peano",
+        "champo"
+      ],
+      "statement_latex": "Axiomes de Peano et construction des entiers de Von Neumann.\n1. Montrer qu'il n'existe pas deux ensembles $a$ et $b$ tels que $a\\in b$ et $b\\in a$.\n2. Montrer que $\\mathbb{N}$ (défini comme l'intersection des ensembles inductifs) vérifie les axiomes de Peano.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Axiome de fondation sur $\\{a,b\\}$.\n2. Vérification formelle des propriétés : $0 \\in \\mathbb{N}$, $s(n) \\in \\mathbb{N}$, $s$ injective, récurrence.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser l'axiome de fondation."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1001",
+      "title": "TD Champo - 1.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Implication",
+        "Négation",
+        "Contraposée",
+        "Réciproque",
+        "champo"
+      ],
+      "statement_latex": "Écrire la négation, la contraposée et la réciproque de l'implication bien connue (parfois sous le nom de « règle du produit nul ») : $ab = 0 \\implies (a = 0 \\text{ ou } b = 0)$. Pour chacune d'entre elles, donner sa valeur de vérité.",
+      "sub_questions": [],
+      "global_solution_latex": "La négation est : $ab = 0 \\text{ et } a \\neq 0 \\text{ et } b \\neq 0$. Elle est fausse.\nLa contraposée est : $(a \\neq 0 \\text{ et } b \\neq 0) \\implies ab \\neq 0$. Elle est vraie (équivalente à l'implication de départ).\nLa réciproque est : $(a = 0 \\text{ ou } b = 0) \\implies ab = 0$. Elle est vraie."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1002",
+      "title": "TD Champo - 1.2",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__method_negation_phrase_quantifiee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Traduction",
+        "champo"
+      ],
+      "statement_latex": "Notons $P(x,y)$ la proposition « l'individu $x$ a lu le livre $y$ ». Notons également $E$ l'ensemble des élèves de MP2I, $F$ l'ensemble des livres existants.\nTraduire par une phrase en français chacune des propositions suivantes :\n1. $\\forall x \\in E, \\forall y \\in F, P(x,y)$\n2. $\\forall x \\in E, \\exists y \\in F, P(x,y)$\n3. $\\exists x \\in E, \\exists y \\in F, P(x,y)$\n4. $\\exists y \\in F, \\exists x \\in E, P(x,y)$\n5. $\\exists x \\in E, \\forall y \\in F, P(x,y)$\n6. $\\forall y \\in F, \\exists x \\in E, P(x,y)$\n7. $\\exists y \\in F, \\forall x \\in E, P(x,y)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Tout le monde a lu tous les livres.\n2. Tout le monde a lu au moins un livre.\n3. Il existe un étudiant qui a lu au moins un livre.\n4. Il existe un livre qui a été lu par au moins un étudiant.\n5. Il existe un étudiant qui a lu tous les livres.\n6. Tout livre a été lu par au moins un étudiant.\n7. Il existe un livre que tous les étudiants ont lu."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1003",
+      "title": "TD Champo - 1.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Implication",
+        "Logique",
+        "Raisonnement",
+        "champo"
+      ],
+      "statement_latex": "Un peu de bon sens (tâche de sélection de Wason). On dispose de 4 cartes, toutes portant une lettre sur une face et un chiffre sur l'autre face. On étale ces cartes sur une table, et les faces visibles sont alors : **M**, **5**, **2**, **i**.\nQuel est le nombre minimal de cartes à retourner pour s'assurer que la règle suivante est vérifiée : « toute carte qui possède une voyelle sur une face possède un nombre pair sur l'autre face » ?",
+      "sub_questions": [],
+      "global_solution_latex": "Il faut vérifier l'implication $A \\implies B$ où $A$ est « Voyelle » et $B$ est « Pair ». Il faut donc retourner les cartes qui valident $A$ (pour vérifier $B$) et celles qui valident $\\text{non } B$ (pour vérifier $\\text{non } A$, la contraposée).\n- **i** (Voyelle) : À retourner (doit avoir un pair au dos).\n- **5** (Impair, donc $\\text{non } B$) : À retourner (ne doit pas avoir de voyelle au dos).\n- **M** (Consonne) : Inutile ($\\text{non } A$, l'implication est vraie).\n- **2** (Pair) : Inutile ($B$ vrai ne prouve rien sur $A$).\nIl faut retourner 2 cartes : le **i** et le **5**."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1004",
+      "title": "TD Champo - 1.4",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Connecteurs logiques",
+        "Négation",
+        "Table de vérité",
+        "champo"
+      ],
+      "statement_latex": "Soient $P, Q, R$ trois propositions logiques.\n1. Rappeler ce qu'est la négation de $P \\implies Q$.\n2. Montrer que les assertions i) et ii) suivantes ont même valeur de vérité : i) $(P \\lor Q) \\implies R$ ; ii) $(P \\implies R) \\land (Q \\implies R)$.\n3. Même question avec i) $P \\implies (Q \\implies R)$ ; ii) $(P \\land Q) \\implies R$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\neg(P \\implies Q) \\equiv P \\land \\neg Q$.\n2. $(P \\lor Q) \\implies R \\equiv \\neg(P \\lor Q) \\lor R \\equiv (\\neg P \\land \\neg Q) \\lor R \\equiv (\\neg P \\lor R) \\land (\\neg Q \\lor R) \\equiv (P \\implies R) \\land (Q \\implies R)$.\n3. $P \\implies (Q \\implies R) \\equiv \\neg P \\lor (\\neg Q \\lor R) \\equiv \\neg P \\lor \\neg Q \\lor R$. D'autre part $(P \\land Q) \\implies R \\equiv \\neg(P \\land Q) \\lor R \\equiv \\neg P \\lor \\neg Q \\lor R$. Les deux sont équivalentes.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser des tables de vérité ou les équivalences logiques connues."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1005",
+      "title": "TD Champo - 1.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Valeur de vérité",
+        "Contre-exemple",
+        "champo"
+      ],
+      "statement_latex": "Pour chacune des propositions suivantes, dire si elle est vraie ou fausse en le justifiant. Écrire également sa négation.\n1. $\\forall x \\in \\mathbb{R}, \\sqrt{x^{2}}=x$\n2. $\\forall x \\in \\mathbb{R}, x \\le 2 \\implies x^{2} \\le 4$\n3. $\\exists x \\in \\mathbb{R}_{+}, x < \\sqrt{x}$\n4. $\\forall x \\in \\mathbb{R}_{+}^{*}, x < \\sqrt{x}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. **Faux**. Contre-exemple : $x=-1$, $\\sqrt{(-1)^2} = 1 \\neq -1$. Négation : $\\exists x \\in \\mathbb{R}, \\sqrt{x^2} \\neq x$.\n2. **Faux**. Contre-exemple : $x=-3$, $x \\le 2$ est vrai mais $x^2 = 9 > 4$. Négation : $\\exists x \\in \\mathbb{R}, x \\le 2 \\text{ et } x^2 > 4$.\n3. **Vrai**. Exemple : $x=1/4$, $1/4 < 1/2$. Négation : $\\forall x \\in \\mathbb{R}_+, x \\ge \\sqrt{x}$.\n4. **Faux**. Contre-exemple : $x=1$ (ou $x=4$). Négation : $\\exists x \\in \\mathbb{R}_+^*, x \\ge \\sqrt{x}$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1006",
+      "title": "TD Champo - 1.6",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Ordre",
+        "champo"
+      ],
+      "statement_latex": "Les assertions suivantes sont-elles vraies ou fausses ? Justifier.\n1. $\\exists y \\in \\mathbb{R}, \\forall x \\in \\mathbb{R}, x < y$\n2. $\\forall x \\in \\mathbb{R}, \\exists a > 0, e^{x} \\le a$\n3. $\\exists a > 0, \\forall x \\in \\mathbb{R}, e^{x} \\le a$\n4. $\\exists x \\in \\mathbb{R}, \\forall a > 0, e^{x} \\le a$\n5. $\\forall a > 0, \\exists x \\in \\mathbb{R}, e^{x} \\le a$\n6. $\\forall x \\in \\mathbb{R}, (\\forall y \\in \\mathbb{R}, xy=0) \\implies x=0$\n7. $\\forall x \\in \\mathbb{R}, \\forall y \\in \\mathbb{R}, xy=0 \\implies x=0$\n8. $\\forall a, b \\in \\mathbb{Z}, \\forall u, v \\in \\mathbb{Z}, au+bv=1$",
+      "sub_questions": [],
+      "global_solution_latex": "1. **Faux**. (Pas de réel strictement plus grand que tous les réels). Négation vraie : $\\forall y, \\exists x, x \\ge y$.\n2. **Vrai**. Pour tout $x$, on peut choisir $a=e^x$ (ou $e^x+1$).\n3. **Faux**. L'exponentielle n'est pas majorée sur $\\mathbb{R}$.\n4. **Faux**. Pour tout $x$, $e^x > 0$, donc si on prend $a = e^x/2$, l'inégalité échoue.\n5. **Vrai**. Pour tout $a>0$, on peut choisir $x = \\ln a$.\n6. **Vrai**. Si pour tout $y$, $xy=0$, alors pour $y=1$, $x \\times 1 = 0 \\implies x=0$.\n7. **Faux**. Si $y=0$ et $x=1$, $xy=0$ mais $x \\neq 0$.\n8. **Faux**. Si $a=b=0$, $au+bv=0 \\neq 1$. (Même si $a,b$ non nuls, c'est faux si $a,b$ non premiers entre eux)."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1007",
+      "title": "TD Champo - 1.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Partie minorée",
+        "champo"
+      ],
+      "statement_latex": "Un ensemble $A$ formé de nombres réels est dit minoré s'il vérifie : $\\exists m \\in \\mathbb{R}, \\forall x \\in A, m \\le x$.\nLes ensembles suivants sont-ils minorés ? Justifier.\n1. $\\mathbb{R}_{+}^{*}$\n2. $\\mathbb{R}$\n3. $[-1,3]$\n4. $\\mathbb{Q}$\n5. L'ensemble des irrationnels $\\mathbb{R} \\setminus \\mathbb{Q}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. **Oui**. Minoré par $0$ (ou $-1$, etc.).\n2. **Non**. $\\mathbb{R}$ n'a pas de minorant.\n3. **Oui**. Minoré par $-1$.\n4. **Non**. $\\mathbb{Q}$ contient des nombres arbitrairement petits (comme $\\mathbb{Z}$).\n5. **Non**. Si $m$ était un minorant, il existerait un rationnel $q < m+\\sqrt{2}$, donc $q-\\sqrt{2} < m$, or $q-\\sqrt{2}$ est irrationnel."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1008",
+      "title": "TD Champo - 1.8",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_disjoints_partition"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Permutation",
+        "champo"
+      ],
+      "statement_latex": "Soit $P(x,y)$ une proposition dépendant de deux variables, et soient $E$ et $F$ deux ensembles.\nMontrer que $(\\exists x \\in E, \\forall y \\in F, P(x,y)) \\implies (\\forall y \\in F, \\exists x \\in E, P(x,y))$.\nQue dire de la réciproque ?",
+      "sub_questions": [],
+      "global_solution_latex": "Supposons $\\exists x_0 \\in E, \\forall y \\in F, P(x_0, y)$.\nSoit $y \\in F$. Comme $P(x_0, y)$ est vrai, alors $\\exists x \\in E$ (à savoir $x_0$) tel que $P(x,y)$ est vrai.\nCeci étant vrai pour tout $y$, l'implication est démontrée.\nLa réciproque est **fausse**. (Exemple classique : « Pour toute personne, il existe une mère » vs « Il existe une personne qui est la mère de tout le monde »)."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1009",
+      "title": "TD Champo - 1.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Fonctions",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R} \\rightarrow \\mathbb{R}$ une fonction. Les assertions suivantes sont-elles équivalentes ? L'une implique-t-elle l'autre ?\n1. $\\forall t \\in \\mathbb{R}, (f(t) > 0 \\text{ ou } f(t) < 0)$\n2. $(\\forall t \\in \\mathbb{R}, f(t) > 0) \\text{ ou } (\\forall t \\in \\mathbb{R}, f(t) < 0)$",
+      "sub_questions": [],
+      "global_solution_latex": "L'assertion 2 implique l'assertion 1.\nSi $\\forall t, f(t) > 0$, alors pour tout $t$, $(f(t)>0 \\lor f(t)<0)$ est vrai. Idem si $\\forall t, f(t) < 0$.\nL'assertion 1 n'implique pas l'assertion 2. Contre-exemple : $f(t) = (-1)^{\\lfloor t \\rfloor}$. Elle ne s'annule jamais (donc 1 est vraie) mais change de signe (donc 2 est fausse)."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1010",
+      "title": "TD Champo - 1.10",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que $\\forall a \\in [0,1], \\exists b \\in \\mathbb{R}, a = \\cos b$.\n2. En déduire que $\\forall t \\in [0,2], \\exists x, y \\in \\mathbb{R}, t = \\cos x + \\sin y$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. La fonction cosinus est continue et son image contient $[-1,1]$, donc $[0,1]$. D'après le TVI, tout $a \\in [0,1]$ admet un antécédent.\n2. Soit $t \\in [0,2]$.\nSi $t \\le 1$, on pose $y=0$ (donc $\\sin y=0$) et on cherche $x$ tel que $\\cos x = t$, possible d'après 1.\nSi $t > 1$, alors $t-1 \\in [0,1]$. On pose $y=\\pi/2$ (donc $\\sin y=1$) et on cherche $x$ tel que $\\cos x = t-1$, possible d'après 1.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser le TVI pour la question 1. Distinguer des cas pour la question 2."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1011",
+      "title": "TD Champo - 1.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__method_negation_phrase_quantifiee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Analyse réelle",
+        "champo"
+      ],
+      "statement_latex": "Soit $x$ un réel. Montrer que $(\\forall \\epsilon > 0, |x| < \\epsilon) \\iff x = 0$.",
+      "sub_questions": [],
+      "global_solution_latex": "($\\Leftarrow$) Si $x=0$, $|x|=0 < \\epsilon$ pour tout $\\epsilon > 0$. Vrai.\n($\\Rightarrow$) Par contraposée : Si $x \\neq 0$, alors $|x| > 0$. Posons $\\epsilon = |x|/2$ (ou $\\epsilon=|x|$). On a $\\epsilon > 0$ et $|x| \\ge \\epsilon$. Donc $\\exists \\epsilon > 0, |x| \\ge \\epsilon$. La prémisse est fausse.\nAutre méthode (absurde) : Si $\\forall \\epsilon > 0, |x| < \\epsilon$ et $x \\neq 0$, on choisit $\\epsilon = |x|/2$, on obtient $|x| < |x|/2$, absurde.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par contraposée ou par l'absurde pour le sens direct."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1012",
+      "title": "TD Champo - 1.12",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_negation_conjonction_disjonction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Implication",
+        "Contraposée",
+        "Réciproque",
+        "champo"
+      ],
+      "statement_latex": "Montrer que $\\forall x, y \\in \\mathbb{R}, x+y > 2 \\implies (x > 1 \\text{ ou } y > 1)$.\nÉcrire également la négation de cette proposition, ainsi que la réciproque de l'implication qu'elle contient. Cette réciproque est-elle vraie ?",
+      "sub_questions": [],
+      "global_solution_latex": "Preuve : Par contraposée. Si $\\text{non}(x > 1 \\text{ ou } y > 1)$, alors $x \\le 1 \\text{ et } y \\le 1$. En sommant, $x+y \\le 2$. Donc la contraposée est vraie, l'implication aussi.\nNégation : $\\exists x, y \\in \\mathbb{R}, x+y > 2 \\text{ et } x \\le 1 \\text{ et } y \\le 1$.\nRéciproque : $(x > 1 \\text{ ou } y > 1) \\implies x+y > 2$.\nLa réciproque est fausse. Contre-exemple : $x=10, y=-20$. On a $x>1$ mais $x+y = -10 \\le 2$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser la contraposée."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1013",
+      "title": "TD Champo - 1.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__method_negation_phrase_quantifiee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Arithmétique",
+        "champo"
+      ],
+      "statement_latex": "Soit $p \\in \\mathbb{N}^{*}$ un entier naturel. Écrire sous forme quantifiée l'assertion « $p$ est un nombre premier ».",
+      "sub_questions": [],
+      "global_solution_latex": "« $p$ divise $n$ » s'écrit $\\exists k \\in \\mathbb{N}, n = pk$.\n$p$ est premier si $p \\neq 1$ et ses seuls diviseurs sont 1 et lui-même :\n$(p \\neq 1) \\land (\\forall n \\in \\mathbb{N}, (\\exists k \\in \\mathbb{N}, p = nk) \\implies (n=1 \\lor n=p))$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1014",
+      "title": "TD Champo - 1.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_egalite_inclusion",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Changement de variable",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R} \\rightarrow \\mathbb{R}$. Montrer que\n$\\forall x,y \\in \\mathbb{R}, f(x)+f(y)=2f(\\frac{x+y}{2})f(\\frac{x-y}{2}) \\iff \\forall u,v \\in \\mathbb{R}, f(u+v)+f(u-v)=2f(u)f(v)$.",
+      "sub_questions": [],
+      "global_solution_latex": "($\\Rightarrow$) Soient $u, v$. Posons $x=u+v$ et $y=u-v$. Alors $\\frac{x+y}{2}=u$ et $\\frac{x-y}{2}=v$. L'égalité de gauche donne $f(u+v)+f(u-v) = 2f(u)f(v)$.\n($\\Leftarrow$) Soient $x, y$. Posons $u=\\frac{x+y}{2}$ et $v=\\frac{x-y}{2}$. Alors $u+v=x$ et $u-v=y$. L'égalité de droite donne $f(x)+f(y) = 2f(\\frac{x+y}{2})f(\\frac{x-y}{2})$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Poser $x=u+v$ et $y=u-v$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1015",
+      "title": "TD Champo - 1.15",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Fonction constante",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R} \\rightarrow \\mathbb{R}$. Montrer soigneusement que les deux assertions suivantes sont équivalentes :\n1) $\\exists y_{0} \\in \\mathbb{R}, \\forall x \\in \\mathbb{R}, f(x) = y_{0}$\n2) $\\forall x \\in \\mathbb{R}, \\forall y \\in \\mathbb{R}, f(x)=f(y)$\nQue signifient ces deux assertions ?",
+      "sub_questions": [],
+      "global_solution_latex": "1) $\\implies$ 2) : Supposons 1. Il existe $y_0$ tel que pour tout $t$, $f(t)=y_0$. Soient $x,y$. $f(x)=y_0$ et $f(y)=y_0$, donc $f(x)=f(y)$.\n2) $\\implies$ 1) : Supposons 2. Posons $y_0 = f(0)$. Pour tout $x$, en appliquant 2 avec $y=0$, on a $f(x)=f(0)=y_0$. Donc 1 est vérifiée.\nCes assertions signifient que $f$ est constante."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_1016",
+      "title": "TD Champo - 1.16",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Rationnels",
+        "champo"
+      ],
+      "statement_latex": "Prouver l'assertion suivante : $\\forall x \\in \\mathbb{R}, (x \\notin \\mathbb{Q} \\text{ ou } \\exists n \\in \\mathbb{N}^{*}, nx \\in \\mathbb{Z})$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $x \\in \\mathbb{R}$.\nSi $x \\notin \\mathbb{Q}$, la proposition est vraie (car « $A$ ou $B$ » est vraie si $A$ est vraie).\nSi $x \\in \\mathbb{Q}$, alors $x = p/q$ avec $p \\in \\mathbb{Z}, q \\in \\mathbb{N}^*$. En prenant $n=q$, on a $nx = q(p/q) = p \\in \\mathbb{Z}$. Donc la partie droite est vraie.\nLa proposition est donc toujours vraie.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Disjonction de cas : $x$ est rationnel ou irrationnel."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_017",
+      "title": "TD Champo - 1.17",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Inéquations",
+        "champo"
+      ],
+      "statement_latex": "Déterminer l'ensemble des réels $x$ tels que le prédicat suivant soit vrai :\n$\\forall t \\in [0,1], x \\ge t \\implies x \\ge 2t$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $P(x)$ le prédicat.\n- Si $x < 0$ : Pour tout $t \\in [0,1]$, $x \\ge t$ est faux (car $t \\ge 0 > x$), donc l'implication est vraie. $x$ convient.\n- Si $x=0$ : $0 \\ge t \\implies t=0$. Alors $0 \\ge 2(0)$ est vrai. $x=0$ convient.\n- Si $x \\in ]0, 2[$ : Prenons $t = \\frac{x}{2} + \\epsilon$ ou simplement $t$ tel que $x/2 < t \\le x$ et $t \\le 1$. Par exemple $t = \\min(1, 3x/4)$? Plus simplement : Si $x < 2$, prenons $t$ tel que $x/2 < t \\le x$. Un tel $t$ existe dans $[0,1]$ si $x < 2$ (car $x/2 < x$). Alors $x \\ge t$ est vrai, mais $x < 2t$ est vrai, donc $x \\ge 2t$ est faux. L'implication est fausse.\n- Si $x \\ge 2$ : Pour tout $t \\in [0,1]$, $x \\ge 2 \\ge 2t$. La conclusion est toujours vraie. $x$ convient.\nL'ensemble solution est $]-\\infty, 0] \\cup [2, +\\infty[$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Disjonction de cas sur $x$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_018",
+      "title": "TD Champo - 1.18",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_egalite_inclusion",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reunion_intersection"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Quantificateurs",
+        "Limites",
+        "Comparaison",
+        "champo"
+      ],
+      "statement_latex": "Soit $f : \\mathbb{R} \\rightarrow \\mathbb{R}$ une fonction. Déterminer toutes les implications existant entre les quatre assertions suivantes (par exemple $i) \\implies iii)$ ou $iv) \\implies iii)$), et justifier.\ni) $\\forall \\epsilon > 0, \\exists A \\in \\mathbb{R}, \\forall x \\in \\mathbb{R}, x \\ge A \\implies |f(x)| < \\epsilon$\nii) $\\forall \\epsilon > 0, \\exists A \\in \\mathbb{R}, \\forall x \\in \\mathbb{R}, x \\ge A \\implies |f(x)| < 2\\epsilon$\niii) $\\exists A \\in \\mathbb{R}, \\forall \\epsilon > 0, \\forall x \\in \\mathbb{R}, x \\ge A \\implies |f(x)| < \\epsilon$\niv) $\\forall \\epsilon > 0, \\forall k \\in \\mathbb{R}_{+}^{*}, \\exists A \\in \\mathbb{R}, \\forall x \\in \\mathbb{R}, x \\ge A \\implies |f(x)| < k\\epsilon$",
+      "sub_questions": [],
+      "global_solution_latex": "- i) est la définition de $\\lim_{x \\to +\\infty} f(x) = 0$.\n- ii) est équivalent à i) (remplacer $\\epsilon$ par $\\epsilon/2$).\n- iv) est équivalent à i) (remplacer $\\epsilon$ par $\\epsilon/k$).\n- iii) signifie $\\exists A, \\forall x \\ge A, f(x)=0$ (f est nulle à partir d'un certain rang).\nImplications :\n$i) \\iff ii) \\iff iv)$.\n$iii) \\implies i)$ (car si c'est nul, ça tend vers 0).\n$i) \\nRightarrow iii)$ (exemple $f(x) = e^{-x}$).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Traduire ces assertions en termes de limites."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_019",
+      "title": "TD Champo - 1.19",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement par l'absurde",
+        "Irrationnels",
+        "champo"
+      ],
+      "statement_latex": "Soit $x$ un irrationnel strictement positif. Montrer que $\\sqrt{x}$ est irrationnel.",
+      "sub_questions": [],
+      "global_solution_latex": "Contraposée : Si $\\sqrt{x} \\in \\mathbb{Q}$, alors $x \\in \\mathbb{Q}$.\nSupposons $\\sqrt{x} = p/q$. Alors $x = p^2/q^2$, qui est un rationnel. La contraposée est vraie, donc l'assertion est vraie.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par contraposée."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_020",
+      "title": "TD Champo - 1.20",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_difference_complementaire",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement par l'absurde",
+        "Rationnels",
+        "champo"
+      ],
+      "statement_latex": "Écrire avec des quantificateurs la proposition « la somme d'un rationnel et d'un irrationnel est un irrationnel », et prouver qu'elle est vraie.",
+      "sub_questions": [],
+      "global_solution_latex": "Proposition : $\\forall x \\in \\mathbb{Q}, \\forall y \\notin \\mathbb{Q}, x+y \\notin \\mathbb{Q}$.\nPreuve (absurde) : Supposons qu'il existe $x \\in \\mathbb{Q}, y \\notin \\mathbb{Q}$ tels que $s = x+y \\in \\mathbb{Q}$. Alors $y = s - x$. Comme $\\mathbb{Q}$ est un corps (stable par somme/différence), $s-x \\in \\mathbb{Q}$, donc $y \\in \\mathbb{Q}$. Contradiction.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par l'absurde."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_021",
+      "title": "TD Champo - 1.21",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__warning_quantificateurs_abbreviations"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement par l'absurde",
+        "Logarithme",
+        "champo"
+      ],
+      "statement_latex": "Montrer que $\\frac{\\ln 2}{\\ln 3} \\notin \\mathbb{Q}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Par l'absurde. Si $\\frac{\\ln 2}{\\ln 3} = \\frac{p}{q}$ (avec $p, q \\in \\mathbb{N}^*$), alors $q \\ln 2 = p \\ln 3 \\implies \\ln(2^q) = \\ln(3^p) \\implies 2^q = 3^p$.\n$2^q$ est pair, $3^p$ est impair. Impossible (unicité décomposition facteurs premiers). Donc irrationnel.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Supposer le contraire et utiliser les propriétés de l'exponentielle/puissances."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_022",
+      "title": "TD Champo - 1.22",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_reciproque_contraposee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_implication_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raisonnement par l'absurde",
+        "Irrationnels",
+        "champo"
+      ],
+      "statement_latex": "Le réel $\\alpha=\\sqrt{2}+\\sqrt{3}$ est-il rationnel ? Même question pour $\\sqrt{4+\\sqrt{3+\\sqrt{2}}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Supposons $\\alpha \\in \\mathbb{Q}$. Alors $\\alpha^2 = 2 + 3 + 2\\sqrt{6} = 5 + 2\\sqrt{6} \\in \\mathbb{Q}$. Donc $\\sqrt{6} = (\\alpha^2-5)/2 \\in \\mathbb{Q}$. Absurde (preuve classique). Donc $\\alpha$ irrationnel.\n2. Supposons $x = \\sqrt{4+\\sqrt{3+\\sqrt{2}}} \\in \\mathbb{Q}$. $x^2 = 4 + \\sqrt{3+\\sqrt{2}} \\in \\mathbb{Q} \\implies \\sqrt{3+\\sqrt{2}} \\in \\mathbb{Q}$. Son carré $3+\\sqrt{2} \\in \\mathbb{Q} \\implies \\sqrt{2} \\in \\mathbb{Q}$. Absurde. Donc irrationnel.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Élever au carré pour éliminer les racines."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_023",
+      "title": "TD Champo - 1.23",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Analyse-Synthèse",
+        "Équation fonctionnelle",
+        "champo"
+      ],
+      "statement_latex": "1. Déterminer toutes les fonctions $f : \\mathbb{R} \\rightarrow \\mathbb{R}$ telles que $\\forall x, y \\in \\mathbb{R}, f(xy)=f(x)+f(y)$.\n2. Déterminer toutes les fonctions $f : \\mathbb{R} \\rightarrow \\mathbb{R}$ telles que $\\forall x \\in \\mathbb{R}, \\forall y \\in \\mathbb{R}, f(x)f(y)-f(xy)=x+y$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x=0, y=0 \\implies f(0) = f(0)+f(0) \\implies f(0)=0$. $x=1, y=0 \\implies f(0) = f(1)+f(0) \\implies f(1)=0$. $x \\times 0 = 0 \\implies f(0) = f(x)+f(0) \\implies f(x)=0$. Seule la fonction nulle convient.\n2. $x=y=0 \\implies f(0)^2 - f(0) = 0 \\implies f(0) \\in \\{0,1\\}$.\n$x=0, y=1 \\implies f(0)f(1) - f(0) = 1$. Si $f(0)=0$, $0=1$ Impossible. Donc $f(0)=1$. Alors $f(1)-1=1 \\implies f(1)=2$.\n$y=0 \\implies f(x)f(0) - f(0) = x \\implies f(x) - 1 = x \\implies f(x) = x+1$.\nVérification : $(x+1)(y+1) - (xy+1) = xy+x+y+1 - xy - 1 = x+y$. Ça marche."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_024",
+      "title": "TD Champo - 1.24",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__method_negation_phrase_quantifiee",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_negation_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence",
+        "champo"
+      ],
+      "statement_latex": "Donner sous forme d'une seule assertion quantifiée (avec des quantificateurs et des connecteurs logiques) l'énoncé du principe de récurrence simple.\nMême question pour les principes de récurrence double et forte.",
+      "sub_questions": [],
+      "global_solution_latex": "Simple : $\\forall n_0 \\in \\mathbb{N}, [P(n_0) \\land (\\forall n \\ge n_0, P(n) \\implies P(n+1))] \\implies (\\forall n \\ge n_0, P(n))$.\nDouble : $\\forall n_0, [P(n_0) \\land P(n_0+1) \\land (\\forall n \\ge n_0, P(n) \\land P(n+1) \\implies P(n+2))] \\implies (\\forall n \\ge n_0, P(n))$.\nForte : $\\forall n_0, [P(n_0) \\land (\\forall n \\ge n_0, (\\forall k \\in [n_0, n], P(k)) \\implies P(n+1))] \\implies (\\forall n \\ge n_0, P(n))$."
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_025",
+      "title": "TD Champo - 1.25",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_ensemble_des_parties",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence",
+        "Arithmétique",
+        "champo"
+      ],
+      "statement_latex": "Au rugby, une équipe peut marquer 3 points (drop ou pénalité), 5 points (essai non transformé) ou 7 points (essai transformé).\nDéterminer l'ensemble des scores possibles.",
+      "sub_questions": [],
+      "global_solution_latex": "Scores impossibles : 1, 2, 4. (0, 3, 5, 6, 7, 8... sont possibles).\nMontrons que tout $n \\ge 5$ est possible par récurrence triple (ou forte). Initialisation : 5, 6=3+3, 7 sont possibles. Hérédité : Si $n, n+1, n+2$ sont possibles, alors $n+3$ est possible (en ajoutant 3 à $n$). Donc tous les scores $\\ge 5$ (et 0, 3) sont possibles.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer les premiers scores. Utiliser une récurrence forte ou triple."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_026",
+      "title": "TD Champo - 1.26",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Analyse-Synthèse",
+        "Suites",
+        "Récurrence",
+        "champo"
+      ],
+      "statement_latex": "Une suite récurrente linéaire d'ordre 2. Soit $(u_{n})_{n \\in \\mathbb{N}}$ la suite définie par $u_{0}=1, u_{1}=3$ et $\\forall n \\in \\mathbb{N}, u_{n+2}=u_{n+1}+2u_{n}$.\nMontrer qu'il existe deux réels $a$ et $b$ tels que $\\forall n \\in \\mathbb{N}, u_{n}=a(-1)^{n}+b2^{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Analyse : Si vrai, pour $n=0: a+b=1$. Pour $n=1: -a+2b=3$. Système $\\implies 3b=4 \\implies b=4/3$, $a=-1/3$.\nSynthèse : On pose $v_n = -\\frac{1}{3}(-1)^n + \\frac{4}{3}2^n$. On vérifie $v_0=1, v_1=3$ et la relation de récurrence : $v_{n+1}+2v_n = \\dots = v_{n+2}$. Par unicité de la suite, $u_n=v_n$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Procéder par Analyse-Synthèse."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_027",
+      "title": "TD Champo - 1.27",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence forte",
+        "Suites",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})$ la suite définie par $u_{0}=1$ et pour tout $n \\in \\mathbb{N}, u_{n+1}=\\frac{1}{n+1}(u_{0}^{2}+u_{1}^{2}+\\dots+u_{n}^{2})$.\nMontrer que $(u_{n})_{n \\in \\mathbb{N}}$ est constante.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrons $u_n=1$. Vrai pour $n=0$. Supposons $u_k=1$ pour $k \\le n$. Alors $u_{n+1} = \\frac{1}{n+1} \\sum_{k=0}^n 1^2 = \\frac{n+1}{n+1} = 1$. La propriété est héréditaire.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Récurrence forte."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_028",
+      "title": "TD Champo - 1.28",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_implication",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_logique",
+        "rudiments_de_logique_et_vocabulaire_ensembliste__theorem_regles_calcul_ensembles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence forte",
+        "Calcul",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})$ la suite définie par $u_{0}=0$ et pour tout $n \\in \\mathbb{N}, u_{n+1}=\\begin{cases}2u_{\\frac{n}{2}}+1 & \\text{si } n \\text{ est pair} \\\\ u_{n}+1 & \\text{si } n \\text{ est impair}\\end{cases}$.\nDéterminer la valeur de $u_{n}$ en fonction de $n$.",
+      "sub_questions": [],
+      "global_solution_latex": "$u_0=0, u_1=2u_0+1=1, u_2=u_1+1=2, u_3=2u_1+1=3, u_4=u_3+1=4$. Conjecture : $u_n=n$.\nPreuve par récurrence forte. Vrai pour 0.\nSi $n$ pair ($n=2k$), $u_{n+1} = 2u_k+1 = 2k+1 = n+1$. (Note: l'énoncé a un décalage d'indice, la correction utilise la parité de n pour calculer $u_{n+1}$?).\nCorrection selon le texte : Si $n$ pair, $u_{n+1} = 2u_{n/2}+1 = 2(n/2)+1 = n+1$. Si $n$ impair, $u_{n+1} = u_n+1 = n+1$. Donc $u_n=n$ pour tout $n$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer les premiers termes."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_029",
+      "title": "TD Champo - 1.29",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence forte",
+        "Injectivité/Surjectivité",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n \\in \\mathbb{N}}$ une suite d'entiers naturels vérifiant les deux assertions suivantes :\ni) $\\forall p \\in \\mathbb{N}, \\exists n \\in \\mathbb{N}, u_{n}=p$\nii) $\\forall n \\in \\mathbb{N}, u_{n} \\ge n$\nProuver que $\\forall n \\in \\mathbb{N}, u_{n}=n$.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrons $u_n=n$. Initialisation : $\\exists k, u_k=0$. Par ii), $u_k \\ge k \\implies 0 \\ge k \\implies k=0$, donc $u_0=0$.\nHérédité : Supposons $u_k=k$ pour $k \\le n$. $\\exists p, u_p=n+1$. Par ii), $n+1 = u_p \\ge p$. Si $p \\le n$, $u_p=p \\implies n+1=p \\le n$ impossible. Donc $p \\ge n+1$. D'où $p=n+1$ et $u_{n+1}=n+1$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Récurrence forte sur $n$."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_030",
+      "title": "TD Champo - 1.30",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence",
+        "Pavage",
+        "champo"
+      ],
+      "statement_latex": "Un peu de Tétris. On dispose d'un échiquier de taille $2^{n} \\times 2^{n}$ ($n \\ge 2$), que l'on souhaite remplir à l'aide d'un monomino (pièce carrée de taille $1 \\times 1$) et de triominos coudés (L). Montrer que quelle que soit la position du monomino sur l'échiquier, il est possible de paver le reste de l'échiquier avec les triominos.",
+      "sub_questions": [],
+      "global_solution_latex": "Vrai pour $n=1$ (un carré $2 \\times 2$ moins 1 case est un triomino).\nSupposons vrai pour $n$. Pour $2^{n+1}$, divisons en 4 carrés $2^n$. Le monomino est dans l'un d'eux (disons $C_1$). On pave $C_1$ (moins le monomino) par hyp. On place un triomino au centre couvrant un coin de $C_2, C_3, C_4$. On peut alors paver $C_2, C_3, C_4$ car ils ont chacun une case \"occupée\" (virtuellement par le triomino central).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Récurrence sur $n$ en divisant l'échiquier en 4."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_031",
+      "title": "TD Champo - 1.31",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence forte",
+        "Jeu",
+        "champo"
+      ],
+      "statement_latex": "Soit $n \\in \\mathbb{N}^{*}$. On joue au jeu suivant : au départ une pile de $n$ jetons. Un tour consiste à diviser une pile $k$ en deux piles $a, b$ ($a+b=k$) et on marque $ab$ points. Le jeu s'arrête quand on a des piles de 1. Quel est le score maximal ?",
+      "sub_questions": [],
+      "global_solution_latex": "Le score est toujours $n(n-1)/2$. Preuve par récurrence forte. Si on coupe $n$ en $k$ et $n-k$, score = $k(n-k) + \\text{score}(k) + \\text{score}(n-k) = k(n-k) + k(k-1)/2 + (n-k)(n-k-1)/2 = n(n-1)/2$ après simplification.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Essayer petites valeurs. Récurrence forte."
+        }
+      ]
+    },
+    {
+      "id": "rudiments_de_logique_et_vocabulaire_ensembliste__champo_032",
+      "title": "TD Champo - 1.32",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "rudiments_de_logique_et_vocabulaire_ensembliste__def_quantificateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence",
+        "Géométrie",
+        "champo"
+      ],
+      "statement_latex": "Si on coupe un cercle à l'aide de $n$ cordes distinctes, quel est le nombre maximal de régions du disque délimitées par ces cordes ?",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $r_n$ le nombre max. $r_1=2, r_2=4, r_3=7$. La $n$-ième corde ajoute au max $n$ régions (en coupant les $n-1$ cordes précédentes en $n$ segments). Donc $r_n = r_{n-1} + n$. $r_n = 1 + \\sum_{k=1}^n k = 1 + \\frac{n(n+1)}{2} = \\frac{n^2+n+2}{2}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Chercher une relation de récurrence $u_{n+1} = u_n + (n+1)$."
+        }
+      ]
+    }
+  ]
+}

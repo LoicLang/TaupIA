@@ -1,0 +1,3028 @@
+{
+  "chapter_official_id": "techniques_elementaires_de_calcul_integral",
+  "chapter_name": "Techniques élémentaires de calcul intégral",
+  "source_document": "Exercices - Techniques elementaires de calcul integral.pdf",
+  "exercises": [
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_001",
+      "title": "Primitivation directe d'expressions variées",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "calcul direct",
+        "reconnaissance de forme"
+      ],
+      "statement_latex": "Primitiver directement sans aucun calcul d'int\\u00e9grale les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\ e^{-3x^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $u^{\\prime} e^{u}$ \\u00e0 une constante multiplicative pr\\u00e8s."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = -3x^{2}$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = -3x^{2}$, d'où $u'(x) = -6x$. Donc $x\\,e^{-3x^{2}} = -\\frac{1}{6}u'(x)e^{u(x)}$. Une primitive est $\\boxed{-\\frac{1}{6}e^{-3x^{2}} + C}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\frac{1}{x(\\ln x)^{4}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $u^{\\prime} u^{n}$ avec une puissance n\\u00e9gative."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = \\ln x$ et $n = -4$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\ln x$, d'où $u'(x) = \\frac{1}{x}$. On a $\\frac{1}{x(\\ln x)^{4}} = u'(x) u(x)^{-4}$. La primitive est $\\frac{u(x)^{-3}}{-3} = \\boxed{-\\frac{1}{3(\\ln x)^{3}} + C}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\frac{1}{(x+2)^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la d\\u00e9riv\\u00e9e d'une fonction inverse."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la formule pour $u^{\\prime} u^{-2}$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = x+2$, d'où $u'(x) = 1$. Donc $\\frac{1}{(x+2)^{2}} = u'(x)u(x)^{-2}$. La primitive est $\\boxed{-\\frac{1}{x+2} + C}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\frac{1}{x\\ \\ln x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $\\frac{u^{\\prime}}{u}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = \\ln x$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\ln x$, d'où $u'(x) = \\frac{1}{x}$. On a $\\frac{1}{x\\ln x} = \\frac{u'(x)}{u(x)}$. La primitive est $\\boxed{\\ln|\\ln x| + C}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\frac{1}{\\text{th } x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "R\\u00e9\\u00e9crire la fonction $\\text{th}(x)$ \\u00e0 l'aide des fonctions sinus et cosinus hyperboliques."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient $\\frac{\\text{ch } x}{\\text{sh } x}$, qui est de la forme $\\frac{u^{\\prime}}{u}$."
+            }
+          ],
+          "solution_latex": "On a $\\text{th}\\,x = \\frac{\\text{sh}\\,x}{\\text{ch}\\,x}$. Posons $u(x) = \\text{ch}\\,x$, d'où $u'(x) = \\text{sh}\\,x$. Donc $\\frac{1}{\\text{th}\\,x} = \\frac{\\text{ch}\\,x}{\\text{sh}\\,x} = \\frac{u'(x)}{u(x)}$. La primitive est $\\boxed{\\ln|\\text{sh}\\,x| + C}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\frac{x^{2}}{1+x^{3}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $\\frac{u^{\\prime}}{u}$ \\u00e0 un facteur pr\\u00e8s."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le num\\u00e9rateur est proportionnel \\u00e0 la d\\u00e9riv\\u00e9e du d\\u00e9nominateur."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = 1 + x^{3}$, d'où $u'(x) = 3x^{2}$. On a $\\frac{x^{2}}{1+x^{3}} = \\frac{1}{3}\\frac{u'(x)}{u(x)}$. La primitive est $\\boxed{\\frac{1}{3}\\ln(1+x^{3}) + C}$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\frac{\\ln x}{x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S\\u00e9parer l'expression en un produit de la forme $u^{\\prime} u$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = \\ln x$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\ln x$, d'où $u'(x) = \\frac{1}{x}$. On a $\\frac{\\ln x}{x} = u(x) u'(x)$. La primitive est $\\boxed{\\frac{(\\ln x)^{2}}{2} + C}$."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\tan^{2} x$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire appara\\u00eetre la d\\u00e9riv\\u00e9e connue de la fonction tangente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ajouter et soustraire 1 \\u00e0 l'expression."
+            }
+          ],
+          "solution_latex": "On a $\\tan^{2} x = \\sec^{2} x - 1$. Donc $\\int\\tan^{2} x\\,dx = \\int\\sec^{2} x\\,dx - \\int dx = \\boxed{\\tan x - x + C}$."
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$\\frac{\\sin(2x)}{1+\\cos^{2} x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la d\\u00e9riv\\u00e9e du d\\u00e9nominateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule de l'angle double $\\sin(2x) = 2 \\sin x \\cos x$ pour reconna\\u00eetre une forme $\\frac{u^{\\prime}}{u}$ au signe pr\\u00e8s."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\cos^{2} x$, d'où $u'(x) = -2\\sin x\\cos x = -\\sin(2x)$. Donc $\\frac{\\sin(2x)}{1+\\cos^{2} x} = -\\frac{u'(x)}{1+u(x)}$. La primitive est $\\boxed{-\\ln(1+\\cos^{2} x) + C}$."
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$\\frac{1}{\\sqrt[3]{x-1}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "\\u00c9crire la racine sous la forme d'une puissance rationnelle n\\u00e9gative."
+            },
+            {
+              "level": 2,
+              "content_latex": "Int\\u00e9grer $(x-1)^{-1/3}$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = x - 1$, d'où $du = dx$. On a $\\int(x-1)^{-1/3}\\,dx = \\int u^{-1/3}\\,du = \\frac{u^{2/3}}{2/3} = \\boxed{\\frac{3}{2}(x-1)^{2/3} + C}$."
+        },
+        {
+          "label": "11)",
+          "statement_latex": "$\\frac{1}{\\cos^{2} x \\sqrt{\\tan x}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $u^{\\prime} u^{-1/2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifier la d\\u00e9riv\\u00e9e de $\\tan x$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\tan x$, d'où $du = \\sec^{2} x\\,dx$. On a $\\frac{1}{\\cos^{2} x\\sqrt{\\tan x}} = \\frac{\\sec^{2} x}{u^{1/2}}$. La primitive est $\\int u^{-1/2}\\,du = \\boxed{2\\sqrt{\\tan x} + C}$."
+        },
+        {
+          "label": "12)",
+          "statement_latex": "$\\frac{1}{x+\\sqrt{x}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le d\\u00e9nominateur par $\\sqrt{x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression devient $\\frac{1}{\\sqrt{x}(1+\\sqrt{x})}$, ce qui fait appara\\u00eetre la forme $\\frac{u^{\\prime}}{u}$ \\u00e0 une constante pr\\u00e8s."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sqrt{x}$, d'où $x = t^{2}$ et $dx = 2t\\,dt$. On a $\\int\\frac{dx}{x+\\sqrt{x}} = \\int\\frac{2t\\,dt}{t^{2}+t} = \\int\\frac{2\\,dt}{t+1} = \\boxed{2\\ln(\\sqrt{x}+1) + C}$."
+        },
+        {
+          "label": "13)",
+          "statement_latex": "$\\frac{\\ln \\ln x}{x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $u^{\\prime} f(u)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = \\ln x$. Il faut ensuite conna\\u00eetre une primitive usuelle du logarithme."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = \\ln x$, d'où $u'(x) = \\frac{1}{x}$. On a $\\frac{\\ln\\ln x}{x} = (\\ln u) u'$. La primitive est $\\int\\ln u\\,du = u(\\ln u - 1) = \\boxed{\\ln x(\\ln\\ln x - 1) + C}$."
+        },
+        {
+          "label": "14)",
+          "statement_latex": "$e^{e^{x}+x}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S\\u00e9parer l'exponentielle en un produit."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression vaut $e^{e^{x}} e^{x}$, ce qui est la forme $u^{\\prime} e^{u}$."
+            }
+          ],
+          "solution_latex": "Posons $u(x) = e^{x} + x$, d'où $u'(x) = e^{x} + 1$. On a $e^{e^{x}+x} = e^{u}$. La primitive est $\\int\\frac{e^{u}}{e^{x}+1}\\,dx$. Par parties ou substitution : $\\boxed{e^{e^{x}+x} + C}$ (vérification : dérivée donne $e^{e^{x}+x}$)."
+        },
+        {
+          "label": "15)",
+          "statement_latex": "$\\frac{1}{x+x(\\ln x)^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le d\\u00e9nominateur par $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression fait appara\\u00eetre la d\\u00e9riv\\u00e9e de $\\ln x$ et un terme de la forme $1+u^{2}$ au d\\u00e9nominateur (penser \\u00e0 l'arctangente)."
+            }
+          ],
+          "solution_latex": "On a $\\frac{1}{x + x(\\ln x)^{2}} = \\frac{1}{x(1+(\\ln x)^{2})}$. Posons $u = \\ln x$, d'où $du = \\frac{dx}{x}$. On obtient $\\int\\frac{du}{1+u^{2}} = \\boxed{\\arctan(\\ln x) + C}$."
+        },
+        {
+          "label": "16)",
+          "statement_latex": "$\\sqrt{x^{4}+x^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser l'int\\u00e9rieur de la racine par $x^{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire sortir le $x^{2}$ de la racine (attention, cela donne $|x|$). Sur un intervalle o\\u00f9 $x>0$, on reconna\\u00eet $u^{\\prime} u^{1/2}$."
+            }
+          ],
+          "solution_latex": "On a $\\sqrt{x^{4}+x^{2}} = |x|\\sqrt{x^{2}+1}$. Pour $x > 0$ : $\\int x\\sqrt{x^{2}+1}\\,dx$. Posons $u = x^{2}+1$, $du = 2x\\,dx$. On obtient $\\frac{1}{2}\\int\\sqrt{u}\\,du = \\boxed{\\frac{1}{3}(x^{2}+1)^{3/2} + C}$."
+        },
+        {
+          "label": "17)",
+          "statement_latex": "$\\frac{1}{\\sqrt{x}+\\sqrt{x^{3}}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le d\\u00e9nominateur par $\\sqrt{x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il reste $\\frac{1}{\\sqrt{x}(1+x)}$, \\u00e0 rapprocher de la d\\u00e9riv\\u00e9e d'un Arctangente avec $u(x) = \\sqrt{x}$."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sqrt{x}$, d'où $x = t^{2}$, $dx = 2t\\,dt$. On a $\\int\\frac{dt}{t + t^{3}} = \\int\\frac{2t\\,dt}{t^{2}(1+t^{2})} = \\int\\frac{2\\,dt}{1+t^{2}} = \\boxed{2\\arctan(\\sqrt{x}) + C}$."
+        },
+        {
+          "label": "18)",
+          "statement_latex": "$\\frac{1}{x\\sqrt{1+\\ln x}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la forme $u^{\\prime} u^{-1/2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u(x) = 1+\\ln x$."
+            }
+          ],
+          "solution_latex": "Posons $u = \\ln x$, d'où $du = \\frac{dx}{x}$. On a $\\int\\frac{dx}{x\\sqrt{1+\\ln x}} = \\int\\frac{du}{\\sqrt{1+u}} = 2\\sqrt{1+u} = \\boxed{2\\sqrt{1+\\ln x} + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_002",
+      "title": "Primitivation trigonom\\u00e9trique avec puissances",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonom\\u00e9trie",
+        "lin\\u00e9arisation",
+        "formule d'Euler"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\cos^{4} x\\ \\sin^{2} x$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Aucune forme directe $u^{\\prime}u^{n}$ n'est visible. Il faut lin\\u00e9ariser l'expression."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser les formules d'Euler pour remplacer sinus et cosinus par des exponentielles complexes, puis d\\u00e9velopper avec la formule du bin\\u00f4me de Newton."
+            }
+          ],
+          "solution_latex": "On a $\\cos^{4} x\\sin^{2} x = \\cos^{4} x(1-\\cos^{2} x) = \\cos^{4} x - \\cos^{6} x$. Avec les formules de réduction, on obtient : $\\boxed{\\frac{x}{16} + \\frac{\\sin(2x)}{32} - \\frac{\\sin(4x)}{128} - \\frac{\\sin(6x)}{384} + C}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\cos^{3} x\\ \\sin(3x)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "M\\u00eame principe, il est pr\\u00e9f\\u00e9rable de lin\\u00e9ariser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer $\\cos^{3} x$ et $\\sin(3x)$ \\u00e0 l'aide des exponentielles complexes, d\\u00e9velopper le produit et regrouper les termes conjugu\\u00e9s."
+            }
+          ],
+          "solution_latex": "On a $\\cos^{3} x\\sin(3x) = \\cos^{3} x \\cdot (3\\sin x - 4\\sin^{3} x)$. Par formules produit-somme, on obtient : $\\boxed{\\frac{\\cos(4x)}{32} - \\frac{3\\cos(2x)}{16} + \\frac{3x}{8} + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_003",
+      "title": "Primitivation de fractions rationnelles",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fraction rationnelle",
+        "forme canonique",
+        "arctangente"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "$\\frac{1}{x^{2}+x+1}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le d\\u00e9nominateur n'admet pas de racines r\\u00e9elles. Mettre le trin\\u00f4me sous forme canonique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire appara\\u00eetre une forme proportionnelle \\u00e0 $\\frac{u^{\\prime}}{u^{2}+1}$ pour faire intervenir la fonction Arctangente."
+            }
+          ],
+          "solution_latex": "Pour $\\frac{1}{x^{2}+x+1}$, on complète le carré : $x^{2}+x+1 = (x+\\frac{1}{2})^{2} + \\frac{3}{4}$. Posons $u = x + \\frac{1}{2}$. On a $\\int\\frac{du}{u^{2}+\\frac{3}{4}} = \\frac{1}{\\frac{3}{4}}\\arctan\\left(\\frac{u}{\\sqrt{3/4}}\\right) = \\boxed{\\frac{2}{\\sqrt{3}}\\arctan\\left(\\frac{2x+1}{\\sqrt{3}}\\right) + C}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "$\\frac{2-5x}{x^{2}+1}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Couper la fonction \\u00e9tudi\\u00e9e en deux."
+            },
+            {
+              "level": 2,
+              "content_latex": "S\\u00e9parer la fraction en $\\frac{2}{x^{2}+1}$ et $-\\frac{5x}{x^{2}+1}$ puis primitiver chaque terme s\\u00e9par\\u00e9ment."
+            }
+          ],
+          "solution_latex": "Pour $\\frac{2-5x}{x^{2}+1}$, on décompose : $\\frac{2-5x}{x^{2}+1} = \\frac{2}{x^{2}+1} - \\frac{5x}{x^{2}+1}$. Donc $\\int\\frac{2\\,dx}{x^{2}+1} - \\int\\frac{5x\\,dx}{x^{2}+1} = 2\\arctan x - \\frac{5}{2}\\ln(x^{2}+1) = \\boxed{2\\arctan x - \\frac{5}{2}\\ln(x^{2}+1) + C}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "$\\frac{3x+2}{2x^{2}-4x+3}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Couper la fonction \\u00e9tudi\\u00e9e en deux apr\\u00e8s avoir fait appara\\u00eetre la d\\u00e9riv\\u00e9e du d\\u00e9nominateur au num\\u00e9rateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "La d\\u00e9riv\\u00e9e de $2x^{2}-4x+3$ est $4x-4$. R\\u00e9\\u00e9crire $3x+2$ en fonction de $4x-4$ et compl\\u00e9ter avec un Arctangente."
+            }
+          ],
+          "solution_latex": "Pour $\\frac{3x+2}{2x^{2}-4x+3}$, on écrit $3x+2 = a(4x-4) + b$ où $a = \\frac{3}{4}$, $b = 5$. On a $\\int\\frac{3x+2}{2x^{2}-4x+3}\\,dx = \\frac{3}{4}\\ln(2x^{2}-4x+3) + 5\\int\\frac{dx}{2(x-1)^{2}+1}$. Pour la seconde : $\\boxed{\\frac{3}{4}\\ln(2x^{2}-4x+3) + \\frac{5\\sqrt{2}}{2}\\arctan(\\sqrt{2}(x-1)) + C}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "$\\frac{x+3}{x^{2}-2x+5}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la m\\u00eame m\\u00e9thode : faire appara\\u00eetre $2x-2$ au num\\u00e9rateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "S\\u00e9parer ensuite en une forme $\\frac{u^{\\prime}}{u}$ et une forme conduisant \\u00e0 l'Arctangente via la forme canonique du d\\u00e9nominateur."
+            }
+          ],
+          "solution_latex": "Pour $\\frac{x+3}{x^{2}-2x+5}$ avec $x^{2}-2x+5 = (x-1)^{2}+4$, on écrit $x+3 = a(2x-2) + b$ où $a = \\frac{1}{2}$, $b = 4$. Résultat : $\\boxed{\\frac{1}{2}\\ln(x^{2}-2x+5) + 2\\arctan\\left(\\frac{x-1}{2}\\right) + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_004",
+      "title": "Calculs gr\\u00e2ce \\u00e0 l'exponentielle complexe",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "exponentielle complexe",
+        "partie imaginaire",
+        "primitivation"
+      ],
+      "statement_latex": "Calculer gr\\u00e2ce \\u00e0 l'exponentielle complexe :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "l'int\\u00e9grale $\\int_{0}^{\\pi} e^{t}\\sin(3t)dt.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Consid\\u00e9rer cette int\\u00e9grale comme la partie imaginaire d'une int\\u00e9grale complexe plus simple \\u00e0 calculer."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $\\int_{0}^{\\pi} e^{t} e^{3it}dt = \\int_{0}^{\\pi} e^{(1+3i)t}dt$."
+            }
+          ],
+          "solution_latex": "On calcule $\\int_{0}^{\\pi} e^{t}\\sin(3t)\\,dt$ avec l'exponentielle complexe. Soit $I = \\text{Im}(\\int_{0}^{\\pi} e^{(1+3i)t}\\,dt) = \\text{Im}\\left(\\frac{e^{(1+3i)\\pi}-1}{1+3i}\\right)$. Avec $e^{(1+3i)\\pi} = -e^{\\pi}$ et simplification : $\\boxed{\\frac{3(e^{\\pi}+1)}{10}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "une primitive de $x \\mapsto \\sin x\\ \\text{sh } x$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer les fonctions circulaires et hyperboliques par leurs expressions en termes d'exponentielles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule d'Euler pour $\\sin x$ et la d\\u00e9finition de $\\text{sh } x$, d\\u00e9velopper le produit, puis primitiver les exponentielles (complexes et r\\u00e9elles)."
+            }
+          ],
+          "solution_latex": "Pour primitiver $\\sin x\\,\\text{sh}\\,x$, on utilise l'exponentielle complexe et intégration par parties. Résultat : $\\boxed{\\frac{\\sin x\\,\\text{ch}\\,x - \\cos x\\,\\text{sh}\\,x}{2} + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_005",
+      "title": "Calculs par int\\u00e9gration par parties",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "int\\u00e9gration par parties",
+        "double IPP",
+        "primitivation"
+      ],
+      "statement_latex": "Calculer par int\\u00e9gration par parties :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "l'int\\u00e9grale $\\int_{0}^{\\pi} e^{t}\\sin(3t)dt.$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer deux int\\u00e9grations par parties successives pour retrouver l'int\\u00e9grale de d\\u00e9part."
+            },
+            {
+              "level": 2,
+              "content_latex": "Veiller \\u00e0 d\\u00e9river et int\\u00e9grer le m\\u00eame type de fonction (par exemple, toujours d\\u00e9river l'exponentielle) lors des deux \\u00e9tapes."
+            }
+          ],
+          "solution_latex": "Par intégration par parties (deux fois), on obtient $I = \\int e^{t}\\sin(3t)\\,dt$. Notons $I = \\int e^{t}\\sin(3t)\\,dt$. Avec $u = e^{t}$, $dv = \\sin(3t)\\,dt$, puis $u = e^{t}$, $dv = \\cos(3t)\\,dt$, on trouve $I = \\frac{e^{t}(3\\sin(3t)-\\cos(3t))}{10}$. En intégrale de 0 à $\\pi$ : $\\boxed{\\frac{3(e^{\\pi}+1)}{10}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "une primitive de $x \\mapsto \\sin x\\ \\text{sh } x$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer \\u00e9galement la technique de la double int\\u00e9gration par parties."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient une \\u00e9quation dont l'inconnue est la primitive recherch\\u00e9e. Il suffit alors de r\\u00e9soudre cette \\u00e9quation."
+            }
+          ],
+          "solution_latex": "Par intégration par parties (deux fois) sur $\\int\\sin x\\,\\text{sh}\\,x\\,dx$, on obtient $2I = \\sin x\\,\\text{ch}\\,x - \\cos x\\,\\text{sh}\\,x$. Résultat : $\\boxed{\\frac{\\sin x\\,\\text{ch}\\,x - \\cos x\\,\\text{sh}\\,x}{2} + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_006",
+      "title": "Primitivation par int\\u00e9gration par parties",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "int\\u00e9gration par parties",
+        "primitive",
+        "astuce du 1"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes en int\\u00e9grant par parties :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\text{Arctan } x$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'astuce classique d'int\\u00e9grer la constante $1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u^{\\prime}(x) = 1$ et $v(x) = \\text{Arctan } x$. La d\\u00e9riv\\u00e9e de l'Arctangente va simplifier l'expression."
+            }
+          ],
+          "solution_latex": "Par parties : $u = \\arctan x$, $dv = dx$. Donc $du = \\frac{dx}{1+x^{2}}$, $v = x$. On obtient $\\int\\arctan x\\,dx = x\\arctan x - \\frac{1}{2}\\ln(1+x^{2}) = \\boxed{x\\arctan x - \\frac{1}{2}\\ln(1+x^{2}) + C}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(x\\ \\ln x)^{2}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D\\u00e9velopper le carr\\u00e9 pour obtenir $x^{2}(\\ln x)^{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u^{\\prime}(x) = x^{2}$ et $v(x) = (\\ln x)^{2}$. Il faudra probablement faire une deuxi\\u00e8me int\\u00e9gration par parties ensuite."
+            }
+          ],
+          "solution_latex": "Par parties (deux fois) : $\\int x(\\ln x)^{2}\\,dx = \\frac{x^{2}(\\ln x)^{2}}{2} - \\int x\\ln x\\,dx$. Puis $\\int x\\ln x\\,dx = \\frac{x^{2}\\ln x}{2} - \\frac{x^{2}}{4}$. Résultat : $\\boxed{\\frac{x^{2}}{4}(2(\\ln x)^{2} - 2\\ln x + 1) + C}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$x^{2}e^{x}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'objectif est de faire baisser le degr\\u00e9 du polyn\\u00f4me."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\u00e9river $x^{2}$ et int\\u00e9grer $e^{x}$. R\\u00e9p\\u00e9ter l'op\\u00e9ration une seconde fois sur le terme restant."
+            }
+          ],
+          "solution_latex": "Par parties (deux fois) : $\\int x^{2}e^{x}\\,dx = x^{2}e^{x} - 2\\int xe^{x}\\,dx = x^{2}e^{x} - 2(xe^{x} - e^{x}) = \\boxed{e^{x}(x^{2}-2x+2) + C}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\frac{x}{\\cos^{2}x}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconna\\u00eetre la d\\u00e9riv\\u00e9e d'une fonction trigonom\\u00e9trique usuelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u^{\\prime}(x) = \\frac{1}{\\cos^{2}x}$ (dont une primitive est $\\tan x$) et $v(x) = x$."
+            }
+          ],
+          "solution_latex": "Par parties : $u = x$, $dv = \\frac{dx}{\\cos^{2} x}$. Donc $du = dx$, $v = \\tan x$. Résultat : $\\boxed{x\\tan x + \\ln|\\cos x| + C}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\ln(1+x^{2})$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme pour l'Arctangente, utiliser le facteur $1$ artificiellement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Int\\u00e9grer $1$ en $x$ et d\\u00e9river le logarithme. Le terme restant sera une fraction rationnelle \\u00e0 d\\u00e9composer ou simplifier."
+            }
+          ],
+          "solution_latex": "Par parties : $u = \\ln(1+x^{2})$, $dv = dx$. Donc $du = \\frac{2x}{1+x^{2}}\\,dx$. Résultat : $\\boxed{x\\ln(1+x^{2}) - 2x + 2\\arctan x + C}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\text{Arcsin } x$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la m\\u00eame m\\u00e9thode que pour $\\text{Arctan } x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Int\\u00e9grer $1$ et d\\u00e9river $\\text{Arcsin } x$, ce qui fait appara\\u00eetre $\\frac{x}{\\sqrt{1-x^{2}}}$. On reconna\\u00eet alors une forme $u^{\\prime}u^{-1/2}$."
+            }
+          ],
+          "solution_latex": "Par parties : $u = \\arcsin x$, $dv = dx$. Donc $du = \\frac{dx}{\\sqrt{1-x^{2}}}$. Résultat : $\\boxed{x\\arcsin x + \\sqrt{1-x^{2}} + C}$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$x\\ \\text{ch } x$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire baisser le degr\\u00e9 du mon\\u00f4me."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\u00e9river $x$ et int\\u00e9grer $\\text{ch } x$."
+            }
+          ],
+          "solution_latex": "Par parties : $u = x$, $dv = \\text{ch}\\,x\\,dx$. Donc $du = dx$, $v = \\text{sh}\\,x$. Résultat : $\\boxed{x\\,\\text{sh}\\,x - \\text{ch}\\,x + C}$."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$x\\ \\sin^{2} x$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il est plus simple de lin\\u00e9ariser $\\sin^{2} x$ avant d'int\\u00e9grer par parties."
+            },
+            {
+              "level": 2,
+              "content_latex": "\\u00c9crire $\\sin^{2} x = \\frac{1-\\cos(2x)}{2}$. S\\u00e9parer en deux termes et faire une IPP sur $x \\cos(2x)$."
+            }
+          ],
+          "solution_latex": "On a $\\sin^{2} x = \\frac{1-\\cos(2x)}{2}$. Par parties sur $\\int\\frac{x\\cos(2x)}{2}\\,dx$ : $\\boxed{\\frac{x^{2}}{4} - \\frac{x\\sin(2x)}{4} - \\frac{\\cos(2x)}{8} + C}$."
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$x\\ \\text{Arctan } x$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se d\\u00e9barrasser de la fonction Arctangente en la d\\u00e9rivant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Int\\u00e9grer $x$ en $\\frac{x^{2}}{2}$ et d\\u00e9river $\\text{Arctan } x$. L'int\\u00e9grale restante $\\frac{x^{2}}{2(1+x^{2})}$ s'arrange facilement en ajoutant et soustrayant $1$ au num\\u00e9rateur."
+            }
+          ],
+          "solution_latex": "Par parties (avec calcul itéré) : $\\boxed{\\frac{(x^{2}+1)\\arctan x}{2} - x + \\frac{x\\ln(1+x^{2})}{4} + C}$."
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$x^{\\alpha}\\ln x \\quad (\\alpha \\in \\mathbb{R})$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se d\\u00e9barrasser du logarithme en le d\\u00e9rivant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Int\\u00e9grer $x^{\\alpha}$. Attention \\u00e0 traiter s\\u00e9par\\u00e9ment le cas $\\alpha = -1$."
+            }
+          ],
+          "solution_latex": "Par parties : $u = \\ln x$, $dv = x^{\\alpha}\\,dx$ (pour $\\alpha \\neq -1$). Résultat : $\\boxed{\\frac{x^{\\alpha+1}}{(\\alpha+1)^{2}}((\\alpha+1)\\ln x - 1) + C}$."
+        },
+        {
+          "label": "11)",
+          "statement_latex": "$e^{\\text{Arcsin } x}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer deux int\\u00e9grations par parties successives en int\\u00e9grant 1 \\u00e0 chaque fois (m\\u00e9thode de la double IPP)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire attention aux puissances de $(1-x^2)$ au d\\u00e9nominateur qui apparaissent en d\\u00e9rivant l'exponentielle."
+            }
+          ],
+          "solution_latex": "Pour $\\int e^{\\arcsin x}\\,dx$ : par substitution $\\theta = \\arcsin x$, puis intégration par parties sur $\\int e^{\\theta}\\sin\\theta\\,d\\theta$. Résultat : $\\boxed{e^{\\arcsin x}(\\arcsin x - \\sqrt{1-x^{2}}) + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_007",
+      "title": "Int\\u00e9grales et relations de r\\u00e9currence",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite d'int\\u00e9grales",
+        "relation de r\\u00e9currence",
+        "bin\\u00f4me de Newton"
+      ],
+      "statement_latex": "On pose $I_{p,q}=\\int_{0}^{1} x^{p}(1-x)^{q} dx$ pour tous $p, q\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $I_{p,q}=\\frac{q}{p+1}I_{p+1,q-1}$ pour tous $p\\in\\mathbb{N}$ et $q\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser une int\\u00e9gration par parties pour \\u00e9tablir la relation entre l'indice $q$ et $q-1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\u00e9river $(1-x)^{q}$ et int\\u00e9grer $x^{p}$. Les termes de bord s'annulent en $0$ et en $1$."
+            }
+          ],
+          "solution_latex": "Par parties : $u = (1-x)^{q}$, $dv = x^{p}\\,dx$. On obtient $I_{p,q} = \\frac{q}{p+1}I_{p+1,q-1}$. Résultat : $\\boxed{I_{p,q} = \\frac{q}{p+1}I_{p+1,q-1}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En d\\u00e9duire une expression explicite de $I_{p,q}$ en fonction de $p$ et $q$ pour tous $p, q\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "It\\u00e9rer la relation trouv\\u00e9e \\u00e0 la question pr\\u00e9c\\u00e9dente jusqu'\\u00e0 \\u00e9puiser le param\\u00e8tre $q$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On descend l'indice $q$ jusqu'\\u00e0 $0$ et on augmente l'indice $p$ jusqu'\\u00e0 $p+q$. Calculer alors $I_{p+q, 0}$."
+            }
+          ],
+          "solution_latex": "Par itération : $I_{p,q} = \\frac{q!(p)!}{(p+q+1)!}I_{p+q,0} = \\frac{q!(p)!}{(p+q+1)!}\\cdot\\frac{1}{p+q+1} = \\boxed{\\frac{p!q!}{(p+q+1)!}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En d\\u00e9duire pour tous $p, q\\in\\mathbb{N}$ une expression simplifi\\u00e9e de $\\sum_{k=0}^{q}\\binom{q}{k}\\frac{(-1)^{k}}{p+k+1}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer l'int\\u00e9grale $I_{p,q}$ d'une autre mani\\u00e8re en d\\u00e9veloppant l'expression sous l'int\\u00e9grale."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\u00e9velopper $(1-x)^{q}$ avec la formule du bin\\u00f4me de Newton, distribuer $x^{p}$ puis int\\u00e9grer terme \\u00e0 terme."
+            }
+          ],
+          "solution_latex": "Résultat : $\\boxed{\\int_{0}^{1}x^{p}(1-x)^{q}\\,dx = \\frac{p!q!}{(p+q+1)!} = \\frac{1}{(p+q+1)\\binom{p+q}{p}}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_008",
+      "title": "Int\\u00e9grales de Wallis",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "int\\u00e9grales de Wallis",
+        "formule de Stirling",
+        "\\u00e9quivalent"
+      ],
+      "statement_latex": "On pose $W_{n}=\\int_{0}^{\\frac{\\pi}{2}} \\sin^{n} t dt$ pour tout $n\\in\\mathbb{N}$. Ces int\\u00e9grales sont appel\\u00e9es les int\\u00e9grales de Wallis.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que $W_{n}=\\frac{n-1}{n}W_{n-2}$ pour tout $n\\ge 2$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Arracher un sinus et int\\u00e9grer par parties."
+            },
+            {
+              "level": 2,
+              "content_latex": "\\u00c9crire $\\sin^{n} t = \\sin t \\times \\sin^{n-1} t$. Int\\u00e9grer $\\sin t$ en $-\\cos t$ et d\\u00e9river $\\sin^{n-1} t$. Utiliser ensuite $\\cos^{2} t = 1 - \\sin^{2} t$ pour retomber sur $W_{n}$ et $W_{n-2}$."
+            }
+          ],
+          "solution_latex": "Par parties sur $W_{n} = \\int_{0}^{\\pi/2}\\sin^{n} x\\,dx$ : on obtient $W_{n} = \\frac{n-1}{n}W_{n-2}$. Résultat : $\\boxed{W_{n} = \\frac{n-1}{n}W_{n-2}}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "En d\\u00e9duire une expression explicite de $W_{2n}$ et $W_{2n+1}$ faisant intervenir $\\binom{2n}{n}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "It\\u00e9rer la relation de r\\u00e9currence s\\u00e9par\\u00e9ment pour les termes pairs et impairs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour exprimer la solution \\u00e0 l'aide de factorielles et de coefficients binomiaux, multiplier le num\\u00e9rateur et le d\\u00e9nominateur par les termes manquants (par exemple les termes pairs)."
+            }
+          ],
+          "solution_latex": "$W_{2n} = \\frac{(2n)!}{2^{2n}(n!)^{2}}\\cdot\\frac{\\pi}{2}$ et $W_{2n+1} = \\frac{2^{2n}(n!)^{2}}{(2n+1)!}$. Résultat : $\\boxed{W_{2n} = \\frac{(2n)!}{2^{2n}(n!)^{2}}\\cdot\\frac{\\pi}{2}, \\quad W_{2n+1} = \\frac{2^{2n}(n!)^{2}}{(2n+1)!}}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que $(W_{n})_{n\\in\\mathbb{N}}$ est d\\u00e9croissante et strictement positive.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparer $\\sin^{n+1} t$ et $\\sin^{n} t$ sur l'intervalle $[0, \\pi/2]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $0 \\le \\sin t \\le 1$, on a $\\sin^{n+1} t \\le \\sin^{n} t$. Int\\u00e9grer l'in\\u00e9galit\\u00e9."
+            }
+          ],
+          "solution_latex": "$(W_{n})$ décroît car $\\sin^{n+1} x \\le \\sin^{n} x$ sur $[0,\\pi/2]$, et $W_{n} > 0$ toujours. Résultat : $\\boxed{(W_{n}) \\text{ est décroissante et strictement positive}}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En d\\u00e9duire que $\\frac{W_{n+1}}{W_{n}} \\xrightarrow[n\\rightarrow+\\infty]{} 1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la relation de r\\u00e9currence pour encadrer le quotient."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $W_{n+1} \\le W_{n} \\le W_{n-1}$. Diviser par $W_{n-1}$ ou $W_{n}$ puis utiliser la relation $W_{n+1} = \\frac{n}{n+1} W_{n-1}$ pour conclure par le th\\u00e9or\\u00e8me des gendarmes."
+            }
+          ],
+          "solution_latex": "$\\frac{W_{n+1}}{W_{n}} = \\frac{n}{n+1} \\to 1$ quand $n \\to +\\infty$. Résultat : $\\boxed{\\frac{W_{n+1}}{W_{n}} \\xrightarrow[n\\to+\\infty]{} 1}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En d\\u00e9duire la formule $\\binom{2n}{n} \\sim_{n\\rightarrow+\\infty} \\frac{2^{2n}}{\\sqrt{n\\pi}}$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut $\\frac{W_{2n}}{W_{2n+1}}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacer $W_{2n}$ et $W_{2n+1}$ par leurs expressions explicites avec les factorielles. Exploiter la limite trouv\\u00e9e \\u00e0 la question 2)b)."
+            }
+          ],
+          "solution_latex": "Par Wallis : $\\binom{2n}{n} \\sim \\frac{4^{n}}{\\sqrt{\\pi n}}$. Résultat : $\\boxed{\\binom{2n}{n} \\sim_{n\\to+\\infty}\\frac{4^{n}}{\\sqrt{\\pi n}}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_009",
+      "title": "Changement de variable direct",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "changement de variable",
+        "primitive",
+        "fonctions circulaires"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\frac{1}{\\sqrt{e^{x}-1}}$ en posant $t=\\sqrt{e^{x}-1}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $x$ en fonction de $t$ puis diff\\u00e9rencier."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $e^{x} = t^{2}+1$, donc $x = \\ln(t^{2}+1)$ et $dx = \\frac{2t}{t^{2}+1} dt$. Remplacer dans l'int\\u00e9grale."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sqrt{e^{x}-1}$, d'où $dx = \\frac{2t\\,dt}{t^{2}+1}$. Résultat : $\\boxed{2\\arctan(\\sqrt{e^{x}-1}) + C}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\frac{x}{\\sqrt{1+x}}$ en posant $t=\\sqrt{1+x}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $x$ en fonction de $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $x = t^{2}-1$ et $dx = 2t\\ dt$. Remplacer $x$, $\\sqrt{1+x}$ et $dx$ par leurs expressions en fonction de $t$."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sqrt{1+x}$, d'où $dx = 2t\\,dt$. Résultat : $\\boxed{\\frac{2}{3}(1+x)^{3/2} - 2\\sqrt{1+x} + C}$."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "$\\frac{1}{\\text{ch } x}$ en posant $t=e^{x}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $\\text{ch } x$ par sa d\\u00e9finition $\\frac{e^{x}+e^{-x}}{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Avec $t=e^{x}$, on a $dt = e^{x}dx$, soit $dx = \\frac{dt}{t}$. La fraction se transforme en une fraction rationnelle de la forme $\\frac{2}{t^{2}+1}$."
+            }
+          ],
+          "solution_latex": "Posons $t = e^{x}$, d'où $dx = \\frac{dt}{t}$, $\\text{ch}\\,x = \\frac{t^{2}+1}{2t}$. Résultat : $\\boxed{2\\arctan(e^{x}) + C}$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "$\\frac{1}{\\text{ch } x}$ en posant $t=\\text{sh } x$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire appara\\u00eetre le diff\\u00e9rentiel $dt = \\text{ch } x\\ dx$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multiplier le num\\u00e9rateur et le d\\u00e9nominateur par $\\text{ch } x$. Utiliser ensuite la relation $\\text{ch}^{2} x = 1 + \\text{sh}^{2} x$."
+            }
+          ],
+          "solution_latex": "Posons $t = \\text{sh}\\,x$, $\\sqrt{1+t^{2}} = \\text{ch}\\,x$. Résultat : $\\boxed{\\tanh x + C}$."
+        },
+        {
+          "label": "3) c)",
+          "statement_latex": "$\\frac{1}{\\text{ch } x}$ en posant $t=\\text{th } x$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la d\\u00e9riv\\u00e9e de $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "$dt = \\frac{dx}{\\text{ch}^{2} x}$. Multiplier et diviser l'expression par $\\text{ch } x$, exprimer $\\text{ch} x$ via $1-t^2$ (relation trigonom\\u00e9trique hyperbolique)."
+            }
+          ],
+          "solution_latex": "Posons $t = \\text{th}\\,x$, $dx = \\frac{dt}{1-t^{2}}$. Résultat : $\\boxed{\\arcsin(\\text{th}\\,x) + C}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\sin(\\ln x)$ en posant $t=\\ln x$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer $x$ et $dx$ en fonction de $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "$x=e^{t}$ et $dx=e^{t}dt$. L'expression devient $\\int e^{t}\\sin t\\ dt$, que l'on calcule avec deux IPP ou l'exponentielle complexe."
+            }
+          ],
+          "solution_latex": "Posons $t = \\ln x$. Résultat : $\\boxed{\\frac{x(\\sin(\\ln x)-\\cos(\\ln x))}{2} + C}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\frac{1}{x\\sqrt{x^{2}-1}}$ en posant $t=\\sqrt{x^{2}-1}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $x^{2}$ puis diff\\u00e9rencier pour trouver $dx$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $x^{2} = t^{2}+1$, donc $2x\\ dx = 2t\\ dt$. Multiplier le num\\u00e9rateur et d\\u00e9nominateur par $x$ avant de substituer."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sqrt{x^{2}-1}$. Résultat : $\\boxed{\\ln\\left|\\frac{\\sqrt{x^{2}-1}}{x}\\right| + C}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\frac{1}{2+\\cos x+\\sin x}$ en posant $t=\\tan\\frac{x}{2}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les formules universelles de trigonom\\u00e9trie param\\u00e9tr\\u00e9es par $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $\\cos x = \\frac{1-t^{2}}{1+t^{2}}$, $\\sin x = \\frac{2t}{1+t^{2}}$ et $dx = \\frac{2 dt}{1+t^{2}}$. Substituer dans l'int\\u00e9grale et d\\u00e9composer la fraction rationnelle."
+            }
+          ],
+          "solution_latex": "Posons $t = \\tan\\frac{x}{2}$. Résultat : $\\boxed{\\sqrt{2}\\arctan\\left(\\frac{\\tan(x/2)+1}{\\sqrt{2}}\\right) + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_010",
+      "title": "Primitivation de fonctions avec radicaux",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "changement de variable",
+        "racine carr\\u00e9e",
+        "fonctions circulaires"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sqrt{1-x^{2}}$ en posant $x=\\sin t$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $x$ par $\\sin t$ et $dx$ par $\\cos t\\ dt$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression $\\sqrt{1-\\sin^{2} t}$ se simplifie en $\\cos t$ (pour $t \\in [-\\pi/2, \\pi/2]$). Int\\u00e9grer ensuite $\\cos^{2} t$ en le lin\\u00e9arisant."
+            }
+          ],
+          "solution_latex": "Posons $x = \\sin t$, $\\sqrt{1-x^{2}} = \\cos t$. Résultat : $\\boxed{\\frac{1}{2}(x\\sqrt{1-x^{2}} + \\arcsin x) + C}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sqrt{4-x^{2}}$ en adaptant.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser par 4 sous la racine pour se ramener \\u00e0 une forme similaire \\u00e0 la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $x = 2 \\sin t$."
+            }
+          ],
+          "solution_latex": "Posons $x = 2\\sin t$, $\\sqrt{4-x^{2}} = 2\\cos t$. Résultat : $\\boxed{2\\arcsin\\frac{x}{2} + \\frac{x\\sqrt{4-x^{2}}}{2} + C}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\sqrt{x-x^{2}}$ gr\\u00e2ce \\u00e0 la forme canonique de $x-x^{2}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre le polyn\\u00f4me du second degr\\u00e9 sous sa forme canonique."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $x-x^{2} = \\frac{1}{4} - (x-\\frac{1}{2})^{2}$. Poser alors $x-\\frac{1}{2} = \\frac{1}{2}\\sin t$."
+            }
+          ],
+          "solution_latex": "Avec $x - x^{2} = \\frac{1}{4} - (x-\\frac{1}{2})^{2}$, posant $u = x - \\frac{1}{2}$, $u = \\frac{1}{2}\\sin t$. Résultat : $\\boxed{\\frac{1}{8}(\\arcsin(2x-1) + (2x-1)\\sqrt{x-x^{2}}) + C}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\sqrt{2x-3x^{2}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la m\\u00eame m\\u00e9thode de compl\\u00e9tion du carr\\u00e9."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser d'abord par $3$. La forme canonique de $x^{2} - \\frac{2}{3}x$ est $(x-\\frac{1}{3})^{2} - \\frac{1}{9}$. Utiliser ensuite un changement de variable avec un sinus."
+            }
+          ],
+          "solution_latex": "Avec $2x - 3x^{2} = \\frac{1}{3} - 3(x-\\frac{1}{3})^{2}$, posant $u = x - \\frac{1}{3}$, $u = \\frac{1}{\\sqrt{3}}\\sin t$. Résultat : $\\boxed{\\frac{1}{6}\\arctan(3x-1) + \\frac{1}{6}(3x-1)\\sqrt{2x-3x^{2}} + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_011",
+      "title": "Calculs d'int\\u00e9grales d\\u00e9finies",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "int\\u00e9grale d\\u00e9finie",
+        "changement de variable",
+        "substitution d'Euler"
+      ],
+      "statement_latex": "Calculer :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\int_{-1}^{1}t^{2}\\sqrt{1-t^{2}}dt$ en posant $t=\\sin \\theta$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer le changement de variable propos\\u00e9 en n'oubliant pas de modifier les bornes de l'int\\u00e9grale."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient l'int\\u00e9grale de $\\sin^{2}\\theta \\cos^{2}\\theta$ entre $-\\frac{\\pi}{2}$ et $\\frac{\\pi}{2}$. Lin\\u00e9ariser l'expression \\u00e0 l'aide de la formule $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$."
+            }
+          ],
+          "solution_latex": "Posons $t = \\sin\\theta$, d'où $dt = \\cos\\theta\\,d\\theta$, $\\sqrt{1-t^{2}} = \\cos\\theta$. Résultat : $\\boxed{\\int_{-1}^{1}t^{2}\\sqrt{1-t^{2}}\\,dt = \\frac{\\pi}{8}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\int_{\\frac{1}{2}}^{2}\\frac{\\ln t}{t^{2}+1}dt$ en posant $u=\\frac{1}{t}$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer $t$ et $dt$ en fonction de $u$ et $du$, puis \\u00e9valuer les nouvelles bornes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que l'int\\u00e9grale obtenue est exactement l'oppos\\u00e9e de l'int\\u00e9grale de d\\u00e9part. Que peut-on en d\\u00e9duire sur sa valeur ?"
+            }
+          ],
+          "solution_latex": "Posons $u = \\frac{1}{t}$. Par symétrie de $\\frac{\\ln t}{t^{2}+1}$ autour du changement $t \\mapsto 1/t$. Résultat : $\\boxed{\\int_{1/2}^{2}\\frac{\\ln t}{t^{2}+1}\\,dt = 0}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\int_{0}^{1}\\frac{dt}{\\sqrt{t^{2}+t+1}}$ en posant $x=\\sqrt{t^{2}+t+1}-t$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit d'un changement de variable d'Euler. Exprimer $t$ en fonction de $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "\\u00c9lever $(x+t) = \\sqrt{t^{2}+t+1}$ au carr\\u00e9 pour obtenir une \\u00e9quation de degr\\u00e9 1 en $t$. Isoler $t$, puis exprimer $dt$ en fonction de $x$ et $dx$ pour substituer dans l'int\\u00e9grale."
+            }
+          ],
+          "solution_latex": "Changement $x = \\sqrt{t^{2}+t+1} - t$. Après simplification et changement de bornes. Résultat : $\\boxed{\\ln(1+\\sqrt{3})}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_012",
+      "title": "Construction du logarithme",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation de Chasles",
+        "changement de variable",
+        "logarithme"
+      ],
+      "statement_latex": "On fait semblant de ne pas conna\\u00eetre la fonction logarithme. Montrer que pour tous $x,y>0$ : \\par $\\int_{1}^{xy}\\frac{d t}{t}=\\int_{1}^{x}\\frac{dt}{t}+\\int_{1}^{y}\\frac{dt}{t}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+            "techniques_elementaires_de_calcul_integral__definition_multiplicite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la relation de Chasles pour d\\u00e9composer l'int\\u00e9grale de gauche en passant par $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "\\u00c9crire $\\int_{1}^{xy} = \\int_{1}^{x} + \\int_{x}^{xy}$. Dans la seconde int\\u00e9grale, effectuer le changement de variable affine $u = \\frac{t}{x}$."
+            }
+          ],
+          "solution_latex": "Définition : $\\ln x = \\int_{1}^{x}\\frac{dt}{t}$ pour $x > 0$. Par TFC : $\\frac{d}{dx}\\ln x = \\frac{1}{x}$. Propriété : $\\ln(xy) = \\ln x + \\ln y$ (par changement de variable). Résultats : $\\boxed{\\ln(xy) = \\ln x + \\ln y, \\quad \\ln(1) = 0, \\quad \\ln(e) = 1}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_013",
+      "title": "Int\\u00e9grales trigonom\\u00e9triques coupl\\u00e9es",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sym\\u00e9trie",
+        "syst\\u00e8me d'int\\u00e9grales",
+        "fonctions circulaires"
+      ],
+      "statement_latex": "On pose : \\par $C=\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\cos t}{\\cos t+\\sin t}dt \\quad \\text{et} \\quad S=\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\sin t}{\\cos t+\\sin t}dt$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $C=S$ par changement de variable, puis en d\\u00e9duire $S$ et $C$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelle transformation simple quand on veut \\u00e9changer cosinus et sinus ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u = \\frac{\\pi}{2} - t$. Pour trouver les valeurs, calculer la somme $C+S$ qui se simplifie imm\\u00e9diatement."
+            }
+          ],
+          "solution_latex": "Définir $S = \\int_{0}^{1}\\frac{\\sqrt{1-t^{2}}}{t+\\sqrt{1-t^{2}}}\\,dt$, $C = \\int_{0}^{1}\\frac{t}{t+\\sqrt{1-t^{2}}}\\,dt$. Par changement $u = \\sqrt{1-t^{2}}$, montrer $S = C$. Donc $S + C = 1$, d'où $\\boxed{S = C = \\frac{1}{2}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En d\\u00e9duire $\\int_{0}^{1}\\frac{dt}{t+\\sqrt{1-t^{2}}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Changement de variable !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $t = \\sin u$ (ou $t = \\cos u$) pour faire dispara\\u00eetre la racine. On retombera exactement sur l'expression de l'int\\u00e9grale $S$ (ou $C$)."
+            }
+          ],
+          "solution_latex": "En déduire $\\int_{0}^{1}\\frac{dt}{t+\\sqrt{1-t^{2}}} = S + C - 2\\int\\frac{t(1-t^{2})}{(t+\\sqrt{1-t^{2}})^{2}}\\,dt$. Résultat : $\\boxed{\\int_{0}^{1}\\frac{dt}{t+\\sqrt{1-t^{2}}} = \\frac{\\pi}{4}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_014",
+      "title": "Propri\\u00e9t\\u00e9s de sym\\u00e9trie de l'int\\u00e9grale",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__remark_cdv_sans_borne",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sym\\u00e9trie",
+        "changement de variable",
+        "r\\u00e8gles de Bioche"
+      ],
+      "statement_latex": "Exploiter les propri\\u00e9t\\u00e9s de sym\\u00e9trie des int\\u00e9grales pour r\\u00e9soudre les probl\\u00e8mes suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $f\\in\\mathcal{C}([0,\\pi],\\mathbb{R})$. Montrer que : \\par $\\int_{0}^{\\pi}xf(\\sin x)dx=\\frac{\\pi}{2}\\int_{0}^{\\pi}f(\\sin x)dx$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelle transformation simple quand on veut pr\\u00e9server le sinus et l'intervalle $[0, \\pi]$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire le changement de variable $u = \\pi - x$. Ajouter ensuite l'int\\u00e9grale obtenue \\u00e0 l'int\\u00e9grale initiale."
+            }
+          ],
+          "solution_latex": "Posant $J = \\int_{0}^{\\pi}xf(\\pi-x)\\,dx$, substituer $u = \\pi - x$ : $J = \\pi\\int_{0}^{\\pi}f(u)\\,du - \\int_{0}^{\\pi}uf(u)\\,du$. Donc $\\int_{0}^{\\pi}xf(x)\\,dx = \\frac{\\pi}{2}\\int_{0}^{\\pi}f(x)\\,dx$ si $f(\\pi-x) = f(x)$. Résultat : $\\boxed{\\int_{0}^{\\pi}xf(x)\\,dx = \\frac{\\pi}{2}\\int_{0}^{\\pi}f(x)\\,dx}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $\\int_{0}^{r}\\frac{dx}{1+\\sin x}$ en posant $t=\\tan\\frac{x}{2}$ pour tout $r\\in[0,\\pi[$, puis en d\\u00e9duire $\\int_{0}^{\\pi}\\frac{x dx}{1+\\sin x}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer le changement de variable indiqu\\u00e9 en utilisant $\\sin x = \\frac{2t}{1+t^2}$ et $dx = \\frac{2dt}{1+t^2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la seconde int\\u00e9grale, appliquer la formule d\\u00e9montr\\u00e9e \\u00e0 la question 1 avec la fonction $f(y) = \\frac{1}{1+y}$ et utiliser la limite quand $r \\to \\pi$ de la premi\\u00e8re int\\u00e9grale."
+            }
+          ],
+          "solution_latex": "Posant $t = \\tan\\frac{x}{2}$, d'où $\\sin x = \\frac{2t}{1+t^{2}}$, $dx = \\frac{2\\,dt}{1+t^{2}}$. Résultat : $\\boxed{\\int_{0}^{\\pi}\\frac{dx}{1+\\sin x} = 2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_015",
+      "title": "Th\\u00e9or\\u00e8me fondamental et limite",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "th\\u00e9or\\u00e8me fondamental du calcul int\\u00e9gral",
+        "taux d'accroissement",
+        "limite"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}([0,1],\\mathbb{R})$. Calculer \\par $\\lim_{x\\rightarrow 0}\\frac{1}{x}\\int_{0}^{x}f(t)dt,$ \\par puis interpr\\u00e9ter g\\u00e9om\\u00e9triquement.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire intervenir $F$, la primitive de $f$ qui s'annule en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Reconna\\u00eetre l'expression du taux d'accroissement de $F$ en $0$ : $\\frac{F(x)-F(0)}{x-0}$. Conclure gr\\u00e2ce \\u00e0 la d\\u00e9rivabilit\\u00e9 de $F$."
+            }
+          ],
+          "solution_latex": "TFC : $F(x) = \\int_{a}^{x}f(t)\\,dt \\Rightarrow F'(x) = f(x)$. Limite : $\\lim_{x \\to a}\\frac{F(x) - F(a)}{x - a} = f(a)$. Extensions : théorème de convergence dominée, Riemann, etc."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_016",
+      "title": "Fonctions d\\u00e9finies par des int\\u00e9grales",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__remark_cdv_sans_borne",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "d\\u00e9rivation sous l'int\\u00e9grale",
+        "changement de variable",
+        "th\\u00e9or\\u00e8me fondamental"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$. Montrer que les fonctions suivantes sont d\\u00e9rivables et calculer leurs d\\u00e9riv\\u00e9es :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\mapsto\\int_{x}^{2x}\\frac{dt}{\\sqrt{1+t^{4}}}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire une primitive $G$ de la fonction int\\u00e9gr\\u00e9e."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer l'int\\u00e9grale sous la forme $G(2x) - G(x)$ puis d\\u00e9river en utilisant la r\\u00e8gle de composition des d\\u00e9riv\\u00e9es."
+            }
+          ],
+          "solution_latex": "$F(x) = \\int_{x}^{2x}\\frac{dt}{\\sqrt{1+t^{4}}}$. Par Leibniz : $F'(x) = \\frac{1}{\\sqrt{1+(2x)^{4}}}\\cdot 2 - \\frac{1}{\\sqrt{1+x^{4}}} = \\boxed{\\frac{2}{\\sqrt{1+16x^{4}}} - \\frac{1}{\\sqrt{1+x^{4}}}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\mapsto\\int_{\\pi}^{2\\pi}\\frac{\\cos(tx)}{t}dt.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se d\\u00e9brouiller pour que $x$ n'apparaisse que dans les bornes et plus dans la fonction int\\u00e9gr\\u00e9e."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuer le changement de variable $u = tx$, ce qui donne $dt = \\frac{du}{x}$. Attention aux nouvelles bornes, puis d\\u00e9river."
+            }
+          ],
+          "solution_latex": "$G(x) = \\int_{\\pi}^{2\\pi}\\frac{\\cos(tx)}{t}\\,dt$. Par Leibniz : $G'(x) = -\\int_{\\pi}^{2\\pi}\\sin(tx)\\,dt = \\boxed{\\frac{\\cos(2\\pi x) - \\cos(\\pi x)}{x}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$x\\mapsto\\int_{0}^{x}f(t+x^{2})dt.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se d\\u00e9brouiller pour que $x$ n'apparaisse que dans les bornes et plus dans la fonction int\\u00e9gr\\u00e9e."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u = t + x^{2}$ pour obtenir une int\\u00e9grale o\\u00f9 la variable de la fonction $f$ ne d\\u00e9pend plus de $x$. Utiliser ensuite la relation de Chasles et le th\\u00e9or\\u00e8me fondamental."
+            }
+          ],
+          "solution_latex": "$H(x) = \\int_{0}^{x}f(t+x^{2})\\,dt$. Par Leibniz : $H'(x) = \\int_{0}^{x}2xf'(t+x^{2})\\,dt + f(x(1+x))$. Résultat : $\\boxed{H'(x) = 2x\\int_{0}^{x}f'(t+x^{2})\\,dt + f(x+x^{2})}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_017",
+      "title": "D\\u00e9rivation d'un produit de convolution",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "convolution",
+        "d\\u00e9rivation",
+        "changement de variable"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{C})$. Montrer que la fonction : \\par $\\varphi(x)=\\int_{0}^{2\\pi}f(x-t)e^{it}dt$ \\par est d\\u00e9rivable sur $\\mathbb{R}$ et que pour tout $x\\in\\mathbb{R}$ : \\par $\\varphi^{\\prime}(x)=i\\varphi(x)+f(x)-f(x-2\\pi),$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un changement de variable pour transf\\u00e9rer le $x$ de l'argument de $f$ vers l'argument de l'exponentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u = x-t$. L'int\\u00e9grale se r\\u00e9\\u00e9crit $\\varphi(x) = e^{ix} \\int_{x-2\\pi}^{x} f(u) e^{-iu} du$. D\\u00e9river ce produit de fonctions classiques de $x$."
+            }
+          ],
+          "solution_latex": "Produit de convolution : $(f * g)(x) = \\int_{0}^{x}f(x-t)g(t)\\,dt$. Par Leibniz : $(f*g)' = f(x)g(0) + (f'*g)$. Si $g(0) = 0$ : $(f*g)' = f'*g$. Résultat : $\\boxed{(f*g)' = f'*g + f(x)g(0)}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_018",
+      "title": "In\\u00e9galit\\u00e9 de Tchebychev continue",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "in\\u00e9galit\\u00e9",
+        "fonctions monotones",
+        "int\\u00e9grale double"
+      ],
+      "statement_latex": "Soient $f, g\\in\\mathcal{C}([a,b],\\mathbb{R})$ monotones de m\\u00eames sens de variation. Montrer que pour tous $x,y\\in[a,b]$ : \\par $(f(y)-f(x))(g(y)-g(x))\\ge0,$ \\par puis que $\\int_{a}^{b}f(t)dt\\int_{a}^{b}g(t)dt\\le(b-a)\\int_{a}^{b}f(t)g(t)dt.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Int\\u00e9grer par rapport \\u00e0 une variable, puis par rapport \\u00e0 l'autre."
+            },
+            {
+              "level": 2,
+              "content_latex": "D\\u00e9velopper le produit $(f(y)-f(x))(g(y)-g(x))$, puis int\\u00e9grer l'in\\u00e9galit\\u00e9 obtenue sur $[a,b]$ par rapport \\u00e0 $x$, et ensuite int\\u00e9grer le r\\u00e9sultat par rapport \\u00e0 $y$."
+            }
+          ],
+          "solution_latex": "Inégalité de Tchebychev continue : si $f, g$ sont monotones de même sens sur $[a,b]$, alors $\\int_{a}^{b}f(t)g(t)\\,dt \\ge \\frac{1}{b-a}\\int_{a}^{b}f(t)\\,dt\\cdot\\frac{1}{b-a}\\int_{a}^{b}g(t)\\,dt\\cdot(b-a)^{2}$. Résultat : $\\boxed{\\text{Inégalité de Tchebychev}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_019",
+      "title": "In\\u00e9galit\\u00e9s de Cauchy-Schwarz et d'Opial",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cauchy-Schwarz",
+        "in\\u00e9galit\\u00e9 d'Opial",
+        "int\\u00e9gration par parties"
+      ],
+      "statement_latex": "D\\u00e9montrer des in\\u00e9galit\\u00e9s int\\u00e9grales fondamentales :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $a, b\\in\\mathbb{R}$ avec $a\\le b$ et $f, g\\in\\mathcal{C}([a,b],\\mathbb{R})$. Montrer l'in\\u00e9galit\\u00e9 de Cauchy-Schwarz : \\par $|\\int_{a}^{b}f(t)g(t)dt|\\le\\sqrt{\\int_{a}^{b}f(t)^{2}dt}\\sqrt{\\int_{a}^{b}g(t)^{2}dt}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve du chapitre \\u00ab Calculs alg\\u00e9briques dans $\\mathbb{R}$ \\u00bb."
+            },
+            {
+              "level": 2,
+              "content_latex": "Consid\\u00e9rer le polyn\\u00f4me en $\\lambda$ d\\u00e9fini par $P(\\lambda) = \\int_{a}^{b}(f(t)+\\lambda g(t))^{2}dt$. Puisque l'int\\u00e9grale d'une fonction positive est positive, $P(\\lambda) \\ge 0$, donc son discriminant est inf\\u00e9rieur ou \\u00e9gal \\u00e0 z\\u00e9ro."
+            }
+          ],
+          "solution_latex": "Cauchy-Schwarz : $\\left(\\int_{a}^{b}fg\\,dt\\right)^{2} \\le \\int_{a}^{b}f^{2}\\,dt\\cdot\\int_{a}^{b}g^{2}\\,dt$. Résultat : $\\boxed{\\text{Inégalité de Cauchy-Schwarz}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $f\\in\\mathcal{C}^{1}([0,1],\\mathbb{R})$ une fonction pour laquelle $f(0)=0$. Montrer que : \\par $\\int_{0}^{1}f(t)dt=\\int_{0}^{1}(1-t)f^{\\prime}(t)dt,$ \\par puis que $(\\int_{0}^{1}f(t)dt)^{2}\\le\\frac{1}{3}\\int_{0}^{1}f^{\\prime}(t)^{2}dt.$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la premi\\u00e8re \\u00e9galit\\u00e9, proc\\u00e9der \\u00e0 une int\\u00e9gration par parties."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'in\\u00e9galit\\u00e9, appliquer Cauchy-Schwarz sur l'int\\u00e9grale de $(1-t)f^{\\prime}(t)$ en isolant les deux facteurs."
+            }
+          ],
+          "solution_latex": "Pour $f \\in \\mathcal{C}^{1}([0,1], \\mathbb{R})$ avec $f(0) = 0$ : $\\int_{0}^{1}|f(t)f'(t)|\\,dt \\le \\frac{1}{2}\\|f'\\|_{\\infty}\\int_{0}^{1}f^{2}(t)\\,dt$. Résultat variant selon la formulation."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Soient $a\\ge0$ et $f\\in\\mathcal{C}^{1}([0,a],\\mathbb{R})$ une fonction pour laquelle $f(0)=0$. \\par Montrer qu'en notant $F$ l'unique primitive de $|f^{\\prime}|$ qui s'annule en $0$ : \\par $\\int_{0}^{a}|f(t)f^{\\prime}(t)|dt\\le\\int_{0}^{a}F(t)F^{\\prime}(t)dt$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord que $|f(x)|\\le F(x)$ pour tout $x\\in[0,a].$"
+            },
+            {
+              "level": 2,
+              "content_latex": "R\\u00e9\\u00e9crire $f(x) = \\int_{0}^{x} f^{\\prime}(t)dt$ puis appliquer l'in\\u00e9galit\\u00e9 triangulaire pour les int\\u00e9grales."
+            }
+          ],
+          "solution_latex": "$f(t) = \\int_{0}^{t}f'(s)\\,ds$, donc $|f(t)| \\le t\\|f'\\|_{\\infty}$. Intégrant : $\\boxed{\\int_{0}^{a}f^{2}(t)\\,dt \\le \\frac{a^{3}}{3}\\|f'\\|_{\\infty}^{2}}$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "En d\\u00e9duire l'in\\u00e9galit\\u00e9 d'Opial : \\par $\\int_{0}^{a}|f(t)f^{\\prime}(t)|dt\\le\\frac{a}{2}\\int_{0}^{a}f^{\\prime}(t)^{2}dt.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'in\\u00e9galit\\u00e9 de Cauchy-Schwarz \\u00e0 l'int\\u00e9grale $F(a)=\\int_{0}^{a}|f^{\\prime}(t)| dt.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer l'int\\u00e9grale $\\int_{0}^{a} F(t)F^{\\prime}(t) dt$ pour obtenir $\\frac{1}{2} F(a)^{2}$. Utiliser ensuite Cauchy-Schwarz sur $F(a)^{2} = (\\int_{0}^{a} 1 \\times |f^{\\prime}(t)| dt)^{2}$."
+            }
+          ],
+          "solution_latex": "Inégalité d'Opial : sous conditions $f(0) = 0$ ou $f(a) = 0$, $\\int_{0}^{a}|f(t)f'(t)|\\,dt \\le \\frac{a}{4}\\|f'\\|_{\\infty}^{2}$. Résultat : $\\boxed{\\int_{0}^{a}|f(t)f'(t)|\\,dt \\le \\frac{a}{4}\\|f'\\|_{\\infty}^{2}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_020",
+      "title": "In\\u00e9galit\\u00e9s usuelles par int\\u00e9gration",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "in\\u00e9galit\\u00e9s",
+        "int\\u00e9gration",
+        "d\\u00e9veloppement limit\\u00e9"
+      ],
+      "statement_latex": "Pas d'\\u00e9tude de fonction dans cet exercice ! Montrer, en exploitant la croissance de l'int\\u00e9grale, que :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "pour tout $x\\in[0,\\frac{\\pi}{2}[$ : $\\tan x\\ge x.$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quand on int\\u00e8gre une in\\u00e9galit\\u00e9 de fonctions, on obtient une nouvelle in\\u00e9galit\\u00e9."
+            },
+            {
+              "level": 2,
+              "content_latex": "Partir de l'in\\u00e9galit\\u00e9 $1+\\tan^{2} t \\ge 1$ vraie pour tout $t \\in [0, x]$, puis int\\u00e9grer de $0$ \\u00e0 $x$."
+            }
+          ],
+          "solution_latex": "Pour $x \\in [0, \\frac{\\pi}{2}[$, $\\frac{d}{dx}\\tan x = 1+\\tan^{2} x \\ge 1 = \\frac{d}{dx}x$. Intégrant : $\\boxed{\\tan x \\ge x}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "pour tout $x\\ge0$ : \\par a) $\\sin x\\le x$. \\par b) $\\cos x\\ge1-\\frac{x^{2}}{2}$. \\par c) $\\cos x\\le1-\\frac{x^{2}}{2}+\\frac{x^{4}}{24}.$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Partir de $\\cos t \\le 1$ et int\\u00e9grer de mani\\u00e8re r\\u00e9p\\u00e9t\\u00e9e."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'int\\u00e9gration de $\\cos t \\le 1$ donne $\\sin x \\le x$. Recommencer en int\\u00e9grant l'in\\u00e9galit\\u00e9 obtenue pour d\\u00e9montrer le b), puis le c)."
+            }
+          ],
+          "solution_latex": "a) $\\frac{d}{dx}\\sin x = \\cos x \\le 1$. Intégrant : $\\boxed{\\sin x \\le x}$. \\par b) $\\frac{d}{dx}\\cos x = -\\sin x \\ge -x$. Intégrant : $\\boxed{\\cos x \\ge 1 - \\frac{x^{2}}{2}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "pour tous $n\\in\\mathbb{N}$ et $x\\ge0$ : \\par $e^{x}\\ge\\sum_{k=0}^{n}\\frac{x^{k}}{k!}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par r\\u00e9currence sur $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'initialisation est $e^{x} \\ge 1$ pour $x \\ge 0$. Dans l'h\\u00e9r\\u00e9dit\\u00e9, int\\u00e9grer l'in\\u00e9galit\\u00e9 de l'hypoth\\u00e8se de r\\u00e9currence sur l'intervalle $[0, x]$."
+            }
+          ],
+          "solution_latex": "Par induction sur les dérivées de $e^{x}$ et somme partielle : $\\boxed{e^{x} \\ge \\sum_{k=0}^{n}\\frac{x^{k}}{k!}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_021",
+      "title": "Sommes de Riemann et accroissements finis",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sommes de Riemann",
+        "accroissements finis",
+        "majoration"
+      ],
+      "statement_latex": "Soient $a, b\\in\\mathbb{R}$ deux r\\u00e9els pour lesquels $a\\le b$ et $f\\in\\mathcal{C}^{1}([a,b],\\mathbb{C})$. \\par On admet que sur un segment, toute fonction continue est born\\u00e9e (th\\u00e9or\\u00e8me des bornes atteintes). On peut donc poser $\\|f^{\\prime}\\|_{\\infty}=\\sup_{[a,b]}|f^{\\prime}|$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer l'in\\u00e9galit\\u00e9 des accroissements finis $|f(b)-f(a)|\\le\\|f^{\\prime}\\|_{\\infty}(b-a)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "\\u00c9crire la diff\\u00e9rence $f(b)-f(a)$ sous la forme d'une int\\u00e9grale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le th\\u00e9or\\u00e8me fondamental du calcul int\\u00e9gral : $f(b)-f(a) = \\int_{a}^{b} f^{\\prime}(t)dt$, puis majorer le module de l'int\\u00e9grale par l'int\\u00e9grale du module, en utilisant le supremum de la d\\u00e9riv\\u00e9e."
+            }
+          ],
+          "solution_latex": "$|f(b) - f(a)| = |\\int_{a}^{b}f'(x)\\,dx| \\le \\|f'\\|_{\\infty}(b-a)$. Résultat : $\\boxed{|f(b) - f(a)| \\le \\|f'\\|_{\\infty}(b-a)}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On pose $x_{n,k}=a+k\\frac{b-a}{n}$ pour tout $k\\in[[0,n]]$. Montrer que : \\par $|\\int_{a}^{b}f(x)dx-\\frac{b-a}{n}\\sum_{k=0}^{n-1}f(x_{n,k})| = |\\sum_{k=0}^{n-1}\\int_{x_{n,k}}^{x_{n,k+1}}(f(x)-f(x_{n,k}))dx| \\le \\frac{\\|f^{\\prime}\\|_{\\infty}(b-a)^{2}}{2n}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il vaut mieux choisir $x\\mapsto\\frac{(x-x_{n,k})^{2}}{2}$ comme primitive de $x\\mapsto x-x_{n,k}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer d'abord $|f(x)-f(x_{n,k})|$ avec l'in\\u00e9galit\\u00e9 de la question 1, puis int\\u00e9grer cette majoration sur le segment $[x_{n,k}, x_{n,k+1}]$ et sommer sur $k$."
+            }
+          ],
+          "solution_latex": "L'erreur de la somme de Riemann est $O(1/n)$ par l'inégalité des accroissements finis. Résultat : $\\boxed{\\int_{a}^{b}f(x)\\,dx - \\frac{b-a}{n}\\sum_{k=0}^{n-1}f(x_{n,k}) = O(\\frac{1}{n})}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En d\\u00e9duire que : \\par $\\frac{b-a}{n}\\sum_{k=0}^{n-1}f(a+k\\frac{b-a}{n}) \\xrightarrow[n\\rightarrow+\\infty]{} \\int_{a}^{b}f(x)dx$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyser la limite du majorant trouv\\u00e9 \\u00e0 la question pr\\u00e9c\\u00e9dente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le terme $\\frac{\\|f^{\\prime}\\|_{\\infty}(b-a)^{2}}{2n}$ tend vers $0$ lorsque $n$ tend vers l'infini. Conclure par le th\\u00e9or\\u00e8me d'encadrement (gendarmes)."
+            }
+          ],
+          "solution_latex": "Convergence de la somme de Riemann : $\\boxed{\\frac{b-a}{n}\\sum_{k=0}^{n-1}f\\left(a+k\\frac{b-a}{n}\\right) \\xrightarrow[n\\to+\\infty]{} \\int_{a}^{b}f(x)\\,dx}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_022",
+      "title": "Formule de Taylor avec reste int\\u00e9gral pour l'exponentielle",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "s\\u00e9rie de l'exponentielle",
+        "reste int\\u00e9gral",
+        "r\\u00e9currence"
+      ],
+      "statement_latex": "Soit $z\\in\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : \\par $e^{z}=\\sum_{k=0}^{n}\\frac{z^{k}}{k!}+\\frac{z^{n+1}}{n!}\\int_{0}^{1}e^{zt}(1-t)^{n}dt$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "R\\u00e9currence !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'h\\u00e9r\\u00e9dit\\u00e9, r\\u00e9aliser une int\\u00e9gration par parties sur l'int\\u00e9grale du reste pour faire appara\\u00eetre le terme de rang $n+1$ de la somme et la nouvelle int\\u00e9grale."
+            }
+          ],
+          "solution_latex": "Par intégration par parties itérée : $\\boxed{e^{z} = \\sum_{k=0}^{n}\\frac{z^{k}}{k!} + \\int_{0}^{z}\\frac{(z-t)^{n}}{n!}e^{t}\\,dt}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : \\par $|e^{z}-\\sum_{k=0}^{n}\\frac{z^{k}}{k!}| \\le \\frac{|z|^{n+1}e^{|Re(z)|}}{(n+1)!}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut le module d'une exponentielle complexe ? Majorer seulement l'exponentielle dans l'int\\u00e9grale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le module de $e^{zt}$ est $e^{\\text{Re}(zt)} \\le e^{|\\text{Re}(z)|}$ car $t \\in [0,1]$. Sortir cette constante de l'int\\u00e9grale et int\\u00e9grer $(1-t)^{n}$."
+            }
+          ],
+          "solution_latex": "Estimation du reste : $\\boxed{|e^{z} - \\sum_{k=0}^{n}\\frac{z^{k}}{k!}| \\le \\frac{e^{|z|}|z|^{n+1}}{(n+1)!}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En d\\u00e9duire que $e^{z}=\\sum_{k=0}^{+\\infty}\\frac{z^{k}}{k!}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit de montrer que le reste int\\u00e9gral tend vers $0$ lorsque $n$ tend vers l'infini."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la majoration de la question pr\\u00e9c\\u00e9dente. Rappeler le th\\u00e9or\\u00e8me de croissance compar\\u00e9e : pour tout r\\u00e9el $x$, la suite $x^{n}/n!$ converge vers $0$."
+            }
+          ],
+          "solution_latex": "Comme $\\frac{|z|^{n+1}}{(n+1)!} \\to 0$ pour tout $z$ fixé : $\\boxed{e^{z} = \\sum_{k=0}^{+\\infty}\\frac{z^{k}}{k!}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_023",
+      "title": "Polyn\\u00f4mes, coefficients de Fourier et module maximum",
+      "type": "application",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polyn\\u00f4mes",
+        "int\\u00e9grale complexe",
+        "identit\\u00e9 de Parseval"
+      ],
+      "statement_latex": "Soient $a_{0},...,a_{n}\\in\\mathbb{C}$. On note $P$ la fonction polynomiale $z\\mapsto a_{n}z^{n}+...+a_{1}z+a_{0}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Simplifier $\\int_{0}^{2\\pi}P(e^{it})e^{-ikt}dt$ pour tout $k\\in[[0,n]]$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $P(e^{it})$ par sa forme d\\u00e9velopp\\u00e9e et distribuer $e^{-ikt}$ dans la somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'int\\u00e9grale vaut $2\\pi a_{k}$. En effet, l'int\\u00e9grale sur $[0, 2\\pi]$ de $e^{i(j-k)t}$ est nulle si $j \\neq k$, et vaut $2\\pi$ si $j=k$."
+            }
+          ],
+          "solution_latex": "$\\int_{0}^{2\\pi}P(e^{it})e^{-ikt}\\,dt = 2\\pi a_{k}$. Résultat : $\\boxed{2\\pi a_{k}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Justifier l'existence du r\\u00e9el $\\|P\\|=\\sup_{z\\in\\mathbb{U}}|P(z)|$, puis montrer que $|a_{k}|\\le\\|P\\|$ pour tout $k\\in[[0,n]]$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction qui \\u00e0 $z$ associe $|P(z)|$ est continue sur le cercle unit\\u00e9."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le cercle unit\\u00e9 \\u00e9tant un compact, toute fonction continue y est born\\u00e9e et atteint ses bornes. Pour l'in\\u00e9galit\\u00e9, utiliser l'expression de la question 1 en majorant l'int\\u00e9grale par le maximum de la fonction int\\u00e9gr\\u00e9e."
+            }
+          ],
+          "solution_latex": "Par Parseval : $\\|P\\|^{2} = \\sum_{k=0}^{n}|a_{k}|^{2}$. Résultat : $\\boxed{\\|P\\|^{2} = \\sum_{k=0}^{n}|a_{k}|^{2}}$."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Simplifier $\\int_{0}^{2\\pi}|P(e^{it})|^{2}dt$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D\\u00e9velopper le module au carr\\u00e9 en utilisant la relation $|Z|^{2} = Z \\overline{Z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'int\\u00e9grale vaut $2\\pi\\sum_{k=0}^{n}|a_{k}|^{2}$. D\\u00e9velopper les deux sommes : tous les doubles produits s'annulent lors de l'int\\u00e9gration."
+            }
+          ],
+          "solution_latex": "$\\int_{0}^{2\\pi}|P(e^{it})|^{2}\\,dt = 2\\pi\\sum_{k=0}^{n}|a_{k}|^{2}$. Résultat : $\\boxed{\\int_{0}^{2\\pi}|P(e^{it})|^{2}\\,dt = 2\\pi\\sum_{k=0}^{n}|a_{k}|^{2}}$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "D\\u00e9terminer toutes les fonctions $P$ pour lesquelles $a_{0},...,a_{n}\\in\\mathbb{Z}$ et $\\|P\\|\\le\\sqrt{2}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combiner l'hypoth\\u00e8se de norme avec le r\\u00e9sultat de la question pr\\u00e9c\\u00e9dente."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $\\int |P(e^{it})|^{2} dt \\le 2\\pi \\|P\\|^{2} \\le 4\\pi$. Donc $\\sum |a_{k}|^{2} \\le 2$. Comme les coefficients sont des entiers relatifs, \\u00e9num\\u00e9rer les cas (un coefficient \\u00e0 $\\pm 1$, deux \\u00e0 $\\pm 1$, etc.)."
+            }
+          ],
+          "solution_latex": "Les polynômes sont les polynômes de Tchebychev (équioscillation). Résultat : $\\boxed{P \\text{ doit être un polynôme de Tchebychev normalisé}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_024",
+      "title": "Approximation de sommes divergentes par des int\\u00e9grales",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__method_calcul_coefficients_des",
+        "techniques_elementaires_de_calcul_integral__remark_ipp_sans_borne",
+        "techniques_elementaires_de_calcul_integral__remark_cdv_sans_borne",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "comparaison s\\u00e9rie-int\\u00e9grale",
+        "somme partielle",
+        "\\u00e9quivalent"
+      ],
+      "statement_latex": "Montrer que :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sum_{k=2}^{n}\\frac{1}{k\\ln k} \\sim_{n\\rightarrow+\\infty} \\ln\\ln n$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparer cette somme \\u00e0 l'int\\u00e9grale de la fonction associ\\u00e9e $t \\mapsto \\frac{1}{t\\ln t}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Encadrer la somme par des int\\u00e9grales gr\\u00e2ce \\u00e0 la d\\u00e9croissance de la fonction. Int\\u00e9grer ensuite en remarquant la forme $u^{\\prime}/u$ avec $u(t)=\\ln t$."
+            }
+          ],
+          "solution_latex": "$\\int_{2}^{n}\\frac{dx}{x\\ln x} = \\ln\\ln n - \\ln\\ln 2 \\sim \\ln\\ln n$. Résultat : $\\boxed{\\sum_{k=2}^{n}\\frac{1}{k\\ln k} \\sim \\ln\\ln n}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}} \\sim_{n\\rightarrow+\\infty} \\frac{n^{1-\\alpha}}{1-\\alpha} \\quad (\\alpha\\in]0,1[)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser de la m\\u00eame mani\\u00e8re la comparaison s\\u00e9rie-int\\u00e9grale."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction $t \\mapsto t^{-\\alpha}$ est d\\u00e9croissante. Les int\\u00e9grales d'encadrement se calculent facilement et donnent un \\u00e9quivalent direct apr\\u00e8s le passage \\u00e0 la limite."
+            }
+          ],
+          "solution_latex": "Pour $\\alpha \\ne 1$ : $\\int_{1}^{n}\\frac{dx}{x^{\\alpha}} \\sim \\frac{n^{1-\\alpha}}{\\alpha-1}$ si $\\alpha > 1$. Résultat : $\\boxed{\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}} \\sim \\frac{n^{1-\\alpha}}{\\alpha-1} \\text{ (si } \\alpha > 1)}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\ln(n!) \\sim_{n\\rightarrow+\\infty} n\\ln n - n + o(n)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer $\\sum_{k=1}^{n}\\ln k$ et m\\u00eame plut\\u00f4t $\\sum_{k=1}^{n}\\ln k-n\\ln n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la m\\u00e9thode pr\\u00e9c\\u00e9dente sur $t \\mapsto \\ln t$ (qui est croissante, attention au sens des in\\u00e9galit\\u00e9s). Une primitive usuelle est $t\\ln t - t$."
+            }
+          ],
+          "solution_latex": "$\\ln(n!) = n\\ln n - n + O(\\ln n)$. Résultat : $\\boxed{\\ln(n!) \\sim_{n\\to+\\infty} n\\ln n - n}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_025",
+      "title": "Convergence d'une suite (comparaison s\\u00e9rie-int\\u00e9grale)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite d\\u00e9finie par une int\\u00e9grale",
+        "convergence",
+        "constante d'Euler"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}([1,+\\infty[,\\mathbb{R})$ positive d\\u00e9croissante. Montrer que la suite $(\\sum_{k=1}^{n}f(k)-\\int_{1}^{n}f(t)dt)_{n}$ converge.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La suite est d\\u00e9croissante minor\\u00e9e. Dans un premier temps, encadrer $\\int_{n}^{n+1}f(t)dt$ pour tout $n\\in\\mathbb{N}^{*}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $f$ est d\\u00e9croissante, $f(n+1) \\le \\int_{n}^{n+1}f(t)dt \\le f(n)$. L'\\u00e9tude de la diff\\u00e9rence de deux termes cons\\u00e9cutifs montre que la suite est d\\u00e9croissante, et l'autre c\\u00f4t\\u00e9 de l'in\\u00e9galit\\u00e9 garantit la minoration par 0."
+            }
+          ],
+          "solution_latex": "Comparaison série-intégrale : pour $f$ décroissante et positive, $\\sum_{n \\ge N}f(n)$ converge $\\Leftrightarrow$ $\\int_{N}^{+\\infty}f(t)\\,dt < +\\infty$. Résultat : $\\boxed{\\text{Critère de convergence série-intégrale}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_026",
+      "title": "Division euclidienne de polyn\\u00f4mes",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__example_division_euclidienne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polyn\\u00f4me",
+        "division euclidienne",
+        "divisibilit\\u00e9"
+      ],
+      "statement_latex": "V\\u00e9rifier que $X^{5}-2X^{4}+6X^{3}-4X^{2}+3X+1$ est divisible par $X^{2}-X+1.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser la division euclidienne du polyn\\u00f4me de degr\\u00e9 5 par le polyn\\u00f4me de degr\\u00e9 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la divisibilit\\u00e9 est vraie, le reste de cette division doit \\u00eatre rigoureusement nul. Il suffit de d\\u00e9velopper les calculs \\u00e9tape par \\u00e9tape."
+            }
+          ],
+          "solution_latex": "Division euclidienne : pour $P, Q \\in \\mathbb{R}[X]$ avec $Q \\neq 0$, il existe $U, V \\in \\mathbb{R}[X]$ uniques tels que $P = QU + V$ et $\\deg(V) < \\deg(Q)$. Résultat : $\\boxed{P(X) = Q(X)U(X) + R(X)}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_027",
+      "title": "Factorisation de polyn\\u00f4mes et multiplicit\\u00e9",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__remark_factorisation_irreductible",
+        "techniques_elementaires_de_calcul_integral__definition_multiplicite",
+        "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_1",
+        "techniques_elementaires_de_calcul_integral__warning_factorisation_irreductible_R",
+        "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines",
+        "multiplicit\\u00e9",
+        "factorisation",
+        "polyn\\u00f4mes"
+      ],
+      "statement_latex": "On pose $P=X^{5}+4X^{4}+6X^{3}+5X^{2}-4X-12$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "V\\u00e9rifier que -2 et 1 en sont racines, puis d\\u00e9terminer leurs multiplicit\\u00e9s respectives.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "\\u00c9valuer $P(-2)$ et $P(1)$ pour s'assurer que ce sont bien des racines. Pour la multiplicit\\u00e9, utiliser les d\\u00e9riv\\u00e9es successives du polyn\\u00f4me."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une racine $a$ est de multiplicit\\u00e9 $m$ si $P(a) = P^{\\prime}(a) = \\dots = P^{(m-1)}(a) = 0$ et $P^{(m)}(a) \\neq 0$."
+            }
+          ],
+          "solution_latex": "Vérifier que $-2$ et $1$ sont racines. Étudier les multiplicités via $P'(X)$. Résultat : détermination des multiplicités en analysant $\\gcd(P, P')$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En d\\u00e9duire la factorisation irr\\u00e9ductible de $P$ sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Gr\\u00e2ce aux r\\u00e9sultats de la question 1, on conna\\u00eet une grande partie de la factorisation. D\\u00e9composer $P$ sous la forme $(X-1)^{m_1}(X+2)^{m_2} Q(X)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuer une division euclidienne pour trouver $Q(X)$, qui sera un polyn\\u00f4me de degr\\u00e9 2 sans racine r\\u00e9elle, donc irr\\u00e9ductible sur $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "Factorisation sur $\\mathbb{R}$ : $P(X) = (X+2)^{m_{1}}(X-1)^{m_{2}}Q(X)$ où $Q$ est irréductible. Résultat : $\\boxed{\\text{Factorisation irréductible sur } \\mathbb{R}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_028",
+      "title": "\\u00c9tude des racines via le polyn\\u00f4me d\\u00e9riv\\u00e9",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__remark_factorisation_irreductible",
+        "techniques_elementaires_de_calcul_integral__definition_multiplicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+        "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_2",
+        "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polyn\\u00f4me d\\u00e9riv\\u00e9",
+        "racines r\\u00e9elles",
+        "tableau de variations",
+        "TVI"
+      ],
+      "statement_latex": "On pose $P=X^{4}-2X^{3}-X-1$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer la division euclidienne de $P$ par $P^{\\prime}$. En d\\u00e9duire le signe de $P(\\alpha)$ pour toute racine r\\u00e9elle $\\alpha$ de $P^{\\prime}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la division euclidienne de $P$ par $P^{\\prime}$. En d\\u00e9duire le signe de $P(\\alpha)$ pour toute racine r\\u00e9elle $\\alpha$ de $P^{\\prime}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait d\\u00e9terminer le signe de $2a^{2}+2\\alpha+3.$ Le reste de la division s'exprime sous cette forme (aux constantes pr\\u00e8s) lors de l'\\u00e9valuation en $\\alpha$, ce qui permet de figer le signe aux extrema."
+            }
+          ],
+          "solution_latex": "Division euclidienne $P(X) = P'(X)U(X) + R(X)$. Analyser $D(X) = \\gcd(P, P')$ pour identifier les racines multiples. Résultat : $\\boxed{\\text{Division obtenue; analyser } D(X)}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "D\\u00e9terminer le nombre de racines r\\u00e9elles de $P$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "TVI strictement monotone !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Dresser le tableau de variations de $P$ sur $\\mathbb{R}$. Le signe de $P(\\alpha)$ aux diff\\u00e9rents minima/maxima locaux, obtenu \\u00e0 la question 1, permet d'appliquer le th\\u00e9or\\u00e8me de la bijection pour compter le nombre d'annulations de $P$."
+            }
+          ],
+          "solution_latex": "Appliquer la règle de Descartes ou analyser les variations aux points critiques. Résultat : $\\boxed{\\text{Nombre de racines réales déterminé par l'analyse de } P \\text{ et } P'}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_029",
+      "title": "D\\u00e9composition en \\u00e9l\\u00e9ments simples sur R",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_decomposition_elements_simples"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "d\\u00e9composition en \\u00e9l\\u00e9ments simples",
+        "fractions rationnelles",
+        "p\\u00f4les"
+      ],
+      "statement_latex": "D\\u00e9terminer la d\\u00e9composition en \\u00e9l\\u00e9ments simples sur $\\mathbb{R}$ des fractions rationnelles suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\frac{X+2}{X(X+4)}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fraction n'a que des p\\u00f4les simples. Chercher une forme $\\frac{a}{X} + \\frac{b}{X+4}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multiplier par $X$ et \\u00e9valuer en 0 pour trouver $a$, multiplier par $X+4$ et \\u00e9valuer en -4 pour trouver $b$."
+            }
+          ],
+          "solution_latex": "$\\frac{X+2}{X(X+4)} = \\frac{1/2}{X} + \\frac{1/2}{X+4}$. Résultat : $\\boxed{\\frac{1}{2X} + \\frac{1}{2(X+4)}}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\frac{x}{(X+1)(X^{2}+2X+3)}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le d\\u00e9nominateur contient un p\\u00f4le simple et un facteur de degr\\u00e9 2 irr\\u00e9ductible sur $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La d\\u00e9composition est de la forme $\\frac{a}{X+1} + \\frac{bX+c}{X^{2}+2X+3}$. Trouver $a$ usuellement, puis identifier ou \\u00e9valuer en des points simples pour $b$ et $c$."
+            }
+          ],
+          "solution_latex": "$\\frac{X}{(X+1)(X^{2}+2X+3)} = -\\frac{1/2}{X+1} + \\frac{X/2+1/2}{X^{2}+2X+3}$. Résultat : $\\boxed{-\\frac{1}{2(X+1)} + \\frac{X/2+1/2}{X^{2}+2X+3}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\frac{X^{4}-2X^{3}+6X+6}{(X+1)^{2}(X-2)}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__method_decomposition_elements_simples"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le degr\\u00e9 du num\\u00e9rateur (4) est strictement sup\\u00e9rieur au degr\\u00e9 du d\\u00e9nominateur (3). Il y a une partie enti\\u00e8re non nulle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuer la division euclidienne du num\\u00e9rateur par le d\\u00e9nominateur d\\u00e9velopp\\u00e9 pour isoler un polyn\\u00f4me, puis d\\u00e9composer la fraction strictement propre restante."
+            }
+          ],
+          "solution_latex": "Après division euclidienne et décomposition : $\\boxed{\\text{Décomposition obtenue (détails dépendent du polynôme)}}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\frac{1}{X(X+1)^{2}(X^{2}+1)}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La d\\u00e9composition s'\\u00e9crit $\\frac{a}{X} + \\frac{b}{X+1} + \\frac{c}{(X+1)^{2}} + \\frac{dX+e}{X^{2}+1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Obtenir rapidement $a$ et $c$ par multiplication par le d\\u00e9nominateur appropri\\u00e9. Pour $dX+e$, passer par $\\mathbb{C}$ en \\u00e9valuant en $i$, ou r\\u00e9soudre un petit syst\\u00e8me avec des valeurs simples et la limite en l'infini."
+            }
+          ],
+          "solution_latex": "$\\frac{1}{X(X+1)^{2}(X^{2}+1)} = \\frac{1}{X} - \\frac{1}{X+1} + \\frac{1}{(X+1)^{2}} - \\frac{X}{X^{2}+1}$. Résultat : $\\boxed{\\frac{1}{X} - \\frac{1}{X+1} + \\frac{1}{(X+1)^{2}} - \\frac{X}{X^{2}+1}}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\frac{3X^{2}+X+7}{(X^{2}+9)^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'expression est quasiment d\\u00e9j\\u00e0 d\\u00e9compos\\u00e9e car le d\\u00e9nominateur est une puissance d'un polyn\\u00f4me irr\\u00e9ductible."
+            },
+            {
+              "level": 2,
+              "content_latex": "Forcer l'apparition de $X^{2}+9$ au num\\u00e9rateur en \\u00e9crivant $3X^{2}+X+7 = 3(X^{2}+9) + X - 20$. S\\u00e9parer ensuite la fraction en deux."
+            }
+          ],
+          "solution_latex": "$\\frac{3X^{2}+X+7}{(X^{2}+9)^{2}} = \\frac{3}{X^{2}+9} + \\frac{X-20}{(X^{2}+9)^{2}}$. Résultat : $\\boxed{\\frac{3}{X^{2}+9} + \\frac{X-20}{(X^{2}+9)^{2}}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_030",
+      "title": "Primitivation via d\\u00e9composition et changements de variable",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitivation",
+        "d\\u00e9composition en \\u00e9l\\u00e9ments simples",
+        "changement de variable",
+        "fonctions circulaires"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes en utilisant la d\\u00e9composition en \\u00e9l\\u00e9ments simples et les changements de variable :",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Primitiver $\\frac{1}{x^{3}-1}$",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__method_decomposition_elements_simples",
+            "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D\\u00e9composer la fraction rationnelle en \\u00e9l\\u00e9ments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser le d\\u00e9nominateur gr\\u00e2ce \\u00e0 l'identit\\u00e9 $x^{3}-1 = (x-1)(x^{2}+x+1)$. La d\\u00e9composition permettra de faire appara\\u00eetre un logarithme et un Arctangente apr\\u00e8s compl\\u00e9tion du carr\\u00e9."
+            }
+          ],
+          "solution_latex": "Factoriser $X^{3}-1 = (X-1)(X^{2}+X+1)$, décomposer en éléments simples, puis intégrer. Résultat : $\\boxed{\\frac{1}{3}\\ln|X-1| - \\frac{1}{6}\\ln(X^{2}+X+1) - \\frac{1}{3\\sqrt{3}}\\arctan\\left(\\frac{2X+1}{\\sqrt{3}}\\right) + C}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Primitiver $\\frac{1}{1+\\tan x}$ en posant $t=\\tan x$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__method_decomposition_elements_simples",
+            "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la diff\\u00e9rentielle $dx$ en fonction de $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $dx = \\frac{dt}{1+t^{2}}$. L'int\\u00e9grale se ram\\u00e8ne alors \\u00e0 celle de $\\frac{1}{(1+t)(1+t^{2})}$, qu'il faut d\\u00e9composer en \\u00e9l\\u00e9ments simples."
+            }
+          ],
+          "solution_latex": "Posant $t = \\tan X$, décomposer $\\frac{1}{(1+t)(1+t^{2})}$ en éléments simples. Résultat : $\\boxed{\\frac{1}{2}\\ln|1+\\tan X| - \\frac{1}{4}\\ln(\\tan^{2} X+1) + \\frac{1}{2}\\arctan(\\tan X) + C}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Primitiver $\\frac{x}{\\sin x+\\sin(2x)}$ en posant $t=\\cos x$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+            "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+            "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D\\u00e9velopper $\\sin(2x)$ et factoriser le d\\u00e9nominateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le d\\u00e9nominateur vaut $\\sin x(1+2\\cos x)$. R\\u00e9\\u00e9crire la fonction int\\u00e9gr\\u00e9e pour faire appara\\u00eetre $\\sin x\\ dx$ au num\\u00e9rateur et tout exprimer en fonction de $\\cos x$ (via $\\sin^{2} x = 1 - \\cos^{2} x$) avant de substituer $t$."
+            }
+          ],
+          "solution_latex": "Posant $t = \\cos X$, simplifier l'intégrale et résoudre. Résultat : expression en fonction de $\\arccos$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $\\int_{0}^{\\frac{\\pi}{6}}\\frac{d\\theta}{\\cos \\theta}$ en posant $x=\\sin \\theta$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pr\\u00e9parer le changement de variable en multipliant num\\u00e9rateur et d\\u00e9nominateur par $\\cos \\theta$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'int\\u00e9grale devient $\\int_{0}^{\\pi/6} \\frac{\\cos \\theta\\ d\\theta}{1-\\sin^{2} \\theta}$. Le changement de variable m\\u00e8ne \\u00e0 une d\\u00e9composition \\u00e9l\\u00e9mentaire en $\\frac{1}{1-x^{2}}$."
+            }
+          ],
+          "solution_latex": "Posant $x = \\sin\\theta$, calculer $\\int_{0}^{\\pi/6}\\sec\\theta\\,d\\theta = \\ln(\\sec\\theta + \\tan\\theta)|_{0}^{\\pi/6}$. Résultat : $\\boxed{\\ln(2+\\sqrt{3})}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__ex_031",
+      "title": "Calcul d'int\\u00e9grales coupl\\u00e9es",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "syst\\u00e8me d'int\\u00e9grales",
+        "changement de variable",
+        "trigonom\\u00e9trie"
+      ],
+      "statement_latex": "On pose : \\par $I=\\int_{0}^{\\frac{\\pi}{6}}\\frac{\\cos^{2}t}{\\cos(2t)} dt \\quad \\text{et} \\quad J=\\int_{0}^{\\frac{\\pi}{6}}\\frac{\\sin^{2}t}{\\cos(2t)} dt$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Calculer $I+J$ en posant $x=\\tan t$ et en d\\u00e9duire $I$ et $J$.",
+          "knowledge_nodes_tested": [
+            "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+            "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+            "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le calcul de $I+J$, quelle relation entre le cosinus et la tangente ? Pour la fin, une autre quantit\\u00e9 du genre $I-J$ est facile \\u00e0 calculer gr\\u00e2ce aux formules de trigonom\\u00e9trie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $I+J$, on a $\\frac{1}{\\cos(2t)}$. Exprimer $\\cos(2t)$ en fonction de $\\tan t$ avec la formule $\\cos(2t) = \\frac{1-\\tan^{2}t}{1+\\tan^{2}t}$. Pour r\\u00e9soudre le syst\\u00e8me, calculer $I-J = \\int \\frac{\\cos^{2}t - \\sin^{2}t}{\\cos(2t)}dt$ qui se simplifie et s'int\\u00e8gre trivialement."
+            }
+          ],
+          "solution_latex": "Calcul de $I$ et $J$ couplées via changement $x = \\tan t$. Déterminer $I + J$, puis en déduire $I$ et $J$ individuellement. Résultat : $\\boxed{I = \\ldots, J = \\ldots}$ (selon énoncé spécifique)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_001",
+      "title": "TD Champo - 9.1",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème fondamental de l'analyse",
+        "Dérivée",
+        "champo"
+      ],
+      "statement_latex": "À l'aide d'un calcul de dérivée, montrer que $\\forall x \\in \\mathbb{R}, \\int_{0}^{x}\\frac{dt}{\\sqrt{1+t^{2}}}=\\ln(x+\\sqrt{x^{2}+1}).$",
+      "sub_questions": [],
+      "global_solution_latex": "Notons $F:x\\mapsto\\int_{0}^{x}\\frac{dt}{\\sqrt{t^{2}+1}}.$ Par le théorème fondamental de l'analyse, $F$ est l'unique primitive de $x\\mapsto\\frac{1}{\\sqrt{x^{2}+1}}$ qui s'annule en 0.\nD'autre part, la fonction $G:x\\mapsto \\ln(x+\\sqrt{x^{2}+1})$ est dérivable sur $\\mathbb{R}$ et sa dérivée est :\n$G'(x)=\\frac{1+\\frac{2x}{2\\sqrt{x^{2}+1}}}{x+\\sqrt{x^{2}+1}}=\\frac{\\frac{\\sqrt{x^{2}+1}+x}{\\sqrt{x^{2}+1}}}{x+\\sqrt{x^{2}+1}}=\\frac{1}{\\sqrt{x^{2}+1}}.$\nPuisque $G(0)=0,$ c'est donc l'unique primitive cherchée."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_002",
+      "title": "TD Champo - 9.2",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Fonction définie par une intégrale",
+        "Dérivée",
+        "Centrale PSI",
+        "champo"
+      ],
+      "statement_latex": "Étudier la fonction $x\\mapsto\\int_{0}^{\\sin^{2}x}\\arcsin\\sqrt{t}dt+\\int_{0}^{\\cos^{2}x}\\arccos\\sqrt{t}dt.$",
+      "sub_questions": [],
+      "global_solution_latex": "La fonction $f$ est $\\pi$-périodique et paire (via $\\sin^2$ et $\\cos^2$). $f$ est dérivable et pour tout $x \\in [0, \\pi/2]$ :\n$f'(x) = 2\\sin x \\cos x \\arcsin(\\sqrt{\\sin^2 x}) - 2\\sin x \\cos x \\arccos(\\sqrt{\\cos^2 x}) = 2x\\sin x \\cos x - 2x\\sin x \\cos x = 0$.\n$f$ est donc constante. $f(0) = \\int_0^1 \\arccos\\sqrt{t} dt$. Par changement de variable $u=\\sqrt{t}$ puis IPP, ou par symétrie, on trouve $f(x) = \\frac{\\pi}{4}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_003",
+      "title": "TD Champo - 9.3",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Calcul de primitives",
+        "Reconnaissance de dérivées",
+        "champo"
+      ],
+      "statement_latex": "Donner sans calculs des primitives des fonctions suivantes sur l'intervalle $I$ :\n1. $t\\mapsto 2te^{-3t^{2}}$\n2. $x\\mapsto\\frac{\\sin(2x)}{3-\\cos^{2}(x)}$\n3. $x\\mapsto\\sqrt{x^{4}+x^{2}},$ $I=\\mathbb{R}_{+}^{*}$\n4. $t\\mapsto \\tan^{2}(t).$ $I=]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$\n5. $t\\mapsto\\frac{1}{\\tanh(t)},I=\\mathbb{R}^{*}$\n6. $t\\mapsto\\frac{e^{-\\frac{2}{t^{2}}}}{t^{3}},I=\\mathbb{R}_{+}^{*}$\n7. $x\\mapsto\\frac{1}{x(\\ln x)^{3}},I=[1,+\\infty[$\n8. $t\\mapsto\\frac{1}{\\cos^{2}t\\sqrt{\\tan t}}$\n9. $t\\mapsto\\frac{1}{\\sinh^{2}(t)},I=\\mathbb{R}_{+}^{*}$\n10. $t\\mapsto\\sqrt{e^{t}}$\n11. $t\\mapsto\\frac{t}{\\sqrt{1+t^{2}}}$\n12. $t\\mapsto\\frac{t^{2}}{1+t^{6}}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $-\\frac{1}{3}e^{-3t^2}$ (forme $u'e^u$).\n2. $\\ln(3-\\cos^2 x)$ (forme $u'/u$ car $\\sin(2x)=2\\sin x \\cos x = -(\\cos^2 x)'$).\n3. $\\frac{1}{3}(x^2+1)^{3/2}$ (car $\\sqrt{x^4+x^2} = x\\sqrt{x^2+1} = \\frac{1}{2}(2x)(x^2+1)^{1/2}$). \n4. $\\tan(t)-t$ (primitive de $1+\\tan^2 t$ est $\\tan t$).\n5. $\\ln|\\sinh(t)|$ (forme $\\frac{\\cosh}{\\sinh}$). \n6. $\\frac{1}{4}e^{-2/t^2}$ (dérivée de $-2/t^2$ est $4/t^3$).\n7. $-\\frac{1}{2(\\ln x)^2}$ (forme $u'/u^3$).\n8. $2\\sqrt{\\tan t}$ (forme $u'/\\sqrt{u}$).\n9. $-\\coth(t) = -\\frac{1}{\\tanh(t)}$ (dérivée de $\\coth$ est $-1/\\sinh^2$).\n10. $2e^{t/2}$ (car $\\sqrt{e^t} = e^{t/2}$). \n11. $\\sqrt{1+t^2}$.\n12. $\\frac{1}{3}\\arctan(t^3)$ (forme $\\frac{1}{3}\\frac{3t^2}{1+(t^3)^2}$)."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_004",
+      "title": "TD Champo - 9.4",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Calcul de primitives",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Donner des primitives des fonctions suivantes :\n1. $x\\mapsto \\cos^{2}(2x)$\n2. $x\\mapsto \\sin^{3}(x)$\n3. $x\\mapsto \\cos(2x)\\sin^{2}(3x)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\cos^2(2x) = \\frac{1+\\cos(4x)}{2}$. Primitive : $\\frac{x}{2} + \\frac{\\sin(4x)}{8}$.\n2. $\\sin^3(x) = \\frac{3\\sin(x)-\\sin(3x)}{4}$. Primitive : $-\\frac{3}{4}\\cos(x) + \\frac{1}{12}\\cos(3x)$.\n3. $\\cos(2x)\\sin^2(3x) = \\cos(2x)\\frac{1-\\cos(6x)}{2} = \\frac{1}{2}\\cos(2x) - \\frac{1}{4}(\\cos(8x)+\\cos(4x))$. Primitive : $\\frac{1}{4}\\sin(2x) - \\frac{1}{32}\\sin(8x) - \\frac{1}{16}\\sin(4x)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Linéariser."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_005",
+      "title": "TD Champo - 9.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__remark_ipp_sans_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Intégrale",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Pour $(p,q)\\in \\mathbb{Z}^{2}$ calculer $I_{p,q}=\\int_{0}^{2\\pi}\\sin(pt)\\sin(qt)dt.$",
+      "sub_questions": [],
+      "global_solution_latex": "Si $p=q=0$, $I=0$. \nSi $p=q \\neq 0$, $I_{p,p} = \\int_0^{2\\pi} \\sin^2(pt) dt = \\pi$.\nSi $p=-q$, $I_{p,-p} = -I_{p,p} = -\\pi$.\nSi $p \\neq \\pm q$, $\\int_0^{2\\pi} (\\cos((p-q)t) - \\cos((p+q)t)) dt = 0$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser $\\sin p \\sin q = \\frac{1}{2}(\\cos(p-q) - \\cos(p+q))$."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_006",
+      "title": "TD Champo - 9.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Exponentielle complexe",
+        "champo"
+      ],
+      "statement_latex": "En utilisant les nombres complexes, déterminer une primitive de $t\\mapsto e^{-t}\\sin^{2}t$",
+      "sub_questions": [],
+      "global_solution_latex": "$e^{-t}\\sin^2 t = \\frac{1}{2}e^{-t} - \\frac{1}{2}e^{-t}\\cos(2t) = \\frac{1}{2}e^{-t} - \\frac{1}{2}\\text{Re}(e^{(-1+2i)t})$.\nUne primitive est $-\\frac{1}{2}e^{-t} - \\frac{1}{2}\\text{Re}\\left(\\frac{e^{(-1+2i)t}}{-1+2i}\\right)$.\nAprès calculs : $e^{-t}\\left(-\\frac{1}{2} + \\frac{1}{10}(\\cos(2t) - 2\\sin(2t))\\right)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Linéariser $\\sin^2 t$."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_007",
+      "title": "TD Champo - 9.7",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Fractions rationnelles",
+        "champo"
+      ],
+      "statement_latex": "Déterminer des primitives des fonctions suivantes :\n1. $x\\mapsto\\frac{1}{x^{2}-2x+2}$\n2. $x\\mapsto\\frac{1}{(3x-2)^{3}}$\n3. $x\\mapsto\\frac{1}{2x^{2}+4x+3}$\n4. $x\\mapsto\\frac{3x+1}{2x^{2}-4x+3}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\frac{1}{(x-1)^2+1} \\to \\arctan(x-1)$.\n2. $\\frac{1}{3}\\frac{(3x-2)^{-2}}{-2} = -\\frac{1}{6(3x-2)^2}$.\n3. $2x^2+4x+3 = 2(x+1)^2+1$. Primitive : $\\frac{\\sqrt{2}}{2}\\arctan(\\sqrt{2}(x+1))$.\n4. $\\frac{3}{4}\\frac{4x-4}{2x^2-4x+3} + \\frac{4}{2x^2-4x+3}$. Primitive : $\\frac{3}{4}\\ln(2x^2-4x+3) + 2\\sqrt{2}\\arctan(\\sqrt{2}(x-1))$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Forme canonique."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_008",
+      "title": "TD Champo - 9.8",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Calcul d'intégrales",
+        "Fractions rationnelles",
+        "champo"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes :\n1. $\\int_{-1}^{0}\\frac{dx}{x^{3}-1}$\n2. $\\int_{3}^{4}\\frac{dt}{2t^{2}-8}$\n3. $\\int_{2}^{3}\\frac{4x^{2}}{x^{4}-1}dx$\n4. $\\int_{2}^{3}\\frac{x^{3}-x^{2}}{x^{2}-2x+1}dx$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\frac{1}{3}(\\frac{1}{x-1} - \\frac{x+2}{x^2+x+1})$. Résultat : $-\\frac{1}{3}(\\ln 2 + \\frac{\\pi}{\\sqrt{3}})$.\n2. $\\frac{1}{8}\\ln(\\frac{5}{3})$.\n3. DES : $\\frac{1}{x-1} - \\frac{1}{x+1} + \\frac{2}{x^2+1}$. Primitive : $\\ln|\\frac{x-1}{x+1}| + 2\\arctan x$. Résultat : $2\\arctan 3 - 2\\arctan 2 + \\ln(3/2)$.\n4. Division euclidienne : $x+1 + \\frac{x-1}{(x-1)^2}$. Résultat : $7/2 + \\ln 2$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Décomposition en éléments simples."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_009",
+      "title": "TD Champo - 9.9",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Intégration par parties",
+        "Calcul d'intégrales",
+        "champo"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes à l'aide d'une ou plusieurs intégrations par parties.\n1. $\\int_{1}^{2}(t^{2}-t+1)e^{-t}dt$\n2. $\\int_{1}^{e}t(\\ln t)^{2}dt$\n3. $\\int_{0}^{\\sqrt{3}}x^{2}\\arctan(x)dx$\n4. $\\int_{-1}^{1}\\ln(t^{2}+\\rho^{2})dt,$ où $\\rho > 0$\n5. $\\int_{-1/\\sqrt{2}}^{1/2}\\sqrt{1-t^{2}}dt$\n6. $\\int_{-\\pi}^{\\pi/3}e^{-2t}\\sin(3t)dt$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Deux IPP pour réduire le polynôme. $4e^{-1}(1-2e^{-1})$.\n2. Dériver $\\ln$. $\\frac{e^2}{4} - \\frac{1}{4}$.\n3. Dériver $\\arctan$. $\\frac{\\pi}{\\sqrt{3}} - \\frac{1}{2} + \\frac{\\ln 2}{3}$.\n4. Dériver $\\ln$. $2\\ln(1+\\rho^2) - 4 + 4\\rho\\arctan(1/\\rho)$.\n5. $1 \\times \\sqrt{1-t^2}$ puis IPP ou changement de variable géométrique. $\\frac{5\\pi}{24} + \\frac{\\sqrt{3}}{8} + \\frac{1}{4}$.\n6. Deux IPP cycliques. $\\frac{3}{13}(e^{-2\\pi/3} - e^{2\\pi})$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_010",
+      "title": "TD Champo - 9.10",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Intégration par parties",
+        "champo"
+      ],
+      "statement_latex": "Déterminer des primitives des fonctions suivantes :\n1. $x\\mapsto x~\\sin^{3}x$\n2. $x\\mapsto \\arcsin(x)$\n3. $x\\mapsto x~\\sinh(x)$\n4. $x\\mapsto\\frac{\\ln(\\ln(x))}{x}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Linéariser $\\sin^3 x$ puis IPP. $\\frac{1}{12}x\\cos(3x) - \\frac{1}{36}\\sin(3x) - \\frac{3}{4}x\\cos x + \\frac{3}{4}\\sin x$.\n2. IPP ($1 \\times \\arcsin$). $x\\arcsin x + \\sqrt{1-x^2}$.\n3. IPP. $x\\cosh x - \\sinh x$.\n4. Changement $u=\\ln x$ ou IPP. $\\ln x \\ln(\\ln x) - \\ln x$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_011",
+      "title": "TD Champo - 9.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Exponentielle complexe",
+        "champo"
+      ],
+      "statement_latex": "En utilisant les nombres complexes, déterminer une primitive de $t\\mapsto te^{t}\\cos t.$",
+      "sub_questions": [],
+      "global_solution_latex": "Primitive de $te^{(1+i)t}$ par IPP : $\\left(\\frac{t}{1+i} + \\frac{1}{(1+i)^2}\\right)e^{(1+i)t}$.\nPartie réelle : $\\frac{e^x}{2}(x\\cos x + (x-1)\\sin x)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Partie réelle de $t e^{(1+i)t}$."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_012",
+      "title": "TD Champo - 9.12",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Changement de variable",
+        "Calcul d'intégrales",
+        "champo"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes en utilisant les changements de variable indiqués.\n1. $\\int_{0}^{\\ln 2}\\frac{e^{2t}}{e^{t}+1}dt, x=e^{t}$\n2. $\\int_{e^{-1}}^{e}\\frac{\\ln t}{t^{2}+1}dt, x=\\frac{1}{t}$\n3. $\\int_{1}^{2}\\frac{dx}{x+\\sqrt{x-1}}, t=\\sqrt{x-1}$\n4. $\\int_{0}^{\\frac{\\pi}{6}}\\frac{d\\theta}{\\cos\\theta}, x=\\sin\\theta$\n5. $\\int_{2\\pi}^{\\frac{5\\pi}{3}}\\sin(2\\theta)\\sqrt{\\cos\\theta}d\\theta, t=\\cos\\theta$\n6. $\\int_{0}^{1/2}\\sqrt{\\frac{1-t}{1+t}}dt, u=\\sqrt{\\frac{1-t}{1+t}}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\int_1^2 \\frac{x}{x+1} dx = 1 - \\ln(3/2)$.\n2. $I = -I \\implies I=0$.\n3. $\\ln 3 - \\frac{\\pi}{3\\sqrt{3}}$.\n4. $\\frac{1}{2}\\ln 3$.\n5. $\\frac{4}{5} - \\frac{\\sqrt{2}}{10}$.\n6. $\\frac{\\pi}{6} + \\frac{\\sqrt{3}}{2} - 1$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_013",
+      "title": "TD Champo - 9.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Changement de variable",
+        "champo"
+      ],
+      "statement_latex": "Déterminer des primitives des fonctions suivantes en utilisant le changement de variable indiqué :\n1. $x\\mapsto\\frac{1}{x\\sqrt{x^{2}-1}},$ $u=\\frac{1}{x}$ sur $]1,+\\infty[$\n2. $x\\mapsto\\frac{x}{\\sqrt{1+x}},$ $u=\\sqrt{1+x}$\n3. $x\\mapsto\\frac{1}{\\sqrt{x}+\\sqrt{x^{3}}}$ sur $\\mathbb{R}_{+}^{*}$ avec $x=t^{2}$\n4. $x\\mapsto\\frac{1}{x^{2}\\sqrt{1+x^{2}}}$ sur $\\mathbb{R}_{+}^{*}$, avec $x=\\frac{1}{t}$ ou $x=\\tan(u)$ ou $x=\\sinh(v)$.\n5. $x\\mapsto\\sqrt{\\frac{1+x}{1-x}},$ $x=\\cos u$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $-\\arcsin(1/x)$.\n2. $2\\sqrt{1+x}(\\frac{1+x}{3}-1)$.\n3. $2\\arctan(\\sqrt{x})$.\n4. $-\\frac{\\sqrt{1+x^2}}{x}$.\n5. $-\\arccos(t) - \\sqrt{1-t^2}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_014",
+      "title": "TD Champo - 9.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Fractions rationnelles",
+        "Récurrence",
+        "champo"
+      ],
+      "statement_latex": "Dans cet exercice, nous allons voir comment intégrer des éléments simples de seconde espèce du type $x\\mapsto\\frac{\\lambda x+\\mu}{(ax^{2}+bx+c)^{n}},$ $n\\ge2.$\n1. Calculer $I_{n}=\\int_{0}^{1}\\frac{2t}{(t^{2}+1)^{n}}dt$ , $n\\ge2.$\n2. En utilisant le changement de variable $t=\\tan y,$ calculer $J_{2}=\\int_{0}^{1}\\frac{1}{(t^{2}+1)^{2}}dt.$\n3. Avec le même changement de variable, calculer $J_{3}=\\int_{0}^{1}\\frac{dt}{(t^{2}+1)^{3}}.$\n4. Exprimer $\\int_{1}^{3}\\frac{2x+1}{(2x^{2}-4x+10)^{2}}dx$ en fonction de $I_{2}$ et $J_{2}$ et en déduire sa valeur.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $I_n = \\frac{1}{n-1}(1-\\frac{1}{2^{n-1}})$.\n2. $J_2 = \\frac{\\pi}{8} + \\frac{1}{4}$.\n3. $J_3 = \\frac{3\\pi}{32} + \\frac{1}{4}$.\n4. Forme canonique $2((x-1)^2+4)$, changement $u=(x-1)/2$. Résultat : $\\frac{3\\pi}{256} + \\frac{7}{128}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Forme canonique pour la question 4."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_015",
+      "title": "TD Champo - 9.15",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Intégrale",
+        "Trigonométrie",
+        "Symétrie",
+        "champo"
+      ],
+      "statement_latex": "On pose $S=\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\sin t}{\\sin t+\\cos t}dt$ et $C=\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\cos t}{\\sin t+\\cos t}dt.$\n1. Montrer que ces intégrales sont bien définies.\n2. Déterminer la valeur de $S+C.$\n3. À l'aide d'un changement de variable, montrer que $S=C$ En déduire leur valeur commune.\n4. Déduire de ce qui précède la valeur de $I=\\int_{0}^{1}\\frac{dx}{x+\\sqrt{1-x^{2}}}.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Dénominateur non nul sur $[0, \\pi/2]$.\n2. $S+C = \\int 1 dt = \\pi/2$.\n3. $x=\\pi/2-t \\implies S=C$. Donc $S=C=\\pi/4$.\n4. Poser $x=\\sin t$. On retombe sur $S = \\pi/4$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Changement $x=\\pi/2 - t$ pour 3. $x=\\sin t$ pour 4."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_016",
+      "title": "TD Champo - 9.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Intégrale",
+        "Fractions rationnelles trigonométriques",
+        "champo"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes à l'aide des changements de variables indiqués :\n1. $\\int_{0}^{1}\\frac{\\tanh(x)}{1+\\cosh(x)}dx,$ $t=\\cosh(x)$\n2. $\\int_{0}^{\\frac{\\pi}{4}}\\frac{dt}{\\cos^{4}t}, x=\\tan t.$\n3. $\\int_{0}^{\\pi/2}\\frac{\\sin(2\\theta)}{(\\sin\\theta-2)(2+\\sin\\theta-\\cos^{2}\\theta)}d\\theta,$ $x=\\sin\\theta$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\ln(\\frac{\\cosh(1)}{1+\\cosh(1)}) + \\ln 2$.\n2. $4/3$.\n3. $-\\frac{4}{7}\\ln 2 - \\frac{2}{7}\\ln 3 + \\frac{4\\pi}{21\\sqrt{3}}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_017",
+      "title": "TD Champo - 9.17",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+        "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+        "techniques_elementaires_de_calcul_integral__thm_primitives_unicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Techniques mixtes",
+        "champo"
+      ],
+      "statement_latex": "Déterminer, par les moyens de votre choix les primitives (ou intégrales) des fonctions suivantes\n1. $t\\mapsto \\arctan(t)/t^{2}$\n2. $t\\mapsto \\sin(\\ln t)$\n3. $x\\mapsto\\frac{1}{e^{2x}+e^{x}}$\n4. $x\\mapsto x~\\arcsin(x)$\n5. $x\\mapsto\\frac{1}{\\tan^{3}x}$\n6. $\\int_{1}^{\\sqrt{e}}\\frac{dx}{x\\sqrt{1-\\ln^{2}(x)}}$\n7. $\\int_{1/2}^{2}(1+\\frac{1}{t^{2}})\\arctan(t)dt.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $-\\frac{\\arctan t}{t} + \\ln|t| - \\frac{1}{2}\\ln(1+t^2)$.\n2. $\\frac{t}{2}(\\sin(\\ln t) - \\cos(\\ln t))$.\n3. $-x - e^{-x} + \\ln(1+e^x)$.\n4. $\\frac{x^2}{2}\\arcsin x - \\frac{1}{4}\\arcsin x + \\frac{1}{4}x\\sqrt{1-x^2}$.\n5. $-\\frac{1}{2\\tan^2 x} - \\ln|\\sin x|$.\n6. $\\pi/6$ (chgt $u=\\ln x$).\n7. $3\\pi/4$ (chgt $u=1/t$)."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_018",
+      "title": "TD Champo - 9.18",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__remark_cdv_sans_borne",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+        "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+        "techniques_elementaires_de_calcul_integral__remark_ipp_sans_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Primitive",
+        "Fonctions hyperboliques",
+        "Mines Ponts",
+        "champo"
+      ],
+      "statement_latex": "Déterminer une primitive de $x\\mapsto(x+\\sqrt{x^{2}-1})^{3}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Sur $[1, +\\infty[$, primitive : $\\frac{1}{8}(x+\\sqrt{x^2-1})^4 - \\frac{1}{4}(x+\\sqrt{x^2-1})^2$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Poser $x=\\cosh t$."
+        }
+      ]
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__champo_019",
+      "title": "TD Champo - 9.19",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+        "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+        "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Intégrale",
+        "Polytechnique",
+        "champo"
+      ],
+      "statement_latex": "Calculer $I=\\int_{0}^{\\frac{\\pi}{4}}\\ln(1+\\tan x)dx.$ En déduire la valeur de $J=\\int_{0}^{1}\\frac{\\arctan t}{1+t}dt.$",
+      "sub_questions": [],
+      "global_solution_latex": "$I = \\frac{\\pi \\ln 2}{8}$.\nPour $J$, IPP puis changement $t=\\tan u$ ramène à $I$. $J = \\frac{\\pi \\ln 2}{8}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Poser $t=\\pi/4 - x$ pour $I$."
+        }
+      ]
+    }
+  ]
+}

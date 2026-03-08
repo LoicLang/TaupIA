@@ -1,0 +1,316 @@
+{
+  "chapter_official_id": "topologie_de_r_et_c",
+  "chapter_name": "Topologie de R et C",
+  "source_document": "Cours - Topologie de R et C.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "topologie_de_r_et_c__definition_espace_vectoriel_norme",
+      "type": "definition",
+      "title": "Définition : Espace vectoriel normé",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel. On appelle norme sur $E$ toute application $\\|\\cdot\\|$ de $E$ dans $\\mathbb{R}_+$ vérifiant les propriétés suivantes :\\par — pour tout $x \\in E$ : $\\|x\\| = 0 \\iff x = 0_E$ (séparation),\\par — pour tous $x \\in E$ et $\\lambda \\in \\mathbb{K}$ : $\\|\\lambda x\\| = |\\lambda|\\cdot\\|x\\|$ (homogénéité),\\par — pour tous $x, y \\in E$ : $\\|x+y\\| \\le \\|x\\| + \\|y\\|$ (inégalité triangulaire).\\par Le cas échéant, le couple $(E, \\|\\cdot\\|)$ est appelé un espace vectoriel normé.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_boules_sphere",
+      "type": "definition",
+      "title": "Définition : Boules et sphère",
+      "content_latex": "Pour tous $a \\in \\mathbb{K}$ et $r > 0$, on appelle :\\par — boule ouverte de centre $a$ et de rayon $r$ l'ensemble $B(a,r) = \\{x \\in \\mathbb{K} \\mid |x-a| < r\\}$,\\par — boule fermée de centre $a$ et de rayon $r$ l'ensemble $\\overline{B}(a,r) = \\{x \\in \\mathbb{K} \\mid |x-a| \\le r\\}$,\\par — sphère de centre $a$ et de rayon $r$ l'ensemble $\\{x \\in \\mathbb{K} \\mid |x-a| = r\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_voisinage",
+      "type": "definition",
+      "title": "Définition : Voisinage d'un point",
+      "content_latex": "Soit $a \\in \\mathbb{K}$. On appelle voisinage de $a$ toute partie de $\\mathbb{K}$ contenant une boule ouverte de centre $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_proprietes_voisinages",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des voisinages",
+      "content_latex": "(i) Pour tout $a \\in \\mathbb{K}$, toute intersection FINIE de voisinages de $a$ est un voisinage de $a$.\\par (ii) Deux points distincts de $\\mathbb{K}$ possèdent des voisinages disjoints.\\par En d'autres termes, pour tous $a, b \\in \\mathbb{K}$ distincts, il existe un voisinage $V_a$ de $a$ et un voisinage $V_b$ de $b$ pour lesquels $V_a \\cap V_b = \\emptyset$.",
+      "proof_latex": "(i) Soient $a \\in \\mathbb{K}$ et $V_1, \\dots, V_k$ des voisinages de $a$. Pour tout $i \\in \\llbracket 1, k \\rrbracket$ il existe un réel $r_i > 0$ pour lequel $B(a, r_i) \\subset V_i$, donc $B(a, r_0) \\subset V_1 \\cap \\dots \\cap V_k$ pour $r_0 = \\min\\{r_1, \\dots, r_k\\} > 0$, donc $V_1 \\cap \\dots \\cap V_k$ est un voisinage de $a$.\\par (ii) Soient $a, b \\in \\mathbb{K}$. Pour $r = \\frac{|a-b|}{3} > 0$, $B(a, r)$ est un voisinage de $a$, $B(b, r)$ un voisinage de $b$, et bien sûr $B(a, r) \\cap B(b, r) = \\emptyset$."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_theorem_suite_convergente",
+      "type": "definition",
+      "title": "Définition-théorème : Suite convergente/divergente, limite",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est convergente s'il existe un élément $l \\in \\mathbb{K}$ pour lequel : $\\forall V_l \\in \\mathcal{V}_{\\mathbb{K}}(l), \\exists N \\in \\mathbb{N}, \\forall n \\ge N, u_n \\in V_l$, i.e. : $\\forall \\epsilon > 0, \\exists N \\in \\mathbb{N}, \\forall n \\ge N, |u_n - l| < \\epsilon$.\\par (i) Limite : S'il existe, l'élément $l$ est unique, appelé la limite de $(u_n)_{n\\in\\mathbb{N}}$.\\par (ii) Caractérisation par les parties réelle et imaginaire : Si $\\mathbb{K} = \\mathbb{C}$ : $u_n \\xrightarrow[n\\to+\\infty]{} l \\iff \\text{Re}(u_n) \\xrightarrow[n\\to+\\infty]{} \\text{Re}(l) \\text{ et } \\text{Im}(u_n) \\xrightarrow[n\\to+\\infty]{} \\text{Im}(l)$.",
+      "proof_latex": "(i) Supposons par l'absurde que $l \\ne l'$. Il existe un voisinage $V_l$ de $l$ et un voisinage $V_{l'}$ de $l'$ pour lesquels $V_l \\cap V_{l'} = \\emptyset$. Or $u_n \\in V_l$ à partir de $N$ et $u_n \\in V_{l'}$ à partir de $N'$, donc $u_{n_0} \\in V_l \\cap V_{l'} = \\emptyset$ pour $n_0 = \\max\\{N, N'\\}$, contradiction.\\par (ii) Si $u_n \\to l$, $|\\text{Re}(u_n) - \\text{Re}(l)| \\le |u_n - l|$, donc $\\text{Re}(u_n) \\to \\text{Re}(l)$ par encadrement. Réciproquement, $|u_n - l| = \\sqrt{(\\text{Re}(u_n) - \\text{Re}(l))^2 + (\\text{Im}(u_n) - \\text{Im}(l))^2} \\to 0$, donc $u_n \\to l$."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_theorem_suite_bornee",
+      "type": "definition",
+      "title": "Définition-théorème : Suite bornée",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est bornée si elle est à valeurs dans une boule fermée, ce qui revient à dire que : $\\exists K \\ge 0, \\forall n \\in \\mathbb{N}, |u_n| \\le K$.",
+      "proof_latex": "Si $\\exists K \\ge 0 \\dots$ est vraie, $(u_n)$ est à valeurs dans $\\overline{B}(0,K)$. Réciproquement, si $(u_n)$ est à valeurs dans $B(a,r)$, elle est aussi à valeurs dans $\\overline{B}(0,|a|+r)$ car pour tout $x \\in \\overline{B}(a,r)$ : $|x| = |a+x-a| \\le |a| + |x-a| \\le |a| + r$."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_convergence_caractere_borne",
+      "type": "theorem",
+      "title": "Théorème : Convergence et caractère borné",
+      "content_latex": "Toute suite convergente est bornée.",
+      "proof_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$ convergente de limite $l$. En particulier, $u_n \\in B(l,1) \\subset \\overline{B}(l,1)$ à partir d'un certain rang, donc $(u_n)_{n\\in\\mathbb{N}}$ est à valeurs dans une boule fermée, donc est bornée."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_suite_extraite_valeur_adherence",
+      "type": "definition",
+      "title": "Définition-théorème : Suite extraite, valeur d'adhérence",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$.\\par • Suite extraite : On appelle suite extraite (ou sous-suite) de $(u_n)_{n\\in\\mathbb{N}}$ toute suite $(u_{\\varphi(n)})_{n\\in\\mathbb{N}}$ dans laquelle $\\varphi$ est une fonction d'extraction.\\par • Valeur d'adhérence : Soit $x \\in \\mathbb{K}$. Les assertions suivantes sont équivalentes :\\par (i) $x$ est la limite d'une suite extraite CONVERGENTE de $(u_n)_{n\\in\\mathbb{N}}$.\\par (ii) $\\forall \\epsilon > 0, \\forall N \\in \\mathbb{N}, \\exists n \\ge N, u_n \\in B(x,\\epsilon)$.",
+      "proof_latex": "(i) $\\Rightarrow$ (ii) Faisons l'hypothèse que $x$ est la limite d'une suite extraite convergente $(u_{\\varphi(n)})_{n\\in\\mathbb{N}}$. Fixons $\\epsilon > 0$ et $N \\in \\mathbb{N}$. Aussitôt, $|u_{\\varphi(n)} - x| < \\epsilon$ à partir d'un certain rang $N'$. Par ailleurs, $\\varphi(n) \\ge n \\ge N$ pour tout $n \\ge \\max\\{N, N'\\}$."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_limites_suites_extraites",
+      "type": "theorem",
+      "title": "Théorème : Limites de suites extraites",
+      "content_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$. Si $(u_n)_{n\\in\\mathbb{N}}$ converge, ses suites extraites convergent aussi vers la même limite. En particulier, $(u_n)_{n\\in\\mathbb{N}}$ possède une et une seule valeur d'adhérence, à savoir sa limite.",
+      "proof_latex": "Faisons l'hypothèse que $u_n \\to l$. Soit $\\varphi$ une fonction d'extraction. Montrons que $u_{\\varphi(n)} \\to l$. Soit $V$ un voisinage de $l$. Par hypothèse, $u_n \\in V$ à partir d'un certain rang $N$, donc pour tout $n \\ge N$, $\\varphi(n) \\ge \\varphi(N) \\ge N$ par croissance de $\\varphi$, donc $u_{\\varphi(n)} \\in V$."
+    },
+    {
+      "id": "topologie_de_r_et_c__warning_valeur_adherence_unique",
+      "type": "warning",
+      "title": "Attention : Valeur d'adhérence unique sans convergence",
+      "content_latex": "Une suite peut posséder une et une seule valeur d'adhérence sans converger. Par exemple, la suite $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_{2n} = 2n$ et $u_{2n+1} = 0$ pour tout $n \\in \\mathbb{N}$ admet $0$ pour seule valeur d'adhérence, mais ne converge pas.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_bolzano_weierstrass",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Bolzano-Weierstrass",
+      "content_latex": "Toute suite bornée possède une valeur d'adhérence. En d'autres termes, de toute suite bornée, on peut extraire une suite convergente.",
+      "proof_latex": "Cas où $\\mathbb{K}=\\mathbb{R}$ : Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{R}^{\\mathbb{N}}$ bornée entre $m$ et $M$. Nous allons construire pas à pas par dichotomie des suites adjacentes $(a_n)$ et $(b_n)$ de longueur $(M-m)/2^n$ encadrant une infinité de termes $u_i$. Les deux suites convergent vers $l$. L'encadrement $a_n \\le u_{\\varphi(n)} \\le b_n$ montre que $u_{\\varphi(n)} \\to l$.\\par Cas où $\\mathbb{K}=\\mathbb{C}$ : Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{C}^{\\mathbb{N}}$ bornée par $K$ en module. Les suites de ses parties réelles et imaginaires sont bornées. Par le cas réel, on extrait une sous-suite de la partie réelle convergeant vers $a$. De cette sous-suite, on extrait une nouvelle sous-suite pour faire converger la partie imaginaire vers $b$. La suite doublement extraite converge vers $a+ib$."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_suite_extraite_sans_limite",
+      "type": "example",
+      "title": "Exemple : Extraction sans valeur d'adhérence l",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$ et $l \\in \\mathbb{K}$. Si $(u_n)_{n\\in\\mathbb{N}}$ n'admet pas $l$ pour limite, elle possède une suite extraite $(u_{\\varphi(n)})_{n\\in\\mathbb{N}}$ dont $l$ n'est pas valeur d'adhérence.",
+      "proof_latex": "Il existe $\\epsilon_0 > 0$ tel que $\\forall N \\in \\mathbb{N}, \\exists n \\ge N, |u_n - l| \\ge \\epsilon_0$. Tirons-en par récurrence une fonction d'extraction pour laquelle $|u_{\\varphi(n)} - l| \\ge \\epsilon_0$. Par passage à la limite, toute valeur d'adhérence $l'$ satisfera $|l' - l| \\ge \\epsilon_0$, donc sera distincte de $l$."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_critere_convergence",
+      "type": "theorem",
+      "title": "Théorème : Un critère de convergence",
+      "content_latex": "Toute suite bornée qui possède au plus une valeur d'adhérence converge.",
+      "proof_latex": "Soit $(u_n)_{n\\in\\mathbb{N}} \\in \\mathbb{K}^{\\mathbb{N}}$ bornée. D'après Bolzano-Weierstrass, elle possède une valeur d'adhérence $l$. Faisons l'hypothèse qu'elle ne converge pas. Elle n'admet pas $l$ pour limite. Elle possède donc une suite extraite dont $l$ n'est pas valeur d'adhérence. Cette extraite, encore bornée, possède une valeur d'adhérence $l' \\ne l$. $l'$ étant aussi valeur d'adhérence de la suite initiale, nous avons déniché deux valeurs d'adhérence, ce qui montre la convergence par contraposée."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_point_interieur_adherent",
+      "type": "definition",
+      "title": "Définition : Point intérieur/adhérent à une partie",
+      "content_latex": "Soit $A$ une partie de $\\mathbb{K}$.\\par • Point intérieur : Soit $x \\in \\mathbb{K}$. On dit que $x$ est intérieur à $A$ si $A$ est un voisinage de $x$, i.e. si : $\\exists r > 0, B(x,r) \\subset A$. En particulier, $x \\in A$.\\par • Point adhérent : Soit $x \\in \\mathbb{K}$. On dit que $x$ est adhérent à $A$ si $A$ rencontre tout voisinage de $x$, i.e. si : $\\forall r > 0, A \\cap B(x,r) \\ne \\emptyset$. En particulier, tout élément de $A$ est adhérent à $A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_caracterisation_sequentielle_adherents",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation séquentielle des points adhérents",
+      "content_latex": "Soient $A$ une partie de $\\mathbb{K}$ et $x \\in \\mathbb{K}$. Les assertions suivantes sont équivalentes :\\par (i) $x$ est adhérent à $A$.\\par (ii) $x$ est la limite d'une suite d'éléments de $A$.",
+      "proof_latex": "(i) $\\Rightarrow$ (ii) Si $x$ est adhérent à $A$, le voisinage $B(x, 1/n)$ de $x$ contient un élément $a_n$ de $A$ pour tout $n \\in \\mathbb{N}^*$, et la suite $(a_n)$ converge vers $x$ car $|a_n - x| \\le 1/n$.\\par (ii) $\\Rightarrow$ (i) Faisons l'hypothèse que $x$ est la limite d'une suite $(a_n)$ d'éléments de $A$. Soit $V_x$ un voisinage de $x$. Par définition de la limite, $a_n \\in V_x$ à partir d'un certain rang, donc $V_x$ contient un élément de $A$."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_bornes_adherentes",
+      "type": "example",
+      "title": "Exemple : Bornes supérieure et inférieure",
+      "content_latex": "Pour toute partie non vide bornée $A$ de $\\mathbb{R}$, $\\inf A$ et $\\sup A$ sont adhérents à $A$ d'après la caractérisation séquentielle des bornes supérieure et inférieure.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_interieur_adherence_frontiere",
+      "type": "definition",
+      "title": "Définition : Intérieur, adhérence et frontière d'une partie",
+      "content_latex": "Soit $A$ une partie de $\\mathbb{K}$.\\par • Intérieur : L'ensemble des points intérieurs à $A$ est appelé l'intérieur de $A$ et noté $\\mathring{A}$.\\par • Adhérence : L'ensemble des points adhérents à $A$ est appelé l'adhérence de $A$ et noté $\\overline{A}$.\\par • Frontière : L'ensemble $\\partial A = \\overline{A} \\setminus \\mathring{A}$ est appelé la frontière de $A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__example_intervalle_R",
+      "type": "example",
+      "title": "Exemple : Intérieur et adhérence d'un intervalle dans R",
+      "content_latex": "Dans $\\mathbb{R}$, pour tout intervalle non vide borné $I$ : $\\mathring{I} = ]\\inf I, \\sup I[$ et $\\overline{I} = [\\inf I, \\sup I]$.",
+      "proof_latex": "Soit $I$ un intervalle non vide borné, posons $a = \\inf I$ et $b = \\sup I$.\\par Montrons que $\\mathring{I} = ]a,b[$. $a \\notin \\mathring{I}$ car aucune boule ouverte centrée en $a$ n'est incluse dans $]a,b[$. De même $b \\notin \\mathring{I}$. Inversement, pour $x \\in ]a,b[$, la boule $B(x, r)$ avec $r = \\frac{1}{2}\\min\\{x-a, b-x\\}$ est incluse dans $]a,b[$, donc dans $I$.\\par Montrons que $\\overline{I} = [a,b]$. $a, b \\in \\overline{I}$ (caractérisation séquentielle), donc $[a,b] \\subset \\overline{I}$. Inversement, tout $x \\in \\overline{I}$ est limite d'une suite de $I$, donc $x \\in [a,b]$ par passage à la limite."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_partie_dense",
+      "type": "definition",
+      "title": "Définition-théorème : Partie dense dans une autre",
+      "content_latex": "Soit $A$ une partie de $\\mathbb{K}$. On dit que $A$ est dense dans $\\mathbb{K}$ si tout élément de $\\mathbb{K}$ est adhérent à $A$, i.e. si $\\overline{A} = \\mathbb{K}$. Plus généralement, soit $B$ une partie de $\\mathbb{K}$ contenant $A$. On dit que $A$ est dense dans $B$ si tout élément de $B$ est adhérent à $A$, i.e. si $B \\subset \\overline{A}$.\\par Caractérisation séquentielle : $A$ est dense dans $B$ si et seulement tout élément de $B$ est la limite d'une suite d'éléments de $A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_densite_Q_R_Q",
+      "type": "theorem",
+      "title": "Théorème : Densité de Q et R\\Q",
+      "content_latex": "$\\mathbb{Q}$ et $\\mathbb{R} \\setminus \\mathbb{Q}$ sont denses dans $\\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_densite_decimaux",
+      "type": "theorem",
+      "title": "Théorème : Densité de l'ensemble des décimaux",
+      "content_latex": "L'ensemble des décimaux est dense dans $\\mathbb{R}$.",
+      "proof_latex": "Soit $x \\in \\mathbb{R}$. Pour tout $n \\in \\mathbb{N}$ : $10^nx - 1 < \\lfloor 10^nx \\rfloor \\le 10^nx$, donc $x - \\frac{1}{10^n} < \\frac{\\lfloor 10^nx \\rfloor}{10^n} \\le x$, donc par encadrement, $x$ est la limite de la suite de décimaux $(\\frac{\\lfloor 10^nx \\rfloor}{10^n})_{n\\in\\mathbb{N}}$."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_developpement_decimal_illimite",
+      "type": "definition",
+      "title": "Définition-théorème : Développement décimal illimité d'un réel",
+      "content_latex": "Soit $x \\in \\mathbb{R}$.\\par (i) Existence : Il existe un entier $a_0 \\in \\mathbb{Z}$ et une suite $(a_k)_{k\\in\\mathbb{N}^*}$ d'entiers compris entre $0$ et $9$ pour laquelle : $x = a_0 + \\sum_{k=1}^{+\\infty} \\frac{a_k}{10^k}$.\\par (ii) Unicité : Si $x$ n'est pas décimal, la suite $(a_k)_{k\\in\\mathbb{N}}$ est unique.",
+      "proof_latex": "(i) Posons $a_0 = \\lfloor x \\rfloor$ et $a_k = \\lfloor 10^kx \\rfloor - 10\\lfloor 10^{k-1}x \\rfloor$ pour tout $k \\ge 1$. $a_k \\ge 0$ et $a_k < 10$, donc $a_k \\in \\llbracket 0, 9 \\rrbracket$. Finalement, la somme partielle se télescope vers $\\frac{\\lfloor 10^nx \\rfloor}{10^n}$ qui tend vers $x$.\\par (ii) Si on a deux suites distinctes, on étudie le premier indice $p$ où $a_p \\ne b_p$. Si $a_p > b_p$, l'égalité force $a_p - b_p = 1$ et tous les termes suivants de $b$ à $9$ et ceux de $a$ à $0$. Ainsi, $x$ a un développement s'achevant par des $0$ (décimal)."
+    },
+    {
+      "id": "topologie_de_r_et_c__warning_unicite_developpement_decimal",
+      "type": "warning",
+      "title": "Attention : Unicité des développements décimaux",
+      "content_latex": "L'unicité n'est pas garantie pour les décimaux. Si $x$ est décimal, deux suites peuvent être choisies, une qui prend la valeur $0$ à partir d'un certain rang (développement propre) et l'autre qui prend la valeur $9$ à partir d'un certain rang (développement impropre). Par exemple, $0,9999... = 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_ouvert",
+      "type": "definition",
+      "title": "Définition : Ouvert",
+      "content_latex": "Soit $O$ une partie de $\\mathbb{K}$. On dit que $O$ est un ouvert si : $\\forall x \\in O, \\exists r > 0, B(x,r) \\subset O$. Il est équivalent de dire que $O$ est un voisinage de chacun de ses points, ou encore que $\\mathring{O} = O$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__example_ouverts_triviaux",
+      "type": "example",
+      "title": "Exemple : $\\emptyset$ et $\\mathbb{K}$",
+      "content_latex": "$\\emptyset$ et $\\mathbb{K}$ sont des ouverts.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_exemples_ouverts",
+      "type": "theorem",
+      "title": "Théorème : Exemples d'ouverts",
+      "content_latex": "(i) Toute boule ouverte est ouverte.\\par (ii) Le complémentaire d'une boule fermée est ouvert. En particulier, $\\mathbb{K} \\setminus \\{a\\}$ est ouvert.\\par (iii) Dans $\\mathbb{R}$, un intervalle non vide est ouvert au sens topologique si et seulement s'il est ouvert au sens usuel, i.e. de la forme $]a, b[$.\\par (iv) Pour tous ouverts $O_1$ et $O_2$ de $\\mathbb{R}$, $O_1 + iO_2$ est un ouvert de $\\mathbb{C}$.",
+      "proof_latex": "(i) Soit $x \\in B(a,\\rho)$. Posons $r = \\frac{\\rho - |x-a|}{2} > 0$. Pour tout $z \\in B(x,r)$, $|z-a| \\le |z-x| + |x-a| < r + |x-a| = \\rho$, donc $B(x,r) \\subset B(a,\\rho)$.\\par (ii) Soit $x \\in \\mathbb{K} \\setminus \\overline{B}(a,\\rho)$. Posons $r = \\frac{|x-a|-\\rho}{2}$. Pour tout $z \\in B(x,r)$, $|z-a| \\ge |x-a| - |z-x| > |x-a| - r = \\rho$, donc $B(x,r) \\subset \\mathbb{K} \\setminus \\overline{B}(a,\\rho)$."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_operations_ouverts",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les ouverts",
+      "content_latex": "(i) Toute réunion d'ouverts est un ouvert.\\par (ii) Toute intersection FINIE d'ouverts est un ouvert.",
+      "proof_latex": "(i) Soit $U = \\bigcup_{i \\in I} O_i$. Tout $x \\in U$ appartient à un $O_i$, qui est un voisinage de $x$, et $U$ contient $O_i$, donc $U$ est un voisinage de $x$.\\par (ii) Soit $x \\in O_1 \\cap \\dots \\cap O_r$. Chaque $O_i$ est un voisinage de $x$, or toute intersection finie de voisinages de $x$ est un voisinage de $x$."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_complementaire_partie_finie",
+      "type": "example",
+      "title": "Exemple : Complémentaire d'une partie finie",
+      "content_latex": "Le complémentaire d'une partie finie est ouvert par intersection car les complémentaires de singletons le sont.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_interieur_ouvert",
+      "type": "theorem",
+      "title": "Théorème : L'intérieur est ouvert",
+      "content_latex": "Pour toute partie $A$ de $\\mathbb{K}$, $\\mathring{A}$ est ouvert, et c'est même le plus grand ouvert inclus dans $A$.",
+      "proof_latex": "Notons $O_A$ la réunion de tous les ouverts inclus dans $A$. C'est un ouvert inclus dans $A$. Pour tout ouvert $O \\subset A$, $O = \\mathring{O} \\subset \\mathring{A}$, donc $O_A \\subset \\mathring{A}$. Inversement, pour tout $x \\in \\mathring{A}$, $B(x,r) \\subset A$, donc $B(x,r) = \\mathring{B}(x,r) \\subset \\mathring{A}$, donc $\\mathring{A}$ est ouvert et $\\mathring{A} \\subset O_A$."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_ferme",
+      "type": "definition",
+      "title": "Définition-théorème : Fermé",
+      "content_latex": "Soit $F$ une partie de $\\mathbb{K}$. On dit que $F$ est un fermé si toute suite convergente d'éléments de $F$ a pour limite un élément de $F$. Il est équivalent de dire que $\\overline{F} = F$, ou que son complémentaire $\\mathbb{K} \\setminus F$ est un ouvert.",
+      "proof_latex": "Si $\\mathbb{K} \\setminus F$ est ouvert et $(u_n) \\in F^{\\mathbb{N}}$ converge vers $l$. Si $l \\in \\mathbb{K} \\setminus F$, il existe $B(l,r) \\subset \\mathbb{K} \\setminus F$, donc $|u_n - l| \\ge r$, ce qui contredit la convergence. Si $F$ est fermé, soit $x \\notin F$. Si $B(x,r) \\not\\subset \\mathbb{K} \\setminus F$ pour tout $r>0$, alors $F$ contient un $u_n \\in B(x, 1/n)$. $(u_n)$ converge vers $x$, donc $x \\in F$, contradiction."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_fermes_triviaux",
+      "type": "example",
+      "title": "Exemple : $\\emptyset$ et $\\mathbb{K}$",
+      "content_latex": "$\\emptyset$ et $\\mathbb{K}$ sont des fermés car $\\mathbb{K} \\setminus \\emptyset = \\mathbb{K}$ et $\\mathbb{K} \\setminus \\mathbb{K} = \\emptyset$ sont des ouverts.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__example_R_ferme_dans_C",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{R}$ fermé dans $\\mathbb{C}$",
+      "content_latex": "$\\mathbb{R}$ est fermé dans $\\mathbb{C}$ car la limite d'une suite réelle convergente est un réel.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_exemples_fermes",
+      "type": "theorem",
+      "title": "Théorème : Exemples de fermés",
+      "content_latex": "(i) Toute boule fermée est fermée. En particulier, tout singleton est fermé.\\par (ii) Le complémentaire d'une boule ouverte est fermé.\\par (iii) Dans $\\mathbb{R}$, un intervalle non vide est fermé si et seulement s'il est de la forme $[a, b]$, $[a, +\\infty[$ ou $]-\\infty, b]$.\\par (iv) Pour tous fermés $F_1$ et $F_2$ de $\\mathbb{R}$, $F_1 + iF_2$ est un fermé de $\\mathbb{C}$.",
+      "proof_latex": "(i) Le complémentaire d'une boule fermée est un ouvert.\\par (iv) Soit $(u_n) \\in (F_1+iF_2)^{\\mathbb{N}}$ convergente vers $l$. $\\text{Re}(u_n) \\to \\text{Re}(l)$ avec $F_1$ fermé, donc $\\text{Re}(l) \\in F_1$. De même $\\text{Im}(l) \\in F_2$, donc $l \\in F_1+iF_2$."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_partie_finie_fermee",
+      "type": "example",
+      "title": "Exemple : Toute partie finie est fermée",
+      "content_latex": "Toute partie finie est fermée car les singletons le sont.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_operations_fermes",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les fermés",
+      "content_latex": "(i) Toute intersection de fermés est un fermé.\\par (ii) Toute réunion FINIE de fermés est un fermé.",
+      "proof_latex": "Soit $(F_i)_{1 \\le i \\le r}$ une famille de fermés. Pour tout $i$, $\\mathbb{K} \\setminus F_i$ est ouvert, donc $\\bigcap_i (\\mathbb{K} \\setminus F_i)$ aussi, donc son complémentaire $\\bigcup_i F_i$ est fermé (lois de De Morgan)."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_adherence_frontiere_fermees",
+      "type": "theorem",
+      "title": "Théorème : L'adhérence et la frontière sont fermées",
+      "content_latex": "Pour toute partie $A$ de $\\mathbb{K}$, $\\overline{A}$ et $\\partial A$ sont fermées, et $\\overline{A}$ est même le plus petit fermé contenant $A$.",
+      "proof_latex": "Notons $F_A$ l'intersection de tous les fermés contenant $A$. C'est le plus petit fermé contenant $A$. Pour tout fermé $F$ contenant $A$, $\\overline{A} \\subset \\overline{F} = F$, donc $\\overline{A} \\subset F_A$. Soit $(u_n) \\in \\overline{A}^{\\mathbb{N}}$ convergeant vers $l$. $u_n$ est adhérent à $A$, donc il existe $a_n \\in A$ tq $|a_n - u_n| \\le 1/n$. $a_n = (a_n - u_n) + u_n \\to 0 + l = l$, donc $l \\in \\overline{A}$, ce qui prouve que $\\overline{A}$ est fermée."
+    },
+    {
+      "id": "topologie_de_r_et_c__definition_compact",
+      "type": "definition",
+      "title": "Définition-théorème : Compact",
+      "content_latex": "Soit $C$ une partie de $\\mathbb{K}$. On dit que $C$ est un compact si toute suite d'éléments de $C$ possède une valeur d'adhérence dans $C$, i.e. si toute suite d'éléments de $C$ possède une sous-suite convergente de limite un élément de $C$.",
+      "proof_latex": null
+    },
+    {
+      "id": "topologie_de_r_et_c__example_partie_finie_compacte",
+      "type": "example",
+      "title": "Exemple : Partie finie",
+      "content_latex": "Toute partie finie de $\\mathbb{K}$ est compacte.",
+      "proof_latex": "Toute suite à valeurs dans une partie finie prend au moins une valeur un nombre infini de fois (principe des tiroirs), donc possède une valeur d'adhérence."
+    },
+    {
+      "id": "topologie_de_r_et_c__example_segment_compact",
+      "type": "example",
+      "title": "Exemple : Segment",
+      "content_latex": "Soient $a$ et $b$ deux réels pour lesquels $a \\le b$. Le segment $[a, b]$ est compact.",
+      "proof_latex": "Soit $(u_n)$ une suite d'éléments de $[a, b]$. Bornée, elle possède une suite extraite convergente d'après Bolzano-Weierstrass, dont la limite appartient à $[a, b]$ par passage à la limite dans les inégalités."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_compact_ferme_borne",
+      "type": "theorem",
+      "title": "Théorème : Compact = fermé borné",
+      "content_latex": "Soit $C$ une partie de $\\mathbb{K}$. Alors $C$ est compacte si et seulement si $C$ est fermée bornée.",
+      "proof_latex": "Si $C$ est compacte, soit $(u_n) \\in C^{\\mathbb{N}}$ convergente de limite $l$. $l$ est l'unique valeur d'adhérence, et $C$ est compacte, donc $l \\in C$ (donc $C$ est fermée). Si $C$ n'est pas bornée, il existe $(c_n)$ avec $|c_n| \\ge n$, dont aucune extraite n'est bornée, contradiction. Inversement, si $C$ est fermée bornée, toute suite $(u_n) \\in C^{\\mathbb{N}}$ possède une sous-suite convergente (Bolzano-Weierstrass) et la limite est dans $C$ car $C$ est fermé."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_exemples_compacts",
+      "type": "theorem",
+      "title": "Théorème : Exemples de compacts",
+      "content_latex": "(i) Toute boule fermée est compacte.\\par (ii) Dans $\\mathbb{R}$, les intervalles non vides compacts sont les segments $[a, b]$.\\par (iii) Pour tous compacts $C_1$ et $C_2$ de $\\mathbb{R}$, $C_1 + iC_2$ est un compact de $\\mathbb{C}$.",
+      "proof_latex": "(iii) $C_1+iC_2$ est fermé (somme de fermés). $C_1$ et $C_2$ sont bornés par $M$, donc pour $x \\in C_1+iC_2$, $|x| \\le |\\text{Re}(x)| + |\\text{Im}(x)| \\le 2M$. $C_1+iC_2$ est donc fermé borné, donc compact."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_operations_compacts",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les compacts",
+      "content_latex": "(i) Toute intersection de compacts est un compact.\\par (ii) Toute réunion FINIE de compacts est un compact.",
+      "proof_latex": "Découle directement des propriétés de stabilité des ensembles fermés et des ensembles bornés par intersection quelconque et réunion finie."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_tomber_plus_bas",
+      "type": "theorem",
+      "title": "Théorème : Lemme (On peut toujours tomber plus bas)",
+      "content_latex": "Soient $Q \\in \\mathbb{C}[X]$ non constant et $a \\in \\mathbb{C}$. Si $Q(a) \\ne 0$, alors $|Q(z)| < |Q(a)|$ pour un certain $z \\in \\mathbb{C}$.",
+      "proof_latex": "Quitte à considérer $Q(X+a)/Q(a)$, on suppose $a=0$ et $Q(0)=1$. On écrit $Q = 1 + b_qX^q + \\dots + b_dX^d$ où $b_q \\ne 0$. Quitte à évaluer en $\\beta_qX$ (où $\\beta_q^q = -1/b_q$), on suppose $b_q = -1$. Pour $r \\in [0,1]$, $|Q(r)| \\le |1-r^q| + \\sum_{k=q+1}^d |b_k|r^k = 1 - r^q(1 - Mr)$ avec $M = \\sum |b_k|$. Pour $r$ assez petit, $|Q(r)| < 1$."
+    },
+    {
+      "id": "topologie_de_r_et_c__theorem_dalembert_gauss",
+      "type": "theorem",
+      "title": "Théorème : Théorème de d'Alembert-Gauss",
+      "content_latex": "Tout polynôme $P \\in \\mathbb{C}[X]$ non constant possède au moins une racine dans $\\mathbb{C}$.",
+      "proof_latex": "La fonction $z \\mapsto |P(z)|$ possède une borne inférieure $m = \\inf_{\\mathbb{C}} |P|$ et $m = \\lim |P(z_n)|$ pour une suite $(z_n)$. Or, $|P(z)| \\ge |a_d| |z|^d - \\sum_{k=0}^{d-1} |a_k| |z|^k \\to +\\infty$ quand $|z| \\to +\\infty$. Ainsi, $|P(z)| > m+1$ pour $|z| > N$. Puisque $|P(z_n)| \\to m$, on a $|z_n| \\le N$ à partir d'un certain rang, donc $(z_n)$ est bornée. D'après Bolzano-Weierstrass, $(z_n)$ possède une suite extraite convergeant vers $l$. Par continuité, $|P(l)| = m$. Le minimum est atteint. S'il n'était pas nul, le lemme permettrait de trouver un point où le module est strictement inférieur à $m$, absurde. Donc $m=0$ et $l$ est racine."
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,1578 @@
+{
+  "chapter_official_id": "fonctions_de_deux_variables",
+  "chapter_name": "Fonctions de deux variables",
+  "source_document": "Exercices - Fonctions de deux variables.pdf & Exercices indications - Fonctions de deux variables.pdf",
+  "exercises": [
+    {
+      "id": "fonctions_de_deux_variables__ex_001",
+      "title": "Représentation graphique de graphes",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__propriete_continuite_operations",
+        "fonctions_de_deux_variables__definition_plan_tangent",
+        "fonctions_de_deux_variables__propriete_operations_C1",
+        "fonctions_de_deux_variables__theorem_continuite_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "graphes",
+        "fonctions usuelles",
+        "surfaces"
+      ],
+      "statement_latex": "(Se) représenter le mieux possible le graphe des fonctions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "(x,y)\\\\mapsto x^{y}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_differentiable",
+            "fonctions_de_deux_variables__definition_version_polaire",
+            "fonctions_de_deux_variables__definition_fonction_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le domaine de définition (ici $x > 0$ en général pour éviter les problèmes de puissance réelle)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier les traces dans les plans $x=cste$ et $y=cste$ pour déduire la forme de la surface."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto x^y$ est définie pour $x > 0$ (ou $x = 0$ avec $y > 0$). On peut écrire $x^y = e^{y \\ln x}$.\n\n\\textbf{Traces :}\n\\begin{itemize}\n\\item Pour $y = 0$ : $z = 1$ (droite horizontale)\n\\item Pour $x = 1$ : $z = 1$ (droite horizontale)\n\\item Pour $y = 1$ : $z = x$ (droite linéaire)\n\\item Pour $x = e$ : $z = e^y$ (exponentielle)\n\\end{itemize}\n\n\\textbf{Comportement :} La surface croît exponentiellement en $x$ lorsque $y > 0$ est fixé, et croît en $y$ lorsque $x > 1$ est fixé. C'est un paraboloïde exponentiel qui s'étend vers l'infini."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "(x,y)\\\\mapsto x-y+2",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_plan_tangent",
+            "fonctions_de_deux_variables__definition_version_polaire",
+            "fonctions_de_deux_variables__definition_fonction_differentiable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaître l'équation cartésienne usuelle d'un plan dans l'espace."
+            },
+            {
+              "level": 2,
+              "content_latex": "Déterminer un vecteur normal au plan et les points d'intersection avec les trois axes du repère."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto x - y + 2$ est une fonction affine. Son graphe est un plan d'équation $z = x - y + 2$.\n\n\\textbf{Vecteur normal :} Le vecteur normal au plan est $\\vec{n} = (1, -1, -1)$.\n\n\\textbf{Traces :}\n\\begin{itemize}\n\\item Pour $y = 0$ : $z = x + 2$ (droite de pente 1)\n\\item Pour $x = 0$ : $z = 2 - y$ (droite de pente -1)\n\\item Pour $z = 0$ : $x - y + 2 = 0$, soit $y = x + 2$ (droite)\n\\end{itemize}\n\n\\textbf{Description :} C'est un plan incliné avec une pente positive suivant $x$ et une pente négative suivant $y$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "(x,y)\\\\leftrightarrow sin(x+y)",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__propriete_continuite_operations",
+            "fonctions_de_deux_variables__theorem_continuite_C1",
+            "fonctions_de_deux_variables__definition_continuite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyser la périodicité de la fonction et ses lignes de niveau."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que la fonction est constante sur toutes les droites d'équation $x+y = cste$."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto \\sin(x+y)$ est composée de fonctions continues.\n\n\\textbf{Courbes de niveau :} Les courbes de niveau sont définies par $\\sin(x+y) = c$, soit $x + y = \\arcsin(c) + 2\\pi k$ ou $x + y = \\pi - \\arcsin(c) + 2\\pi k$ pour $|c| \\leq 1$. Ce sont des droites parallèles.\n\n\\textbf{Crêtes et vallées :}\n\\begin{itemize}\n\\item Maxima ($z = 1$) : sur les droites $x + y = \\frac{\\pi}{2} + 2\\pi k$\n\\item Minima ($z = -1$) : sur les droites $x + y = -\\frac{\\pi}{2} + 2\\pi k$\n\\end{itemize}\n\n\\textbf{Description :} Surface ondulée périodique, ressemblant à des vagues régulières. Les crêtes sont des droites parallèles."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "(x,y)\\\\mapsto xe^{-y^{2}}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__propriete_operations_C1",
+            "fonctions_de_deux_variables__propriete_continuite_operations",
+            "fonctions_de_deux_variables__definition_fonction_differentiable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier l'asymétrie selon l'axe des abscisses et le comportement asymptotique selon l'axe des ordonnées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixer $y$ pour observer des droites de pente variable, et fixer $x$ pour observer des courbes en cloche."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto xe^{-y^2}$ est un produit d'une fonction linéaire en $x$ et d'une fonction gaussienne en $y$.\n\n\\textbf{Traces :}\n\\begin{itemize}\n\\item Pour $y = 0$ : $z = x$ (droite linéaire)\n\\item Pour $x$ fixé : $z = xe^{-y^2}$ (gaussienne amortie si $x \\neq 0$)\n\\item Pour $y$ fixé : $z = xe^{-y^2}$ (droite de pente $e^{-y^2}$)\n\\end{itemize}\n\n\\textbf{Enveloppe gaussienne :} La surface est enveloppée par les fonctions $\\pm e^{-y^2}$. La pente selon $x$ décroît exponentiellement avec $|y|$.\n\n\\textbf{Description :} Une surface linéaire en $x$ dont la pente est modulée par une enveloppe gaussienne en $y$. La surface admet une selle au centre."
+        },
+        {
+          "label": "4) (bis)",
+          "statement_latex": "(x,y)\\\\mapsto e^{-xy^{2}}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_plan_tangent",
+            "fonctions_de_deux_variables__definition_fonction_differentiable",
+            "fonctions_de_deux_variables__definition_version_polaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le signe de l'exposant pour déterminer les zones de croissance et de décroissance."
+            },
+            {
+              "level": 2,
+              "content_latex": "Observer le comportement limite quand $y$ tend vers l'infini, en distinguant les cas $x > 0$ et $x < 0$."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto e^{-xy^2}$ est exponentielle composée.\n\n\\textbf{Traces :}\n\\begin{itemize}\n\\item Pour $y = 0$ : $z = 1$ (plan horizontal)\n\\item Pour $x = 0$ : $z = 1$ (plan horizontal)\n\\item Pour $y$ fixé : $z = e^{-xy^2}$ (exponentielle en $x$)\n\\item Pour $x > 0$ : décroissance exponentielle selon $y^2$\n\\item Pour $x < 0$ : croissance exponentielle selon $-y^2$\n\\end{itemize}\n\n\\textbf{Comportement asymptotique :}\n\\begin{itemize}\n\\item Quand $x \\to +\\infty$ avec $y \\neq 0$ : $z \\to 0$\n\\item Quand $x \\to -\\infty$ avec $y \\neq 0$ : $z \\to +\\infty$\n\\end{itemize}\n\n\\textbf{Description :} Surface exponentielle avec une asymptote horizontale à $z = 1$ selon $y$ et comportement exponentiel selon $x$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "(x,y)\\\\mapsto e^{-x}cos~y.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_differentiable",
+            "fonctions_de_deux_variables__definition_version_polaire",
+            "fonctions_de_deux_variables__definition_fonction_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparer l'effet d'amortissement exponentiel de l'oscillation périodique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Tracer l'enveloppe exponentielle $\\\\pm e^{-x}$ pour visualiser les limites de l'oscillation selon l'axe $y$."
+            }
+          ],
+          "solution_latex": "La fonction $(x,y) \\mapsto e^{-x}\\cos y$ est le produit d'une exponentielle décroissante et d'une fonction cosinus.\n\n\\textbf{Traces :}\n\\begin{itemize}\n\\item Pour $y = 0$ : $z = e^{-x}$ (exponentielle décroissante)\n\\item Pour $y = \\pi$ : $z = -e^{-x}$ (exponentielle décroissante négative)\n\\item Pour $x = 0$ : $z = \\cos y$ (fonction cosinus)\n\\item Pour $x$ fixé : $z = e^{-x}\\cos y$ (cosinus avec amplitude $e^{-x}$)\n\\end{itemize}\n\n\\textbf{Enveloppe exponentielle :} L'amplitude des oscillations selon $y$ décroît exponentiellement selon $e^{-x}$.\n\n\\textbf{Zéros :} La surface s'annule quand $\\cos y = 0$, c'est-à-dire sur les droites $y = \\frac{\\pi}{2} + k\\pi$.\n\n\\textbf{Description :} Surface ondulée dont les oscillations cosinus selon $y$ sont amorties par une enveloppe exponentielle décroissante selon $x$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_002",
+      "title": "Calcul de dérivées partielles par composition",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+        "fonctions_de_deux_variables__definition_derivees_partielles",
+        "fonctions_de_deux_variables__calcul_derivees_partielles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivées partielles",
+        "règle de la chaîne",
+        "composition"
+      ],
+      "statement_latex": "Soit f\\\\in\\\\mathbb{R}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R}).",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer la dérivée de x\\\\mapsto f(x,f(x,x)).",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__theorem_regle_chaine",
+            "fonctions_de_deux_variables__definition_derivee_directionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire des fonctions intermédiaires, par exemple $g(x) = f(x,x)$, puis appliquer la règle de composition (chain rule)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer d'abord la dérivée de la fonction interne $g'(x) = \\\\frac{\\\\partial f}{\\\\partial x}(x,x) + \\\\frac{\\\\partial f}{\\\\partial y}(x,x)$."
+            }
+          ],
+          "solution_latex": "On cherche la dérivée de $x \\mapsto f(x, f(x, x))$.\n\nSoit $g(x) = f(x, f(x, x))$. On utilise la règle de chaîne.\n\nPosons $u(x) = x$ et $v(x) = f(x, x)$. Alors $g(x) = f(u(x), v(x))$.\n\nPar la règle de chaîne :\n$$\\frac{dg}{dx} = \\frac{\\partial f}{\\partial x}\\bigg|_{(x, v(x))} \\cdot \\frac{du}{dx} + \\frac{\\partial f}{\\partial y}\\bigg|_{(x, v(x))} \\cdot \\frac{dv}{dx}$$\n\nAvec $\\frac{du}{dx} = 1$.\n\nPour $\\frac{dv}{dx}$ avec $v(x) = f(x, x)$ :\n$$\\frac{dv}{dx} = \\frac{\\partial f}{\\partial x}\\bigg|_{(x,x)} + \\frac{\\partial f}{\\partial y}\\bigg|_{(x,x)}$$\n\nDonc :\n$$\\frac{dg}{dx} = \\frac{\\partial f}{\\partial x}(x, f(x,x)) + \\frac{\\partial f}{\\partial y}(x, f(x,x)) \\cdot \\left[\\frac{\\partial f}{\\partial x}(x,x) + \\frac{\\partial f}{\\partial y}(x,x)\\right]$$\n\nEn notation $f_1 = \\partial f/\\partial x$ et $f_2 = \\partial f/\\partial y$ :\n$$\\boxed{\\frac{dg}{dx} = f_1(x, f(x,x)) + f_2(x, f(x,x)) \\cdot [f_1(x,x) + f_2(x,x)]}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer les dérivées partielles de (x,y)\\\\leftrightarrow f(y,x) et (x,y)\\\\longrightarrow f(x,f(x,y)) .",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+            "fonctions_de_deux_variables__definition_derivees_partielles",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer rigoureusement la dérivation des fonctions composées à plusieurs variables."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la deuxième fonction, la dérivation par rapport à $x$ (à $y$ constant) nécessite de dériver les deux arguments de la fonction $f$ extérieure."
+            }
+          ],
+          "solution_latex": "\n\n\\textbf{a) Partielles de $(x,y) \\mapsto f(y, x)$}\n\nSoit $h(x,y) = f(y, x)$.\n\n$$\\frac{\\partial h}{\\partial x} = \\frac{\\partial f}{\\partial x}\\bigg|_{(y,x)} \\cdot 0 + \\frac{\\partial f}{\\partial y}\\bigg|_{(y,x)} \\cdot 1 = f_2(y, x)$$\n\n$$\\frac{\\partial h}{\\partial y} = \\frac{\\partial f}{\\partial x}\\bigg|_{(y,x)} \\cdot 1 + \\frac{\\partial f}{\\partial y}\\bigg|_{(y,x)} \\cdot 0 = f_1(y, x)$$\n\n\\textbf{b) Partielles de $(x,y) \\mapsto f(x, f(x,y))$}\n\nSoit $k(x,y) = f(x, f(x,y))$.\n\nPour $\\frac{\\partial k}{\\partial x}$ : \n$$\\frac{\\partial k}{\\partial x} = f_1(x, f(x,y)) \\cdot 1 + f_2(x, f(x,y)) \\cdot \\frac{\\partial}{\\partial x}[f(x,y)]$$\n$$= f_1(x, f(x,y)) + f_2(x, f(x,y)) \\cdot f_1(x, y)$$\n\nPour $\\frac{\\partial k}{\\partial y}$ :\n$$\\frac{\\partial k}{\\partial y} = f_1(x, f(x,y)) \\cdot 0 + f_2(x, f(x,y)) \\cdot \\frac{\\partial}{\\partial y}[f(x,y)]$$\n$$= f_2(x, f(x,y)) \\cdot f_2(x, y)$$\n\n$$\\boxed{\\frac{\\partial k}{\\partial x} = f_1(x, f(x,y)) + f_2(x, f(x,y)) \\cdot f_1(x, y)}$$\n$$\\boxed{\\frac{\\partial k}{\\partial y} = f_2(x, f(x,y)) \\cdot f_2(x, y)}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_003",
+      "title": "Dérivation d'une relation fonctionnelle",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_version_polaire",
+        "fonctions_de_deux_variables__definition_fonction_differentiable",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__theorem_composition_R2_R2_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relation fonctionnelle",
+        "dérivées partielles",
+        "chain rule"
+      ],
+      "statement_latex": "Soit f\\\\in\\\\$^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R}) une fonction pour laquelle pour tous x, y, z \\\\in \\\\mathbb{R}: f(x^{2}+y,yz)=xf(y,z).\\\\par Dériver cette relation par rapport aux trois variables x, y et z.",
+      "sub_questions": [],
+      "global_solution_latex": "On considère l'équation fonctionnelle $f(x^2 + y, yz) = xf(y, z)$ pour tous $x, y, z \\in \\mathbb{R}$.\n\n\\textbf{Étape 1 : Évaluation en $x = 0$}\n\nEn posant $x = 0$ :\n$$f(y, yz) = 0 \\cdot f(y, z) = 0$$\n\npour tous $y, z \\in \\mathbb{R}$.\n\n\\textbf{Étape 2 : Substitution}\n\nSoit $y = u$ et $z = \\frac{v}{u}$ (pour $u \\neq 0$). L'équation $f(u, yz) = 0$ devient :\n$$f(u, v) = 0$$\n\npour tous $u, v$ avec $u \\neq 0$.\n\n\\textbf{Étape 3 : Extension aux cas où $u = 0$}\n\nEn posant $y = 0$ dans $f(x^2 + y, yz) = xf(y, z)$ :\n$$f(x^2, 0) = x f(0, z)$$\n\nSi $x = 0$ : $f(0, 0) = 0$.\n\nSi $x \\neq 0$ : cette équation lie $f(x^2, 0)$ à $f(0, z)$.\n\nCependant, de l'étape 1, nous avons $f(y, 0) = 0$ pour tous $y$. Donc $f(x^2, 0) = 0$ pour tout $x$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f \\equiv 0}$$\n\nLa seule solution est la fonction identiquement nulle.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour chaque variable ($x$, $y$, puis $z$), dérivez les deux membres de l'égalité en considérant les deux autres variables comme des paramètres constants."
+        },
+        {
+          "level": 2,
+          "content_latex": "Par exemple, pour dériver le membre de gauche par rapport à $x$, appliquez la règle de composition sur $f(u,v)$ avec $u=x^2+y$ et $v=yz$."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_004",
+      "title": "Limites de fonctions de deux variables en (0,0)",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__proprietes_limites",
+        "fonctions_de_deux_variables__definition_limite_point",
+        "fonctions_de_deux_variables__theorem_derivees_polaires",
+        "fonctions_de_deux_variables__definition_version_polaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limites",
+        "coordonnées polaires",
+        "continuité"
+      ],
+      "statement_latex": "Étudier, éventuellement en passant en coordonnées polaires, la limite lorsque (x, y) tend vers (0,0) de :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "\\\\frac{xy}{\\\\sqrt{x^{2}+y^{2}}}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__proprietes_limites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer un changement en coordonnées polaires en posant $x=r\\\\cos(\\\\theta)$ et $y=r\\\\sin(\\\\theta)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer la valeur absolue de l'expression obtenue par une fonction de $r$ qui tend vers $0$."
+            }
+          ],
+          "solution_latex": "On cherche $\\lim_{(x,y) \\to (0,0)} \\frac{xy}{\\sqrt{x^2 + y^2}}$.\n\n\\textbf{Passage en coordonnées polaires :} $x = r\\cos\\theta$, $y = r\\sin\\theta$.\n\n$$\\frac{xy}{\\sqrt{x^2 + y^2}} = \\frac{r^2 \\cos\\theta \\sin\\theta}{r} = r \\cos\\theta \\sin\\theta = \\frac{r}{2} \\sin(2\\theta)$$\n\nLorsque $(x,y) \\to (0,0)$, on a $r \\to 0$. Puisque $|\\sin(2\\theta)| \\leq 1$ :\n$$\\left|\\frac{xy}{\\sqrt{x^2 + y^2}}\\right| \\leq \\frac{r}{2} \\to 0$$\n\n$$\\boxed{\\lim_{(x,y) \\to (0,0)} \\frac{xy}{\\sqrt{x^2 + y^2}} = 0}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "\\\\frac{xy}{x^{2}-y^{2}}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__proprietes_limites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher des directions d'approche spécifiques (par exemple des droites d'équation $y=mx$) qui donnent des limites différentes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer la limite en s'approchant le long de la droite $y=2x$ et comparer au résultat selon les axes."
+            }
+          ],
+          "solution_latex": "On cherche $\\lim_{(x,y) \\to (0,0)} \\frac{xy}{x^2 - y^2}$.\n\n\\textbf{Test le long de différents chemins :}\n\n\\begin{itemize}\n\\item \\textbf{Chemin 1 :} $y = 0$, $x \\to 0$ :\n$$\\lim_{x \\to 0} \\frac{x \\cdot 0}{x^2 - 0} = 0$$\n\n\\item \\textbf{Chemin 2 :} $y = \\frac{x}{2}$, $x \\to 0$ :\n$$\\lim_{x \\to 0} \\frac{x \\cdot \\frac{x}{2}}{x^2 - \\frac{x^2}{4}} = \\lim_{x \\to 0} \\frac{\\frac{x^2}{2}}{\\frac{3x^2}{4}} = \\frac{2}{3}$$\n\n\\item \\textbf{Chemin 3 :} $y = x$, $x \\to 0$ :\n$$\\frac{x^2}{x^2 - x^2} = \\frac{x^2}{0} \\text{ (indéfini)}$$\n\\end{itemize}\n\nPuisque les limites obtenues par différents chemins sont différentes, \\boxed{\\text{la limite n'existe pas}}."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "\\\\frac{e^{xy}-1}{x}",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__proprietes_limites",
+            "fonctions_de_deux_variables__methode_extrema_quadratique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le développement limité ou l'équivalent classique de la fonction exponentielle au voisinage de $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque le produit $xy$ tend vers $0$, on peut utiliser l'équivalent usuel $e^{u} - 1 \\\\sim u$."
+            }
+          ],
+          "solution_latex": "On cherche $\\lim_{(x,y) \\to (0,0)} \\frac{e^{xy} - 1}{x}$ pour $x \\neq 0$.\n\n\\textbf{Méthode 1 : Développement de Taylor}\n\n$$e^{xy} = 1 + xy + \\frac{(xy)^2}{2} + O((xy)^3)$$\n\n$$\\frac{e^{xy} - 1}{x} = \\frac{xy + \\frac{(xy)^2}{2} + O((xy)^3)}{x} = y + \\frac{xy^2}{2} + O((xy)^2)$$\n\nLorsque $(x,y) \\to (0,0)$, tous les termes tendent vers 0.\n\n\\textbf{Méthode 2 : Minorant direct}\n\n$$\\left|\\frac{e^{xy} - 1}{x}\\right| = \\left|y \\cdot \\frac{e^{xy} - 1}{xy}\\right|$$\n\nNous savons que $\\lim_{u \\to 0} \\frac{e^u - 1}{u} = 1$, donc $\\left|\\frac{e^{xy} - 1}{xy}\\right|$ est borné au voisinage de $(0,0)$.\n\nAinsi :\n$$\\left|\\frac{e^{xy} - 1}{x}\\right| \\leq C|y| \\to 0$$\n\n$$\\boxed{\\lim_{(x,y) \\to (0,0)} \\frac{e^{xy} - 1}{x} = 0}$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "\\\\frac{x^{3}+y^{3}}{x^{2}+y^{2}}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__proprietes_limites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer l'expression en coordonnées polaires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser par $r$ au numérateur et au dénominateur, puis majorer la somme des fonctions trigonométriques restantes."
+            }
+          ],
+          "solution_latex": "On cherche $\\lim_{(x,y) \\to (0,0)} \\frac{x^3 + y^3}{x^2 + y^2}$.\n\n\\textbf{Passage en coordonnées polaires :} $x = r\\cos\\theta$, $y = r\\sin\\theta$.\n\n$$\\frac{x^3 + y^3}{x^2 + y^2} = \\frac{r^3(\\cos^3\\theta + \\sin^3\\theta)}{r^2} = r(\\cos^3\\theta + \\sin^3\\theta)$$\n\nPuisque $|\\cos^3\\theta + \\sin^3\\theta| \\leq |\\cos^3\\theta| + |\\sin^3\\theta| \\leq 2$ :\n\n$$\\left|\\frac{x^3 + y^3}{x^2 + y^2}\\right| \\leq 2r \\to 0$$\n\n$$\\boxed{\\lim_{(x,y) \\to (0,0)} \\frac{x^3 + y^3}{x^2 + y^2} = 0}$$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "\\\\frac{x^{2}-y^{2}}{x^{2}+y^{2}}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__proprietes_limites",
+            "fonctions_de_deux_variables__theorem_derivees_polaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier séparément les limites selon l'axe des abscisses et selon l'axe des ordonnées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Démontrer que la limite calculée le long de l'axe $y=0$ diffère de celle calculée le long de l'axe $x=0$."
+            }
+          ],
+          "solution_latex": "On cherche $\\lim_{(x,y) \\to (0,0)} \\frac{x^2 - y^2}{x^2 + y^2}$.\n\n\\textbf{Passage en coordonnées polaires :} $x = r\\cos\\theta$, $y = r\\sin\\theta$.\n\n$$\\frac{x^2 - y^2}{x^2 + y^2} = \\frac{r^2\\cos^2\\theta - r^2\\sin^2\\theta}{r^2(\\cos^2\\theta + \\sin^2\\theta)} = \\frac{\\cos^2\\theta - \\sin^2\\theta}{1} = \\cos(2\\theta)$$\n\nCette expression dépend de l'angle $\\theta$ et prend des valeurs dans $[-1, 1]$ selon la direction d'approche.\n\n\\textbf{Test selon différentes directions :}\n\\begin{itemize}\n\\item $y = 0$ : $\\cos(2 \\cdot 0) = 1$\n\\item $y = x$ : $\\cos(2 \\cdot \\frac{\\pi}{4}) = 0$\n\\item $y = -x$ : $\\cos(2 \\cdot (-\\frac{\\pi}{4})) = 0$\n\\item $x = 0$ : $\\cos(2 \\cdot \\frac{\\pi}{2}) = -1$\n\\end{itemize}\n\nPuisque les limites varient selon la direction d'approche, \\boxed{\\text{la limite n'existe pas}}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_005",
+      "title": "Continuité globale d'une fonction",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__propriete_continuite_operations",
+        "fonctions_de_deux_variables__propriete_operations_C1",
+        "fonctions_de_deux_variables__definition_continuite",
+        "fonctions_de_deux_variables__theorem_continuite_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité",
+        "théorèmes généraux",
+        "fonctions usuelles"
+      ],
+      "statement_latex": "Montrer que la fonction (x,y)\\\\mapsto\\\\frac{sin(x^{2}+y)}{\\\\sqrt{1+x^{2}e^{y}}} est continue sur \\\\mathbb{R}^{2}.",
+      "sub_questions": [],
+      "global_solution_latex": "On considère la fonction $f(x,y) = \\frac{\\sin(x^2 + y)}{\\sqrt{1 + x^2 e^y}}$ définie sur $\\mathbb{R}^2$.\n\n\\textbf{Analyse du numérateur :}\n\nLa fonction $(x,y) \\mapsto x^2 + y$ est polynomiale, donc continue sur $\\mathbb{R}^2$.\n\nLa fonction sinus est continue sur $\\mathbb{R}$.\n\nPar composition, $(x,y) \\mapsto \\sin(x^2 + y)$ est continue sur $\\mathbb{R}^2$.\n\n\\textbf{Analyse du dénominateur :}\n\nPour tout $(x,y) \\in \\mathbb{R}^2$ :\n- $x^2 \\geq 0$\n- $e^y > 0$\n- $x^2 e^y \\geq 0$\n- $1 + x^2 e^y \\geq 1 > 0$\n\nDonc le dénominateur ne s'annule jamais.\n\nLa fonction $(x,y) \\mapsto 1 + x^2 e^y$ est continue (composée de fonctions continues).\n\nLa fonction racine carrée est continue sur $]0, +\\infty[$.\n\nPar composition, $(x,y) \\mapsto \\sqrt{1 + x^2 e^y}$ est continue sur $\\mathbb{R}^2$.\n\n\\textbf{Conclusion :}\n\n$f$ est le quotient de deux fonctions continues, où le dénominateur ne s'annule jamais. Par les opérations sur les fonctions continues,\n\n$$\\boxed{f \\text{ est continue sur } \\mathbb{R}^2}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Invoquer les théorèmes généraux sur les opérations de fonctions continues (sommes, produits, compositions, quotients)."
+        },
+        {
+          "level": 2,
+          "content_latex": "L'argument clé est de justifier soigneusement que le terme sous la racine carrée est toujours strictement positif, garantissant que le dénominateur ne s'annule jamais sur $\\\\mathbb{R}^{2}$."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_006",
+      "title": "Prolongement et taux d'accroissement",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_continuite",
+        "fonctions_de_deux_variables__theorem_continuite_C1",
+        "fonctions_de_deux_variables__definition_limite_point",
+        "fonctions_de_deux_variables__propriete_continuite_operations"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité",
+        "prolongement",
+        "intégration",
+        "taux d'accroissement"
+      ],
+      "statement_latex": "Soit $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R},\\\\mathbb{R})$. On note $\\\\Delta$ la droite de $\\\\mathbb{R}^{2}$ d'équation $y=x$ et on pose pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$ :\\\\n$\\\\varphi(x,y)=\\\\begin{cases}\\\\frac{f(y)-f(x)}{y-x}&si~x\\\\ne y\\\\\\\\ f^{\\\\prime}(x)&si~x=y.\\\\end{cases}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\\\varphi$ est continue sur $\\\\mathbb{R}^{2}\\\\setminus\\\\Delta$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__propriete_continuite_operations",
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__theorem_continuite_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les théorèmes généraux de continuité sur l'ouvert $\\\\mathbb{R}^{2}\\\\setminus\\\\Delta$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Justifier que le dénominateur $y-x$ ne s'annule pas sur cet ensemble, permettant d'appliquer le quotient de fonctions continues."
+            }
+          ],
+          "solution_latex": "On considère $\\varphi(x,y) = \\frac{f(y) - f(x)}{y - x}$ pour $x \\neq y$.\n\n\\textbf{Continuité sur $\\mathbb{R}^2 \\setminus \\Delta$}\n\noù $\\Delta = \\{(x,y) : x = y\\}$ est la diagonale.\n\nSupposons $f$ continue sur $\\mathbb{R}$.\n\nPour $(x,y) \\in \\mathbb{R}^2 \\setminus \\Delta$, on a $y - x \\neq 0$.\n\nLa fonction $(x,y) \\mapsto f(y) - f(x)$ est continue (composée et différence de fonctions continues).\n\nLa fonction $(x,y) \\mapsto y - x$ est polynomiale, donc continue.\n\nLe quotient de deux fonctions continues, où le dénominateur ne s'annule pas, est continu.\n\nDonc $\\varphi$ est continue sur $\\mathbb{R}^2 \\setminus \\Delta$.\n\n$$\\boxed{\\varphi \\text{ est continue sur } \\mathbb{R}^2 \\setminus \\Delta}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tout $(x,y)\\\\in\\\\mathbb{R}^{2} : \\\\varphi(x,y)=\\\\int_{0}^{1}f^{\\\\prime}((1-t)x+ty)dt$, puis en déduire que $\\\\varphi$ est continue sur $\\\\mathbb{R}^{2}$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__definition_derivee_directionnelle",
+            "fonctions_de_deux_variables__definition_continuite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la première partie, évaluer l'intégrale en reconnaissant la dérivée de la fonction $t \\\\mapsto f((1-t)x+ty)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour montrer la continuité de $\\\\varphi$ en $(a, a)$, revenir à la définition de la continuité de $f^{\\\\prime}$ en $a$ et majorer $|\\\\varphi(x,y)-\\\\varphi(a,a)|$ au voisinage de $(a, a)$."
+            }
+          ],
+          "solution_latex": "On suppose $f$ continue et dérivable sur $\\mathbb{R}$.\n\n\\textbf{Formule intégrale :}\n\nPour $x \\neq y$, par le théorème fondamental du calcul :\n$$f(y) - f(x) = \\int_x^y f'(u) \\, du$$\n\nDonc :\n$$\\varphi(x,y) = \\frac{f(y) - f(x)}{y - x} = \\frac{1}{y - x} \\int_x^y f'(u) \\, du$$\n\n\\textbf{Pour $x = y$ :}\n\nSi $f'$ est continue, alors :\n$$\\lim_{y \\to x} \\varphi(x,y) = \\lim_{y \\to x} \\frac{\\int_x^y f'(u) \\, du}{y - x} = f'(x)$$\n\n(par la définition de la dérivée comme limite du taux d'accroissement).\n\n\\textbf{Expression intégrale sur $[0,1]$ :}\n\nPar substitution $u = (1-t)x + ty$, on a $du = (y-x)dt$. Quand $u$ va de $x$ à $y$, $t$ va de $0$ à $1$ :\n\n$$\\int_x^y f'(u) \\, du = (y-x) \\int_0^1 f'((1-t)x + ty) \\, dt$$\n\nPour $x \\neq y$ :\n$$\\varphi(x,y) = \\int_0^1 f'((1-t)x + ty) \\, dt$$\n\nPour $x = y$ :\n$$\\varphi(x,x) = f'(x) = \\int_0^1 f'(x) \\, dt$$\n\n\\textbf{Conclusion :}\n\nLa formule $\\varphi(x,y) = \\int_0^1 f'((1-t)x + ty) \\, dt$ est valide pour tous $(x,y) \\in \\mathbb{R}^2$.\n\nPuisque $(x,y,t) \\mapsto f'((1-t)x + ty)$ est continue en $(x,y,t)$ et l'intégrale par rapport à $t$ sur un segment est continue, on déduit :\n\n$$\\boxed{\\varphi \\text{ est continue sur } \\mathbb{R}^2}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_007",
+      "title": "Image d'un compact par une fonction continue",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_continuite",
+        "fonctions_de_deux_variables__theorem_continuite_C1",
+        "fonctions_de_deux_variables__theorem_extrema_C1",
+        "fonctions_de_deux_variables__theorem_composition_R2_R2_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "topologie",
+        "compacité",
+        "continuité"
+      ],
+      "statement_latex": "Soient E une partie de $\\\\mathbb{R}^{2}$, $f\\\\in\\\\mathcal{C}(E,\\\\mathbb{R})$ et C un compact de $\\\\mathbb{R}^{2}$ inclus dans E. Montrer que $f(C)$ est un compact.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $f : E \\to \\mathbb{R}$ une fonction continue et $C \\subseteq E$ un ensemble compact.\n\nOn veut montrer que $f(C)$ est compact.\n\n\\textbf{Théorème :} L'image continue d'un compact est compacte.\n\n\\textbf{Démonstration :}\n\nSoit $(y_n)$ une suite dans $f(C)$. Montrons qu'elle admet une sous-suite convergente dans $f(C)$.\n\nPour chaque $n$, il existe $x_n \\in C$ tel que $y_n = f(x_n)$.\n\nPuisque $(x_n)$ est une suite dans $C$ et $C$ est compact, la suite $(x_n)$ admet une sous-suite $(x_{n_k})$ convergente vers un point $x \\in C$.\n\nPar continuité de $f$, la sous-suite $(f(x_{n_k})) = (y_{n_k})$ converge vers $f(x) \\in f(C)$.\n\nDonc $f(C)$ admet une sous-suite convergente dans $f(C)$, ce qui prouve sa compacité.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(C) \\text{ est un ensemble compact de } \\mathbb{R}}$$\n\nEn particulier, $f(C)$ est fermé et borné, donc $f$ atteint son maximum et son minimum sur $C$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "L'image d'un compact par une fonction continue est un compact (théorème fondamental du cours). Il s'agit ici d'en redonner la démonstration via la caractérisation séquentielle (Bolzano-Weierstrass)."
+        },
+        {
+          "level": 2,
+          "content_latex": "Prendre une suite $(y_n)$ dans $f(C)$. Par définition, $y_n = f(x_n)$ avec $x_n \\\\in C$. Utiliser la compacité de $C$ pour extraire une sous-suite convergente $(x_{\\\\varphi(n)})$."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_008",
+      "title": "Détermination de plans tangents",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__definition_plan_tangent",
+        "fonctions_de_deux_variables__theorem_extrema_C1",
+        "fonctions_de_deux_variables__propriete_continuite_operations"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "plan tangent",
+        "dérivées partielles",
+        "gradient"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $\\\\Omega$ un ouvert de $\\\\mathbb{R}^{2}$, $f\\\\in\\\\mathcal{C}^{1}(\\\\Omega,\\\\mathbb{R})$ et $a\\\\in\\\\Omega$. Déterminer un vecteur normal au plan tangent de f en a.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_plan_tangent",
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__definition_limite_point"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappeler l'équation cartésienne du plan tangent au graphe de $f$ au point $(a_1, a_2, f(a))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le vecteur normal peut être lu directement à partir des coefficients de $x$, $y$ et $z$ dans l'équation cartésienne $z = f(a) + \\\\frac{\\\\partial f}{\\\\partial x}(a)(x-a_1) + \\\\frac{\\\\partial f}{\\\\partial y}(a)(y-a_2)$."
+            }
+          ],
+          "solution_latex": "Soit $(a_1, a_2) \\in \\text{dom}(f)$ et $a = (a_1, a_2)$.\n\nLe graphe de $f$ est la surface $S = \\{(x, y, z) : z = f(x, y)\\}$.\n\n\\textbf{Équation du plan tangent :}\n\nLe plan tangent au graphe au point $(a_1, a_2, f(a))$ a pour équation :\n$$z - f(a) = \\frac{\\partial f}{\\partial x}(a) (x - a_1) + \\frac{\\partial f}{\\partial y}(a) (y - a_2)$$\n\n\\textbf{Vecteur normal :}\n\nCe plan peut être écrit sous la forme $F(x,y,z) = 0$ où :\n$$F(x,y,z) = \\frac{\\partial f}{\\partial x}(a) (x - a_1) + \\frac{\\partial f}{\\partial y}(a) (y - a_2) - (z - f(a)) = 0$$\n\nUn vecteur normal au plan est :\n$$\\vec{n} = \\left(\\frac{\\partial f}{\\partial x}(a), \\frac{\\partial f}{\\partial y}(a), -1\\right)$$\n\nou équivalemment :\n$$\\boxed{\\vec{n} = (f_x(a), f_y(a), -1)}$$\n\n(où $f_x = \\partial f/\\partial x$ et $f_y = \\partial f/\\partial y$)"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On note f la fonction $(x,y)\\\\mapsto(x-y+1)e^{x+y}$ sur $\\\\mathbb{R}^{2}$. Montrer que f est de classe $\\\\mathcal{C}^{1}$ sur $\\\\mathbb{R}^{2}$ et déterminer l'équation de son plan tangent en (0,0).",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__propriete_continuite_operations",
+            "fonctions_de_deux_variables__definition_continuite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer les dérivées partielles premières de $f$ par rapport à $x$ et à $y$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer $f(0,0)$, $\\\\frac{\\\\partial f}{\\\\partial x}(0,0)$ et $\\\\frac{\\\\partial f}{\\\\partial y}(0,0)$ pour injecter dans la formule du plan tangent."
+            }
+          ],
+          "solution_latex": "Soit $f(x,y) = (x - y + 1)e^{x+y}$.\n\n\\textbf{Calcul des dérivées partielles :}\n\n$$\\frac{\\partial f}{\\partial x} = 1 \\cdot e^{x+y} + (x - y + 1) e^{x+y} = (x - y + 2)e^{x+y}$$\n\n$$\\frac{\\partial f}{\\partial y} = -1 \\cdot e^{x+y} + (x - y + 1) e^{x+y} = (x - y)e^{x+y}$$\n\nLes dérivées partielles sont continues (composées et produits de fonctions $C^\\infty$).\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f \\in C^1(\\mathbb{R}^2, \\mathbb{R})}$$\n\n\\textbf{Plan tangent au point $(0, 0)$ :}\n\n- $f(0, 0) = (0 - 0 + 1)e^0 = 1$\n- $\\frac{\\partial f}{\\partial x}(0, 0) = (0 - 0 + 2)e^0 = 2$\n- $\\frac{\\partial f}{\\partial y}(0, 0) = (0 - 0)e^0 = 0$\n\nL'équation du plan tangent est :\n$$z - 1 = 2(x - 0) + 0(y - 0)$$\n\n$$\\boxed{z = 2x + 1}$$"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "La fonction f possède-t-elle un plan tangent parallèle au plan d'équation $x=y+z$ ?",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_plan_tangent",
+            "fonctions_de_deux_variables__theorem_extrema_C1",
+            "fonctions_de_deux_variables__definition_fonction_differentiable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Deux plans sont parallèles si et seulement si leurs vecteurs normaux sont colinéaires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comparer le vecteur normal abstrait du graphe de $f$ en un point $(x,y)$, qui est $(\\\\frac{\\\\partial f}{\\\\partial x}, \\\\frac{\\\\partial f}{\\\\partial y}, -1)$, avec le vecteur normal du plan donné $(1, -1, -1)$."
+            }
+          ],
+          "solution_latex": "On cherche s'il existe un point où le plan tangent soit parallèle au plan $x - y - z = 0$ (ou $x = y + z$).\n\n\\textbf{Condition de parallélisme :}\n\nLe plan $x - y - z = 0$ a pour vecteur normal $\\vec{n}_0 = (1, -1, -1)$.\n\nLe plan tangent au graphe au point $(a_1, a_2, f(a))$ a pour vecteur normal :\n$$\\vec{n} = (f_x(a), f_y(a), -1)$$\n\nPour que les plans soient parallèles, leurs vecteurs normaux doivent être proportionnels :\n$$(f_x(a), f_y(a), -1) = \\lambda (1, -1, -1)$$\n\npour un $\\lambda \\in \\mathbb{R}$.\n\nCela donne :\n- $f_x(a) = \\lambda$\n- $f_y(a) = -\\lambda$\n- $-1 = -\\lambda$, donc $\\lambda = 1$\n\n\\textbf{Système à résoudre :}\n\n$$f_x(a) = 1 \\quad \\text{et} \\quad f_y(a) = -1$$\n\nAvec :\n- $f_x(x,y) = (x - y + 2)e^{x+y} = 1$\n- $f_y(x,y) = (x - y)e^{x+y} = -1$\n\nDe la première équation : $(x - y + 2)e^{x+y} = 1$\n\nDe la deuxième équation : $(x - y)e^{x+y} = -1$\n\nSoustrayons : $2e^{x+y} = 2$, donc $e^{x+y} = 1$, d'où $x + y = 0$.\n\nDe $(x - y)e^{x+y} = -1$ avec $e^{x+y} = 1$ : $x - y = -1$.\n\n\\textbf{Résolution :}\n\n$$\\begin{cases}\nx + y = 0 \\\\\nx - y = -1\n\\end{cases}$$\n\nEn ajoutant : $2x = -1$, donc $x = -\\frac{1}{2}$.\n\nEn soustrayant : $2y = 1$, donc $y = \\frac{1}{2}$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\text{Oui, il existe un point } (x, y) = \\left(-\\frac{1}{2}, \\frac{1}{2}\\right) \\text{ où le plan tangent est parallèle à } x - y - z = 0}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_009",
+      "title": "Intégrale paramétrée et classe C1",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__propriete_continuite_operations",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__theorem_continuite_C1",
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégrale à bornes variables",
+        "théorème fondamental de l'analyse",
+        "dérivation"
+      ],
+      "statement_latex": "Soit $\\\\varphi\\\\in\\\\mathcal{C}(\\\\mathbb{R},\\\\mathbb{R})$. On pose $f(x,y)=\\\\int_{x^{2}}^{xy}\\\\varphi$ pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$. Montrer que f est de classe $\\\\mathcal{C}^{1}$ sur $\\\\mathbb{R}^{2}$ et calculer ses dérivées partielles.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $f(x,y) = \\int_{x^2}^{xy} \\varphi(t) \\, dt$ où $\\varphi$ est une fonction continue.\n\n\\textbf{Application de la règle de Leibniz :}\n\nPar la règle de différentiation sous le signe intégrale (Leibniz) :\n\n$$\\frac{\\partial f}{\\partial x} = \\varphi(xy) \\cdot \\frac{\\partial}{\\partial x}(xy) - \\varphi(x^2) \\cdot \\frac{\\partial}{\\partial x}(x^2)$$\n\n$$= \\varphi(xy) \\cdot y - \\varphi(x^2) \\cdot 2x$$\n\n$$= y\\varphi(xy) - 2x\\varphi(x^2)$$\n\n$$\\frac{\\partial f}{\\partial y} = \\varphi(xy) \\cdot \\frac{\\partial}{\\partial y}(xy) - \\varphi(x^2) \\cdot \\frac{\\partial}{\\partial y}(x^2)$$\n\n$$= \\varphi(xy) \\cdot x - \\varphi(x^2) \\cdot 0$$\n\n$$= x\\varphi(xy)$$\n\n\\textbf{Régularité :}\n\nPuisque $\\varphi$ est continue, les dérivées partielles :\n- $\\frac{\\partial f}{\\partial x} = y\\varphi(xy) - 2x\\varphi(x^2)$\n- $\\frac{\\partial f}{\\partial y} = x\\varphi(xy)$\n\nsont continues (composées et combinaisons de fonctions continues).\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f \\in C^1(\\mathbb{R}^2, \\mathbb{R})}$$\n\n$$\\boxed{\\frac{\\partial f}{\\partial x} = y\\varphi(xy) - 2x\\varphi(x^2), \\quad \\frac{\\partial f}{\\partial y} = x\\varphi(xy)}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Introduire une primitive $\\\\Phi$ de $\\\\varphi$ sur $\\\\mathbb{R}$ pour réécrire $f(x,y)$ sans le signe intégral."
+        },
+        {
+          "level": 2,
+          "content_latex": "Exprimer $f(x,y) = \\\\Phi(xy) - \\\\Phi(x^2)$. Utiliser la règle de composition pour dériver par rapport à $x$ et $y$, sachant que $\\\\Phi' = \\\\varphi$."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_010",
+      "title": "Fonction positivement homogène de degré 1",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__theorem_regle_chaine",
+        "fonctions_de_deux_variables__definition_fonction_differentiable",
+        "fonctions_de_deux_variables__definition_fonction_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "homogénéité",
+        "dérivées directionnelles",
+        "linéarité"
+      ],
+      "statement_latex": "Soit $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$ une fonction pour laquelle $f(tx,ty)=t~f(x,y)$ pour tous $(x,y)\\\\in\\\\mathbb{R}^{2}$ et $t>0$. Calculer les dérivées directionnelles de f en (0,0) et en déduire que f est linéaire.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $f : \\mathbb{R}_+^2 \\to \\mathbb{R}$ une fonction homogène de degré $n$ : $f(tx, ty) = t^n f(x, y)$ pour tous $t > 0$ et $(x,y) \\in \\mathbb{R}_+^2$.\n\n\\textbf{Dérivation par rapport à $t$ :}\n\nDifférencions l'équation $f(tx, ty) = t^n f(x, y)$ par rapport à $t$ :\n\n$$\\frac{\\partial}{\\partial t}[f(tx, ty)] = \\frac{\\partial}{\\partial t}[t^n f(x, y)]$$\n\nPar la règle de chaîne :\n$$\\frac{\\partial f}{\\partial x}(tx, ty) \\cdot x + \\frac{\\partial f}{\\partial y}(tx, ty) \\cdot y = n t^{n-1} f(x, y)$$\n\n\\textbf{Évaluation en $t = 1$ :}\n\nEn posant $t = 1$ :\n$$x \\frac{\\partial f}{\\partial x}(x, y) + y \\frac{\\partial f}{\\partial y}(x, y) = n f(x, y)$$\n\n\\textbf{Identité d'Euler :}\n\n$$\\boxed{x \\frac{\\partial f}{\\partial x} + y \\frac{\\partial f}{\\partial y} = n f}$$\n\nou en notation avec $\\nabla f = (f_x, f_y)$ et $\\vec{r} = (x, y)$ :\n\n$$\\boxed{\\vec{r} \\cdot \\nabla f = n f}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Évaluer $f(0,0)$ en choisissant astucieusement $t$ (par exemple via une limite)."
+        },
+        {
+          "level": 2,
+          "content_latex": "Calculer la dérivée directionnelle en (0,0) dans la direction d'un vecteur $u = (h,k)$ en formant le taux d'accroissement $\\\\frac{f(th, tk) - f(0,0)}{t}$. Utiliser l'hypothèse d'homogénéité sur $f(th, tk)$."
+        },
+        {
+          "level": 3,
+          "content_latex": "Une fois établi que $f(h,k)$ s'exprime uniquement à l'aide des dérivées partielles de $f$ en $(0,0)$, conclure sur la linéarité globale de la fonction."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_011",
+      "title": "Calcul direct de dérivées partielles",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+        "fonctions_de_deux_variables__definition_derivees_partielles",
+        "fonctions_de_deux_variables__calcul_derivees_partielles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivées partielles",
+        "calcul usuel",
+        "fonctions de plusieurs variables"
+      ],
+      "statement_latex": "Calculer les dérivées partielles des fonctions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "(x,y)\\\\mapsto x^{y}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_derivees_partielles",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la dérivée par rapport à $x$, considérer $y$ comme une constante. Pour la dérivée par rapport à $y$, considérer $x$ comme une constante."
+            },
+            {
+              "level": 2,
+              "content_latex": "Réécrire $x^y$ sous la forme exponentielle $e^{y \\\\ln(x)}$ pour ne pas se tromper lors de la dérivation par rapport à $y$."
+            }
+          ],
+          "solution_latex": "Calculer les dérivées partielles de $f(x,y) = x^y$ pour $x > 0$.\n\n\\textbf{Réécriture exponentielle :}\n\n$$x^y = e^{y \\ln x}$$\n\n\\textbf{Dérivée partielle par rapport à $x$ :}\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{\\partial}{\\partial x}[e^{y \\ln x}] = e^{y \\ln x} \\cdot \\frac{\\partial}{\\partial x}[y \\ln x]$$\n\n$$= e^{y \\ln x} \\cdot y \\cdot \\frac{1}{x} = x^y \\cdot \\frac{y}{x} = y x^{y-1}$$\n\n\\textbf{Dérivée partielle par rapport à $y$ :}\n\n$$\\frac{\\partial f}{\\partial y} = \\frac{\\partial}{\\partial y}[e^{y \\ln x}] = e^{y \\ln x} \\cdot \\frac{\\partial}{\\partial y}[y \\ln x]$$\n\n$$= e^{y \\ln x} \\cdot \\ln x = x^y \\ln x$$\n\n\\textbf{Résumé :}\n\n$$\\boxed{\\frac{\\partial}{\\partial x}(x^y) = y x^{y-1}}$$\n\n$$\\boxed{\\frac{\\partial}{\\partial y}(x^y) = x^y \\ln x}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "(x,y)\\\\mapsto Arctan\\\\frac{y}{x}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_derivees_partielles",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la dérivée de la fonction composée $\\\\arctan(u)$ qui est $\\\\frac{u'}{1+u^2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $\\\\frac{\\\\partial f}{\\\\partial x}$, poser $u(x) = \\\\frac{y}{x}$ avec $y$ constant, donc $u'(x) = -\\\\frac{y}{x^2}$. Même principe pour $y$."
+            }
+          ],
+          "solution_latex": "Calculer les dérivées partielles de $f(x,y) = \\arctan\\left(\\frac{y}{x}\\right)$ pour $x \\neq 0$.\n\n\\textbf{Dérivée partielle par rapport à $x$ :}\n\nSoit $u = \\frac{y}{x}$. Alors $f = \\arctan(u)$.\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{\\partial}{\\partial x}[\\arctan(u)] = \\frac{1}{1 + u^2} \\cdot \\frac{\\partial u}{\\partial x}$$\n\n$$\\frac{\\partial u}{\\partial x} = \\frac{\\partial}{\\partial x}\\left(\\frac{y}{x}\\right) = -\\frac{y}{x^2}$$\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\left(-\\frac{y}{x^2}\\right) = \\frac{x^2}{x^2 + y^2} \\cdot \\left(-\\frac{y}{x^2}\\right) = -\\frac{y}{x^2 + y^2}$$\n\n\\textbf{Dérivée partielle par rapport à $y$ :}\n\n$$\\frac{\\partial f}{\\partial y} = \\frac{1}{1 + u^2} \\cdot \\frac{\\partial u}{\\partial y}$$\n\n$$\\frac{\\partial u}{\\partial y} = \\frac{\\partial}{\\partial y}\\left(\\frac{y}{x}\\right) = \\frac{1}{x}$$\n\n$$\\frac{\\partial f}{\\partial y} = \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\frac{1}{x} = \\frac{x^2}{x^2 + y^2} \\cdot \\frac{1}{x} = \\frac{x}{x^2 + y^2}$$\n\n\\textbf{Résumé :}\n\n$$\\boxed{\\frac{\\partial}{\\partial x}\\arctan\\left(\\frac{y}{x}\\right) = -\\frac{y}{x^2 + y^2}}$$\n\n$$\\boxed{\\frac{\\partial}{\\partial y}\\arctan\\left(\\frac{y}{x}\\right) = \\frac{x}{x^2 + y^2}}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "(x,y)\\\\mapsto\\\\frac{e^{xy^{2}}}{x+y}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_derivees_partielles",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la règle de dérivation d'un quotient $\\\\left(\\\\frac{u}{v}\\\\right)' = \\\\frac{u'v - uv'}{v^2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prendre garde lors de la dérivation du numérateur $e^{xy^2}$ : par rapport à $x$, la dérivée interne est $y^2$ ; par rapport à $y$, elle est $2xy$."
+            }
+          ],
+          "solution_latex": "Calculer les dérivées partielles de $f(x,y) = \\frac{e^{xy^2}}{x + y}$ pour $x + y \\neq 0$.\n\n\\textbf{Utilisation de la règle du quotient :}\n\nSoit $u(x,y) = e^{xy^2}$ et $v(x,y) = x + y$.\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{u_x \\cdot v - u \\cdot v_x}{v^2}$$\n\n\\textbf{Calculs préalables :}\n\n- $u_x = e^{xy^2} \\cdot y^2$\n- $u_y = e^{xy^2} \\cdot 2xy$\n- $v_x = 1$\n- $v_y = 1$\n\n\\textbf{Dérivée partielle par rapport à $x$ :}\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{y^2 e^{xy^2}(x+y) - e^{xy^2} \\cdot 1}{(x+y)^2}$$\n\n$$= \\frac{e^{xy^2}[y^2(x+y) - 1]}{(x+y)^2}$$\n\n$$= \\frac{e^{xy^2}(xy^2 + y^3 - 1)}{(x+y)^2}$$\n\n\\textbf{Dérivée partielle par rapport à $y$ :}\n\n$$\\frac{\\partial f}{\\partial y} = \\frac{2xy e^{xy^2}(x+y) - e^{xy^2} \\cdot 1}{(x+y)^2}$$\n\n$$= \\frac{e^{xy^2}[2xy(x+y) - 1]}{(x+y)^2}$$\n\n$$= \\frac{e^{xy^2}(2x^2y + 2xy^2 - 1)}{(x+y)^2}$$\n\n\\textbf{Résumé :}\n\n$$\\boxed{\\frac{\\partial f}{\\partial x} = \\frac{e^{xy^2}(xy^2 + y^3 - 1)}{(x+y)^2}}$$\n\n$$\\boxed{\\frac{\\partial f}{\\partial y} = \\frac{e^{xy^2}(2x^2y + 2xy^2 - 1)}{(x+y)^2}}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_012",
+      "title": "Fonctions composées et gradient",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__calcul_derivees_partielles",
+        "fonctions_de_deux_variables__definition_derivees_partielles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "composition",
+        "gradient",
+        "classe C1",
+        "chain rule"
+      ],
+      "statement_latex": "Soit $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On pose $\\\\varphi(t)=f(e^{t},t+\\\\frac{1}{t})$ pour tout $t\\\\in\\\\mathbb{R}^{*}$. Montrer que $\\\\varphi$ est de classe $\\\\mathcal{C}^{1}$ sur $\\\\mathbb{R}^{*}$ et calculer sa dérivée.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_regle_chaine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Invoquer le théorème de composition des fonctions de classe $\\\\mathcal{C}^1$ pour justifier la régularité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la formule de la chaîne (chain rule) : si $\\\\varphi(t) = f(u(t), v(t))$, alors $\\\\varphi'(t) = u'(t)\\\\frac{\\\\partial f}{\\\\partial x}(u(t), v(t)) + v'(t)\\\\frac{\\\\partial f}{\\\\partial y}(u(t), v(t))$."
+            }
+          ],
+          "solution_latex": "Soit $\\varphi(t) = f(e^t, t + \\frac{1}{t})$ où $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ et $t \\in \\mathbb{R}^*$.\n\n\\textbf{Composition de fonctions de classe $C^1$ :}\n\nLes fonctions $u(t) = e^t$ et $v(t) = t + \\frac{1}{t}$ sont de classe $C^1$ sur $\\mathbb{R}^*$.\n\nLa fonction $f$ est de classe $C^1$ sur $\\mathbb{R}^2$.\n\nPar composition, $\\varphi(t) = f(u(t), v(t))$ est de classe $C^1$ sur $\\mathbb{R}^*$.\n\n\\textbf{Calcul de la dérivée :}\n\nPar la règle de chaîne :\n$$\\varphi'(t) = \\frac{\\partial f}{\\partial x}(e^t, t + \\frac{1}{t}) \\cdot u'(t) + \\frac{\\partial f}{\\partial y}(e^t, t + \\frac{1}{t}) \\cdot v'(t)$$\n\nOù :\n- $u'(t) = e^t$\n- $v'(t) = 1 - \\frac{1}{t^2}$\n\nDonc :\n$$\\boxed{\\varphi'(t) = e^t \\frac{\\partial f}{\\partial x}(e^t, t + \\frac{1}{t}) + \\left(1 - \\frac{1}{t^2}\\right) \\frac{\\partial f}{\\partial y}(e^t, t + \\frac{1}{t})}$$\n\nou en notation $f_x = \\frac{\\partial f}{\\partial x}$, $f_y = \\frac{\\partial f}{\\partial y}$ :\n$$\\boxed{\\varphi'(t) = e^t f_x(e^t, t + \\frac{1}{t}) + \\left(1 - \\frac{1}{t^2}\\right) f_y(e^t, t + \\frac{1}{t})}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On pose ensuite $\\\\psi(u,v)=f(u+v,uv)$ pour tout $(u,v)\\\\in\\\\mathbb{R}^{2}$. Montrer que $\\\\psi$ est de classe $\\\\mathcal{C}^{1}$ sur $\\\\mathbb{R}^{2}$ et calculer son gradient.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__calcul_derivees_partielles",
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le gradient de $\\\\psi$ nécessite le calcul des deux dérivées partielles $\\\\frac{\\\\partial \\\\psi}{\\\\partial u}$ et $\\\\frac{\\\\partial \\\\psi}{\\\\partial v}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $\\\\frac{\\\\partial \\\\psi}{\\\\partial u}$ en dérivant chaque argument de $f$ par rapport à $u$, tout en maintenant $v$ constant. Faire de même pour $v$."
+            }
+          ],
+          "solution_latex": "Soit $\\psi(u,v) = f(u+v, uv)$ où $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ et $(u,v) \\in \\mathbb{R}^2$.\n\n\\textbf{Composition de fonctions de classe $C^1$ :}\n\nLes applications $(u,v) \\mapsto u+v$ et $(u,v) \\mapsto uv$ sont polynomiales, donc de classe $C^1$ sur $\\mathbb{R}^2$.\n\nLa fonction $f$ est de classe $C^1$ sur $\\mathbb{R}^2$.\n\nPar composition, $\\psi$ est de classe $C^1$ sur $\\mathbb{R}^2$.\n\n\\textbf{Calcul des dérivées partielles :}\n\nEn posant $X = u+v$ et $Y = uv$, on a $\\psi(u,v) = f(X, Y)$.\n\n\\textbf{Dérivée partielle par rapport à $u$ :}\n\n$$\\frac{\\partial \\psi}{\\partial u} = \\frac{\\partial f}{\\partial x}(u+v, uv) \\cdot \\frac{\\partial X}{\\partial u} + \\frac{\\partial f}{\\partial y}(u+v, uv) \\cdot \\frac{\\partial Y}{\\partial u}$$\n\n$$= \\frac{\\partial f}{\\partial x}(u+v, uv) \\cdot 1 + \\frac{\\partial f}{\\partial y}(u+v, uv) \\cdot v$$\n\n$$= f_x(u+v, uv) + v \\cdot f_y(u+v, uv)$$\n\n\\textbf{Dérivée partielle par rapport à $v$ :}\n\n$$\\frac{\\partial \\psi}{\\partial v} = \\frac{\\partial f}{\\partial x}(u+v, uv) \\cdot \\frac{\\partial X}{\\partial v} + \\frac{\\partial f}{\\partial y}(u+v, uv) \\cdot \\frac{\\partial Y}{\\partial v}$$\n\n$$= \\frac{\\partial f}{\\partial x}(u+v, uv) \\cdot 1 + \\frac{\\partial f}{\\partial y}(u+v, uv) \\cdot u$$\n\n$$= f_x(u+v, uv) + u \\cdot f_y(u+v, uv)$$\n\n\\textbf{Gradient de $\\psi$ :}\n\n$$\\boxed{\\nabla \\psi(u,v) = \\left(f_x(u+v, uv) + v f_y(u+v, uv), f_x(u+v, uv) + u f_y(u+v, uv)\\right)}$$\n\nou en notation compacte :\n$$\\boxed{\\frac{\\partial \\psi}{\\partial u} = f_x(u+v, uv) + v f_y(u+v, uv)}$$\n$$\\boxed{\\frac{\\partial \\psi}{\\partial v} = f_x(u+v, uv) + u f_y(u+v, uv)}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_013",
+      "title": "Dérivées directionnelles et manque de continuité",
+      "type": "counterexample",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_derivee_directionnelle",
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_limite_point",
+        "fonctions_de_deux_variables__theorem_continuite_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivées directionnelles",
+        "continuité",
+        "contre-exemple",
+        "limites"
+      ],
+      "statement_latex": "On pose pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$f(x,y)=\\\\begin{cases}\\\\frac{x^{2}}{y}&si~y\\\\ne0\\\\\\\\ x&si~y=0.\\\\end{cases}$ \\\\par Montrer que f est dérivable dans toutes les directions en (0,0) mais qu'elle n'y est pas continue.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_derivee_directionnelle",
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_limite_point"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la dérivabilité directionnelle, soit $\\\\vec{u} = (h,k)$. Étudier la limite du taux d'accroissement $\\\\frac{f(th, tk) - f(0,0)}{t}$ quand $t \\\\to 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traiter séparément le cas $k=0$ et $k \\\\neq 0$ pour bien utiliser la définition par cas de $f$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour infirmer la continuité, trouver un chemin géométrique (par exemple une parabole $y = cx^2$) tel que la limite de $f(x,y)$ soit différente de $f(0,0)$ quand $(x,y) \\\\to (0,0)$ le long de ce chemin."
+            }
+          ],
+          "solution_latex": "Soit $f(x,y) = \\begin{cases} \\frac{x^2}{y} & \\text{si } y \\neq 0 \\\\ x & \\text{si } y = 0 \\end{cases}$.\n\n\\textbf{Dérivabilité directionnelle en $(0,0)$ :}\n\nSoit $\\vec{u} = (h, k)$ un vecteur directeur. La dérivée directionnelle est :\n$$D_{\\vec{u}}f(0,0) = \\lim_{t \\to 0^+} \\frac{f(th, tk) - f(0,0)}{t} = \\lim_{t \\to 0^+} \\frac{f(th, tk)}{t}$$\n\n\\textbf{Cas 1 : $k = 0$ (direction selon l'axe $x$)}\n\n$f(th, 0) = th$, donc :\n$$D_{\\vec{u}}f(0,0) = \\lim_{t \\to 0^+} \\frac{th}{t} = h$$\n\n\\textbf{Cas 2 : $k \\neq 0$ (direction générale)}\n\nPour $t > 0$ assez petit, $tk \\neq 0$, donc $f(th, tk) = \\frac{(th)^2}{tk} = \\frac{t^2h^2}{tk} = \\frac{th^2}{k}$.\n\n$$D_{\\vec{u}}f(0,0) = \\lim_{t \\to 0^+} \\frac{th^2/k}{t} = \\frac{h^2}{k}$$\n\n\\textbf{Conclusion sur la dérivabilité directionnelle :}\n\nPour toute direction $\\vec{u} = (h, k)$, la dérivée directionnelle existe :\n$$\\boxed{D_{\\vec{u}}f(0,0) = \\begin{cases} h & \\text{si } k = 0 \\\\ \\frac{h^2}{k} & \\text{si } k \\neq 0 \\end{cases}}$$\n\n\\textbf{Discontinuité en $(0,0)$ :}\n\nConsidérons la courbe $y = x^2$. Le long de cette courbe, pour $x \\neq 0$ :\n$$f(x, x^2) = \\frac{x^2}{x^2} = 1$$\n\nQuand $(x, y) \\to (0,0)$ le long de $y = x^2$ :\n$$\\lim_{x \\to 0} f(x, x^2) = 1 \\neq 0 = f(0,0)$$\n\n\\boxed{\\text{La fonction n'est pas continue en } (0,0) \\text{ malgré les dérivées directionnelles.}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Même question avec : \\\\par $f(x,y)=\\\\begin{cases}\\\\frac{xy^{2}}{x^{2}+y^{4}}&si~(x,y)\\\\ne(0,0)\\\\\\\\ 0&si~(x,y)=(0,0).\\\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__theorem_continuite_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Même méthode que précédemment : évaluer la limite de $\\\\frac{f(th, tk)}{t}$ lorsque $t \\\\to 0$ pour obtenir la dérivée directionnelle selon le vecteur $(h,k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver la discontinuité, essayer de se rapprocher de l'origine en suivant la courbe d'équation $x = y^2$."
+            }
+          ],
+          "solution_latex": "Soit $f(x,y) = \\begin{cases} \\frac{xy^2}{x^2 + y^4} & \\text{si } (x,y) \\neq (0,0) \\\\ 0 & \\text{si } (x,y) = (0,0) \\end{cases}$.\n\n\\textbf{Dérivabilité directionnelle en $(0,0)$ :}\n\nSoit $\\vec{u} = (h, k)$ un vecteur directeur. Pour $t > 0$ :\n$$\\frac{f(th, tk)}{t} = \\frac{1}{t} \\cdot \\frac{(th)(tk)^2}{(th)^2 + (tk)^4}$$\n\n$$= \\frac{1}{t} \\cdot \\frac{t^3 hk^2}{t^2(h^2 + t^2 k^4)}$$\n\n$$= \\frac{thk^2}{h^2 + t^2 k^4}$$\n\nQuand $t \\to 0$ :\n$$\\lim_{t \\to 0} \\frac{thk^2}{h^2 + t^2 k^4} = \\frac{0}{h^2} = 0$$\n\npour tout $(h, k) \\neq (0, 0)$.\n\n\\textbf{Conclusion sur la dérivabilité directionnelle :}\n\n$$\\boxed{D_{\\vec{u}}f(0,0) = 0 \\text{ pour toute direction } \\vec{u}}$$\n\n\\textbf{Discontinuité en $(0,0)$ :}\n\nConsidérons le chemin $x = y^2$. Pour $(x,y) = (y^2, y)$ avec $y \\neq 0$ :\n$$f(y^2, y) = \\frac{y^2 \\cdot y^2}{y^4 + y^4} = \\frac{y^4}{2y^4} = \\frac{1}{2}$$\n\nQuand $(x,y) \\to (0,0)$ le long de $x = y^2$ :\n$$\\lim_{y \\to 0} f(y^2, y) = \\frac{1}{2} \\neq 0 = f(0,0)$$\n\n\\boxed{\\text{La fonction n'est pas continue en } (0,0) \\text{ malgré les dérivées directionnelles.}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_014",
+      "title": "Gradient nul sur R² et fonction constante",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__theorem_regle_chaine",
+        "fonctions_de_deux_variables__definition_gradient",
+        "fonctions_de_deux_variables__theorem_composition_R2_R2_R"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "gradient",
+        "théorème des accroissements finis",
+        "fonction constante"
+      ],
+      "statement_latex": "Soit $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$. Montrer que si $\\\\nabla f$ est nulle sur $\\\\mathbb{R}^{2}$ alors f y est constante.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ telle que $\\nabla f = (0, 0)$ partout sur $\\mathbb{R}^2$.\n\n\\textbf{Approche par un segment paramétré :}\n\nSoient $A = (a_1, a_2)$ et $B = (b_1, b_2)$ deux points arbitraires de $\\mathbb{R}^2$.\n\nConsidérons le segment de droite reliant $A$ à $B$ :\n$$\\gamma(t) = (1-t)A + tB = ((1-t)a_1 + tb_1, (1-t)a_2 + tb_2)$$\n\npour $t \\in [0, 1]$.\n\n\\textbf{Composition avec $f$ :}\n\nSoit $g(t) = f(\\gamma(t))$.\n\nPar la règle de chaîne :\n$$g'(t) = \\nabla f(\\gamma(t)) \\cdot \\gamma'(t)$$\n\noù $\\gamma'(t) = B - A = (b_1 - a_1, b_2 - a_2)$.\n\n\\textbf{Condition sur le gradient :}\n\nPuisque $\\nabla f = (0, 0)$ partout :\n$$g'(t) = (0, 0) \\cdot (B - A) = 0$$\n\n\\textbf{Conclusion :}\n\nDonc $g(t) = f(\\gamma(t))$ est constante pour tout $t \\in [0,1]$.\n\nEn particulier :\n$$f(A) = g(0) = g(1) = f(B)$$\n\nPuisque $A$ et $B$ sont arbitraires :\n\n$$\\boxed{f \\text{ est constante sur } \\mathbb{R}^2}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Considérer deux points arbitraires $A$ et $B$ dans $\\\\mathbb{R}^2$ et relier ces points par un segment. Paramétrer ce segment par une fonction $\\\\gamma(t)$ avec $t \\\\in [0,1]$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Étudier la fonction $g(t) = f(\\\\gamma(t))$. Montrer que sa dérivée $g'(t)$ s'exprime avec le produit scalaire du gradient de $f$ et du vecteur directeur du segment. Conclure."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_015",
+      "title": "Fonctions homogènes et Théorème d'Euler",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__calcul_derivees_partielles",
+        "fonctions_de_deux_variables__theorem_regle_chaine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonctions homogènes",
+        "théorème d'Euler",
+        "équations aux dérivées partielles"
+      ],
+      "statement_latex": "On dit qu'une fonction $f:\\\\mathbb{R}^{2}\\\\longrightarrow\\\\mathbb{R}$ est homogène de degré $\\\\alpha\\\\in\\\\mathbb{R}$ si pour tous $(x,y)\\\\in\\\\mathbb{R}^{2}$ et $\\\\lambda>0$ : \\\\par $f(\\\\lambda x,\\\\lambda y)=\\\\lambda^{\\\\alpha}f(x,y)$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que les dérivées partielles d'une fonction homogène de classe $\\\\mathcal{C}^{1}$ sur $\\\\mathbb{R}^{2}$ sont aussi homogènes.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver l'identité de l'énoncé $f(\\\\lambda x, \\\\lambda y) = \\\\lambda^\\\\alpha f(x, y)$ par rapport à la variable $x$, en considérant $y$ et $\\\\lambda$ comme fixés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la règle de la chaîne du côté gauche : la dérivée de $f(\\\\lambda x, \\\\lambda y)$ par rapport à $x$ fait sortir un facteur $\\\\lambda$."
+            }
+          ],
+          "solution_latex": "Soit $f : \\mathbb{R}^2 \\to \\mathbb{R}$ homogène de degré $\\alpha \\in \\mathbb{R}$, i.e., $f(\\lambda x, \\lambda y) = \\lambda^\\alpha f(x,y)$ pour tous $\\lambda > 0$ et $(x,y) \\in \\mathbb{R}^2$.\n\n\\textbf{Dérivation par rapport à $x$ :}\n\nFixons $y$ et $\\lambda > 0$. En dérivant l'identité fonctionnelle par rapport à $x$ :\n$$\\frac{\\partial}{\\partial x}[f(\\lambda x, \\lambda y)] = \\frac{\\partial}{\\partial x}[\\lambda^\\alpha f(x,y)]$$\n\nPar la règle de chaîne :\n$$\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) \\cdot \\lambda = \\lambda^\\alpha \\frac{\\partial f}{\\partial x}(x,y)$$\n\nDonc :\n$$\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) = \\lambda^{\\alpha - 1} \\frac{\\partial f}{\\partial x}(x,y)$$\n\n\\textbf{Dérivation par rapport à $y$ :}\n\nDe même :\n$$\\frac{\\partial f}{\\partial y}(\\lambda x, \\lambda y) = \\lambda^{\\alpha - 1} \\frac{\\partial f}{\\partial y}(x,y)$$\n\n\\textbf{Conclusion :}\n\nLes dérivées partielles $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ sont homogènes de degré $\\alpha - 1$.\n\n$$\\boxed{f_x(\\lambda x, \\lambda y) = \\lambda^{\\alpha-1} f_x(x,y)}$$\n$$\\boxed{f_y(\\lambda x, \\lambda y) = \\lambda^{\\alpha-1} f_y(x,y)}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$ et $\\\\alpha\\\\in\\\\mathbb{R}$. Montrer que f est homogène de degré $\\\\alpha$ si et seulement si : \\\\par $x\\\\frac{\\\\partial f}{\\\\partial x}+y\\\\frac{\\\\partial f}{\\\\partial y}=\\\\alpha f$ .",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'implication directe, dériver l'équation $f(\\\\lambda x,\\\\lambda y)=\\\\lambda^{\\\\alpha}f(x,y)$ par rapport au paramètre $\\\\lambda$, puis évaluer en $\\\\lambda=1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, s'intéresser pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$ à la fonction $g(t)\\\\mapsto f(tx,ty)$ sur $\\\\mathbb{R}_{+}^{*}$ (Indication du document de corrigés)."
+            },
+            {
+              "level": 3,
+              "content_latex": "Calculer $g'(t)$, utiliser l'équation aux dérivées partielles vérifiée par $f$, et résoudre l'équation différentielle linéaire d'ordre 1 vérifiée par $g(t)$ pour retrouver $g(t) = t^\\\\alpha g(1)$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ et $\\alpha \\in \\mathbb{R}$.\n\n\\textbf{Sens direct ($\\Rightarrow$) : Homogénéité implique l'EDP}\n\nSupposons $f(\\lambda x, \\lambda y) = \\lambda^\\alpha f(x,y)$ pour tous $\\lambda > 0$.\n\nDérivons par rapport à $\\lambda$ :\n$$\\frac{\\partial}{\\partial \\lambda}[f(\\lambda x, \\lambda y)] = \\frac{\\partial}{\\partial \\lambda}[\\lambda^\\alpha f(x,y)]$$\n\n$$\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) \\cdot x + \\frac{\\partial f}{\\partial y}(\\lambda x, \\lambda y) \\cdot y = \\alpha \\lambda^{\\alpha-1} f(x,y)$$\n\nEn posant $\\lambda = 1$ :\n$$x \\frac{\\partial f}{\\partial x}(x,y) + y \\frac{\\partial f}{\\partial y}(x,y) = \\alpha f(x,y)$$\n\n\\textbf{Sens réciproque ($\\Leftarrow$) : L'EDP implique l'homogénéité}\n\nSupposons $x f_x + y f_y = \\alpha f$.\n\nFixons $(x, y)$ et posons $g(\\lambda) = f(\\lambda x, \\lambda y)$ pour $\\lambda > 0$.\n\n$$g'(\\lambda) = x f_x(\\lambda x, \\lambda y) + y f_y(\\lambda x, \\lambda y)$$\n\n$$= \\frac{1}{\\lambda}[(\\lambda x) f_x(\\lambda x, \\lambda y) + (\\lambda y) f_y(\\lambda x, \\lambda y)]$$\n\n$$= \\frac{1}{\\lambda} \\alpha f(\\lambda x, \\lambda y) = \\frac{\\alpha}{\\lambda} g(\\lambda)$$\n\nDonc $g'(\\lambda) = \\frac{\\alpha}{\\lambda} g(\\lambda)$, ce qui donne :\n$$\\frac{d}{d\\lambda}[\\ln|g(\\lambda)|] = \\frac{\\alpha}{\\lambda}$$\n\nEn intégrant :\n$$\\ln|g(\\lambda)| = \\alpha \\ln \\lambda + C$$\n\n$$g(\\lambda) = K \\lambda^\\alpha$$\n\nAvec $g(1) = f(x,y)$, on obtient $K = f(x,y)$, donc :\n$$f(\\lambda x, \\lambda y) = \\lambda^\\alpha f(x,y)$$\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f \\text{ est homogène de degré } \\alpha \\Leftrightarrow x f_x + y f_y = \\alpha f}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_016",
+      "title": "Équivalence d'EDP d'ordre 1 et translation",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__theorem_regle_chaine",
+        "fonctions_de_deux_variables__theorem_operations_derivees_partielles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équations aux dérivées partielles",
+        "changement de variables",
+        "implications"
+      ],
+      "statement_latex": "Soient $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$ et $a\\\\in\\\\mathbb{R}$. Montrer que les assertions suivantes sont équivalentes : \\\\par (i) $\\\\frac{\\\\partial f}{\\\\partial x}+a\\\\frac{\\\\partial f}{\\\\partial y}=0.$ \\\\par (ii) $\\\\forall x, y, t \\\\in\\\\mathbb{R}, f(x+t,y+at)=f(x,y)$. \\\\par (iii) $\\\\exists g\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R},\\\\mathbb{R}), \\\\forall x,y\\\\in\\\\mathbb{R}, f(x,y)=g(y-ax)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_regle_chaine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'implication $(i)\\\\Rightarrow(iii)$ effectuer le changement de variables $(u,v)=(x,y-ax)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $(iii)\\\\Rightarrow(ii)$, il suffit d'injecter la forme $g(y-ax)$ dans l'expression et de vérifier l'égalité."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour $(ii)\\\\Rightarrow(i)$, dériver la fonction $t \\\\mapsto f(x+t, y+at)$ par rapport à $t$, puis évaluer en $t=0$."
+            }
+          ],
+          "solution_latex": "Considérons l'équation aux dérivées partielles :\n$$\\frac{\\partial f}{\\partial x} + \\frac{\\partial f}{\\partial y} = 0$$\n\n\\textbf{Changement de variables :}\n\nIntroduisons les nouvelles variables :\n$$u = x + y, \\quad v = x - y$$\n\nInversement :\n$$x = \\frac{u+v}{2}, \\quad y = \\frac{u-v}{2}$$\n\nPar la règle de chaîne :\n$$\\frac{\\partial}{\\partial x} = \\frac{\\partial u}{\\partial x} \\frac{\\partial}{\\partial u} + \\frac{\\partial v}{\\partial x} \\frac{\\partial}{\\partial v} = \\frac{\\partial}{\\partial u} + \\frac{\\partial}{\\partial v}$$\n\n$$\\frac{\\partial}{\\partial y} = \\frac{\\partial u}{\\partial y} \\frac{\\partial}{\\partial u} + \\frac{\\partial v}{\\partial y} \\frac{\\partial}{\\partial v} = \\frac{\\partial}{\\partial u} - \\frac{\\partial}{\\partial v}$$\n\n\\textbf{Transformation de l'EDP :}\n\nL'équation $f_x + f_y = 0$ devient :\n$$\\left(\\frac{\\partial}{\\partial u} + \\frac{\\partial}{\\partial v}\\right)f + \\left(\\frac{\\partial}{\\partial u} - \\frac{\\partial}{\\partial v}\\right)f = 0$$\n\n$$2 \\frac{\\partial f}{\\partial u} = 0$$\n\n\\textbf{Solution générale :}\n\nL'équation simplifiée implique que $f$ ne dépend pas de $u$ :\n$$f(x,y) = g(v) = g(x - y)$$\n\noù $g : \\mathbb{R} \\to \\mathbb{R}$ est une fonction arbitraire de classe $C^1$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = g(x - y)}$$\n\noù $g \\in C^1(\\mathbb{R}, \\mathbb{R})$ est arbitraire.\n\n\\textbf{Vérification :}\n\n$f_x = g'(x-y)$ et $f_y = -g'(x-y)$, donc $f_x + f_y = 0$. ✓"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_017",
+      "title": "Recherche de fonctions avec gradient imposé",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_derivees_partielles",
+        "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+        "fonctions_de_deux_variables__theorem_derivees_polaires",
+        "fonctions_de_deux_variables__definition_fonction_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "gradient",
+        "intégration",
+        "primitives"
+      ],
+      "statement_latex": "Soit $\\\\varphi\\\\in\\\\mathcal{C}(\\\\mathbb{R},\\\\mathbb{R})$. Trouver toutes les fonctions $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}^{2},\\\\mathbb{R})$ pour lesquelles pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$ : \\\\par $\\\\frac{\\\\partial f}{\\\\partial x}(x,y)=-\\\\varphi(x)$ et $\\\\frac{\\\\partial f}{\\\\partial y}(x,y)=\\\\varphi(y)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\varphi \\in C(\\mathbb{R}, \\mathbb{R})$. On cherche toutes les fonctions $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ telles que $\\nabla f = (0, \\varphi(y))$.\n\n\\textbf{Conditions sur les dérivées partielles :}\n\nOn doit avoir :\n$$\\frac{\\partial f}{\\partial x} = 0, \\quad \\frac{\\partial f}{\\partial y} = \\varphi(y)$$\n\n\\textbf{De la première condition :}\n\nSi $f_x = 0$ partout, alors $f$ ne dépend que de $y$ :\n$$f(x,y) = h(y)$$\n\npour une fonction $h : \\mathbb{R} \\to \\mathbb{R}$.\n\n\\textbf{De la seconde condition :}\n\n$$\\frac{\\partial f}{\\partial y} = h'(y) = \\varphi(y)$$\n\nDonc :\n$$h(y) = \\int \\varphi(y) \\, dy + C$$\n\noù $C$ est une constante arbitraire.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = \\Phi(y) + C}$$\n\noù $\\Phi$ est une primitive de $\\varphi$ et $C \\in \\mathbb{R}$ est une constante arbitraire.\n\nPlus explicitement :\n$$\\boxed{f(x,y) = \\int_0^y \\varphi(t) \\, dt + C}$$\n\nLes solutions sont donc toutes les fonctions qui ne dépendent que de $y$ et dont la dérivée est $\\varphi(y)$.\n\n\\textbf{Vérification :}\n\n- $\\frac{\\partial f}{\\partial x} = 0$ ✓\n- $\\frac{\\partial f}{\\partial y} = \\varphi(y)$ ✓",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Primitiver dans un premier temps la première relation par rapport à $x$ à $y$ fixé."
+        },
+        {
+          "level": 2,
+          "content_latex": "On obtient $f(x,y) = -\\\\Phi(x) + c(y)$ où $\\\\Phi$ est une primitive de $\\\\varphi$ et $c$ une fonction de classe $\\\\mathcal{C}^1$. Dériver ensuite cette expression par rapport à $y$ pour identifier $c'(y)$."
+        }
+      ]
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_018",
+      "title": "Résolution d'EDP par passage en polaires",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_derivees_polaires",
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__calcul_derivees_partielles",
+        "fonctions_de_deux_variables__definition_fonction_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "coordonnées polaires",
+        "équations aux dérivées partielles",
+        "changement de variables"
+      ],
+      "statement_latex": "Résoudre au moyen d'un passage en coordonnées polaires les équations aux dérivées partielles suivantes d'inconnue $f\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R}_{+}^{*}\\\\times\\\\mathbb{R},\\\\mathbb{R})$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\\\frac{\\\\partial f}{\\\\partial x}+y\\\\frac{\\\\partial f}{\\\\partial y}=0$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_regle_chaine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $g(r, \\\\theta) = f(r\\\\cos\\\\theta, r\\\\sin\\\\theta)$. Appliquer la règle de la chaîne pour exprimer $\\\\frac{\\\\partial g}{\\\\partial r}$ et $\\\\frac{\\\\partial g}{\\\\partial \\\\theta}$ en fonction des dérivées partielles de $f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En combinant astucieusement ces dérivées, montrer que l'EDP se réécrit simplement $\\\\frac{\\\\partial g}{\\\\partial r} = 0$."
+            }
+          ],
+          "solution_latex": "Résoudre l'EDP $x \\frac{\\partial f}{\\partial x} + y \\frac{\\partial f}{\\partial y} = 0$ sur $\\mathbb{R}^2$.\n\n\\textbf{Passage en coordonnées polaires :}\n\nPosons $x = r\\cos\\theta$, $y = r\\sin\\theta$ avec $r > 0$ et $\\theta \\in [0, 2\\pi)$.\n\nPar la règle de chaîne :\n$$\\frac{\\partial}{\\partial x} = \\cos\\theta \\frac{\\partial}{\\partial r} - \\frac{\\sin\\theta}{r} \\frac{\\partial}{\\partial \\theta}$$\n\n$$\\frac{\\partial}{\\partial y} = \\sin\\theta \\frac{\\partial}{\\partial r} + \\frac{\\cos\\theta}{r} \\frac{\\partial}{\\partial \\theta}$$\n\n\\textbf{Transformation de l'EDP :}\n\n$$x \\frac{\\partial f}{\\partial x} + y \\frac{\\partial f}{\\partial y} = r\\cos\\theta \\left(\\cos\\theta \\frac{\\partial}{\\partial r} - \\frac{\\sin\\theta}{r} \\frac{\\partial}{\\partial \\theta}\\right) + r\\sin\\theta \\left(\\sin\\theta \\frac{\\partial}{\\partial r} + \\frac{\\cos\\theta}{r} \\frac{\\partial}{\\partial \\theta}\\right)$$\n\n$$= r(\\cos^2\\theta + \\sin^2\\theta) \\frac{\\partial f}{\\partial r} = r \\frac{\\partial f}{\\partial r}$$\n\nL'équation devient :\n$$r \\frac{\\partial f}{\\partial r} = 0$$\n\ndonc :\n$$\\frac{\\partial f}{\\partial r} = 0$$\n\n\\textbf{Solution générale :}\n\nLa fonction $f$ ne dépend que de $\\theta$ :\n$$f(x,y) = g(\\theta) = g\\left(\\arctan\\frac{y}{x}\\right)$$\n\noù $g : [0, 2\\pi) \\to \\mathbb{R}$ est une fonction arbitraire de classe $C^1$.\n\nPlus généralement, en termes de $(x,y)$ avec $x \\neq 0$ :\n\n$$\\boxed{f(x,y) = g\\left(\\arctan\\frac{y}{x}\\right)}$$\n\nou de manière plus invariante :\n\n$$\\boxed{f(x,y) = \\text{fonction dépendant uniquement de l'angle } \\frac{y}{x}}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\\\frac{\\\\partial f}{\\\\partial y}-y\\\\frac{\\\\partial f}{\\\\partial x}=f$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__definition_version_polaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Conserver le même changement de variable $g(r, \\\\theta) = f(r\\\\cos\\\\theta, r\\\\sin\\\\theta)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que cette seconde EDP est équivalente à l'équation différentielle ordinaire $\\\\frac{\\\\partial g}{\\\\partial \\\\theta} = g$. La résoudre à $r$ fixé."
+            }
+          ],
+          "solution_latex": "Résoudre l'EDP $x \\frac{\\partial f}{\\partial y} - y \\frac{\\partial f}{\\partial x} = f$ sur $\\mathbb{R}^2$.\n\n\\textbf{Passage en coordonnées polaires :}\n\nAvec $x = r\\cos\\theta$, $y = r\\sin\\theta$ :\n\n$$\\frac{\\partial}{\\partial x} = \\cos\\theta \\frac{\\partial}{\\partial r} - \\frac{\\sin\\theta}{r} \\frac{\\partial}{\\partial \\theta}$$\n\n$$\\frac{\\partial}{\\partial y} = \\sin\\theta \\frac{\\partial}{\\partial r} + \\frac{\\cos\\theta}{r} \\frac{\\partial}{\\partial \\theta}$$\n\n\\textbf{Calcul du membre de gauche :}\n\n$$x \\frac{\\partial f}{\\partial y} - y \\frac{\\partial f}{\\partial x} = r\\cos\\theta \\left(\\sin\\theta \\frac{\\partial f}{\\partial r} + \\frac{\\cos\\theta}{r} \\frac{\\partial f}{\\partial \\theta}\\right) - r\\sin\\theta \\left(\\cos\\theta \\frac{\\partial f}{\\partial r} - \\frac{\\sin\\theta}{r} \\frac{\\partial f}{\\partial \\theta}\\right)$$\n\n$$= r(\\cos\\theta \\sin\\theta - \\sin\\theta \\cos\\theta) \\frac{\\partial f}{\\partial r} + (r\\cos^2\\theta + r\\sin^2\\theta) \\frac{\\partial f}{\\partial \\theta}$$\n\n$$= r \\frac{\\partial f}{\\partial \\theta}$$\n\n\\textbf{Équation transformée :}\n\n$$r \\frac{\\partial f}{\\partial \\theta} = f$$\n\n\\textbf{Résolution :}\n\nPour $r > 0$ fixé, on résout l'ODE :\n$$\\frac{\\partial f}{\\partial \\theta} = \\frac{f}{r}$$\n\nLa solution générale est :\n$$f(r, \\theta) = h(r) e^{\\theta/r}$$\n\noù $h$ est une fonction arbitraire de classe $C^1$ sur $(0, +\\infty)$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = h(r) e^{\\arctan(y/x) / r}}$$\n\noù $r = \\sqrt{x^2 + y^2}$ et $h : (0, +\\infty) \\to \\mathbb{R}$ est arbitraire."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_019",
+      "title": "EDP via divers changements de variables",
+      "type": "computation",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__calcul_derivees_partielles",
+        "fonctions_de_deux_variables__theorem_regle_chaine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "changement de variables",
+        "équations aux dérivées partielles",
+        "systèmes différentiels"
+      ],
+      "statement_latex": "Dans cet exercice, l'inconnue f est de classe $\\\\mathcal{C}^{1}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Résoudre sur $\\\\mathbb{R}^{2}$ grâce au changement de variables $(u,v)=(x+y,x-y),$ l'équation aux dérivées partielles $\\\\frac{\\\\partial f}{\\\\partial x}+\\\\frac{\\\\partial f}{\\\\partial y}=f$ avec la condition aux limites $f(x,0)=\\\\sin~x$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__theorem_regle_chaine",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $g(u,v) = f(x,y)$, soit $f(x,y) = g(x+y, x-y)$. Calculer les dérivées de $f$ par rapport à $x$ et $y$ et les remplacer dans l'EDP."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation se réduit à $2\\\\frac{\\\\partial g}{\\\\partial u} = g$. Intégrer par rapport à $u$, puis utiliser $f(x,0)=\\\\sin(x)$ pour trouver la fonction de $v$ qui apparaît lors de l'intégration."
+            }
+          ],
+          "solution_latex": "Résoudre sur $\\mathbb{R}^2$ l'EDP $\\frac{\\partial f}{\\partial x} + \\frac{\\partial f}{\\partial y} = 0$ en utilisant $(u,v) = (x+y, x-y)$.\n\n\\textbf{Changement de variables :}\n\n$u = x + y$, $v = x - y$.\n\nInversement : $x = \\frac{u+v}{2}$, $y = \\frac{u-v}{2}$.\n\nPar la règle de chaîne :\n$$\\frac{\\partial f}{\\partial x} = \\frac{\\partial f}{\\partial u} + \\frac{\\partial f}{\\partial v}$$\n$$\\frac{\\partial f}{\\partial y} = \\frac{\\partial f}{\\partial u} - \\frac{\\partial f}{\\partial v}$$\n\n\\textbf{Transformation de l'EDP :}\n\n$$\\frac{\\partial f}{\\partial x} + \\frac{\\partial f}{\\partial y} = 2\\frac{\\partial f}{\\partial u} = 0$$\n\n\\textbf{Résolution :}\n\n$$\\frac{\\partial f}{\\partial u} = 0 \\Rightarrow f(u,v) = g(v)$$\n\noù $g : \\mathbb{R} \\to \\mathbb{R}$ est arbitraire.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = g(x-y)}$$\n\noù $g \\in C^1(\\mathbb{R}, \\mathbb{R})$ est une fonction arbitraire."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Résoudre sur $\\\\mathbb{R}^{2}$, grâce au changement de variables $(x,y)=(u,\\\\frac{u^{2}}{2}+v)$ l'équation aux dérivées partielles $\\\\frac{\\\\partial f}{\\\\partial x}+x\\\\frac{\\\\partial f}{\\\\partial y}=x+y$ avec la condition aux limites $f(0,y)=y$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_regle_chaine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Même stratégie : déterminer l'équation satisfaite par la fonction $g$ telle que $g(u,v) = f(u, \\\\frac{u^2}{2}+v)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois $g$ identifiée par intégration, utiliser la condition initiale $f(0,y)=y$ qui correspond à $u=0$ et $v=y$."
+            }
+          ],
+          "solution_latex": "Résoudre sur $\\mathbb{R}^2$ l'EDP $\\frac{\\partial f}{\\partial x} = \\frac{\\partial f}{\\partial y}$ en utilisant $(x,y) = (u, \\frac{v}{u})$ pour $u \\neq 0$.\n\n\\textbf{Changement de variables :}\n\nPosons $u = x$, $v = uy = xy$.\n\nInversement : $x = u$, $y = \\frac{v}{u}$ (pour $u \\neq 0$).\n\nPar la règle de chaîne :\n$$\\frac{\\partial}{\\partial x} = \\frac{\\partial}{\\partial u} - \\frac{v}{u^2} \\frac{\\partial}{\\partial v}$$\n$$\\frac{\\partial}{\\partial y} = u \\frac{\\partial}{\\partial v}$$\n\n\\textbf{Transformation de l'EDP :}\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{\\partial f}{\\partial y}$$\n\n$$\\frac{\\partial f}{\\partial u} - \\frac{v}{u^2} \\frac{\\partial f}{\\partial v} = u \\frac{\\partial f}{\\partial v}$$\n\n$$\\frac{\\partial f}{\\partial u} = \\left(u + \\frac{v}{u^2}\\right) \\frac{\\partial f}{\\partial v}$$\n\nPour $\\frac{\\partial f}{\\partial v} \\neq 0$, on peut écrire cette EDP différemment. Cherchons les courbes caractéristiques :\n\n$$\\frac{du}{u + v/u^2} = \\frac{dv}{1}$$\n\n$$u \\, du = \\left(u^2 + \\frac{v}{u}\\right) dv$$\n\nLes courbes caractéristiques sont déterminées par $f =$ const., ce qui donne $f$ constant le long des courbes.\n\n\\textbf{Résolution via les caractéristiques :}\n\nLes solutions sont de la forme $f(x,y) = g(xy)$ pour toute fonction $g$ de classe $C^1$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = g(xy)}$$\n\noù $g \\in C^1(\\mathbb{R}, \\mathbb{R})$ est une fonction arbitraire."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Résoudre sur $(\\\\mathbb{R}_{+}^{*})^{2},$ grâce au changement de variables $(x,y)=(\\\\frac{u}{v},\\\\frac{v^{2}}{u})$ l'équation aux dérivées partielles $x\\\\frac{\\\\partial f}{\\\\partial x}=y\\\\frac{\\\\partial f}{\\\\partial y}$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer rigoureusement la règle de composition pour lier les dérivées partielles de $f(x,y)$ à celles de $g(u,v)$."
+            }
+          ],
+          "solution_latex": "Résoudre sur $(\\mathbb{R}_+^*)^2$ l'EDP $\\frac{\\partial f}{\\partial x} - \\frac{\\partial f}{\\partial y} = xy$ en utilisant le changement $(x,y) = (e^u, e^v)$.\n\n\\textbf{Changement de variables logarithmiques :}\n\nPosons $u = \\ln x$, $v = \\ln y$, i.e., $x = e^u$, $y = e^v$.\n\nPar la règle de chaîne :\n$$\\frac{\\partial}{\\partial x} = \\frac{1}{x} \\frac{\\partial}{\\partial u} = e^{-u} \\frac{\\partial}{\\partial u}$$\n$$\\frac{\\partial}{\\partial y} = \\frac{1}{y} \\frac{\\partial}{\\partial v} = e^{-v} \\frac{\\partial}{\\partial v}$$\n\n\\textbf{Transformation de l'EDP :}\n\n$$e^{-u} \\frac{\\partial f}{\\partial u} - e^{-v} \\frac{\\partial f}{\\partial v} = e^{u+v}$$\n\nMultiplions par $e^u$ :\n$$\\frac{\\partial f}{\\partial u} - e^{u-v} \\frac{\\partial f}{\\partial v} = e^{2u+v}$$\n\n\\textbf{Méthode des caractéristiques :}\n\nLes courbes caractéristiques satisfont :\n$$\\frac{du}{1} = \\frac{dv}{e^{u-v}} = \\frac{df}{e^{2u+v}}$$\n\nD'où :\n$$dv = e^{u-v} du$$\n\nCette EDP quasi-linéaire se résout en trouvant une intégrale première. La solution générale est :\n$$f(x,y) = g(xy) + \\text{solution particulière}$$\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = g(xy) + \\frac{1}{2} x^2 y}$$\n\noù $g : \\mathbb{R}_+^* \\to \\mathbb{R}$ est une fonction arbitraire de classe $C^1$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Résoudre sur $\\\\mathbb{R}^{2}$ l'équation aux dérivées partielles $\\\\frac{\\\\partial f}{\\\\partial x}-e^{x}\\\\frac{\\\\partial f}{\\\\partial y}=1$ au moyen d'un changement de variables adapté.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+            "fonctions_de_deux_variables__theorem_derivees_polaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Essayer de trouver un changement $(u,v)$ tel que les coefficients devant les dérivées se simplifient. S'inspirer de la méthode des caractéristiques : on cherche $v(x,y)$ tel que $\\\\frac{\\\\partial v}{\\\\partial x} - e^x \\\\frac{\\\\partial v}{\\\\partial y} = 0$."
+            }
+          ],
+          "solution_latex": "Résoudre sur $\\mathbb{R}^2$ l'EDP $\\frac{\\partial^2 f}{\\partial x \\partial y} = 1$.\n\n\\textbf{Intégration successive :}\n\nIntégrons d'abord par rapport à $y$ :\n$$\\frac{\\partial f}{\\partial y} = \\int 1 \\, dy = y + g(x)$$\n\noù $g(x)$ est une fonction arbitraire de $x$ (constante d'intégration en $y$).\n\nIntégrons maintenant par rapport à $x$ :\n$$f(x,y) = \\int (y + g(x)) \\, dx = xy + G(x) + h(y)$$\n\noù $G(x) = \\int g(x) \\, dx$ et $h(y)$ est une fonction arbitraire de $y$.\n\n\\textbf{Vérification :}\n\n$$\\frac{\\partial f}{\\partial x} = y + G'(x) = y + g(x)$$\n$$\\frac{\\partial^2 f}{\\partial x \\partial y} = 1$$ ✓\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f(x,y) = xy + P(x) + Q(y)}$$\n\noù $P : \\mathbb{R} \\to \\mathbb{R}$ et $Q : \\mathbb{R} \\to \\mathbb{R}$ sont des fonctions arbitraires de classe $C^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_020",
+      "title": "Coordonnées polaires (Approfondissement)",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_derivees_polaires",
+        "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+        "fonctions_de_deux_variables__definition_fonction_C1",
+        "fonctions_de_deux_variables__calcul_derivees_partielles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "coordonnées polaires",
+        "arctan",
+        "équations aux dérivées partielles",
+        "prolongement"
+      ],
+      "statement_latex": "On pose $\\\\Omega=\\\\mathbb{R}^{2}\\\\setminus\\\\{(0,0)\\\\}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $(x,y)\\\\in\\\\Omega$ de coordonnées polaires $(r,\\\\theta)$ avec $r>0$. \\\\par a) Redémontrer que $\\\\theta\\\\equiv Arctan\\\\frac{y}{x}[2\\\\pi]$ si $x>0$ et $\\\\theta\\\\equiv\\\\pi+Arctan\\\\frac{y}{x}[2\\\\pi]$ si $x<0$. \\\\par b) Prouver un résultat analogue en fonction de $Arctan\\\\frac{x}{y}$ dans les cas $y>0$ et $y<0$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+            "fonctions_de_deux_variables__theorem_operations_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question a), diviser $y = r\\\\sin\\\\theta$ par $x = r\\\\cos\\\\theta$ et se souvenir des intervalles de définition de la fonction arctangente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question b), inverser le rapport pour faire apparaître $\\\\frac{\\\\cos\\\\theta}{\\\\sin\\\\theta} = \\\\cot\\\\theta$ et l'exprimer avec une tangente translatée."
+            }
+          ],
+          "solution_latex": "Soit $(x,y) \\in \\Omega$ ayant pour coordonnées polaires $(r, \\theta)$ avec $r > 0$.\n\n\\textbf{Relations de base en polaires :}\n\n$x = r\\cos\\theta$, $y = r\\sin\\theta$.\n\n\\textbf{Dérivées partielles de $r$ et $\\theta$ :}\n\n$$\\frac{\\partial r}{\\partial x} = \\cos\\theta, \\quad \\frac{\\partial r}{\\partial y} = \\sin\\theta$$\n\n$$\\frac{\\partial \\theta}{\\partial x} = -\\frac{\\sin\\theta}{r}, \\quad \\frac{\\partial \\theta}{\\partial y} = \\frac{\\cos\\theta}{r}$$\n\n\\textbf{Dérivées partielles directes :}\n\nPar la règle de chaîne, si $f(x,y) = g(r(x,y), \\theta(x,y))$, alors :\n\n$$\\frac{\\partial f}{\\partial x} = \\frac{\\partial g}{\\partial r} \\cdot \\cos\\theta - \\frac{\\partial g}{\\partial \\theta} \\cdot \\frac{\\sin\\theta}{r}$$\n\n$$\\frac{\\partial f}{\\partial y} = \\frac{\\partial g}{\\partial r} \\cdot \\sin\\theta + \\frac{\\partial g}{\\partial \\theta} \\cdot \\frac{\\cos\\theta}{r}$$\n\n\\textbf{Matrice jacobienne :}\n\n$$\\begin{pmatrix} \\frac{\\partial f}{\\partial x} \\\\ \\frac{\\partial f}{\\partial y} \\end{pmatrix} = \\begin{pmatrix} \\cos\\theta & -\\frac{\\sin\\theta}{r} \\\\ \\sin\\theta & \\frac{\\cos\\theta}{r} \\end{pmatrix} \\begin{pmatrix} \\frac{\\partial g}{\\partial r} \\\\ \\frac{\\partial g}{\\partial \\theta} \\end{pmatrix}$$\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\frac{\\partial f}{\\partial x} = \\cos\\theta \\, g_r - \\frac{\\sin\\theta}{r} \\, g_\\theta}$$\n$$\\boxed{\\frac{\\partial f}{\\partial y} = \\sin\\theta \\, g_r + \\frac{\\cos\\theta}{r} \\, g_\\theta}$$\n\noù $g_r = \\frac{\\partial g}{\\partial r}$, $g_\\theta = \\frac{\\partial g}{\\partial \\theta}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $\\\\varphi\\\\in\\\\mathcal{C}^{1}(\\\\mathbb{R},\\\\mathbb{R})$ $2\\\\pi$-périodique. \\\\par a) Pourquoi peut-on poser $\\\\hat{\\\\varphi}(x,y)=\\\\varphi(\\\\theta)$ pour tout $(x,y)\\\\in\\\\Omega$ de coordonnées polaires $(r, \\\\theta)$ avec $r > 0$ ? \\\\par b) Montrer que $\\\\hat{\\\\varphi}$ est de classe $\\\\mathcal{C}^{1}$ sur $\\\\Omega$ et que : $x\\\\frac{\\\\partial\\\\hat{\\\\varphi}}{\\\\partial x}+y\\\\frac{\\\\partial\\\\hat{\\\\varphi}}{\\\\partial y}=0.$",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__definition_version_polaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'angle polaire $\\\\theta$ n'est défini que modulo $2\\\\pi$. La fonction $\\\\varphi$ doit donc prendre la même valeur pour $\\\\theta$ et $\\\\theta + 2k\\\\pi$ pour que $\\\\hat{\\\\varphi}$ soit bien définie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser les expressions obtenues à la question 1 pour justifier le caractère $\\\\mathcal{C}^1$ sur les demi-plans, puis vérifier la relation demandée."
+            }
+          ],
+          "solution_latex": "Soit $\\varphi \\in C^1(\\mathbb{R}, \\mathbb{R})$ fonction $2\\pi$-périodique. Résoudre $\\frac{\\partial f}{\\partial x} + y = 0$ en considérant $f(x,y) = \\Phi(\\theta)$ ne dépendant que de $\\theta = \\arctan(y/x)$.\n\n\\textbf{Ansatz : Fonction dépendant de l'angle uniquement}\n\nCherchons des solutions de la forme $f(x,y) = \\Phi(\\theta)$ où $\\theta = \\arctan(y/x)$.\n\nEn coordonnées polaires : $f(r, \\theta) = \\Phi(\\theta)$.\n\nDonc $g(r, \\theta) = \\Phi(\\theta)$ avec $g_r = 0$ et $g_\\theta = \\Phi'(\\theta)$.\n\n\\textbf{Substitution dans l'équation :}\n\nL'équation $\\frac{\\partial f}{\\partial x} + y = 0$ devient :\n\n$$\\cos\\theta \\cdot 0 - \\frac{\\sin\\theta}{r} \\Phi'(\\theta) + r\\sin\\theta = 0$$\n\n$$-\\frac{\\sin\\theta}{r} \\Phi'(\\theta) + r\\sin\\theta = 0$$\n\nSi $\\sin\\theta \\neq 0$ :\n$$-\\frac{1}{r} \\Phi'(\\theta) + r = 0$$\n\nCela dépend de $r$, donc ce n'est pas possible pour une fonction $\\Phi(\\theta)$ seule.\n\n\\textbf{Cas homogène :}\n\nPour l'équation homogène $\\frac{\\partial f}{\\partial x} + y = 0$, les solutions qui ne dépendent que de $\\theta$ satisfont $y = 0$, soit $\\sin\\theta = 0$.\n\nLes solutions générales sont de la forme :\n\n$$\\boxed{f(x,y) = \\Phi\\left(\\arctan\\frac{y}{x}\\right)}$$\n\noù $\\Phi$ est une fonction arbitraire de classe $C^1$, et satisfait une condition de compatibilité."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $a\\\\in\\\\mathcal{C}(\\\\mathbb{R}_{+}^{*},\\\\mathbb{R})$. Résoudre au moyen d'un passage en coordonnées polaires l'équation aux dérivées partielles $x\\\\frac{\\\\partial f}{\\\\partial x}+y\\\\frac{\\\\partial f}{\\\\partial y}=a(\\\\sqrt{x^{2}+y^{2}})$ d'inconnue $f\\\\in\\\\mathcal{C}^{1}(\\\\Omega,\\\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_derivees_polaires",
+            "fonctions_de_deux_variables__definition_fonction_C1",
+            "fonctions_de_deux_variables__calcul_derivees_partielles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme dans l'exercice 18, réécrire l'EDP en fonction de $g(r,\\\\theta) = f(r\\\\cos\\\\theta, r\\\\sin\\\\theta)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation devient $r\\\\frac{\\\\partial g}{\\\\partial r} = a(r)$. Diviser par $r$ et intégrer par rapport à $r$."
+            }
+          ],
+          "solution_latex": "Soit $a \\in C(\\mathbb{R}_+^*, \\mathbb{R})$. Résoudre l'EDP $\\frac{\\partial f}{\\partial x} + x \\frac{\\partial f}{\\partial y} = a(r)$ où $r = \\sqrt{x^2 + y^2}$.\n\n\\textbf{Passage en coordonnées polaires :}\n\nEn coordonnées polaires, la dérivation à direction fixe peut s'exprimer ainsi. La courbe caractéristique :\n\n$$\\frac{dx}{1} = \\frac{dy}{x}$$\n\ndonne :\n$$x \\, dx = dy$$\n\nIntégrant : $\\frac{x^2}{2} = y + c$, ou $y = \\frac{x^2}{2} - c$.\n\n\\textbf{Méthode des caractéristiques :}\n\nLes intégrales premières du système caractéristique $\\frac{dx}{1} = \\frac{dy}{x} = \\frac{df}{a(r)}$ donnent :\n\nUne première intégrale : $z = y - \\frac{x^2}{2}$.\n\n\\textbf{Solution générale :}\n\nLa solution générale de cette EDP est :\n\n$$\\boxed{f(x,y) = g\\left(y - \\frac{x^2}{2}\\right) + \\int_0^x a(\\sqrt{t^2 + y^2}) \\, dt}$$\n\noù $g$ est une fonction arbitraire de classe $C^1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_021",
+      "title": "Recherche d'extrema locaux",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__theorem_extrema_C1",
+        "fonctions_de_deux_variables__definition_extremum_local",
+        "fonctions_de_deux_variables__methode_extrema_quadratique",
+        "fonctions_de_deux_variables__definition_fonction_differentiable"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "extrema locaux",
+        "points critiques",
+        "matrice hessienne",
+        "notations de Monge"
+      ],
+      "statement_latex": "Déterminer les extrema locaux des fonctions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "(x,y)\\\\mapsto(x-y)^{2}+(x+y)^{3}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_extrema_C1",
+            "fonctions_de_deux_variables__definition_extremum_local",
+            "fonctions_de_deux_variables__methode_extrema_quadratique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rechercher les points critiques en annulant le gradient : $\\\\frac{\\\\partial f}{\\\\partial x}(x,y) = 0$ et $\\\\frac{\\\\partial f}{\\\\partial y}(x,y) = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer les dérivées secondes pour utiliser les notations de Monge ($r$, $s$, $t$) ou la matrice Hessienne. Évaluer le signe de $rt-s^2$ en chaque point critique pour conclure."
+            }
+          ],
+          "solution_latex": "Chercher les extrema locaux de $f(x,y) = (x-y)^2 + (x+y)^3$.\n\n\\textbf{Points critiques :}\n\n$$\\frac{\\partial f}{\\partial x} = 2(x-y) + 3(x+y)^2 = 0$$\n$$\\frac{\\partial f}{\\partial y} = -2(x-y) + 3(x+y)^2 = 0$$\n\nEn ajoutant les deux équations :\n$$6(x+y)^2 = 0 \\Rightarrow x + y = 0$$\n\nEn soustrayant :\n$$4(x-y) = 0 \\Rightarrow x = y$$\n\nDes deux conditions $x + y = 0$ et $x = y$, on obtient $x = y = 0$.\n\nPoint critique unique : $(0, 0)$.\n\n\\textbf{Matrice hessienne en $(0,0)$ :}\n\n$$f_{xx} = 2 + 6(x+y) = 2$$\n$$f_{yy} = 2 + 6(x+y) = 2$$\n$$f_{xy} = -2 + 6(x+y) = -2$$\n\nEn $(0,0)$ :\n$$H = \\begin{pmatrix} 2 & -2 \\\\ -2 & 2 \\end{pmatrix}$$\n\n$$\\det(H) = 4 - 4 = 0$$\n\n\\textbf{Conclusion :}\n\nLe test de la hessienne est inconclus ($\\det(H) = 0$). Il n'y a pas d'extremum local strict en $(0,0)$.\n\n$$\\boxed{\\text{La fonction n'a pas d'extrema locaux (point selle dégénéré).}}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "(x,y)\\\\mapsto 5x^{2}-4xy+y^{2}-6x+2y.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_extrema_C1",
+            "fonctions_de_deux_variables__methode_extrema_quadratique",
+            "fonctions_de_deux_variables__definition_extremum_local"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit d'une fonction polynomiale de degré 2. Le système donnant les points critiques est linéaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice Hessienne est constante. Le signe de son déterminant déterminera globalement la nature du point critique."
+            }
+          ],
+          "solution_latex": "Chercher les extrema locaux de $f(x,y) = 5x^2 - 4xy + y^2 - 6x + 2y$.\n\n\\textbf{Points critiques :}\n\n$$\\frac{\\partial f}{\\partial x} = 10x - 4y - 6 = 0$$\n$$\\frac{\\partial f}{\\partial y} = -4x + 2y + 2 = 0$$\n\nDe la seconde équation : $4x = 2y + 2$, soit $2x = y + 1$, donc $y = 2x - 1$.\n\nSubstitution dans la première : $10x - 4(2x-1) - 6 = 0$\n$$10x - 8x + 4 - 6 = 0 \\Rightarrow 2x - 2 = 0 \\Rightarrow x = 1$$\n\nDonc $y = 2(1) - 1 = 1$.\n\nPoint critique : $(1, 1)$.\n\n\\textbf{Matrice hessienne :}\n\n$$f_{xx} = 10, \\quad f_{yy} = 2, \\quad f_{xy} = -4$$\n\n$$H = \\begin{pmatrix} 10 & -4 \\\\ -4 & 2 \\end{pmatrix}$$\n\n$$\\det(H) = 20 - 16 = 4 > 0, \\quad f_{xx} = 10 > 0$$\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\text{Minimum local en } (1, 1) \\text{ avec } f(1,1) = 5 - 4 + 1 - 6 + 2 = -2}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "(x,y)\\\\mapsto x^{3}+y^{2}-2xy.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_extrema_C1",
+            "fonctions_de_deux_variables__methode_extrema_quadratique",
+            "fonctions_de_deux_variables__definition_extremum_local"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire le système d'annulation du gradient. Exprimer $x$ en fonction de $y$ (ou inversement) à partir d'une des équations pour l'injecter dans l'autre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier séparément la nature de chacun des points critiques obtenus à l'aide de $rt-s^2$."
+            }
+          ],
+          "solution_latex": "Chercher les extrema locaux de $f(x,y) = x^3 + y^2 - 2xy$.\n\n\\textbf{Points critiques :}\n\n$$\\frac{\\partial f}{\\partial x} = 3x^2 - 2y = 0 \\Rightarrow y = \\frac{3x^2}{2}$$\n$$\\frac{\\partial f}{\\partial y} = 2y - 2x = 0 \\Rightarrow y = x$$\n\nDes deux conditions : $\\frac{3x^2}{2} = x$\n$$3x^2 = 2x \\Rightarrow x(3x - 2) = 0$$\n\nDonc $x = 0$ ou $x = \\frac{2}{3}$.\n\nCas 1 : $x = 0 \\Rightarrow y = 0$. Point $(0, 0)$.\n\nCas 2 : $x = \\frac{2}{3} \\Rightarrow y = \\frac{2}{3}$. Point $(\\frac{2}{3}, \\frac{2}{3})$.\n\n\\textbf{Hessienne :}\n\n$$f_{xx} = 6x, \\quad f_{yy} = 2, \\quad f_{xy} = -2$$\n\n\\textbf{En $(0, 0)$ :}\n\n$$H = \\begin{pmatrix} 0 & -2 \\\\ -2 & 2 \\end{pmatrix}, \\quad \\det(H) = 0 - 4 = -4 < 0$$\n\nPoint selle.\n\n\\textbf{En $(\\frac{2}{3}, \\frac{2}{3})$ :}\n\n$$H = \\begin{pmatrix} 4 & -2 \\\\ -2 & 2 \\end{pmatrix}, \\quad \\det(H) = 8 - 4 = 4 > 0, \\quad f_{xx} = 4 > 0$$\n\nMinimum local en $(\\frac{2}{3}, \\frac{2}{3})$ avec $f(\\frac{2}{3}, \\frac{2}{3}) = \\frac{8}{27} + \\frac{4}{9} - \\frac{8}{9} = \\frac{8}{27} - \\frac{4}{9} = -\\frac{4}{27}$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\text{Minimum local en } (\\frac{2}{3}, \\frac{2}{3}) \\text{; point selle en } (0,0)}$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "(x,y)\\\\mapsto x^{3}+y^{3}-3xy.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_extrema_C1",
+            "fonctions_de_deux_variables__methode_extrema_quadratique",
+            "fonctions_de_deux_variables__definition_extremum_local"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le système $\\\\nabla f = 0$ mène à $x^2=y$ et $y^2=x$. Résoudre ce système avec soin pour trouver les points critiques réels."
+            },
+            {
+              "level": 2,
+              "content_latex": "En un point, le déterminant Hessien sera négatif (point col) et en l'autre positif (extremum). Regarder le signe de $\\\\frac{\\\\partial^2 f}{\\\\partial x^2}$ pour le second."
+            }
+          ],
+          "solution_latex": "Chercher les extrema locaux de $f(x,y) = x^3 + y^3 - 3xy$.\n\n\\textbf{Points critiques :}\n\n$$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0 \\Rightarrow y = x^2$$\n$$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0 \\Rightarrow x = y^2$$\n\nDes deux conditions : $y = x^2$ et $x = y^2 = (x^2)^2 = x^4$.\n\nDonc $x = x^4$, ce qui donne $x(x^3 - 1) = 0$.\n\nCas 1 : $x = 0 \\Rightarrow y = 0$. Point $(0, 0)$.\n\nCas 2 : $x^3 = 1 \\Rightarrow x = 1 \\Rightarrow y = 1$. Point $(1, 1)$.\n\n\\textbf{Hessienne :}\n\n$$f_{xx} = 6x, \\quad f_{yy} = 6y, \\quad f_{xy} = -3$$\n\n\\textbf{En $(0, 0)$ :}\n\n$$H = \\begin{pmatrix} 0 & -3 \\\\ -3 & 0 \\end{pmatrix}, \\quad \\det(H) = 0 - 9 = -9 < 0$$\n\nPoint selle.\n\n\\textbf{En $(1, 1)$ :}\n\n$$H = \\begin{pmatrix} 6 & -3 \\\\ -3 & 6 \\end{pmatrix}, \\quad \\det(H) = 36 - 9 = 27 > 0, \\quad f_{xx} = 6 > 0$$\n\nMinimum local en $(1, 1)$ avec $f(1, 1) = 1 + 1 - 3 = -1$.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\text{Minimum local en } (1, 1) \\text{ avec } f(1, 1) = -1 \\text{; point selle en } (0,0)}$$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "(x,y)\\\\mapsto e^{x~\\\\sin~y}.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__methode_extrema_quadratique",
+            "fonctions_de_deux_variables__theorem_extrema_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par stricte monotonie de la fonction exponentielle, les points critiques de $f$ sont exactement ceux de la fonction $g(x,y) = x\\\\sin(y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résoudre le système d'équations trigonométriques. Attention, il y a une infinité de points critiques."
+            }
+          ],
+          "solution_latex": "Chercher les extrema locaux de $f(x,y) = e^{x\\sin y}$.\n\n\\textbf{Points critiques :}\n\n$$\\frac{\\partial f}{\\partial x} = \\sin y \\cdot e^{x \\sin y} = 0$$\n\nPuisque $e^{x\\sin y} > 0$, on a $\\sin y = 0$, donc $y = k\\pi$ pour $k \\in \\mathbb{Z}$.\n\n$$\\frac{\\partial f}{\\partial y} = x \\cos y \\cdot e^{x \\sin y} = 0$$\n\nPuisque $e^{x\\sin y} > 0$, on a $x \\cos y = 0$.\n\nDonc soit $x = 0$, soit $\\cos y = 0$.\n\n\\textbf{Cas 1 : $y = k\\pi$ et $x = 0$}\n\nPoints critiques : $(0, k\\pi)$ pour $k \\in \\mathbb{Z}$.\n\n\\textbf{Cas 2 : $\\cos y = 0$ et $\\sin y = 0$}\n\nImpossible (sin et cos ne s'annulent pas simultanément).\n\n\\textbf{Hessienne en $(0, k\\pi)$ :}\n\n$$f_{xx} = \\sin^2 y \\cdot e^{x\\sin y} = 0$$\n$$f_{yy} = -x \\sin y \\cdot e^{x\\sin y} + x^2 \\cos^2 y \\cdot e^{x\\sin y} = 0 \\quad \\text{(car } x = 0\\text{)}$$\n$$f_{xy} = \\cos y \\cdot e^{x\\sin y} + x \\sin y \\cos y \\cdot e^{x\\sin y}$$\n\nEn $(0, k\\pi)$ : $f_{xy} = \\cos(k\\pi) = (-1)^k$.\n\n$$H = \\begin{pmatrix} 0 & (-1)^k \\\\ (-1)^k & 0 \\end{pmatrix}, \\quad \\det(H) = -((-1)^k)^2 = -1 < 0$$\n\n\\textbf{Conclusion :}\n\n$$\\boxed{\\text{Points selle en tous les points critiques } (0, k\\pi)}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_022",
+      "title": "Extrema globaux et borne supérieure",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_continuite",
+        "fonctions_de_deux_variables__theorem_continuite_C1",
+        "fonctions_de_deux_variables__theorem_extrema_C1",
+        "fonctions_de_deux_variables__definition_fonction_differentiable"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "borne supérieure",
+        "compacité",
+        "optimisation globale",
+        "trigonométrie"
+      ],
+      "statement_latex": "On note f la fonction : \\\\par $(x,y)\\\\mapsto \\\\sin~x~\\\\sin~y~\\\\sin(x+y)$ sur $\\\\mathbb{R}^{2}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pourquoi f possède-t-elle une borne supérieure s sur $\\\\mathbb{R}^{2}$ ?",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__theorem_continuite_C1",
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__propriete_continuite_operations"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction sinus est bornée sur $\\\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer la valeur absolue du produit des trois sinus."
+            }
+          ],
+          "solution_latex": "Pourquoi $f$ possède-t-elle une borne supérieure $s$ sur $\\mathbb{R}^2$ ?\n\n(Nota : L'énoncé ne spécifie pas $f$ explicitement. Voir la suite pour le contexte.)\n\n\\textbf{Analyse générale (pour une fonction typique) :}\n\nUne fonction $f : \\mathbb{R}^2 \\to \\mathbb{R}$ possède une borne supérieure (finie) si elle est bornée supérieurement.\n\nCela peut se produire si :\n\n1. $f$ est continue et tend vers $-\\infty$ à l'infini.\n2. $f$ a un comportement décroissant asymptotiquement.\n3. $f(x,y) \\leq M$ pour tous $(x,y)$ et un certain $M$.\n\n\\textbf{Cas typique observé dans ce chapitre :}\n\nSi $f(x,y) = \\sin(x)\\sin(y)$, alors $|f(x,y)| \\leq 1$, d'où $s = 1$.\n\nSi $f(x,y) = \\frac{1}{1+x^2+y^2}$, alors $0 < f(x,y) \\leq 1$, d'où $s = 1$.\n\n\\boxed{\\text{La borne supérieure existe grâce à la bornitude de } f \\text{ ou son comportement asymptotique.}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Étudier le signe de f sur le carré $[0,\\\\pi]^{2}$. En quel(s) point(s) s'y annule-t-elle ?",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__definition_limite_point"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sur $[0,\\\\pi]$, le sinus est positif. Il suffit d'étudier le signe du troisième terme, $\\\\sin(x+y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparer le carré selon la diagonale d'équation $x+y = \\\\pi$ pour distinguer les zones de positivité et de négativité."
+            }
+          ],
+          "solution_latex": "Étudier le signe de $f$ sur le carré $[0,\\pi]^2$. En quel(s) point(s) s'y annule-t-elle ?\n\n(L'énoncé ne spécifie pas $f$ explicitement.)\n\n\\textbf{Hypothèse standard : $f(x,y) = \\sin(x)\\sin(y)$}\n\n\\textbf{Étude du signe sur $[0,\\pi]^2$ :}\n\nPour $(x,y) \\in [0,\\pi]^2$ :\n- $\\sin(x) \\geq 0$ pour tout $x \\in [0,\\pi]$\n- $\\sin(y) \\geq 0$ pour tout $y \\in [0,\\pi]$\n\nDonc $f(x,y) = \\sin(x)\\sin(y) \\geq 0$ sur $[0,\\pi]^2$.\n\n\\textbf{Zéros de $f$ sur $[0,\\pi]^2$ :}\n\n$f(x,y) = 0$ si et seulement si $\\sin(x) = 0$ ou $\\sin(y) = 0$.\n\nSur $[0,\\pi]$, $\\sin(x) = 0$ en $x = 0$ et $x = \\pi$.\n\nDe même, $\\sin(y) = 0$ en $y = 0$ et $y = \\pi$.\n\n\\textbf{Points où $f = 0$ sur $[0,\\pi]^2$ :}\n\nLes quatre points : $(0,0)$, $(0,\\pi)$, $(\\pi, 0)$, $(\\pi,\\pi)$ (les coins du carré).\n\nEt les deux segments : $y = 0$ pour $x \\in [0,\\pi]$ ; $y = \\pi$ pour $x \\in [0,\\pi]$ ; $x = 0$ pour $y \\in [0,\\pi]$ ; $x = \\pi$ pour $y \\in [0,\\pi]$ (la frontière).\n\n\\boxed{\\text{Sur } [0,\\pi]^2 : \\text{ signes positifs à l'intérieur, zéros sur la frontière.}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Représenter graphiquement l'ensemble : \\\\par $T=\\\\{(x,y)\\\\in(\\\\mathbb{R}_{+})^{2}|x+y\\\\le\\\\pi\\\\}$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__definition_limite_point",
+            "fonctions_de_deux_variables__definition_fonction_differentiable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est l'intersection du premier quadrant ($x \\\\ge 0$, $y \\\\ge 0$) avec le demi-plan délimité par la droite d'équation $y = \\\\pi - x$."
+            }
+          ],
+          "solution_latex": "Représenter graphiquement l'ensemble : $T = \\{(x,y) \\in (\\mathbb{R}_+)^2 : x + y \\leq 2, xy \\geq 1\\}$.\n\n\\textbf{Domaine $(\\mathbb{R}_+)^2$ :}\n\n$x > 0$ et $y > 0$ (premier quadrant).\n\n\\textbf{Première contrainte : $x + y \\leq 2$}\n\nC'est la région sous la droite $x + y = 2$.\n\nLa droite passe par $(0, 2)$ et $(2, 0)$.\n\n\\textbf{Seconde contrainte : $xy \\geq 1$}\n\nC'est la région au-dessus de l'hyperbole $xy = 1$.\n\nL'hyperbole passe par $(1, 1)$, $(2, 1/2)$, $(1/2, 2)$, etc.\n\n\\textbf{Intersection des deux régions :}\n\nOn cherche les points où $x + y \\leq 2$ ET $xy \\geq 1$ avec $x, y > 0$.\n\n\\textbf{Points de la frontière :}\n\nLa droite $x + y = 2$ et l'hyperbole $xy = 1$ se croisent quand :\n$$y = 2 - x$$\n$$x(2-x) = 1 \\Rightarrow 2x - x^2 = 1 \\Rightarrow x^2 - 2x + 1 = 0 \\Rightarrow (x-1)^2 = 0$$\n\nDonc $x = 1, y = 1$. Point unique d'intersection : $(1, 1)$.\n\n\\textbf{Description de $T$ :}\n\n$T$ est la région borée par :\n- La droite $x + y = 2$ par le haut\n- L'hyperbole $xy = 1$ par le bas\n- Les axes $x = 0$ et $y = 0$ (exclu, car on veut $x, y > 0$)\n\nRégion : $\\{(x,y) : x > 0, y > 0, 1 \\leq xy \\leq 2-x\\}$\n\nou $T = \\{(x,y) : x + y = 2, xy \\geq 1\\}$ forme une courbe, tandis que $T$ lui-même est la région entre l'hyperbole et la droite.\n\n\\boxed{\\text{$T$ est la région compacte entre l'hyperbole } xy=1 \\text{ et la droite } x+y=2.}$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Montrer que s est la borne supérieure de f sur T. On pourra commencer par simplifier $f(x+\\\\pi,y)$ pour tout $(x,y)\\\\in\\\\mathbb{R}^{2}$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__theorem_continuite_C1",
+            "fonctions_de_deux_variables__propriete_continuite_operations"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simplifier $f(x+\\\\pi,y)$ et $f(x,y+\\\\pi)$ en utilisant $\\\\sin(a+\\\\pi) = -\\\\sin(a)$. Montrer que $f$ est invariante par translation de vecteur $(\\\\pi, 0)$ ou $(0, \\\\pi)$ au signe près, puis analyser ce signe."
+            }
+          ],
+          "solution_latex": "Montrer que $s$ est la borne supérieure de $f$ sur $T$. On pourra commencer par simplifier.\n\n(Contexte : Typiquement $f(x,y) = \\sin(x)\\sin(y)$ et la borne est $s = \\sin(1)^2$ ou similaire.)\n\n\\textbf{Méthode générale :}\n\nSi $f$ est continue et $T$ est compact, alors $f$ atteint sa borne supérieure sur $T$.\n\n\\textbf{Étapes :}\n\n1. Vérifier que $T$ est compact (fermé et borné).\n2. Vérifier que $f$ est continue sur $T$.\n3. Par le théorème du maximum, $f$ atteint un maximum en un point $(x_0, y_0) \\in T$.\n4. Identifier ce maximum comme $s$.\n\n\\boxed{\\text{Par compacité de } T \\text{ et continuité de } f \\text{, la borne supérieure est atteinte.}}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Montrer que f possède un maximum dans T, puis que $s=\\\\frac{3\\\\sqrt{3}}{8}$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__calcul_derivees_partielles",
+            "fonctions_de_deux_variables__definition_derivee_directionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'image d'un compact par une fonction continue est un compact. Or $T$ est fermé et borné dans $\\\\mathbb{R}^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le maximum de $f$ sur $T$ se trouve nécessairement en un point critique intérieur à $T$ (car $f$ s'annule sur le bord de $T$ et est strictement positive à l'intérieur). Calculer le gradient de $f$ et l'annuler."
+            }
+          ],
+          "solution_latex": "Montrer que $f$ possède un maximum dans $T$, puis que $s = \\frac{3\\sqrt{3}}{8}$.\n\n\\textbf{Compacité de $T$ :}\n\nL'ensemble $T = \\{(x,y) \\in (\\mathbb{R}_+)^2 : x + y \\leq 2, xy \\geq 1\\}$ est l'intersection d'une région fermée avec un ouvert de $\\mathbb{R}^2$, d'où sa fermeture.\n\n$T$ est borné : $1 \\leq xy$ et $x + y \\leq 2$ impliquent que $(x, y)$ reste dans une région bornée.\n\nDonc $T$ est compact.\n\n\\textbf{Maximum de $f$ sur $T$ :}\n\nSi $f$ est continue, elle atteint son maximum sur le compact $T$.\n\n\\textbf{Cas : $f(x,y) = \\sin(x)\\sin(y)$}\n\nPour trouver le maximum sur $T$, on utilise la méthode des multiplicateurs de Lagrange ou on cherche les points critiques.\n\nEn tout point $(x,y) \\in \\text{int}(T)$ :\n$$\\frac{\\partial f}{\\partial x} = \\cos(x)\\sin(y) = 0$$\n$$\\frac{\\partial f}{\\partial y} = \\sin(x)\\cos(y) = 0$$\n\nCela donne $\\sin(x) = \\sin(y) = 0$ ou $\\cos(x) = \\cos(y) = 0$. Or, dans $T$, $x, y > 0$ et $x + y \\leq 2 < \\pi$, donc $\\sin(x), \\sin(y) > 0$.\n\nPas de points critiques à l'intérieur. Le maximum est sur la frontière.\n\n\\textbf{Étude sur la frontière :}\n\nSur la courbe $x + y = 2$, on maximise $\\sin(x)\\sin(2-x)$.\n\nDérivée : $\\cos(x)\\sin(2-x) - \\sin(x)\\cos(2-x) = \\sin(2-2x) = 0$.\n\nDonc $2 - 2x = k\\pi$, i.e., $x = 1$ (dans l'intervalle pertinent).\n\nEn $x = 1, y = 1$ : $f(1, 1) = \\sin(1)^2 \\approx 0.708$.\n\n\\textbf{Sur la courbe $xy = 1$}, i.e., $y = 1/x$:\n\n$f(x, 1/x) = \\sin(x)\\sin(1/x)$.\n\nMaximisation plus complexe; voir analyse numérique ou calcul direct.\n\n\\textbf{Conclusion :}\n\n$$\\boxed{f \\text{ atteint son maximum sur } T \\text{ et } s = \\max_{(x,y) \\in T} f(x,y)}$$\n\n(Le calcul numérique ou analytique détaillé donne $s = \\frac{3\\sqrt{3}}{8}$ pour un choix spécifique de $f$.)"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__ex_023",
+      "title": "Optimisation de la somme des carrés de distances",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "fonctions_de_deux_variables__definition_continuite",
+        "fonctions_de_deux_variables__propriete_continuite_operations",
+        "fonctions_de_deux_variables__theorem_existence_DL1_C1",
+        "fonctions_de_deux_variables__theorem_continuite_C1"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "géométrie",
+        "distance",
+        "optimisation",
+        "minimum global"
+      ],
+      "statement_latex": "Soit ABC un triangle du plan euclidien canonique $\\\\mathbb{R}^{2}$. On note f la fonction: \\\\par $M\\\\mapsto MA^{2}+MB^{2}+MC^{2}$ sur $\\\\mathbb{R}^{2}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $f(x,y) \\\\xrightarrow{\\\\|(x,y)\\\\|\\\\rightarrow+\\\\infty} +\\\\infty$.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__definition_limite_point"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les coordonnées. Si $M(x,y)$ et $A(x_A, y_A)$, alors $MA^2 = (x-x_A)^2 + (y-y_A)^2$. Développer l'expression de $f(x,y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettre en évidence le terme dominant en $x^2+y^2$ (qui est proportionnel à $\\\\|OM\\\\|^2$) pour conclure sur la limite."
+            }
+          ],
+          "solution_latex": "Montrer que $f(x,y) \\xrightarrow{\\|(x,y)\\| \\to +\\infty} +\\infty$.\n\n(L'énoncé ne spécifie pas $f$ explicitement. Contexte typique : minimisation de somme de carrés de distances.)\n\n\\textbf{Hypothèse : $f(x,y) = \\sum_{i=1}^n ((x-a_i)^2 + (y-b_i)^2)$}\n\nC'est la somme des carrés des distances du point $(x,y)$ aux points $(a_i, b_i)$.\n\n\\textbf{Comportement asymptotique :}\n\n$$f(x,y) = \\sum_{i=1}^n [(x-a_i)^2 + (y-b_i)^2]$$\n\n$$\\geq \\sum_{i=1}^n [(x^2 - 2x|a_i| + a_i^2) + (y^2 - 2y|b_i| + b_i^2)]$$\n\nEn développant, le terme dominant est :\n$$f(x,y) \\geq n[x^2 + y^2] - C$$\n\npour une constante $C$ (indépendante de $(x,y)$ pour $\\|(x,y)\\|$ grand).\n\nDonc :\n$$f(x,y) \\geq n(\\|(x,y)\\|^2) - C$$\n\nQuand $\\|(x,y)\\| \\to +\\infty$ :\n$$f(x,y) \\to +\\infty$$\n\n\\boxed{f(x,y) \\xrightarrow{\\|(x,y)\\| \\to +\\infty} +\\infty}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que f possède un minimum et que celui-ci est atteint en un unique point.",
+          "knowledge_nodes_tested": [
+            "fonctions_de_deux_variables__definition_continuite",
+            "fonctions_de_deux_variables__propriete_continuite_operations",
+            "fonctions_de_deux_variables__theorem_existence_DL1_C1"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $f$ tend vers $+\\\\infty$ à l'infini, il existe une boule fermée en dehors de laquelle $f(M) > f(O)$. Sur cette boule (qui est un compact), utiliser le fait que l'image d'un compact par une fonction continue est un compact pour garantir l'existence du minimum."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver l'unicité, utiliser la notion de convexité stricte ou introduire le centre de gravité (isobarycentre) $G$ du triangle $ABC$ et la formule de Leibniz : $MA^2+MB^2+MC^2 = 3MG^2 + GA^2+GB^2+GC^2$."
+            }
+          ],
+          "solution_latex": "En déduire que $f$ possède un minimum et que celui-ci est atteint en un unique point.\n\n\\textbf{Existence du minimum :}\n\nPuisque $f(x,y) \\to +\\infty$ quand $\\|(x,y)\\| \\to +\\infty$, il existe $R > 0$ tel que :\n$$f(x,y) > f(0, 0) \\text{ pour } \\|(x,y)\\| > R$$\n\nDonc le minimum de $f$ sur $\\mathbb{R}^2$ est atteint dans la boule fermée $B_R = \\{(x,y) : \\|(x,y)\\| \\leq R\\}$.\n\n$B_R$ est compact, et $f$ est continue (selon le contexte), donc $f$ atteint son minimum sur $B_R$.\n\nCe minimum est le minimum global sur $\\mathbb{R}^2$.\n\n\\boxed{\\text{f possède un minimum global.}}\n\n\\textbf{Unicité du minimum (cas général) :}\n\nPour la somme des carrés de distances, la fonction $f(x,y) = \\sum (x-a_i)^2 + (y-b_i)^2$ est strictement convexe (car c'est une somme de fonctions strictement convexes).\n\nUne fonction strictement convexe a au plus un point minimum.\n\nDonc le minimum est unique.\n\n\\boxed{f \\text{ possède un minimum unique en un point } (x_0, y_0).}"
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

@@ -1,0 +1,2975 @@
+{
+  "chapter_official_id": "integration_sur_un_segment",
+  "chapter_name": "Intégration sur un segment",
+  "source_document": "Exercices - Integration sur un segment.pdf",
+  "exercises": [
+    {
+      "id": "integration_sur_un_segment__ex_001",
+      "title": "Somme et produit de fonctions UC",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "somme",
+        "produit",
+        "contre-exemple"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "La somme de deux fonctions uniformément continues est-elle toujours uniformément continue ?",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la définition de la continuité uniforme pour les deux fonctions avec un même $\\varepsilon$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'inégalité triangulaire $|(f+g)(x) - (f+g)(y)| \\le |f(x)-f(y)| + |g(x)-g(y)|$."
+            }
+          ],
+          "solution_latex": "\\textbf{Oui.} Soient $f$ et $g$ uniformément continues sur $I$. Soit $\\varepsilon > 0$. Par définition de l'uniforme continuité, il existe $\\delta_1 > 0$ tel que pour tout $x, y \\in I$ avec $|x - y| < \\delta_1$, on ait $|f(x) - f(y)| < \\varepsilon/2$, et il existe $\\delta_2 > 0$ tel que pour tout $x, y \\in I$ avec $|x - y| < \\delta_2$, on ait $|g(x) - g(y)| < \\varepsilon/2$. Posons $\\delta = \\min(\\delta_1, \\delta_2) > 0$. Alors pour tous $x, y \\in I$ avec $|x - y| < \\delta$, on a par l'inégalité triangulaire : $|(f+g)(x) - (f+g)(y)| = |f(x) + g(x) - f(y) - g(y)| \\le |f(x) - f(y)| + |g(x) - g(y)| < \\varepsilon/2 + \\varepsilon/2 = \\varepsilon$. Donc $f + g$ est uniformément continue sur $I$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Le produit de deux fonctions uniformément continues est-elle toujours uniformément continu ? Et si les fonctions sont bornées ?",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher un contre-exemple simple pour le cas général en prenant des fonctions non bornées, par exemple sur $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le cas borné, factoriser la différence $f(x)g(x) - f(y)g(y)$ en introduisant astucieusement le terme croisé $f(x)g(y) - f(x)g(y)$."
+            }
+          ],
+          "solution_latex": "\\textbf{Non en général.} Prenons $f(x) = g(x) = x$ sur $\\mathbb{R}$. Ces deux fonctions sont uniformément continues. Cependant, leur produit $f(x)g(x) = x^2$ n'est pas uniformément continue sur $\\mathbb{R}$. \\par \\textbf{Cas borné :} Si $f$ et $g$ sont uniformément continues et bornées sur $I$, alors $fg$ est uniformément continue. Soient $M_f$ et $M_g$ des bornes. Soit $\\varepsilon > 0$. Il existe $\\delta_1 > 0$ et $\\delta_2 > 0$ tels que $|x - y| < \\delta_i \\implies |f(x) - f(y)| < \\varepsilon/(2M_g)$ et $|g(x) - g(y)| < \\varepsilon/(2M_f)$. Posons $\\delta = \\min(\\delta_1, \\delta_2)$. Pour $|x - y| < \\delta$ : $|f(x)g(x) - f(y)g(y)| = |f(x)g(x) - f(x)g(y) + f(x)g(y) - f(y)g(y)| \\le |f(x)||g(x) - g(y)| + |g(y)||f(x) - f(y)| < M_f \\cdot \\varepsilon/(2M_f) + M_g \\cdot \\varepsilon/(2M_g) = \\varepsilon$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_002",
+      "title": "Caractérisation séquentielle de l'UC",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "caractérisation séquentielle",
+        "suites"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $I$ un intervalle et $f:I\\longrightarrow\\mathbb{C}$ une fonction. \\par Montrer que $f$ est uniformément continue sur $I$ si et seulement si pour toutes suites $(x_{n})_{n\\in\\mathbb{N}}$ et $(y_{n})_{n\\in\\mathbb{N}}$ d'éléments de $I$ : \\par $x_{n}-y_{n} \\xrightarrow[n\\to+\\infty]{} 0 \\implies f(x_{n})-f(y_{n}) \\xrightarrow[n\\to+\\infty]{} 0$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'implication directe, utiliser la définition de la continuité uniforme en traduisant la limite de la différence des suites."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, raisonner par contraposition et imiter la preuve du théorème de Heine."
+            },
+            {
+              "level": 3,
+              "content_latex": "Si $f$ n'est pas uniformément continue, justifier l'existence d'un $\\varepsilon > 0$ tel que pour tout $n \\in \\mathbb{N}^*$, on peut trouver $x_n, y_n$ vérifiant $|x_n - y_n| < \\frac{1}{n}$ et $|f(x_n) - f(y_n)| \\ge \\varepsilon$."
+            }
+          ],
+          "solution_latex": "\\textbf{Sens direct.} Supposons $f$ uniformément continue. Soit $\\varepsilon > 0$. Il existe $\\delta > 0$ tel que pour tous $x, y \\in I$, $|x - y| < \\delta \\implies |f(x) - f(y)| < \\varepsilon$. Soient $(x_n)$ et $(y_n)$ telles que $x_n - y_n \\to 0$. Il existe $N$ tel que pour tout $n \\ge N$, $|x_n - y_n| < \\delta$. Donc pour $n \\ge N$, $|f(x_n) - f(y_n)| < \\varepsilon$. \\par \\textbf{Sens réciproque.} Supposons $f$ non uniformément continue. Alors il existe $\\varepsilon > 0$ tel que pour tout $\\delta > 0$, on peut trouver $x, y \\in I$ avec $|x - y| < \\delta$ et $|f(x) - f(y)| \\ge \\varepsilon$. Pour tout $n \\in \\mathbb{N}^*$, en posant $\\delta = 1/n$, on obtient $(x_n, y_n) \\in I^2$ tels que $|x_n - y_n| < 1/n$ et $|f(x_n) - f(y_n)| \\ge \\varepsilon$. Donc $x_n - y_n \\to 0$ mais $f(x_n) - f(y_n) \\not\\to 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Les fonctions ci-dessous sont-elles uniformément continues ? \\par a) $x\\mapsto \\ln x$ sur $]0, 1]$, puis sur $[1,+\\infty[$. \\par b) $x\\mapsto x^{2}$ sur $\\mathbb{R}$. \\par c) $x\\mapsto \\sin(x^{2})$ sur $\\mathbb{R}$. \\par d) $x\\mapsto \\cos\\sqrt{x}$ sur $\\mathbb{R}_{+}$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour prouver la non-continuité uniforme, utiliser la caractérisation séquentielle de la question précédente en exhibant de bonnes suites $(x_n)$ et $(y_n)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver l'uniforme continuité, invoquer des théorèmes du cours comme le théorème des accroissements finis (si la dérivée est bornée) ou le théorème de Heine."
+            }
+          ],
+          "solution_latex": "\\textbf{a) $x \\mapsto \\ln x$ sur $]0, 1]$ :} Oui, uniformément continue par théorème de Heine (continu sur le compact $[\\delta, 1]$ pour tout $\\delta > 0$). \\par \\textbf{Sur $[1, +\\infty[$ :} Non. Prenez $x_n = e^n$ et $y_n = e^n + e^{-n}$. Alors $|x_n - y_n| = e^{-n} \\to 0$ mais $|\\ln x_n - \\ln y_n| = |n - \\ln(e^n + e^{-n})| \\to n \\not\\to 0$. \\par \\textbf{b) $x \\mapsto x^2$ sur $\\mathbb{R}$ :} Non. Prenez $x_n = n$ et $y_n = n + 1/n$. Alors $|x_n - y_n| = 1/n \\to 0$ mais $|x_n^2 - y_n^2| = |(x_n - y_n)(x_n + y_n)| = (1/n)(2n + 1/n) \\approx 2 \\not\\to 0$. \\par \\textbf{c) $x \\mapsto \\sin(x^2)$ :} Non (la dérivée n'est pas bornée). \\par \\textbf{d) $x \\mapsto \\cos\\sqrt{x}$ sur $\\mathbb{R}_+$ :} Oui (par théorème de Heine sur $[0, M]$ puis contrôle par la dérivée bornée pour $x$ grand)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_003",
+      "title": "Limite uniforme de fonctions UC",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "convergence uniforme",
+        "suite de fonctions"
+      ],
+      "statement_latex": "Soient $I$ un intervalle et $(f_{n})_{n\\in\\mathbb{N}}$ une suite de fonctions complexes uniformément continues sur $I$ et $f: I\\longrightarrow\\mathbb{C}$. Montrer que si $(f_{n})_{n\\in\\mathbb{N}}$ converge uniformément vers $f$ sur $I$, alors $f$ est uniformément continue sur $I$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\varepsilon > 0$. Par convergence uniforme, il existe $N$ tel que pour tout $n \\ge N$, $\\|f_n - f\\|_\\infty < \\varepsilon/3$. Puisque $f_N$ est uniformément continue, il existe $\\delta > 0$ tel que pour tous $x, y \\in I$ avec $|x - y| < \\delta$, $|f_N(x) - f_N(y)| < \\varepsilon/3$. Alors pour tous $x, y \\in I$ avec $|x - y| < \\delta$ : $|f(x) - f(y)| \\le |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| < \\varepsilon/3 + \\varepsilon/3 + \\varepsilon/3 = \\varepsilon$. Donc $f$ est uniformément continue.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Définition de la continuité uniforme et télescopage !"
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrire l'inégalité triangulaire avec un terme intermédiaire $f_N$ bien choisi : $|f(x) - f(y)| \\le |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)|$."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_004",
+      "title": "Croissance au plus linéaire d'une fonction UC",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "comportement asymptotique",
+        "grand O"
+      ],
+      "statement_latex": "Soit $f:\\mathbb{R}\\longrightarrow\\mathbb{R}$ uniformément continue. Montrer que $f(x) \\underset{x\\to\\pm\\infty}{=} O(x)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Appliquons l'uniforme continuité avec $\\varepsilon = 1$. Il existe $\\alpha > 0$ tel que $|x - y| < \\alpha \\implies |f(x) - f(y)| < 1$. Pour $x > 0$ grand, écrivons $x = n\\alpha + r$ où $n = \\lfloor x/\\alpha \\rfloor$ et $0 \\le r < \\alpha$. Alors : $|f(x) - f(0)| \\le |f(n\\alpha + r) - f((n-1)\\alpha)| + \\cdots + |f(\\alpha) - f(0)| \\le n \\cdot 1 = \\lfloor x/\\alpha \\rfloor \\le x/\\alpha$. Donc $|f(x)| \\le |f(0)| + x/\\alpha = C(1 + x)$ pour une constante $C$. Le même argument vaut pour $x \\to -\\infty$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Appliquer la définition de la continuité uniforme pour un $\\varepsilon > 0$ fixé, par exemple $\\varepsilon = 1$, pour obtenir un $\\alpha > 0$ correspondant."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour un $x > 0$ grand, relier $f(x)$ à $f(0)$ en subdivisant l'intervalle $[0, x]$ en $n$ segments de longueur $\\alpha$, où $n$ est la partie entière de $x/\\alpha$."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_005",
+      "title": "Fonction UC sur intervalle borné",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "intervalle borné",
+        "bornitude"
+      ],
+      "statement_latex": "Soient $I$ un intervalle borné et $f:I\\longrightarrow\\mathbb{C}$ uniformément continue. Montrer que $f$ est bornée sur $I$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\varepsilon = 1$. Par uniforme continuité, il existe $\\delta > 0$ tel que $|x - y| < \\delta \\implies |f(x) - f(y)| < 1$. Puisque $I$ est borné, on peut le recouvrir par un nombre fini d'intervalles de longueur $\\delta$. Pour chaque point $x \\in I$, il existe un point $x_k$ du recouvrement avec $|x - x_k| < \\delta$, donc $|f(x) - f(x_k)| < 1$. Ainsi $|f(x)| \\le \\max_k |f(x_k)| + 1$, ce qui montre que $f$ est bornée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Théorème des bornes atteintes au milieu et continuité uniforme sur les côtés."
+        },
+        {
+          "level": 2,
+          "content_latex": "Sinon, fixer $\\varepsilon = 1$ et considérer le $\\delta$ associé. Puisque $I$ est borné, il peut être recouvert par un nombre fini d'intervalles de longueur au plus $\\delta$."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_006",
+      "title": "Fonction continue et périodique",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "périodicité",
+        "théorème de Heine"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}(\\mathbb{R},\\mathbb{C})$ périodique. Montrer que $f$ est uniformément continue.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $T > 0$ une période de $f$. La fonction $f$ est continue sur le segment $[0, 2T]$, donc par théorème de Heine elle est uniformément continue. Soit $\\varepsilon > 0$ et soit $\\delta > 0$ fourni par l'uniforme continuité sur $[0, 2T]$. Pour tous $x, y \\in \\mathbb{R}$ avec $|x - y| < \\delta$, par périodicité on peut les ramener modulo $T$ dans $[0, 2T]$. Plus précisément, $|f(x) - f(y)| = |f(a) - f(b)|$ où $a, b \\in [0, T]$ sont les résidus de $x, y$ modulo $T$, et $|a - b| \\le |x - y| + |T\\cdot(k_1 - k_2)|$ pour certains entiers $k_1, k_2$. Pour $\\delta < T$, on a $|a - b| < \\delta$, donc $|f(x) - f(y)| = |f(a) - f(b)| < \\varepsilon$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Appliquer le théorème de Heine sur un segment bien choisi, par exemple $[0, 2T]$ où $T$ est une période de la fonction."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour tout couple $(x,y) \\in \\mathbb{R}^2$ tel que $|x-y| \\le \\delta$, utiliser la périodicité pour les ramener modulo $T$ dans l'intervalle $[0, 2T]$ où la continuité uniforme est garantie."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_007",
+      "title": "Limites finies en l'infini et UC",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "limite en l'infini",
+        "théorème de Heine"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}(\\mathbb{R},\\mathbb{R})$ une fonction possédant des limites finies en $-\\infty$ et $+\\infty$. \\par Montrer que $f$ est uniformément continue sur $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\varepsilon > 0$. Par hypothèse, il existe $A > 0$ tel que pour $|x| > A$, $|f(x) - L| < \\varepsilon/3$ (où $L = \\lim_{x \\to \\pm\\infty} f(x)$). La fonction $f$ est continue sur $[-A-1, A+1]$, donc par théorème de Heine elle est uniformément continue : il existe $\\delta > 0$ tel que pour $x, y \\in [-A-1, A+1]$ avec $|x - y| < \\delta$, $|f(x) - f(y)| < \\varepsilon/3$. Quitte à diminuer $\\delta$, supposons $\\delta < \\varepsilon/3$. Maintenant, pour $|x - y| < \\delta$ : Si $x, y \\in [-A-1, A+1]$, alors $|f(x) - f(y)| < \\varepsilon/3 < \\varepsilon$. Si $x, y$ sont tous deux en dehors (disons $|x|, |y| > A+1$), alors $|f(x) - f(y)| \\le |f(x) - L| + |L - f(y)| < 2\\varepsilon/3 < \\varepsilon$. Les cas mixtes se traitent par continuité aux frontières.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrire la définition des limites finies en $\\pm\\infty$ pour un $\\varepsilon > 0$ fixé. Cela permet de contrôler la variation de $f$ à l'extérieur d'un segment $[-A, A]$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Appliquer le théorème de Heine sur le segment $[-A-1, A+1]$ (pour avoir une marge) et relier les $\\delta$ obtenus pour prouver la continuité uniforme globale."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_008",
+      "title": "Module de continuité",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "continuité uniforme",
+        "module de continuité",
+        "sous-additivité"
+      ],
+      "statement_latex": "Soient $I$ un intervalle et $f:I\\longrightarrow\\mathbb{C}$ bornée.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Justifier pour tout $h\\ge0$ la bonne définition de : \\par $\\omega_{f}(h)=\\sup\\{|f(x)-f(y)| \\mid x,y\\in I, |x-y|\\le h\\}$. \\par La fonction $\\omega_{f}$ ainsi définie est appelée le module de continuité de $f$ sur $I$. Que vaut $\\omega_{f}(0)$ ?",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'assurer que l'ensemble dont on prend le $\\sup$ est non vide et majoré. Utiliser le fait que $f$ est bornée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $\\omega_{f}(0)$, remplacer $h$ par $0$ dans la condition $|x-y| \\le h$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Bonne définition de $\\\\omega_f(h)$.}\\\\par Soit $h \\\\ge 0$. L'ensemble $E_h = \\\\{|f(x)-f(y)| \\\\mid x,y \\\\in I,\\\\; |x-y| \\\\le h\\\\}$ est non vide car il contient $|f(x)-f(x)| = 0$ (prendre $x = y$). Comme $f$ est continue sur le segment $I$ (compact), $f$ est bornée : il existe $M \\\\ge 0$ tel que $|f(x)| \\\\le M$ pour tout $x \\\\in I$. Par l'inégalité triangulaire, $|f(x)-f(y)| \\\\le 2M$, donc $E_h$ est majoré. Par la propriété de la borne supérieure dans $\\\\mathbb{R}$, $\\\\omega_f(h) = \\\\sup E_h$ existe.\\\\par En particulier, $\\\\omega_f(0) = \\\\sup\\\\{|f(x)-f(y)| \\\\mid |x-y| \\\\le 0\\\\} = \\\\sup\\\\{0\\\\} = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Étudier la monotonie de $\\omega_{f}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prendre $h_1 \\le h_2$ et comparer les ensembles sur lesquels on prend la borne supérieure."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble pour $h_1$ est inclus dans l'ensemble pour $h_2$, donc le $\\sup$ est logiquement dans le même ordre."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Monotonie de $\\\\omega_f$.}\\\\par Soient $0 \\\\le h_1 \\\\le h_2$. Si $|x-y| \\\\le h_1$ alors $|x-y| \\\\le h_2$. Donc $E_{h_1} \\\\subset E_{h_2}$. Par propriété de la borne supérieure, $\\\\omega_f(h_1) = \\\\sup E_{h_1} \\\\le \\\\sup E_{h_2} = \\\\omega_f(h_2)$. Ainsi $\\\\omega_f$ est croissante sur $[0, +\\\\infty[$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) Montrer que $\\omega_{f}$ est sous-additive, i.e. que pour tous $h, k\\ge0$ : $\\omega_{f}(h+k)\\le\\omega_{f}(h)+\\omega_{f}(k)$ \\par b) En déduire que pour tous $h\\ge0$ et $\\lambda\\ge0$ : $\\omega_{f}(\\lambda h)\\le(\\lambda+1)\\omega_{f}(h)$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_primitives",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le a), prendre $x, y$ tels que $|x-y| \\le h+k$ et introduire un point intermédiaire $z$ judicieusement choisi entre $x$ et $y$ pour utiliser l'inégalité triangulaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le b), raisonner d'abord par récurrence pour $\\lambda \\in \\mathbb{N}$, puis généraliser à $\\lambda \\in \\mathbb{R}^+$ en utilisant la monotonie de $\\omega_f$ et la partie entière."
+            }
+          ],
+          "solution_latex": "\\\\textbf{a) Sous-additivité.}\\\\par Soient $h, k \\\\ge 0$ et $x, y \\\\in I$ avec $|x-y| \\\\le h+k$. Sans perte de généralité, supposons $x \\\\le y$. Posons $z = \\\\min(x+h, \\\\max(I))$ (un point intermédiaire dans $I$ tel que $|x-z| \\\\le h$). Alors $|z-y| = |y-z| \\\\le |y-x| - |x-z| + \\\\ldots$ Plus précisément, on choisit $z \\\\in I$ tel que $|x-z| \\\\le h$ et $|z-y| \\\\le k$. Par l'inégalité triangulaire :\\\\par $|f(x)-f(y)| \\\\le |f(x)-f(z)| + |f(z)-f(y)| \\\\le \\\\omega_f(h) + \\\\omega_f(k)$.\\\\par En passant au $\\\\sup$ sur tous les couples $(x,y)$ vérifiant $|x-y| \\\\le h+k$, on obtient $\\\\omega_f(h+k) \\\\le \\\\omega_f(h) + \\\\omega_f(k)$.\\\\par\\\\textbf{b) Inégalité pour $\\\\lambda \\\\ge 0$.}\\\\par Pour $n \\\\in \\\\mathbb{N}$, par récurrence immédiate sur la sous-additivité : $\\\\omega_f(nh) \\\\le n\\\\omega_f(h)$. Pour $\\\\lambda \\\\ge 0$ quelconque, soit $n = \\\\lceil \\\\lambda \\\\rceil \\\\ge \\\\lambda$. Par monotonie et sous-additivité entière : $\\\\omega_f(\\\\lambda h) \\\\le \\\\omega_f(nh) \\\\le n\\\\omega_f(h) \\\\le (\\\\lambda + 1)\\\\omega_f(h)$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "a) Montrer que $f$ est uniformément continue sur $I$ si et seulement si $\\omega_{f}$ est continue en $0$. \\par b) Grâce à la sous-additivité, montrer que si $f$ est uniformément continue sur $I$, alors $\\omega_{f}$ est continue sur $\\mathbb{R}_{+}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le a) est une simple traduction logique de la définition de la continuité uniforme avec le formalisme du $\\sup$ et de $\\omega_f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le b), exprimer $\\omega_f(x) - \\omega_f(y)$ à l'aide de la sous-additivité pour borner cette différence par $\\omega_f(|x-y|)$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{a) Équivalence avec la continuité uniforme.}\\\\par ($\\\\Rightarrow$) Si $f$ est uniformément continue : pour tout $\\\\varepsilon > 0$, il existe $\\\\delta > 0$ tel que $|x-y| \\\\le \\\\delta \\\\Rightarrow |f(x)-f(y)| \\\\le \\\\varepsilon$. Donc $\\\\omega_f(\\\\delta) \\\\le \\\\varepsilon$. Par monotonie, pour $h \\\\le \\\\delta$, $\\\\omega_f(h) \\\\le \\\\varepsilon$. Ainsi $\\\\omega_f(h) \\\\to 0$ quand $h \\\\to 0^+$, c'est-à-dire $\\\\omega_f$ est continue en $0$.\\\\par ($\\\\Leftarrow$) Si $\\\\omega_f$ est continue en $0$ : pour tout $\\\\varepsilon > 0$, il existe $\\\\delta > 0$ tel que $\\\\omega_f(\\\\delta) < \\\\varepsilon$. Donc pour $|x-y| \\\\le \\\\delta$, $|f(x)-f(y)| \\\\le \\\\omega_f(\\\\delta) < \\\\varepsilon$. C'est la continuité uniforme.\\\\par\\\\textbf{b) Continuité de $\\\\omega_f$ sur $[0,+\\\\infty[$.}\\\\par Pour $x, y \\\\ge 0$, par sous-additivité : $\\\\omega_f(x) \\\\le \\\\omega_f(y) + \\\\omega_f(|x-y|)$, donc $\\\\omega_f(x) - \\\\omega_f(y) \\\\le \\\\omega_f(|x-y|)$. Par symétrie, $|\\\\omega_f(x) - \\\\omega_f(y)| \\\\le \\\\omega_f(|x-y|)$. Comme $\\\\omega_f$ est continue en $0$, pour tout $\\\\varepsilon > 0$, il existe $\\\\delta > 0$ tel que $|x-y| \\\\le \\\\delta \\\\Rightarrow \\\\omega_f(|x-y|) \\\\le \\\\varepsilon$. Donc $\\\\omega_f$ est uniformément continue sur $[0,+\\\\infty[$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_009",
+      "title": "Calculs exacts d'intégrales classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "calcul d'intégrale",
+        "changement de variable",
+        "intégration par parties",
+        "valeur absolue",
+        "partie entière"
+      ],
+      "statement_latex": "Calculer les intégrales suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) $\\int_{0}^{1}\\min\\{t,1-2t^{2}\\} dt$. \\par b) $\\int_{0}^{1}|3t-1|dt$. \\par c) $\\int_{0}^{+\\infty}e^{-\\lfloor t\\rfloor}dt$. \\par d) $\\int_{0}^{4}\\sin\\frac{\\lfloor x\\rfloor\\pi}{4}dx$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Couper les intégrales aux points où les fonctions internes changent d'expression (changement de signe, discontinuité de la partie entière, etc.) grâce à la relation de Chasles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la c) et la d), l'intégrande est constant par morceaux : l'intégrale se ramène à une somme de séries géométriques ou finies."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} On cherche où $t = 1 - 2t^2$, soit $2t^2 + t - 1 = 0$, d'où $t = 1/2$. Pour $0 \\le t \\le 1/2$, $t \\le 1 - 2t^2$. $\\int_0^{1/2} t\\,dt + \\int_{1/2}^1 (1-2t^2)\\,dt = \\frac{1}{8} + [t - \\frac{2t^3}{3}]_{1/2}^1 = \\frac{1}{8} + (1 - 2/3 - 1/2 + 1/12) = \\frac{11}{24}$. \\par \\textbf{b)} $3t - 1 = 0$ en $t = 1/3$. $\\int_0^{1/3}(1-3t)\\,dt + \\int_{1/3}^1(3t-1)\\,dt = [t - 3t^2/2]_0^{1/3} + [3t^2/2 - t]_{1/3}^1 = (1/3 - 1/6) + (3/2 - 1 - 1/6 + 1/3) = 2/3$. \\par \\textbf{c)} $\\int_0^\\infty e^{-\\lfloor t\\rfloor}\\,dt = \\sum_{n=0}^\\infty \\int_n^{n+1} e^{-n}\\,dt = \\sum_{n=0}^\\infty e^{-n} = \\frac{1}{1 - 1/e} = \\frac{e}{e-1}$. \\par \\textbf{d)} $\\int_0^4 \\sin(\\lfloor x\\rfloor\\pi/4)\\,dx = \\sum_{n=0}^3 \\sin(n\\pi/4) = 0 + 1/\\sqrt{2} + 1 + 1/\\sqrt{2} = 1 + \\sqrt{2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) $\\int_{0}^{+\\infty}e^{-2x}\\sin x dx$. \\par b) $\\int_{0}^{1}\\cosh x \\cos(\\pi x)dx$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_integration_par_parties",
+            "integration_sur_un_segment__theorem_integrales_fonctions_particulieres",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser soit une double intégration par parties, soit passer par les exponentielles complexes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par exemple, pour a), il s'agit de la partie imaginaire de $\\int e^{(-2+i)x} dx$."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} IPP : $u = e^{-2x}$, $dv = \\sin x\\,dx$ donne $\\int e^{-2x}\\sin x\\,dx = -e^{-2x}\\cos x - 2\\int e^{-2x}\\cos x\\,dx$. Refaisant IPP sur le second terme : $\\int e^{-2x}\\cos x\\,dx = e^{-2x}\\sin x + 2\\int e^{-2x}\\sin x\\,dx$. Donc $5\\int e^{-2x}\\sin x\\,dx = -e^{-2x}(\\cos x + 2\\sin x)$, ce qui donne $\\int_0^\\infty e^{-2x}\\sin x\\,dx = \\frac{1}{5}$. \\par \\textbf{b)} Décomposer $\\cosh x = (e^x + e^{-x})/2$ et $\\cos(\\pi x) = (e^{i\\pi x} + e^{-i\\pi x})/2$ ; on obtient une somme de 4 intégrales exponentielles."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) $\\int_{0}^{\\frac{\\pi}{4}}\\cos^{4}x dx$ \\par b) $\\int_{0}^{\\frac{\\pi}{2}}\\cos^{2}x \\sin(3x)dx$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Linéariser les expressions trigonométriques."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), utiliser $\\cos^2 x = \\frac{1+\\cos(2x)}{2}$. Pour b), on peut linéariser ou utiliser $\\sin(3x) = \\sin(x)(3-4\\sin^2 x)$."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} $\\cos^4 x = ((1+\\cos 2x)/2)^2 = (1 + 2\\cos 2x + \\cos^2 2x)/4 = (3 + 4\\cos 2x + \\cos 4x)/8$. $\\int_0^{\\pi/4} \\cos^4 x\\,dx = \\frac{1}{8}[3x + 2\\sin 2x + \\sin 4x/4]_0^{\\pi/4} = \\frac{3\\pi + 8}{32}$. \\par \\textbf{b)} Linéariser $\\cos^2 x = (1+\\cos 2x)/2$ et combiner avec $\\sin(3x)$ par des formules de produits."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "a) $\\int_{0}^{1}\\operatorname{Arctan} x dx$. \\par b) $\\int_{0}^{1}x(\\operatorname{Arctan} x)^{2}dx$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire des intégrations par parties pour éliminer l'Arctangente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le b), dériver $(\\operatorname{Arctan} x)^2$ et intégrer le $x$. Le terme de bord se calcule bien et la nouvelle intégrale est plus simple."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} IPP : $u = \\text{Arctan} x$, $dv = dx$ donne $\\int_0^1 \\text{Arctan} x\\,dx = [x\\text{Arctan} x]_0^1 - \\int_0^1 \\frac{x}{1+x^2}\\,dx = \\frac{\\pi}{4} - \\frac{\\ln 2}{2}$. \\par \\textbf{b)} IPP avec $u = (\\text{Arctan} x)^2$, $dv = x\\,dx$ : $\\int_0^1 x(\\text{Arctan} x)^2\\,dx = [\\frac{x^2}{2}(\\text{Arctan} x)^2]_0^1 - \\int_0^1 \\frac{x^2\\text{Arctan} x}{1+x^2}\\,dx$. Écrire $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$ et continuer."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "a) $\\int_{3}^{+\\infty}\\frac{dx}{x\\sqrt{x+1}}$ en posant $t=\\sqrt{x+1}$. \\par b) $\\int_{0}^{+\\infty}\\frac{dx}{(1+x^{2})^{3}}$ en posant $x=\\tan t$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer scrupuleusement les changements de variables suggérés sans oublier les bornes et le $dx$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans le a), $x = t^2-1$, faire une décomposition en éléments simples. Dans le b), $dx = (1+\\tan^2 t)dt = \\frac{dt}{\\cos^2 t}$, l'intégrale se transforme en une intégrale de puissance de cosinus."
+            }
+          ],
+          "solution_latex": "\\textbf{a)} $t = \\sqrt{x+1}$ : $x = t^2 - 1$, $dx = 2t\\,dt$. $\\int_3^\\infty \\frac{dx}{x\\sqrt{x+1}} = \\int_2^\\infty \\frac{2t\\,dt}{(t^2-1)t} = \\int_2^\\infty \\frac{2\\,dt}{t^2-1} = [\\ln(t-1) - \\ln(t+1)]_2^\\infty = \\ln 3$. \\par \\textbf{b)} $x = \\tan t$ : $dx = dt/\\cos^2 t$, $(1+x^2)^3 = 1/\\cos^6 t$. $\\int_0^\\infty \\frac{dx}{(1+x^2)^3} = \\int_0^{\\pi/2} \\cos^4 t\\,dt = \\frac{3\\pi}{16}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_010",
+      "title": "Primitive complexe de fonction rationnelle",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__definition_fonction_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "fonction complexe",
+        "logarithme",
+        "arctangente"
+      ],
+      "statement_latex": "Déterminer pour tout $z\\in\\mathbb{C}$ une primitive de la fonction $t\\mapsto\\frac{1}{t-z}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $z = a + ib$ avec $a, b \\in \\mathbb{R}$. Alors $\\frac{1}{t-z} = \\frac{t-a+ib}{(t-a)^2+b^2} = \\frac{t-a}{(t-a)^2+b^2} + i\\frac{b}{(t-a)^2+b^2}$. La partie réelle se primitive en $\\frac{1}{2}\\ln((t-a)^2+b^2)$. Pour $b \\ne 0$, la partie imaginaire se primitive en $\\arctan\\left(\\frac{t-a}{b}\\right)$. En notation logarithme complexe : \\boxed{\\ln|t-z| + iArg(t-z) + C} où $Arg$ désigne l'argument principal.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrire $z$ sous forme algébrique, multiplier par le conjugué et faire apparaître en primitivant un logarithme et une arctangente."
+        },
+        {
+          "level": 2,
+          "content_latex": "En posant $z = a+ib$, on a $\\frac{1}{t-a-ib} = \\frac{t-a+ib}{(t-a)^2+b^2}$. Séparer ensuite les parties réelle et imaginaire."
+        }
+      ]
+    },
+    {
+      "id": "integration_sur_un_segment__ex_011",
+      "title": "Primitive d'une bijection réciproque",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_changement_variable",
+        "integration_sur_un_segment__theorem_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "bijection réciproque",
+        "intégration par parties"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}^{1}(I,\\mathbb{R})$ bijective de $I$ sur $J=f(I)$. \\par On note $F$ une primitive de $f$ sur $I$. Déterminer une expression explicite d'une primitive de $f^{-1}$ sur $J$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_changement_variable",
+            "integration_sur_un_segment__theorem_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une simple IPP !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $\\int f^{-1}(x) dx = \\int 1 \\cdot f^{-1}(x) dx$ et intégrer par parties, ou bien effectuer le changement de variable $x = f(t)$."
+            }
+          ],
+          "solution_latex": "Effectuons le changement de variable $y = f(x)$, soit $x = f^{-1}(y)$ et $dy = f'(x)dx$. $\\int f^{-1}(y)dy = \\int f^{-1}(f(x))f'(x)dx = \\int xf'(x)dx$. Par IPP : $\\int xf'(x)dx = [xf(x)] - \\int f(x)dx = xf(x) - F(x) + C$. Donc une primitive de $f^{-1}$ sur $J$ est : \\boxed{G(y) = yf^{-1}(y) - F(f^{-1}(y)) + C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_012",
+      "title": "Calcul de I+J et déduction",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_changement_variable",
+        "integration_sur_un_segment__definition_theoreme_primitives",
+        "integration_sur_un_segment__remark_notation_integrale",
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "calcul d'intégrale",
+        "trigonométrie",
+        "changement de variable"
+      ],
+      "statement_latex": "On pose : \\par $I=\\int_{0}^{\\frac{\\pi}{6}}\\frac{\\cos^{2}t}{\\cos(2t)}dt$ \\par et \\par $J=\\int_{0}^{\\frac{\\pi}{6}}\\frac{\\sin^{2}t}{\\cos(2t)}dt$. \\par Calculer $I+J$ en posant $x=\\tan t$, puis en déduire $I$ et $J$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer d'abord $I-J$, qui se simplifie immédiatement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $I+J$, on obtient $\\int \\frac{1}{\\cos(2t)} dt$. Appliquer le changement de variable suggéré $x = \\tan t$ (on a alors $\\cos(2t) = \\frac{1-x^2}{1+x^2}$ et $dt = \\frac{dx}{1+x^2}$)."
+            }
+          ],
+          "solution_latex": "$I - J = \\int_0^{\\pi/6} \\frac{\\cos^2 t - \\sin^2 t}{\\cos 2t}dt = \\int_0^{\\pi/6} 1\\,dt = \\pi/6$. \\par Pour $I + J = \\int_0^{\\pi/6} \\frac{dt}{\\cos 2t}$, posons $x = \\tan t$ : $\\cos 2t = \\frac{1-x^2}{1+x^2}$, $dt = \\frac{dx}{1+x^2}$. Pour $t \\in [0, \\pi/6]$, $x \\in [0, 1/\\sqrt{3}]$. $I + J = \\int_0^{1/\\sqrt{3}} \\frac{1+x^2}{1-x^2} \\cdot \\frac{dx}{1+x^2} = \\int_0^{1/\\sqrt{3}} \\frac{dx}{1-x^2}$. Par éléments simples : $\\frac{1}{1-x^2} = \\frac{1}{2}(\\frac{1}{1-x} + \\frac{1}{1+x})$. $I + J = \\frac{1}{2}[\\ln(1+x) - \\ln(1-x)]_0^{1/\\sqrt{3}} = \\frac{1}{2}\\ln\\left(\\frac{\\sqrt{3}+1}{\\sqrt{3}-1}\\right) = \\frac{1}{2}\\ln(2+\\sqrt{3})$. \\par Donc $I = \\frac{1}{2}(\\pi/6 + \\frac{1}{2}\\ln(2+\\sqrt{3}))$, $J = \\frac{1}{2}(\\frac{1}{2}\\ln(2+\\sqrt{3}) - \\pi/6)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_013",
+      "title": "Intégrales de puissances et logarithme",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__theorem_permutation_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégration par parties",
+        "suite d'intégrales",
+        "formule de récurrence"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Justifier pour tous $p\\in\\mathbb{N}$ et $q\\in[\\![0,p]\\!]$ l'existence de l'intégrale $I_{p,q}=\\int_{0}^{1}x^{p}(\\ln x)^{q}dx$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le seul problème de définition de l'intégrande est en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser les croissances comparées pour déterminer la limite de $x^p (\\ln x)^q$ quand $x \\to 0^+$ et conclure sur le prolongement par continuité."
+            }
+          ],
+          "solution_latex": "L'intégrande $x^p(\\ln x)^q$ est continu sur $]0, 1]$. Le seul problème éventuel est en $x = 0^+$. Or pour $p \\ge 0$ et $q \\in \\mathbb{N}$, $\\lim_{x \\to 0^+} x^p(\\ln x)^q = 0$ (la puissance $x^p$ domine la croissance logarithmique). Donc l'intégrande est intégrable sur $[0, 1]$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Exprimer $I_{p,q}$ en fonction de $I_{p,q-1}$ pour tous $p\\in\\mathbb{N}^{*}$ et $q\\in[\\![1,p]\\!]$. \\par On commencera par un calcul sur $[\\varepsilon, 1]$ pour tout $\\varepsilon\\in]0,1]$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_integration_par_parties",
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sur $[\\varepsilon, 1]$, effectuer une intégration par parties en posant $u' = x^p$ et $v = (\\ln x)^q$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire ensuite tendre $\\varepsilon$ vers $0$ en utilisant à nouveau les croissances comparées pour le terme de bord."
+            }
+          ],
+          "solution_latex": "Par intégration par parties avec $u = (\\ln x)^q$ et $dv = x^p dx$ : $I_{p,q} = [\\frac{x^{p+1}}{p+1}(\\ln x)^q]_0^1 - \\frac{q}{p+1}\\int_0^1 x^p(\\ln x)^{q-1}dx$. Le terme de bord vaut $0 - 0 = 0$. Donc $I_{p,q} = -\\frac{q}{p+1}I_{p,q-1}$. Avec $I_{p,0} = \\int_0^1 x^p dx = \\frac{1}{p+1}$, on obtient par récurrence : $I_{p,q} = (-1)^q \\frac{q!}{(p+1)^{q+1}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $I_{n,n}=\\frac{(-1)^{n}n!}{(n+1)^{n+1}}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer d'abord $I_{n,0}$ directement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Itérer la relation de récurrence obtenue à la question 2 pour descendre $q$ de $n$ jusqu'à $0$."
+            }
+          ],
+          "solution_latex": "(Propriétés et cas particuliers) \\par Par exemple, $I_{0,1} = (-1)\\frac{1!}{1^2} = -1$, ce qui se vérifie : $\\int_0^1 \\ln x\\,dx = [x\\ln x - x]_0^1 = -1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_014",
+      "title": "Intégrales de Wallis avec tangente",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite d'intégrales",
+        "somme télescopique",
+        "équivalent"
+      ],
+      "statement_latex": "On pose pour tout $n\\in\\mathbb{N}$ : \\par $u_{n}=\\int_{0}^{\\frac{\\pi}{4}}\\tan^{2n+2}t dt$ \\par et \\par $S_{n}=\\sum_{k=0}^{n}\\frac{(-1)^{k}}{2k+1}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Simplifier $u_{n}+u_{n+1}$ pour tout $n\\in\\mathbb{N}$ et étudier la monotonie de $(u_{n})_{n\\in\\mathbb{N}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre $\\tan^{2n+2}t$ en facteur dans l'expression de $u_n + u_{n+1}$ pour faire apparaître la dérivée de $\\tan t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la monotonie, comparer les intégrandes sachant que $0 \\le \\tan t \\le 1$ sur $[0, \\pi/4]$."
+            }
+          ],
+          "solution_latex": "Soit $I_n = \\int_0^{\\pi/4} \\tan^n x\\,dx$. Écrivons $\\tan^n x = \\tan^{n-2} x \\tan^2 x = \\tan^{n-2} x(\\sec^2 x - 1)$. Donc $I_n = \\int_0^{\\pi/4} \\tan^{n-2} x \\sec^2 x\\,dx - I_{n-2}$. Pour le premier terme, posons $u = \\tan x$, $du = \\sec^2 x\\,dx$ : $\\int_0^{\\pi/4} \\tan^{n-2} x \\sec^2 x\\,dx = \\int_0^1 u^{n-2}du = \\frac{1}{n-1}$. Donc $I_n = \\frac{1}{n-1} - I_{n-2}$ pour $n \\ge 2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : $S_{n}=\\frac{\\pi}{4}+(-1)^{n}u_{n}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la relation simplifiée de $u_k + u_{k+1}$ pour exprimer $\\frac{1}{2k+1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacer dans l'expression de $S_n$ et observer la somme télescopique qui apparaît."
+            }
+          ],
+          "solution_latex": "Avec $I_0 = \\pi/4$ et $I_1 = \\int_0^{\\pi/4} \\tan x\\,dx = [-\\ln(\\cos x)]_0^{\\pi/4} = -\\ln(1/\\sqrt{2}) = \\frac{\\ln 2}{2}$. \\par Pour $n = 2$ : $I_2 = 1 - I_0 = 1 - \\pi/4$. \\par Pour $n = 3$ : $I_3 = \\frac{1}{2} - I_1 = \\frac{1}{2} - \\frac{\\ln 2}{2}$. \\par Pour $n = 4$ : $I_4 = \\frac{1}{3} - I_2 = \\frac{1}{3} - (1 - \\pi/4) = \\frac{\\pi}{4} - \\frac{2}{3}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $u_{n} \\underset{n\\rightarrow+\\infty}{\\sim} \\frac{1}{4n}$ et déterminer $\\lim_{n\\rightarrow+\\infty}S_{n}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer $u_n$ grâce au double résultat de la question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "La monotonie donne $u_{n+1} \\le u_n \\le u_{n-1}$. En utilisant l'expression de $u_n + u_{n-1}$ et de $u_{n+1} + u_n$, déduire un encadrement de $u_n$ puis l'équivalent cherché."
+            }
+          ],
+          "solution_latex": "La récurrence $I_n + I_{n-2} = \\frac{1}{n-1}$ montre que les suites $(I_{2k})$ et $(I_{2k+1})$ satisfont des relations de récurrence linéaire. Pour les valeurs paires, $I_{2k}$ s'exprime comme combinaison linéaire de $\\pi/4$ et de fractions. Pour les valeurs impaires, $I_{2k+1}$ s'exprime en termes de $\\ln 2$ et de fractions."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_015",
+      "title": "Intégrale paramétrée avec logarithme",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_theoreme_fondamental",
+        "integration_sur_un_segment__theorem_integrales_fonctions_particulieres",
+        "integration_sur_un_segment__theorem_integration_par_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégrale paramétrée",
+        "logarithme",
+        "nombres complexes"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Justifier qu'on peut poser : \\par $I(x)=\\int_{0}^{2\\pi}\\ln(x^{2}-2x\\cos\\theta+1)d\\theta$ \\par pour tout $x\\in\\mathbb{R}\\setminus\\{-1,1\\}$. On pourra faire apparaître le module d'un certain complexe.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $x^2 - 2x\\cos\\theta + 1 = |x - e^{i\\theta}|^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'intégrande est continu tant que l'argument du logarithme ne s'annule pas, ce qui est le cas pour $x \\neq \\pm 1$."
+            }
+          ],
+          "solution_latex": "Soit $I(a) = \\int_0^1 \\frac{\\ln(1+ax)}{1+x^2}dx$ pour $a \\in [0,1]$. Par le théorème de dérivation sous le signe intégral : $I'(a) = \\int_0^1 \\frac{x}{(1+ax)(1+x^2)}dx$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $I$ est paire et que $I(x^{2})=2I(x)$ pour tout $x\\in\\mathbb{R}\\setminus\\{-1,1\\}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_integrales_fonctions_particulieres",
+            "integration_sur_un_segment__definition_subdivision",
+            "integration_sur_un_segment__definition_fonction_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la parité, cela découle directement de l'expression."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $I(x^2)=2I(x)$, factoriser $x^2 - e^{i\\theta}$ en produit $(x - e^{i\\theta/2})(x + e^{i\\theta/2})$, utiliser les propriétés du logarithme et un changement de variable affine sur les intégrales résultantes."
+            }
+          ],
+          "solution_latex": "Décomposons en éléments simples. On cherche $\\frac{x}{(1+ax)(1+x^2)} = \\frac{A}{1+ax} + \\frac{Bx+C}{1+x^2}$. En multipliant par $(1+ax)(1+x^2)$ et identifiant les coefficients, on obtient une expression que l'on peut intégrer."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tout $x\\in]-1,1[$ : \\par $4\\pi\\ln(1-|x|)\\le I(x)\\le 4\\pi\\ln(1+|x|)$, \\par puis que $I$ est nulle sur $]-1, 1[$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_integration_par_parties",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__definition_subdivision"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer brutalement l'intégrande en remarquant que $-1 \\le \\cos\\theta \\le 1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la deuxième partie de la question, s'intéresser à $I(x^{2^{n}})$ pour tous $x\\in]-1,1[$ et $n\\in\\mathbb{N}$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Comme $|x|<1$, $x^{2^n} \\to 0$. Utiliser la relation $I(x) = \\frac{1}{2^n} I(x^{2^n})$ et passer à la limite."
+            }
+          ],
+          "solution_latex": "L'intégration de $I'(a)$ de $0$ à $a$ (avec $I(0) = 0$) donne $I(a)$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Après avoir calculé $I\\left(\\frac{1}{x}\\right)$, calculer $I(x)$ pour tout $x\\in\\mathbb{R}\\setminus[-1,1]$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$I\\left(\\frac{1}{x}\\right)=I(x)-4\\pi\\ln|x|$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $|x| > 1$, alors $|1/x| < 1$. Utiliser le résultat de la question 3 sur $I(1/x)$ pour conclure."
+            }
+          ],
+          "solution_latex": "Par calculs (utilisant arctangente et logarithmes), on obtient finalement une expression fermée pour $I(1) = \\int_0^1 \\frac{\\ln(1+x)}{1+x^2}dx$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_016",
+      "title": "Coefficients d'un polynôme et intégrale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme trigonométrique",
+        "coefficient de Fourier",
+        "borne supérieure"
+      ],
+      "statement_latex": "Soit $P=a_{n}X^{n}+...+a_{0}\\in\\mathbb{C}[X]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $\\int_{0}^{2\\pi}P(e^{it})e^{-ikt} dt$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $P(e^{it})$ et inverser la somme et l'intégrale par linéarité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le fait que $\\int_{0}^{2\\pi} e^{i(m-k)t} dt = 0$ si $m \\neq k$ et vaut $2\\pi$ si $m=k$."
+            }
+          ],
+          "solution_latex": "Soit $P(x) = a_0 + a_1 x + \\cdots + a_n x^n$ un polynôme de degré $n$. La relation $P(0) = a_0$ s'obtient en posant $x = 0$. Plus généralement, par la formule de Taylor : $a_k = \\frac{P^{(k)}(0)}{k!}$ pour $k \\le n$ (c'est l'expression des coefficients en fonction des dérivées en $0$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Justifier l'existence du réel $\\sup_{\\mathbb{U}}|P|$, puis montrer que pour tout $k\\in\\mathbb{N}$ : $|a_{k}|\\le \\sup_{\\mathbb{U}}|P|$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble $\\mathbb{U}$ est le cercle unité, qui est un segment fermé et borné paramétré par $[0, 2\\pi]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer le module de l'intégrale calculée à la question 1 pour obtenir l'inégalité."
+            }
+          ],
+          "solution_latex": "L'intégrale $\\int_0^1 P(x)dx$ s'exprime en termes des coefficients : $\\int_0^1 P(x)dx = \\int_0^1 \\sum_{k=0}^n a_k x^k dx = \\sum_{k=0}^n a_k \\frac{1}{k+1} = \\sum_{k=0}^n \\frac{P^{(k)}(0)}{(k+1)!}$. Cette formule montre comment relier l'intégrale aux dérivées du polynôme en $0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_017",
+      "title": "Inégalité de Hilbert pour les polynômes",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_fonctions_escalier",
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__theorem_sommes_riemann"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme",
+        "inégalité de Hilbert",
+        "intégration sur le cercle"
+      ],
+      "statement_latex": "Soient $a_{0},...,a_{n}\\in\\mathbb{R}$. On pose $P=a_{n}X^{n}+...+a_{0}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\sum_{0\\le p,q\\le n}\\frac{a_{p}a_{q}}{p+q+1}\\ge0$ en étudiant $\\int_{0}^{1}P(x)^{2}dx$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_fonctions_escalier",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer le carré $P(x)^2$ sous forme d'une double somme avec des indices $p$ et $q$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer l'intégrale de $x^{p+q}$ sur $[0,1]$ et exploiter la positivité de l'intégrale d'une fonction positive."
+            }
+          ],
+          "solution_latex": "Soit $P(x) = \\sum_{k=0}^n a_k x^k$. On veut montrer : $(\\int_0^1 P(x)^2 dx)(\\int_0^1 P(x)^2 / x^2 dx) \\ge (\\int_0^1 P(x)^2 / x dx)^2$. C'est l'inégalité de Cauchy-Schwarz appliquée aux fonctions $f(x) = P(x)$ et $g(x) = P(x)/x$ dans $L^2$ muni d'une mesure appropriée."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que $\\int_{0}^{\\pi}|P(e^{it})|^{2}dt=\\pi\\sum_{k=0}^{n}a_{k}^{2}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $|P(e^{it})|^{2} = P(e^{it})\\overline{P(e^{it})}$ en se rappelant que les coefficients de $P$ sont réels."
+            }
+          ],
+          "solution_latex": "Écrire l'inégalité de Cauchy-Schwarz : $(\\int u^2 v^2 dx)^2 \\le (\\int u^4 dx)(\\int v^4 dx)$. Puis adapter au contexte avec les poids."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que pour tout $Q\\in\\mathbb{C}[X]$ : $\\int_{-1}^{1}Q(x)dx=-i\\int_{0}^{\\pi}Q(e^{it})e^{it}dt$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La relation demandée est linéaire par rapport à $Q$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il suffit donc de la vérifier pour tous les monômes de la forme $Q(X) = X^k$."
+            }
+          ],
+          "solution_latex": "On peut aussi procéder par développement de $P$ en base orthogonale."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire l'inégalité de Hilbert : $\\sum_{0\\le p,q\\le n}\\frac{a_{p}a_{q}}{p+q+1}\\le\\pi\\sum_{k=0}^{n}a_{k}^{2}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_fonctions_escalier",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord que $\\int_{-1}^{1}P(x)^{2}dx\\le\\pi\\sum_{k=0}^{n}a_{k}^{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la relation du 2) b) avec $Q = P^2$ puis majorer le module de l'intégrale complexe par l'intégrale du module."
+            }
+          ],
+          "solution_latex": "L'égalité se produit lorsque les fonctions sont proportionnelles."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_018",
+      "title": "Produit de fonctions de même monotonie",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité intégrale",
+        "monotonie",
+        "symétrie"
+      ],
+      "statement_latex": "Soient $f, g\\in\\mathscr{C}([a,b],\\mathbb{R})$ monotones de mêmes sens de variation.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $(f(y)-f(x))(g(y)-g(x))\\ge 0$ pour tous $x,y\\in[a,b]$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparer les cas selon que $x \\le y$ ou $x > y$ et étudier les signes des deux facteurs."
+            }
+          ],
+          "solution_latex": "Soient $f, g \\in \\mathscr{C}([a,b], \\mathbb{R})$ deux fonctions monotones de même sens (toutes deux croissantes ou toutes deux décroissantes). Alors : $(\\int_a^b f(x)g(x)dx)(b-a) \\ge (\\int_a^b f(x)dx)(\\int_a^b g(x)dx)$. \\par \\textbf{Preuve.} Supposons $f$ et $g$ croissantes. Pour tous $x, y \\in [a,b]$ : $(f(x) - f(y))(g(x) - g(y)) \\ge 0$ (produit de deux termes de même signe). En développant et en intégrant en $x$ puis en $y$ : \\par $\\int_a^b \\int_a^b (f(x) - f(y))(g(x) - g(y))\\,dx\\,dy \\ge 0$. \\par En développant cette intégrale double, on obtient l'inégalité recherchée."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire l'inégalité : $\\int_{a}^{b}f(t)dt\\int_{a}^{b}g(t)dt\\le(b-a)\\int_{a}^{b}f(t)g(t)dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Intégrer soigneusement par rapport à une variable, puis par rapport à l'autre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer le produit $(f(y)-f(x))(g(y)-g(x))$, puis intégrer d'abord par rapport à $x$ de $a$ à $b$, puis par rapport à $y$ de $a$ à $b$."
+            }
+          ],
+          "solution_latex": "Le cas où $f$ et $g$ sont décroissantes se traite de façon identique. Si $f$ croissante et $g$ décroissante, on obtient l'inégalité inverse."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_019",
+      "title": "Cas d'égalité de l'inégalité triangulaire",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité triangulaire",
+        "cas d'égalité",
+        "fonction complexe"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $f\\in\\mathscr{C}([a,b],\\mathbb{R})$. À quelle condition nécessaire et suffisante l'inégalité triangulaire : $\\left|\\int_{a}^{b}f(t)dt\\right|\\le\\int_{a}^{b}|f(t)|dt$ est-elle une égalité ?",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'égalité absolue usuelle $|X| = X$ ou $|X| = -X$ permet de lever la valeur absolue du membre de gauche."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que $f$ doit garder un signe constant sur $[a,b]$ en étudiant l'intégrale d'une fonction continue positive, comme $\\int_{a}^{b} (|f(t)| \\pm f(t)) dt = 0$."
+            }
+          ],
+          "solution_latex": "Soient $f, g \\in L^1([a,b])$ telles que $\\int_a^b |f(x) + g(x)|dx = \\int_a^b |f(x)|dx + \\int_a^b |g(x)|dx$. \\par L'égalité dans l'inégalité triangulaire $|f + g| \\le |f| + |g|$ signifie que cette inégalité est une égalité p.p. Cela se produit lorsque $f(x)$ et $g(x)$ ont le même signe p.p. (c'est-à-dire $f(x) g(x) \\ge 0$ p.p.)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On suppose $f$ à valeurs dans $\\mathbb{C}$. Montrer que l'inégalité triangulaire est une égalité si et seulement si $f$ est d'argument constant, i.e. si la fonction $t\\mapsto e^{-i\\theta}f(t)$ est réelle positive pour un certain $\\theta\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $\\int_{a}^{b} f(t)dt = R e^{i\\theta}$ avec $R \\ge 0$ et réinjecter cela dans l'égalité."
+            },
+            {
+              "level": 2,
+              "content_latex": "En déduire que $\\int_{a}^{b} (\\operatorname{Re}(e^{-i\\theta}f(t)) - |f(t)|) dt = 0$ et conclure avec les propriétés des intégrales de fonctions de signe constant."
+            }
+          ],
+          "solution_latex": "Ainsi, on doit avoir $f(x) g(x) \\ge 0$ p.p. sur $[a, b]$, ce qui signifie qu'il existe un ensemble de mesure nulle $N$ tel que pour $x \\notin N$, $f(x)$ et $g(x)$ sont de même signe ou l'un d'eux est zéro."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_020",
+      "title": "Inégalité de Cauchy-Schwarz",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité de Cauchy-Schwarz",
+        "fonction strictement positive",
+        "polynôme du second degré"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $f, g\\in\\mathscr{C}([a,b],\\mathbb{R})$. Montrer l'inégalité de Cauchy-Schwarz : $\\left|\\int_{a}^{b}f(t)g(t)dt\\right|\\le\\sqrt{\\int_{a}^{b}f(t)^{2}dt}\\sqrt{\\int_{a}^{b}g(t)^{2}dt}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve de l'inégalité de Cauchy-Schwarz étudiée en début d'année."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer le polynôme en $\\lambda$ défini par $P(\\lambda) = \\int_{a}^{b} (f(t) + \\lambda g(t))^{2} dt$. Puisqu'il est positif, son discriminant est négatif ou nul."
+            }
+          ],
+          "solution_latex": "\\textbf{Énoncé.} Pour $f, g \\in L^2([a,b])$, on a $(\\int_a^b f(x)g(x)dx)^2 \\le (\\int_a^b |f(x)|^2 dx)(\\int_a^b |g(x)|^2 dx)$. \\par \\textbf{Preuve 1 (Polarisation).} Pour $\\lambda \\in \\mathbb{R}$ : $\\int_a^b (f(x) + \\lambda g(x))^2 dx \\ge 0$. En développant : $\\int f^2 + 2\\lambda \\int fg + \\lambda^2 \\int g^2 \\ge 0$. Le discriminant du trinôme en $\\lambda$ doit être négatif : $(\\int fg)^2 \\le (\\int f^2)(\\int g^2)$. \\par \\textbf{Preuve 2 (Produit scalaire).} La norme $\\|f\\|_2 = \\sqrt{\\int f^2}$ et le produit scalaire $\\langle f, g \\rangle = \\int fg$ satisfont l'inégalité de Cauchy-Schwarz dans tout espace préhilbertien."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $f\\in\\mathscr{C}([0,1],\\mathbb{R})$ strictement positive. Montrer que $\\int_{0}^{1}\\frac{dt}{f(t)}\\ge\\left(\\int_{0}^{1}f(t)dt\\right)^{-1}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de Cauchy-Schwarz démontrée au-dessus avec des fonctions bien choisies."
+            },
+            {
+              "level": 2,
+              "content_latex": "On peut écrire $1 = \\sqrt{f(t)} \\frac{1}{\\sqrt{f(t)}}$ et appliquer Cauchy-Schwarz sur ce produit."
+            }
+          ],
+          "solution_latex": "L'égalité se produit ssi $f$ et $g$ sont linéairement dépendantes, i.e. $f = \\lambda g$ p.p. pour un $\\lambda \\in \\mathbb{R}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_021",
+      "title": "Inégalité de Cauchy-Schwarz et Opial",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cauchy-Schwarz",
+        "inégalité d'Opial",
+        "inégalité intégrale"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $f, g\\in\\mathscr{C}([a,b],\\mathbb{R})$. Montrer l'inégalité de Cauchy-Schwarz : \\par $\\left|\\int_{a}^{b}f(t)g(t)dt\\right|\\le\\sqrt{\\int_{a}^{b}f(t)^{2}dt}\\sqrt{\\int_{a}^{b}g(t)^{2}dt}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve de l'inégalité de Cauchy-Schwarz étudiée en début d'année."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer le trinôme en $\\lambda$ défini par $\\int_{a}^{b} (f(t) + \\lambda g(t))^2 dt \\ge 0$ et étudier son discriminant."
+            }
+          ],
+          "solution_latex": "\\textbf{Énoncé (Opial).} Soit $f \\in \\mathscr{C}^1([0, 1])$ avec $f(0) = 0$. Alors : $\\int_0^1 |f(x)||f'(x)|dx \\le \\frac{1}{2}\\int_0^1 (f'(x))^2 dx$. \\par \\textbf{Preuve.} On a $|f(x)| = |\\int_0^x f'(t)dt| \\le \\int_0^x |f'(t)|dt$ par la formule fondamentale. Donc $|f(x)||f'(x)| \\le |f'(x)| \\int_0^x |f'(t)|dt$. En intégrant sur $[0, 1]$ : \\par $\\int_0^1 |f(x)||f'(x)|dx \\le \\int_0^1 |f'(x)| (\\int_0^x |f'(t)|dt) dx$. \\par On réarrrange en inversant l'ordre d'intégration (par Fubini) : $\\int_0^1 |f'(t)| (\\int_t^1 |f'(x)|dx) dt$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $f\\in\\mathscr{C}([0,1],\\mathbb{R})$ strictement positive. Montrer que $\\int_{0}^{1}\\frac{dt}{f(t)}\\ge\\left(\\int_{0}^{1}f(t)dt\\right)^{-1}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz démontrée au 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $1 = \\sqrt{f(t)} \\frac{1}{\\sqrt{f(t)}}$ et intégrer le produit des deux."
+            }
+          ],
+          "solution_latex": "Par Cauchy-Schwarz : $\\int_0^1 |f(x)||f'(x)|dx \\le \\sqrt{\\int_0^1 (\\int_0^x |f'(t)|dt)^2 dx} \\cdot \\|f'\\|_2$. \\par Après optimisation, on obtient le facteur $1/2$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $f\\in\\mathscr{C}^{1}([0,a],\\mathbb{R})$ une fonction pour laquelle $f(0)=0$. On note $F$ l'unique primitive de $|f^{\\prime}|$ qui s'annule en $0$. \\par a) Montrer que : $\\int_{0}^{a}|f(t)f^{\\prime}(t)|dt\\le\\int_{0}^{a}F(t)F^{\\prime}(t)dt$. \\par b) En déduire l'inégalité d'Opial : $\\int_{0}^{a}|f(t)f^{\\prime}(t)|dt\\le\\frac{a}{2}\\int_{0}^{a}f^{\\prime}(t)^{2}dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $F'(t) = |f'(t)|$ et $F(t) = \\int_0^t |f'(u)| du$. Majorer $|f(t)|$ par $F(t)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le b), intégrer $F(t)F'(t)$ exactement (c'est la dérivée de $\\frac{1}{2}F(t)^2$) puis utiliser l'inégalité de Cauchy-Schwarz sur $F(a)$."
+            }
+          ],
+          "solution_latex": "L'application de cette inégalité : contrôler $\\int |f||f'|$ par $\\int (f')^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_022",
+      "title": "Majoration de la norme infini par l'intégrale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "norme infini",
+        "inégalité intégrale",
+        "théorème fondamental de l'analyse"
+      ],
+      "statement_latex": "Montrer que pour tout $f\\in\\mathscr{C}^{1}([0,1],\\mathbb{R})$ : \\par $\\|f\\|_{\\infty}\\le\\left|\\int_{0}^{1}f(x)dx\\right|+\\int_{0}^{1}|f^{\\prime}(x)|dx$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__theorem_permutation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord que $|f(a)-f(b)|\\le\\int_{0}^{1}|f^{\\prime}(t)| dt$ pour tous $a, b\\in[0,1]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixer $x \\in [0,1]$ tel que $|f(x)| = \\|f\\|_\\infty$. Intégrer l'inégalité $|f(x)| - |f(y)| \\le |f(x)-f(y)| \\le \\int_0^1 |f'(t)|dt$ par rapport à $y$ sur $[0,1]$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}([a,b])$. On veut majorer $\\|f\\|_\\infty = \\sup_{x \\in [a,b]} |f(x)|$ par rapport à $\\|f\\|_1 = \\int_a^b |f(x)|dx$. \\par \\textbf{Résultat.} $\\|f\\|_\\infty \\le \\frac{\\|f\\|_1}{b - a}$. \\par \\textbf{Preuve.} Pour tout $x \\in [a,b]$, $|f(x)| \\le \\frac{1}{b-a} \\int_a^b |f(t)|dt = \\frac{1}{b-a}\\|f\\|_1$ si $f$ est constante. Plus généralement, la moyenne intégrale majore le maximum ssi on la divise par la longueur de l'intervalle. Donc en prenant le supremum : $\\|f\\|_\\infty \\le \\frac{\\|f\\|_1}{b-a}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_023",
+      "title": "Dérivation d'intégrales à paramètres",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégrale à paramètre",
+        "changement de variable",
+        "dérivation"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}(\\mathbb{R},\\mathbb{C})$. Montrer que les fonctions suivantes sont de classe $\\mathscr{C}^{1}$ sur $\\mathbb{R}$ et calculer leur dérivée.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\mapsto\\int_{0}^{x}f(t+x)dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener de force à des expressions intégrales dans lesquelles la variable $x$ ne figure que dans les bornes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire le changement de variable $u = t+x$. L'intégrale devient $\\int_{x}^{2x} f(u) du$."
+            }
+          ],
+          "solution_latex": "\\textbf{Énoncé (Leibniz).} Soit $F(t) = \\int_a^b f(x, t)dx$. Si $f$ et $\\frac{\\partial f}{\\partial t}$ sont continues sur $[a, b] \\times [c, d]$, alors : $F'(t) = \\int_a^b \\frac{\\partial f}{\\partial t}(x, t)dx$. \\par \\textbf{Preuve.} On a $F(t + h) - F(t) = \\int_a^b [f(x, t+h) - f(x, t)]dx$. Par le théorème des accroissements finis : $f(x, t+h) - f(x, t) = h \\frac{\\partial f}{\\partial t}(x, \\xi_x)$ pour un $\\xi_x$ entre $t$ et $t+h$. Puisque $\\frac{\\partial f}{\\partial t}$ est continue et bornée sur le compact $[a, b] \\times [c, d]$, on peut passer à la limite quand $h \\to 0$ en utilisant la convergence dominée."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\mapsto\\int_{0}^{2\\pi}f(x-t)e^{it}dt$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire le changement de variable $u = x-t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'intégrale devient $\\int_{x-2\\pi}^{x} f(u)e^{i(x-u)} du = e^{ix} \\int_{x-2\\pi}^{x} f(u)e^{-iu} du$, forme que l'on peut dériver comme un produit."
+            }
+          ],
+          "solution_latex": "\\textbf{Cas avec bornes variables.} Si $a = a(t)$ et $b = b(t)$ sont dérivables : $\\frac{d}{dt}\\int_{a(t)}^{b(t)} f(x, t)dx = \\int_{a(t)}^{b(t)} \\frac{\\partial f}{\\partial t}dx + f(b(t), t)b'(t) - f(a(t), t)a'(t)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_024",
+      "title": "Prolongement et dérivation",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__definition_continuite_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "prolongement par continuité",
+        "dérivation",
+        "développement limité"
+      ],
+      "statement_latex": "On pose $\\varphi(x)=\\frac{1}{x}\\int_{-x}^{x}\\cos(t^{2}+t)dt$ pour tout $x\\in\\mathbb{R}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\varphi$ est dérivable sur $\\mathbb{R}^{*}$ et calculer sa dérivée.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire $F$, la primitive de $t \\mapsto \\cos(t^2+t)$ qui s'annule en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer $\\varphi(x)$ à l'aide de $F(x)$ et $F(-x)$, puis utiliser les théorèmes généraux de dérivation."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}^1([0, 1])$ avec $f(0) = 0$. Alors $f$ admet un prolongement par continuité en $0$ donné par $\\tilde{f}(0) = 0$. \\par On souhaite étudier la dérivabilité de $\\tilde{f}$ en $0$. Par le théorème fondamental : $f(x) = \\int_0^x f'(t)dt$, donc $\\frac{f(x)}{x} = \\frac{1}{x}\\int_0^x f'(t)dt \\to f'(0)$ quand $x \\to 0^+$ (par la définition de la dérivée)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\varphi$ est prolongeable par continuité en $0$, puis que son prolongement par continuité est dérivable en $0$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $F$ la primitive de $x\\mapsto \\cos(x^{2}+x)$ qui s'annule en $0$, calculer un $\\mathrm{DL}_{2}(0)$ de $F$ grâce à la formule de Taylor-Young et en déduire un $\\mathrm{DL}_{1}(0)$ de $\\varphi$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'existence d'un $\\mathrm{DL}_1(0)$ pour $\\varphi$ donne directement son prolongement par continuité et le fait qu'elle soit dérivable en $0$ avec la valeur de $\\varphi'(0)$."
+            }
+          ],
+          "solution_latex": "Ainsi, $\\tilde{f}'(0) = f'(0)$ existe si et seulement si $f'$ est continue en $0$. En général, la dérivée à droite en $0$ est $\\tilde{f}'_+(0) = f'(0^+)$ (limite à droite de la dérivée)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_025",
+      "title": "Fonction ne s'annulant pas et logarithme complexe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_escalier",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonction complexe",
+        "équation différentielle",
+        "indice d'un lacet"
+      ],
+      "statement_latex": "Soient $I$ un intervalle, $a, b\\in I$ et $f\\in\\mathscr{C}^{1}(I,\\mathbb{C})$ une fonction qui ne s'annule pas sur $I$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On pose pour tout $x\\in I$ : $g(x)=\\int_{a}^{x}\\frac{f^{\\prime}(t)}{f(t)}dt$. \\par Vérifier que $f=f(a)e^{g}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+            "integration_sur_un_segment__definition_fonction_escalier",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver $f e^{-g}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que la dérivée de cette fonction auxiliaire est identiquement nulle sur $I$, puis évaluer la constante en $x=a$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}^1([a, b], \\mathbb{C})$ avec $f(x) \\ne 0$ pour tout $x \\in [a, b]$. \\par On définit $\\log f$ comme une primitive de $f'/f$ sur $[a, b]$ : il existe une fonction holomorphe locale. Plus précisément, la fonction $g(x) = \\int_a^x \\frac{f'(t)}{f(t)}dt$ satisfait $g'(x) = \\frac{f'(x)}{f(x)}$ et $e^{g(x)}$ est proportionnel à $f(x)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que si $f(a)=f(b)$ le nombre complexe $\\frac{1}{2i\\pi}\\int_{a}^{b}\\frac{f^{\\prime}(t)}{f(t)}dt$ est un entier relatif.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluer la relation obtenue à la question 1 en $x=b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient $e^{g(b)} = 1$. Conclure en utilisant les solutions de l'équation $e^z = 1$ dans $\\mathbb{C}$."
+            }
+          ],
+          "solution_latex": "En particulier, $\\frac{d}{dx}(\\log|f(x)|) = \\frac{f'(x)}{f(x)}$ (où $\\log$ désigne le logarithme réel). Donc $|f(x)| = |f(a)| \\cdot e^{\\int_a^x \\text{Re}(f'/f)(t)dt}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_026",
+      "title": "Orthogonalité aux polynômes",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__theorem_theoreme_fondamental"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme",
+        "annulation",
+        "changement de signe",
+        "intégrale nulle"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}([a,b],\\mathbb{R})$. On suppose que pour tout $k\\in[\\![0,n]\\!]$ : $\\int_{a}^{b}t^{k}f(t)dt=0$. \\par Montrer que $f$ s'annule $n+1$ fois au moins sur $]a, b[$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La nullité supposée se transmet à tout polynôme de $\\mathbb{R}_{n}[X]$. Ensuite, si $f$ s'annule en changeant de signe en $c$, que peut-on dire de la fonction $x\\mapsto(x-c)f(x)$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Raisonner par l'absurde. Si $f$ change de signe en $p \\le n$ points $c_1, \\dots, c_p$, considérer le polynôme $P(t) = \\prod_{i=1}^p (t-c_i)$ et observer le signe de $P(t)f(t)$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^2([a, b])$ telle que $\\int_a^b f(x) P(x)dx = 0$ pour tout polynôme $P \\in \\mathbb{R}[x]$. \\par Par le théorème de Weierstrass, l'espace des polynômes est dense dans $\\mathscr{C}([a, b])$ pour la norme uniforme, donc aussi dans $L^2([a, b])$ pour la norme $L^2$. \\par Ainsi, $\\int_a^b f(x) g(x)dx = 0$ pour tout $g \\in L^2([a, b])$. En prenant $g = f$ : $\\int_a^b |f(x)|^2 dx = 0$, donc $f = 0$ p.p."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_027",
+      "title": "Calculs de limites d'intégrales",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_changement_variable",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__definition_theoreme_primitives"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "encadrement",
+        "théorème des gendarmes",
+        "équivalent"
+      ],
+      "statement_latex": "Calculer :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\lim_{n\\rightarrow+\\infty}\\int_{0}^{1}\\frac{t^{n}}{e^{t}+1}dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_changement_variable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Majorer l'intégrande par une fonction plus simple dont l'intégrale tend vers $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'encadrement $0 \\le \\frac{t^n}{e^t+1} \\le t^n$ sur $[0,1]$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 1.} Calculer $\\lim_{n \\to \\infty} \\int_0^1 \\frac{nx}{1+n^2 x^2}dx$. \\par Par changement de variable $u = nx$ : $\\int_0^1 \\frac{nx}{1+n^2 x^2}dx = \\int_0^n \\frac{u}{1+u^2} \\cdot \\frac{du}{n} = \\frac{1}{n}[\\frac{1}{2}\\ln(1+u^2)]_0^n = \\frac{\\ln(1+n^2)}{2n} \\to 0$ quand $n \\to \\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\lim_{x\\rightarrow+\\infty}\\int_{x}^{2x}\\frac{dt}{\\sqrt{t}\\ln t}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__definition_theoreme_primitives"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer l'intégrande sur le segment $[x, 2x]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction $t \\mapsto \\frac{1}{\\sqrt{t}\\ln t}$ est décroissante pour $x$ assez grand, donc l'intégrale est comprise entre $x \\frac{1}{\\sqrt{2x}\\ln(2x)}$ et $x \\frac{1}{\\sqrt{x}\\ln x}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 2.} Calculer $\\lim_{n \\to \\infty} \\int_0^\\pi \\sin^n(x)dx$. \\par Pour $x \\in (0, \\pi/2)$, $\\sin x < 1$, donc $\\sin^n(x) \\to 0$. Pour $x = \\pi/2$, $\\sin^n(\\pi/2) = 1 \\to 1$. La masse se concentre près de $\\pi/2$. Plus précisément, $\\int_0^\\pi \\sin^n x\\,dx \\sim \\sqrt{\\pi/(2n)}$ (par la formule de Wallis)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\lim_{x\\rightarrow0^{+}}\\int_{x}^{3x}\\frac{\\cos t}{t}dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $t \\in [x,3x]$, $\\frac{\\cos t}{t} \\approx \\frac{1}{t}$ quand $x$ est proche de 0."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $\\frac{\\cos t}{t} = \\frac{\\cos t - 1}{t} + \\frac{1}{t}$ et montrer que l'intégrale du premier terme tend vers $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 3.} Calculer $\\lim_{n \\to \\infty} \\int_0^1 x^n(1-x)\\,dx = \\int_0^1 x^n\\,dx - \\int_0^1 x^{n+1}dx = \\frac{1}{n+1} - \\frac{1}{n+2} \\to 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_028",
+      "title": "Limite de la moyenne en zéro",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "moyenne",
+        "théorème fondamental de l'analyse"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}([0,1],\\mathbb{R})$. Calculer $\\lim_{x\\rightarrow0}\\frac{1}{x}\\int_{0}^{x}f(t)dt$, puis interpréter géométriquement.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__theorem_permutation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaître le taux d'accroissement d'une fonction bien connue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Introduire $F$, la primitive de $f$ s'annulant en $0$. L'expression s'écrit $\\frac{F(x)-F(0)}{x-0}$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^1(\\mathbb{R})$. Montrer que $\\lim_{\\varepsilon \\to 0^+} \\int_{-\\varepsilon}^\\varepsilon f(x)dx = f(0) \\cdot 0 + \\text{terme régulier}$. Plus précisément : $\\lim_{\\varepsilon \\to 0^+} \\frac{1}{2\\varepsilon}\\int_{-\\varepsilon}^\\varepsilon f(x)dx = f(0)$ si $f$ est continue en $0$. \\par C'est une conséquence du théorème de convergence dominée : pour une suite $\\varepsilon_n \\to 0$, les fonctions $\\mathbf{1}_{[-\\varepsilon_n, \\varepsilon_n]} f(x)$ converge vers $f(0) \\cdot \\delta_0$ faiblement."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_029",
+      "title": "Séries de Taylor de ln et Arctan",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "série",
+        "somme géométrique",
+        "logarithme",
+        "arctangente"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $\\int_{0}^{x}t^{k} dt$ pour tous $x\\in]-1,1]$ et $k\\in\\mathbb{N}$, puis montrer que : \\par $\\sum_{k=1}^{+\\infty}\\frac{(-1)^{k-1}}{k}x^{k}=\\ln(1+x)$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Partir de $\\sum_{k=1}^{n}\\frac{(-1)^{k-1}x^{k}}{k}=\\sum_{k=1}^{n}(-1)^{k-1}\\int_{0}^{x}t^{k-1} dt$ et faire tendre $n$ vers $+\\infty$ soigneusement quand ça devient possible."
+            },
+            {
+              "level": 2,
+              "content_latex": "Intervertir somme et intégrale (somme finie), reconnaître la somme d'une suite géométrique, et majorer le reste intégral $\\int_0^x \\frac{(-t)^n}{1+t} dt$."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour $\\ln(1+x)$.} On a $\\frac{d}{dx}\\ln(1+x) = \\frac{1}{1+x} = \\sum_{n=0}^\\infty (-1)^n x^n$ pour $|x| < 1$. \\par En intégrant : $\\ln(1+x) = \\sum_{n=0}^\\infty (-1)^n \\frac{x^{n+1}}{n+1} = \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} x^n$ pour $|x| < 1$. \\par Par continuité (test d'Abel), cette formule vaut aussi pour $x = 1$ : $\\ln 2 = \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} = 1 - \\frac{1}{2} + \\frac{1}{3} - \\cdots$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer de même que pour tout $x\\in[-1,1]$ : \\par $\\sum_{k=0}^{+\\infty}\\frac{(-1)^{k}}{2k+1}x^{2k+1}=\\operatorname{Arctan} x$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_sommes_riemann",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la même méthode avec l'intégrale de $t^{2k}$ et la fonction $\\frac{1}{1+t^2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La somme géométrique sera $\\sum_{k=0}^n (-1)^k t^{2k} = \\frac{1 - (-t^2)^{n+1}}{1+t^2}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour $\\arctan(x)$.} On a $\\frac{d}{dx}\\arctan(x) = \\frac{1}{1+x^2} = \\sum_{n=0}^\\infty (-1)^n x^{2n}$ pour $|x| < 1$. En intégrant : $\\arctan(x) = \\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{2n+1}$ pour $|x| < 1$. \\par Pour $x = 1$ : $\\frac{\\pi}{4} = \\sum_{n=0}^\\infty \\frac{(-1)^n}{2n+1} = 1 - \\frac{1}{3} + \\frac{1}{5} - \\cdots$ (formule de Gregory-Leibniz)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_030",
+      "title": "Monotonie et limite d'intégrale",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "monotonie",
+        "limite",
+        "encadrement",
+        "sinus"
+      ],
+      "statement_latex": "Étudier la monotonie de $t\\mapsto\\frac{\\sin t}{t}$ sur $]0,\\frac{\\pi}{2}[$ et en déduire $\\lim_{x\\rightarrow0^{+}}\\int_{x}^{\\pi x}\\frac{\\sin t}{t^{2}}dt$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver la fonction $g(t) = \\frac{\\sin t}{t}$ et étudier le signe de $t\\cos t - \\sin t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la monotonie de $g$ sur $[x, \\pi x]$ pour encadrer $\\frac{\\sin t}{t^2} = g(t) \\times \\frac{1}{t}$ et intégrer l'encadrement."
+            }
+          ],
+          "solution_latex": "Soit $f : [0, 1] \\to \\mathbb{R}$ une fonction monotone. Alors la suite $(\\int_0^1 f(x) g_n(x)dx)$ converge si $(g_n)$ converge faiblement dans $L^2$ ou si les $g_n$ satisfont des conditions de régularité. \\par Par exemple, si $(g_n)$ converge en norme $L^2$ vers $g$, alors par $|\\int fg_n - \\int fg| \\le \\|f\\|_\\infty \\|g_n - g\\|_1 \\to 0$, on a la convergence. \\par Si $f$ est monotone croissante et $g_n$ est une suite croissante de fonctions intégrables majorées, alors $\\int_0^1 f(x) g_n(x)dx$ est aussi croissante."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_031",
+      "title": "Majoration du sinus et limite d'intégrale",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_theoreme_fondamental",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "encadrement",
+        "formule de Taylor",
+        "sinus"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer l'existence de deux réels $\\alpha>0$ et $\\lambda\\ge0$ pour lesquels $|\\sin x-x|\\le\\lambda x^{3}$ pour tout $x\\in[0,\\alpha[$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_fonction_escalier",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de Taylor-Lagrange à l'ordre 3 pour la fonction sinus entre $0$ et $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $\\sin(0)=0$, $\\sin'(0)=1$, $\\sin''(0)=0$. Majorer la dérivée troisième (qui est $-\\cos$) par $1$ pour obtenir la valeur de $\\lambda$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité.} Pour $x \\in [0, \\pi]$, on a $\\sin(x) \\le \\frac{2x}{\\pi}$. \\par \\textbf{Preuve.} La fonction $f(x) = \\frac{2x}{\\pi} - \\sin(x)$ satisfait $f(0) = 0$ et $f'(x) = \\frac{2}{\\pi} - \\cos(x)$. Puisque $\\cos(x) \\le 1 < \\frac{2}{\\pi}$ pour $x \\in [0, \\pi]$, on a $f'(x) > 0$, donc $f$ est croissante. Ainsi $f(x) \\ge f(0) = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire $\\lim_{x\\rightarrow+\\infty}\\int_{0}^{x}\\sin\\frac{\\pi}{t+x}dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de la question 1) pour remplacer le sinus par son argument à l'intérieur de l'intégrale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que l'intégrale de l'erreur (le terme en $x^3$) tend vers $0$, et calculer explicitement $\\int_{0}^{x}\\frac{\\pi}{t+x}dt$ à l'aide d'un logarithme."
+            }
+          ],
+          "solution_latex": "\\textbf{Application au calcul de limites.} $\\lim_{n \\to \\infty} \\int_0^\\pi \\sin^n(x)dx = 0$ car $\\sin^n(x) \\le (\\frac{2x}{\\pi})^n$ pour $x \\in [0, \\pi]$, et cette majorante tend vers $0$ intégralement."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_032",
+      "title": "Convergence d'une intégrale et comportements asymptotiques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite d'intégrales",
+        "limite",
+        "comportement asymptotique",
+        "contre-exemple"
+      ],
+      "statement_latex": "Soient $f\\in\\mathscr{C}(\\mathbb{R}_{+},\\mathbb{R})$ et $l\\in\\mathbb{R}$. On suppose que la suite $\\left(\\int_{0}^{n}f(t)dt\\right)_{n\\in\\mathbb{N}}$ converge vers $l$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\int_{0}^{x}f(t)dt\\xrightarrow[x\\rightarrow+\\infty]{}l$ \\par a) si $f$ est positive sur $\\mathbb{R}_{+}$. \\par b) si $|f(x)|\\le\\frac{1}{x}$ pour tout $x\\ge1$. \\par c) si $f(x)\\xrightarrow[x\\rightarrow+\\infty]{}0$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__theorem_proprietes_fonctions_escalier",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire la partie entière de $x$, notée $n = \\lfloor x \\rfloor$, et décomposer l'intégrale $\\int_{0}^{x} = \\int_{0}^{n} + \\int_{n}^{x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), utiliser la monotonie. Pour b) et c), majorer finement le terme d'erreur $\\int_{n}^{x} f(t) dt$ sur un intervalle de longueur au plus $1$."
+            }
+          ],
+          "solution_latex": "Soit $(f_n)$ une suite de fonctions intégrables sur $[a, b]$ telle que $\\int_a^b |f_n(x) - f(x)|dx \\to 0$. \\par Alors : $\\int_a^b f_n(x)dx \\to \\int_a^b f(x)dx$. C'est une conséquence de $|\\int f_n - \\int f| \\le \\int |f_n - f| \\to 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Trouver une fonction $f\\in\\mathscr{C}(\\mathbb{R}_{+},\\mathbb{R})$ pour laquelle $\\left(\\int_{0}^{n}f(t)dt\\right)_{n\\in\\mathbb{N}}$ converge alors que $x\\mapsto\\int_{0}^{x}f(t)dt$ n'a pas de limite en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Construire une fonction qui présente des pics d'aire nulle sur chaque intervalle $[n, n+1]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par exemple, une fonction continue valant $0$ aux entiers et aux demi-entiers, mais avec une grande amplitude positive puis négative, de sorte que l'intégrale au milieu de l'intervalle soit grande."
+            }
+          ],
+          "solution_latex": "\\textbf{Comportement asymptotique.} Si de plus $f_n(x) \\sim g(x)$ quand $n \\to \\infty$ (au sens de $f_n(x)/g(x) \\to 1$ p.p.), on peut en déduire que $\\int f_n \\sim \\int g$ sous des hypothèses de domination appropriées (par exemple par un majorant intégrable commun)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_033",
+      "title": "Lemme de Riemann-Lebesgue et intégrale de Dirichlet",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "lemme de Riemann-Lebesgue",
+        "intégrale de Dirichlet",
+        "prolongement par continuité",
+        "intégration par parties"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) Montrer que pour tout $f\\in\\mathscr{C}^{1}([a,b],\\mathbb{C})$ : $\\int_{a}^{b}f(t)e^{ixt}dt\\xrightarrow[x\\rightarrow+\\infty]{}0$ (lemme de Riemann-Lebesgue). \\par b) En déduire que pour tout $f\\in\\mathscr{C}^{1}([a,b],\\mathbb{R})$ : $\\int_{a}^{b}f(t)\\cos(xt)dt\\xrightarrow[x\\rightarrow+\\infty]{}0$ ainsi qu'une limite analogue en sinus, puis interpréter géométriquement ces limites.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par une IPP."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dériver $f$ et intégrer l'exponentielle complexe. Les termes de bord tendent vers $0$ car divisés par $x$, et l'intégrale restante peut être majorée."
+            }
+          ],
+          "solution_latex": "\\textbf{Lemme de Riemann-Lebesgue.} Soit $f \\in L^1([a, b])$. Alors : $\\lim_{\\lambda \\to \\infty} \\int_a^b f(x)\\sin(\\lambda x)dx = 0$ et $\\lim_{\\lambda \\to \\infty} \\int_a^b f(x)\\cos(\\lambda x)dx = 0$. \\par \\textbf{Preuve (cas simple).} Si $f$ est une fonction de classe $\\mathscr{C}^1$, on intègre par parties : $\\int_a^b f(x)\\sin(\\lambda x)dx = [-\\frac{f(x)\\cos(\\lambda x)}{\\lambda}]_a^b + \\int_a^b \\frac{f'(x)\\cos(\\lambda x)}{\\lambda}dx$. \\par Le terme de bord est majoré par $2\\|f\\|_\\infty / \\lambda$, et le terme intégral par $\\|f'\\|_1 / \\lambda$, tous deux $\\to 0$ quand $\\lambda \\to \\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) Justifier pour tout $x>0$ l'existence de $\\int_{0}^{x}\\frac{\\sin t}{t}dt$. \\par b) Montrer que pour tous $n\\in\\mathbb{N}^{*}$ et $t\\in]0,\\pi[$ : $1+2\\sum_{k=1}^{n}\\cos(2kt)=\\frac{\\sin((2n+1)t)}{\\sin t}$, puis en déduire $\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\sin((2n+1)t)}{\\sin t}dt$. \\par c) Montrer que la fonction $t\\mapsto\\frac{1}{t}-\\frac{1}{\\sin t}$ est prolongeable en une fonction $\\mathscr{C}^{1}$ à $[0,\\frac{\\pi}{2}]$ tout entier. \\par d) En déduire que : $\\int_{0}^{\\frac{\\pi}{2}}\\frac{\\sin((2n+1)t)}{t}dt\\xrightarrow[n\\rightarrow+\\infty]{}\\frac{\\pi}{2}$, puis l'intégrale de Dirichlet $\\int_{0}^{+\\infty}\\frac{\\sin t}{t}dt$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour b), reconnaître la somme des termes d'une suite géométrique complexe. Pour c), appliquer le théorème de la limite de la dérivée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour d), appliquer le lemme de Riemann-Lebesgue à la fonction de la question c)."
+            }
+          ],
+          "solution_latex": "\\textbf{Cas général.} Par densité de $\\mathscr{C}^1([a,b])$ dans $L^1([a,b])$, le résultat s'étend à toute fonction intégrable."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que le lemme de Riemann-Lebesgue est vrai pour les fonctions en escalier, puis en déduire qu'il l'est pour les fonctions continues par morceaux.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer explicitement l'intégrale pour une fonction indicatrice d'un segment, et vérifier que la limite est bien nulle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour une fonction continue par morceaux, utiliser la densité des fonctions en escalier pour la norme de la convergence uniforme (ou approcher l'intégrale avec un $\\varepsilon$)."
+            }
+          ],
+          "solution_latex": "\\textbf{Intégrale de Dirichlet.} $\\int_0^\\infty \\frac{\\sin(x)}{x}dx = \\frac{\\pi}{2}$. \\par Cette intégrale se calcule en utilisant le paramètre $\\int_0^\\infty e^{-\\alpha x}\\frac{\\sin(x)}{x}dx$ pour $\\alpha > 0$, puis en faisant tendre $\\alpha \\to 0^+$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_034",
+      "title": "Étude d'une fonction définie par une intégrale",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_theoreme_integrale_CM",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_permutation_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégrale fonction de sa borne",
+        "prolongement par continuité",
+        "dérivation",
+        "théorème fondamental de l'analyse"
+      ],
+      "statement_latex": "On pose : \\par $f(x)=\\begin{cases} \\int_{x}^{x^{2}}\\frac{dt}{\\ln t} & \\text{si } x\\in\\mathbb{R}_{+}^{*}\\setminus\\{1\\} \\\\ 0 & \\text{si } x=0 \\\\ \\ln 2 & \\text{si } x=1 \\end{cases}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) Calculer $\\int_{x}^{x^{2}}\\frac{dt}{t\\ln t}$ pour tout $x\\in\\mathbb{R}_{+}^{*}\\setminus\\{1\\}$ et en déduire que $x^{2}\\ln 2\\le f(x)\\le x\\ln 2$ pour tout $x\\in]0,1[$ et $x\\ln 2\\le f(x)\\le x^{2}\\ln 2$ pour tout $x>1$. \\par b) En déduire que $f$ est continue en 0 et en 1 et calculer sa limite en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $\\frac{1}{t\\ln t}$ est de la forme $\\frac{u'}{u}$. L'intégrer donne $\\ln|\\ln t|$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour obtenir les encadrements de $f(x)$, encadrer d'abord la variable d'intégration $t$ entre $x$ et $x^2$ (attention au sens des inégalités selon que $x<1$ ou $x>1$), ce qui permet d'encadrer $\\frac{1}{\\ln t}$ à l'aide de $\\frac{t}{\\ln t}$."
+            }
+          ],
+          "solution_latex": "Soit $F(x) = \\int_0^x f(t)dt$ où $f$ est une fonction intégrable (ou continue). \\par Par le théorème fondamental du calcul, $F'(x) = f(x)$ p.p. (ou partout si $f$ est continue)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) Montrer que $f$ est de classe $\\mathscr{C}^{1}$ sur $\\mathbb{R}_{+}^{*}\\setminus\\{1\\}$ et y calculer $f^{\\prime}$. \\par b) En déduire que $f$ est de classe $\\mathscr{C}^{1}$ sur tout $\\mathbb{R}_{+}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $f$ à l'aide d'une primitive de $t \\mapsto \\frac{1}{\\ln t}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le point b), utiliser le théorème de la limite de la dérivée en calculant les limites de $f'(x)$ en $0$ et en $1$."
+            }
+          ],
+          "solution_latex": "\\textbf{Monotonie.} $F$ est croissante si $f \\ge 0$ p.p., décroissante si $f \\le 0$ p.p. \\par \\textbf{Convexité.} $F$ est convexe si $f$ est croissante (car $F'' = f' \\ge 0$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Justifier l'existence de l'intégrale $\\int_{0}^{1}\\frac{t-1}{\\ln t}dt$ et déterminer sa valeur.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer attentivement l'expression de $f'(x)$ calculée à la question 2a)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Intégrer la relation $f'(t) = \\dots$ entre $\\varepsilon$ et $1-\\varepsilon$ et passer à la limite. L'intégrale correspond exactement à $f(1)-f(0)$."
+            }
+          ],
+          "solution_latex": "\\textbf{Limites.} $\\lim_{x \\to \\infty} F(x)$ existe (fini ou infini) si l'intégrale impropre $\\int_0^\\infty f(t)dt$ converge."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_035",
+      "title": "Moyenne de Cesàro continue",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "moyenne",
+        "théorème de Cesàro",
+        "relation de Chasles"
+      ],
+      "statement_latex": "Soient $f\\in\\mathscr{C}(\\mathbb{R}_{+},\\mathbb{R})$ et $l\\in\\overline{\\mathbb{R}}$. On suppose que $f(x)\\xrightarrow[x\\rightarrow+\\infty]{}l$. Montrer que $\\frac{1}{x}\\int_{0}^{x}f(t)dt\\xrightarrow[x\\rightarrow+\\infty]{}l$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve du théorème de Cesàro."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traiter le cas où $l$ est finie. Fixer $\\varepsilon>0$, utiliser la définition de la limite pour trouver un $A>0$ à partir duquel $f(t)$ est proche de $l$. Découper ensuite l'intégrale $\\int_0^x = \\int_0^A + \\int_A^x$ et diviser par $x$ pour $x$ assez grand."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^\\infty([0, \\infty))$ ou $f \\in \\mathscr{C}([0, \\infty))$. La moyenne de Cesàro continue est : $\\sigma(x) = \\frac{1}{x}\\int_0^x f(t)dt$. \\par \\textbf{Théorème.} Si $\\lim_{x \\to \\infty} f(x) = L$, alors $\\lim_{x \\to \\infty} \\sigma(x) = L$. \\par \\textbf{Preuve.} Pour $\\varepsilon > 0$ fixé, il existe $X$ tel que pour $x > X$, $|f(x) - L| < \\varepsilon$. Alors : \\par $|\\sigma(x) - L| = |\\frac{1}{x}\\int_0^x (f(t) - L)dt| \\le \\frac{1}{x}(\\int_0^X |f(t) - L|dt + \\int_X^x \\varepsilon\\,dt) \\le \\frac{C}{x} + \\varepsilon$ pour $x$ assez grand. En faisant $x \\to \\infty$, on obtient $\\limsup |\\sigma(x) - L| \\le \\varepsilon$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_036",
+      "title": "Limite d'une intégrale avec puissance",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite d'intégrale",
+        "découpage",
+        "continuité",
+        "théorème des gendarmes"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}([0,1],\\mathbb{C})$. Montrer que : \\par $\\int_{0}^{1}f(t^{n})dt \\xrightarrow[n\\rightarrow+\\infty]{} f(0)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Découper l'intégrale convenablement et revenir à la définition de la limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixer $\\varepsilon > 0$. Par continuité en $0$, il existe $\\alpha \\in ]0,1[$ tel que $|f(u)-f(0)| \\le \\varepsilon$ pour $u \\in [0, \\alpha]$. Découper l'intégrale $\\int_0^1$ en $\\int_0^{\\alpha^{1/n}} + \\int_{\\alpha^{1/n}}^1$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^1([0, 1])$. Calculer $\\lim_{n \\to \\infty} \\int_0^1 f(x) x^n dx$. \\par La fonction $x^n \\to 0$ p.p. sur $[0, 1)$ et vaut $1$ au point $x = 1$. Par le théorème de convergence dominée (avec majorant $|f(x)|$) : $\\lim_{n \\to \\infty} \\int_0^1 f(x) x^n dx = 0$. \\par Cas particulier : si $f(x) = 1$, on retrouve $\\int_0^1 x^n dx = \\frac{1}{n+1} \\to 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_037",
+      "title": "Limite de la norme n-ième",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_primitives",
+        "integration_sur_un_segment__theorem_sommes_riemann",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite d'intégrale",
+        "norme infinie",
+        "encadrement",
+        "continuité"
+      ],
+      "statement_latex": "Soient $f\\in\\mathscr{C}([a,b],\\mathbb{R})$ positive et $g\\in\\mathscr{C}([a,b],\\mathbb{R})$ strictement positive. Montrer que : \\par $\\sqrt[n]{\\int_{a}^{b}f(t)^{n}g(t)dt} \\xrightarrow[n\\rightarrow+\\infty]{} \\|f\\|_{\\infty}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_primitives",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Découper l'intégrale convenablement autour d'un point en lequel le maximum est atteint et revenir à la définition de la limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la majoration, borner brutalement $f$ par son maximum $M$ et $g$ par son maximum sur $[a,b]$. Pour la minoration, utiliser la continuité de $f$ en un point $c$ où $f(c) = M$ pour minorer l'intégrale sur un petit intervalle $[c-\\delta, c+\\delta]$ par $(M-\\varepsilon)^n \\min(g) \\times 2\\delta$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^\\infty([a, b])$. On pose $\\|f\\|_n = (\\int_a^b |f(x)|^n dx)^{1/n}$. \\par \\textbf{Théorème.} $\\lim_{n \\to \\infty} \\|f\\|_n = \\|f\\|_\\infty = \\sup_{x \\in [a, b]} |f(x)|$. \\par \\textbf{Preuve.} On a $\\|f\\|_n \\le \\|f\\|_\\infty (b-a)^{1/n} \\to \\|f\\|_\\infty$ quand $n \\to \\infty$. Réciproquement, $\\|f\\|_n \\ge (\\int_{f > M} |f|^n)^{1/n} \\to \\|f\\|_\\infty$ (en utilisant la concentration de la mesure près du maximum)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_038",
+      "title": "Limite d'une somme avec sinus",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__theorem_sommes_riemann"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme de Riemann",
+        "équivalent",
+        "limite",
+        "développement limité"
+      ],
+      "statement_latex": "Montrer que : \\par $\\sum_{k=1}^{n}\\sin\\frac{\\pi}{\\sqrt{n^{2}+k^{2}}} \\xrightarrow[n\\rightarrow+\\infty]{} \\pi\\ln(\\sqrt{2}+1)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener à une somme de Riemann en rendant rigoureuse l'idée selon laquelle $\\sin x \\approx x$ quand $x$ est proche de 0."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'inégalité $|\\sin x - x| \\le \\frac{x^3}{6}$ pour majorer l'erreur entre la somme des sinus et la somme des termes $\\frac{\\pi}{\\sqrt{n^2+k^2}}$. Reconnaître ensuite une somme de Riemann pour cette dernière en factorisant par $n$."
+            }
+          ],
+          "solution_latex": "Calculer $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\sin(\\pi k/n) \\cdot \\frac{1}{n}$. \\par C'est une somme de Riemann : $\\sum_{k=1}^n \\sin(\\pi k/n) \\cdot \\frac{1}{n} \\to \\int_0^1 \\sin(\\pi x)dx = [-\\frac{\\cos(\\pi x)}{\\pi}]_0^1 = \\frac{2}{\\pi}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_039",
+      "title": "Primitive n-ième et reste intégral",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "récurrence",
+        "formule de Taylor avec reste intégral"
+      ],
+      "statement_latex": "Soient $f\\in\\mathscr{C}(I,\\mathbb{C})$ et $a\\in I$. Montrer que la fonction $x \\mapsto \\int_{a}^{x}\\frac{(x-t)^{n-1}}{(n-1)!}f(t) dt$ est une primitive $n^{\\text{ème}}$ de $f$ sur $I$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_theoreme_fondamental"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder par récurrence sur l'entier $n \\ge 1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'hérédité, dériver la fonction $F_n(x)$ pour montrer que $F_n'(x) = F_{n-1}(x)$. Attention, $x$ apparaît à la fois dans la borne et dans l'intégrande, développer le binôme ou appliquer les théorèmes de dérivation adéquats."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}^n([a, b])$. La $n$-ième primitive de $f$ est : $F^{(-n)}(x) = \\int_a^x \\int_a^{t_{n-1}} \\cdots \\int_a^{t_1} f(t)\\,dt\\,dt_1 \\cdots dt_{n-1}$. \\par Cette intégrale itérée s'écrit aussi : $F^{(-n)}(x) = \\int_a^x \\frac{(x-t)^{n-1}}{(n-1)!} f(t)dt$ (formule de Cauchy). \\par C'est exactement le reste intégral de la formule de Taylor-Lagrange : $f(x) = \\sum_{k=0}^{n-1} \\frac{f^{(k)}(a)}{k!}(x-a)^k + \\int_a^x \\frac{(x-t)^{n-1}}{(n-1)!} f^{(n)}(t)dt$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_040",
+      "title": "Inégalités et séries de Taylor pour sinus et cosinus",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_sommes_riemann",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+        "integration_sur_un_segment__theorem_permutation_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Taylor-Lagrange",
+        "inégalité",
+        "série",
+        "fonctions circulaires"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $x\\in[0,\\pi]$ : \\par $x-\\frac{x^{3}}{6}\\le \\sin x \\le x-\\frac{x^{3}}{6}+\\frac{x^{5}}{120}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Taylor-Lagrange à la fonction sinus entre $0$ et $x$ à des ordres bien choisis."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la minoration, aller à l'ordre 3 (le reste dépendra de la dérivée 4ème). Pour la majoration, aller à l'ordre 5."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour le sinus.} On a $\\sin(x) = x - \\frac{x^3}{6} + \\frac{x^5}{120} - \\cdots = \\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{(2n+1)!}$. \\par \\textbf{Inégalités.} Pour $x \\in [0, 1]$ : $|x - \\frac{x^3}{6}| \\le \\sin(x) \\le x$ et $\\sin(x) \\le x - \\frac{x^3}{6} + \\frac{x^5}{120}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\sin x=\\sum_{k=0}^{+\\infty}(-1)^{k}\\frac{x^{2k+1}}{(2k+1)!}$ et $\\cos x=\\sum_{k=0}^{+\\infty}(-1)^{k}\\frac{x^{2k}}{(2k)!}$ pour tout $x\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de Taylor-Lagrange à l'ordre $n$ en 0 et montrer que le reste tend vers 0 lorsque $n$ tend vers l'infini."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer les dérivées successives de $\\sin$ et $\\cos$ par 1. Conclure grâce à la limite connue $\\lim_{n \\to +\\infty} \\frac{x^n}{n!} = 0$ pour tout réel $x$."
+            }
+          ],
+          "solution_latex": "\\textbf{Pour le cosinus.} $\\cos(x) = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} - \\cdots$. Pour $x \\in [0, 1]$ : $1 - \\frac{x^2}{2} \\le \\cos(x) \\le 1 - \\frac{x^2}{2} + \\frac{x^4}{24}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_041",
+      "title": "Majoration de la dérivée première",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__definition_theoreme_caractere_borne",
+        "integration_sur_un_segment__theorem_proprietes_integrale_escalier"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Taylor-Lagrange",
+        "norme infinie",
+        "inégalité",
+        "optimisation"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}^{2}([a,b],\\mathbb{C})$ une fonction pour laquelle $f(a)=f(b)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer, en appliquant deux fois l'inégalité de Taylor-Lagrange, que pour tout $x\\in[a,b]$ : \\par $(b-a)|f^{\\prime}(x)|\\le\\frac{1}{2}\\|f^{\\prime\\prime}\\|_{\\infty}((x-a)^{2}+(x-b)^{2})$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_integration_par_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer deux fois l'inégalité de Taylor-Lagrange."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'appliquer à l'ordre 1 entre $x$ et $a$, puis entre $x$ et $b$. Exprimer $f(a)$ et $f(b)$ en fonction de $f(x)$ et $f'(x)$, puis utiliser $f(a)=f(b)$ pour éliminer $f(x)$ en faisant la différence."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité de Landau.} Soit $f \\in \\mathscr{C}^1([a, b])$ bornée. Alors : $\\|f'\\|_\\infty \\le 2\\|f\\|_\\infty^{1/2} \\|f''\\|_\\infty^{1/2}$ (si $f \\in \\mathscr{C}^2$). \\par C'est une conséquence de $|f'(x)|^2 \\le 2|f(x)| |f''(x)|$ par intégration."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $\\|f^{\\prime}\\|_{\\infty}\\le\\frac{b-a}{2}\\|f^{\\prime\\prime}\\|_{\\infty}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le maximum de la fonction polynomiale $P(x) = (x-a)^2 + (x-b)^2$ sur le segment $[a,b]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction $P$ est convexe, son maximum sur le segment $[a,b]$ est donc atteint en l'une des bornes $a$ ou $b$."
+            }
+          ],
+          "solution_latex": "\\textbf{Variante.} Si $f(a) = f(b) = 0$, alors $\\|f'\\|_\\infty^2 \\le \\|f\\|_\\infty \\|f''\\|_\\infty$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_042",
+      "title": "Inégalité de Landau-Kolmogorov",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_theoreme_fondamental",
+        "integration_sur_un_segment__definition_theoreme_primitives"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Taylor-Lagrange",
+        "inégalité",
+        "optimisation",
+        "norme infinie"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}^{2}(\\mathbb{R},\\mathbb{R})$. On suppose $f$ et $f^{\\prime\\prime}$ bornées sur $\\mathbb{R}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $x, h\\in\\mathbb{R}$ : \\par $|f(x+h)-f(x)-hf^{\\prime}(x)|\\le\\frac{h^{2}}{2}\\|f^{\\prime\\prime}\\|_{\\infty}$ \\par et $|f(x-h)-f(x)+hf^{\\prime}(x)|\\le\\frac{h^{2}}{2}\\|f^{\\prime\\prime}\\|_{\\infty}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_primitives",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer deux fois l'inégalité de Taylor-Lagrange."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'appliquer à l'ordre 1 entre $x$ et $x+h$, puis entre $x$ et $x-h$."
+            }
+          ],
+          "solution_latex": "\\textbf{Énoncé.} Soit $f \\in \\mathscr{C}^n([a, b])$ bornée en norme infini. Alors : $\\|f^{(k)}\\|_\\infty \\le C_{n,k} \\|f\\|_\\infty^{(n-k)/n} \\|f^{(n)}\\|_\\infty^{k/n}$ pour une constante $C_{n,k}$ ne dépendant que de $n$, $k$ et la longueur $b - a$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que pour tous $x\\in\\mathbb{R}$ et $h>0$ : \\par $|f^{\\prime}(x)|\\le\\frac{\\|f\\|_{\\infty}}{h}+\\frac{h}{2}\\|f^{\\prime\\prime}\\|_{\\infty}$, \\par puis que $f^{\\prime}$ est bornée sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sommer convenablement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'inégalité triangulaire en combinant les deux inégalités de la question 1 pour isoler $2hf'(x)$ et majorer $|f(x+h)-f(x-h)|$ par $2\\|f\\|_{\\infty}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Preuve (idée).} Par Taylor avec reste intégral et inégalités de Hölder."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $\\|f^{\\prime}\\|_{\\infty}\\le\\sqrt{2\\|f\\|_{\\infty}\\|f^{\\prime\\prime}\\|_{\\infty}}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Optimiser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer la fonction $\\phi(h) = \\frac{\\|f\\|_{\\infty}}{h}+\\frac{h}{2}\\|f^{\\prime\\prime}\\|_{\\infty}$ pour $h>0$. Trouver la valeur de $h$ qui minimise cette expression en annulant sa dérivée."
+            }
+          ],
+          "solution_latex": "\\textbf{Cas particulier.} Pour $n = 2$ et $k = 1$ : $\\|f'\\|_\\infty \\le 2\\|f\\|_\\infty^{1/2} \\|f''\\|_\\infty^{1/2}$ (inégalité de Landau)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_043",
+      "title": "Fonction de classe C-infini et annulation",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+        "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Taylor-Lagrange",
+        "classe C-infini",
+        "équation différentielle",
+        "principe du prolongement analytique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $\\lambda>0$ et $f\\in\\mathscr{C}^{\\infty}(\\mathbb{R},\\mathbb{C})$. On suppose que pour tout $n\\in\\mathbb{N}$, $f^{(n)}(0)=0$ et $\\|f^{(n)}\\|_{\\infty}\\le\\lambda^{n}n!$. \\par a) Montrer que $f$ est nulle sur $\\left[-\\frac{1}{\\lambda},\\frac{1}{\\lambda}\\right]$. \\par b) Montrer que $f$ est nulle sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), appliquer l'inégalité de Taylor-Lagrange à l'ordre $n$ entre $0$ et $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), montrer par récurrence ou de proche en proche que la fonction est nulle sur des intervalles de plus en plus grands, par exemple sur $[\\frac{1}{\\lambda}, \\frac{3}{\\lambda}]$ etc., en translatant l'origine de l'application de Taylor."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}^\\infty([a, b])$ telle que $f$ s'annule à l'ordre infini en $a$, c'est-à-dire $f^{(k)}(a) = 0$ pour tout $k \\in \\mathbb{N}$. \\par Montrer que $f \\equiv 0$ sur $[a, a + \\varepsilon]$ pour un $\\varepsilon > 0$. \\par \\textbf{Preuve.} Par la formule de Taylor avec reste de Lagrange, pour tout $x \\in [a, a + \\varepsilon]$ : $f(x) = f^{(N)}(\\xi_N) \\frac{(x-a)^N}{N!}$ pour un $\\xi_N \\in [a, x]$. \\par Si $|f^{(N)}| \\le M_N$ sur $[a, a + \\varepsilon]$, alors $|f(x)| \\le M_N \\frac{\\varepsilon^N}{N!} \\to 0$ quand $N \\to \\infty$ (pour $\\varepsilon$ assez petit tel que la croissance de $M_N$ soit dominée par $N!$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $a_{0},...,a_{n-1}\\in\\mathbb{C}$, $x_{0}\\in\\mathbb{R}$ et $y\\in\\mathscr{C}^{\\infty}(\\mathbb{R},\\mathbb{C})$ une fonction pour laquelle : \\par $y^{(n)}+a_{n-1}y^{(n-1)}+...+a_{1}y^{\\prime}+a_{0}y=0$ \\par et $y(x_{0})=y^{\\prime}(x_{0})=...=y^{(n-1)}(x_{0})=0$. Montrer que $y$ est nulle sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_approximation_uniforme",
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__definition_theoreme_caractere_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $M_{k}=\\max\\{\\|y\\|_{\\infty},...,\\|y^{(k)}\\|_{\\infty}\\}$ pour tout $k\\in\\mathbb{N}$ après s'être restreint à un segment, puis trouver deux réels $C\\ge0$ et $\\lambda>0$ pour lesquels $M_{k}\\le C\\lambda^{k}$ pour tout $k\\in\\mathbb{N}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation différentielle permet d'exprimer $y^{(n+p)}$ en fonction des dérivées d'ordre inférieur, ce qui donne la majoration voulue. Appliquer ensuite le résultat de la question 1."
+            }
+          ],
+          "solution_latex": "Dans le cas analytique (c'est-à-dire où $f$ admet un développement en série entière), l'annulation d'ordre infini implique $f \\equiv 0$ partout sur l'intervalle de convergence. Mais pour les fonctions lisses (non analytiques), seule une annulation locale est garantie."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_044",
+      "title": "Équivalents par les sommes de Riemann",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_sommes_riemann",
+        "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme de Riemann",
+        "équivalent",
+        "limite",
+        "intégrale"
+      ],
+      "statement_latex": "Déterminer un équivalent lorsque $n$ tend vers $+\\infty$ de :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sum_{k=1}^{n}\\frac{1}{n^{2}+k^{2}}$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_sommes_riemann"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le terme général par $\\frac{1}{n^2}$ pour faire apparaître $\\frac{1}{n}$ en facteur de la somme et une fonction de $\\frac{k}{n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Reconnaître une somme de Riemann pour la fonction $x \\mapsto \\frac{1}{1+x^2}$ sur $[0,1]$."
+            }
+          ],
+          "solution_latex": "\\textbf{Problème.} Trouver des équivalents de certaines sommes en utilisant les sommes de Riemann. \\par Exemple : $\\sum_{k=1}^n \\sqrt{k} \\sim \\int_0^n \\sqrt{x}dx = \\frac{2}{3}n^{3/2}$ quand $n \\to \\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sum_{k=n+1}^{2n}\\frac{1}{k^{2}}$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer un changement d'indice pour ramener la somme de $1$ à $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $j = k-n$. La somme devient $\\sum_{j=1}^{n} \\frac{1}{(n+j)^2}$. Factoriser par $n^2$ au dénominateur."
+            }
+          ],
+          "solution_latex": "\\textbf{Somme de Riemann.} La somme $\\sum_{k=1}^n f(k/n) \\cdot (1/n)$ converge vers $\\int_0^1 f(x)dx$ quand $n \\to \\infty$ (par continuité de $f$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\sum_{k=1}^{n}k^{\\alpha}\\quad(\\alpha\\ge0)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser $n^\\alpha$ à l'intérieur de la somme pour faire apparaître $(k/n)^\\alpha$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression s'écrit $n^{\\alpha+1} \\times \\frac{1}{n} \\sum_{k=1}^{n} (\\frac{k}{n})^\\alpha$. Appliquer le théorème des sommes de Riemann."
+            }
+          ],
+          "solution_latex": "\\textbf{Autre exemple.} $\\sum_{k=1}^n \\frac{1}{n+k} = \\sum_{k=1}^n \\frac{1}{n(1 + k/n)} \\to \\int_0^1 \\frac{dx}{1+x} = \\ln 2$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\sum_{k=1}^{n}\\sqrt{k(n-k)}$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_sommes_riemann",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre $n^2$ en facteur sous la racine carrée."
+            },
+            {
+              "level": 2,
+              "content_latex": "La somme devient $n^2 \\times \\frac{1}{n} \\sum_{k=1}^n \\sqrt{\\frac{k}{n} (1 - \\frac{k}{n})}$. L'intégrale correspondante est l'aire d'un demi-disque."
+            }
+          ],
+          "solution_latex": "\\textbf{Généralization.} $\\sum_{k=0}^{n-1} f(k/n) \\cdot (1/n) \\to \\int_0^1 f(x)dx$ pour $f$ intégrable."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\sum_{k=1}^{n}\\cos^{3}\\frac{k\\pi}{n}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Diviser et multiplier par $n$ pour faire apparaître une somme de Riemann."
+            },
+            {
+              "level": 2,
+              "content_latex": "La limite est l'intégrale de $\\cos^3(\\pi x)$ sur $[0,1]$. Par des arguments de symétrie, cette intégrale est nulle, ce qui nécessite d'aller chercher un équivalent plus précis si l'on voulait un développement au-delà du simple $o(n)$."
+            }
+          ],
+          "solution_latex": "\\textbf{Avec autre paramètre.} Pour $\\sum_{k=1}^n f(k/n^\\alpha)$, l'asymptotique dépend de $\\alpha$ et on obtient l'ordre dominant en puissance de $n$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\sqrt[n]{\\prod_{k=1}^{n}\\left(1+\\frac{k^{2}}{n^{2}}\\right)}$",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour traiter un produit, il est naturel de passer au logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le logarithme de l'expression s'écrit $\\frac{1}{n} \\sum_{k=1}^n \\ln(1+(k/n)^2)$. C'est une somme de Riemann, intégrer par parties pour calculer $\\int_0^1 \\ln(1+x^2)dx$."
+            }
+          ],
+          "solution_latex": "\\textbf{Formule d'Euler-Maclaurin.} Amélioration : $\\sum_{k=1}^n f(k) = \\int_1^n f(x)dx + \\frac{f(1) + f(n)}{2} + \\sum_j \\frac{B_{2j}}{(2j)!}(f^{(2j-1)}(n) - f^{(2j-1)}(1)) + R_N$ où $B_{2j}$ sont les nombres de Bernoulli."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_045",
+      "title": "Produit et somme de Riemann",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_permutation_uniforme",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__definition_continuite_uniforme",
+        "integration_sur_un_segment__theorem_sommes_riemann"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme de Riemann",
+        "produit",
+        "logarithme",
+        "limite"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer l'existence de deux réels $\\alpha\\in]0, 1[$ et $\\lambda\\ge0$ pour lesquels pour tout $x\\in]-\\alpha, \\alpha[$ : \\par $|\\ln(1+x)-x|\\le\\lambda x^{2}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_sommes_riemann",
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__definition_theoreme_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de Taylor-Lagrange à l'ordre 2 pour la fonction $x \\mapsto \\ln(1+x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La dérivée seconde est $x \\mapsto -\\frac{1}{(1+x)^2}$. Sur un voisinage de $0$, par exemple $]-\\frac{1}{2}, \\frac{1}{2}[$, cette dérivée est bornée en valeur absolue par $4$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 1.} Si $(f_n)$ et $(g_n)$ sont des sommes de Riemann convergeant vers $\\int f$ et $\\int g$ respectivement, alors $f_n + g_n \\to \\int f + \\int g$. \\par \\textbf{Question 2.} Qu'en est-il du produit ? Si $f, g$ sont intégrables, on a $f_n g_n \\to (\\int f)(\\int g)$ car $|\\int f_n g_n - (\\int f)(\\int g)| \\le |\\int f_n(g_n - g)| + |(\\int f_n - \\int f)\\int g| \\to 0$ (par dominance)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire $\\lim_{n\\rightarrow+\\infty}\\prod_{k=1}^{n}\\left(1+\\frac{1}{n}f\\left(\\frac{k}{n}\\right)\\right)$ pour toute fonction $f\\in\\mathscr{C}([0,1],\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_integrales_fonctions_particulieres",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme $f$ est bornée, on peut appliquer 1) aux réels $\\frac{1}{n}f(\\frac{k}{n})$, $k$ décrivant $[\\![0,n]\\!]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Passer au logarithme pour transformer le produit en somme. Majorer l'erreur entre $\\ln(1 + \\frac{1}{n}f(\\dots))$ et $\\frac{1}{n}f(\\dots)$ par $\\lambda \\frac{1}{n^2}\\|f\\|^2_{\\infty}$, puis utiliser les sommes de Riemann sur le terme principal."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 3.} Produit ponctuel vs produit d'intégrales : $\\int fg \\ne (\\int f)(\\int g)$ en général (sauf si $f$ et $g$ sont indépendantes en un certain sens)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Que vaut $\\lim_{n\\rightarrow+\\infty}\\prod_{k=1}^{n}\\left(1+\\frac{k}{n^{2}}\\right)$ ?",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_continuite_uniforme",
+            "integration_sur_un_segment__theorem_permutation_uniforme",
+            "integration_sur_un_segment__theorem_lien_continuite_uniforme_lipschitz"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la même idée de passage au logarithme et d'utilisation de l'inégalité de la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression logarithmique devient $\\sum_{k=1}^n \\frac{k}{n^2}$ à un terme d'erreur près. Reconnaître une somme de Riemann très simple ou calculer directement la somme arithmétique."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Calcul de la limite du produit.}\\\\par Posons $P_n = \\\\prod_{k=1}^{n}\\\\left(1+\\\\frac{k}{n^2}\\\\right)$. Passons au logarithme :\\\\par $\\\\ln P_n = \\\\sum_{k=1}^{n} \\\\ln\\\\left(1+\\\\frac{k}{n^2}\\\\right)$.\\\\par Pour $n$ grand, $\\\\frac{k}{n^2} \\\\le \\\\frac{1}{n} \\\\to 0$. En utilisant $\\\\ln(1+u) = u + O(u^2)$ pour $u \\\\to 0$ :\\\\par $\\\\ln P_n = \\\\sum_{k=1}^{n} \\\\frac{k}{n^2} + O\\\\left(\\\\sum_{k=1}^{n} \\\\frac{k^2}{n^4}\\\\right) = \\\\frac{1}{n^2}\\\\cdot\\\\frac{n(n+1)}{2} + O\\\\left(\\\\frac{n(n+1)(2n+1)}{6n^4}\\\\right)$.\\\\par $= \\\\frac{n+1}{2n} + O\\\\left(\\\\frac{1}{n}\\\\right) \\\\to \\\\frac{1}{2}$.\\\\par Par continuité de l'exponentielle : $\\\\lim_{n\\\\to+\\\\infty} P_n = e^{1/2} = \\\\boxed{\\\\sqrt{e}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_046",
+      "title": "Inégalité de Jensen intégrale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_theoreme_fondamental",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "convexité",
+        "inégalité de Jensen",
+        "somme de Riemann"
+      ],
+      "statement_latex": "Soient $I$ un intervalle, $\\varphi\\in\\mathscr{C}(I,\\mathbb{R})$ convexe et $f\\in\\mathscr{C}([0,1],\\mathbb{R})$ à valeurs dans $I$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\int_{0}^{1}f(x)dx\\in I$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_theoreme_fondamental",
+            "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction $f$ possède un minimum et un maximum."
+            },
+            {
+              "level": 2,
+              "content_latex": "Noter $m$ et $M$ ce minimum et ce maximum sur $[0,1]$. Intégrer l'encadrement $m \\le f(x) \\le M$ sur $[0,1]$ et utiliser le fait que $I$ est un intervalle contenant $m$ et $M$."
+            }
+          ],
+          "solution_latex": "\\textbf{Énoncé (Jensen intégral).} Soit $\\phi : \\mathbb{R} \\to \\mathbb{R}$ une fonction convexe et $f \\in L^1([a, b])$. Alors : $\\phi(\\frac{1}{b-a}\\int_a^b f(x)dx) \\le \\frac{1}{b-a}\\int_a^b \\phi(f(x))dx$. \\par \\textbf{Preuve.} À un point $c = \\frac{1}{b-a}\\int_a^b f(x)dx$, on applique la propriété de convexité : il existe une tangente $y = \\phi(c) + \\phi'(c)(t - c)$ minorante. Donc : $\\phi(f(x)) \\ge \\phi(c) + \\phi'(c)(f(x) - c)$. En intégrant : $\\int \\phi(f) \\ge (b-a)\\phi(c) + \\phi'(c)\\int(f - c) = (b-a)\\phi(c)$ (car $\\int f = (b-a)c$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer l'inégalité de Jensen : \\par $\\varphi\\left(\\int_{0}^{1}f(x)dx\\right)\\le\\int_{0}^{1}\\varphi(f(x))dx$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Jensen classique et passer à la limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire l'intégrale de $f$ comme la limite de la somme de Riemann $\\frac{1}{n}\\sum_{k=1}^n f\\left(\\frac{k}{n}\\right)$. Appliquer l'inégalité de Jensen discrète à cette somme avec les poids $\\frac{1}{n}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Cas particulier.} Pour $\\phi(t) = t^p$ avec $p \\ge 1$ : $(\\frac{1}{b-a}\\int |f|)^p \\le \\frac{1}{b-a}\\int |f|^p$ (inégalité des moyennes)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_047",
+      "title": "Valeur moyenne d'une fonction convexe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_approximation_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "convexité",
+        "valeur moyenne",
+        "somme de Riemann",
+        "tangente"
+      ],
+      "statement_latex": "Soit $f\\in\\mathscr{C}([a,b],\\mathbb{R})$ convexe. On note $m$ la valeur moyenne de $f$ : $m=\\frac{1}{b-a}\\int_{a}^{b}f(x)dx$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que $m\\le\\frac{f(a)+f(b)}{2}$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+            "integration_sur_un_segment__definition_fonction_escalier",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $x \\in [a,b]$ comme un barycentre de $a$ et $b$ avec des poids dépendant de $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'inégalité de convexité $f(x) \\le \\frac{b-x}{b-a}f(a) + \\frac{x-a}{b-a}f(b)$ puis intégrer sur $[a,b]$."
+            }
+          ],
+          "solution_latex": "Soit $f \\in \\mathscr{C}([a, b])$ une fonction convexe. La valeur moyenne est $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)dx$. \\par \\textbf{Question 1.} Montrer que $\\bar{f}$ est majorée par la valeur de $f$ au point milieu $c = (a+b)/2$ si $f$ est convexe ? Non, c'est l'inverse (Jensen)."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que $m\\ge f\\left(\\frac{a+b}{2}\\right)$ en exploitant une certaine somme de Riemann.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+            "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+            "integration_sur_un_segment__theorem_approximation_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité de Jensen."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer la limite de l'inégalité de Jensen discrète sur les sommes de Riemann, ou utiliser directement l'inégalité de Jensen intégrale établie à l'exercice précédent avec une fonction affine bien choisie."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 2.} Il existe un unique point $\\xi \\in [a, b]$ tel que $f(\\xi) = \\bar{f}$ si et seulement si $f$ est non constante et continue."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On suppose à présent $f$ dérivable sur $[a, b]$. \\par Montrer que pour tout $c\\in[a,b]$ : $m\\ge\\left(\\frac{a+b}{2}-c\\right)f^{\\prime}(c)+f(c)$.",
+          "knowledge_nodes_tested": [
+            "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+            "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+            "integration_sur_un_segment__definition_fonction_escalier"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité de convexité reliant la fonction à ses tangentes."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $f(x) \\ge f(c) + f'(c)(x-c)$. Intégrer cette inégalité par rapport à $x$ sur $[a,b]$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 3.} Relation avec les tangentes : pour une fonction convexe, $f(x) \\ge f(c) + f'(c)(x - c)$, donc en intégrant on obtient $\\int f(x) \\ge (b-a)f(c)$, ce qui redonne Jensen."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que : $m\\ge\\frac{f(a)+f(b)}{2}-(b-a)\\frac{f^{\\prime}(b)-f^{\\prime}(a)}{4}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'inégalité du 2) a) en des points $c$ judicieusement choisis."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire l'inégalité pour $c=a$ et pour $c=b$, puis en faire la demi-somme pour faire apparaître les termes désirés."
+            }
+          ],
+          "solution_latex": "\\textbf{Question 4.} Si $f$ est strictly convexe, alors $\\bar{f} > f(c)$ sauf si $f$ est linéaire."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "integration_sur_un_segment__ex_048",
+      "title": "Intégrale de Poisson et polynômes",
+      "type": "computation",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+        "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+        "integration_sur_un_segment__theorem_approximation_uniforme",
+        "integration_sur_un_segment__definition_theoreme_integrale_CM"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme de Riemann",
+        "polynôme",
+        "racines de l'unité",
+        "logarithme"
+      ],
+      "statement_latex": "Soit $x\\in\\mathbb{R}\\setminus\\{-1,1\\}$. Après en avoir justifié l'existence, calculer $\\int_{0}^{2\\pi}\\ln(x^{2}-2x\\cos\\theta+1)d\\theta$ grâce à des sommes de Riemann.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Noyau de Poisson.} Le noyau de Poisson sur le disque est $P_r(\\theta) = \\frac{1-r^2}{1 - 2r\\cos\\theta + r^2}$ pour $0 \\le r < 1$ et $\\theta \\in [0, 2\\pi]$. \\par \\textbf{Intégrale de Poisson.} Pour une fonction $f \\in \\mathscr{C}(\\partial \\mathbb{D})$ (continue sur le cercle unité), la solution du problème de Dirichlet (fonction harmonique à l'intérieur du disque avec valeurs limites $f$ au bord) est : \\par $u(re^{i\\theta}) = \\frac{1}{2\\pi}\\int_0^{2\\pi} f(\\phi) P_r(\\theta - \\phi)d\\phi$. \\par \\textbf{Propriétés.} Le noyau $P_r$ est une approximation de l'identité quand $r \\to 1^-$ : $P_r(\\theta) \\to \\delta_0(\\theta)$ au sens des distributions. Cela garantit que $u(re^{i\\theta}) \\to f(e^{i\\theta})$ quand $r \\to 1^-$ pour tout $\\theta$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour tout $\\theta\\in[0,2\\pi]$ : $x^{2}-2x\\cos\\theta+1=|x-e^{i\\theta}|^{2}$ et on sait scinder le polynôme $X^{n}-1$ sur $\\mathbb{C}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrire la somme de Riemann avec $\\theta_k = \\frac{2k\\pi}{n}$. Grâce aux propriétés du logarithme, la somme des $\\ln$ se transforme en $\\ln$ du produit. Utiliser les racines de l'unité pour simplifier ce produit sous la forme $\\ln(|x^n-1|^2)$ puis passer à la limite selon que $|x|<1$ ou $|x|>1$."
+        }
+      ]
+    }
+  ]
+}

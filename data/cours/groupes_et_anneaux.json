@@ -1,0 +1,869 @@
+{
+  "chapter_official_id": "groupes_et_anneaux",
+  "chapter_name": "Groupes et anneaux",
+  "source_document": "Cours - Groupes et anneaux.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "groupes_et_anneaux__intro_contexte",
+      "type": "remark",
+      "title": "Introduction : Contexte du chapitre",
+      "content_latex": "Dans ce chapitre, $\\mathbb{K}$ est l'un des ensembles $\\mathbb{R}$ ou $\\mathbb{C}$, $E$ un ensemble non vide et $n$ un entier naturel non nul.\\par J'irai plus loin que le programme de MPSI dans ce chapitre. Les paragraphes 4 et 5 relèvent en fait du programme de MP.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_1_lois_internes",
+      "type": "remark",
+      "title": "1 Lois internes",
+      "content_latex": "1.1 MAGMAS",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_loi_interne_magma",
+      "type": "definition",
+      "title": "Définition : Loi interne, magma et partie stable",
+      "content_latex": "• Loi interne et magma : Soit $M$ un ensemble. On appelle loi (de composition) interne sur $M$ toute application $\\star$ de $M \\times M$ dans $M$. Le couple $(M, \\star)$ est alors appelé un magma.\\par • Partie stable par une loi interne : Soient $(M, \\star)$ un magma et $A$ une partie de $M$. On dit que $A$ est stable par $\\star$ si : $\\forall a, a' \\in A, \\quad a \\star a' \\in A$.\\par Il est équivalent de dire que l'application $\\star_{|A \\times A}$ est une loi interne sur $A$. Le cas échéant, $(A, \\star_{|A \\times A})$ est lui-même un magma.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_loi_interne",
+      "type": "remark",
+      "title": "Remarque : Interprétation d'une loi interne",
+      "content_latex": "Une loi interne sur $M$, c'est ce que vous avez appelé une opération jusqu'ici, i.e. une manière de transformer deux éléments de $M$ en un troisième élément de $M$. L'image par $\\star$ d'un couple $(x, y)$ est toujours notée $x \\star y$ plutôt que $\\star(x, y)$.\\par Dire qu'une partie $A$ de $M$ est stable par $\\star$, c'est dire que $A$ fonctionne en vase clos dans $M$ comme un petit monde autonome à l'intérieur d'un plus vaste monde. Les calculs qu'on effectue avec $\\star$ sur des éléments de $A$ ne quittent jamais $A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_magmas_classiques",
+      "type": "example",
+      "title": "Exemple : Magmas classiques",
+      "content_latex": "• Les applications $(x, y) \\mapsto x + y$ et $(x, y) \\mapsto xy$ sont des lois internes sur $\\mathbb{C}$ et font de $(\\mathbb{C}, +)$ et $(\\mathbb{C}, \\times)$ deux magmas.\\par — Exemples de parties stables par addition : $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$, mais aussi $\\{0\\}$ et $\\mathbb{N}^*$.\\par — Exemples de parties stables par produit : $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$, mais aussi $\\mathbb{N}^*$, $\\mathbb{Z}^*$, $\\mathbb{Q}^*$, $\\mathbb{R}^*$ car le produit de deux complexes non nuls est un complexe non nul. Citons également $\\mathbb{R}_+$, $\\mathbb{Q}_+^*$, $\\mathbb{R}_+^*$ et $\\mathbb{R}_+^*$.\\par Attention, $\\mathbb{R}_-$ n'est pas stable par produit car le produit de deux réels négatifs n'est pas toujours un réel négatif, c'est même rarement le cas.\\par L'application $(x, y) \\mapsto x - y$ est elle aussi une loi interne sur $\\mathbb{C}$ et les parties $\\mathbb{Z}$, $\\mathbb{Q}$ et $\\mathbb{R}$ sont stables par soustraction, mais ce n'est pas le cas de $\\mathbb{N}$.\\par • Les applications $(M, N) \\mapsto M + N$ et $(M, N) \\mapsto MN$ sont des lois internes sur $\\mathcal{M}_n(\\mathbb{K})$ et font de $(\\mathcal{M}_n(\\mathbb{K}), +)$ et $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ des magmas.\\par — Exemples de parties stables par addition : l'ensemble des matrices diagonales, l'ensemble des matrices triangulaires supérieures, l'ensemble des matrices symétriques.\\par — Exemples de parties stables par produit : l'ensemble des matrices diagonales, l'ensemble des matrices triangulaires supérieures, et surtout l'ensemble $GL_n(\\mathbb{K})$ des matrices inversibles.\\par Attention, $GL_n(\\mathbb{K})$ n'est pas stable par addition car, par exemple, la somme d'une matrice inversible et de son opposé, également inversible, est la matrice nulle, non inversible.\\par Avec des matrices de taille quelconque, l'application $(M, N) \\mapsto M + N$ est une loi interne sur $\\mathcal{M}_{n,p}(\\mathbb{K})$.\\par • Les applications $(A, B) \\mapsto A \\cup B$ et $(A, B) \\mapsto A \\cap B$ sont des lois internes sur $\\mathcal{P}(E)$. L'ensemble $\\mathcal{P}(E) \\setminus \\{\\emptyset\\}$ des parties non vides de $E$ est stable par réunion, de même que l'ensemble des parties de $E$ de cardinal supérieur à 42.\\par • L'application $(f, g) \\mapsto f \\circ g$ est une loi interne sur $E^E$. L'ensemble des bijections de $E$ sur $E$ et l'ensemble des applications constantes de $E$ dans $E$ sont stables par composition. Dans $\\mathbb{R}^\\mathbb{R}$, l'ensemble des fonctions croissantes est stable par composition.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_algebre",
+      "type": "remark",
+      "title": "Remarque : Théorie des magmas et algèbre",
+      "content_latex": "La théorie des magmas est ce domaine immense des mathématiques qu'on appelle l'algèbre. Un magma, c'est ce qu'on obtient quand on structure un ensemble à l'aide d'une loi interne. À l'état brut d'ensemble, $\\mathbb{R}$ est une collection d'objets donnés sans ordre, en vrac, sans structure a priori. La relation d'ordre $\\leq$ apporte à $\\mathbb{R}$ un premier niveau de structure, elle en fait un ensemble ordonné. C'est grâce à cette structure ordonnée qu'on a coutume de se représenter $\\mathbb{R}$ comme une droite.\\par Les opérations $+$ et $\\times$ lui apportent un autre type de structure, elles le munissent d'une structure algébrique. Tout un horizon de calculs possibles se trouve ouvert dès lors qu'on s'autorise à additionner et multiplier les réels. Cet ensemble de calculs possibles, c'est cela en quelque sorte qu'on appelle la structure algébrique de $\\mathbb{R}$. L'ensemble $\\mathbb{R}$ serait désertique s'il n'était qu'un ensemble, si aucun calcul n'y était rendu possible par la relation $\\leq$ et les lois internes $+$ et $\\times$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_commutativite_associativite",
+      "type": "definition",
+      "title": "Définition : Commutativité et associativité",
+      "content_latex": "Soit $(M, \\star)$ un magma.\\par • Commutativité : On dit que $(M, \\star)$ est commutatif ou que $\\star$ est commutative si : $\\forall x, y \\in M, \\quad x \\star y = y \\star x$.\\par • Associativité : On dit que $(M, \\star)$ est associatif ou que $\\star$ est associative si : $\\forall x, y, z \\in M, \\quad (x \\star y) \\star z = x \\star (y \\star z)$.\\par • Qui peut le plus peut le moins : Soit $A$ une partie de $M$ stable par $\\star$. Si $(M, \\star)$ est commutatif (resp. associatif), alors $(A, \\star)$ est l'est aussi.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_parenthesage",
+      "type": "remark",
+      "title": "Remarque : Parenthésage et notation multiplicative/additive",
+      "content_latex": "Vive les quantificateurs $\\forall$ !\\par En cas d'associativité, on néglige tous les parenthésages et on note par exemple $a \\star b \\star c \\star d$ les éléments $(a \\star b) \\star (c \\star d)$ et $a \\star ((b \\star c) \\star d)$ qui se trouvent être égaux : $(a \\star b) \\star (c \\star d) = a \\star (b \\star (c \\star d)) = a \\star ((b \\star c) \\star d)$.\\par En particulier, le produit de $n$ copies d'un élément $x \\in M$ est bien défini pour tout $n \\in \\mathbb{N}^*$, mais deux notations sont utilisées selon le contexte :\\par — en notation multiplicative, on pose $x^n = x \\star \\ldots \\star x$ ($n$ termes) et on appelle $x^n$ une puissance de $x$,\\par — en notation additive, on pose $nx = x \\star \\ldots \\star x$ ($n$ termes) et on appelle $nx$ un multiple de $x$.\\par Il ne s'agit là vraiment que d'une affaire de notation. Il n'y a pas les lois multiplicatives d'un côté et les lois additives de l'autre. Les deux points de vue sont toujours possibles pour une loi donnée, mais l'usage veut qu'on choisisse un camp et qu'on s'y tienne.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_magmas_commutatifs_associatifs",
+      "type": "example",
+      "title": "Exemple : Magmas commutatifs et associatifs",
+      "content_latex": "Ci-dessous, dès qu'un magma est commutatif ou associatif, les magmas plus petits qu'on peut en tirer par stabilité sont tous eux aussi commutatifs ou associatifs. Qui peut le plus peut le moins !\\par • Les magmas $(\\mathbb{C}, +)$ et $(\\mathbb{C}, \\times)$ sont commutatifs et associatifs.\\par • Les magmas $(\\mathcal{M}_{n,p}(\\mathbb{K}), +)$ et $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ sont associatifs. Le premier est commutatif, mais pas le second pour $n \\geq 2$.\\par Par exemple, les matrices $A = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$ et $B = \\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$ ne commutent pas dans $\\mathcal{M}_2(\\mathbb{K})$, donc les matrices par blocs $\\begin{pmatrix} A & 0 \\\\ 0 & I_{n-2} \\end{pmatrix}$ et $\\begin{pmatrix} B & 0 \\\\ 0 & I_{n-2} \\end{pmatrix}$ ne commutent pas non plus dans $\\mathcal{M}_n(\\mathbb{K})$.\\par • Les magmas $(\\mathcal{P}(E), \\cup)$ et $(\\mathcal{P}(E), \\cap)$ sont commutatifs et associatifs.\\par • Le magma $(E^E, \\circ)$ est associatif, mais non commutatif si $|E| \\geq 2$. Par exemple, si $E$ contient deux éléments distincts $a$ et $b$, les applications constantes $f : x \\mapsto a$ et $g : x \\mapsto b$ ne commutent pas car $f \\circ g = f \\neq g = g \\circ f$.\\par • Le magma $(\\mathbb{Z}, -)$ n'est ni commutatif ni associatif car par exemple $3 - 1 = 2$ alors que $1 - 3 = -1$, et $(3 - 1) - 1 = 1$ alors que $3 - (1 - 1) = 3$. L'addition, c'est vraiment mieux que la soustraction.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_distributivite",
+      "type": "definition",
+      "title": "Définition : Distributivité",
+      "content_latex": "Soient $M$ un ensemble et $\\star$ et $\\bullet$ deux lois internes sur $M$. On dit que $\\star$ est distributive sur $\\bullet$ si :\\par $\\forall x, y, z \\in E, \\quad x \\star (y \\bullet z) = (x \\star y) \\bullet (x \\star z) \\quad \\text{et} \\quad (x \\bullet y) \\star z = (x \\star z) \\bullet (y \\star z)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_distributivite",
+      "type": "example",
+      "title": "Exemple : Distributivité",
+      "content_latex": "• Dans $\\mathbb{C}$ et $\\mathcal{M}_n(\\mathbb{K})$, la multiplication est distributive sur l'addition, et de nouveau, qui peut le plus peut le moins grâce aux quantificateurs $\\forall$, donc le résultat reste vrai dans $\\mathbb{N}$, $\\mathbb{Z}$, $\\mathbb{Q}$ et $\\mathbb{R}$.\\par • Réunion et intersection sont distributives l'une sur l'autre dans $\\mathcal{P}(E)$. Pour tous $A, B, C \\in \\mathcal{P}(E)$ :\\par $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$ et $(A \\cap B) \\cup C = (A \\cup C) \\cap (B \\cup C)$ (distributivité de $\\cup$ sur $\\cap$)\\par et :\\par $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$ et $(A \\cup B) \\cap C = (A \\cap C) \\cup (B \\cap C)$ (distributivité de $\\cap$ sur $\\cup$).",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_element_neutre",
+      "type": "definition",
+      "title": "Définition-théorème : Élément neutre",
+      "content_latex": "Soient $(M, \\star)$ un magma et $e \\in M$. On dit que $e$ est un élément neutre de $(M, \\star)$ (ou pour $\\star$) si : $\\forall x \\in M, \\quad x \\star e = e \\star x = x$.\\par Si $(M, \\star)$ possède un élément neutre, celui-ci est unique et on le note souvent $1_M$ ou $1$ en notation multiplicative et $0_M$ ou $0$ en notation additive.",
+      "proof_latex": "Si $e, e' \\in M$ sont deux éléments neutres pour $\\star$, alors $e = e \\star e' = e'$, donc $e = e'$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_elements_neutres",
+      "type": "example",
+      "title": "Exemple : Éléments neutres classiques",
+      "content_latex": "• Les magmas $(\\mathbb{C}, +)$, $(\\mathbb{R}, +)$, $(\\mathbb{Q}, +)$, $(\\mathbb{Z}, +)$ et $(\\mathbb{N}, +)$ admettent $0$ pour élément neutre et les magmas $(\\mathbb{C}, \\times)$, $(\\mathbb{R}, \\times)$, $(\\mathbb{Q}, \\times)$, $(\\mathbb{Z}, \\times)$ et $(\\mathbb{N}, \\times)$ le nombre $1$. Le magma $(\\mathbb{N}^*, +)$, en revanche, ne possède pas d'élément neutre.\\par • Le magma $(\\mathcal{M}_{n,p}(\\mathbb{K}), +)$ admet la matrice nulle $0_{n,p}$ pour élément neutre et le magma $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ la matrice $I_n$.\\par • Le magma $(\\mathcal{P}(E), \\cup)$ admet $\\emptyset$ pour élément neutre, $(\\mathcal{P}(E), \\cap)$ l'ensemble $E$ et $(E^E, \\circ)$ l'identité $\\text{Id}_E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__warning_element_neutre_partie",
+      "type": "warning",
+      "title": "Attention : Élément neutre dans une partie stable",
+      "content_latex": "Ce qui existe dans un grand monde peut ne pas exister dans un monde plus petit. Ainsi, étant donné un magma $(M, \\star)$ et une partie $A$ de $M$ stable par $\\star$, $(M, \\star)$ peut posséder un élément neutre sans que $(A, \\star)$ en possède un. Pensez à $(\\mathbb{N}, +)$ et $(\\mathbb{N}^*, +)$.\\par Pire que ça, $(M, \\star)$ et $(A, \\star)$ peuvent posséder chacun un élément neutre, mais pas le même. Par exemple, $(\\mathcal{M}_2(\\mathbb{R}), \\times)$ admet $I_2$ pour élément neutre, mais si on note $A$ l'ensemble des matrices $\\begin{pmatrix} a & 0 \\\\ 0 & 0 \\end{pmatrix}$, $a$ décrivant $\\mathbb{R}$, $A$ est une partie de $\\mathcal{M}_2(\\mathbb{R})$ stable par produit et $(A, \\times)$ admet $\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$ pour élément neutre.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_puissance_zero",
+      "type": "remark",
+      "title": "Remarque : Puissance zéro",
+      "content_latex": "Dans un magma $(M, \\star)$ associatif avec élément neutre, on pose $x^0 = 1_M$ pour tout $x \\in M$ en notation multiplicative et $0 \\cdot x = 0_M$ en notation additive. Par exemple, dans le magma $(\\mathcal{M}_n(\\mathbb{K}), \\times)$, $M^0 = I_n$ pour tout $M \\in \\mathcal{M}_n(\\mathbb{K})$, et dans le magma $(E^E, \\circ)$, $f^0 = \\text{Id}_E$ pour toute application $f : E \\longrightarrow E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_element_inversible",
+      "type": "definition",
+      "title": "Définition-théorème : Élément inversible",
+      "content_latex": "Soient $(M, \\star)$ un magma possédant un élément neutre et $x \\in M$. On dit que $x$ est inversible dans $(M, \\star)$ (ou pour $\\star$) s'il existe un élément $x' \\in M$, appelé un inverse de $x$, pour lequel $x \\star x' = x' \\star x = 1_M$.\\par Unicité dans un magma associatif : Si $(M, \\star)$ est associatif et si $x$ est inversible, alors $x$ possède un unique inverse. On le note $x^{-1}$ en notation multiplicative et $-x$ en notation additive, auquel cas on parle plutôt de l'opposé de $x$.",
+      "proof_latex": "Si $(M, \\star)$ est associatif et si $x'$ et $x''$ sont deux inverses de $x$, alors :\\par $x' = x' \\star 1_M = x' \\star (x \\star x'') = (x' \\star x) \\star x'' = 1_M \\star x'' = x''$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_inversibilite_magma_associatif",
+      "type": "theorem",
+      "title": "Théorème : Inversibilité dans un magma associatif avec élément neutre",
+      "content_latex": "Soient $(M, \\star)$ un magma associatif possédant un élément neutre et $a, x, y, z \\in M$.\\par (i) Simplification par un élément inversible :\\par Si $a \\star x = a \\star y$ et si $a$ est inversible, alors $x = y$.\\par Si $x \\star a = y \\star a$ et si $a$ est inversible, alors $x = y$.\\par (ii) Produit : Si $x$ et $y$ sont inversibles, $x \\star y$ l'est aussi et $(x \\star y)^{-1} = y^{-1} \\star x^{-1}$.\\par (iii) Puissances négatives : Pour tout $n \\in \\mathbb{N}$, si $x$ est inversible, alors $x^n$ l'est aussi et $(x^n)^{-1} = (x^{-1})^n$. Cet élément est noté $x^{-n}$. La notation $x^k$ a donc un sens pour tout $k \\in \\mathbb{Z}$.\\par (v) Inverse : Si $x$ est inversible, alors $x^{-1}$ l'est aussi et $(x^{-1})^{-1} = x$.",
+      "proof_latex": "Mêmes preuves qu'au chapitre « Matrices et systèmes linéaires » pour les assertions (ii), (iii) et (iv). Pour (i), si $a \\star x = a \\star y$ avec $a$ inversible :\\par $x = 1_M \\star x = (a^{-1} \\star a) \\star x = a^{-1} \\star (a \\star x) = a^{-1} \\star (a \\star y) = (a^{-1} \\star a) \\star y = 1_M \\star y = y$."
+    },
+    {
+      "id": "groupes_et_anneaux__warning_inverse_produit",
+      "type": "warning",
+      "title": "Attention : Inverse d'un produit",
+      "content_latex": "Dans l'assertion (ii), si $x$ et $y$ ne commutent pas, il est faux que $(x \\star y)^{-1} = x^{-1} \\star y^{-1}$. Rappelez-vous l'histoire du trésor du chapitre « Relations binaires et applications ».",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_elements_inversibles",
+      "type": "example",
+      "title": "Exemple : Éléments inversibles classiques",
+      "content_latex": "• Dans $(\\mathbb{C}, +)$, $(\\mathbb{R}, +)$, $(\\mathbb{Q}, +)$ et $(\\mathbb{Z}, +)$, tout élément possède un opposé, mais dans $(\\mathbb{N}, +)$, seul $0$ possède un opposé. Par exemple, $1$ n'a pas d'opposé dans $\\mathbb{N}$, mais il en a un dans $\\mathbb{Z}$.\\par Attention, donc : Un élément peut posséder un inverse dans un magma, mais pas dans un magma plus petit.\\par • Dans $(\\mathbb{C}, \\times)$, tout le monde est inversible à part $0$. Par conséquent, dans $(\\mathbb{C}^*, \\times)$, qui est bien un magma, tout élément est inversible. En revanche, $1$ et $-1$ sont les seuls inversibles de $(\\mathbb{Z}, \\times)$ et $1$ est même le seul inversible de $(\\mathbb{N}, \\times)$.\\par • Dans $(\\mathcal{M}_n(\\mathbb{K}), +)$, toute matrice possède un opposé. Dans $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ au contraire, l'ensemble des matrices inversibles a été noté $GL_n(\\mathbb{K})$ et il n'est pas égal à $\\mathcal{M}_n(\\mathbb{K})$ tout entier — loin de là.\\par • Rappelons maintenant que $\\emptyset$ est l'élément neutre de $(\\mathcal{P}(E), \\cup)$ et $E$ celui de $(\\mathcal{P}(E), \\cap)$.\\par — Seul $\\emptyset$ possède un inverse pour la réunion, car pour tous $A, B \\in \\mathcal{P}(E)$, si $A \\cup B = \\emptyset$, alors $A = B = \\emptyset$.\\par — Seul $E$ possède un inverse pour l'intersection, car pour tous $A, B \\in \\mathcal{P}(E)$, si $A \\cap B = E$, alors $A = B = E$.\\par • Les éléments inversibles du magma $(E^E, \\circ)$ sont exactement les bijections de $E$ sur $E$. Pourquoi ? Être bijectif c'est posséder une réciproque, et une réciproque n'est rien de plus qu'un inverse pour la composition.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_produit_magmas",
+      "type": "definition",
+      "title": "Définition-théorème : Produit de magmas",
+      "content_latex": "Soient $(M, \\star)$ et $(M', \\bullet)$ deux magmas. On définit une loi interne $\\dagger$ sur le produit $M \\times M'$ en posant pour tous $(x, x'), (y, y') \\in M \\times M'$ :\\par $(x, x') \\dagger (y, y') = (x \\star y, x' \\bullet y')$.\\par (i) Commutativité, associativité : Si $(M, \\star)$ et $(M', \\bullet)$ sont commutatifs (resp. associatifs), $(M \\times M', \\dagger)$ l'est aussi. Avec deux lois sur $M$ et deux sur $M'$, un énoncé analogue est vrai en termes de distributivité.\\par (ii) Élément neutre : Si $(M, \\star)$ et $(M', \\bullet)$ possèdent chacun un élément neutre, $(M \\times M', \\dagger)$ en possède un aussi, et en l'occurrence $1_{M \\times M'} = (1_M, 1_{M'})$.\\par (iii) Inversibles : On suppose $(M, \\star)$ et $(M', \\bullet)$ associatifs avec élément neutre. Pour tous $x \\in M$ inversible pour $\\star$ et $x' \\in M'$ inversible pour $\\bullet$, $(x, x')$ est inversible pour $\\dagger$ et $(x, x')^{-1} = (x^{-1}, x'^{-1})$.\\par Cette construction se généralise naturellement au cas d'un nombre quelconque de magmas.",
+      "proof_latex": "(i) Si $\\star$ et $\\bullet$ sont commutatives, $\\dagger$ l'est car pour tous $(x, x'), (y, y') \\in M \\times M'$ :\\par $(x, x') \\dagger (y, y') = (x \\star y, x' \\bullet y') = (y \\star x, y' \\star x') = (y, y') \\dagger (x, x')$.\\par De même, si $\\star$ et $\\bullet$ sont associatives, $\\dagger$ l'est car pour tous $(x, x'), (y, y'), (z, z') \\in M \\times M'$ :\\par $(x, x') \\dagger \\bigl((y, y') \\dagger (z, z')\\bigr) = (x, x') \\dagger (y \\star z, y' \\bullet z') = \\bigl(x \\star (y \\star z), x' \\bullet (y' \\bullet z')\\bigr) = \\bigl((x \\star y) \\star z, (x' \\bullet y') \\bullet z'\\bigr) = (x \\star y, x' \\bullet y') \\dagger (z, z') = \\bigl((x, x') \\dagger (y, y')\\bigr) \\dagger (z, z')$.\\par (ii) Pour tout $(x, x') \\in M \\times M'$ :\\par $(1_M, 1_{M'}) \\dagger (x, x') = (1_M \\star x, 1_{M'} \\bullet x') = (x, x')$ et idem dans l'autre sens.\\par (iii) Pour tout $(x, x') \\in M \\times M'$, $(x, x')$ est inversible pour $\\dagger$ d'inverse $(x^{-1}, x'^{-1})$ car :\\par $(x, x') \\dagger (x^{-1}, x'^{-1}) = (x \\star x^{-1}, x' \\bullet x'^{-1}) = (1_M, 1_{M'})$ et de même dans l'autre sens."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_applications_magma",
+      "type": "definition",
+      "title": "Définition-théorème : Ensembles d'applications à valeurs dans un magma",
+      "content_latex": "Soient $(M, \\star)$ un magma et $X$ un ensemble non vide. Pour toutes applications $f$ et $g$ de $X$ dans $M$, on note $f \\star g$ l'application $X \\longrightarrow M, \\quad x \\longmapsto f(x) \\star g(x)$.\\par L'application $(f, g) \\longmapsto f \\star g$ est alors une loi interne sur l'ensemble $M^X$ des applications de $X$ dans $M$.\\par (i) Commutativité, associativité : Si $(M, \\star)$ est commutatif (resp. associatif), $(M^X, \\star)$ l'est aussi.\\par (ii) Élément neutre : Si $(M, \\star)$ possède un élément neutre, $(M^X, \\star)$ en possède un aussi. En l'occurrence, $1_{M^X}$ est l'application constante $x \\longmapsto 1_M$.\\par (iii) Inversibles : On suppose $(M, \\star)$ associatif avec élément neutre et on note $\\mathcal{I}$ l'ensemble de ses inversibles. Pour toute application $f \\in M^X$, $f$ est inversible dans $(M^X, \\star)$ si et seulement si $f$ est à valeurs dans $\\mathcal{I}$, et le cas échéant, son inverse est l'application $x \\longmapsto f(x)^{-1}$.",
+      "proof_latex": "(i) Supposons $(M, \\star)$ commutatif et montrons que $(M^X, \\star)$ l'est. Soient $f, g \\in M^X$. Alors $f \\star g = g \\star f$ car pour tout $x \\in X$ :\\par $(f \\star g)(x) = f(x) \\star g(x) = g(x) \\star f(x) = (g \\star f)(x)$.\\par Supposons $(M, \\star)$ associatif et montrons que $(M^X, \\star)$ l'est. Soient $f, g, h \\in M^X$. Alors $(f \\star g) \\star h = f \\star (g \\star h)$ car pour tout $x \\in X$ :\\par $((f \\star g) \\star h)(x) = (f \\star g)(x) \\star h(x) = (f(x) \\star g(x)) \\star h(x) = f(x) \\star (g(x) \\star h(x)) = f(x) \\star (g \\star h)(x) = (f \\star (g \\star h))(x)$.\\par (iii) Soit $f \\in M^X$. Si $f$ est inversible dans $(M^X, \\star)$ d'inverse $g$, alors $f \\star g = g \\star f = 1_{M^X} = (x \\longmapsto 1_M)$, donc $f(x)$ est inversible d'inverse $g(x)$ pour tout $x \\in X$ car $f(x) \\star g(x) = g(x) \\star f(x) = 1_M$. Comme voulu, $f$ est à valeurs dans $\\mathcal{I}$ et son inverse est l'application $x \\longmapsto f(x)^{-1}$. Réciproque immédiate."
+    },
+    {
+      "id": "groupes_et_anneaux__example_applications_magma",
+      "type": "example",
+      "title": "Exemple : Applications à valeurs dans un magma",
+      "content_latex": "Le magma $(\\mathbb{R}^\\mathbb{R}, +)$ est commutatif et associatif, il admet la fonction nulle $x \\longmapsto 0$ pour élément neutre et toute fonction $f : \\mathbb{R} \\longrightarrow \\mathbb{R}$ admet la fonction $x \\longmapsto -f(x)$ pour opposée.\\par De son côté, le magma $(\\mathbb{R}^\\mathbb{R}, \\times)$ est commutatif et associatif, il admet la fonction constante $x \\longmapsto 1$ pour élément neutre et ses inversibles sont les fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$ qui ne s'annulent pas.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_2_groupes",
+      "type": "remark",
+      "title": "2 Groupes",
+      "content_latex": "2.1 DÉFINITION ET PREMIERS EXEMPLES",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_groupe",
+      "type": "definition",
+      "title": "Définition : Groupe",
+      "content_latex": "On appelle groupe tout magma associatif possédant un élément neutre et dont tout élément est inversible. Le cardinal d'un groupe fini est généralement appelé son ordre.\\par Dans les exemples concrets, les lois de groupes sont notées multiplicativement ou additivement selon les cas. Dans les situations théoriques abstraites en revanche, les lois de groupes sont toujours notées multiplicativement par convention — sauf mention explicite du contraire. Par ailleurs, quand on introduit un groupe abstrait $(G, \\star)$, on omet généralement de mentionner la loi $\\star$ pour alléger les notations. On dit simplement « Soit $G$ un groupe » et on note $xx'$ le produit de deux éléments $x$ et $x'$.\\par Dans un groupe, on simplifie comme on veut car tout élément est inversible. Par exemple : $ab = ac \\Longrightarrow b = c$ après multiplication à gauche par $a^{-1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_groupes_classiques",
+      "type": "example",
+      "title": "Exemple : Groupes classiques",
+      "content_latex": "$(\\mathbb{Z}^*, \\times)$ n'est pas un groupe car $2$ n'y est pas inversible par exemple.\\par $(\\mathbb{C}, +)$, $(\\mathbb{R}, +)$, $(\\mathbb{Q}, +)$ et $(\\mathbb{Z}, +)$ sont des groupes commutatifs, de même de $(\\mathbb{C}^*, \\times)$, $(\\mathbb{R}^*, \\times)$ et $(\\mathbb{Q}^*, \\times)$. En revanche, $(\\mathbb{C}, \\times)$ n'est pas une groupe car $0$ n'y est pas inversible.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_groupe_lineaire",
+      "type": "example",
+      "title": "Exemple : Le groupe linéaire $GL_n(\\mathbb{K})$",
+      "content_latex": "En revanche, le groupe linéaire $(GL_n(\\mathbb{K}), \\times)$ est un groupe comme son nom l'indique, non commutatif si $n \\geq 2$.\\par $(\\mathcal{M}_n(\\mathbb{K}), +)$ est un groupe, mais pas $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ car la matrice nulle n'est pas inversible par exemple.",
+      "proof_latex": "Commençons par une subtilité cruciale. Par définition, une matrice $A \\in \\mathcal{M}_n(\\mathbb{K})$ est inversible si : $\\exists B \\in \\mathcal{M}_n(\\mathbb{K}), \\quad AB = BA = I_n$, i.e. si elle est inversible dans le magma $(\\mathcal{M}_n(\\mathbb{K}), \\times)$. Le point important, c'est que l'inverse $B$ de $A$, qu'on note après coup $A^{-1}$, est cherché dans $\\mathcal{M}_n(\\mathbb{K})$ a priori. En d'autres termes, quand on parle de « l'inverse de $A$ », c'est par définition son inverse dans $\\mathcal{M}_n(\\mathbb{K})$ qu'on désigne.\\par Montrons maintenant que $(GL_n(\\mathbb{K}), \\times)$ est un groupe. C'est un magma car $GL_n(\\mathbb{K})$ est stable par produit, associatif car $(\\mathcal{M}_n(\\mathbb{K}), \\times)$ l'est et d'élément neutre $I_n$. Cela dit, tout élément de $GL_n(\\mathbb{K})$ est-il inversible dans $(GL_n(\\mathbb{K}), \\times)$ ? En d'autres termes, est-il vrai que pour tout $A \\in GL_n(\\mathbb{K})$ : $\\exists B \\in GL_n(\\mathbb{K}), \\quad AB = BA = I_n$ ? Cette fois, l'inverse est cherché dans $GL_n(\\mathbb{K})$, on n'a pas affaire à la même notion d'inversibilité. Nous savons toutefois que l'inverse $A^{-1}$ de $A$ dans $\\mathcal{M}_n(\\mathbb{K})$ appartient à $GL_n(\\mathbb{K})$. Il est donc exact que $A$ possède un inverse dans le magma $(GL_n(\\mathbb{K}), \\times)$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_groupe_applications",
+      "type": "example",
+      "title": "Exemple : Groupe des applications",
+      "content_latex": "Soient $G$ un groupe et $X$ un ensemble non vide. L'ensemble $G^X$ des applications de $X$ dans $G$ est un groupe d'après les paragraphes précédents. Par exemple, $(\\mathbb{R}^\\mathbb{R}, +)$ est un groupe commutatif.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__warning_groupe_C",
+      "type": "warning",
+      "title": "Attention : Notation des groupes $(\\mathbb{C}, +)$ et $(\\mathbb{C}^*, \times)$",
+      "content_latex": "$(\\mathbb{C}, \\times)$ n'est pas une groupe car $0$ n'y est pas inversible. Par conséquent, quand on parlera désormais du groupe $\\mathbb{C}$ sans préciser la loi, il s'agira toujours du groupe $(\\mathbb{C}, +)$, et quand on parlera du groupe $\\mathbb{C}^*$, il s'agira toujours du groupe $(\\mathbb{C}^*, \\times)$. Idem pour $\\mathbb{R}$, $\\mathbb{R}^*$, $\\mathbb{Q}$ et $\\mathbb{Q}^*$. Pour une raison analogue, on parlera désormais du groupe $\\mathcal{M}_n(\\mathbb{K})$ pour désigner le groupe $(\\mathcal{M}_n(\\mathbb{K}), +)$ et du groupe $GL_n(\\mathbb{K})$ pour désigner le groupe $(GL_n(\\mathbb{K}), \\times)$. Ces formulations ne souffrent d'aucune ambiguïté ici et vous devez en être absolument convaincus.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_groupe_symetrique",
+      "type": "definition",
+      "title": "Définition-théorème : Permutation, groupe symétrique",
+      "content_latex": "Soit $E$ un ensemble non vide. On appelle permutation de $E$ toute bijection de $E$ sur $E$ et groupe symétrique de $E$ l'ensemble $S_E$ des permutations de $E$. Le magma $(S_E, \\circ)$ est un groupe d'élément neutre $\\text{Id}_E$.",
+      "proof_latex": "Comme avec $GL_n(\\mathbb{K})$, observons d'abord que par définition, une application $f \\in E^E$ est bijective si : $\\exists g \\in E^E, \\quad f \\circ g = g \\circ f = \\text{Id}_E$, i.e. si elle est inversible dans le magma $(E^E, \\circ)$. L'inverse, qu'on appelle réciproque, est cherché dans $E^E$ a priori.\\par À présent, $(S_E, \\circ)$ est un magma car la composée de deux bijections est une bijection, associatif car $(E^E, \\circ)$ l'est et d'élément neutre $\\text{Id}_E$. Cela dit, tout élément de $S_E$ est-il inversible dans $(S_E, \\circ)$ ? En d'autres termes, est-il vrai que pour tout $f \\in S_E$ : $\\exists g \\in S_E, \\quad f \\circ g = g \\circ f = \\text{Id}_E$ ? Cette fois, l'inverse est cherché dans $S_E$, on n'a pas affaire à la même notion d'inversibilité. Nous savons toutefois que la réciproque $f^{-1}$ de $f$ appartient à $S_E$. Il est donc exact que $f$ possède un inverse dans le magma $(S_E, \\circ)$."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_produit_groupes",
+      "type": "definition",
+      "title": "Définition-théorème : Produit de groupes",
+      "content_latex": "Soient $G_1, \\ldots, G_n$ des groupes. Muni de la loi produit, $G_1 \\times \\ldots \\times G_n$ est un groupe appelé le groupe produit de $G_1, \\ldots, G_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_produit_groupes",
+      "type": "example",
+      "title": "Exemple : Lois des groupes produits",
+      "content_latex": "La loi du groupe $\\mathbb{R} \\times \\mathbb{R}^*$ est définie par la relation mixte $(x, y) \\cdot (x', y') = (x + x', yy')$ pour tous $(x, y), (x', y') \\in \\mathbb{R} \\times \\mathbb{R}^*$.\\par La loi du groupe $\\mathbb{R} \\times \\mathbb{R}$ est définie par la relation $(x, y) + (x', y') = (x + x', y + y')$ pour tous $(x, y), (x', y') \\in \\mathbb{R} \\times \\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_sous_groupe",
+      "type": "definition",
+      "title": "Définition : Sous-groupe",
+      "content_latex": "Soient $G$ un groupe et $H$ une partie de $G$ stable par produit. On dit que $H$ est un sous-groupe de $G$ si $H$ est un groupe pour la loi de $G$.\\par Un sous-groupe, c'est un groupe dans un autre groupe pour la même loi.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_element_neutre_inverses_sous_groupe",
+      "type": "theorem",
+      "title": "Théorème : Élément neutre et inverses dans un sous-groupe",
+      "content_latex": "Soient $G$ un groupe et $H$ un sous-groupe de $G$.\\par (i) $1_G \\in H$.\\par (ii) $H$ est stable par inversion : $\\forall h \\in H, \\quad h^{-1} \\in H$.\\par Nous disposons de deux groupes, $G$ et $H$, dont chacun possède un élément neutre et dans lesquels tout élément est inversible. Deux questions subtiles se posent alors :\\par — Les groupes $H$ et $G$ ont-ils le même élément neutre ? On pourrait très bien imaginer que non, que $1_G \\notin H$ et que $1_H$ est neutre vis-à-vis des éléments de $H$ mais pas de tous les éléments de $G$.\\par — Pour tout $h \\in H$, l'inverse de $h$ dans $H$ et son inverse dans $G$ coïncident-ils ?",
+      "proof_latex": "(i) $1_H \\cdot 1_G = 1_H$ car $1_G$ est neutre dans $G$ et $1_H \\cdot 1_H = 1_H$ car $1_H$ l'est dans $H$, donc $1_H \\cdot 1_G = 1_H \\cdot 1_H$. Or on peut simplifier par $1_H$ car $G$ est un groupe, donc $1_G = 1_H \\in H$.\\par (ii) Soit $h \\in H$. Notons $h'$ l'inverse de $h$ dans $H$ pour le distinguer de l'inverse $h^{-1}$ de $h$ dans $G$. Aussitôt $h^{-1} = h' \\in H$ car $h^{-1} = h^{-1} \\cdot 1_G = h^{-1} \\cdot 1_H = h^{-1} \\cdot (hh') = (h^{-1}h) \\cdot h' = 1_G \\cdot h' = h'$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_caracterisation_sous_groupes",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des sous-groupes",
+      "content_latex": "Soient $G$ un groupe et $H$ une partie de $G$. Les assertions suivantes sont équivalentes :\\par (i) $H$ est un sous-groupe de $G$.\\par (ii) $\\begin{cases} 1_G \\in H \\\\ H \\text{ est stable par produit : } \\forall h, h' \\in H, \\quad hh' \\in H \\\\ H \\text{ est stable par inversion : } \\forall h \\in H, \\quad h^{-1} \\in H \\end{cases}$\\par (iii) $\\begin{cases} 1_G \\in H \\\\ H \\text{ est stable par produit-inversion : } \\forall h, h' \\in H, \\quad h^{-1}h' \\in H \\end{cases}$\\par En notation additive, l'assertion (iii) s'écrit ainsi : $\\begin{cases} 0_G \\in H \\\\ H \\text{ est stable par différence : } \\forall h, h' \\in H, \\quad h - h' \\in H \\end{cases}$",
+      "proof_latex": "Montrons seulement l'équivalence des assertions (i) et (iii).\\par (i) $\\Longrightarrow$ (iii) Si $H$ est un sous-groupe de $G$, $H$ est stable par produit et nous venons de voir que $1_G \\in H$ et $H$ est stable par passage à l'inverse. Ainsi, pour tout $h, h' \\in H$, $h^{-1} \\in H$ par stabilité par inversion, puis $h^{-1}h' \\in H$ par stabilité par produit.\\par (iii) $\\Longrightarrow$ (i) Faisons l'hypothèse que $1_G \\in H$ et que : $\\forall h, h' \\in H, \\quad h^{-1}h' \\in H \\quad (\\star)$.\\par — Comme $1_G \\in H$ : $\\forall h \\in H, \\quad h^{-1} = h^{-1} \\cdot 1_G \\in H$ d'après $(\\star)$, i.e. $H$ est stable par inversion. En retour, toujours d'après $(\\star)$ : $\\forall h, h' \\in H, \\quad hh' = (h^{-1})^{-1}h' \\in H$, i.e. $H$ est stable par produit.\\par — Maintenant que $H$ est stable par produit, montrons que c'est un groupe pour la loi de $G$. Or $H$ est associatif car $G$ l'est et admet $1_G$ pour élément neutre puisque $1_G \\in H$. Enfin, $H$ est stable par inversion, donc tout élément de $H$ est inversible."
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_caracterisation_sous_groupes",
+      "type": "remark",
+      "title": "Remarque : Utilisation de la caractérisation des sous-groupes",
+      "content_latex": "C'est toujours ce résultat qu'il faut utiliser pour montrer qu'une partie d'un groupe en est un sous-groupe. Avec la DÉFINITION des sous-groupes, on est obligé de parler d'associativité et d'inversibilité. La CARACTÉRISATION en fait l'économie.\\par Par ailleurs, pour montrer qu'un ensemble $H$ muni d'une certaine loi est un groupe, il suffit souvent de montrer que $H$ est un SOUS-GROUPE d'un groupe connu. Pas besoin de revenir à la définition des groupes avec associativité, élément neutre et inversibles, la caractérisation des sous-groupes est plus sobre.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_groupes_triviaux",
+      "type": "example",
+      "title": "Exemple : Sous-groupes triviaux",
+      "content_latex": "Pour tout groupe $G$, $G$ lui-même et $\\{1_G\\}$ sont deux sous-groupes de $G$.",
+      "proof_latex": "C'est évident pour $G$. Pour $\\{1_G\\}$, cela découle de l'égalité $1_G \\cdot 1_G = 1_G$, qui vérifie à elle seule tous les points de la caractérisation des sous-groupes."
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_groupes_chaines",
+      "type": "example",
+      "title": "Exemple : Chaînes de sous-groupes",
+      "content_latex": "$\\mathbb{Z}$ est un sous-groupe de $\\mathbb{Q}$, qui est lui-même un sous-groupe de $\\mathbb{R}$, qui est lui-même un sous-groupe de $\\mathbb{C}$. Même chose avec $\\mathbb{Q}^*$, $\\mathbb{R}^*$ et $\\mathbb{C}^*$. Enfin, $\\mathbb{R}_+^*$ et $\\mathbb{U}$ sont des sous-groupes de $\\mathbb{C}^*$.",
+      "proof_latex": "Pour commencer, $\\mathbb{R}_+^* \\subset \\mathbb{C}^*$ et $\\mathbb{U} \\subset \\mathbb{C}^*$. Ensuite, l'élément neutre $1$ de $\\mathbb{C}^*$ appartient à $\\mathbb{R}_+^*$ et $\\mathbb{U}$.\\par Pour la stabilité par produit-inversion enfin, $x^{-1}x' = \\frac{x'}{x} \\in \\mathbb{R}_+^*$ pour tous $x, x' \\in \\mathbb{R}_+^*$ et $|u^{-1}u'| = \\frac{|u'|}{|u|} = 1$ pour tous $u, u' \\in \\mathbb{U}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_groupe_matrices_triangulaires",
+      "type": "example",
+      "title": "Exemple : Sous-groupe des matrices triangulaires supérieures",
+      "content_latex": "L'ensemble $T_n(\\mathbb{K})$ des matrices triangulaires supérieures de $\\mathcal{M}_n(\\mathbb{K})$ à coefficients diagonaux non nuls est un groupe pour le produit matriciel.",
+      "proof_latex": "Il suffit de montrer que $T_n(\\mathbb{K})$ est un SOUS-GROUPE de $GL_n(\\mathbb{K})$, et d'abord $T_n(\\mathbb{K}) \\subset GL_n(\\mathbb{K})$ car toute matrice triangulaire à coefficients diagonaux non nuls est inversible. Ensuite, l'élément neutre $I_n$ de $GL_n(\\mathbb{K})$ appartient à $T_n(\\mathbb{K})$.\\par Pour la stabilité par produit, $TT' \\in T_n(\\mathbb{K})$ pour tous $T, T' \\in T_n(\\mathbb{K})$ car le produit de deux matrices triangulaires supérieures est triangulaire supérieure et $(TT')_{ii} = t_{ii}t'_{ii} \\neq 0$ pour tout $i \\in \\llbracket 1, n \\rrbracket$.\\par Enfin, pour la stabilité par inversion, $T^{-1} \\in T_n(\\mathbb{K})$ pour tout $T \\in T_n(\\mathbb{K})$ car toute matrice triangulaire supérieure à coefficients diagonaux non nuls est inversible et $(T^{-1})_{ii} = \\frac{1}{t_{ii}} \\neq 0$ pour tout $i \\in \\llbracket 1, n \\rrbracket$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_stabilisateur",
+      "type": "example",
+      "title": "Exemple : Stabilisateur d'un point",
+      "content_latex": "Soient $E$ un ensemble non vide et $x \\in E$. L'ensemble $\\text{Stab}(x) = \\{\\sigma \\in S_E \\mid \\sigma(x) = x\\}$ est un sous-groupe de $S_E$.",
+      "proof_latex": "Pour commencer, $\\text{Stab}(x) \\subset S_E$. Ensuite, l'élément neutre $\\text{Id}_E$ de $S_E$ appartient à $\\text{Stab}(x)$ car $\\text{Id}_E(x) = x$.\\par Enfin, pour la stabilité par produit-inversion, pour tous $\\sigma, \\sigma' \\in \\text{Stab}(x)$, $\\sigma(x) = x$ donc $\\sigma^{-1}(x) = x$, donc $\\sigma^{-1} \\circ \\sigma'(x) = \\sigma^{-1}(x) = x$, i.e. $\\sigma^{-1} \\circ \\sigma' \\in \\text{Stab}(x)$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_intersection_sous_groupes",
+      "type": "theorem",
+      "title": "Théorème : Intersection de sous-groupes",
+      "content_latex": "Soit $G$ un groupe. Toute intersection de sous-groupes de $G$ est un sous-groupe de $G$.",
+      "proof_latex": "Soit $(H_i)_{i \\in I}$ une famille de sous-groupes de $G$. Montrons que $K = \\bigcap_{i \\in I} H_i$ est un sous-groupe de $G$. Pour commencer, $K \\subset G$. Ensuite, $H_i$ contient $1_G$ pour tout $i \\in I$ en tant que sous-groupe de $G$, donc $1_G \\in K$.\\par Enfin, pour la stabilité par produit-inversion, soient $x, x' \\in K$. Pour tout $i \\in I$, $H_i$ contient $x$ et $x'$, donc aussi $x^{-1}x'$ en tant que sous-groupe de $G$. Par conséquent, $x^{-1}x' \\in K$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_sous_groupes_Z",
+      "type": "theorem",
+      "title": "Théorème : Sous-groupes de $\\mathbb{Z}$",
+      "content_latex": "Les sous-groupes de $\\mathbb{Z}$ sont exactement les $n\\mathbb{Z}$, $n$ décrivant $\\mathbb{N}$.",
+      "proof_latex": "Il n'est pas dur de vérifier que $n\\mathbb{Z}$ est un sous-groupe de $\\mathbb{Z}$ pour tout $n \\in \\mathbb{N}$.\\par Réciproquement, soit $G$ un sous-groupe de $\\mathbb{Z}$. On veut montrer que $G = n\\mathbb{Z}$ pour un certain $n \\in \\mathbb{N}$, mais quel $n$ ? Que $n$ représente pour l'ensemble $n\\mathbb{Z}$ ? Réponse : $n$ est le premier élément de $n\\mathbb{Z}$ qu'on trouve à droite de $0$, i.e. le plus petit élément de $n\\mathbb{Z} \\cap \\mathbb{N}^*$. Cela nous donne envie de poser $n = \\min(G \\cap \\mathbb{N}^*)$... si jamais c'est possible.\\par • Si $G = \\{0\\}$, alors $G = 0\\mathbb{Z}$ et c'est fini.\\par • Supposons désormais $G \\neq \\{0\\}$. Le sous-groupe $G$ contient alors au moins un élément non nul, mais il contient même forcément un entier NATUREL non nul car il est stable par passage à l'opposé. Partie non vide de $\\mathbb{N}$, $G \\cap \\mathbb{N}^*$ possède ainsi un plus petit élément $n$ et nous allons montrer que $G = n\\mathbb{Z}$.\\par L'inclusion $n\\mathbb{Z} \\subset G$ se prouve aisément. En effet, $G$ contient $n$, donc aussi toutes les multiples $nk$ de $n$, $k$ décrivant $\\mathbb{Z}$, car il est stable par addition et passage à l'opposé.\\par Montrons que $G \\subset n\\mathbb{Z}$. Soit $g \\in G$. Nous voulons montrer que $g \\in n\\mathbb{Z}$, i.e. que $n \\mid g$. La division euclidienne de $g$ par $n$ s'écrit $g = nq + r$ pour certains $q \\in \\mathbb{Z}$ et $r \\in \\llbracket 0, n-1 \\rrbracket$. Ainsi, $r = g - nq \\in G$ car $n\\mathbb{Z} \\subset G$ et $G$ est stable par addition, donc $r \\in G \\cap \\llbracket 0, n-1 \\rrbracket$. Il en découle par minimalité de $n$ que $r = 0$, de sorte que $n \\mid g$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_lagrange",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Lagrange",
+      "content_latex": "Soient $G$ un groupe fini et $H$ un sous-groupe de $G$. L'ordre de $H$ divise l'ordre de $G$.",
+      "proof_latex": "• Pour tous $x, y \\in G$, on dira que $x \\sim y$ si $y = xh$ pour un certain $h \\in H$. Montrons que $\\sim$ est une relation d'équivalence sur $G$.\\par Réflexivité : Pour tout $x \\in G$, $x = x \\cdot 1_G$ avec $1_G \\in H$ car $H$ est un sous-groupe de $G$, donc $x \\sim x$.\\par Symétrie : Pour tous $x, y \\in G$, si $x \\sim y$, alors $y = xh$ pour un certain $h \\in H$, donc $x = yh^{-1}$ avec $h^{-1} \\in H$ car $H$ est stable par inversion, donc $y \\sim x$.\\par Transitivité : Pour tous $x, y, z \\in G$, si $x \\sim y$ et $y \\sim z$, alors $y = xh$ et $z = yh'$ pour certains $h, h' \\in H$, donc $z = x(hh')$ avec $hh' \\in H$ car $H$ est stable par produit, donc $x \\sim z$.\\par • À présent, pour tout $x \\in G$, la classe d'équivalence de $x$ pour $\\sim$ est l'ensemble : $xH = \\{xh \\mid h \\in H\\}$.\\par En outre, l'application $h \\longmapsto xh$ est bijective de $H$ sur $xH$ de réciproque $g \\longmapsto x^{-1}g$, donc $|xH| = |H|$.\\par Finalement, en notant $x_1, \\ldots, x_n$ des représentants des classes d'équivalence de $\\sim$ : $|G| = |x_1H \\sqcup \\ldots \\sqcup x_nH| = |x_1H| + \\ldots + |x_nH| = |H| + \\ldots + |H| = n|H|$, donc $|H|$ divise $|G|$."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_morphisme_groupes",
+      "type": "definition",
+      "title": "Définition : Morphisme de groupes",
+      "content_latex": "Soient $(G, \\star)$ et $(G', \\bullet)$ deux groupes. On appelle morphisme (de groupes) de $G$ dans $G'$ toute application $f : G \\longrightarrow G'$ pour laquelle : $\\forall x, y \\in G, \\quad f(x \\star y) = f(x) \\bullet f(y)$.\\par Si on omet de noter les lois $\\star$ et $\\bullet$, cela revient à dire que : $\\forall x, y \\in G, \\quad f(xy) = f(x)f(y)$.\\par Quand $G = G'$, on dit plutôt que $f$ est un endomorphisme (de groupe) de $G$.\\par Les morphismes de groupes sont une façon de faire communiquer les groupes entre eux alors qu'on s'est contenté jusqu'ici de les observer individuellement. Un morphisme de groupes $f$ de $G$ dans $G'$ transforme toute relation dans $G$ en une relation analogue dans $G'$. Par exemple, si $x^2yx = y$ dans $G$ pour certains $x, y \\in G$, alors $f(x)^2f(y)f(x) = f(y)$ dans $G'$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_morphisme_phrase",
+      "type": "remark",
+      "title": "Remarque : Signe d'un morphisme de groupes",
+      "content_latex": "Toute phrase du genre « Le machin des trucs est égal au truc des machins » est le signe qu'un morphisme de groupes est dans les parages.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_morphismes_groupes",
+      "type": "example",
+      "title": "Exemple : Morphismes de groupes classiques",
+      "content_latex": "• L'exponentielle complexe est un morphisme de groupes de $\\mathbb{C}$ dans $\\mathbb{C}^*$ car l'exponentielle d'une somme est égal au produit des exponentielles. Le logarithme est un morphisme de groupes de $\\mathbb{R}_+^*$ dans $\\mathbb{R}$ car le logarithme d'un produit est égal à la somme des logarithmes.\\par • La fonction module $z \\longmapsto |z|$ est un endomorphisme de groupe de $\\mathbb{C}^*$ car le module d'un produit est égal au produit des modules.\\par • Pour tout $z \\in \\mathbb{C}^*$, la fonction $k \\longmapsto z^k$ est un morphisme de groupes de $\\mathbb{Z}$ dans $\\mathbb{C}^*$.\\par • Pour tout $\\alpha \\in \\mathbb{R}$, la fonction puissance $x \\longmapsto x^\\alpha$ est un endomorphisme de groupe de $\\mathbb{R}_+^*$.\\par • La trace $M \\longmapsto \\text{tr}(M)$ est un morphisme de groupes de $\\mathcal{M}_n(\\mathbb{K})$ dans $\\mathbb{K}$. De même, le déterminant $M \\longmapsto \\det(M)$ en est un de $GL_n(\\mathbb{K})$ dans $\\mathbb{K}^*$ car pour tous $M, N \\in GL_2(\\mathbb{K})$ : $\\det(M) \\in \\mathbb{K}^*$ et $\\det(MN) = \\det(M)\\det(N)$.\\par • Soient $G$ un groupe commutatif et $n \\in \\mathbb{Z}$. L'application $x \\longmapsto x^n$ est un endomorphisme de groupe de $G$ car pour tous $x, y \\in G$, $(xy)^n = x^ny^n$ par commutativité.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_proprietes_morphismes_groupes",
+      "type": "theorem",
+      "title": "Théorème : Propriétés diverses des morphismes de groupes",
+      "content_latex": "(i) Éléments neutres et inverses : Soient $G$ et $G'$ deux groupes et $f : G \\longrightarrow G'$ un morphisme de groupes. Alors $f(1_G) = 1_{G'}$ et pour tout $x \\in G$ : $f(x^{-1}) = f(x)^{-1}$.\\par (ii) Composition : Soient $G$, $G'$ et $G''$ trois groupes et $f : G \\longrightarrow G'$ et $g : G' \\longrightarrow G''$ deux morphismes de groupes. Alors $g \\circ f$ est un morphisme de groupes de $G$ dans $G''$.\\par (iii) Images directe et réciproque d'un sous-groupe : Soient $G$ et $G'$ deux groupes et $f : G \\longrightarrow G'$ un morphisme de groupes. Pour tout sous-groupe $H$ de $G$, $f(H)$ est un sous-groupe de $G'$, et pour tout sous-groupe $H'$ de $G'$, $f^{-1}(H')$ en est un de $G$.",
+      "proof_latex": "(i) $f(1_G)f(1_G) = f(1_G \\cdot 1_G) = f(1_G) = f(1_G) \\cdot 1_{G'}$, donc $f(1_G) = 1_{G'}$ après simplification par $f(1_G)$ à gauche. Ensuite, pour tout $x \\in G$ : $f(x^{-1})f(x) = f(x^{-1}x) = f(1_G) = 1_{G'}$, donc $f(x^{-1}) = f(x)^{-1}$ après multiplication par $f(x)^{-1}$ à droite.\\par (ii) Pour tous $x, y \\in G$ : $g \\circ f(xy) = g(f(xy)) = g(f(x)f(y)) = g(f(x))g(f(y)) = g \\circ f(x) \\cdot g \\circ f(y)$.\\par (iii) Montrons que $f(H)$ est un sous-groupe de $G'$. D'abord, $f(H) \\subset G'$ et $1_{G'} = f(1_G) \\in f(H)$ car $1_G \\in H$. Enfin, pour tous $y, y' \\in f(H)$, $y = f(h)$ et $y' = f(h')$ pour certains $h, h' \\in H$, donc $y^{-1}y' = f(h^{-1}h')$, or $h^{-1}h' \\in H$ car $H$ est stable par produit-inversion, donc $y^{-1}y' \\in f(H)$.\\par Montrons que $f^{-1}(H')$ est un sous-groupe de $G$. D'abord, $f^{-1}(H') \\subset G$ et $1_G \\in f^{-1}(H')$ car $f(1_G) = 1_{G'} \\in H'$. Enfin, pour tous $x, x' \\in f^{-1}(H')$ : $f(x^{-1}x') = f(x)^{-1}f(x') \\in H'$ car $H'$ est stable par produit-inversion, donc $x^{-1}x' \\in f^{-1}(H')$."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_image_noyau",
+      "type": "definition",
+      "title": "Définition-théorème : Image et noyau d'un morphisme de groupes",
+      "content_latex": "Soient $G$ et $G'$ deux groupes et $f : G \\longrightarrow G'$ un morphisme de groupes.\\par (i) Image : L'image de $f$ est notée $\\text{Im } f$ et c'est un sous-groupe de $G'$. En outre, $f$ est surjectif de $G$ sur $G'$ si et seulement si $\\text{Im } f = G'$.\\par (ii) Noyau : On appelle noyau de $f$ le sous-groupe de $G$ : $\\text{Ker } f = f^{-1}\\{1_{G'}\\} = \\{x \\in G \\mid f(x) = 1_{G'}\\}$. En outre, $f$ est injectif sur $G$ si et seulement si $\\text{Ker } f = \\{1_G\\}$.\\par (iii) Équations $f(x) = y_0$ : Soit $y_0 \\in G'$.\\par — Si $y_0 \\notin \\text{Im } g$, l'équation $f(x) = y_0$ d'inconnue $x \\in G$ n'a pas de solution.\\par — Si $y_0 \\in \\text{Im } f$, alors en notant $x_0$ un antécédent de $y_0$ par $f$ : $\\{x \\in G \\mid f(x) = y_0\\} = x_0 \\cdot \\text{Ker } f$.",
+      "proof_latex": "(i) $\\text{Im } f = f(G)$ est un sous-groupe de $G'$ en tant qu'image d'un sous-groupe par un morphisme de groupes.\\par (ii) $\\text{Ker } f$ est un sous-groupe de $G$ en tant qu'image réciproque d'un sous-groupe par un morphisme de groupes.\\par À présent, si $f$ est injectif, alors pour tout $x \\in \\text{Ker } f$ : $f(x) = 1_{G'} = f(1_G)$, donc $x = 1_G$ par injectivité. Conclusion : $\\text{Ker } f \\subset \\{1_G\\}$.\\par Réciproquement, faisons l'hypothèse que $\\text{Ker } f = \\{1_G\\}$ et montrons que $f$ est injectif. Soient $x, x' \\in G$. Si $f(x) = f(x')$, alors $f(x^{-1}x') = f(x)^{-1}f(x') = f(x)^{-1}f(x) = 1_{G'}$, donc $x^{-1}x' \\in \\text{Ker } f = \\{1_G\\}$, i.e. $x = x'$.\\par (iii) Sous l'hypothèse que $y_0 = f(x_0) \\in \\text{Im } f$, pour tout $x \\in G$ : $f(x) = y_0 \\Longleftrightarrow f(x) = f(x_0) \\Longleftrightarrow f(x_0)^{-1}f(x) = 1_{G'} \\Longleftrightarrow f(x_0^{-1}x) = 1_{G'} \\Longleftrightarrow x_0^{-1}x \\in \\text{Ker } f \\Longleftrightarrow x \\in x_0 \\cdot \\text{Ker } f$."
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_noyau_injectivite",
+      "type": "remark",
+      "title": "Remarque : Interprétation du noyau",
+      "content_latex": "Le noyau de $f$ est l'ensemble des éléments de $G$ qui ne comptent pas aux yeux de $f$, i.e. qu'elle ne distingue pas de l'élément neutre. En effet, pour tous $x \\in G$ et $k \\in \\text{Ker } f$ : $f(xk) = f(x)f(k) = f(x) \\cdot 1_{G'} = f(x)$ et de même $f(kx) = f(x)$.\\par La caractérisation de l'injectivité par le noyau est a priori surprenante. En principe, $f$ est injectif si tout élément de $G'$ possède au plus un antécédent par $f$, mais quand $f$ est un morphisme de groupes, il suffit que ce soit vrai du seul élément $1_{G'}$.\\par Pour finir, $\\text{Ker } f$ contient $1_G$ en tant que sous-groupe de $G$, donc pour montrer que $f$ est injective, il est suffisant de montrer l'inclusion $\\text{Ker } f \\subset \\{1_G\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_image_noyau",
+      "type": "example",
+      "title": "Exemple : Image et noyau de morphismes",
+      "content_latex": "• L'exponentielle complexe $z \\longmapsto e^z$ est surjective de $\\mathbb{C}$ sur $\\mathbb{C}^*$ de noyau $\\{z \\in \\mathbb{C} \\mid e^z = 1\\} = 2i\\pi\\mathbb{Z}$. L'exponentielle imaginaire $\\theta \\longmapsto e^{i\\theta}$ est surjective de $\\mathbb{R}$ sur $\\mathbb{U}$ de noyau $2\\pi\\mathbb{Z}$.\\par • Le module $z \\longmapsto |z|$ a pour image $\\mathbb{R}_+^*$ et pour noyau $\\{z \\in \\mathbb{C}^* \\mid |z| = 1\\} = \\mathbb{U}$.\\par • Soit $n \\in \\mathbb{N}^*$. Le morphisme de groupes $k \\longmapsto e^{\\frac{2ik\\pi}{n}}$ de $\\mathbb{Z}$ dans $\\mathbb{C}^*$ a pour image $\\mathbb{U}_n$ et pour noyau : $\\{k \\in \\mathbb{Z} \\mid e^{\\frac{2ik\\pi}{n}} = 1\\} = \\{k \\in \\mathbb{Z} \\mid \\frac{2k\\pi}{n} \\equiv 0 \\ [2\\pi]\\} = \\{k \\in \\mathbb{Z} \\mid k \\equiv 0 \\ [n]\\} = n\\mathbb{Z}$.\\par En particulier, $\\mathbb{U}_n$ est un sous-groupe d'ordre $n$ de $\\mathbb{C}^*$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_isomorphisme_groupes",
+      "type": "definition",
+      "title": "Définition : Isomorphisme de groupes",
+      "content_latex": "Soient $G$ et $G'$ deux groupes.\\par • Isomorphisme de groupes : On appelle isomorphisme (de groupes) de $G$ sur $G'$ tout morphisme de groupes bijectif de $G$ sur $G'$. Quand $G = G'$, on parle plutôt d'automorphisme (de groupe) de $G$.\\par • Groupes isomorphes : On dit que $G'$ est isomorphe à $G$ (en tant que groupe) s'il existe un isomorphisme de groupes de $G$ sur $G'$.\\par « Iso-morphe » provient du grec et signifie « de même forme ». Un isomorphisme de groupes de $G$ sur $G'$ est non seulement une bijection de $G$ sur $G'$, autrement dit un dictionnaire, mais c'est aussi un morphisme de groupes. Aux noms près, tout calcul qu'on peut faire dans $G$ a son pendant dans $G'$. Deux groupes isomorphes sont absolument identiques en tant que groupes quand bien même les objets qu'ils accueillent n'ont rien de commun d'un point de vue ensembliste.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_isomorphismes_groupes",
+      "type": "example",
+      "title": "Exemple : Isomorphismes de groupes",
+      "content_latex": "• Les groupes $\\mathbb{R}$ et $\\mathbb{R}_+^*$ sont isomorphes car l'exponentielle réelle est un isomorphisme de groupes de $\\mathbb{R}$ sur $\\mathbb{R}_+^*$.\\par • Pour tout $\\alpha \\in \\mathbb{R}^*$, la fonction puissance $x \\longmapsto x^\\alpha$ est un automorphisme de groupe de $\\mathbb{R}_+^*$ de réciproque $x \\longmapsto x^{\\frac{1}{\\alpha}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_proprietes_isomorphismes",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des isomorphismes de groupes",
+      "content_latex": "(i) Composition : La composée de deux isomorphismes de groupes est un isomorphisme de groupes.\\par (ii) Réciproque : Soient $G$ et $G'$ deux groupes et $f : G \\longrightarrow G'$ un isomorphisme de groupes de $G$ sur $G'$. Alors $f^{-1}$ est un isomorphisme de groupes de $G'$ sur $G$.\\par (iii) Relation d'isomorphisme : La relation « être isomorphe à » est une relation d'équivalence sur la classe des groupes, dont les classes d'équivalence sont appelées les classes d'isomorphisme.",
+      "proof_latex": "(i) La composée de deux bijections (resp. morphismes) est une bijection (resp. un morphisme).\\par (ii) Nous savons déjà que $f^{-1}$ est une bijection de $G'$ sur $G$. Montrons que c'est un morphisme de groupes. Pour tous $y, y' \\in G'$ : $f^{-1}(yy') = f^{-1}\\bigl(f(f^{-1}(y))f(f^{-1}(y'))\\bigr) = f^{-1}\\bigl(f(f^{-1}(y)f^{-1}(y'))\\bigr) = f^{-1} \\circ f(f^{-1}(y)f^{-1}(y')) = f^{-1}(y)f^{-1}(y')$.\\par (iii) Réflexivité : Pour tout groupe $G$, $\\text{Id}_G$ est un automorphisme de $G$ car $\\text{Id}_G$ est bijective de $G$ sur lui-même et pour tous $x, y \\in G$ : $\\text{Id}_G(xy) = xy = \\text{Id}_G(x)\\text{Id}_G(y)$.\\par Transitivité : La composée de deux isomorphismes est un isomorphisme.\\par Symétrie : La réciproque d'un isomorphisme est un isomorphisme."
+    },
+    {
+      "id": "groupes_et_anneaux__example_groupes_non_isomorphes",
+      "type": "example",
+      "title": "Exemple : Groupes non isomorphes de même ordre",
+      "content_latex": "Les groupes $\\mathbb{U}_4$ et $\\mathbb{U}_2^2$ sont tous les deux d'ordre $4$, mais pas isomorphes.",
+      "proof_latex": "Pour commencer : $\\mathbb{U}_4 = \\{1, -1, i, -i\\}$ et $\\mathbb{U}_2^2 = \\{(1, 1), (1, -1), (-1, 1), (-1, -1)\\}$.\\par Soit $f$ un morphisme de groupes de $\\mathbb{U}_2^2$ dans $\\mathbb{U}_4$. Pour tout $(u, v) \\in \\mathbb{U}_2^2$ : $(u, v)^2 = (u^2, v^2) = (1, 1)$, donc $f(u, v)^2 = f((u, v)^2) = f(1, 1) = 1$. Comme $i^2 = -1$, il en découle que $f$ ne prend pas la valeur $i$, donc n'est pas surjectif. A fortiori, aucun morphisme de groupes de $\\mathbb{U}_2^2$ dans $\\mathbb{U}_4$ ne peut être un isomorphisme, et comme la réciproque d'un isomorphisme est un isomorphisme, il n'existe pas davantage d'isomorphisme de $\\mathbb{U}_4$ sur $\\mathbb{U}_2^2$."
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_classes_isomorphisme",
+      "type": "remark",
+      "title": "Remarque : Classes d'isomorphisme de groupes",
+      "content_latex": "Question étrange : combien y a-t-il d'ensembles des réels dans la nature mathématique ? « Bah un seul, quelle question ! » Et pourtant... Intéressons-nous au groupe produit $\\mathbb{R} \\times \\{0\\}$, dont la loi est définie par $(x, 0) + (x', 0) = (x + x', 0)$ pour tous $x, x' \\in \\mathbb{R}$. Cette définition fait de l'application $x \\longmapsto (x, 0)$ un morphisme de groupes de $\\mathbb{R}$ dans $\\mathbb{R} \\times \\{0\\}$, et même un isomorphisme. Les groupes $\\mathbb{R}$ et $\\mathbb{R} \\times \\{0\\}$ sont ainsi identiques du point de vue de leurs additions respectives. Pourquoi le groupe $\\mathbb{R}$ dont nous sommes partis serait-il plus « l'ensemble des réels » que le groupe $\\mathbb{R} \\times \\{0\\}$ ? Les deux se valent. Il y a autant de groupes des réels qu'on veut bien se donner la peine d'en construire à isomorphisme près.\\par La grande question de la théorie des groupes n'est donc pas « Qui sont tous les groupes ? » mais plus finement « Qui sont toutes les classes d'isomorphisme de groupes ? » ou encore « Qui sont tous les groupes à isomorphisme près ? »",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_groupe_automorphismes",
+      "type": "definition",
+      "title": "Définition-théorème : Groupe des automorphismes d'un groupe",
+      "content_latex": "Soit $G$ un groupe. L'ensemble $\\text{Aut}(G)$ des automorphismes de groupe de $G$ est un groupe pour la composition, en fait un sous-groupe du groupe symétrique $S_G$.",
+      "proof_latex": "$\\text{Aut}(G) \\subset S_G$ et $\\text{Id}_G \\in \\text{Aut}(G)$, et la stabilité par produit-inversion découle du théorème précédent."
+    },
+    {
+      "id": "groupes_et_anneaux__example_automorphismes_Z",
+      "type": "example",
+      "title": "Exemple : Automorphismes de $\\mathbb{Z}$",
+      "content_latex": "$\\text{Aut}(\\mathbb{Z}) = \\{\\text{Id}_\\mathbb{Z}, -\\text{Id}_\\mathbb{Z}\\}$.",
+      "proof_latex": "Pour commencer, $\\text{Id}_\\mathbb{Z}$ et $-\\text{Id}_\\mathbb{Z}$ sont bien des automorphismes de groupe de $\\mathbb{Z}$. Réciproquement, soit $f \\in \\text{Aut}(\\mathbb{Z})$. La loi de groupe de $\\mathbb{Z}$ étant l'addition, pour tout $n \\in \\mathbb{Z}$ : $f(n) = f(n \\cdot 1) = nf(1)$, donc $f$ est l'application $x \\longmapsto \\lambda x$ si on pose $\\lambda = f(1)$. Cela dit, $f$ est aussi bijective de $\\mathbb{Z}$ sur $\\mathbb{Z}$, donc $\\lambda = \\pm 1$, donc $f = \\text{Id}_\\mathbb{Z}$ ou $f = -\\text{Id}_\\mathbb{Z}$."
+    },
+    {
+      "id": "groupes_et_anneaux__section_groupes_symetriques",
+      "type": "remark",
+      "title": "2.4 Groupes symétriques",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, le groupe symétrique de $\\llbracket 1, n \\rrbracket$ est noté $S_n$ plutôt que $S_{\\llbracket 1, n \\rrbracket}$ et le produit $\\sigma \\circ \\sigma'$ de deux permutations $\\sigma, \\sigma' \\in S_n$ est généralement noté $\\sigma\\sigma'$.\\par Rappelons que $|S_n| = n!$ car la donnée d'une permutation $\\sigma$ de $S_n$ est équivalente à la donnée du $n$-arrangement $(\\sigma(1), \\ldots, \\sigma(n))$ de $\\llbracket 1, n \\rrbracket$. Un vaste monde, donc, dont certaines permutations sont cela dit faciles à décrire.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_cycle_transposition",
+      "type": "definition",
+      "title": "Définition : Cycle, transposition",
+      "content_latex": "• Cycle : Soit $p \\in \\llbracket 2, n \\rrbracket$. On appelle $p$-cycle de $\\llbracket 1, n \\rrbracket$ ou cycle de longueur $p$ de $\\llbracket 1, n \\rrbracket$ toute permutation $\\sigma$ de $\\llbracket 1, n \\rrbracket$ pour laquelle il existe des éléments distincts $x_1, \\ldots, x_p$ de $\\llbracket 1, n \\rrbracket$ pour lesquels : $\\sigma(x_1) = x_2$, $\\sigma(x_2) = x_3$, $\\ldots$, $\\sigma(x_{p-1}) = x_p$, $\\sigma(x_p) = x_1$ et $\\sigma(x) = x$ si $x$ n'est aucun des éléments $x_1, \\ldots, x_p$. Un tel $p$-cycle est noté $(x_1 \\ x_2 \\ \\ldots \\ x_p)$ ou $(x_2 \\ x_3 \\ \\ldots \\ x_p \\ x_1)$ ou $(x_3 \\ x_4 \\ \\ldots \\ x_p \\ x_1 \\ x_2)$...\\par • Transposition : Un $2$-cycle est plutôt appelé une transposition.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__warning_toute_permutation_pas_cycle",
+      "type": "warning",
+      "title": "Attention : Toute permutation n'est pas un cycle",
+      "content_latex": "Par exemple, $(1 \\ 2)(3 \\ 4)$ envoie $1$ sur $2$ et aussitôt $2$ sur $1$, mais sans fixer $3$ et $4$, ce n'est donc pas un cycle dans $S_4$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_produit_cycles",
+      "type": "example",
+      "title": "Exemple : Produit de cycles",
+      "content_latex": "Dans $S_4$ : $(2 \\ 3)(4 \\ 3 \\ 1)(4 \\ 2 \\ 3) = (1 \\ 4 \\ 3 \\ 2)$. Ici, le produit est un cycle, mais c'est par hasard.",
+      "proof_latex": "$(2 \\ 3)(4 \\ 3 \\ 1)(4 \\ 2 \\ 3)(1) = (2 \\ 3)(4 \\ 3 \\ 1)(4) = (2 \\ 3)(1) = 1$, puis $(2 \\ 3)(4 \\ 3 \\ 1)(4 \\ 2 \\ 3)(2) = (2 \\ 3)(4 \\ 3 \\ 1)(3) = (2 \\ 3)(4) = 4$ et on calcule de même les images de $3$ et $4$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_S2_isomorphe_U2",
+      "type": "example",
+      "title": "Exemple : $S_2$ isomorphe à $\\mathbb{U}_2$",
+      "content_latex": "$S_2 = \\{\\text{Id}, (1 \\ 2)\\}$. D'après les tables de Cayley, l'application de $\\mathbb{U}_2 = \\{\\pm 1\\}$ dans $S_2$ qui envoie $1$ sur $\\text{Id}$ et $-1$ sur $(1 \\ 2)$ est un isomorphisme de groupes.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_S3_non_commutatif",
+      "type": "example",
+      "title": "Exemple : $S_3$ non commutatif",
+      "content_latex": "$S_3 = \\{\\text{Id}, (1 \\ 2), (1 \\ 3), (2 \\ 3), (1 \\ 2 \\ 3), (3 \\ 2 \\ 1)\\}$. En outre, $(1 \\ 2)(1 \\ 3) = (1 \\ 3 \\ 2) \\neq (1 \\ 2 \\ 3) = (1 \\ 3)(1 \\ 2)$, donc $S_3$ n'est pas commutatif. Ainsi, les groupes $\\mathbb{U}_6$ et $S_3$ sont tous les deux d'ordre $6$, mais pas isomorphes car les isomorphismes préservent la commutativité.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_support",
+      "type": "definition",
+      "title": "Définition-théorème : Support d'une permutation, permutations disjointes",
+      "content_latex": "• Support d'une permutation : Soit $\\sigma \\in S_n$. On appelle support de $\\sigma$ l'ensemble des éléments de $\\llbracket 1, n \\rrbracket$ qui ne sont pas fixés par $\\sigma$ : $\\text{supp}(\\sigma) = \\{x \\in \\llbracket 1, n \\rrbracket \\mid \\sigma(x) \\neq x\\}$.\\par • Permutations disjointes : On dit que deux permutations de $\\llbracket 1, n \\rrbracket$ sont disjointes si leurs supports sont disjoints.\\par Le résultat important, c'est que deux permutations disjointes commutent.",
+      "proof_latex": "Soient $\\sigma$ et $\\sigma'$ deux permutations disjointes de $S_n$. Montrons que $\\sigma$ et $\\sigma'$ commutent. Fixons $x \\in \\llbracket 1, n \\rrbracket$.\\par — Si $x \\notin \\text{supp}(\\sigma)$ et $x \\notin \\text{supp}(\\sigma')$, alors $\\sigma\\sigma'(x) = \\sigma(x) = x = \\sigma'(x) = \\sigma'\\sigma(x)$.\\par — Supposons maintenant que $x \\in \\text{supp}(\\sigma)$ — même raisonnement si $x \\in \\text{supp}(\\sigma')$. Ainsi, $x \\notin \\text{supp}(\\sigma')$ car $\\sigma$ et $\\sigma'$ sont disjointes, donc $\\sigma'(x) = x$, donc $\\sigma\\sigma'(x) = \\sigma(x)$.\\par Ensuite, $\\sigma(x) \\neq x$ et $\\sigma$ est injective, donc $\\sigma(\\sigma(x)) \\neq \\sigma(x)$, donc $\\sigma(x) \\in \\text{supp}(\\sigma)$, donc $\\sigma'\\sigma(x) = \\sigma(x)$ car $\\sigma$ et $\\sigma'$ sont disjointes. Finalement, $\\sigma\\sigma'(x) = \\sigma(x) = \\sigma'\\sigma(x)$.\\par Dans tous les cas : $\\sigma\\sigma'(x) = \\sigma'\\sigma(x)$, et ce pour tout $x \\in \\llbracket 1, n \\rrbracket$, donc $\\sigma\\sigma' = \\sigma'\\sigma$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_decomposition_cycles",
+      "type": "theorem",
+      "title": "Théorème : Décomposition d'une permutation en produit de cycles disjoints",
+      "content_latex": "Toute permutation de $\\llbracket 1, n \\rrbracket$ peut être décomposée d'une et une seule manière — à l'ordre des facteurs près — comme un produit de cycles disjoints.\\par Disjoints, les cycles en jeu commutent, donc l'ordre dans lequel on les écrit n'a pas d'importance.",
+      "proof_latex": "Montrons seulement l'existence de la décomposition. Soit $\\sigma \\in S_n$. Pour tous $x, y \\in \\llbracket 1, n \\rrbracket$, on dira que $x \\sim y$ si $y = \\sigma^k(x)$ pour un certain $k \\in \\mathbb{Z}$.\\par • La relation $\\sim$ est une relation d'équivalence sur $\\llbracket 1, n \\rrbracket$. En effet, soient $x, y, z \\in \\llbracket 1, n \\rrbracket$.\\par Réflexivité : $x \\sim x$ car $x = \\text{Id}(x) = \\sigma^0(x)$.\\par Symétrie : Si $x \\sim y$, alors $y = \\sigma^k(x)$ pour un certain $k \\in \\mathbb{Z}$, donc $x = \\sigma^{-k}(y)$, i.e. $y \\sim x$.\\par Transitivité : Si $x \\sim y$ et $y \\sim z$, alors $y = \\sigma^k(x)$ et $z = \\sigma^l(y)$ pour certains $k, l \\in \\mathbb{Z}$, donc $z = \\sigma^{k+l}(x)$, i.e. $x \\sim z$.\\par Notons à présent $X_1, \\ldots, X_r$ les classes d'équivalence de $\\sim$ qui ne sont pas des singletons.\\par • Fixons $i \\in \\llbracket 1, r \\rrbracket$ et donnons-nous un élément $x_i$ de $X_i$. Par finitude de $X_i$, $\\sigma^k(x_i) = \\sigma^l(x_i)$ pour certains $k, l \\in \\mathbb{N}$ pour lesquels $k < l$, donc $\\sigma^{l-k}(x_i) = x_i$. Non vide, l'ensemble $\\{k \\in \\mathbb{N}^* \\mid \\sigma^k(x_i) = x_i\\}$ possède ainsi un plus petit élément $p_i$. Montrons que l'application $k \\longmapsto \\sigma^k(x_i)$ est bijective de $\\llbracket 0, p_i-1 \\rrbracket$ sur $X_i$.\\par Surjectivité : Soit $y \\in X_i$, disons $y = \\sigma^k(x_i)$ pour un certain $k \\in \\mathbb{Z}$ par définition de $\\sim$. Par division euclidienne, $k = p_iq + r$ pour certains $q \\in \\mathbb{Z}$ et $r \\in \\llbracket 0, p_i-1 \\rrbracket$, donc $y = \\sigma^{p_iq+r}(x_i) = \\sigma^r(\\sigma^{p_i})^q(x_i) = \\sigma^r(x_i)$.\\par Injectivité : Soient $k, l \\in \\llbracket 0, p_i-1 \\rrbracket$. Si $k < l$ et $\\sigma^k(x_i) = \\sigma^l(x_i)$, alors $l-k \\in \\llbracket 1, p_i-1 \\rrbracket$ et $\\sigma^{l-k}(x_i) = x_i$, donc $l-k = 0$ par minimalité de $p_i$, i.e. $k = l$.\\par La bijectivité obtenue montre que $p_i \\geq 2$ et nous autorise à noter $\\sigma_i$ le $p_i$-cycle $(x_i \\ \\sigma(x_i) \\ \\ldots \\ \\sigma^{p_i-1}(x_i))$ de support $X_i$.\\par • Les cycles $\\sigma_1, \\ldots, \\sigma_r$ sont deux à deux disjoints car leurs supports $X_1, \\ldots, X_r$ le sont. En particulier, $\\sigma_1, \\ldots, \\sigma_r$ commutent. Montrons que $\\sigma_1 \\ldots \\sigma_r = \\sigma$. Soit $x \\in \\llbracket 1, n \\rrbracket$. Si $x$ est un point fixe de $\\sigma$, c'en est aussi un de $\\sigma_1, \\ldots, \\sigma_r$, donc $\\sigma_1 \\ldots \\sigma_r(x) = \\sigma(x)$. Dans le cas contraire, $x \\in X_i$ pour un et un seul $i \\in \\llbracket 1, r \\rrbracket$, donc $x = \\sigma^k(x_i)$ pour un certain $k \\in \\llbracket 0, p_i-1 \\rrbracket$, donc $\\sigma_1 \\ldots \\sigma_r(x) = \\sigma_i\\sigma_1 \\ldots \\sigma_{i-1}\\sigma_{i+1} \\ldots \\sigma_r(x) = \\sigma_i(x) = \\sigma(x)$ car $\\sigma_i|_{X_i} = \\sigma|_{X_i}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_type_permutation",
+      "type": "example",
+      "title": "Exemple : Type d'une permutation",
+      "content_latex": "Pour tout $\\sigma \\in S_n$, la liste ordonnée des tailles des cycles disjoints qui composent $\\sigma$ est appelée le type de $\\sigma$. Par exemple, dans $S_6$, $(1 \\ 2 \\ 3)$ est de type $(1, 1, 1, 3)$ et $(1 \\ 2)(3 \\ 4 \\ 5)$ de type $(1, 2, 3)$. En particulier, notez bien que $1+1+1+3 = 1+2+3 = 6$.\\par Pour lister explicitement tous les éléments de $S_n$, on peut commencer par identifier les types de permutations possibles dans $S_n$, puis compter le nombre de permutations de chaque type. Par exemple, $S_8$ contient $\\binom{8}{3} \\times \\frac{3!}{3} \\times \\binom{5}{4} \\times \\frac{4!}{4} = 3360$ permutations de type $(1, 3, 4)$ — choix des éléments du $3$-cycle, puis choix d'un ordre cyclique sur ces éléments, puis choix des éléments du $4$-cycle, puis choix d'un ordre cyclique sur ces éléments.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_elements_S4",
+      "type": "example",
+      "title": "Exemple : Éléments de $S_4$",
+      "content_latex": "Le groupe symétrique $S_4$ contient l'identité $\\text{Id}$, mais aussi $\\binom{4}{2} = 6$ transpositions, $\\binom{4}{3} \\times \\frac{3!}{3} = 8$ $3$-cycles, $\\binom{4}{4} \\times \\frac{4!}{4} = 6$ $4$-cycles, et enfin $3$ permutations de type $(2, 2)$ appelées doubles transpositions : $(1 \\ 2)(3 \\ 4)$, $(1 \\ 3)(2 \\ 4)$, $(1 \\ 4)(2 \\ 3)$.\\par En tout, cela fait bien $1 + 6 + 8 + 6 + 3 = 24 = 4! = |S_4|$ éléments.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_3_anneaux",
+      "type": "remark",
+      "title": "3 Anneaux",
+      "content_latex": "3.1 DÉFINITION ET PREMIERS EXEMPLES",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_anneau",
+      "type": "definition",
+      "title": "Définition : Anneau",
+      "content_latex": "On appelle anneau tout triplet $(A, +, \\times)$ constitué d'un ensemble $A$ et de deux lois internes $+$ et $\\times$ sur $A$ soumises aux conditions suivantes :\\par — $(A, +)$ est un groupe commutatif dont l'élément neutre est noté $0_A$ ou $0$,\\par — $(A, \\times)$ est un magma associatif avec un élément neutre noté $1_A$ ou $1$,\\par — la multiplication $\\times$ est distributive par rapport à l'addition $+$.\\par Si le magma $(A, \\times)$ est commutatif, on dit que l'anneau $(A, +, \\times)$ est commutatif.\\par Les inversibles de $A$ sont ses inversibles au sens de la multiplication. Je noterai $U(A)$ leur ensemble, mais la notation n'a rien d'universel.\\par Comme avec les groupes, on allège souvent les notations. Quand on écrit « Soit $A$ un anneau », il est sous-entendu que l'addition est notée $+$ et la multiplication $\\times$, mais on omet généralement le $\\times$ dans les calculs.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_anneau_commutatif",
+      "type": "remark",
+      "title": "Remarque : Commutativité et inversibles dans un anneau",
+      "content_latex": "La loi $+$ est commutative par définition, c'est donc toujours de la loi $\\times$ qu'on parle quand on précise qu'un anneau est commutatif. De même, les éléments d'un anneau possèdent tous un opposé car tout anneau est un groupe additif, donc c'est toujours à la loi $\\times$ qu'on fait référence quand on parle des inversibles d'un anneau.\\par Deux lois cohabitent dans un anneau $A$ et on peut y calculer à la fois des multiples et des puissances. Pour tous $a \\in A$ et $n \\in \\mathbb{N}$ : $na = a + \\ldots + a$ ($n$ termes) et : $a^n = a \\times \\ldots \\times a$ ($n$ termes).",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_anneaux_classiques",
+      "type": "example",
+      "title": "Exemple : Anneaux classiques",
+      "content_latex": "$\\mathbb{C}$, $\\mathbb{R}$, $\\mathbb{Q}$ et $\\mathbb{Z}$ sont des anneaux commutatifs.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_anneau_matrices",
+      "type": "example",
+      "title": "Exemple : Anneau des matrices",
+      "content_latex": "$\\mathcal{M}_n(\\mathbb{K})$ est un anneau, non commutatif pour $n \\geq 2$, mais non commutatif jusqu'où ? Réponse : les matrices scalaires, i.e. de la forme $\\lambda I_n$ avec $\\lambda \\in \\mathbb{K}$, sont les seules de $\\mathcal{M}_n(\\mathbb{K})$ qui commutent à toute matrice de $\\mathcal{M}_n(\\mathbb{K})$.",
+      "proof_latex": "Les matrices scalaires commutent à toute matrice. Réciproquement, soit $M \\in \\mathcal{M}_n(\\mathbb{K})$ une matrice qui commute à toute matrice. Pour tous $i, j \\in \\llbracket 1, n \\rrbracket$, notons $E_{ij}$ la matrice dont les coefficients sont tous nuls sauf le coefficient de position $(i, j)$, égal à $1$. Par hypothèse, $ME_{ij} = E_{ij}M$ donc : $\\begin{pmatrix} m_{1i} & 0 & \\cdots & 0 \\\\ \\vdots & \\vdots & & \\vdots \\\\ m_{ii} & 0 & \\cdots & 0 \\\\ \\vdots & \\vdots & & \\vdots \\\\ m_{ni} & 0 & \\cdots & 0 \\end{pmatrix} = \\begin{pmatrix} 0 & \\cdots & 0 & m_{j1} & 0 & \\cdots & 0 \\\\ \\vdots & & \\vdots & \\vdots & \\vdots & & \\vdots \\\\ 0 & \\cdots & 0 & m_{jj} & 0 & \\cdots & 0 \\\\ \\vdots & & \\vdots & \\vdots & \\vdots & & \\vdots \\\\ 0 & \\cdots & 0 & m_{jn} & 0 & \\cdots & 0 \\end{pmatrix}$, égalité matricielle dans laquelle on n'a représenté que la $i$ème ligne et la $j$ème colonne.\\par En position $(i, j)$ : $m_{ii} = m_{jj}$. Les autres positions montrent que la $j$ème ligne et la $i$ème colonne de $M$ sont nulles sauf éventuellement sur la diagonale. Comme c'est vrai pour tous $i, j \\in \\llbracket 1, n \\rrbracket$, $M = \\lambda I_n$ pour $\\lambda = m_{11}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_anneau_applications",
+      "type": "example",
+      "title": "Exemple : Anneau des applications",
+      "content_latex": "Soient $A$ un anneau et $X$ un ensemble non vide. Le triplet $(A^X, +, \\times)$ est un anneau car les propriétés des magmas $(A, +)$ et $(A, \\times)$ se transmettent à $(A^X, +)$ et $(A^X, \\times)$. Par exemple, $\\mathbb{R}^\\mathbb{R}$ est un anneau, commutatif car l'anneau $\\mathbb{R}$ l'est.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_regles_calcul_anneau",
+      "type": "theorem",
+      "title": "Théorème : Règles de calcul dans un anneau",
+      "content_latex": "Soient $A$ un anneau et $a, b \\in A$.\\par (i) $a \\times 0_A = 0_A \\times a = 0_A$.\\par (ii) Pour tout $n \\in \\mathbb{Z}$ : $n(ab) = (na)b = a(nb)$. En particulier : $-(ab) = (-a)b = a(-b)$.\\par (iii) $(-a)(-b) = ab$. En particulier : $(-1_A)^2 = 1_A$.\\par (iv) Pour tout $n \\in \\mathbb{N}$, si $a$ et $b$ commutent, i.e. si $ab = ba$ : $(a+b)^n = \\sum_{k=0}^n \\binom{n}{k} a^k b^{n-k}$ (formule du binôme) et $a^n - b^n = (a-b)\\sum_{k=0}^{n-1} a^k b^{n-k-1}$.",
+      "proof_latex": "(i) Partant de la relation : $a \\times 0_A + a \\times 0_A = a \\times (0_A + 0_A) = a \\times 0_A$, on simplifie par $a \\times 0_A$ dans le groupe $(A, +)$ : $a \\times 0_A = 0_A$. De même, $0_A \\times a = 0_A$.\\par (ii) Conséquence de la distributivité pour $n \\in \\mathbb{N}$ : $n(ab) = ab + \\ldots + ab = a(b + \\ldots + b) = a(nb)$.\\par Pour $n = -1$ : $ab + a(-b) = a(b-b) = a \\times 0_A \\overset{(i)}{=} 0_A$, donc $-(ab) = a(-b)$.\\par Finalement, $-n \\in \\mathbb{N}$ pour $n \\in \\mathbb{Z}$ négatif, donc d'après ce qui précède : $n(ab) = (-n)(-(ab)) \\overset{(ii)}{=} (-n)((-a)b) = ((-n)(-a))b = (na)b$.\\par (iii) $(-a)(-b) - (ab) = (-a)(-b) + (-a)b = (-a)(-b+b) = (-a) \\times 0_A \\overset{(i)}{=} 0_A$.\\par (iv) Même preuve que dans $\\mathbb{C}$."
+    },
+    {
+      "id": "groupes_et_anneaux__warning_commutativite_binome",
+      "type": "warning",
+      "title": "Attention : Hypothèse de commutativité pour le binôme",
+      "content_latex": "Dans (iv), l'hypothèse selon laquelle $a$ et $b$ commutent est essentielle, c'est déjà très clair pour $k = 2$ : $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 \\overset{ab = ba}{=} a^2 + 2ab + b^2$ et $(a+b)(a-b) = a^2 - ab + ba - b^2 \\overset{ab = ba}{=} a^2 - b^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_produit_anneaux",
+      "type": "definition",
+      "title": "Définition-théorème : Produit d'anneaux",
+      "content_latex": "Soient $A_1, \\ldots, A_n$ des anneaux. Muni de sa loi produit, $A_1 \\times \\ldots \\times A_n$ est un anneau appelé l'anneau produit de $A_1, \\ldots, A_n$.\\par À présent, l'égalité $0_A = 1_A$ est-elle possible dans un anneau $A$ ? Le cas échéant, $a = a \\times 1_A = a \\times 0_A = 0_A$ pour tout $a \\in A$, donc $A = \\{0_A\\}$. Ce genre d'anneau est qualifié d'anneau nul et ne présente aucun intérêt.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_anneau_integre",
+      "type": "definition",
+      "title": "Définition : Anneau intègre",
+      "content_latex": "Soit $A$ un anneau. On dit que $A$ est intègre si $A$ est NON NUL et si : $\\forall a, b \\in A, \\quad ab = 0_A \\Longrightarrow a = 0_A \\text{ ou } b = 0_A$, ou encore, par contraposition, si : $\\forall a, b \\in A, \\quad a \\neq 0_A \\text{ et } b \\neq 0_A \\Longrightarrow ab \\neq 0_A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__warning_anneau_non_integre",
+      "type": "warning",
+      "title": "Attention : Anneau non intègre",
+      "content_latex": "Tout anneau n'est pas intègre. Et que se passe-t-il quand un anneau n'est pas intègre ? $ax = ay \\Longrightarrow a = 0_A$ ou $x = y$ et $a^2 = b^2 \\Longrightarrow a = b$ ou $a = -b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_anneaux_integres",
+      "type": "example",
+      "title": "Exemple : Anneaux intègres et non intègres",
+      "content_latex": "Les anneaux $\\mathbb{C}$, $\\mathbb{R}$, $\\mathbb{Q}$ et $\\mathbb{Z}$ sont intègres, mais $\\mathcal{M}_n(\\mathbb{K})$ ne l'est pas pour $n \\geq 2$ car un produit de matrices non nulles peut être nul.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_produit_non_integre",
+      "type": "example",
+      "title": "Exemple : Produit d'anneaux non intègre",
+      "content_latex": "L'anneau produit $A \\times A'$ de deux anneaux non nuls $A$ et $A'$ n'est jamais intègre car $(1_A, 0_{A'}) \\times (0_A, 1_{A'}) = (0_A, 0_{A'})$ alors que $(1_A, 0_{A'}) \\neq (0_A, 0_{A'})$ et $(0_A, 1_{A'}) \\neq (0_A, 0_{A'})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_groupe_inversibles_anneau",
+      "type": "theorem",
+      "title": "Théorème : Groupe des inversibles d'un anneau",
+      "content_latex": "Soit $A$ un anneau. L'ensemble $U(A)$ des inversibles de $A$ est un groupe pour la multiplication.",
+      "proof_latex": "Pour une fois, nous ne pouvons pas montrer que $U(A)$ est un sous-groupe d'un groupe connu plus gros car nous n'avons pas de groupe connu plus gros à proposer.\\par Attention, un élément $a$ de $U(A)$ peut être inversible dans $A$ : $\\exists a' \\in A, \\quad aa' = a'a = 1_A$ et dans $U(A)$ : $\\exists a' \\in U(A), \\quad aa' = a'a = 1_A$. Par définition, $U(A)$ est l'ensemble des inversibles de $A$, i.e. des éléments de $A$ inversibles dans $A$.\\par Le produit de deux inversibles de $A$ est un inversible de $A$, donc $U(A)$ est stable par produit, ce qui fait du couple $(U(A), \\times)$ un magma, associatif car $(A, \\times)$ l'est et d'élément neutre $1_A$ car $1_A \\cdot 1_A = 1_A$. Montrons enfin que tout élément de $U(A)$ est inversible dans $U(A)$. Soit $a \\in U(A)$. Par définition, $a$ est inversible dans $A$, donc $a^{-1}$ aussi, autrement dit $a^{-1} \\in U(A)$. Ainsi, $a$ possède un inverse dans $U(A)$, i.e. est inversible dans $U(A)$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_inversibles_anneaux",
+      "type": "example",
+      "title": "Exemple : Inversibles d'anneaux classiques",
+      "content_latex": "$U(\\mathbb{C}) = \\mathbb{C}^*$, $U(\\mathbb{R}) = \\mathbb{R}^*$, $U(\\mathbb{Q}) = \\mathbb{Q}^*$, $U(\\mathbb{Z}) = \\{-1, 1\\}$ et $U(\\mathcal{M}_n(\\mathbb{K})) = GL_n(\\mathbb{K})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_corps",
+      "type": "definition",
+      "title": "Définition : Corps",
+      "content_latex": "On appelle corps tout anneau commutatif non nul dans lequel tout élément non nul est inversible.\\par En particulier, tout corps est un anneau intègre.\\par Dans un anneau, on ne peut pas diviser comme on veut par un élément non nul. Dans un corps au contraire, c'est possible, on peut additionner, soustraire, multiplier et diviser — sauf par $0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_corps_classiques",
+      "type": "example",
+      "title": "Exemple : Corps classiques",
+      "content_latex": "$\\mathbb{C}$, $\\mathbb{R}$ et $\\mathbb{Q}$ sont des corps, mais pas $\\mathbb{Z}$ car $U(\\mathbb{Z}) = \\{-1, 1\\} \\neq \\mathbb{Z}^*$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_sous_anneaux",
+      "type": "remark",
+      "title": "3.2 Sous-anneaux",
+      "content_latex": "Notons $A$ l'ensemble des matrices $\\begin{pmatrix} a & 0 \\\\ 0 & 0 \\end{pmatrix}$, $a$ décrivant $\\mathbb{R}$, inclus dans $\\mathcal{M}_2(\\mathbb{R})$.\\par — $A$ contient $0$ et il est stable par différence, c'est un sous-groupe additif de $\\mathcal{M}_2(\\mathbb{R})$.\\par — $A$ est stable par produit, donc $(A, \\times)$ est un magma, qui plus est associatif d'élément neutre $\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$.\\par Enfin, le produit matriciel est distributif sur l'addition, donc $A$ est un anneau inclus dans $\\mathcal{M}_2(\\mathbb{R})$ pour les mêmes lois.\\par Tout ceci ne fait-il pas de $A$ un sous-anneau de $\\mathcal{M}_2(\\mathbb{R})$ ? Eh bien non, car $A$ et $\\mathcal{M}_2(\\mathbb{R})$ n'ont pas le même élément neutre. A fortiori, leurs inversibles n'ont aucun rapport. Dans ces conditions, qu'est-ce qu'un sous-anneau ?",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_sous_anneau",
+      "type": "definition",
+      "title": "Définition : Sous-anneau, sous-corps",
+      "content_latex": "Soient $A$ un anneau et $B$ une partie de $A$ stable par addition et produit. On dit que $B$ est un sous-anneau de $A$ si $1_A \\in B$ et si $B$ est un anneau pour les lois de $A$.\\par Si $A$ et $B$ sont des corps, on dit plutôt que $B$ est un sous-corps de $A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_anneaux_classiques",
+      "type": "example",
+      "title": "Exemple : Sous-anneaux classiques",
+      "content_latex": "• Pour tout anneau $A$, $A$ est un sous-anneau de $A$.\\par • $\\mathbb{Z}$ est un sous-anneau de $\\mathbb{Q}$, qui est lui-même un sous-anneau de $\\mathbb{R}$, qui est lui-même un sous-anneau de $\\mathbb{C}$.\\par • $\\mathcal{M}_n(\\mathbb{R})$ est un sous-anneau de $\\mathcal{M}_n(\\mathbb{C})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_caracterisation_sous_anneaux",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des sous-anneaux",
+      "content_latex": "Soient $A$ un anneau et $B$ une partie de $A$. Les assertions suivantes sont équivalentes :\\par Attention, c'est $1_A$, pas $0_A$ !\\par (i) $B$ est un sous-anneau de $A$.\\par (ii) $\\begin{cases} 1_A \\in B \\\\ B \\text{ est stable par différence : } \\forall b, b' \\in B, \\quad b - b' \\in B \\\\ B \\text{ est stable par produit : } \\forall b, b' \\in B, \\quad bb' \\in B \\end{cases}$\\par Si $A$ est un corps et si on veut montrer que $B$ en est un sous-corps, il faut vérifier en plus que $B^*$ est stable par inversion : $\\forall b \\in B^*, \\quad b^{-1} \\in B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_anneau_continues",
+      "type": "example",
+      "title": "Exemple : Sous-anneau des fonctions continues",
+      "content_latex": "$\\mathcal{C}(\\mathbb{R}, \\mathbb{R})$ est un sous-anneau de $\\mathbb{R}^\\mathbb{R}$.",
+      "proof_latex": "Pour commencer, $\\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\subset \\mathbb{R}^\\mathbb{R}$ et la fonction $x \\longmapsto 1$ est continue sur $\\mathbb{R}$. Ensuite, il est bien connu que $\\mathcal{C}(\\mathbb{R}, \\mathbb{R})$ est stable par différence et produit."
+    },
+    {
+      "id": "groupes_et_anneaux__warning_inversibles_sous_anneau",
+      "type": "warning",
+      "title": "Attention : Inversibles dans un sous-anneau",
+      "content_latex": "Soient $A$ un anneau et $B$ un sous-anneau de $A$. Quel lien entre $U(A)$ et $U(B)$ ? Tout élément de $U(B)$ possède un inverse dans $B$, donc dans $A$ car $B \\subset A$. Conclusion : $U(B) \\subset U(A) \\cap B$, mais la réciproque est fausse ! Il ne suffit pas d'être inversible dans $A$ et élément de $B$ pour être inversible dans $B$. Par exemple, pour $A = \\mathbb{R}$ et $B = \\mathbb{Z}$, $2$ est inversible dans $\\mathbb{R}$ et appartient à $\\mathbb{Z}$, mais $2$ n'est pas inversible dans $\\mathbb{Z}$, son inverse $\\frac{1}{2}$ dans $\\mathbb{R}$ n'appartient pas à $\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_anneau_triangulaires",
+      "type": "example",
+      "title": "Exemple : Sous-anneau des matrices triangulaires",
+      "content_latex": "L'ensemble $T_n(\\mathbb{K})$ des matrices triangulaires supérieures de $\\mathcal{M}_n(\\mathbb{K})$ est un sous-anneau de $\\mathcal{M}_n(\\mathbb{K})$ et $U(T_n(\\mathbb{K}))$ est l'ensemble des matrices triangulaires supérieures à coefficients diagonaux non nuls de $\\mathcal{M}_n(\\mathbb{K})$.\\par Ici : $U(T_n(\\mathbb{K})) = GL_n(\\mathbb{K}) \\cap T_n(\\mathbb{K}) = U(\\mathcal{M}_n(\\mathbb{K})) \\cap T_n(\\mathbb{K})$, mais l'égalité $U(B) = U(A) \\cap B$ n'a rien de général.",
+      "proof_latex": "Pour commencer, $T_n(\\mathbb{K}) \\subset \\mathcal{M}_n(\\mathbb{K})$ et $I_n \\in T_n(\\mathbb{K})$. Ensuite, nous avons déjà vu que $T_n(\\mathbb{K})$ est stable par différence et produit. Pour finir, $U(T_n(\\mathbb{K}))$ est l'ensemble des matrices triangulaires supérieures inversibles de $\\mathcal{M}_n(\\mathbb{K})$ dont l'inverse est triangulaire supérieure. Or nous savons qu'une matrice triangulaire supérieure est inversible si et seulement si ses coefficients diagonaux sont non nuls, et le cas échéant, son inverse est encore triangulaire supérieure. La conclusion en découle."
+    },
+    {
+      "id": "groupes_et_anneaux__example_entiers_gauss",
+      "type": "example",
+      "title": "Exemple : Entiers de Gauss et $\\mathbb{Q}(i)$",
+      "content_latex": "L'ensemble $\\mathbb{Z}[i] = \\{a + ib \\mid a, b \\in \\mathbb{Z}\\}$ des entiers de Gauss est un sous-anneau de $\\mathbb{C}$ et $U(\\mathbb{Z}[i]) = \\mathbb{U}_4 = \\{\\pm 1, \\pm i\\}$.\\par De son côté, $\\mathbb{Q}(i) = \\{a + ib \\mid a, b \\in \\mathbb{Q}\\}$ est un sous-corps de $\\mathbb{C}$. En particulier, $U(\\mathbb{Q}(i)) = \\mathbb{Q}(i)^*$ donc $U(\\mathbb{Z}[i]) \\neq U(\\mathbb{Q}(i)) \\cap \\mathbb{Z}[i]$.",
+      "proof_latex": "• Pour commencer, $\\mathbb{Z}[i] \\subset \\mathbb{C}$ et $\\mathbb{Z}[i]$ contient $1$. Ensuite, pour la stabilité par soustraction et produit, pour tous $z = a + ib$, $z' = a' + ib' \\in \\mathbb{Z}[i]$ avec $a, b, a', b' \\in \\mathbb{Z}$, $z - z'$ et $zz'$ appartiennent à $\\mathbb{Z}[i]$ car : $z - z' = \\underbrace{(a-a')}_{\\in \\mathbb{Z}} + i\\underbrace{(b-b')}_{\\in \\mathbb{Z}}$ et $zz' = \\underbrace{(aa' - bb')}_{\\in \\mathbb{Z}} + i\\underbrace{(ab' + ba')}_{\\in \\mathbb{Z}}$.\\par • Déterminons à présent les inversibles de $\\mathbb{Z}[i]$. Soit $z = a + ib \\in U(\\mathbb{Z}[i])$ avec $a, b \\in \\mathbb{Z}$. Ainsi, $z^{-1} = a' + ib'$ pour certains $a', b' \\in \\mathbb{Z}$, donc $1 = |1|^2 = |zz^{-1}|^2 = |z|^2 \\cdot |z^{-1}|^2 = (a^2 + b^2)(a'^2 + b'^2)$, or $a^2 + b^2$ et $a'^2 + b'^2$ sont des entiers naturels, donc $a^2 + b^2 = 1$. A fortiori, $a^2 \\leq a^2 + b^2 = 1$, donc $|a| \\leq 1$, et de même $|b| \\leq 1$. Conclusion : $a, b \\in \\{0, \\pm 1\\}$, donc $z \\in \\{\\pm 1, \\pm i\\}$. Réciproquement, $1$ et $-1$ sont inversibles dans $\\mathbb{Z}[i]$ d'inverses eux-mêmes, $i$ l'est d'inverse $-i$ et $-i$ d'inverse $i$.\\par • Comme $\\mathbb{Z}[i]$, $\\mathbb{Q}(i)$ est un sous-anneau de $\\mathbb{C}$, mais on veut qu'il en soit un sous-corps, il reste donc à montrer que $U(\\mathbb{Q}(i)) = \\mathbb{Q}(i)^*$. Or pour tout $z = a + ib \\in \\mathbb{Q}(i)^*$ avec $a, b \\in \\mathbb{Q}$, l'inverse de $z$ dans $\\mathbb{C}$ vaut $z^{-1} = \\frac{a - ib}{a^2 + b^2}$ et appartient à $\\mathbb{Q}(i)$, donc $z$ est inversible dans $\\mathbb{Q}(i)$."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_morphisme_anneaux",
+      "type": "definition",
+      "title": "Définition : Morphismes d'anneaux et de corps",
+      "content_latex": "Soient $A$ et $A'$ deux anneaux. On appelle morphisme (d'anneaux) de $A$ dans $A'$ toute application $f : A \\longrightarrow A'$ pour laquelle : $f(1_A) = 1_{A'}$ et : $\\forall x, y \\in A, \\quad f(x+y) = f(x) + f(y)$ et $f(xy) = f(x)f(y)$.\\par Si $A$ et $A'$ sont des corps, on dit plutôt que $f$ est un morphisme de corps.\\par On définit comme pour les groupes les notions d'endomorphisme d'anneau, d'isomorphisme d'anneaux, d'automorphisme d'anneau et d'anneaux isomorphes. Idem pour les corps.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_morphisme_conjugaison",
+      "type": "example",
+      "title": "Exemple : Conjugaison complexe",
+      "content_latex": "La conjugaison complexe $z \\longmapsto \\overline{z}$ est un automorphisme de corps de $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_morphisme_similitude",
+      "type": "example",
+      "title": "Exemple : Similitude matricielle",
+      "content_latex": "Pour tout $P \\in GL_n(\\mathbb{K})$, l'application $M \\longmapsto PMP^{-1}$ est un automorphisme d'anneau de $\\mathcal{M}_n(\\mathbb{K})$.",
+      "proof_latex": "Soit $P \\in GL_n(\\mathbb{K})$. Alors $PI_nP^{-1} = I_n$ et pour tous $M, M' \\in \\mathcal{M}_n(\\mathbb{K})$ : $P(M+M')P^{-1} = PMP^{-1} + PM'P^{-1}$ et $P(MM')P^{-1} = (PMP^{-1})(PM'P^{-1})$.\\par Enfin, l'application $M \\longmapsto PMP^{-1}$ est bijective de $\\mathcal{M}_n(\\mathbb{K})$ sur lui-même de réciproque $M \\longmapsto P^{-1}MP$."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_proprietes_morphismes_anneaux",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des morphismes d'anneaux",
+      "content_latex": "Soient $A$ et $A'$ deux anneaux et $f : A \\longrightarrow A'$ un morphisme d'anneaux.\\par (i) Loi $+$ : $f$ est un morphisme de groupes additifs de $A$ dans $A'$. Ainsi, $f(0_A) = 0_{A'}$ et pour tout $x \\in A$ : $f(-x) = -f(x)$.\\par (ii) Loi $\\times$ : $f|_{U(A)}$ est un morphisme de groupes multiplicatifs de $U(A)$ dans $U(A')$. Ainsi, pour tout $x \\in U(A)$ : $f(x^{-1}) = f(x)^{-1}$.\\par (iii) Image : L'image de $f$ est notée $\\text{Im } f$ et c'est un sous-anneau de $A'$. En outre, $f$ est surjectif de $A$ sur $A'$ si et seulement si $\\text{Im } f = A'$.\\par (iv) Noyau : On appelle noyau de $f$ son noyau en tant que morphisme de groupes additifs de $A$ : $\\text{Ker } f = f^{-1}\\{0_{A'}\\} = \\{x \\in A \\mid f(x) = 0_{A'}\\}$. En outre, $f$ est injectif sur $A$ si et seulement si $\\text{Ker } f = \\{0_A\\}$.\\par (iv) Composition : La composée de deux morphismes d'anneaux est un morphisme d'anneaux.\\par (iv) Isomorphismes : La composée de deux isomorphismes d'anneaux est un isomorphisme d'anneaux et la réciproque d'un isomorphisme d'anneaux est un isomorphisme d'anneaux.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__warning_noyau_anneau",
+      "type": "warning",
+      "title": "Attention : Noyau d'un morphisme d'anneaux",
+      "content_latex": "• $\\text{Ker } f$ est défini à partir de $0_A$ en référence à la structure additive de $A$ et non pas à partir de $1_A$.\\par • $\\text{Ker } f$ n'est un sous-anneau de $A$ que s'il coïncide avec $A$ tout entier. En effet, si $\\text{Ker } f$ contient $1_A$, alors pour tout $a \\in A$ : $f(a) = f(a \\times 1_A) = f(a)f(1_A) = f(a) \\times 0_{A'} = 0_{A'}$, donc $\\text{Ker } f = A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_construction_C",
+      "type": "remark",
+      "title": "3.4 Construction matricielle de $\\mathbb{C}$",
+      "content_latex": "Ensembles de nombres, fonctions usuelles, notions d'intégrale et d'angle... Les objets mathématiques vous ont été présentés jusqu'ici comme s'ils allaient de soi, comme si l'intuition naïve et la parole des profs suffisaient, et ce n'est pas grave ! Oui, on arrive à faire des maths sans savoir de quoi on parle, car l'essentiel n'est pas tant de savoir ce que les objets sont que de savoir les manipuler. À partir d'un certain niveau de formation, cette approche naïve mérite toutefois d'être interrogée.\\par Pour commencer, faut-il croire ce que les profs racontent ? On vous a demandé de croire en $\\mathbb{R}$ et vous avez cru, et depuis peu, vous croyez en $\\mathbb{C}$. Vous croyez aussi en l'exponentielle, mais on croit parfois des bêtises. Dans tous les cas, on vous a dit sans le prouver : « Il existe un objet qui fait ceci-cela », et rassurez-vous, on sait effectivement justifier l'existence des objets mathématiques en les construisant. Aujourd'hui, nous allons construire $\\mathbb{C}$ en admettant l'existence de $\\mathbb{R}$, qui demande plus de travail.\\par Mais assez bavardé, partons de $\\mathbb{R}$ et construisons $\\mathbb{C}$. Je prétends que $\\mathbb{C}$ peut être vu comme une partie bien choisie de $\\mathcal{M}_2(\\mathbb{R}) = \\mathbb{R}^{\\llbracket 1, 2 \\rrbracket \\times \\llbracket 1, 2 \\rrbracket}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__construction_C_matricielle",
+      "type": "example",
+      "title": "Construction matricielle de $\\mathbb{C}$",
+      "content_latex": "Et là, surprise : notons $\\mathbb{C}$ l'ensemble des matrices $\\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}$, $a$ et $b$ décrivant $\\mathbb{R}$, et posons $i = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$. En l'occurrence, pour tout $z = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix} \\in \\mathbb{C}$ avec $a, b \\in \\mathbb{R}$ : $z = aI_2 + bi = \\text{Re}(z)I_2 + i\\text{ Im}(z)$ si on pose $\\text{Re}(z) = a$ et $\\text{Im}(z) = b$.\\par En outre, pour tous $z = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix} \\in \\mathbb{C}$ avec $a, b \\in \\mathbb{R}$ : $i^2 = -I_2$.\\par Montrons maintenant que $\\mathbb{C}$ est un sous-anneau de $\\mathcal{M}_2(\\mathbb{R})$, et même que c'est un corps.",
+      "proof_latex": "Pour commencer, $\\mathbb{C} \\subset \\mathcal{M}_2(\\mathbb{R})$ et $I_2 = \\begin{pmatrix} 1 & -0 \\\\ 0 & 1 \\end{pmatrix} \\in \\mathbb{C}$. Ensuite, pour la stabilité par différence et produit, pour tous $M = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}, N = \\begin{pmatrix} c & -d \\\\ d & c \\end{pmatrix} \\in \\mathbb{C}$ :\\par $M - N = \\begin{pmatrix} a-c & -(b-d) \\\\ b-d & a-c \\end{pmatrix} \\in \\mathbb{C}$ et $MN = \\begin{pmatrix} ac-bd & -(ad+bc) \\\\ ad+bc & ac-bd \\end{pmatrix} \\in \\mathbb{C}$.\\par Pour montrer que $\\mathbb{C}$ est un corps, il nous reste à montrer qu'il est non nul en tant qu'anneau, commutatif et que ses éléments non nuls sont tous inversibles, i.e. inversibles au sens où leur inverse est encore dans $\\mathbb{C}$. Pour commencer, $\\mathbb{C}$ est non nul car $I_2 \\neq 0$. Ensuite, $\\mathbb{C}$ est commutatif bien que $\\mathcal{M}_2(\\mathbb{R})$ ne le soit pas car avec les notations précédentes : $MN = \\begin{pmatrix} ac-bd & -(ad+bc) \\\\ ad+bc & ac-bd \\end{pmatrix} = \\begin{pmatrix} ca-db & -(cb+da) \\\\ cb+da & ca-db \\end{pmatrix} = NM$.\\par Pour finir, soit $M = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix} \\in \\mathbb{C}^*$. Par non-nullité de $M$, $a$ ou $b$ est non nul, donc $\\det(M) = a^2 + b^2 > 0$, donc $M$ est inversible dans $\\mathcal{M}_2(\\mathbb{R})$. Cela dit, $M^{-1} = \\frac{1}{a^2+b^2}\\begin{pmatrix} a & b \\\\ -b & a \\end{pmatrix} = \\begin{pmatrix} a' & -b' \\\\ b' & a' \\end{pmatrix} \\in \\mathbb{C}$ si on pose $a' = \\frac{a}{a^2+b^2}$ et $b' = -\\frac{b}{a^2+b^2}$, donc $M$ est inversible dans $\\mathbb{C}$ comme voulu."
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_R_dans_C",
+      "type": "remark",
+      "title": "Remarque : Inclusion de $\\mathbb{R}$ dans $\\mathbb{C}$",
+      "content_latex": "À ce stade, $\\mathbb{C}$ ressemble au corps que nous avions en tête, mais où est $\\mathbb{R}$ dans tout ça ? Gros problème ! Nous avons construit $\\mathbb{C}$ comme une partie de $\\mathcal{M}_2(\\mathbb{R})$, donc $\\mathbb{C}$ ne contient pas $\\mathbb{R}$. Qu'à cela ne tienne, on vérifie aisément que l'application $x \\longmapsto xI_2$ est un morphisme injectif de corps de $\\mathbb{R}$ dans $\\mathbb{C}$, donc un isomorphisme de $\\mathbb{R}$ sur son image $\\text{Im } f$. Via cet isomorphisme, $\\text{Im } f$ est un sous-corps de $\\mathbb{C}$ isomorphe à $\\mathbb{R}$, i.e. une nouvelle version de $\\mathbb{R}$ incluse dans $\\mathbb{C}$. Finalement, pour obliger $\\mathbb{R}$ à être inclus dans $\\mathbb{C}$, privons le corps $\\mathbb{R}$ initial du nom $\\mathbb{R}$ qui lui était attribué et accordons ce nom à $\\text{Im } f$. Ça y est, $\\mathbb{R}$ est inclus dans $\\mathbb{C}$ !\\par Évidemment, on préfère noter $1$ la matrice $I_2$ quand on la voit comme un élément de $\\mathbb{C}$, de sorte que pour tout $z \\in \\mathbb{C}$ : $z = \\text{Re}(z) + i\\text{ Im}(z)$. Notre construction de $\\mathbb{C}$ est achevée et le chapitre « Nombres complexes » aurait pu commencer ici.\\par Et finalement, que faut-il retenir de cette construction ? Rien du tout en ce qui concerne $\\mathbb{C}$. Imprégnez-vous de la démarche intellectuelle générale de ce paragraphe, mais abstenez-vous impérativement de voir les nombres complexes comme des matrices $2 \\times 2$. J'ai choisi de vous construire $\\mathbb{C}$ matriciellement, mais d'autres constructions sont possibles et tout aussi légitimes. En principe, vous êtes maintenant convaincus que la nature mathématique ne contient pas qu'une seule version des corps $\\mathbb{R}$ ou $\\mathbb{C}$, mais une infinité qui se valent toutes parce qu'elles sont isomorphes. Ce paragraphe s'achève ainsi comme il a commencé — peu importe ce que les objets sont, l'essentiel est de savoir ce qu'ils nous autorisent à faire d'eux.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__section_4_ZnZ",
+      "type": "remark",
+      "title": "4 Anneaux $\\mathbb{Z}/n\\mathbb{Z}$ et indicatrice d'Euler",
+      "content_latex": "4.1 ANNEAUX $\\mathbb{Z}/n\\mathbb{Z}$\\par L'anneau $\\mathbb{Z}/n\\mathbb{Z}$ est le petit monde qu'on obtient quand on décide de raisonner sur les entiers modulo $n$. Sans le savoir, nous y raisonnions déjà au chapitre « Arithmétique des entiers » quand nous résolvions certaines équations diophantiennes.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_ZnZ",
+      "type": "definition",
+      "title": "Définition-théorème : Anneau $\\mathbb{Z}/n\\mathbb{Z}$",
+      "content_latex": "Soit $n \\in \\mathbb{N}^*$.\\par • Classes de congruence modulo $n$ : La relation $\\equiv [n]$ est une relation d'équivalence sur $\\mathbb{Z}$ et pour tout $x \\in \\mathbb{Z}$, la classe d'équivalence de $x$ pour cette relation est l'ensemble $\\overline{x} = x + n\\mathbb{Z}$. En outre, pour tous $x, y \\in \\mathbb{Z}$ : $\\overline{x} = \\overline{y} \\Longleftrightarrow x \\equiv y \\ [n]$.\\par On note $\\mathbb{Z}/n\\mathbb{Z}$ l'ensemble quotient de $\\mathbb{Z}$ par $\\equiv [n]$, qui est de cardinal $n$ : $\\mathbb{Z}/n\\mathbb{Z} = \\{\\overline{0}, \\overline{1}, \\ldots, \\overline{n-1}\\}$.\\par • Structure d'anneau : On définit deux lois internes $+$ et $\\times$ sur $\\mathbb{Z}/n\\mathbb{Z}$ en posant pour tous $x, y \\in \\mathbb{Z}$ : $\\overline{x} + \\overline{y} = \\overline{x+y}$ et $\\overline{x} \\times \\overline{y} = \\overline{x \\times y}$.\\par Le triplet $(\\mathbb{Z}/n\\mathbb{Z}, +, \\times)$ est un anneau commutatif d'éléments neutres $\\overline{0}$ pour $+$ et $\\overline{1}$ pour $\\times$.\\par Enfin, l'application $x \\longmapsto \\overline{x}$ est un morphisme surjectif d'anneaux de $\\mathbb{Z}$ dans $\\mathbb{Z}/n\\mathbb{Z}$ de noyau $n\\mathbb{Z}$.",
+      "proof_latex": "Je montrerai seulement que $(\\mathbb{Z}/n\\mathbb{Z}, +)$ est un groupe commutatif, mais il n'est pas plus difficile de montrer que c'est un anneau commutatif. Soient $x, y, z \\in \\mathbb{Z}$.\\par • Commutativité : $\\overline{x} + \\overline{y} = \\overline{x+y} = \\overline{y+x} = \\overline{y} + \\overline{x}$.\\par • Associativité : $(\\overline{x} + \\overline{y}) + \\overline{z} = \\overline{x+y} + \\overline{z} = \\overline{(x+y)+z} = \\overline{x+(y+z)} = \\overline{x} + \\overline{y+z} = \\overline{x} + (\\overline{y} + \\overline{z})$.\\par • Élément neutre additif : $\\overline{x} + \\overline{0} = \\overline{x+0} = \\overline{x}$ et $\\overline{0} + \\overline{x} = \\overline{0+x} = \\overline{x}$.\\par • Opposés : $\\overline{x} + \\overline{-x} = \\overline{x+(-x)} = \\overline{0}$ et idem dans l'autre sens, donc $\\overline{x}$ est inversible pour $+$ d'opposé $\\overline{-x}$.\\par Concernant l'application $f : x \\longmapsto \\overline{x}$, elle est surjective de $\\mathbb{Z}$ sur $\\mathbb{Z}/n\\mathbb{Z}$ par définition de $\\mathbb{Z}/n\\mathbb{Z}$ et c'est un morphisme d'anneaux par définition des lois $+$ et $\\times$, sachant que $f(1) = \\overline{1}$ où $1$ est l'élément neutre multiplicatif de $\\mathbb{Z}$ et $\\overline{1}$ celui de $\\mathbb{Z}/n\\mathbb{Z}$. Enfin, pour tout $x \\in \\mathbb{Z}$ : $x \\in \\text{Ker } f \\Longleftrightarrow \\overline{x} = \\overline{0} \\Longleftrightarrow x \\equiv 0 \\ [n] \\Longleftrightarrow x \\in n\\mathbb{Z}$."
+    },
+    {
+      "id": "groupes_et_anneaux__remarque_definition_lois_ZnZ",
+      "type": "remark",
+      "title": "Remarque : Définition des lois sur $\\mathbb{Z}/n\\mathbb{Z}$",
+      "content_latex": "Banale en apparence, la définition des lois internes $+$ et $\\times$ sur $\\mathbb{Z}/n\\mathbb{Z}$ est très problématique en réalité. Pour définir $\\overline{x} + \\overline{y}$ dans $\\mathbb{Z}/n\\mathbb{Z}$, il est tentant de poser $\\overline{x} + \\overline{y} = \\overline{x+y}$, mais après tout, $\\overline{x} = \\overline{x'}$ et $\\overline{y} = \\overline{y'}$ pour tout un tas d'autres entiers $x'$ et $y'$, donc pourquoi ne pas poser $\\overline{x} + \\overline{y} = \\overline{x'+y'}$ ? À cause de cette marge de manœuvre sur le choix des représentants, on est peut-être en train d'attribuer plusieurs valeurs différentes à la notation $\\overline{x} + \\overline{y}$. La bonne nouvelle, c'est que $\\overline{x+y}$ ne dépend pas des représentants de $\\overline{x}$ et $\\overline{y}$ choisis pour le calculer : $\\forall x, x', y, y' \\in \\mathbb{Z}, \\quad \\overline{x} = \\overline{x'} \\text{ et } \\overline{y} = \\overline{y'} \\Longrightarrow \\overline{x+y} = \\overline{x'+y'}$ car l'addition est compatible avec la relation $\\equiv [n]$ : $\\forall x, x', y, y' \\in \\mathbb{Z}, \\quad x \\equiv x' \\ [n] \\text{ et } y \\equiv y' \\ [n] \\Longrightarrow x+y \\equiv x'+y' \\ [n]$.\\par Grâce à cette implication, on ne commet pas d'hérésie en notant $\\overline{x} + \\overline{y}$ l'élément $\\overline{x+y}$. Le même raisonnement vaut pour la loi $\\times$ car la multiplication est elle aussi compatible avec la relation $\\equiv [n]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_equation_ZnZ",
+      "type": "example",
+      "title": "Exemple : Équation dans $\\mathbb{Z}/n\\mathbb{Z}$",
+      "content_latex": "L'équation $3\\overline{x} = \\overline{2}$ d'inconnue $\\overline{x} \\in \\mathbb{Z}/n\\mathbb{Z}$ n'a pas de solution si $n = 6$ et admet $\\overline{3}$ pour seule solution si $n = 7$. À ce stade, on s'en convainc aisément en testant un par un les éléments de $\\mathbb{Z}/6\\mathbb{Z}$ et $\\mathbb{Z}/7\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_equation_diophantienne",
+      "type": "example",
+      "title": "Exemple : Équation diophantienne sans solution",
+      "content_latex": "L'équation diophantienne $3x^2 - y^2 = 1$ d'inconnue $(x, y) \\in \\mathbb{Z}^2$ n'a pas de solution.",
+      "proof_latex": "Si l'équation possède une solution $(x, y)$, alors dans $\\mathbb{Z}/3\\mathbb{Z}$ : $\\overline{3}\\overline{x}^2 - \\overline{y}^2 = \\overline{1}$, donc $\\overline{y}^2 = -\\overline{1}$, mais cette égalité est contradictoire car aucun carré ne vaut $-\\overline{1}$ dans $\\mathbb{Z}/3\\mathbb{Z}$ : $\\overline{0}^2 = \\overline{0}$, $\\overline{1}^2 = \\overline{1}$ et $\\overline{2}^2 = \\overline{1}$."
+    },
+    {
+      "id": "groupes_et_anneaux__warning_ZnZ_pas_corps",
+      "type": "warning",
+      "title": "Attention : $\\mathbb{Z}/n\\mathbb{Z}$ n'est pas toujours un corps",
+      "content_latex": "En général, $\\mathbb{Z}/n\\mathbb{Z}$ n'est pas un corps, ni même un anneau intègre. Par exemple, $\\overline{2} \\times \\overline{2} = \\overline{0}$ dans $\\mathbb{Z}/4\\mathbb{Z}$ alors que $\\overline{2} \\neq \\overline{0}$. En particulier, $\\overline{2}$ n'est pas inversible dans $\\mathbb{Z}/4\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_inversibles_ZnZ",
+      "type": "theorem",
+      "title": "Théorème : Inversibles de $\\mathbb{Z}/n\\mathbb{Z}$ et intégrité",
+      "content_latex": "Soit $n \\in \\mathbb{N}^*$.\\par (i) Groupe des inversibles : $U(\\mathbb{Z}/n\\mathbb{Z}) = \\{\\overline{x} \\mid x \\in \\llbracket 0, n-1 \\rrbracket, \\ x \\wedge n = 1\\}$.\\par En d'autres termes, pour tout $x \\in \\mathbb{Z}$ : $\\overline{x} \\in U(\\mathbb{Z}/n\\mathbb{Z}) \\Longleftrightarrow x \\wedge n = 1$.\\par En outre, tout calcul d'inverse dans $\\mathbb{Z}/n\\mathbb{Z}$ se ramène à la recherche d'une relation de Bézout. Pour tout $x \\in \\mathbb{Z}$, tout entier $u \\in \\mathbb{Z}$ pour lequel $ux \\equiv 1 \\ [n]$ est appelé UN inverse de $x$ modulo $n$. Le cas échéant, $\\overline{u}$ est l'inverse, le seul, de $\\overline{x}$ dans $\\mathbb{Z}/n\\mathbb{Z}$.\\par (ii) Intégrité : Les assertions suivantes sont équivalentes :\\par (ii-i) $\\mathbb{Z}/n\\mathbb{Z}$ est un corps.\\par (ii-ii) $\\mathbb{Z}/n\\mathbb{Z}$ est intègre.\\par (ii-iii) $n$ est premier.\\par Pour $n = p$ premier, le corps $\\mathbb{Z}/p\\mathbb{Z}$ est souvent noté $\\mathbb{F}_p$.\\par Au chapitre « Arithmétique des entiers », nous avons vu que pour tous $a, b, m \\in \\mathbb{Z}$, si $ma \\equiv mb \\ [n]$ et $m \\wedge n = 1$, alors $a \\equiv b \\ [n]$. Après coup, ce résultat raconte juste que $\\overline{m}$ est inversible dans $\\mathbb{Z}/n\\mathbb{Z}$.",
+      "proof_latex": "(i) $\\overline{x} \\in U(\\mathbb{Z}/n\\mathbb{Z}) \\Longleftrightarrow \\exists \\overline{u} \\in \\mathbb{Z}/n\\mathbb{Z}, \\ \\overline{x}\\overline{u} = \\overline{u}\\overline{x} = \\overline{1} \\Longleftrightarrow \\exists u \\in \\mathbb{Z}, \\ ux \\equiv 1 \\ [n] \\overset{\\text{Bézout}}{\\Longleftrightarrow} \\exists u, v \\in \\mathbb{Z}, \\ ux + nv = 1 \\Longleftrightarrow x \\wedge n = 1$.\\par (ii) Trois implications à montrer.\\par (ii-i) $\\Longrightarrow$ (ii-ii) Tout corps est intègre.\\par (ii-ii) $\\Longrightarrow$ (ii-iii) Par contraposition, supposons $n$ non premier et montrons que $\\mathbb{Z}/n\\mathbb{Z}$ n'est pas intègre. Si $n = 1$, alors $\\overline{0} = \\overline{1}$, donc $\\mathbb{Z}/n\\mathbb{Z}$ est l'anneau nul. Et si $n \\geq 2$, alors $n = ab$ pour certains $a, b \\in \\llbracket 2, n-1 \\rrbracket$, donc $\\overline{a}\\overline{b} = \\overline{0}$ alors que $\\overline{a} \\neq \\overline{0}$ et $\\overline{b} \\neq \\overline{0}$. Dans les deux cas, $\\mathbb{Z}/n\\mathbb{Z}$ n'est pas intègre.\\par (ii-iii) $\\Longrightarrow$ (ii-i) Si $n$ est premier, tout élément de $\\llbracket 1, n-1 \\rrbracket$ est premier à $n$, donc $U(\\mathbb{Z}/n\\mathbb{Z}) = \\mathbb{Z}/n\\mathbb{Z} \\setminus \\{\\overline{0}\\}$ d'après (i), donc $\\mathbb{Z}/n\\mathbb{Z}$ est un corps."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_indicatrice_euler",
+      "type": "definition",
+      "title": "Définition-théorème : Indicatrice d'Euler",
+      "content_latex": "On pose pour tout $n \\in \\mathbb{N}^*$ : $\\varphi(n) = |U(\\mathbb{Z}/n\\mathbb{Z})| = |\\{k \\in \\llbracket 0, n-1 \\rrbracket \\mid k \\wedge n = 1\\}|$ (indicatrice d'Euler).\\par (i) Pour tous $m, n \\in \\mathbb{N}^*$ premiers entre eux : $\\varphi(mn) = \\varphi(m)\\varphi(n)$.\\par (ii) Pour tout $n \\in \\mathbb{N}^*$ : $\\varphi(n) = \\prod_{p \\mid n} p^{v_p(n)-1}(p-1)$ où l'indice $p$ est un nombre premier.\\par Par exemple : $\\varphi(360) = \\varphi(2^3 \\cdot 3^2 \\cdot 5) = 2^{3-1}(2-1) \\cdot 3^{2-1}(3-1) \\cdot 5^{1-1}(5-1) = 96$.",
+      "proof_latex": "(i) Soient $m, n \\in \\mathbb{N}^*$ premiers entre eux. Le théorème chinois nous fournit un isomorphisme d'anneaux $f$ de $\\mathbb{Z}/mn\\mathbb{Z}$ sur $\\mathbb{Z}/m\\mathbb{Z} \\times \\mathbb{Z}/n\\mathbb{Z}$. Par restriction, nous en tirons un isomorphisme de groupes de $U(\\mathbb{Z}/mn\\mathbb{Z})$ sur $U(\\mathbb{Z}/m\\mathbb{Z}) \\times U(\\mathbb{Z}/n\\mathbb{Z})$. En particulier : $\\varphi(mn) = |U(\\mathbb{Z}/mn\\mathbb{Z})| = |U(\\mathbb{Z}/m\\mathbb{Z}) \\times U(\\mathbb{Z}/n\\mathbb{Z})| = |U(\\mathbb{Z}/m\\mathbb{Z})| \\times |U(\\mathbb{Z}/n\\mathbb{Z})| = \\varphi(m)\\varphi(n)$.\\par (ii) Pour tous $p \\in \\mathcal{P}$ et $\\alpha \\in \\mathbb{N}^*$ : $\\varphi(p^\\alpha) = |\\{\\overline{x} \\in \\mathbb{Z}/p^\\alpha\\mathbb{Z} \\mid x \\wedge p^\\alpha = 1\\}| = |\\{x \\in \\llbracket 0, p^\\alpha-1 \\rrbracket \\mid p \\nmid x\\}|$ or $\\llbracket 0, p^\\alpha-1 \\rrbracket$ contient $p^\\alpha$ éléments en tout, dont $p^{\\alpha-1}$ exactement sont divisibles par $p$ — les entiers $pk$, $k$ décrivant $\\llbracket 0, p^{\\alpha-1}-1 \\rrbracket$ — donc par différence : $\\varphi(p^\\alpha) = p^\\alpha - p^{\\alpha-1} = p^{\\alpha-1}(p-1)$.\\par En retour, pour tout $n \\in \\mathbb{N}^*$ : $\\varphi(n) = \\varphi\\left(\\prod_{p \\mid n} p^{v_p(n)}\\right) \\overset{(i)}{=} \\prod_{p \\mid n} \\varphi(p^{v_p(n)}) = \\prod_{p \\mid n} p^{v_p(n)-1}(p-1)$."
+    },
+    {
+      "id": "groupes_et_anneaux__section_5_groupes_monogenes",
+      "type": "remark",
+      "title": "5 Groupes monogènes et ordre d'un élément",
+      "content_latex": "5.1 PARTIES GÉNÉRATRICES ET GROUPES MONOGÈNES",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__definition_sous_groupe_engendre",
+      "type": "definition",
+      "title": "Définition : Sous-groupe engendré par une partie, groupe monogène",
+      "content_latex": "Soient $G$ un groupe et $X$ une partie de $G$.\\par • Sous-groupe engendré : L'intersection de tous les sous-groupes de $G$ contenant $X$ est appelée le sous-groupe de $G$ engendré par $X$ et noté $\\langle X \\rangle$. À ce titre, $\\langle X \\rangle$ est le plus petit sous-groupe de $G$ contenant $X$.\\par En particulier, tout sous-groupe de $G$ qui contient $X$ contient $\\langle X \\rangle$.\\par Plus concrètement, $\\langle X \\rangle$ est aussi l'ensemble de tous les produits qu'on peut former à partir des éléments de $X$ et de leurs inverses, i.e. l'ensemble des produits $x_1^{\\varepsilon_1} \\ldots x_n^{\\varepsilon_n}$, $n$ décrivant $\\mathbb{N}$, $x_1, \\ldots, x_n$ décrivant $X$ et $\\varepsilon_1, \\ldots, \\varepsilon_n$ valant $\\pm 1$. Pour $n = 0$, le produit vide vaut $1_G$.\\par • Partie génératrice, groupe monogène :\\par — On dit que $X$ est une partie génératrice de $G$ ou que $X$ engendre $G$ si $G = \\langle X \\rangle$.\\par — On dit que $G$ est monogène s'il est engendré par un seul élément, i.e. si $G = \\langle x \\rangle$ pour un certain $x \\in G$. Le cas échéant, un tel $x$ est appelé un générateur de $G$.\\par — On dit que $G$ est cyclique s'il est à la fois monogène et fini.\\par Si $G$ est monogène engendré par $x$, alors $G = \\langle x \\rangle = \\{x^k \\mid k \\in \\mathbb{Z}\\}$. En particulier, $G$ est commutatif car pour tous $m, n \\in \\mathbb{Z}$ : $x^m x^n = x^n x^m$.",
+      "proof_latex": "• En tant qu'intersection de sous-groupes, $\\langle X \\rangle$ est un sous-groupe de $G$, et bien sûr il contient $X$. Ensuite, pour tout sous-groupe $H$ de $G$ contenant $X$, $H$ contient $\\langle X \\rangle$ par définition de $\\langle X \\rangle$. Ainsi, $\\langle X \\rangle$ est le plus petit sous-groupe de $G$ contenant $X$.\\par • Notons $H$ l'ensemble des produits $x_1^{\\varepsilon_1} \\ldots x_n^{\\varepsilon_n}$. Il s'agit de montrer que $\\langle X \\rangle = H$. Or d'emblée, $\\langle X \\rangle$ est stable par produit-inversion et contient $X$, donc il contient $H$.\\par Pour montrer l'inclusion réciproque $\\langle X \\rangle \\subset H$, il nous suffit de montrer que $H$ est un sous-groupe de $G$ contenant $X$. Pour commencer, $H \\subset G$ et $1_G \\in H$ par convention du produit vide. Ensuite, $H$ contient $X$ car pour tout $x \\in X$, $x = x_1^{\\varepsilon_1}$ pour $x_1 = x$ et $\\varepsilon_1 = 1$. Enfin, $H$ est stable par produit-inversion car il est clair que le produit de deux éléments $x_1^{\\varepsilon_1} \\ldots x_n^{\\varepsilon_n}$ et l'inverse d'un tel élément sont encore de la forme $x_1^{\\varepsilon_1} \\ldots x_n^{\\varepsilon_n}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_sous_groupe_engendre_trivial",
+      "type": "example",
+      "title": "Exemple : Sous-groupe engendré trivial",
+      "content_latex": "Pour tout groupe $G$ : $\\langle 1_G \\rangle = \\{1_G\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_groupes_cycliques",
+      "type": "example",
+      "title": "Exemple : Groupes cycliques",
+      "content_latex": "$\\mathbb{Z}$ est monogène car $\\mathbb{Z} = \\langle 1 \\rangle$. Pour tout $n \\in \\mathbb{N}^*$, $\\mathbb{U}_n$ et $\\mathbb{Z}/n\\mathbb{Z}$ sont cycliques d'ordre $n$ car $\\mathbb{U}_n = \\langle e^{\\frac{2i\\pi}{n}} \\rangle$ et $\\mathbb{Z}/n\\mathbb{Z} = \\langle \\overline{1} \\rangle$.\\par En revanche, $\\mathbb{Z}/2\\mathbb{Z} \\times \\mathbb{Z}/2\\mathbb{Z} = \\{(\\overline{0}, \\overline{0}), (\\overline{1}, \\overline{0}), (\\overline{0}, \\overline{1}), (\\overline{1}, \\overline{1})\\}$ n'est pas monogène car aucun de ses éléments ne l'engendre. Par exemple : $\\langle (\\overline{1}, \\overline{0}) \\rangle = \\{(\\overline{0}, \\overline{0}), (\\overline{1}, \\overline{0})\\}$, $\\langle (\\overline{0}, \\overline{1}) \\rangle = \\{(\\overline{0}, \\overline{0}), (\\overline{0}, \\overline{1})\\}$ et $\\langle (\\overline{1}, \\overline{1}) \\rangle = \\{(\\overline{0}, \\overline{0}), (\\overline{1}, \\overline{1})\\}$.\\par $\\{(\\overline{1}, \\overline{0}), (\\overline{0}, \\overline{1})\\}$ est une partie génératrice de $\\mathbb{Z}/2\\mathbb{Z} \\times \\mathbb{Z}/2\\mathbb{Z}$ car $(\\overline{1}, \\overline{1}) = (\\overline{1}, \\overline{0}) + (\\overline{0}, \\overline{1})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__example_Sn_engendre_cycles",
+      "type": "example",
+      "title": "Exemple : $S_n$ engendré par ses cycles",
+      "content_latex": "$S_n$ est engendré par ses cycles d'après l'existence de la décomposition en produit de cycles disjoints.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_classification_groupes_monogenes",
+      "type": "theorem",
+      "title": "Théorème : Classification des groupes monogènes",
+      "content_latex": "Soit $G$ un groupe monogène de générateur $x$.\\par • Si $G$ est infini, l'application $k \\longmapsto x^k$ est un isomorphisme de $\\mathbb{Z}$ sur $G$.\\par • Si $G$ est cyclique d'ordre $n$, l'application $k \\longmapsto x^k$ est bien définie de $\\mathbb{Z}/n\\mathbb{Z}$ dans $G$ et c'est un isomorphisme de groupes. En outre : $G = \\{1_G, x, x^2, \\ldots, x^{n-1}\\}$ et pour tous $i, j \\in \\mathbb{Z}$ : $x^i = x^j \\Longleftrightarrow i \\equiv j \\ [n]$.\\par En résumé, les groupes additifs $\\mathbb{Z}$ et $\\mathbb{Z}/n\\mathbb{Z}$, $n$ décrivant $\\mathbb{N}^*$, sont les seuls groupes monogènes à isomorphisme près.",
+      "proof_latex": "L'application $f : k \\longmapsto x^k$ est un morphisme de groupes de $\\mathbb{Z}$ dans $G$, surjectif par définition de $x$. Son noyau est un sous-groupe de $\\mathbb{Z}$, donc de la forme $\\text{Ker } f = m\\mathbb{Z}$ pour un unique entier $m \\in \\mathbb{N}$.\\par • Si $m = 0$, $f$ est injective car $\\text{Ker } f = \\{0\\}$, c'est un isomorphisme de $\\mathbb{Z}$ sur $G$. En particulier, $G$ est infini.\\par • Si $m \\in \\mathbb{N}^*$, tâchons de transformer $f$ en une application de $\\mathbb{Z}/m\\mathbb{Z}$ dans $G$. Pour tous $k, k' \\in \\mathbb{Z}$ : $f(k) = f(k') \\Longleftrightarrow f(k-k') = 1_G \\Longleftrightarrow k-k' \\in \\text{Ker } f = m\\mathbb{Z} \\Longleftrightarrow k \\equiv k' \\ [m] \\Longleftrightarrow \\overline{k} = \\overline{k'}$.\\par Ainsi, $f$ donne la même image à tous les éléments d'une même classe de congruence modulo $m$. Cette indifférence de $f$ aux éléments de $\\overline{k}$ nous permet de poser $\\overline{f}(\\overline{k}) = f(k) = x^k$ pour tout $k \\in \\mathbb{Z}$. L'application $\\overline{f}$ ainsi définie de $\\mathbb{Z}/m\\mathbb{Z}$ dans $G$ est surjective par définition du générateur $x$, et injective par construction car pour tous $k, k' \\in \\mathbb{Z}$, si $\\overline{f}(\\overline{k}) = \\overline{f}(\\overline{k'})$, alors $f(k) = f(k')$, donc $\\overline{k} = \\overline{k'}$. En particulier, $G$ est fini par bijectivité et $m = |\\mathbb{Z}/m\\mathbb{Z}| = |G| = n$.\\par En réalité, $\\overline{f}$ est même un isomorphisme de groupes de $\\mathbb{Z}/n\\mathbb{Z}$ sur $G$ car pour tous $k, k' \\in \\mathbb{Z}$ : $\\overline{f}(\\overline{k} + \\overline{k'}) = \\overline{f}(\\overline{k+k'}) = x^{k+k'} = x^k x^{k'} = \\overline{f}(\\overline{k})\\overline{f}(\\overline{k'})$.\\par Pour finir, l'équivalence : $x^k = x^{k'} \\Longleftrightarrow k \\equiv k' \\ [n]$ montre que : $G = \\langle x \\rangle = \\{x^k \\mid k \\in \\mathbb{Z}\\} = \\{1_G, x, x^2, \\ldots, x^{n-1}\\}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_Un_isomorphe_ZnZ",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{U}_n$ isomorphe à $\\mathbb{Z}/n\\mathbb{Z}$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, $\\mathbb{U}_n$ est cyclique d'ordre $n$, donc isomorphe à $\\mathbb{Z}/n\\mathbb{Z}$ d'après le théorème précédent. Concrètement, l'application $k \\longmapsto e^{\\frac{2ik\\pi}{n}}$ est bien définie et c'est un isomorphisme de $\\mathbb{Z}/n\\mathbb{Z}$ sur $\\mathbb{U}_n$.\\par Les groupes monogènes sont faciles à représenter graphiquement. Au fond, $\\mathbb{Z}/n\\mathbb{Z}$ et $\\mathbb{U}_n$ ne sont jamais qu'une horloge à $n$ graduations.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_generateurs_groupe_monogene",
+      "type": "theorem",
+      "title": "Théorème : Générateurs d'un groupe monogène",
+      "content_latex": "(i) $\\mathbb{Z}$ n'a que deux générateurs, à savoir $1$ et $-1$.\\par (ii) Pour tout $n \\in \\mathbb{N}^*$, les générateurs du groupe additif $\\mathbb{Z}/n\\mathbb{Z}$ sont les $\\overline{x}$ pour lesquels $x \\in \\llbracket 0, n-1 \\rrbracket$ et $x \\wedge n = 1$, i.e. les inversibles de l'anneau $\\mathbb{Z}/n\\mathbb{Z}$.\\par J'ai énoncé le résultat dans le seul cas des groupes $\\mathbb{Z}$ et $\\mathbb{Z}/n\\mathbb{Z}$, mais par isomorphisme, un groupe monogène $\\langle x \\rangle$ admet $x$ et $x^{-1}$ pour seuls générateurs s'il est infini, et s'il est cyclique d'ordre $n$, ses générateurs sont les $x^k$ pour lesquels $k \\wedge n = 1$.",
+      "proof_latex": "(i) $\\mathbb{Z} = \\langle 1 \\rangle = \\langle -1 \\rangle$, et pour tout $x \\in \\mathbb{Z}$ autre que $1$ et $-1$ : $\\langle x \\rangle = x\\mathbb{Z} \\neq \\mathbb{Z}$.\\par (ii) Soit $n \\in \\mathbb{N}^*$. Pour tout $x \\in \\mathbb{Z}$ : $\\mathbb{Z}/n\\mathbb{Z} = \\langle \\overline{x} \\rangle \\Longleftrightarrow \\langle \\overline{1} \\rangle = \\langle \\overline{x} \\rangle \\Longleftrightarrow \\langle \\overline{1} \\rangle \\subset \\langle \\overline{x} \\rangle \\Longleftrightarrow \\overline{1} \\in \\langle \\overline{x} \\rangle \\Longleftrightarrow \\exists u \\in \\mathbb{Z}, \\ \\overline{1} = u\\overline{x} = \\overline{ux} \\Longleftrightarrow \\exists u \\in \\mathbb{Z}, \\ ux = xu = 1 \\Longleftrightarrow \\overline{x} \\in U(\\mathbb{Z}/n\\mathbb{Z}) \\Longleftrightarrow x \\wedge n = 1$ car $\\langle \\overline{1} \\rangle$ est le plus petit sous-groupe de $\\mathbb{Z}/n\\mathbb{Z}$ contenant $\\overline{1}$."
+    },
+    {
+      "id": "groupes_et_anneaux__definition_theoreme_ordre",
+      "type": "definition",
+      "title": "Définition-théorème : Ordre d'un élément",
+      "content_latex": "Soient $G$ un groupe et $x \\in G$. On appelle ordre de $x$ l'ordre du sous-groupe $\\langle x \\rangle$ — éventuellement $+\\infty$. Je le noterai $|x|$, mais cette notation n'est pas universelle.\\par Cas d'un élément d'ordre fini : Si $x$ est d'ordre fini, alors $\\langle x \\rangle = \\{1_G, x, x^2, \\ldots, x^{|x|-1}\\}$ et $|x|$ est le plus petit entier $k \\in \\mathbb{N}^*$ pour lequel $x^k = 1_G$. Plus précisément, pour tout $k \\in \\mathbb{Z}$ : $x^k = 1_G \\Longleftrightarrow |x|$ divise $k$.\\par Théorème de Lagrange : Si $G$ est fini, alors $|x|$ divise $|G|$, autrement dit $x^{|G|} = 1_G$.",
+      "proof_latex": "Supposons $G$ fini. D'après le théorème de Lagrange général pour les sous-groupes, l'ordre de $\\langle x \\rangle$ divise alors celui de $G$. Ainsi, $|G| = k \\cdot |x|$ pour un certain $k \\in \\mathbb{N}^*$, donc $x^{|G|} = \\left(x^{|x|}\\right)^k = 1_G^k = 1_G$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_ordres_elements",
+      "type": "example",
+      "title": "Exemple : Ordres d'éléments",
+      "content_latex": "• Dans tout groupe $G$, l'élément neutre $1_G$ est d'ordre $1$.\\par • Dans $\\mathbb{C}$, tout élément $x$ autre que $0$ est d'ordre infini car $\\langle x \\rangle = x\\mathbb{Z}$ est infini.\\par • Dans $\\mathbb{C}^*$, $e^{\\frac{2i\\pi}{n}}$ est d'ordre $n$ pour tout $n \\in \\mathbb{N}^*$ car $\\langle e^{\\frac{2i\\pi}{n}} \\rangle = \\mathbb{U}_n$ est d'ordre $n$.\\par • Dans $\\mathbb{Z}/2\\mathbb{Z}$, tout élément autre que $\\overline{0}$ est d'ordre $2$ car $\\langle \\overline{1} \\rangle = \\mathbb{Z}/2\\mathbb{Z}$.\\par • Dans $\\mathbb{Z}/6\\mathbb{Z}$, $\\overline{1}$ et $\\overline{5}$ sont d'ordre $6$ en tant que générateurs — $1$ et $5$ sont premiers à $6$ — mais $\\overline{2}$ est d'ordre $3$ et $\\overline{3}$ est d'ordre $2$ car par exemple, $\\langle \\overline{2} \\rangle = \\{\\overline{0}, \\overline{2}, \\overline{4}\\}$ et $\\langle \\overline{3} \\rangle = \\{\\overline{0}, \\overline{3}\\}$.\\par • On a déjà vu que les groupes $\\mathbb{U}_6$ et $S_3$ ne sont pas isomorphes car l'un est commutatif et l'autre non. A fortiori, $\\mathbb{Z}/6\\mathbb{Z}$ et $S_3$ ne sont pas isomorphes et on peut le comprendre autrement. Tout simplement, les isomorphismes préservent l'ordre, or $\\mathbb{Z}/6\\mathbb{Z}$ contient un élément d'ordre $6$ alors que $S_3$ ne contient que des éléments d'ordre $1$, $2$ ou $3$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_euler_fermat",
+      "type": "theorem",
+      "title": "Théorème : Théorème d'Euler et petit théorème de Fermat",
+      "content_latex": "(i) Théorème d'Euler : Pour tous $n \\in \\mathbb{N}^*$ et $x \\in \\mathbb{Z}$ premier à $n$ : $x^{\\varphi(n)} \\equiv 1 \\ [n]$, i.e. $\\overline{x}^{\\varphi(n)} = \\overline{1}$ dans $\\mathbb{Z}/n\\mathbb{Z}$.\\par (ii) Petit théorème de Fermat : Pour tous $p \\in \\mathcal{P}$ et $x \\in \\mathbb{Z}$ : $x^p \\equiv x \\ [p]$, i.e. $\\overline{x}^p = \\overline{x}$ dans $\\mathbb{Z}/p\\mathbb{Z}$.\\par Pour tous $n \\in \\mathbb{N}^*$ et $x \\in \\mathbb{Z}$ premier à $n$, l'ordre de $\\overline{x}$ dans le groupe multiplicatif $U(\\mathbb{Z}/n\\mathbb{Z})$ est appelé l'ordre de $x$ modulo $n$.",
+      "proof_latex": "(i) Dans le groupe multiplicatif $U(\\mathbb{Z}/n\\mathbb{Z})$, qui est d'ordre $\\varphi(n)$, le théorème de Lagrange énonce que $\\overline{x}^{\\varphi(n)} = \\overline{1}$.\\par (ii) Si $p$ divise $x$, alors $x^p \\equiv 0 \\equiv x \\ [p]$. Dans le cas contraire, $x \\wedge p = 1$ car $p$ est premier, donc $x^{p-1} = x^{\\varphi(p)} = \\overline{1}$ d'après le théorème d'Euler, donc $x^p \\equiv x$ après multiplication par $x$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_2n_moins_1",
+      "type": "example",
+      "title": "Exemple : $n$ ne divise pas $2^n - 1$",
+      "content_latex": "Pour tout $n \\geq 2$, $n$ ne divise pas $2^n - 1$.",
+      "proof_latex": "Soit $n \\geq 2$. Supposons par l'absurde que $n$ divise $2^n - 1$ et notons $p$ le plus petit diviseur premier de $n$, puis $k$ l'ordre de $2$ modulo $p$. En particulier, $p$ divise $2^n - 1$, donc $2^n = \\overline{1}$ dans $\\mathbb{Z}/p\\mathbb{Z}$, donc $k$ divise $n$. Cela dit, $2^{p-1} = \\overline{1}$ d'après le théorème d'Euler, donc $k$ divise $p-1$. Ainsi, $k$ est un diviseur de $n$ strictement inférieur au plus petit diviseur premier de $n$. Forcément $k = 1$, autrement dit $2 = \\overline{1}$ — contradiction."
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_proprietes_ordre",
+      "type": "theorem",
+      "title": "Théorème : Deux propriétés de l'ordre d'un élément",
+      "content_latex": "Soient $G$ un groupe et $x \\in G$ d'ordre fini.\\par (i) Conjugaison : Pour tout $g \\in G$ : $|gxg^{-1}| = |x|$. Les éléments $gxg^{-1}$ sont appelés les conjugués de $x$.\\par (ii) Puissances : Pour tout $k \\in \\mathbb{Z}$ premier à $|x|$ : $|x^k| = |x|$ et pour tout diviseur positif $d$ de $|x|$ : $|x^d| = \\frac{|x|}{d}$.",
+      "proof_latex": "(i) Pour tous $g \\in G$ et $k \\in \\mathbb{Z}$ : $(gxg^{-1})^k = (gxg^{-1}) \\ldots (gxg^{-1}) = gx^kg^{-1}$, donc : $(gxg^{-1})^k = 1_G \\Longleftrightarrow gx^kg^{-1} = 1_G \\Longleftrightarrow x^k = 1_G$, donc $x$ et $gxg^{-1}$ ont le même ordre.\\par (ii) Pour tout $k \\in \\mathbb{Z}$ premier à $|x|$, $x^k$ est un générateur de $\\langle x \\rangle$, donc $\\langle x^k \\rangle = \\langle x \\rangle$, donc $x^k$ est d'ordre $|x|$.\\par À présent, soit $d$ un diviseur de $|x|$. L'entier $|x^d|$ divise $\\frac{|x|}{d}$ car $(x^d)^{\\frac{|x|}{d}} = x^{|x|} = 1_G$. Inversement, $|x|$ divise $d \\cdot |x^d|$ car $x^{d \\cdot |x^d|} = (x^d)^{|x^d|} = 1_G$. A fortiori, $\\frac{|x|}{d}$ divise $|x^d|$, donc $|x^d| = \\frac{|x|}{d}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_puissances_ordre",
+      "type": "example",
+      "title": "Exemple : Puissances et ordre",
+      "content_latex": "Soit $G$ un groupe cyclique d'ordre $21$ de générateur $x$. D'après le théorème précédent, $x^4$ est d'ordre $21$ car $4 \\wedge 21 = 1$ et $x^7$ est d'ordre $\\frac{21}{7} = 3$, mais qu'en est-il de $x^{15}$ ? Coupons simplement $15$ en deux en lui arrachant son PGCD avec $21$ : $15 = 3 \\times 5$. Ainsi, $x^3$ est d'ordre $\\frac{21}{3} = 7$, et ensuite, $x^{15} = (x^3)^5$ reste d'ordre $7$ car $5 \\wedge 7 = 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "groupes_et_anneaux__theorem_sous_groupes_cyclique",
+      "type": "theorem",
+      "title": "Théorème : Sous-groupes d'un groupe cyclique",
+      "content_latex": "Soit $G$ un groupe cyclique d'ordre $n$ de générateur $x$. Pour tout diviseur positif $d$ de $n$, on note $G_d$ l'ensemble des éléments de $G$ d'ordre un diviseur de $d$ : $G_d = \\{g \\in G \\mid g^d = 1_G\\}$.\\par (i) Les sous-groupes de $G$ sont exactement les $G_d$. En outre, pour tout diviseur positif $d$ de $n$, $G_d$ est le seul sous-groupe d'ordre $d$ de $G$ et $G_d = \\langle x^{\\frac{n}{d}} \\rangle$.\\par (ii) Pour tous diviseurs positifs $a$ et $b$ de $n$ : $G_a \\subset G_b \\Longleftrightarrow a \\mid b$.\\par Si $G = \\mathbb{U}_n$, alors $G_d = \\mathbb{U}_d$ pour tout diviseur positif $d$ de $n$, et si $G = \\mathbb{Z}/n\\mathbb{Z}$, alors $G_d = \\frac{n}{d}\\mathbb{Z}/n\\mathbb{Z}$ — notation additive ici !",
+      "proof_latex": "(i) Soit $d$ un diviseur positif de $n$. Aussitôt, $\\langle x^{\\frac{n}{d}} \\rangle \\subset G_d$ car $\\left(x^{\\frac{n}{d}}\\right)^d = x^n = 1_G$. Réciproquement, pour tout $g = x^k \\in G_d$ avec $k \\in \\mathbb{Z}$, $x^{kd} = g^d = 1_G$, donc $|x| = n$ divise $kd$, donc $\\frac{n}{d}$ divise $k$, donc $g \\in \\langle x^{\\frac{n}{d}} \\rangle$. Conclusion : $\\langle x^{\\frac{n}{d}} \\rangle = G_d$.\\par En outre, $x^{\\frac{n}{d}}$ est d'ordre $\\frac{n}{\\frac{n}{d}} = d$ car $\\left(x^{\\frac{n}{d}}\\right)^d = x^n = 1_G$, donc $G_d$ est d'ordre $d$.\\par Réciproquement, soit $H$ un sous-groupe d'ordre $d$ de $G$. L'application $f : k \\longmapsto x^k$ est un morphisme de groupes de $\\mathbb{Z}$ dans $G$, donc $f^{-1}(H)$ est un sous-groupe de $\\mathbb{Z}$, donc $f^{-1}(H) = m\\mathbb{Z}$ pour un certain $m \\in \\mathbb{N}$. Cela dit, tout élément de $H$ est une puissance de $x$ car $G = \\langle x \\rangle$, donc $H = \\{x^k \\mid k \\in m\\mathbb{Z}\\} = \\langle x^m \\rangle$.\\par Par ailleurs, $x^n = 1_G \\in H$ donc $n \\in f^{-1}(H) = m\\mathbb{Z}$, i.e. $m$ divise $n$. En retour, $d = |H| = |\\langle x^m \\rangle| = \\frac{n}{m}$ car $\\frac{n}{m}$ divise $n$, donc $m = \\frac{n}{d}$ et $H = \\langle x^{\\frac{n}{d}} \\rangle$.\\par (ii) $G_a \\subset G_b \\Longleftrightarrow \\langle x^{\\frac{n}{a}} \\rangle \\subset G_b \\Longleftrightarrow x^{\\frac{n}{a}} \\in G_b \\Longleftrightarrow \\left(x^{\\frac{n}{a}}\\right)^b = 1_G \\Longleftrightarrow x^{\\frac{nb}{a}} = 1_G \\Longleftrightarrow n \\mid \\frac{nb}{a} \\Longleftrightarrow a \\mid b$ car $\\langle x^{\\frac{n}{a}} \\rangle$ est le plus petit sous-groupe de $G$ contenant $x^{\\frac{n}{a}}$."
+    },
+    {
+      "id": "groupes_et_anneaux__example_S3_caracterisation",
+      "type": "example",
+      "title": "Exemple : Caractérisation de $S_3$",
+      "content_latex": "Soit $G$ un groupe engendré par un élément $r$ d'ordre $3$ et un élément $s$ d'ordre $2$ pour lesquels $srs^{-1} = r^{-1}$. Alors $G$ est isomorphe à $S_3$.",
+      "proof_latex": "La relation $srs^{-1} = r^{-1}$ signifie qu'en conjuguant $r$ par $s$, on inverse $r$, mais dans la preuve qui suit, nous l'utiliserons plutôt sous la forme $sr = r^{-1}s = r^2s$.\\par Tout élément de $G$ est le produit d'un certain nombre de $r$, $s$, $r^{-1}$ et $s^{-1}$, mais ici $r^{-1} = r^2$ et $s^{-1} = s$, donc tout élément de $G$ est le produit d'un certain nombre de $r$ et $s$. Cela dit, la relation $sr = r^2s$ permet de déplacer de proche en proche vers la droite toutes les occurrences de $s$ dans un tel produit, donc : $G = \\{r^i s^j \\mid i \\in \\llbracket 0, 2 \\rrbracket, j \\in \\{0, 1\\}\\} = \\{1_G, r, r^2, s, rs, r^2s\\}$.\\par En particulier, $|G| \\leq 6$. Cela dit, $G$ contient un élément d'ordre $2$ et un élément d'ordre $3$, donc $|G|$ est divisible par $2$ et $3$ d'après le théorème de Lagrange, donc $|G| = 6$. Les $6$ éléments listés précédemment sont distincts.\\par Dans $S_3$, posons à présent $\\rho = (1 \\ 2 \\ 3)$ et $\\sigma = (1 \\ 2)$. Un simple calcul montre que $S_3 = \\{\\text{Id}, \\rho, \\rho^2, \\sigma, \\rho\\sigma, \\rho\\sigma^2\\}$.\\par Tiens tiens ! Pour montrer que $G$ et $S_3$ sont isomorphes, dressons finalement leurs tables de Cayley. Elles coïncident pour peu qu'on associe $1_G$ à $\\text{Id}$, $r$ à $\\rho$, $r^2$ à $\\rho^2$, etc. L'application sous-jacente est un isomorphisme de $G$ sur $S_3$."
+    }
+  ],
+  "exercises": []
+}

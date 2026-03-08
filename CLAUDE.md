@@ -98,12 +98,12 @@ kholleur/
 │   ├── exercise_guide.txt          # Exercise guidance template
 │   └── ocr.txt                     # OCR system prompt
 │
-├── data/                           # Structured data (JSON)
-│   ├── knowledge_graph.json        # 928 nodes, 2236 edges
-│   ├── questions_kholle.json       # 127 kholle questions
-│   ├── programme.json              # Programme officiel MPSI (20 chapters)
-│   ├── cours/                      # 17 course JSON files
-│   └── exercices/                  # 17 exercise JSON files
+├── data/                           # Structured data (JSON V3)
+│   ├── knowledge_graph.json        # 4705 nodes, 12905 edges
+│   ├── programme.json              # Programme officiel MPSI (21 chapters)
+│   ├── questions_de_cours/         # 21 question files (1238 questions)
+│   ├── cours/                      # 29 course JSON files (1902 concepts)
+│   └── exercices/                  # 29 exercise JSON files (1536 exercises)
 │
 ├── tests/unit/                     # Tests
 │
@@ -121,9 +121,10 @@ kholleur/
 4. Structured context = exact definitions/theorems tested (via TESTS edges) + programme constraints
 5. After validation, exercise is matched by shared concepts (via graph traversal)
 
-**Knowledge Graph:**
-- **Nodes**: Chapter (20), Concept (338), Exercise (443), Kholle (127)
+**Knowledge Graph (V3):**
+- **Nodes**: Chapter (29 course + 21 programme), Concept (1902), Exercise (1536), Kholle (1238)
 - **Edges**: BELONGS_TO, REQUIRES, TESTS (links questions/exercises to concepts), APPLIES_METHOD
+- Two-tier chapter system: 21 programme chapters (user-facing) map to 29 course chapters (data-level)
 - Deterministic lookup replaces probabilistic RAG
 
 **Key Abstractions:**

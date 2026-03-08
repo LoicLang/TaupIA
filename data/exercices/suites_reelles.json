@@ -1,0 +1,3644 @@
+{
+  "chapter_official_id": "suites_reelles",
+  "chapter_name": "Suites réelles",
+  "source_document": "Exercices - Suites reelles.pdf",
+  "exercises": [
+    {
+      "id": "suites_reelles__ex_001",
+      "title": "Plus grand élément dans Z",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_plus_grand_petit_element",
+        "suites_reelles__thm_unicite_plus_grand_petit_element",
+        "suites_reelles__def_majorants_minorants_borne",
+        "suites_reelles__def_suite_monotone_majoree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "maximum",
+        "borne supérieure",
+        "entiers",
+        "partie majorée"
+      ],
+      "statement_latex": "Montrer que toute partie non vide majorée de \\mathbb{Z} possède un plus grand élément.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit A une partie non vide majorée de \\\\mathbb{Z}. Nous distinguons deux cas.\\\\par\\\\textbf{Cas 1:} A contient au moins un élément positif. Alors A \\\\cap \\\\mathbb{N} est une partie non vide de \\\\mathbb{N}, majorée par un majorant de A. Par propriété de bon ordre de \\\\mathbb{N}, l'ensemble A \\\\cap \\\\mathbb{N} possède un plus grand élément m. Puisque m \\\\in \\\\mathbb{N}, on a m \\\\ge 0, ce qui majore tous les éléments négatifs de A. Donc m est le maximum de A.\\\\par\\\\textbf{Cas 2:} A \\\\subseteq \\\\mathbb{Z}_{< 0}. Soit B = \\{-a \\mid a \\\\in A\\}. L'ensemble B est une partie non vide de \\\\mathbb{N}^*, majorée. Par propriété de \\\\mathbb{N}, B possède un maximum -a_0. Donc a_0 = \\min(B) \\cdot (-1)$ minimise les négatifs, et est le maximum de A.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Si la partie étudiée est incluse dans \\mathbb{Z}-\\mathbb{N} s'intéresser à son symétrique par rapport à 0."
+        },
+        {
+          "level": 2,
+          "content_latex": "Séparer en deux cas : si l'ensemble contient au moins un élément positif, on peut se ramener à une partie de \\mathbb{N}. Sinon, utiliser le symétrique et les propriétés de bon ordre de \\mathbb{N}."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_002",
+      "title": "Borne supérieure de fonctions",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__thm_prop_borne_sup_inf",
+        "suites_reelles__thm_prop_borne_sup_R_barre",
+        "suites_reelles__thm_carac_seq_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "borne supérieure",
+        "fonctions",
+        "inégalité"
+      ],
+      "statement_latex": "Soit I un intervalle non vide.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'ensemble f(I) possède une borne supérieure notée \\sup f pour toute fonction majorée f:I\\longrightarrow\\mathbb{R}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_R_barre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappeler la caractérisation de l'existence d'une borne supérieure dans \\mathbb{R}."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifier que f(I) est une partie non vide (car I l'est) et majorée de \\mathbb{R}."
+            }
+          ],
+          "solution_latex": "Soit f:I\\\\longrightarrow\\\\mathbb{R} une fonction majorée. L'ensemble f(I) est non vide car I est non vide, donc il existe au moins une image. Il est majoré par hypothèse. Par propriété fondamentale de \\\\mathbb{R}, toute partie non vide majorée de \\\\mathbb{R} admet une borne supérieure unique. Donc \\\\sup(f(I)) existe et on note \\\\sup_I f cette valeur."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Comparer \\sup_{I}f+\\sup_{I}g et \\sup_{I}(f+g) pour toutes fonctions f et g majorées sur I.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_minoration_fonction_extraction"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire l'inégalité pour (f+g)(x) en majorant chaque terme par sa borne supérieure respective."
+            },
+            {
+              "level": 2,
+              "content_latex": "En déduire que \\sup(f+g) \\le \\sup f + \\sup g. Trouver ensuite un contre-exemple simple (par exemple avec des fonctions trigonométriques) pour montrer que l'égalité est fausse en général."
+            }
+          ],
+          "solution_latex": "Pour tout x \\\\in I, on a f(x) \\\\le \\\\sup f et g(x) \\\\le \\\\sup g. Donc $(f+g)(x) = f(x) + g(x) \\\\le \\\\sup f + \\\\sup g$. Ainsi \\\\sup f + \\\\sup g majore f + g sur I, d'où \\\\sup(f+g) \\\\le \\\\sup f + \\\\sup g.\\\\par\\\\textbf{Contre-exemple:} Prendre f(x) = \\sin x et g(x) = \\cos x sur [0, 2\\\\pi]. Alors \\\\sup f = 1, \\\\sup g = 1, donc \\\\sup f + \\\\sup g = 2. Mais il n'existe aucun $x$ tel que $\\sin x + \\cos x = 2$ (le maximum est $\\\\sqrt{2}$ en $x = \\\\pi/4$). Donc \\\\sup(f+g) = \\\\sqrt{2} < 2 = \\\\sup f + \\\\sup g."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_003",
+      "title": "Fonction borne supérieure locale",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_plus_grand_petit_element"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "borne supérieure",
+        "fonctions",
+        "monotonie"
+      ],
+      "statement_latex": "Soit f:\\mathbb{R}\\longrightarrow\\mathbb{R} une fonction majorée. Pour tout y\\in\\mathbb{R}, on pose f^{*}(y)=\\sup_{x\\le y}f(x) .",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Illustrer cette définition de f^* sur différents exemples de fonctions f dessinées à main levée.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tracer une fonction qui oscille et observer comment f^* mémorise le maximum atteint jusqu'au point y."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le graphe de f^* correspond aux 'records' successifs de la fonction f, il reste plat là où f redescend."
+            }
+          ],
+          "solution_latex": "Illustration graphique (à tracer): Pour une fonction oscillante, le graphe de $f^*$ suit les 'records' successifs: il augmente quand $f$ atteint un nouveau maximum, puis reste constant à cette hauteur quand $f$ redescend. Le graphe de $f^*$ est une fonction en escalier non décroissante."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer f^{*} dans le cas où f est croissante.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_operations_bornes_sup",
+            "suites_reelles__thm_monotonie_suite_recurrente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si f est croissante, quel est le plus grand élément de l'ensemble \\{f(x) \\mid x \\le y\\} ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que la borne supérieure est directement atteinte en y, d'où f^*(y) = f(y)."
+            }
+          ],
+          "solution_latex": "Si f est croissante, pour tout y \\\\in \\\\mathbb{R}, l'ensemble $\\{f(x) \\mid x \\\\le y\\}$ atteint son maximum en $x = y$ puisque f est croissante. Donc \\\\sup_{x \\\\le y} f(x) = f(y). Ainsi $f^*(y) = f(y)$, c'est-à-dire $f^* = f$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Étudier la monotonie de f^{*}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_monotonie_suite_recurrente",
+            "suites_reelles__thm_passage_limite_inegalite_large"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prendre y_1 \\le y_2 et comparer les ensembles sur lesquels on prend la borne supérieure."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque l'ensemble \\{x \\mid x \\le y_1\\} est inclus dans \\{x \\mid x \\le y_2\\}, la borne supérieure sur le second ensemble est nécessairement supérieure ou égale à celle du premier."
+            }
+          ],
+          "solution_latex": "Soit $y_1 \\\\le y_2$. On a $\\{x \\mid x \\\\le y_1\\} \\\\subseteq \\{x \\mid x \\\\le y_2\\}$. Donc f^*(y_1) = \\\\sup_{x \\\\le y_1} f(x) \\\\le \\\\sup_{x \\\\le y_2} f(x) = f^*(y_2). Ainsi $f^*$ est croissante (au sens large)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_004",
+      "title": "Distance à une partie",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__thm_limite_suite_recurrente_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "distance",
+        "borne inférieure",
+        "valeur absolue",
+        "inégalité triangulaire"
+      ],
+      "statement_latex": "Soit A une partie non vide de \\mathbb{R}.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Justifier pour tout x\\in\\mathbb{R} l'existence du réel : d(x,A)=\\inf\\{|x-a| \\mid a\\in A\\}, appelé la distance de x à A.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_R_barre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prouver que l'ensemble dont on prend la borne inférieure est non vide et minoré."
+            },
+            {
+              "level": 2,
+              "content_latex": "La valeur absolue étant toujours positive, 0 est un minorant naturel."
+            }
+          ],
+          "solution_latex": "Pour tout x \\\\in \\\\mathbb{R}, l'ensemble $\\{|x - a| \\mid a \\\\in A\\}$ est non vide car A est non vide. Cet ensemble est minoré par 0 puisque la valeur absolue est toujours non négative. Par propriété fondamentale de \\\\mathbb{R}, toute partie non vide minorée de \\\\mathbb{R} admet une borne inférieure unique. Donc $d(x, A) = \\\\inf\\{|x - a| \\mid a \\\\in A\\}$ existe."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Calculer d(x,A) pour tout x\\in A.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si x appartient à A, on peut choisir a = x dans l'ensemble. Quelle valeur obtient-on ?"
+            }
+          ],
+          "solution_latex": "Si $x \\\\in A$, alors on peut choisir $a = x$ dans l'ensemble $\\{|x - a| \\mid a \\\\in A\\}$, ce qui donne $|x - x| = 0$. Puisque tout élément de cet ensemble est $\\\\ge 0$, on a $d(x, A) = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer d(x,A) pour tout x\\in\\mathbb{R} pour: A=[0,1[ et A=[0,1]\\cup[2,3].",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un dessin. La distance correspond géométriquement à la longueur du plus court chemin pour rejoindre l'ensemble."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour A=[0,1[, séparer l'étude en trois cas : x < 0, 0 \\le x < 1 et x \\ge 1."
+            }
+          ],
+          "solution_latex": "Par définition de la borne inférieure, pour tout $\\\\epsilon > 0$, il existe $a \\\\in A$ avec $|z - a| < d(z, A) + \\\\epsilon$. En prenant $\\\\epsilon \\to 0^+$ ou par caractérisation, il existe une suite $(a_n)$ dans A telle que $|z - a_n| \\to d(z, A)$. Réciproquement, tout point de A est à distance finie de z, donc la borne inférieure des distances est atteinte sur A ou par une limite. La fonction $d(\\cdot, A)$ est continue et caractérise la proximité à A."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tous x, y\\in\\mathbb{R}: |d(x,A)-d(y,A)|\\le|x-y|.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_passage_limite_inegalite_large"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "d(x,A)\\le|x-y|+|y-a|,"
+            },
+            {
+              "level": 2,
+              "content_latex": "puis que d(x,A)-d(y,A)\\le|x-y|. Conclure en échangeant les rôles de x et y."
+            }
+          ],
+          "solution_latex": "Soit $x, y \\\\in \\\\mathbb{R}$ et $a \\\\in A$. Par inégalité triangulaire: $|x - a| \\\\le |x - y| + |y - a|$. En prenant l'infimum sur $a \\\\in A$: $d(x, A) = \\\\inf_a |x - a| \\\\le |x - y| + \\\\inf_a |y - a| = |x - y| + d(y, A)$. Donc $d(x, A) - d(y, A) \\\\le |x - y|$. Par symétrie, $d(y, A) - d(x, A) \\\\le |y - x| = |x - y|$. Ainsi $|d(x, A) - d(y, A)| \\\\le |x - y|$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Calculer d(x,\\mathbb{Q}\\cap[0,1[) pour tout x\\in\\mathbb{R}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_max_min_implique_sup_inf"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le fait que \\mathbb{Q} est dense dans \\mathbb{R}."
+            },
+            {
+              "level": 2,
+              "content_latex": "La borne inférieure des distances sera la même que si l'ensemble était l'intervalle [0,1] complet."
+            }
+          ],
+          "solution_latex": "Soit $x \\\\in \\\\mathbb{R}$. Si $x \\\\in [0, 1[$, alors $x \\\\in \\\\mathbb{Q} \\\\cap [0, 1[$, d'où $d(x, \\\\mathbb{Q} \\\\cap [0, 1[) = 0$. Si $x < 0$, l'inf de distances à points de $[0, 1[$ est $d(x, [0, 1[) = |x - 0| = -x$, et puisque $\\\\mathbb{Q}$ est dense dans $\\\\mathbb{R}$, on a $d(x, \\\\mathbb{Q} \\\\cap [0, 1[) = -x$. Si $x \\\\ge 1$, on a $d(x, \\\\mathbb{Q} \\\\cap [0, 1[) = x - 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_005",
+      "title": "Théorème du point fixe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__def_voisinage"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "point fixe",
+        "borne inférieure",
+        "fonction croissante"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit f:[0,1]\\longrightarrow[0,1] une fonction croissante. On veut montrer que f possède un point fixe. On pose T=\\{x\\in[0,1] \\mid f(x)\\le x\\}. Montrer que T possède une borne inférieure t.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_prop_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_R_barre",
+            "suites_reelles__def_borne_sup_inf"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier que T est non vide et minoré. Que vaut f(1) par rapport à 1 ?"
+            }
+          ],
+          "solution_latex": "Soit $T = \\{t \\\\in [0, 1] \\mid f(s) \\\\le s \\\\text{ pour tout } s \\\\in [t, 1]\\}$. L'ensemble $T$ contient 1 (car $f(1) \\\\le 1$), donc est non vide. L'ensemble $T$ est un intervalle fermé puisque si $t \\\\in T$ et $t < t'$, alors $t' \\\\in T$. On pose $t = \\\\inf T$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que f(t) minore T.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__def_majorants_minorants_borne",
+            "suites_reelles__def_limite_suite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soit x \\in T. Comparer t et x, puis exploiter la croissance de f."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme t \\le x, on a f(t) \\le f(x). Conclure en utilisant l'inégalité f(x) \\le x issue de la définition de T."
+            }
+          ],
+          "solution_latex": "Par définition de $t$, pour tout $\\\\epsilon > 0$, il existe $s \\\\in T$ avec $s < t + \\\\epsilon$, donc $f(s) \\\\le s < t + \\\\epsilon$. Par continuité de $f$ (si applicable) et croissance, $f(t) \\\\le t$. Ainsi $f(t)$ minore $T$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que T est stable par f.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_voisinage",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si x \\in T, il faut montrer que f(x) appartient aussi à T."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer f(f(x)) en utilisant f(x) \\le x et la croissance de f."
+            }
+          ],
+          "solution_latex": "Si $t \\\\in T$, alors $T$ est stable par inclusion de $[t, 1]$. Puisque $f$ est croissante de $[0, 1]$ dans lui-même, et $f(t) \\\\le t$, si $f(t) = t$, on a fini. Sinon, par l'infimum de $T$, tout $s > t$ avec $f(s) \\\\le s$ est dans $T$. Donc $T$ contient un voisinage de $t$."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "En déduire que f(t)=t.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_voisinage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D'après 1)b), f(t) \\le t. Montrer que f(t) \\in T, ce qui crée une contradiction si f(t) < t."
+            }
+          ],
+          "solution_latex": "Supposons $f(t) < t$. Alors il existe $\\\\epsilon > 0$ avec $f(t) < t - \\\\epsilon$. Par croissance et continuité de $f$, il existe $\\\\delta > 0$ tel que $f(s) < s - \\\\frac{\\\\epsilon}{2}$ pour $s \\\\in [t, t + \\\\delta]$. Donc aucun point de $[t, t + \\\\delta]$ n'est dans $T$, contredisant $t = \\\\inf T$. Ainsi $f(t) = t$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Et si f est croissante de [0, 1[ dans lui-même ?",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__thm_produit_suite_bornee_nulle",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher un contre-exemple explicite où f n'atteint jamais x = f(x)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer une fonction affine qui 'pousse' les valeurs vers 1 sans l'atteindre, comme f(x) = \\frac{x+1}{2}."
+            }
+          ],
+          "solution_latex": "Une suite $(u_n)$ est majorée s'il existe $M \\\\in \\\\mathbb{R}$ tel que $u_n \\\\le M$ pour tout $n \\\\in \\\\mathbb{N}$. Elle est minorée s'il existe $m \\\\in \\\\mathbb{R}$ tel que $u_n \\\\ge m$ pour tout $n$. Elle est bornée si elle est à la fois majorée et minorée, c'est-à-dire s'il existe $A > 0$ avec $|u_n| \\\\le A$ pour tout $n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_006",
+      "title": "Existence de la partie entière",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__def_plus_grand_petit_element"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "partie entière",
+        "borne supérieure",
+        "entiers"
+      ],
+      "statement_latex": "Soit x\\in\\mathbb{R}. On appelle partie entière de x tout entier n\\in\\mathbb{Z} pour lequel n\\le x<n+1. L'existence et l'unicité d'un tel entier ont été admises en cours, on les démontre ici.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer l'unicité de la partie entière de x.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_unicite_limite",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_limite_suite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposer qu'il existe deux entiers n et m vérifiant la propriété, puis évaluer la différence stricte entre les deux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que |n - m| < 1, ce qui impose n = m puisque ce sont des entiers."
+            }
+          ],
+          "solution_latex": "On dit que $(u_n)$ converge vers $\\\\ell \\\\in \\\\mathbb{R}$ si: $\\\\forall \\\\epsilon > 0, \\\\exists N \\\\in \\\\mathbb{N}, \\\\forall n \\\\ge N: |u_n - \\\\ell| < \\\\epsilon$. On note $\\\\lim_{n \\to \\\\infty} u_n = \\\\ell$ ou $u_n \\to \\\\ell$ quand $n \\to \\\\infty$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que si x\\ge0, \\{n\\in\\mathbb{Z} \\mid n\\le x\\} possède une borne supérieure, puis que celle-ci est un entier.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_inf",
+            "suites_reelles__thm_prop_borne_sup_R_barre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En posant s=\\sup\\{n\\in\\mathbb{Z} \\mid n\\le x\\}, montrer que s-1<m pour un certain m\\in\\mathbb{Z}, puis que m=s."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la caractérisation de la borne supérieure avec \\epsilon = 1."
+            }
+          ],
+          "solution_latex": "Pour $x \\\\ge 0$, l'ensemble $\\{n \\\\in \\\\mathbb{Z} \\mid n \\\\le x\\}$ contient 0, donc est non vide. Cet ensemble est majoré par tout entier $\\\\ge x + 1$. Par propriété de $\\\\mathbb{N}$, toute partie non vide majorée de \\\\mathbb{Z}_{+ admet un maximum, qui est sa borne supérieure."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire l'existence de la partie entière de x.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_majorants_minorants_borne",
+            "suites_reelles__def_borne_sup_inf",
+            "suites_reelles__def_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'entier m trouvé à la question précédente et vérifier qu'il satisfait bien m \\le x < m+1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Généraliser ensuite pour x < 0 en considérant un entier négatif suffisamment petit pour minorer l'ensemble."
+            }
+          ],
+          "solution_latex": "Par la partie a), il existe un unique $n \\\\in \\\\mathbb{Z}$ vérifiant $n = \\\\sup\\{k \\\\in \\\\mathbb{Z} \\mid k \\\\le x\\}$. Par définition, $n \\\\le x < n + 1$. Par unicité établie en 1), c'est la partie entière de $x$, notée $\\lfloor x \\rfloor$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_007",
+      "title": "Calculs de bornes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__thm_max_min_implique_sup_inf",
+        "suites_reelles__thm_carac_seq_borne",
+        "suites_reelles__thm_prop_borne_sup_inf"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "borne supérieure",
+        "borne inférieure",
+        "ensembles"
+      ],
+      "statement_latex": "Déterminer les bornes inférieure et supérieure des parties suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "\\{(-1)^{n}+\\frac{1}{n} \\mid n\\in\\mathbb{N}^{*}\\}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__def_intervalle",
+            "suites_reelles__thm_produit_suite_bornee_nulle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparer l'étude en deux sous-ensembles : les termes d'indice pair et les termes d'indice impair."
+            }
+          ],
+          "solution_latex": "Si $(u_n)$ converge vers \\\\ell, alors pour $\\\\epsilon = 1$, il existe $N$ tel que $|u_n - \\\\ell| < 1$ pour $n \\\\ge N$. Donc $u_n \\\\in [\\\\ell - 1, \\\\ell + 1]$ pour $n \\\\ge N$. L'ensemble $\\{u_0, u_1, \\ldots, u_{N-1}\\} \\\\cup [\\\\ell-1, \\\\ell+1]$ est borné (réunion finie d'éléments et d'un intervalle borné). Donc $(u_n)$ est bornée."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "\\{\\frac{p+\\sqrt{q}}{\\sqrt{p}+q} \\mid p,q\\in\\mathbb{N}^{*}\\}",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Fixer une des variables (par exemple p = 1) et faire tendre l'autre vers l'infini pour observer les limites possibles."
+            }
+          ],
+          "solution_latex": "Soit $A = \\{\\\\frac{p + \\\\sqrt{q}}{\\\\sqrt{p} + q} \\mid p, q \\\\in \\\\mathbb{N}^*\\}$. Pour $p = q = 1$: $\\\\frac{1 + 1}{\\\\sqrt{1} + 1} = 1$. Pour $p = 1, q \\to \\\\infty$: $\\\\frac{1 + \\\\sqrt{q}}{1 + q} \\\\sim \\\\frac{\\\\sqrt{q}}{q} = \\\\frac{1}{\\\\sqrt{q}} \\to 0$. Pour $p \\to \\\\infty, q = 1$: $\\\\frac{p + 1}{\\\\sqrt{p} + 1} \\\\sim \\\\sqrt{p} \\to \\\\infty$. Donc $\\\\inf A = 0$, $\\\\sup A = +\\\\infty$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "\\{\\frac{(-1)^k}{k+1} \\mid k\\in\\mathbb{N}\\}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_max_min_implique_sup_inf"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer les premiers termes de cet ensemble pour identifier le plus grand et le plus petit élément."
+            }
+          ],
+          "solution_latex": "Soit $A = \\{\\\\frac{(-1)^k}{k+1} \\mid k \\\\in \\\\mathbb{N}\\}$. Pour $k$ pair: $\\\\frac{1}{k+1} \\\\in [0, 1]$, max en $k=0$ donnant 1. Pour $k$ impair: $\\\\frac{-1}{k+1} \\\\in [-1, 0)$, min en $k=1$ donnant $-\\\\frac{1}{2}$. Donc $\\\\inf A = -\\\\frac{1}{2}$, $\\\\sup A = 1$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "\\{\\frac{pq}{p^2+q^2} \\mid p,q\\in\\mathbb{N}^*\\}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element",
+            "suites_reelles__def_borne_sup_inf"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'inégalité bien connue (p-q)^2 \\ge 0 pour majorer la fraction."
+            }
+          ],
+          "solution_latex": "Soit $A = \\{\\\\frac{pq}{p^2 + q^2} \\mid p, q \\\\in \\\\mathbb{N}^*\\}$. Par AM-GM: $p^2 + q^2 \\\\ge 2pq$, d'où $\\\\frac{pq}{p^2 + q^2} \\\\le \\\\frac{1}{2}$, égalité si $p = q$. D'autre part, pour $q$ fixé grand et $p = 1$: $\\\\frac{q}{1 + q^2} \\to 0$. Donc $\\\\inf A = 0$, $\\\\sup A = \\\\frac{1}{2}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "\\{\\frac{1}{p-q} \\mid p,q\\in\\mathbb{Z} \\text{ et } p\\ne q\\}",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque p et q sont des entiers distincts, que peut-on dire de la valeur absolue de p-q ?"
+            }
+          ],
+          "solution_latex": "Soit $A = \\{\\\\frac{1}{p - q} \\mid p, q \\\\in \\\\mathbb{Z}, p \\ne q\\}$. Pour $p - q = n$ entier non nul, on obtient $\\\\frac{1}{n}$. En prenant $n \\\\in \\\\mathbb{Z}^*$, l'ensemble contient $\\{..., -1, -\\\\frac{1}{2}, -\\\\frac{1}{3}, ..., \\\\frac{1}{3}, \\\\frac{1}{2}, 1, 2, ...\\}$. Donc $\\\\inf A = -\\\\infty$, $\\\\sup A = +\\\\infty$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_008",
+      "title": "Diamètre d'un ensemble",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_borne_sup_inf",
+        "suites_reelles__thm_prop_borne_sup_R_barre",
+        "suites_reelles__thm_prop_borne_sup_inf",
+        "suites_reelles__thm_carac_seq_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "borne supérieure",
+        "borne inférieure",
+        "valeur absolue"
+      ],
+      "statement_latex": "Soit A une partie non vide bornée de \\mathbb{R}. Montrer que : \\sup\\{|x-y| \\mid x,y\\in A\\}=\\sup A-\\inf A.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $d = \\\\sup\\{|x - y| \\mid x, y \\\\in A\\}$. Puisque A est non vide et bornée, l'ensemble des distances est non vide et majoré par $\\\\sup A - \\\\inf A$, donc admet une borne supérieure finie. Montrons que $d = \\\\sup A - \\\\inf A$. Soit $a = \\\\inf A, b = \\\\sup A$. Pour tout $x, y \\\\in A$: $x, y \\\\in [a, b]$, donc $|x - y| \\\\le b - a$. Réciproquement, pour tout $\\\\epsilon > 0$, il existe $x, y \\\\in A$ avec $x > a - \\\\epsilon$ et $y < b + \\\\epsilon$, d'où $|x - y| > b - a - 2\\\\epsilon$. Donc $\\\\sup\\{|x - y| \\mid x, y \\\\in A\\} = b - a = \\\\sup A - \\\\inf A$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer \\sup\\{|x-y| \\mid x,y\\in A\\} grâce à la caractérisation séquentielle de la borne supérieure."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la majoration, remarquer que si x, y \\in A, on a x \\le \\sup A et -y \\le -\\inf A, d'où x-y \\le \\sup A - \\inf A. Faire de même pour y-x."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_009",
+      "title": "Parties adjacentes",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_plus_grand_petit_element",
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_unicite_plus_grand_petit_element",
+        "suites_reelles__thm_suites_adjacentes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "parties adjacentes",
+        "borne supérieure",
+        "borne inférieure"
+      ],
+      "statement_latex": "Soient A et B deux parties non vides de \\mathbb{R}. On suppose A et B adjacentes, i.e. que tout élément de A est inférieur à tout élément de B et que : \\forall\\epsilon>0, \\exists(a,b)\\in A\\times B, b-a<\\epsilon. \\par Montrer que \\sup A=\\inf B après avoir justifié l'existence de ces deux réels.",
+      "sub_questions": [],
+      "global_solution_latex": "Supposons A et B adjacentes: $A \\\\cap B = \\\\emptyset$, A majorée par B, B minorée par A, et $\\\\sup A = \\\\inf B$. Soit $\\\\ell = \\\\sup A = \\\\inf B$. Pour tout $a \\\\in A$: $a \\\\le \\\\ell$; pour tout $b \\\\in B$: $b \\\\ge \\\\ell$. Si $\\\\ell \\\\in A$, alors $\\\\ell$ est le maximum de A. Si $\\\\ell \\\\in B$, c'est le minimum de B. Si $\\\\ell \\\\notin A \\\\cup B$, alors A et B forment une séparation de $\\\\mathbb{R}$ en deux parties non vides, disjointes, qui serait pathologique pour $\\\\mathbb{R}$ connexe.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Justifier d'abord l'existence en remarquant que tout élément de B est un majorant de A, et tout élément de A est un minorant de B."
+        },
+        {
+          "level": 2,
+          "content_latex": "Montrer que \\sup A \\le \\inf B est toujours vrai dans ce contexte. Puis utiliser l'hypothèse en \\epsilon pour déduire que \\inf B - \\sup A < \\epsilon pour tout \\epsilon>0."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_010",
+      "title": "Série et somme sur les parties finies",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_developpement_asymptotique_harmonique",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "série",
+        "somme",
+        "borne supérieure"
+      ],
+      "statement_latex": "Soit (a_{n})_{n\\in\\mathbb{N}} une suite positive. Montrer que si la suite (\\sum_{k=0}^{n}a_{k})_{n\\in\\mathbb{N}} converge, alors \\sum_{n=0}^{+\\infty}a_{n}=\\sup_{I\\in\\mathscr{P}_{f}(\\mathbb{N})}\\sum_{i\\in I}a_{i} où \\mathscr{P}_{f}(\\mathbb{N}) est l'ensemble des parties finies de \\mathbb{N}.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(a_n)$ une suite positive et $(S_n)_{n \\\\in \\\\mathbb{N}}$ la suite des sommes partielles $S_n = \\\\sum_{k=0}^n a_k$. Si $(S_n)$ converge dans $\\\\mathbb{R}$, alors $(S_n)$ est bornée et croissante, donc converge. Réciproquement, une suite croissante majorée de nombres réels converge par complétude de $\\\\mathbb{R}$. Donc la série $\\\\sum a_n$ converge ssi la suite des sommes partielles est majorée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Prouver l'égalité par double inégalité. Pour la première, remarquer que l'ensemble \\{0, 1, ..., n\\} appartient à \\mathscr{P}_{f}(\\mathbb{N})."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la seconde inégalité, observer que toute partie finie I de \\mathbb{N} est incluse dans un intervalle d'entiers de la forme \\{0, 1, ..., N\\} pour un N assez grand, et utiliser la positivité de la suite."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_011",
+      "title": "Calculs de limites en vrac",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__method_montrer_divergence_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limites",
+        "équivalents",
+        "encadrement"
+      ],
+      "statement_latex": "Soient \\alpha, \\beta, x\\in\\mathbb{R}. Étudier la limite des suites de terme général :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) \\frac{\\text{sh } n}{\\sqrt{\\text{ch}(2n)}} \\quad b) \\sqrt{n^{2}+n}-\\sqrt{n^{2}-n} \\quad c) \\frac{\\lfloor\\sqrt{n}\\rfloor}{n} \\quad d) \\frac{1+2\\sin n}{\\sqrt{n}} \\quad e) \\frac{n!}{n^{n}}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mise en facteur du terme dominant au numérateur et au dénominateur, quantité conjuguée \\sqrt{x}-\\sqrt{y}=\\frac{x-y}{\\sqrt{x}+\\sqrt{y}}, encadrement/minoration/majoration."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), utiliser les expressions exponentielles. Pour b), utiliser la quantité conjuguée. Pour c) et d), utiliser un encadrement. Pour e), comparer le quotient de deux termes consécutifs avec 1."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ une suite réelle. La suite $(u_n)$ est dite strictement croissante si $u_n < u_{n+1}$ pour tout $n \\\\in \\\\mathbb{N}$. La suite est croissante (au sens large) si $u_n \\\\le u_{n+1}$ pour tout $n$. De même pour décroissante (stricte ou large)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) \\frac{n^{\\alpha}}{n^{\\beta}+1} \\quad b) (1+\\frac{1}{n})^{n} \\quad c) \\sqrt{e^{n}+x^{n}}-\\sqrt{e^{n}+1}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_petit_o_equivalent",
+            "suites_reelles__def_voisinage",
+            "suites_reelles__def_limite_suite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mise en facteur du terme dominant au numérateur et au dénominateur, quantité conjuguée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), passer sous forme exponentielle : \\exp(n \\ln(1+1/n)). Pour c), factoriser par e^n ou x^n selon la position de x par rapport à e."
+            }
+          ],
+          "solution_latex": "a) Pour $\\\\frac{n^\\\\alpha}{n^\\\\beta + 1}$: si $\\\\alpha > \\\\beta$, $\\\\sim n^{\\\\alpha - \\\\beta} \\to +\\\\infty$; si $\\\\alpha = \\\\beta$, $\\to 1$; si $\\\\alpha < \\\\beta$, $\\to 0$.\\\\par b) $(1 + \\\\frac{1}{n})^n \\to e$ par définition de $e$.\\\\par c) $\\\\sqrt{e^n - 1} \\\\sim \\\\sqrt{e^n} = e^{n/2} \\to +\\\\infty$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) \\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}} \\quad b) \\sum_{k=1}^{n}\\frac{1}{n^{2}+k^{2}} \\quad c) \\sum_{k=1}^{n}\\frac{1}{\\sqrt{n^{2}+k}}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrement/minoration/majoration pour ces sommes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour minorer ou majorer une somme, on peut remplacer chaque terme par le plus petit ou le plus grand terme de la somme (souvent atteints pour k=1 ou k=n)."
+            }
+          ],
+          "solution_latex": "a) $\\\\sum_{k=1}^n \\\\frac{1}{\\\\sqrt{k}} \\\\ge \\\\int_1^{n+1} \\\\frac{dx}{\\\\sqrt{x}} = 2(\\\\sqrt{n+1} - 1) \\\\sim 2\\\\sqrt{n} \\to +\\\\infty$.\\\\par b) $\\\\sum_{k=1}^n \\\\frac{1}{n^2 + k^2} \\\\le \\\\sum_{k=1}^n \\\\frac{1}{k^2} \\\\le \\\\frac{\\\\pi^2}{6}$ est majorée, donc converge."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "a) \\sum_{k=1}^{n}\\frac{k!}{n!} \\quad b) \\frac{1}{n^{2}}\\sum_{k=1}^{n}\\lfloor kx\\rfloor",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), isoler le dernier terme et majorer le reste. Pour b), utiliser l'encadrement classique de la partie entière."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), on a kx - 1 < \\lfloor kx \\rfloor \\le kx. Sommer ces inégalités puis utiliser la formule de la somme des premiers entiers."
+            }
+          ],
+          "solution_latex": "a) $\\\\sum_{k=1}^n \\\\frac{k!}{n!} = \\\\frac{1}{n!}\\\\sum_{k=1}^n k! \\\\le \\\\frac{(n-1)! + n!}{n!} = \\\\frac{1}{n} + 1 \\to 1$.\\\\par b) $\\\\frac{1}{n^2}\\\\sum_{k=1}^n \\lfloor kx \\rfloor \\\\sim \\\\frac{1}{n^2} \\cdot \\\\frac{1}{2}n^2 x = \\\\frac{x}{2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_012",
+      "title": "Divergence de la série harmonique",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_encadrement_minoration_majoration",
+        "suites_reelles__thm_developpement_asymptotique_harmonique",
+        "suites_reelles__thm_operations_bornes_sup",
+        "suites_reelles__def_borne_sup_inf"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "série harmonique",
+        "divergence",
+        "minoration"
+      ],
+      "statement_latex": "On pose H_{n}=\\sum_{k=1}^{n}\\frac{1}{k} pour tout n\\in\\mathbb{N}^{*}. Trouver un réel \\alpha>0 pour lequel H_{2n}-H_{n}\\ge\\alpha pour tout n\\in\\mathbb{N}^{*}, puis en déduire H_{n}\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la différence H_{2n} - H_n comme une somme explicite de termes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Chacun des n termes de cette somme est minoré par le plus petit d'entre eux, à savoir \\frac{1}{2n}."
+            }
+          ],
+          "solution_latex": "Soit $H_n = \\\\sum_{k=1}^n \\\\frac{1}{k}$. Groupons les termes: $H_{2^m} = 1 + (\\\\frac{1}{2}) + (\\\\frac{1}{3} + \\\\frac{1}{4}) + (\\\\frac{1}{5} + ... + \\\\frac{1}{8}) + ... \\\\ge 1 + \\\\frac{1}{2} + 2 \\cdot \\\\frac{1}{4} + 4 \\cdot \\\\frac{1}{8} + ... = 1 + \\\\frac{1}{2} + \\\\frac{1}{2} + \\\\frac{1}{2} + ...$. En prenant $m \\to \\\\infty$, $H_{2^m} \\\\ge 1 + \\\\frac{m}{2} \\to +\\\\infty$. Donc $H_n \\to +\\\\infty$, avec $\\\\alpha = \\\\frac{1}{2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_013",
+      "title": "Recherche de rangs de convergence",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_plus_grand_petit_element",
+        "suites_reelles__thm_unicite_plus_grand_petit_element",
+        "suites_reelles__thm_suites_arithmetiques_geometriques",
+        "suites_reelles__thm_suites_adjacentes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "définition de la limite",
+        "seuil",
+        "inéquations"
+      ],
+      "statement_latex": "Soient \\epsilon>0 et A>0. Déterminer rapidement un rang - pas forcément le meilleur - à partir duquel :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "\\frac{n}{n^{2}+1}<\\epsilon",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_suites_arithmetiques_geometriques",
+            "suites_reelles__thm_suites_adjacentes",
+            "suites_reelles__thm_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Majorer l'expression par une quantité plus simple pour faciliter la résolution de l'inéquation."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que \\frac{n}{n^2+1} < \\frac{n}{n^2} = \\frac{1}{n}."
+            }
+          ],
+          "solution_latex": "Soient $(u_n)$ et $(v_n)$ deux suites avec $u_n \\\\le v_n$ pour tout $n$, et supposons $u_n \\to \\\\ell$, $v_n \\to m$. Si $\\\\ell > m$, posons $\\\\epsilon = \\\\frac{\\\\ell - m}{2} > 0$. Il existe $N$ tel que pour $n \\\\ge N$: $u_n > \\\\ell - \\\\epsilon = \\\\frac{\\\\ell + m}{2}$ et $v_n < m + \\\\epsilon = \\\\frac{\\\\ell + m}{2}$. Donc $u_n > v_n$ pour $n \\\\ge N$, contradiction. Donc $\\\\ell \\\\le m$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "\\frac{\\sqrt{n+1}}{n^{2}-4}<\\epsilon",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Majorer le numérateur et minorer le dénominateur pour obtenir une borne supérieure simple."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par exemple, pour n assez grand, \\sqrt{n+1} \\le \\sqrt{2n} et n^2 - 4 \\ge \\frac{n^2}{2}."
+            }
+          ],
+          "solution_latex": "On veut $\\\\frac{\\\\sqrt{n+1}}{n^2 - 4} < \\\\epsilon$. Pour $n$ grand, $\\\\sqrt{n+1} \\\\sim \\\\sqrt{n}$ et $n^2 - 4 \\\\sim n^2$, donc $\\\\frac{\\\\sqrt{n}}{n^2} = n^{-3/2}$. Il suffit de prendre $n^{-3/2} < \\\\epsilon$, i.e., $n > \\\\epsilon^{-2/3}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "\\sqrt{n^{2}-n}>A",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Minorer la quantité sous la racine carrée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour n \\ge 2, on a n^2 - n \\ge \\frac{n^2}{2} ou une minoration similaire."
+            }
+          ],
+          "solution_latex": "On veut $\\\\sqrt{n^2 - n} > A$. Puisque $\\\\sqrt{n^2 - n} \\\\sim n$ pour $n$ grand, il suffit $n > A$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "3^{n}-2^{n}>A",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre en facteur le terme dominant pour minorer la différence."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a 3^n - 2^n = 3^n (1 - (2/3)^n). Pour n \\ge 1, cette quantité est minorée par 3^n (1 - 2/3) = 3^{n-1}."
+            }
+          ],
+          "solution_latex": "On veut $3^n - 2^n > A$. Puisque $3^n \\gg 2^n$, on a $3^n - 2^n \\\\sim 3^n$. Il suffit $3^n > A$, i.e., $n > \\log_3 A$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_014",
+      "title": "Suites d'entiers stationnaires",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites d'entiers",
+        "stationnaire",
+        "convergence"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que toute suite décroissante d'entiers naturels est stationnaire.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_monotonie_suite_recurrente",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérer l'ensemble des valeurs prises par la suite. C'est une partie non vide de \\mathbb{N}."
+            },
+            {
+              "level": 2,
+              "content_latex": "Toute partie non vide de \\mathbb{N} admet un plus petit élément. Que se passe-t-il lorsque la suite atteint cette valeur ?"
+            }
+          ],
+          "solution_latex": "Soient $(u_n)$, $(w_n)$ avec $u_n \\\\le w_n \\\\le v_n$ pour tout $n$, et $u_n \\to \\\\ell$, $v_n \\to \\\\ell$. Pour tout $\\\\epsilon > 0$, il existe $N_1, N_2$ tels que $u_n > \\\\ell - \\\\epsilon$ et $v_n < \\\\ell + \\\\epsilon$ pour $n \\\\ge \\max(N_1, N_2)$. Donc $\\\\ell - \\\\epsilon < u_n \\\\le w_n \\\\le v_n < \\\\ell + \\\\epsilon$, d'où $|w_n - \\\\ell| < \\\\epsilon$. Ainsi $w_n \\to \\\\ell$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que toute suite convergente d'entiers est stationnaire.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la définition de la convergence en choisissant un \\epsilon judicieux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prendre \\epsilon = \\frac{1}{2}. Les termes de la suite doivent être à une distance strictement inférieure à \\frac{1}{2} de la limite. Qu'est-ce que cela implique pour des entiers ?"
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ une suite d'entiers convergente vers $\\\\ell \\\\in \\\\mathbb{R}$. Pour $\\\\epsilon = \\\\frac{1}{2}$, il existe $N$ tel que $|u_n - \\\\ell| < \\\\frac{1}{2}$ pour $n \\\\ge N$. Si $u_N = m \\\\in \\\\mathbb{Z}$, alors $m - \\\\frac{1}{2} < \\\\ell < m + \\\\frac{1}{2}$, d'où $\\\\ell = m$ par unicité. Pour $n \\\\ge N$: $|u_n - m| < \\\\frac{1}{2}$ et $u_n \\\\in \\\\mathbb{Z}$ impliquent $u_n = m$. Donc $(u_n)$ est stationnaire à partir du rang $N$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_015",
+      "title": "Produit de suites tendant vers 1",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limites_suites_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "encadrement",
+        "produit"
+      ],
+      "statement_latex": "Que dire de deux suites (u_{n})_{n\\in\\mathbb{N}} et (v_{n})_{n\\in\\mathbb{N}} à valeurs dans [0, 1] pour lesquelles u_{n}v_{n}\\rightarrow 1?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "suites_reelles__method_montrer_divergence_extraites",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_passage_limite_inegalite_large"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque u_n et v_n sont majorées par 1, que se passe-t-il si l'une d'elles s'éloigne de 1 par le bas ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'inégalité u_n v_n \\le u_n \\le 1 (car v_n \\le 1) et appliquer le théorème d'encadrement (gendarmes)."
+            }
+          ],
+          "solution_latex": "Si $u_n, v_n \\\\in [0, 1]$ et $u_n v_n \\to 1$, alors $u_n, v_n \\to 1$. En effet, si $u_n v_n \\to 1$ et les suites sont bornées dans $[0, 1]$, supposons $\\\\limsup u_n = \\\\ell < 1$. Alors pour $n$ grand, $u_n \\\\le \\\\frac{\\\\ell + 1}{2} < 1$, d'où $v_n = \\\\frac{u_n v_n}{u_n} \\\\ge \\\\frac{1}{(\\\\ell + 1)/2}$. Mais $v_n \\\\le 1$, donc il y a contradiction pour $\\\\ell < 1$. Ainsi $\\\\limsup u_n = 1$. Par symétrie, $\\\\limsup v_n = 1$. Donc $u_n \\to 1$ et $v_n \\to 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_016",
+      "title": "Limite du maximum de deux suites",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "maximum",
+        "définition"
+      ],
+      "statement_latex": "Soient (u_{n})_{n\\in\\mathbb{N}} et (u_{n}^{\\prime})_{n\\in\\mathbb{N}} deux suites réelles convergentes de limites respectives l et l'. Montrer que : \\max\\{u_{n},u_{n}^{\\prime}\\}\\longrightarrow \\max\\{l,l^{\\prime}\\} en revenant à la définition de la limite. Une autre preuve en vue?",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $(u_n) \\to \\\\ell$ et $(u_n') \\to \\\\ell'$. Montrons que $(\\max(u_n, u_n')) \\to \\max(\\\\ell, \\\\ell')$. Pour tout $\\\\epsilon > 0$, il existe $N$ tel que $|u_n - \\\\ell| < \\\\epsilon$ et $|u_n' - \\\\ell'| < \\\\epsilon$ pour $n \\\\ge N$. Alors $|\\max(u_n, u_n') - \\max(\\\\ell, \\\\ell')| \\\\le \\max(|u_n - \\\\ell|, |u_n' - \\\\ell'|) < \\\\epsilon$. Donc $\\max(u_n, u_n') \\to \\max(\\\\ell, \\\\ell')$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Distinguer les cas l=l^{\\prime} et l\\ne l^{\\prime}."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la deuxième preuve, essayer d'utiliser la formule \\max(a,b) = \\frac{a+b+|a-b|}{2}."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_017",
+      "title": "Partie entière et limite",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "partie entière",
+        "limite",
+        "discontinuité"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite réelle possédant une limite l\\in\\mathbb{R}. Étudier, en fonction de l, la nature de (\\lfloor u_{n}\\rfloor)_{n\\in\\mathbb{N}} et sa limite éventuelle.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(u_n) \\to \\\\ell$ et $n_k = \\lfloor u_k \\rfloor$. On a $n_k \\\\le u_k < n_k + 1$. Puisque $u_k \\to \\\\ell$, pour tout $\\\\epsilon > 0$, il existe $K$ tel que $|\\\\ell - \\\\epsilon, \\\\ell + \\\\epsilon)|$ contient $u_k$ pour $k \\\\ge K$. Donc $\\lfloor u_k \\rfloor \\\\in \\{\\lfloor \\\\ell - \\\\epsilon \\rfloor, ..., \\lceil \\\\ell + \\\\epsilon \\rceil\\}$. Pour $\\\\epsilon$ petit, cette plage se réduit, d'où $\\lfloor u_k \\rfloor \\to \\lfloor \\\\ell \\rfloor$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Si l n'est pas un entier, la fonction partie entière est constante au voisinage de l. Que se passe-t-il si l est un entier ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "Si l est un entier, étudier des suites spécifiques comme u_n = l + \\frac{1}{n} et v_n = l - \\frac{1}{n} pour montrer que la suite des parties entières n'est pas nécessairement convergente."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_018",
+      "title": "Critère de d'Alembert pour les suites",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "quotient",
+        "limite",
+        "encadrement"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite strictement positive. On suppose (\\frac{u_{n+1}}{u_{n}})_{n\\in\\mathbb{N}} convergente de limite l. Étudier, en fonction de l, la nature de (u_{n})_{n\\in\\mathbb{N}} et sa limite éventuelle.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(u_n) > 0$ avec $\\\\frac{u_{n+1}}{u_n} \\to q < 1$. Pour $\\\\epsilon = \\\\frac{1-q}{2} > 0$, il existe $N$ tel que $\\\\frac{u_{n+1}}{u_n} < q + \\\\epsilon = \\\\frac{1+q}{2} < 1$ pour $n \\\\ge N$. Donc $u_n \\\\le u_N (q')^{n-N}$ où $q' = \\\\frac{1+q}{2} < 1$. Ainsi $u_n \\to 0$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Adapter une preuve de cours du paragraphe « Théorèmes d'encadrement/minoration/majoration »."
+        },
+        {
+          "level": 2,
+          "content_latex": "Séparer les cas l < 1, l > 1 et l = 1. Pour l < 1, choisir un réel q tel que l < q < 1 et montrer que u_{n+1} \\le q u_n à partir d'un certain rang."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_019",
+      "title": "Formes indéterminées puissances",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_unicite_limite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissance",
+        "exponentielle",
+        "limite"
+      ],
+      "statement_latex": "Soit l\\in[0,+\\infty]. Construire une suite (u_{n})_{n\\in\\mathbb{N}} de limite 1 et une suite (v_{n})_{n\\in\\mathbb{N}} de limite +\\infty pour lesquelles u_{n}^{v_{n}}\\longrightarrow l.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\\\ell \\\\in [0, +\\\\infty]$. Construire $(u_n)$ de limite 1 telle que $u_n^{\\\\frac{1}{n}} \\to \\\\ell$. Si $\\\\ell = 0$: $u_n = \\\\frac{1}{n}$ donne $u_n^{1/n} = n^{-1/n} \\to 1$ (MAUVAIS). Prendre $u_n = n^{-n}$ donne $u_n^{1/n} = n^{-1} \\to 0$. Mais on veut $u_n \\to 1$. Poser $u_n = (1 + \\\\frac{\\\\ell}{n})^{c_n}$ où $c_n \\to \\\\infty$ donne $u_n^{1/n} = (1 + \\\\frac{\\\\ell}{n})^{c_n/n} \\to e^\\\\ell$ si $c_n/n \\to 1$. Donc $u_n = (1 + \\\\frac{\\\\ell}{n})^n$ convient pour chaque $\\\\ell$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Passer sous forme exponentielle : u_n^{v_n} = \\exp(v_n \\ln(u_n))."
+        },
+        {
+          "level": 2,
+          "content_latex": "Chercher des suites de la forme u_n = 1 + \\frac{a}{n} et v_n = bn, puis ajuster a et b pour obtenir la limite souhaitée l. Traiter à part les cas l=0 et l=+\\infty."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_020",
+      "title": "Suites convergeant vers 0",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limite",
+        "suite bornée",
+        "raisonnement par l'absurde"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite. Montrer que (u_{n})_{n\\in\\mathbb{N}} converge vers 0 si :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "\\frac{u_{n}}{1+u_{n}}\\xrightarrow[n\\rightarrow+\\infty]{}0",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser v_n = \\frac{u_n}{1+u_n} et exprimer u_n en fonction de v_n."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a u_n = \\frac{v_n}{1-v_n}. Utiliser les théorèmes d'opérations sur les limites sachant que v_n tend vers 0."
+            }
+          ],
+          "solution_latex": "Supposons $\\\\frac{u_n}{1 + u_n} \\to 0$. Si $u_n > 0$, alors $\\\\frac{u_n}{1 + u_n} \\\\ge \\\\frac{u_n}{2 + u_n}$. Si cette quantité tend vers 0, alors $u_n$ tend vers 0. Si $u_n < 0$ avec $|u_n| < 1$, on a $\\\\frac{u_n}{1 + u_n} = \\\\frac{u_n}{1 + u_n}$. Pour $u_n$ petit, $\\\\frac{u_n}{1 + u_n} \\\\approx u_n - u_n^2 \\\\approx u_n$. Donc $u_n \\to 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "(u_{n})_{n\\in\\mathbb{N}} est bornée et \\frac{u_{n}}{1+u_{n}^{2}}\\xrightarrow[n\\rightarrow+\\infty]{}0.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__thm_produit_suite_bornee_nulle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction f(x) = \\frac{x}{1+x^2} s'annule uniquement en x=0. Exploiter le fait que la suite est bornée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Raisonner par l'absurde ou utiliser le théorème de Bolzano-Weierstrass : si la suite ne tend pas vers 0, on pourrait en extraire une sous-suite convergeant vers une limite l \\ne 0, ce qui contredirait la limite du quotient."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ bornée avec $\\\\frac{u_n}{1 + u_n^2} \\to 0$. Puisque $|u_n| \\\\le M$ pour un certain $M$, on a $|u_n| = |\\\\frac{u_n}{1 + u_n^2}| \\cdot (1 + u_n^2) \\\\le |\\\\frac{u_n}{1 + u_n^2}| \\cdot (1 + M^2) \\to 0$. Donc $u_n \\to 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_021",
+      "title": "Théorème des segments emboîtés",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "segments emboîtés",
+        "suite de segments",
+        "compacité"
+      ],
+      "statement_latex": "Soient (I_{n})_{n\\in\\mathbb{N}} une suite décroissante de segments non vides, i.e. pour lesquels I_{n+1}\\subset I_{n} pour tout n\\in\\mathbb{N}. Montrer que \\bigcap_{n\\in\\mathbb{N}}I_{n} est un segment non vide (théorème des segments emboîtés).",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $(I_n) = [a_n, b_n]$ une suite décroissante de segments non vides: $I_0 \\\\supseteq I_1 \\\\supseteq ...$. La suite $(a_n)$ est croissante (car $a_n \\\\le a_{n+1} \\\\le b_{n+1} \\\\le b_n$) et majorée par $b_0$, donc elle converge vers $\\\\ell = \\\\sup_n a_n$. De même, $(b_n)$ est décroissante, minorée par $a_0$, converge vers $m = \\\\inf_n b_n$. On a $a_n \\\\le \\\\ell \\\\le m \\\\le b_n$ pour tout $n$. L'intersection $\\bigcap_{n=0}^\\\\infty I_n = [\\\\ell, m]$ est un segment non vide.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Noter I_n = [a_n, b_n] et traduire l'inclusion I_{n+1} \\subset I_n en termes de propriétés sur les suites (a_n) et (b_n)."
+        },
+        {
+          "level": 2,
+          "content_latex": "Montrer que la suite (a_n) est croissante et majorée par b_0, tandis que (b_n) est décroissante et minorée par a_0. Appliquer le théorème de la limite monotone puis caractériser l'intersection."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_022",
+      "title": "Suite avec un terme dominant tendant vers 0",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__def_suite_monotone_majoree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "récurrence",
+        "suite bornée",
+        "théorème des gendarmes"
+      ],
+      "statement_latex": "Étudier la nature des suites (u_{n})_{n\\in\\mathbb{N}} pour lesquelles u_{n+1}=\\frac{u_{n}}{n}+\\frac{1}{n^{2}} pour tout n\\in\\mathbb{N}^{*}.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $u_{n+1} = \\\\frac{f(u_n)}{1 + u_n^2}$ où on suppose $f$ bornée. Si $u_n \\to 0$, alors $u_{n+1} \\\\approx f(u_n) \\to f(0)$. Si $f(0) = 0$, on a convergence vers 0. Si $f$ est 1-Lipschitz, $|u_{n+1}| \\\\le C|u_n|$ pour une constante, d'où convergence exponentielle. Si $u_n$ ne converge pas vers 0, alors pour tout $\\\\epsilon > 0$, il existe une infinité de $n$ avec $|u_n| > \\\\epsilon$, d'où divergence ou oscillation.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Montrer que (u_{n})_{n\\in\\mathbb{N}} est bornée."
+        },
+        {
+          "level": 2,
+          "content_latex": "Une fois que l'on sait que la suite est bornée (soit |u_n| \\le M), majorer la valeur absolue de u_{n+1} et utiliser le théorème des gendarmes pour trouver sa limite."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_023",
+      "title": "Fonction injective sur les entiers",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "injection",
+        "limite infinie",
+        "entiers"
+      ],
+      "statement_latex": "Soit f:\\mathbb{N}\\longrightarrow\\mathbb{N} une fonction injective. Montrer que f(n)\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $f: \\\\mathbb{N} \\to \\\\mathbb{N}$ injective. Montrons $\\\\lim_{n \\to \\\\infty} f(n) = \\\\infty$. Supposons par l'absurde que $\\\\limsup f(n) = M < \\\\infty$. Alors $f(\\\\mathbb{N}) \\\\subseteq \\{0, 1, ..., M\\}$, un ensemble fini. Mais $f$ est injective, donc $|\\\\mathbb{N}| \\\\le M + 1$, contradiction. Ainsi $f(n) \\to \\\\infty$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Montrer que l'ensemble f^{-1}([[0,\\lfloor A\\rfloor]]) est fini pour tout A>0."
+        },
+        {
+          "level": 2,
+          "content_latex": "L'image d'un ensemble infini par une injection ne peut pas être contenue dans un ensemble fini. Ainsi, à partir d'un certain rang, f(n) doit nécessairement dépasser A."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_024",
+      "title": "Approximation d'un irrationnel par des rationnels",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__def_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "irrationnel",
+        "rationnels",
+        "limite",
+        "absurde"
+      ],
+      "statement_latex": "Soient (p_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{Z}^{\\mathbb{N}} et (q_{n})_{n\\in\\mathbb{N}}\\in(\\mathbb{N}^{*})^{\\mathbb{N}}. On suppose que la suite (\\frac{p_{n}}{q_{n}})_{n\\in\\mathbb{N}} converge vers un irrationnel. Montrer que |p_n|\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty et q_{n}\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $(p_n) \\\\in \\\\mathbb{Z}^\\\\mathbb{N}$ et $(q_n) \\\\in (\\\\mathbb{N}^*)^\\\\mathbb{N}$ avec $q_n \\nearrow \\\\infty$. Supposons $\\\\frac{p_n}{q_n} \\to \\\\ell \\\\in \\\\mathbb{R}$ et $|ell - \\\\frac{p_n}{q_n}| = O(q_n^{-2})$. Si $\\\\ell \\\\in \\\\mathbb{Q}$, disons $\\\\ell = \\\\frac{a}{b}$, alors $|\\\\frac{p_n}{q_n} - \\\\frac{a}{b}| = O(q_n^{-2})$ donne $|bp_n - aq_n| = O(q_n^{-1})$, d'où égalité à partir d'un rang. Ainsi $\\\\ell$ irrational implique approximabilité rationnelle rapide.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "En notant l la limite étudiée, montrer que l'ensemble \\{(p,q)\\in\\mathbb{Z}\\times[[1,\\lfloor A\\rfloor]] \\mid |\\frac{p}{q}-l|<1\\} est fini pour tout A>0."
+        },
+        {
+          "level": 2,
+          "content_latex": "Raisonner par l'absurde. Si la suite (q_n) ne tendait pas vers l'infini, elle possèderait une sous-suite bornée. Utiliser la finitude de l'ensemble précédent pour obtenir une contradiction avec la convergence vers un irrationnel."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_025",
+      "title": "Extremums d'une suite convergente",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_plus_grand_petit_element",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_unicite_plus_grand_petit_element",
+        "suites_reelles__thm_max_min_implique_sup_inf"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite convergente",
+        "extremums",
+        "valeur d'adhérence"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite réelle convergente. Montrer que \\{u_{n} \\mid n\\in\\mathbb{N}\\} possède un plus petit élément ou un plus grand élément.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__thm_unicite_plus_grand_petit_element",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si (u_{n})_{n\\in\\mathbb{N}} n'est pas constante, elle prend une valeur strictement supérieure ou strictement inférieure à sa limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposons qu'il existe u_{n_0} > l. Utiliser la définition de la limite avec \\epsilon = u_{n_0} - l pour montrer que seuls un nombre fini de termes peuvent être plus grands que u_{n_0}."
+            }
+          ],
+          "solution_latex": "Soit $(u_n) \\to \\\\ell$. L'ensemble $\\{u_n \\mid n \\\\in \\\\mathbb{N}\\}$ est contenu dans l'intervalle $[\\\\ell - 1, \\\\ell + 1]$ à partir d'un certain rang, donc il est borné. Donc $\\\\inf \\{u_n\\}$ et $\\\\sup \\{u_n\\}$ existent dans $\\\\mathbb{R}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Proposer un exemple de suite (u_{n})_{n\\in\\mathbb{N}} convergente dont ni \\inf_{n\\in\\mathbb{N}} u_{n} ni \\sup_{n\\in\\mathbb{N}} u_{n} ne sont valeurs d'adhérence.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__thm_max_min_implique_sup_inf",
+            "suites_reelles__thm_limite_suite_recurrente_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher une suite qui oscille en s'amortissant vers sa limite, de sorte que les extremums soient atteints aux premiers rangs."
+            },
+            {
+              "level": 2,
+              "content_latex": "La suite u_n = \\frac{(-1)^n}{n} (pour n \\ge 1) atteint son maximum en n=2 et son minimum en n=1, mais sa seule valeur d'adhérence est sa limite 0."
+            }
+          ],
+          "solution_latex": "Exemple: $u_n = 1 + (-1)^n \\\\frac{1}{n}$. On a $u_n \\to 1$. Pour $n$ pair: $u_n = 1 + \\\\frac{1}{n} > 1$, max atteint en $n = 0$ donnant $2$. Pour $n$ impair: $u_n = 1 - \\\\frac{1}{n} < 1$, min atteint en $n = 1$ donnant $0$. Donc $\\\\inf u_n = 0 \\ne 1 = \\\\ell$ et $\\\\sup u_n = 2 \\ne 1 = \\\\ell$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite réelle majorée. Montrer que si \\{u_{n} \\mid n\\in\\mathbb{N}\\} ne possède pas de plus grand élément, \\sup_{n\\in\\mathbb{N}} u_{n} est une valeur d'adhérence de (u_{n})_{n\\in\\mathbb{N}}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_plus_grand_petit_element",
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__thm_unicite_plus_grand_petit_element"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la caractérisation de la borne supérieure : pour tout \\epsilon > 0, il existe un terme de la suite strictement supérieur au sup moins \\epsilon."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque le sup n'est jamais atteint, il existe une infinité de termes s'en approchant arbitrairement près. Construire une sous-suite qui converge vers ce sup."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ majorée et $M = \\\\sup_n u_n$. Si $\\{u_n \\mid n \\\\in \\\\mathbb{N}\\}$ atteint ses bornes, alors $\\\\inf_n u_n = \\min u_n \\\\in \\\\mathbb{R}$ et $\\\\sup_n u_n = \\max u_n = M \\\\in \\\\mathbb{R}$. Dans ce cas, si $(u_n) \\to \\\\ell$, puisque le maximum est atteint, on a $M \\\\in \\{u_n\\}$, d'où $\\\\ell = M$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_026",
+      "title": "Moyenne arithmético-harmonique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites adjacentes",
+        "moyenne arithmétique",
+        "moyenne harmonique"
+      ],
+      "statement_latex": "Soient (u_{n})_{n\\in\\mathbb{N}} et (v_{n})_{n\\in\\mathbb{N}} deux suites pour lesquelles u_{0}>0 et v_{0}>0 et pour tout n\\in\\mathbb{N}: \\par u_{n+1}=\\frac{u_{n}+v_{n}}{2} \\text{ et } v_{n+1}=\\frac{2u_{n}v_{n}}{u_{n}+v_{n}} \\par Montrer que les suites (u_{n})_{n\\in\\mathbb{N}} et (v_{n})_{n\\in\\mathbb{N}} sont convergentes de même limite que l'on précisera.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $(u_n)$ et $(v_n)$ définies par $u_0 = a, v_0 = b$ et $u_{n+1} = \\\\frac{u_n + v_n}{2}, v_{n+1} = \\\\frac{2u_n v_n}{u_n + v_n}$. La suite $(u_n)$ est croissante (moyenne arithmétique), $(v_n)$ décroissante (moyenne harmonique). On a $u_n \\\\le v_n$ pour tout $n$. Donc $u_n \\nearrow$ et $v_n \\searrow$ vers une limite commune $\\\\ell = \\\\sqrt{ab}$ (moyenne géométrique).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Étudier la monotonie des deux suites ainsi que leur position relative."
+        },
+        {
+          "level": 2,
+          "content_latex": "Calculer u_{n+1} - v_{n+1} pour montrer que u_n \\ge v_n à partir du rang 1. En déduire la monotonie de chaque suite (l'une croît, l'autre décroît)."
+        },
+        {
+          "level": 3,
+          "content_latex": "Remarquer que le produit u_{n}v_{n} est constant pour deviner la limite commune l vérifiant l^2 = u_0 v_0."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_027",
+      "title": "Moyenne arithmético-géométrique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites adjacentes",
+        "moyenne arithmétique",
+        "moyenne géométrique"
+      ],
+      "statement_latex": "Soient a, b>0 On définit deux suites (a_{n})_{n\\in\\mathbb{N}} et (b_{n})_{n\\in\\mathbb{N}} en posant a_{0}=a et b_{0}=b et pour tout n\\in\\mathbb{N}: \\par a_{n+1}=\\frac{a_{n}+b_{n}}{2} \\text{ et } b_{n+1}=\\sqrt{a_{n}b_{n}} \\par Montrer que (a_{n})_{n\\in\\mathbb{N}^{*}} et (b_{n})_{n\\in\\mathbb{N}^{*}} sont convergentes de même limite. \\par Cette limite qu'on ne calculera pas est appelée la moyenne arithmético-géométrique de a et b.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $a_0 = a, b_0 = b$ et $a_{n+1} = \\\\frac{a_n + b_n}{2}, b_{n+1} = \\\\sqrt{a_n b_n}$. La suite $(a_n)$ décroît vers $\\\\ell$, $(b_n)$ croît vers $\\\\ell$ où $\\\\ell = \\\\lim_n a_n = \\\\lim_n b_n$ est la moyenne arithmético-géométrique de $a, b$. On a $b_n \\\\le \\\\ell \\\\le a_n$ et $a_n - b_n = O(4^{-n})$, convergence quadratique.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Étudier la monotonie des deux suites ainsi que leur position relative."
+        },
+        {
+          "level": 2,
+          "content_latex": "Comparer a_{n+1} et b_{n+1} à l'aide de l'identité remarquable (\\sqrt{x}-\\sqrt{y})^2 \\ge 0. En déduire que a_n \\ge b_n pour n \\ge 1, puis que (a_n) décroît et (b_n) croît."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_028",
+      "title": "Divergence par suites extraites",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites extraites",
+        "divergence",
+        "sous-suites"
+      ],
+      "statement_latex": "Montrer que la suite de terme général u_{n} n'a pas de limite dans les deux cas suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "u_{n} est l'inverse du nombre de diviseurs premiers de n pour tout n\\ge2.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_produit_suite_bornee_nulle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouver deux sous-suites ayant des limites différentes pour contredire l'existence d'une limite globale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer d'une part la sous-suite indexée par les nombres premiers (qui n'ont qu'un seul diviseur premier) et d'autre part une sous-suite construite avec le produit des k premiers nombres premiers (primorielles)."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\\\frac{1}{\\\\omega(n)}$ où $\\\\omega(n)$ est le nombre de diviseurs premiers de $n$. Les entiers $2^k$ ont $\\\\omega(2^k) = 1$, d'où $u_{2^k} = 1$. Les entiers $2 \\cdot 3 \\cdot 5 \\cdot ... \\cdot p_k$ (produit des $k$ premiers nombres premiers) ont $\\\\omega = k \\to \\\\infty$, d'où $u \\to 0$. Donc $(u_n)$ a deux valeurs d'adhérence: 0 et 1, d'où divergence."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "u_{n}=\\sin\\frac{n^{2}\\pi}{3} pour tout n\\in\\mathbb{N}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__def_convergence_divergence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Extraire des sous-suites en considérant la valeur de n modulo 3."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer la valeur de la suite pour les indices de la forme n=3k et pour les indices de la forme n=3k+1. Observer les constantes obtenues."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\sin \\\\frac{n^2 \\\\pi}{3}$. Pour $n \\\\equiv 0 \\pmod{3}$: $u_n = 0$. Pour $n \\\\equiv 1 \\pmod{3}$: $u_n = \\sin \\\\frac{\\\\pi}{3} = \\\\frac{\\\\sqrt{3}}{2}$. Pour $n \\\\equiv 2 \\pmod{3}$: $u_n = \\sin \\\\frac{4\\\\pi}{3} = -\\\\frac{\\\\sqrt{3}}{2}$. Donc $(u_n)$ a trois valeurs d'adhérence: $-\\\\frac{\\\\sqrt{3}}{2}, 0, \\\\frac{\\\\sqrt{3}}{2}$, d'où divergence."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_029",
+      "title": "Convergence à partir de suites extraites",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites extraites",
+        "convergence",
+        "théorème des gendarmes"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite réelle. Montrer que (u_{n})_{n\\in\\mathbb{N}} est convergente dans les deux cas suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "(u_{n})_{n\\in\\mathbb{N}} est croissante et (u_{2n})_{n\\in\\mathbb{N}} converge.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__thm_limite_monotone",
+            "suites_reelles__thm_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la monotonie pour encadrer les termes de rang impair par des termes de rang pair."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a u_{2n} \\le u_{2n+1} \\le u_{2n+2}. Puisque la suite (u_{2n}) converge, on peut appliquer le théorème des gendarmes pour conclure sur (u_{2n+1})."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ croissante avec $(u_{2n})$ convergente vers $\\\\ell$. Puisque $(u_n)$ croît, $(u_{2n+1})$ converge aussi vers une limite $m \\\\ge \\\\ell$ puisque $u_{2n+1} \\\\ge u_{2n}$. En fait, $u_{2n} \\\\le u_{2n+1} \\\\le u_{2n+2}$, donc les deux sous-suites convergent vers la même limite. Donc $u_n \\to \\\\ell$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "(u_{2n})_{n\\in\\mathbb{N}}, (u_{2n+1})_{n\\in\\mathbb{N}} et (u_{3n})_{n\\in\\mathbb{N}} convergent.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__method_montrer_divergence_extraites",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Noter l_1, l_2 et l_3 les limites respectives des trois sous-suites. L'objectif est de montrer que l_1 = l_2."
+            },
+            {
+              "level": 2,
+              "content_latex": "La sous-suite (u_{6n})_{n\\in\\mathbb{N}} est extraite à la fois de (u_{2n}) et de (u_{3n}), donc l_1 = l_3. Faire de même avec la sous-suite (u_{6n+3}) pour relier l_2 et l_3."
+            }
+          ],
+          "solution_latex": "Soit $(u_{2n})$ convergente vers $\\\\ell, (u_{2n+1})$ vers $m$, et $(u_{3n})$ vers $p$. La sous-suite $(u_{6n})$ extrait de $(u_{2n})$ et de $(u_{3n})$, d'où $\\\\ell = p$. De même $(u_{6n})$ extrait de $(u_{2n})$ et d'autres donne une cohérence. Si on impose que les trois suites convergent, alors $\\\\ell = m = p$ et $(u_n) \\to \\\\ell$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_030",
+      "title": "Divergence de la suite tan(n)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "divergence",
+        "absurde"
+      ],
+      "statement_latex": "On admet que \\pi est irrationnel. Le réel \\tan n est alors bien défini pour tout n\\in\\mathbb{N}. Montrer que la suite (\\tan n)_{n\\in\\mathbb{N}} n'a pas de limite.",
+      "sub_questions": [],
+      "global_solution_latex": "On admet $\\\\pi$ irrationnel. Donc $\\{n \\bmod \\\\pi: n \\\\in \\\\mathbb{N}\\}$ est dense dans $[0, \\\\pi)$. Ainsi $\\tan n$ prend des valeurs proches de tous les points de $(-\\\\infty, +\\\\infty)$ infiniment souvent. D'où $(tan n)$ a pour ensemble de valeurs d'adhérence tout $\\\\mathbb{R}$, en particulier diverge.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par l'absurde et passer à la limite dans les formules de trigonométrie de la tangente."
+        },
+        {
+          "level": 2,
+          "content_latex": "Supposer que \\tan n \\rightarrow l. Écrire \\tan(n+1) = \\frac{\\tan n + \\tan 1}{1 - \\tan n \\tan 1}. Passer à la limite dans cette égalité pour obtenir une équation d'inconnue l."
+        },
+        {
+          "level": 3,
+          "content_latex": "L'équation l = \\frac{l + \\tan 1}{1 - l \\tan 1} mène à une absurdité (comme l^2 = -1) car \\tan 1 \\ne 0."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_031",
+      "title": "Divergence des suites trigonométriques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites extraites",
+        "trigonométrie",
+        "absurde"
+      ],
+      "statement_latex": "Soit \\theta\\in\\mathbb{R}-\\pi\\mathbb{Z}. Montrer qu'aucune des deux suites (\\cos(n\\theta))_{n\\in\\mathbb{N}} et (\\sin(n\\theta))_{n\\in\\mathbb{N}} n'a de limite.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\\\theta \\\\in \\\\mathbb{R} - \\\\pi\\\\mathbb{Z}$. Alors $e^{i\\\\theta} \\ne 1$, donc $\\{e^{in\\\\theta} : n \\\\in \\\\mathbb{N}\\}$ est un sous-groupe dense du cercle (par Kronecker). Ainsi $(\\cos(n\\\\theta))$ et $(\\sin(n\\\\theta))$ prennent des valeurs denses dans $[-1, 1]$, d'où divergence.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Raisonner par l'absurde et passer à la limite dans les formules de trigonométrie du cosinus et du sinus."
+        },
+        {
+          "level": 2,
+          "content_latex": "Supposer par exemple que \\cos(n\\theta) converge vers l. Utiliser la formule \\cos((n+1)\\theta) + \\cos((n-1)\\theta) = 2\\cos(n\\theta)\\cos(\\theta) pour trouver les valeurs possibles de l, et aboutir à une contradiction."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_032",
+      "title": "Valeurs d'adhérence de cos(ln n)",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__def_plus_grand_petit_element"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs d'adhérence",
+        "suites extraites",
+        "densité"
+      ],
+      "statement_latex": "Montrer que [-1,1] est l'ensemble des valeurs d'adhérence de la suite (\\cos(\\ln n))_{n\\in\\mathbb{N}^{*}}.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $x \\\\in [-1, 1]$. Par approximation de Diophantine, il existe une suite $n_k$ telle que $\\ln n_k$ s'approche de $2\\\\pi k + \\arccos x$ pour une suite de $k$. Alors $\\cos(\\ln n_k) \\to \\cos(\\arccos x) = x$. Donc tout élément de $[-1, 1]$ est valeur d'adhérence. Réciproquement, $\\cos(\\ln n) \\\\in [-1, 1]$ toujours. Donc l'ensemble des valeurs d'adhérence est exactement $[-1, 1]$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour tout \\theta\\in[0,\\pi], trouver une fonction d'extraction pour laquelle \\ln \\varphi(n)\\approx\\theta+2n\\pi afin de garantir que \\cos(\\ln \\varphi(n))\\xrightarrow[n\\rightarrow+\\infty]{}\\cos \\theta."
+        },
+        {
+          "level": 2,
+          "content_latex": "Poser \\varphi(n) = \\lfloor e^{\\theta + 2n\\pi} \\rfloor. Utiliser l'encadrement de la partie entière pour montrer que l'écart entre \\ln(\\varphi(n)) et \\theta + 2n\\pi tend vers 0."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_033",
+      "title": "Exemples de suites adjacentes",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_suites_adjacentes",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__method_montrer_divergence_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites adjacentes",
+        "monotonie",
+        "limite"
+      ],
+      "statement_latex": "Montrer que les suites (u_{n})_{n\\in\\mathbb{N}^{*}} et (v_{n})_{n\\in\\mathbb{N}^{*}} suivantes sont adjacentes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "u_{n}=\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}-2\\sqrt{n} \\quad \\text{et} \\quad v_{n}=\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}-2\\sqrt{n+1}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_unicite_limite",
+            "suites_reelles__thm_passage_limite_inegalite_large"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la différence, utiliser la quantité conjuguée ou encadrer."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer u_{n+1}-u_n et v_{n+1}-v_n en utilisant à nouveau la quantité conjuguée pour déterminer le signe (et donc la monotonie)."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\\\sum_{k=1}^n \\\\frac{1}{\\\\sqrt{k}} - 2\\\\sqrt{n}, v_n = \\\\sum_{k=1}^n \\\\frac{1}{\\\\sqrt{k}} - 2\\\\sqrt{n} + \\\\frac{1}{\\\\sqrt{n}}$. On a $u_n \\\\le v_n$ car $v_n = u_n + \\\\frac{1}{\\\\sqrt{n}}$. De plus, $u_n$ décroît et $v_n$ croît vers la même limite (via intégrale de Riemann). Donc $(u_n, v_n)$ sont adjacentes."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "u_{n}=\\prod_{k=1}^{n}(1+\\frac{1}{k^{2}}) \\quad \\text{et} \\quad v_{n}=(1+\\frac{1}{n})u_{n}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_produit_suite_bornee_nulle",
+            "suites_reelles__thm_developpement_asymptotique_harmonique",
+            "suites_reelles__thm_croissance_comparee_exp_fact"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer que v_{n}-u_{n}\\rightarrow 0, utiliser la monotonie de (v_{n})_{n\\in\\mathbb{N}^{*}}."
+            },
+            {
+              "level": 2,
+              "content_latex": "La suite (u_n) est trivialement croissante. Exprimer v_{n+1}/v_n pour prouver sa décroissance, puis utiliser le fait qu'elle est bornée."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\\\prod_{k=1}^n (1 + \\\\frac{1}{k^2}), v_n = (1 + \\\\frac{1}{n})^2$. Montrer $u_n \\\\le v_n$ et que $v_n - u_n \\to 0$. Par comparaison avec des produits télescopiques et développement, on établit l'adjacence."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "u_{n}=\\frac{\\lfloor 10^{n}x\\rfloor}{10^{n}} \\quad \\text{et} \\quad v_{n}=u_{n}+\\frac{1}{10^{n}} \\quad (x\\in\\mathbb{R}).",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_suites_adjacentes",
+            "suites_reelles__thm_composition_limite_fonction"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tous p,q\\in\\mathbb{Z} et x\\in\\mathbb{R} si p\\le x<q, alors p\\le\\lfloor x\\rfloor<\\lfloor x\\rfloor+1\\le q."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer cette propriété avec 10^{n}x et 10^{n+1}x pour prouver que u_{n} \\le u_{n+1} et v_{n+1} \\le v_n."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\\\frac{\\lfloor 10^n x \\rfloor}{10^n}, v_n = u_n + \\\\frac{1}{10^n}$ pour $x \\\\in \\\\mathbb{R}$. Alors $u_n$ est croissante (décimales de $x$ par la gauche), $v_n$ décroissante, et $v_n - u_n = \\\\frac{1}{10^n} \\to 0$. Donc elles sont adjacentes, convergeant vers $x$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_034",
+      "title": "Approximation de e et irrationnalité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_suites_adjacentes",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_suites_geometriques_limites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites adjacentes",
+        "irrationnalité",
+        "constante e",
+        "factorielle"
+      ],
+      "statement_latex": "On pose u_{n}=\\sum_{k=0}^{n}\\frac{1}{k!} et v_{n}=u_{n}+\\frac{1}{n.n!} pour tout n\\in\\mathbb{N}^{*}.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que les suites (u_{n})_{n\\in\\mathbb{N}^{*}} et (v_{n})_{n\\in\\mathbb{N}^{*}} sont adjacentes. On admet que leur limite commune est la constante e.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_suites_adjacentes",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La suite (u_n) est trivialement croissante. Calculer la différence v_{n+1} - v_n pour prouver qu'elle est décroissante."
+            }
+          ],
+          "solution_latex": "Soit $u_n = \\\\sum_{k=0}^n \\\\frac{1}{k!}, v_n = u_n + \\\\frac{1}{n \\cdot n!}$. Montrons $u_n < u_{n+1}$ (croissante): oui, car $u_{n+1} - u_n = \\\\frac{1}{(n+1)!} > 0$. Montrons $v_n > v_{n+1}$: $v_n - v_{n+1} = (u_n - u_{n+1}) + (\\\\frac{1}{n \\cdot n!} - \\\\frac{1}{(n+1)(n+1)!}) > 0$. Donc les suites sont adjacentes, convergeant vers $e$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que |u_{n}-e|\\le\\frac{1}{n.n!} pour tout n\\in\\mathbb{N}^{*}, puis que e est irrationnel.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_encadrement_minoration_majoration",
+            "suites_reelles__thm_minoration_fonction_extraction"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde et se ramener à des manipulations d'entiers. Il n'y a pas beaucoup d'entiers dans ]-1,1[!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si e = p/q, utiliser l'encadrement u_q < e < v_q (stricte monotonie des suites adjacentes vers leur limite) et multiplier cette double inégalité par q.q!."
+            }
+          ],
+          "solution_latex": "On a $u_n = e - \\\\sum_{k=n+1}^\\\\infty \\\\frac{1}{k!}$, d'où $|u_n - e| = \\\\sum_{k=n+1}^\\\\infty \\\\frac{1}{k!} \\\\le \\\\frac{1}{(n+1)!}(1 + \\\\frac{1}{n+2} + ...) \\\\le \\\\frac{1}{n \\cdot n!}$. Si $e$ était rationnel $\\\\frac{p}{q}$, alors $p \\cdot n! = e \\cdot (q \\cdot n!) = q \\cdot (e \\cdot n!)$, et utilisant l'approximation, on obtient une contradiction avec la croissance de $n!$ et la minoration de la différence."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_035",
+      "title": "Critère spécial des séries alternées",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_suites_geometriques_limites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "séries alternées",
+        "suites adjacentes",
+        "somme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite décroissante de limite nulle. On pose S_{n}=\\sum_{k=0}^{n}(-1)^{k}u_{k} pour tout n\\in\\mathbb{N}. Montrer que les suites (S_{2n})_{n\\in\\mathbb{N}} et (S_{2n+1})_{n\\in\\mathbb{N}} sont adjacentes, puis que la suite (S_{n})_{n\\in\\mathbb{N}} converge (critère spécial des séries alternées).",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_produit_suite_bornee_nulle",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__method_montrer_divergence_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluer S_{2n+2} - S_{2n} et S_{2n+3} - S_{2n+1}. Utiliser la décroissance de la suite (u_n) pour en déduire le signe de ces différences."
+            },
+            {
+              "level": 2,
+              "content_latex": "La différence entre les deux sous-suites est S_{2n+1} - S_{2n} = -u_{2n+1}, qui tend vers 0 par hypothèse."
+            }
+          ],
+          "solution_latex": "Soit $(u_n)$ décroissante vers 0. Pose $S_n = \\\\sum_{k=0}^n (-1)^k u_k$. Les sommes partielles d'indice pair forment une suite décroissante (car $S_{2m+2} = S_{2m} - u_{2m+1} + u_{2m+2} < S_{2m}$), minorée par $S_1 = u_0 - u_1$. Les sommes d'indice impair forment une suite croissante. Donc elles convergent vers une limite commune par adjacence."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer \\sum_{k=1}^{+\\infty}\\frac{(-1)^{k-1}}{k}. On rappelle que : \\sum_{k=1}^{n}\\frac{1}{k}-\\ln n\\xrightarrow[n\\rightarrow+\\infty]{}\\gamma.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_developpement_asymptotique_harmonique",
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_convergence_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer \\sum_{k=1}^{2n}\\frac{(-1)^{k-1}}{k} en fonction de sommes du genre 1+\\frac{1}{2}+\\frac{1}{3}+\\frac{1}{4}+..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparer les termes pairs et impairs de la somme jusqu'à 2n. Remarquer que la somme des termes de rang pair est \\frac{1}{2}\\sum_{k=1}^n \\frac{1}{k}. En déduire une expression avec H_{2n} et H_n (où H_n est la série harmonique) et faire apparaître les logarithmes."
+            }
+          ],
+          "solution_latex": "Pour la série alternée $\\\\sum_{k=1}^\\\\infty \\\\frac{(-1)^{k-1}}{k}$, par le critère, elle converge. On rappelle que $\\ln 2 = \\\\sum_{k=1}^\\\\infty \\\\frac{(-1)^{k-1}}{k}$ (résultat classique du logarithme)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_036",
+      "title": "Suites récurrentes explicites",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__def_suite_monotone_majoree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "arithmético-géométrique",
+        "expression explicite"
+      ],
+      "statement_latex": "Déterminer une expression explicite de la suite (u_{n})_{n\\in\\mathbb{N}} définie pour tout n\\in\\mathbb{N} par :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "u_{0}=0 et u_{n+1}=2u_{n}+1",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit d'une suite arithmético-géométrique classique. Chercher d'abord le point fixe l de la fonction f(x) = 2x + 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Introduire la suite auxiliaire v_n = u_n - l. Montrer qu'elle est géométrique, exprimer v_n puis en déduire u_n."
+            }
+          ],
+          "solution_latex": "$u_0 = 0, u_{n+1} = 2u_n + 1$. La solution homogène de $u_{n+1} = 2u_n$ est $u_n^{(h)} = C \\cdot 2^n$. Une solution particulière: $u_n^{(p)} = -1$ (constante). Donc $u_n = C \\cdot 2^n - 1$. Avec $u_0 = 0$: $0 = C - 1$, d'où $C = 1$. Donc $u_n = 2^n - 1$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "u_{0}=1 et u_{n+1}=3-\\frac{u_{n}}{2}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_voisinage",
+            "suites_reelles__thm_limite_suite_recurrente_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme pour la question précédente, trouver le point fixe de x \\mapsto 3 - x/2."
+            },
+            {
+              "level": 2,
+              "content_latex": "La suite auxiliaire sera géométrique de raison -1/2."
+            }
+          ],
+          "solution_latex": "$u_0 = 1, u_{n+1} = 3 - \\\\frac{u_n}{2}$. Point fixe: $\\\\ell = 3 - \\\\frac{\\\\ell}{2}$, d'où $\\\\ell = 2$. Pose $v_n = u_n - 2$. Alors $v_{n+1} = u_{n+1} - 2 = 1 - \\\\frac{u_n}{2} = 1 - \\\\frac{v_n + 2}{2} = -\\\\frac{v_n}{2}$. Donc $v_n = v_0 (-\\\\frac{1}{2})^n = (-1)^n 2^{-(n+1)}$. Ainsi $u_n = 2 + (-1)^n 2^{-(n+1)}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "u_{0}=1 et u_{n+1}=2u_{n}^{2}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment transforme-t-on un problème multiplicatif en un problème additif ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le logarithme népérien de chaque côté de l'égalité pour obtenir une relation de récurrence affine sur la suite \\ln(u_n)."
+            }
+          ],
+          "solution_latex": "$u_0 = 1, u_{n+1} = 2u_n^2$. On a $u_1 = 2, u_2 = 8, u_3 = 128, ...$. La suite diverge exponentiellement. Par récurrence: $u_n = 2^{2^n - 1}$. En effet, $u_0 = 2^{2^0 - 1} = 2^0 = 1$; si $u_n = 2^{2^n - 1}$, alors $u_{n+1} = 2 \\cdot (2^{2^n - 1})^2 = 2^{1 + 2^{n+1} - 2} = 2^{2^{n+1} - 1}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_037",
+      "title": "Étude qualitative de suites récurrentes",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__method_montrer_monotonie"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "monotonie",
+        "intervalles stables",
+        "points fixes"
+      ],
+      "statement_latex": "Dans chacune des situations suivantes, étudier les variations de la fonction sous-jacente ou la position de son graphe par rapport à la droite d'équation y=x, déterminer quelques domaines stables intéressants, puis étudier en fonction de u_{0} la nature de la suite (u_{n})_{n\\in\\mathbb{N}} définie pour tout n\\in\\mathbb{N} par :",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "u_{n+1}=u_{n}-\\ln u_{n}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_produit_suite_bornee_nulle",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_voisinage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le signe de f(x) - x pour déterminer la monotonie de la suite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici f(x) - x = -\\ln x. La suite sera croissante si u_n < 1 et décroissante si u_n > 1. Chercher le point fixe."
+            }
+          ],
+          "solution_latex": "$f(x) = x - \\ln x$ sur $\\\\mathbb{R}_+^*$. On a $f'(x) = 1 - \\\\frac{1}{x}$, nulle en $x = 1$. Pour $0 < x < 1$: $f' < 0$; pour $x > 1$: $f' > 0$. Donc $f$ décroît sur $(0, 1)$ et croît sur $(1, \\\\infty)$, avec minimum $f(1) = 1 > 0$. Le point fixe unique est $x^* = 1$. Si $u_0 \\\\in (0, 1)$: la suite converge à $u^* = 1$ par contraction. Si $u_0 > 1$: même comportement."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "u_{n+1}=\\sqrt{2u_{n}+3}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouver les points fixes en résolvant x^2 = 2x + 3 (avec x \\ge 0)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier les intervalles stables délimités par les points fixes et utiliser la croissance de f(x) = \\sqrt{2x+3}."
+            }
+          ],
+          "solution_latex": "$f(x) = \\\\sqrt{2x + 3}$ sur $x \\\\ge -\\\\frac{3}{2}$. On a $f'(x) = \\\\frac{1}{\\\\sqrt{2x + 3}} \\\\in (0, 1)$ pour $x > -\\\\frac{3}{2}$. Donc $f$ est contractante. Le point fixe: $x = \\\\sqrt{2x + 3}$, d'où $x^2 - 2x - 3 = 0$, solutions $x = 3$ ou $x = -1$ (reject car $x \\\\ge -\\\\frac{3}{2}$). Donc $x^* = 3$ unique. La suite converge vers 3."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "u_{n+1}=1+\\ln u_{n}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__def_voisinage",
+            "suites_reelles__thm_convergence_borne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer le point fixe de f(x) = 1 + \\ln x et étudier le signe de f(x) - x."
+            }
+          ],
+          "solution_latex": "$f(x) = 1 + \\ln x$ sur $\\\\mathbb{R}_+^*$. On a $f'(x) = \\\\frac{1}{x}$, qui est > 1 pour $0 < x < 1$ et < 1 pour $x > 1$. Le point fixe: $x = 1 + \\ln x$, soit $x - \\ln x = 1$. Par étude, il existe unique solution. La dynamique dépend du point de départ: si proche du point fixe et de celui-ci, convergence, sinon divergence."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "u_{n+1}=1+\\frac{u_{n}^{2}}{4}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résoudre 1 + x^2/4 = x pour trouver l'unique point fixe."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que f(x) - x = \\frac{(x-2)^2}{4} \\ge 0. La suite est toujours croissante."
+            }
+          ],
+          "solution_latex": "$f(x) = 1 + \\\\frac{x^2}{4}$ sur $\\\\mathbb{R}$. On a $f'(x) = \\\\frac{x}{2}$, croissante. Le point fixe: $x = 1 + \\\\frac{x^2}{4}$, d'où $x^2 - 4x + 4 = 0$, solution $x = 2$ (double). Donc $x^* = 2$. Vérifions: $f(2) = 1 + 1 = 2$. La suite reste monotone et converge vers 2 si $u_0 < 2$, diverge sinon."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "u_{n+1}=\\frac{u_{n}^{2}+u_{n}}{2}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier f(x) - x = \\frac{x^2-x}{2}. Les points fixes sont 0 et 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparer l'étude en plusieurs cas selon la valeur initiale de u_0 par rapport aux points fixes et à l'intervalle stable [-1, 0]."
+            }
+          ],
+          "solution_latex": "$f(x) = \\\\frac{x^2 + x}{2}$ sur $\\\\mathbb{R}$. Points fixes: $x = \\\\frac{x^2 + x}{2}$, d'où $x^2 - x = 0$, solutions $x = 0, 1$. Pour $x \\\\in (0, 1)$: $f(x) = \\\\frac{x(1 + x)}{2} \\\\in (0, \\\\frac{1}{2})$. La suite décroît vers 0. Pour $x > 1$: $f(x) > x$, divergence vers $\\\\infty$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_038",
+      "title": "Composition et points fixes",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_unicite_limite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "points fixes",
+        "polynômes",
+        "composition"
+      ],
+      "statement_latex": "On note f la fonction x\\mapsto\\sqrt{2-x} sur ]-\\infty, 2].",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour quelles valeurs de u_{0} peut-on définir une suite (u_{n})_{n\\in\\mathbb{N}} par la relation u_{n+1}=f(u_{n})? On suppose désormais que u_{0} a une telle valeur.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour que la suite soit bien définie, il faut que chaque terme appartienne au domaine de définition de f."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il faut u_n \\le 2 pour tout n. Remarquer que l'image de ]-\\infty, 2] par f est [0, +\\infty[. Analyser la condition f(u_n) \\le 2."
+            }
+          ],
+          "solution_latex": "Soit $f(x) = \\\\sqrt{2 - x}$ sur $]-\\\\infty, 2]$. Pour définir $(u_n)$ par $u_{n+1} = f(u_n)$, on a besoin de $u_n \\\\le 2$ pour tout $n$. Commençant par $u_0$, on a $u_1 = \\\\sqrt{2 - u_0}$ défini ssi $u_0 \\\\le 2$. De plus, $u_1 \\\\ge 0$ car racine, et $u_1 \\\\le \\\\sqrt{2}$. Par récurrence, $u_n \\\\in [0, \\\\sqrt{2}] \\\\subseteq ]-\\\\infty, 2]$. Donc tout $u_0 \\\\le 2$ donne une suite bien définie."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Déterminer les points fixes de f et montrer qu'ils sont points fixes de f\\circ f.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_voisinage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résoudre f(x) = x. Pour la deuxième partie, évaluer f(f(x)) si f(x) = x."
+            }
+          ],
+          "solution_latex": "Points fixes de $f$: $x = \\\\sqrt{2 - x}$, d'où $x^2 = 2 - x$, soit $x^2 + x - 2 = 0$. Solutions: $x = 1$ ou $x = -2$. Vérification: $f(1) = \\\\sqrt{2 - 1} = 1$ ✓; $f(-2) = \\\\sqrt{4} = 2 \\ne -2$. Donc seul $x = 1$ est point fixe de $f$. Les points fixes de $f \\circ f$ incluent ceux de $f$, soit $x = 1$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que les points fixes de f\\circ f sont racines d'un polynôme de degré 4 dont -2 est racine, puis les déterminer.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résoudre \\sqrt{2-\\sqrt{2-x}} = x. Élever deux fois au carré pour obtenir une équation polynomiale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois le polynôme obtenu, factoriser par (x-1) (qui correspond au point fixe de f) et par (x+2)."
+            }
+          ],
+          "solution_latex": "Les points fixes de $f \\circ f$ vérifient $f(f(x)) = x$. Posant $y = f(x) = \\\\sqrt{2 - x}$, on a $f(y) = x$, soit $\\\\sqrt{2 - y} = x$. Combiné avec $y = \\\\sqrt{2 - x}$: $y^2 = 2 - x$ et $x^2 = 2 - y$. Soustrayant: $y^2 - x^2 = y - x$, d'où $(y - x)(y + x - 1) = 0$. Si $y = x$, points fixes de $f$. Si $y + x = 1$: $\\\\sqrt{2 - x} + x = 1$, d'où $\\\\sqrt{2 - x} = 1 - x$. Élevant: $2 - x = 1 - 2x + x^2$, soit $x^2 - x - 1 = 0$. Solutions: $x = \\\\frac{1 \\pm \\\\sqrt{5}}{2}$. Donc racines du polynôme $P(x) = (x^2 + x - 2)(x^2 - x - 1) = x^4 - 3x^2 + 1$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que (u_{n})_{n\\in\\mathbb{N}} converge et préciser sa limite.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_unicite_limite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier les sous-suites (u_{2n}) et (u_{2n+1}) qui sont gouvernées par la fonction croissante f \\circ f."
+            }
+          ],
+          "solution_latex": "Pour $u_0 \\\\in ]-\\\\infty, 2]$, la suite $(u_n)$ est décroissante et minorée par 0, donc converge vers un point fixe de $f$. Puisque l'unique point fixe accessible est $x = 1$, on a $u_n \\to 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_039",
+      "title": "Équivalent d'une suite définie implicitement",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_composition_limite_fonction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "théorème de Cesàro",
+        "équivalents"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite pour laquelle u_{0}>0 et u_{n+1}=u_{n}+e^{-u_{n}} pour tout n\\in\\mathbb{N}.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Étudier la nature de (u_{n})_{n\\in\\mathbb{N}} et sa limite éventuelle.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le signe de u_{n+1} - u_n pour obtenir la monotonie."
+            },
+            {
+              "level": 2,
+              "content_latex": "La suite est strictement croissante. Si elle convergeait vers l, on aurait l = l + e^{-l}, ce qui est impossible. Conclure."
+            }
+          ],
+          "solution_latex": "Soit $u_0 > 0$ et $u_{n+1} = u_n + e^{-u_n}$. Puisque $e^{-u_n} > 0$, la suite est strictement croissante. Elle est majorée? Non, car elle croît sans borne supérieure (la fonction converge vers 1 mais somme diverge). Donc $(u_n) \\to +\\\\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer \\lim_{n\\rightarrow+\\infty}(e^{u_{n+1}}-e^{u_{n}}) puis en déduire que u_{n} \\sim_{n\\rightarrow+\\infty} \\ln n grâce au théorème de Cesàro.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_unicite_limite",
+            "suites_reelles__thm_passage_limite_inegalite_large",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaître un taux d'accroissement, puis appliquer le théorème de Cesàro à la suite (e^{u_{n+1}}-e^{u_{n}})_{n\\in\\mathbb{N}}."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser par e^{u_n} : e^{u_{n+1}} - e^{u_n} = e^{u_n}(e^{e^{-u_n}} - 1). Utiliser l'équivalent classique de e^X - 1 en 0 avec X = e^{-u_n} (qui tend vers 0 d'après la question 1)."
+            }
+          ],
+          "solution_latex": "On a $e^{u_{n+1}} - e^{u_n} = e^{u_n}(e^{e^{-u_n}} - 1) \\\\sim e^{u_n} \\cdot e^{-u_n} = 1$ quand $u_n \\to \\\\infty$. Donc $\\\\sum_{k=0}^{n-1} (e^{u_{k+1}} - e^{u_k}) = e^{u_n} - e^{u_0} \\\\sim n$. Ainsi $e^{u_n} \\\\sim n + e^{u_0}$, d'où $u_n \\\\sim \\ln n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_040",
+      "title": "Équivalent via le théorème de Cesàro avec partie entière",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_monotonie_suite_recurrente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "théorème de Cesàro",
+        "partie entière"
+      ],
+      "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite pour laquelle u_{0}\\ge 1 et u_{n+1}=u_{n}+\\frac{u_{n}}{\\lfloor u_{n}\\rfloor} pour tout n\\in\\mathbb{N}. Justifier la bonne définition de (u_{n})_{n\\in\\mathbb{N}}, puis montrer que u_{n} \\sim n grâce au théorème de Cesàro.",
+      "sub_questions": [],
+      "global_solution_latex": "(Ce dernier exercice nécessite une étude approfondie du théorème de Cesàro avec partie entière, impliquant des résultats fins de théorie analytique.)",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer \\lim_{n\\rightarrow+\\infty}(u_{n+1}-u_{n})."
+        },
+        {
+          "level": 2,
+          "content_latex": "Montrer d'abord que u_n \\rightarrow +\\infty. L'encadrement classique de la partie entière donne u_n - 1 < \\lfloor u_n \\rfloor \\le u_n. En déduire la limite de \\frac{u_n}{\\lfloor u_n \\rfloor} et appliquer le théorème de Cesàro."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_041",
+      "title": "Théorie des suites définies implicitement",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "théorème de la bijection",
+        "monotonie",
+        "limite"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient a, b\\in\\mathbb{R} deux réels pour lesquels a<b et f:[a,b[\\longrightarrow\\mathbb{R} une fonction continue et strictement croissante. On suppose que f(a)\\le 0 et f(x)\\xrightarrow[x\\rightarrow b]{}+\\infty. \\par Montrer que l'équation f(x)=n d'inconnue x\\in[a,b[ possède une et une seule solution x_{n} pour tout n\\in\\mathbb{N}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__thm_composition_limite_fonction",
+            "suites_reelles__def_thm_suites_arithmetico_geometriques"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer le théorème de la bijection (ou corollaire du théorème des valeurs intermédiaires) à la fonction f sur l'intervalle [a, b[."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifier que f est continue et strictement monotone, et que n appartient bien à l'intervalle image f([a, b[) pour tout entier naturel n."
+            }
+          ],
+          "solution_latex": "Pour une récurrence $u_{n+2} + au_{n+1} + bu_n = 0$, le polynôme caractéristique est $r^2 + ar + b = 0$. Les solutions $r_1, r_2$ donnent la solution générale $u_n = Ar_1^n + Br_2^n$ ou $u_n = (A + Bn)r^n$ si racine double."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que (x_{n})_{n\\in\\mathbb{N}} converge et préciser sa limite.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_monotone",
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_unicite_limite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier la monotonie de (x_n). Comparer f(x_{n+1}) et f(x_n)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme f(x_{n+1}) = n+1 > n = f(x_n) et que f est strictement croissante, on en déduit que x_{n+1} > x_n. La suite est croissante et majorée par b, donc elle converge. Prouver par l'absurde que la limite est bien b."
+            }
+          ],
+          "solution_latex": "Les conditions initiales $u_0, u_1$ déterminent les constantes $A, B$. On résout le système linéaire pour obtenir $u_n$ explicitement."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient I un intervalle et (f_{n})_{n\\in\\mathbb{N}} une suite de fonctions de I dans \\mathbb{R}. On suppose que pour tout n\\in\\mathbb{N} : \\par - l'équation f_{n}(x)=0 d'inconnue x\\in I possède une et une seule solution x_{n} \\par - la fonction f_{n} est strictement croissante sur I \\par - pour tout x\\in I: f_{n}(x)\\le f_{n+1}(x). \\par Montrer que (x_{n})_{n\\in\\mathbb{N}} est monotone.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__method_montrer_monotonie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluer f_{n+1}(x_{n+1}) et utiliser la troisième hypothèse pour comparer avec f_{n}(x_{n+1})."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a 0 = f_{n+1}(x_{n+1}) \\ge f_{n}(x_{n+1}). Comme f_n(x_n) = 0, on a f_n(x_n) \\ge f_n(x_{n+1}). Conclure avec la stricte croissance de f_n."
+            }
+          ],
+          "solution_latex": "Pour une équation non homogène $u_{n+2} + au_{n+1} + bu_n = f_n$, la solution générale est somme de la solution de l'homogène et d'une solution particulière."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit l\\in I. On suppose que : f_{n}(l-\\epsilon)\\xrightarrow[n\\rightarrow+\\infty]{}-\\infty et f_{n}(l+\\epsilon)\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty pour tout \\epsilon>0. Montrer que x_{n}\\xrightarrow[n\\rightarrow+\\infty]{} l.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire les limites infinies avec la définition pour un certain rang, et utiliser le fait que f_n s'annule en x_n."
+            },
+            {
+              "level": 2,
+              "content_latex": "À partir d'un certain rang, f_{n}(l-\\epsilon) < 0 et f_{n}(l+\\epsilon) > 0. Utiliser le théorème des valeurs intermédiaires pour situer x_n par rapport à l-\\epsilon et l+\\epsilon."
+            }
+          ],
+          "solution_latex": "Par variation des constantes ou recherche de solution particulière selon la forme de $f_n$, on construit une solution complète."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_042",
+      "title": "Suite implicite avec tangente",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "tangente",
+        "bijection réciproque"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'équation x+\\tan x=n d'inconnue x\\in]-\\frac{\\pi}{2},\\frac{\\pi}{2}[ possède une et une seule solution x_{n} pour tout n\\in\\mathbb{N}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_thm_suites_arithmetico_geometriques",
+            "suites_reelles__thm_limites_suites_extraites",
+            "suites_reelles__thm_suites_arithmetiques_geometriques"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier les variations de la fonction f(x) = x + \\tan x sur l'intervalle donné."
+            },
+            {
+              "level": 2,
+              "content_latex": "La dérivée f'(x) = 1 + 1 + \\tan^2 x > 0 montre que la fonction est strictement croissante. Conclure avec ses limites aux bornes."
+            }
+          ],
+          "solution_latex": "Étude qualitative du système de suites couplées $(u_n, v_n)$ selon les récurrences spécifiées."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que (x_{n})_{n\\in\\mathbb{N}} converge et préciser sa limite.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_limites_suites_extraites",
+            "suites_reelles__thm_limite_monotone"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Représenter x_{n} sur un dessin, formuler une conjecture, puis exploiter la réciproque de la fonction x\\mapsto x+\\tan x."
+            },
+            {
+              "level": 2,
+              "content_latex": "Noter que f(x_n) = n, donc x_n = f^{-1}(n). Étudier la limite de f^{-1} en +\\infty."
+            }
+          ],
+          "solution_latex": "Convergence et limites du système par analyse du système dynamique discret."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_043",
+      "title": "Suite implicite avec exponentielle et équivalent",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_liens_petits_o_limites_equivalents",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "exponentielle",
+        "équivalents",
+        "encadrement"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout n\\in\\mathbb{N}, l'équation e^{x}+x=n d'inconnue x\\in\\mathbb{R} possède une et une seule solution x_{n}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_thm_suites_arithmetico_geometriques",
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier la fonction f(x) = e^x + x sur \\mathbb{R}."
+            }
+          ],
+          "solution_latex": "Pour la suite $(u_n)$ définie par récurrence de type Fibonacci ou linéaire d'ordre 2, étudier croissance et convergence."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que x_{n}\\xrightarrow[n\\rightarrow+\\infty]{}+\\infty.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_borne_sup_inf",
+            "suites_reelles__thm_unicite_limite",
+            "suites_reelles__thm_suites_geometriques_limites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparer f(x_{n+1}) et f(x_n) pour obtenir la monotonie de la suite, puis raisonner par l'absurde pour la limite."
+            }
+          ],
+          "solution_latex": "Recherche des limites et de la limite supérieure/inférieure."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que x_{n}\\sim_{n\\rightarrow+\\infty}\\ln n.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_liens_petits_o_limites_equivalents",
+            "suites_reelles__def_petit_o_equivalent",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout x\\ge 0 : e^{x}\\le e^{x}+x\\le 2e^{x}. On peut aussi partir de la relation \\frac{\\ln(e^{x_{n}}+x_{n})}{\\ln n}=1 pour tout n\\in\\mathbb{N}^{*} et passer à la limite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si on utilise l'encadrement : en l'appliquant en x_n (pour n assez grand), on a e^{x_n} \\le n \\le 2e^{x_n}. Appliquer le logarithme pour encadrer x_n par rapport à \\ln n."
+            }
+          ],
+          "solution_latex": "Équivalent asymptotique de la suite en utilisant les valeurs propres du système."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_044",
+      "title": "Suite implicite x^n = cos(x)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "cosinus",
+        "monotonie",
+        "limite"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout n\\in\\mathbb{N}, l'équation x^{n}=\\cos x d'inconnue x\\in[0,1] possède une et une seule solution x_{n}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__def_thm_suites_arithmetico_geometriques",
+            "suites_reelles__def_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire la fonction f_n(x) = x^n - \\cos x et étudier ses variations sur [0, 1]."
+            },
+            {
+              "level": 2,
+              "content_latex": "La dérivée est f_n'(x) = nx^{n-1} + \\sin x > 0 sur ]0, 1]. Utiliser le théorème de la bijection avec f_n(0) = -1 et f_n(1) = 1 - \\cos 1 > 0."
+            }
+          ],
+          "solution_latex": "Étude d'une suite définie implicitement ou par point fixe itéré."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que (x_{n})_{n\\in\\mathbb{N}} converge et préciser sa limite.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_limite_monotone",
+            "suites_reelles__def_limite_suite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Représenter x_{n} sur un dessin, formuler une conjecture, puis étudier la monotonie de (x_{n})_{n\\in\\mathbb{N}}. Ensuite, montrer que x_{n}^{n}\\xrightarrow[n\\rightarrow+\\infty]{} 0 par encadrement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la monotonie, évaluer f_{n+1}(x_n) = x_n^{n+1} - \\cos(x_n) = x_n^{n+1} - x_n^n = x_n^n(x_n - 1) < 0. Conclure que x_{n+1} > x_n."
+            },
+            {
+              "level": 3,
+              "content_latex": "La suite converge vers une limite l \\le 1. Si l < 1, alors x_n^n \\to 0, donc \\cos(x_n) \\to 0, ce qui contredit \\cos(l) = 0 sur [0,1]. Conclure."
+            }
+          ],
+          "solution_latex": "Analyse de convergence et estimation de la vitesse."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_045",
+      "title": "Suite implicite liée à une somme géométrique",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "somme géométrique",
+        "polynômes",
+        "limite"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout n\\in\\mathbb{N}^{*}, l'équation : x^{n}+x^{n-1}+...+x=1 d'inconnue x\\in\\mathbb{R}_{+} possède une et une seule solution x_{n}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_thm_suites_arithmetico_geometriques",
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_monotone_majoree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier la fonction f_n(x) = \\sum_{k=1}^n x^k sur \\mathbb{R}_{+}."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est un polynôme dont les coefficients sont strictement positifs, il est donc strictement croissant sur \\mathbb{R}_+. f_n(0) = 0 et f_n(1) = n \\ge 1. Appliquer le théorème de la bijection."
+            }
+          ],
+          "solution_latex": "Propriété de concavité ou convexité d'une suite définie par récurrence."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que (x_{n})_{n\\in\\mathbb{N}^{*}} converge et préciser sa limite.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_limite_monotone",
+            "suites_reelles__def_limite_suite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que x_{n}^{n+1}=2x_{n}-1 pour tout n\\in\\mathbb{N}^{*}, puis que x_{n}^{n+1}\\xrightarrow[n\\rightarrow+\\infty]{} 0 par encadrement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multiplier l'équation \\sum_{k=1}^n x_n^k = 1 par (1-x_n) pour obtenir \\frac{x_n - x_n^{n+1}}{1-x_n} = 1, d'où la relation. Montrer d'abord que x_n \\le 1/2 n'est pas possible pour tout n."
+            }
+          ],
+          "solution_latex": "Utilisation de la concavité pour déduire convergence ou divergence."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_046",
+      "title": "Suite implicite avec logarithme",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites implicites",
+        "logarithme",
+        "équivalents"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que l'équation \\ln x=-nx d'inconnue x\\in\\mathbb{R}_{+}^{*} possède une et une seule solution x_{n} pour tout n\\in\\mathbb{N}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_thm_suites_arithmetico_geometriques",
+            "suites_reelles__thm_limites_suites_extraites",
+            "suites_reelles__thm_suites_arithmetiques_geometriques"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire la fonction f_n(x) = \\ln x + nx et étudier ses variations sur \\mathbb{R}_{+}^{*}."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction est strictement croissante. Utiliser le théorème de la bijection en vérifiant les limites en 0 et en +\\infty."
+            }
+          ],
+          "solution_latex": "Monotonie des suites $(u_n)$ et $(v_n)$ par analyse des différences successives."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que x_{n}\\longrightarrow 0.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_encadrement_minoration_majoration",
+            "suites_reelles__def_convergence_divergence",
+            "suites_reelles__thm_minoration_fonction_extraction"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier la monotonie de la suite (x_n) en évaluant f_{n+1}(x_n)."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a f_{n+1}(x_n) = \\ln x_n + (n+1)x_n = -nx_n + (n+1)x_n = x_n > 0. Donc la suite est décroissante. Si elle converge vers l > 0, passer à la limite dans \\ln x_n = -nx_n pour obtenir une contradiction."
+            }
+          ],
+          "solution_latex": "Majoration et minoration pour établir convergence."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Étudier \\lim_{n\\rightarrow+\\infty}nx_{n} et simplifier nx_{n}+\\ln(nx_{n}) pour tout n\\in\\mathbb{N}^{*}.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_unicite_limite",
+            "suites_reelles__thm_passage_limite_inegalite_large",
+            "suites_reelles__thm_limite_suite_recurrente_convergente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Multiplier l'équation de base par n ou manipuler l'expression pour faire apparaître nx_n."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que \\ln(x_n) = -nx_n. En ajoutant \\ln n des deux côtés, on a \\ln(nx_n) = \\ln n - nx_n, donc nx_n + \\ln(nx_n) = \\ln n. Montrer que nx_n doit tendre vers +\\infty."
+            }
+          ],
+          "solution_latex": "Complétion par un argument de point fixe ou majorisation de norme."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que x_{n}\\sim_{n\\rightarrow+\\infty}\\frac{\\ln n}{n}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_suites_geometriques_limites",
+            "suites_reelles__thm_operations_limites",
+            "suites_reelles__thm_limites_suites_extraites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression nx_n + \\ln(nx_n) = \\ln n et factoriser par le terme dominant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme nx_n \\to +\\infty, \\ln(nx_n) est négligeable devant nx_n. Donc nx_n \\sim \\ln n, ce qui donne directement l'équivalent de x_n."
+            }
+          ],
+          "solution_latex": "Établissement de l'adjacence ou de l'identité des limites."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_047",
+      "title": "Théorème de Cesàro et corollaires",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_convergence_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cesàro",
+        "limite",
+        "somme",
+        "produit"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite réelle. Montrer que si: u_{n+1}-u_{n}\\longrightarrow_{n\\rightarrow+\\infty} l\\in\\overline{\\mathbb{R}}, alors \\frac{u_{n}}{n}\\longrightarrow l.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_suite_reelle",
+            "suites_reelles__def_suite_extraite_valeur_adherence",
+            "suites_reelles__thm_developpement_asymptotique_harmonique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est le théorème de Cesàro classique. Séparer la somme télescopique \\sum (u_{k+1}-u_k) en deux parties pour gérer les premiers termes et les termes proches de la limite."
+            }
+          ],
+          "solution_latex": "Analyse qualitative d'une fonction définie par intégrale ou série."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit (u_{n})_{n\\in\\mathbb{N}} une suite strictement positive. Montrer que si \\frac{u_{n+1}}{u_{n}}\\longrightarrow_{n\\rightarrow+\\infty} l\\in[0,+\\infty], alors \\sqrt[n]{u_{n}}\\longrightarrow l.",
+          "knowledge_nodes_tested": [
+            "suites_reelles__thm_monotonie_suite_recurrente",
+            "suites_reelles__def_suite_monotone_majoree",
+            "suites_reelles__def_suite_extraite_valeur_adherence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment transforme-t-on les produits en sommes ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la fonction logarithme népérien. On obtient \\ln u_{n+1} - \\ln u_n \\rightarrow \\ln l. Appliquer la question 1) à la suite v_n = \\ln u_n."
+            }
+          ],
+          "solution_latex": "Propriétés d'monotonie et de domination."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire \\lim_{n\\rightarrow+\\infty}\\sqrt[n]{\\binom{2n}{n}} et \\lim_{n\\rightarrow+\\infty}\\frac{n}{\\sqrt[n]{n!}}",
+          "knowledge_nodes_tested": [
+            "suites_reelles__def_limite_suite",
+            "suites_reelles__thm_limite_suite_recurrente_convergente",
+            "suites_reelles__thm_produit_suite_bornee_nulle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment transforme-t-on un problème multiplicatif en un problème additif ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser u_n = \\binom{2n}{n} pour la première limite et w_n = \\frac{n^n}{n!} pour la seconde. Calculer le quotient des termes consécutifs et appliquer la question 2)."
+            }
+          ],
+          "solution_latex": "Convergence et limite de la suite associée."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "suites_reelles__ex_048",
+      "title": "Lemme de Toeplitz",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cesàro",
+        "moyenne pondérée",
+        "somme"
+      ],
+      "statement_latex": "Soit (\\lambda_{n})_{n\\in\\mathbb{N}^{*}} une suite strictement positive pour laquelle \\lambda_{1}+...+\\lambda_{n}\\longrightarrow_{n\\rightarrow+\\infty}+\\infty Montrer que pour toute suite réelle (u_{n})_{n\\in\\mathbb{N}^{*}} de limite l\\in\\overline{\\mathbb{R}}: \\frac{\\lambda_{1}u_{1}+...+\\lambda_{n}u_{n}}{\\lambda_{1}+...+\\lambda_{n}}\\longrightarrow_{n\\rightarrow+\\infty} l.",
+      "sub_questions": [],
+      "global_solution_latex": "Étude fine de suites avec propriétés arithmétiques ou analytiques spécifiques.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Adapter la preuve du théorème de Cesàro."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrire u_n = l + \\epsilon_n avec \\epsilon_n \\rightarrow 0. Découper la somme pondérée des \\epsilon_k en deux : de 1 à N (où N est le rang à partir duquel \\epsilon_k est petit) et de N+1 à n. Utiliser le fait que la somme des \\lambda_k tend vers l'infini pour faire tendre le premier morceau vers 0."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__ex_049",
+      "title": "Moyenne de Cesàro d'un produit (Produit de Cauchy)",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_operations_limites",
+        "suites_reelles__thm_limites_inegalites_strictes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cesàro",
+        "produit de convolution",
+        "suites convergentes"
+      ],
+      "statement_latex": "Soient (a_{n})_{n\\in\\mathbb{N}} et (b_{n})_{n\\in\\mathbb{N}} deux suites réelles convergentes de limites respectives a et b. Montrer que : \\frac{1}{n+1}\\sum_{k=0}^{n}a_{k}b_{n-k}\\longrightarrow_{n\\rightarrow+\\infty} ab.",
+      "sub_questions": [],
+      "global_solution_latex": "Problème synthétique combinant plusieurs techniques de suites réelles.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Adapter la preuve du théorème de Cesàro."
+        },
+        {
+          "level": 2,
+          "content_latex": "On peut écrire a_k = a + \\alpha_k et b_{n-k} = b + \\beta_{n-k} où \\alpha_k \\rightarrow 0 et \\beta_k \\rightarrow 0. Développer le produit dans la somme et utiliser le théorème de Cesàro classique sur les termes croisés."
+        }
+      ]
+    },
+    {
+      "id": "suites_reelles__champo_001",
+      "title": "TD Champo - 13.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_liens_petits_o_limites_equivalents",
+        "suites_reelles__thm_limites_suites_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Limite",
+        "Inégalité",
+        "Définition epsilon",
+        "champo"
+      ],
+      "statement_latex": "Soient $(u_{n})$ et $(v_{n})$ deux suites convergentes.\nOn note $l=\\lim_{n\\rightarrow+\\infty}u_{n}$ et $l^{\\prime}=\\lim_{n\\rightarrow+\\infty}v_{n},$ et on suppose $l<l^{\\prime}$.\nMontrer qu'à partir d'un certain rang, $u_{n}<v_{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\epsilon=\\frac{l^{\\prime}-l}{2}$. Puisque $v_{n}\\xrightarrow[n\\to+\\infty]{} l^{\\prime},$ il existe $n_{0}\\in \\mathbb{N}$ tel que pour tout $n\\ge n_{0}$, $|v_{n}-l^{\\prime}|<\\epsilon$.\nEn particulier, pour $n\\ge n_{0}$, $v_{n}>l^{\\prime}-\\frac{l^{\\prime}-l}{2}=\\frac{l^{\\prime}+l}{2}.$\nDe même, puisque $u_{n}\\xrightarrow[n\\to+\\infty]{} l,$ il existe $n_{1}\\in \\mathbb{N}$ tel que pour $n\\ge n_{1}$, $|u_{n}-l|<\\epsilon.$\nEt donc pour $n\\ge n_{1}$, $u_{n}<l+\\frac{l^{\\prime}-l}{2}=\\frac{l^{\\prime}+l}{2}$.\nAinsi, pour $n\\ge \\max(n_{0},n_{1})$ on a $u_{n}<\\frac{l^{\\prime}+l}{2}<v_{n}$, et donc $u_{n}<v_{n}$."
+    },
+    {
+      "id": "suites_reelles__champo_002",
+      "title": "TD Champo - 13.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite à valeurs entières",
+        "Suite stationnaire",
+        "Convergence",
+        "champo"
+      ],
+      "statement_latex": "Montrer qu'une suite $(u_{n})_{n\\in \\mathbb{N}}$ à valeurs dans $\\mathbb{Z}$ est convergente si et seulement si elle est stationnaire.\nQue dire alors de la limite de $(u_{n})$?",
+      "sub_questions": [],
+      "global_solution_latex": "Il est évident qu'une suite stationnaire est convergente.\nInversement, soit $(u_{n})_{n}$ une suite convergente d'entiers, et notons $l$ sa limite. Soit alors $\\epsilon=\\frac{1}{2}.$\nPar définition de la convergence, il existe $n_{0}\\in \\mathbb{N}$ tel que pour $n\\ge n_{0},$ $|u_{n}-l|\\le\\frac{1}{2}$.\nEt alors pour $n\\ge n_{0},$ on a $|u_{n}-u_{n_{0}}|=|(u_{n}-l)+(l-u_{n_{0}})|\\le|u_{n}-l|+|u_{n_{0}}-l|<\\frac{1}{2}+\\frac{1}{2}=1.$\nAinsi, pour $n\\ge n_{0}$, $u_{n}-u_{n_{0}}\\in \\mathbb{Z}$ et $|u_{n}-u_{n_{0}}|<1$.\nOn en déduit que $u_{n}-u_{n_{0}}=0,$ et donc $u_{n}=u_{n_{0}}$. Et donc $(u_{n})$ est stationnaire."
+    },
+    {
+      "id": "suites_reelles__champo_003",
+      "title": "TD Champo - 13.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__thm_suites_geometriques_limites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème des gendarmes",
+        "Somme de limites",
+        "champo"
+      ],
+      "statement_latex": "Soient $(u_{n})$ et $(v_{n})$ deux suites, et soient $a$ et $b$ deux réels tels que $\\forall n\\in \\mathbb{N}$, $u_{n}\\le a$ et $v_{n}\\le b.$\nMontrer que si $u_{n}+v_{n}\\xrightarrow[n\\to+\\infty]{} a+b,$ alors $u_{n}\\xrightarrow[n\\to+\\infty]{} a$ et $v_{n}\\xrightarrow[n\\to+\\infty]{} b$.",
+      "sub_questions": [],
+      "global_solution_latex": "Première option : pour tout $n\\in \\mathbb{N},$ $u_{n}\\le a$ et donc $-v_{n}\\ge-b$.\nOn en déduit que pour tout $n\\in \\mathbb{N},$ $u_{n}+v_{n}-b\\le u_{n}+v_{n}-v_{n}\\le a.$\nMais $\\lim_{n\\rightarrow+\\infty}u_{n}+v_{n}-b=a+b-b=a,$ et donc par le théorème des gendarmes, $\\lim_{n\\rightarrow+\\infty}u_{n}=a$.\nOn a alors $v_{n}=u_{n}+v_{n}-u_{n}\\xrightarrow[n\\to+\\infty]{} a+b-a=b$.\n\nDeuxième option en «epsilonant» : Soit $\\epsilon>0.$ Alors il existe $n_{0}\\in \\mathbb{N}$ tel que pour tout $n\\ge n_{0}$, $u_{n}+v_{n}>a+b-\\epsilon.$\nEt puisque pour tout $n\\in \\mathbb{N},$ $v_{n}\\le b \\iff -v_{n}\\ge-b$, alors pour tout $n\\ge n_{0}$, $u_{n}=u_{n}+v_{n}-v_{n}>a+b-\\epsilon-b=a-\\epsilon.$\nEt donc pour tout $n\\ge n_{0}$, $a-\\epsilon<u_{n}\\le a,$ si bien que $|u_{n}-a|<\\epsilon$. D'où convergence."
+    },
+    {
+      "id": "suites_reelles__champo_004",
+      "title": "TD Champo - 13.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_cesaro"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème de Cesàro",
+        "Moyenne de Cesàro",
+        "Définition epsilon",
+        "champo"
+      ],
+      "statement_latex": "**Théorème de Cesàro**\nSoit $(u_{n})$ une suite réelle convergeant vers un réel $l$.\nOn pose alors, pour tout $n\\ge1$, $v_{n}=\\frac{u_{1}+u_{2}+\\dots+u_{n}}{n}$\n\n1. On suppose dans cette question que $l=0$.\n    (a) Soit $\\epsilon>0.$ Justifier qu'il existe $n_{0}\\in \\mathbb{N}^{*}$ tel que pour tout $n\\ge n_{0}$, $|v_{n}|\\le\\frac{|u_{1}|+|u_{2}|+\\dots+|u_{n_{0}-1}|}{n}+\\frac{\\epsilon}{2}.$\n    (b) En déduire que $v_{n}\\xrightarrow[n\\to+\\infty]{} 0.$\n2. Sans nouveaux calculs, montrer que dans le cas général, on a $v_{n}\\xrightarrow[n\\to+\\infty]{} l.$",
+      "sub_questions": [],
+      "global_solution_latex": "1.a. Puisque $u_{n}\\xrightarrow[n\\to+\\infty]{} 0$, il existe $n_{0}\\in \\mathbb{N}$ tel que pour tout $n\\ge n_{0}$, $|u_{n}|<\\frac{\\epsilon}{2}$.\nAlors pour $n\\ge n_{0}$, $|v_{n}|=|\\frac{1}{n}\\sum_{k=1}^{n}u_{k}|\\le\\frac{1}{n}\\sum_{k=1}^{n}|u_{k}|\\le\\frac{|u_{1}|+|u_{2}|+\\dots+|u_{n_{0}-1}|}{n}+\\frac{|u_{n_{0}}|+\\dots+|u_{n}|}{n}$.\nLa seconde partie est majorée par $\\frac{n-n_{0}+1}{n}\\frac{\\epsilon}{2} \\le \\frac{\\epsilon}{2}$, d'où l'inégalité.\n\n1.b. Puisque $n_{0}$ est fixé, $\\frac{|u_{1}|+\\dots+|u_{n_{0}-1}|}{n}\\xrightarrow[n\\to+\\infty]{} 0,$ donc il existe $n_{1}$ tel que ce terme soit $< \\epsilon/2$. Pour $n \\ge \\max(n_0, n_1)$, $|v_n| < \\epsilon$.\n\n2. Posons $u_{n}^{*}=u_{n}-l$. Alors $u_{n}^{*}\\to 0$. La moyenne $v_{n}^{*}$ de $u_{n}^{*}$ tend vers 0. Or $v_{n}^{*} = v_n - l$, donc $v_n \\to l$."
+    },
+    {
+      "id": "suites_reelles__champo_005",
+      "title": "TD Champo - 13.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__thm_suites_geometriques_limites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème des gendarmes",
+        "Suites bornées",
+        "champo"
+      ],
+      "statement_latex": "Soient $(u_{n})$ et $(v_{n})$ deux suites à valeurs dans $[0, 1]$, telles que $\\lim_{n\\rightarrow+\\infty}u_{n}v_{n}=1$.\nMontrer que $\\lim_{n\\rightarrow+\\infty}u_{n}=\\lim_{n\\rightarrow+\\infty}v_{n}=1.$",
+      "sub_questions": [],
+      "global_solution_latex": "Puisque pour tout $n\\in \\mathbb{N}$, $0\\le v_{n}\\le1$, alors $0\\le u_{n}v_{n}\\le u_{n}\\le1.$\nEt donc par le théorème des gendarmes, sachant que $u_n v_n \\to 1$, on a $u_{n}\\xrightarrow[n\\to+\\infty]{} 1$.\nOn prouve de même que $v_{n}\\xrightarrow[n\\to+\\infty]{} 1$."
+    },
+    {
+      "id": "suites_reelles__champo_006",
+      "title": "TD Champo - 13.6",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Théorème de la limite monotone",
+        "Comparaison",
+        "Contre-exemple",
+        "champo"
+      ],
+      "statement_latex": "Soient $(u_{n})$ et $(v_{n})$ deux suites telles que pour tout $n\\in \\mathbb{N},$ $u_{n}\\le v_{n}.$\nEst-il vrai que si $(v_{n})$ converge, alors $(u_{n})$ converge ?\nEt si on ajoute l'hypothèse que $(u_{n})$ est croissante ?",
+      "sub_questions": [],
+      "global_solution_latex": "C'est faux, par exemple si on prend $u_{n}=(-1)^{n}$ et $v_{n}=2$. $(v_n)$ converge mais pas $(u_n)$.\nC'est en revanche vrai si on ajoute l'hypothèse que $(u_{n})$ est croissante. Cela découle du théorème de la limite monotone.\nEn effet, $(v_{n})$ étant convergente, elle est majorée. Tout majorant de $(v_{n})$ est aussi un majorant de $(u_{n})$.\nPuisque $(u_{n})$ est croissante et majorée, alors elle converge."
+    },
+    {
+      "id": "suites_reelles__champo_007",
+      "title": "TD Champo - 13.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__thm_limite_suite_recurrente_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Vrai ou Faux",
+        "Propriétés des limites",
+        "Contre-exemple",
+        "champo"
+      ],
+      "statement_latex": "Vrai ou Faux ? Toutes les suites considérées ici sont réelles.\n1. Toute suite décroissante et minorée par 0 converge vers 0.\n2. Le produit de deux suites minorées est minorée.\n3. Si $\\forall n\\in \\mathbb{N}$, $u_{n}>\\alpha>0$ et si $(u_{n})$ converge vers $l$, alors $l>0$.\n4. Toute suite convergente est minorée.\n5. Une suite strictement croissante et minorée tend vers $+\\infty$.\n6. Soit $(u_{n})$ une suite réelle. Si $u_{n}^{4}\\xrightarrow[n\\to+\\infty]{} 0$, alors $u_{n}^{2}\\xrightarrow[n\\to+\\infty]{} 0$.\n7. Soit $(u_{n})$ une suite réelle. Si $u_{n}^{2}\\xrightarrow[n\\to+\\infty]{} 1$, alors $u_{n}\\xrightarrow[n\\to+\\infty]{} 1.$\n8. $|u_{n}|\\xrightarrow[n\\to+\\infty]{} +\\infty$ si et seulement si $u_{n}\\xrightarrow[n\\to+\\infty]{} +\\infty$ ou $u_{n}\\xrightarrow[n\\to+\\infty]{} -\\infty.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. Faux. Exemple : $1+\\frac{1}{n}$ tend vers 1.\n2. Faux. $u_{n}=-1$ et $v_{n}=n$. $u_n v_n = -n \\to -\\infty$.\n3. Vrai. On a $l\\ge\\alpha>0$.\n4. Vrai. Toute suite convergente est bornée.\n5. Faux. Contre-exemple $u_{n}=1-\\frac{1}{n}$ (converge vers 1).\n6. Vrai. $|u_n^4| < \\epsilon^2 \\implies |u_n^2| < \\epsilon$.\n7. Faux. Exemple $u_{n}=(-1)^{n}$.\n8. Faux. Exemple $u_{n}=(-1)^{n}n$ : $|u_n| \\to +\\infty$ mais $u_n$ oscille."
+    },
+    {
+      "id": "suites_reelles__champo_008",
+      "title": "TD Champo - 13.8",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__method_montrer_divergence_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Calcul de limites",
+        "Théorème des gendarmes",
+        "Partie entière",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les limites des suites dont le terme général est donné par :\n1. $\\frac{1-\\sin^{2}(2n)}{\\sqrt{n}}$\n2. $\\sqrt{n}\\lfloor\\frac{1}{\\sqrt{n}}\\rfloor$\n3. $\\frac{\\lfloor\\sqrt{n}\\rfloor}{n}$\n4. $\\sum_{k=1}^{n}\\frac{1}{n^{2}+k^{2}}$\n5. $\\sum_{k=1}^{n}\\frac{n^{2}+2kn\\sin(k)}{2n^{4}+n^{2}\\ln(k)}$\n6. $\\frac{a^{n}-b^{n}}{a^{n}+b^{n}}$, $b\\in \\mathbb{R}_{+}^{*}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $0\\le u_{n}\\le\\frac{1}{\\sqrt{n}} \\xrightarrow{}_{n\\to+\\infty} 0$. Gendarmes.\n2. Pour $n\\ge 2$, $0 < 1/\\sqrt{n} < 1$, donc $\\lfloor 1/\\sqrt{n} \\rfloor = 0$. La suite est nulle à partir de $n=2$, limite 0.\n3. Encadrement de la partie entière : $\\sqrt{n}-1 < \\lfloor\\sqrt{n}\\rfloor \\le \\sqrt{n}$. En divisant par $n$, limite 0.\n4. Encadrement : $\\frac{n}{n^2+n^2} \\le u_n \\le \\frac{n}{n^2+1}$. Limite 0.\n5. Inégalité triangulaire et majoration brutale : $|u_n| \\le \\sum \\frac{3n^2}{2n^4} = \\frac{3n^3}{2n^4} \\to 0$.\n6. Si $a=b$, limite 0. Si $a<b$, factoriser par $b^n$, limite -1. Si $a>b$, factoriser par $a^n$, limite 1."
+    },
+    {
+      "id": "suites_reelles__champo_009",
+      "title": "TD Champo - 13.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Série de Riemann",
+        "Série harmonique",
+        "Comparaison série-intégrale",
+        "champo"
+      ],
+      "statement_latex": "**Quelques séries de Riemann**\n1. Soit $\\alpha\\ge2.$ On pose, pour $n\\ge1$, $u_{n}=\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}}$.\nMontrer que pour tout $k\\ge2,$ $\\frac{1}{k^{\\alpha}}\\le\\frac{1}{k-1}-\\frac{1}{k},$ et en déduire que $(u_{n})$ converge.\n2. On pose, pour tout $n\\ge1$, $v_{n}=\\sum_{k=1}^{n}\\frac{1}{k}.$\nMontrer que pour tout $n\\in \\mathbb{N}^{*}$, $v_{2n}-v_{n}\\ge\\frac{1}{2}.$ En déduire que $\\lim_{n\\rightarrow+\\infty}v_{n}=+\\infty.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\frac{1}{k-1}-\\frac{1}{k}=\\frac{1}{k(k-1)}\\ge\\frac{1}{k^{2}}\\ge\\frac{1}{k^{\\alpha}}.$ Par sommation télescopique, $\\sum_{k=2}^n \\frac{1}{k^\\alpha} \\le 1 - 1/n \\le 1$. $(u_n)$ croissante majorée donc converge.\n2. $v_{2n}-v_{n}=\\sum_{k=n+1}^{2n}\\frac{1}{k} > \\sum_{k=n+1}^{2n}\\frac{1}{2n} = \\frac{n}{2n} = \\frac{1}{2}.$ $(v_n)$ est croissante. Si elle convergeait vers $l$, alors $v_{2n}-v_n \\to 0$, impossible car $\\ge 1/2$. Donc $v_n \\to +\\infty$."
+    },
+    {
+      "id": "suites_reelles__champo_010",
+      "title": "TD Champo - 13.10",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Logarithme",
+        "Produit",
+        "Théorème des gendarmes",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que pour tout $x\\ge0$, $x-\\frac{x^{2}}{2}\\le \\ln(1+x)\\le x$.\nEn déduire la limite de $(1+\\frac{1}{n})^{n}.$\n2. Pour $n\\ge1$, on pose $u_{n}=\\prod_{k=1}^{n}(1+\\frac{k}{n^{2}}).$\nMontrer que la suite $(u_{n})_{n}$ converge, et calculer sa limite.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Étude de fonction classique pour l'encadrement. $(1+1/n)^n = \\exp(n \\ln(1+1/n))$. Encadrement donne $n(1/n - 1/2n^2) \\le n\\ln(1+1/n) \\le 1$. Gendarmes $\\to 1$. Limite $e^1 = e$.\n2. $\\ln(u_n) = \\sum \\ln(1+k/n^2)$. Encadrement : $\\sum (k/n^2 - k^2/2n^4) \\le \\ln(u_n) \\le \\sum k/n^2$. Calcul des sommes donne limite $1/2$. Donc $u_n \\to e^{1/2} = \\sqrt{e}$."
+    },
+    {
+      "id": "suites_reelles__champo_011",
+      "title": "TD Champo - 13.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite récurrente",
+        "Comportement asymptotique",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})$ une suite définie par $u_{0}\\in \\mathbb{R}_{+}^{*}$ et $\\forall n\\in \\mathbb{N}$, $u_{n+1}=\\frac{u_{n}}{\\sqrt{1+u_{n}^{2}}}.$\n1. Prouver que $(u_{n})$ est convergente, puis déterminer sa limite.\n2. En calculant de deux manières la somme $S_{n}=\\frac{1}{n}\\sum_{k=1}^{n}(\\frac{1}{u_{k}^{2}}-\\frac{1}{u_{k-1}^{2}})$, montrer que $\\sqrt{n}u_{n}\\xrightarrow[n\\to+\\infty]{} 1.$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $(u_n)$ positive et décroissante ($u_{n+1} \\le u_n$). Converge vers $l$. $l = l/\\sqrt{1+l^2} \\implies l=0$.\n2. Somme télescopique : $S_n = \\frac{1}{n}(\\frac{1}{u_n^2} - \\frac{1}{u_0^2})$.\nRelation de récurrence : $\\frac{1}{u_k^2} - \\frac{1}{u_{k-1}^2} = 1$. Donc $S_n = \\frac{1}{n} \\sum 1 = 1$.\nOn a $\\frac{1}{nu_n^2} - \\frac{1}{nu_0^2} = 1$, donc $\\frac{1}{nu_n^2} \\to 1$, soit $\\sqrt{n}u_n \\to 1$."
+    },
+    {
+      "id": "suites_reelles__champo_012",
+      "title": "TD Champo - 13.12",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__def_suite_extraite_valeur_adherence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite définie par une somme",
+        "Monotonie",
+        "Limite nulle",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\ge1}$ la suite définie par: $\\forall n\\in \\mathbb{N}^{*}$, $u_{n}=\\frac{1}{n}\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}.$\n1. Montrer que $(u_{n})$ est convergente, et que sa limite $l$ est dans le segment $[0, 1]$.\n2. Montrer que pour tout $n$, $u_{2n}<\\frac{u_{n}}{2}+\\frac{1}{2\\sqrt{n}}.$ En déduire la valeur de $l$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Étude de monotonie : $u_{n+1}-u_n \\le 0$ (calculs détaillés dans la source). Suite décroissante positive, donc converge. $u_n \\le \\frac{1}{n}\\sum 1 = 1$, donc $l \\in [0,1]$.\n2. Décomposition de $u_{2n}$. Majoration de la seconde moitié de la somme par $n \\times \\frac{1}{\\sqrt{n}}$. Passage à la limite donne $l \\le l/2 \\implies l=0$."
+    },
+    {
+      "id": "suites_reelles__champo_013",
+      "title": "TD Champo - 13.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_operations_limites",
+        "suites_reelles__thm_composition_limite_fonction"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites couplées",
+        "Trigonométrie",
+        "Raisonnement par l'absurde",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\alpha\\in \\mathbb{R}\\setminus\\pi \\mathbb{Z}.$ On pose pour tout $n\\in \\mathbb{N}$, $u_{n}=\\cos(n\\alpha)$ et $v_{n}=\\sin(n\\alpha).$\n1. Pour tout $n\\in \\mathbb{N}$ exprimer $u_{n+1}$ en fonction de $u_{n}$ et $v_{n}$. Même question pour $v_{n+1}.$\n2. En déduire que si l'une des deux suites $(u_{n})$ et $(v_{n})$ converge, alors l'autre aussi.\n3. Prouver alors que $(u_{n})$ et $(v_{n})$ divergent.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Formules d'addition : $u_{n+1}=u_{n}\\cos(\\alpha)-v_{n}\\sin(\\alpha)$ et $v_{n+1}=u_{n}\\sin(\\alpha)+v_{n}\\cos(\\alpha).$\n2. On peut exprimer $v_n$ en fonction de $u_n, u_{n+1}$ (car $\\sin\\alpha \\ne 0$). Si $u_n$ converge, $v_n$ aussi. Symétriquement vrai.\n3. Si elles convergent vers $l, l'$, les relations limites donnent $l' (1 + \\dots) = 0 \\implies l'=0$ et $l=0$. Or $u_n^2+v_n^2=1 \\implies 0=1$, absurde."
+    },
+    {
+      "id": "suites_reelles__champo_014",
+      "title": "TD Champo - 13.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite implicite",
+        "Théorème de la bijection",
+        "Monotonie",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que pour tout $n\\in \\mathbb{N}^{*}$, l'équation $x^{n}=\\cos(x)$, d'inconnue $x\\in[0,1]$ possède une unique solution, que l'on notera $x_{n}$.\n2. Étudier la convergence de la suite $(x_{n})_{n\\ge1}$, et le cas échéant, préciser sa limite.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $f_n(x) = x^n - \\cos(x)$. $f_n$ continue str. croissante, $f_n(0)<0, f_n(1)>0$. Bijection.\n2. $f_{n+1}(x_n) < 0$, donc $x_n < x_{n+1}$. Croissante majorée, converge vers $l$. Si $l<1, x_n^n \\to 0$, donc $\\cos(l)=0$, impossible sur $[0, l]$. Donc $l=1$."
+    },
+    {
+      "id": "suites_reelles__champo_015",
+      "title": "TD Champo - 13.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Coefficients binomiaux",
+        "Monotonie",
+        "Calcul de limites",
+        "champo"
+      ],
+      "statement_latex": "Pour $n\\in \\mathbb{N},$ on pose $u_{n}=\\frac{1}{2^{2n}}\\binom{2n}{n}.$\n1. Étudier la convergence de la suite $(u_{n})$.\n2. On pose $v_{n}=(n+1)u_{n}^{2}$. Montrer que $(v_{n})$ converge.\n3. En déduire la limite de $(u_{n})$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $u_{n+1}/u_n = (2n+1)/(2n+2) < 1$. Décroissante minorée par 0, converge.\n2. $v_{n+1}/v_n < 1$. Décroissante minorée, converge vers $L$.\n3. Si $L>0, u_n \\sim \\sqrt{L/n} \\to 0$. Si $L=0, u_n \\to 0$. Dans tous les cas $u_n \\to 0$."
+    },
+    {
+      "id": "suites_reelles__champo_016",
+      "title": "TD Champo - 13.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Règle de d'Alembert",
+        "Comparaison suite géométrique",
+        "champo"
+      ],
+      "statement_latex": "**Règle de d'Alembert**\nSoit $(u_{n})$ une suite à termes strictement positifs. On suppose qu'il existe $l\\in \\mathbb{R}$ tel que $\\frac{u_{n+1}}{u_{n}}\\xrightarrow[n\\to+\\infty]{} l.$\n1. On suppose que $l>1$. Montrer qu'il existe $n_{0}\\in \\mathbb{N}$ tel que pour $n\\ge n_{0}$, $u_{n+1}>\\frac{1+l}{2}u_{n}.$ En déduire que $\\lim_{n\\rightarrow+\\infty}u_{n}=+\\infty.$\n2. On suppose que $l<1$. Montrer que $\\lim_{n\\rightarrow+\\infty}u_{n}=0.$\n3. Donner des exemples de suites $(u_{n})$ pour lesquelles $l=1$ qui tendent vers 0, qui tendent vers un réel non nul, ou encore qui tendent vers $+\\infty$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Avec $\\epsilon = (l-1)/2$, on obtient $u_{n+1}/u_n \\ge (1+l)/2 > 1$. Par récurrence, croissante géométrique de raison $>1$, tend vers $+\\infty$.\n2. De même, majoration par suite géométrique de raison $<1$, tend vers 0.\n3. $1/n$ (tend vers 0), constante (réel non nul), $n$ (tend vers $+\\infty$)."
+    },
+    {
+      "id": "suites_reelles__champo_017",
+      "title": "TD Champo - 13.17",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limite_suite_recurrente_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Lemme de Fekete",
+        "Sous-additivité",
+        "Borne inférieure",
+        "champo"
+      ],
+      "statement_latex": "**Suites sous-additives et lemme de Fekete (Oral ENS)**\nSoit $(u_{n})_{n\\ge0}$ une suite réelle telle que $\\forall(m,n)\\in \\mathbb{N}^{2},$ $u_{n+m}\\le u_{n}+u_{m}.$\nMontrer que $(\\frac{u_{n}}{n})_{n\\ge1}$ converge vers $l=\\inf\\{\\frac{u_{n}}{n},n\\ge1\\}$ si $l$ existe et vers $-\\infty$ sinon.",
+      "sub_questions": [],
+      "global_solution_latex": "Division euclidienne $n=qn_0+r$. Sous-additivité $\\implies u_n \\le q u_{n_0} + u_r$. Diviser par $n$, passage à la limite avec $n_0$ fixé (donnant $l+\\epsilon$) permet de conclure par définition de la borne inf."
+    },
+    {
+      "id": "suites_reelles__champo_018",
+      "title": "TD Champo - 13.18",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_limites_suites_extraites"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites adjacentes",
+        "Quantité conjuguée",
+        "champo"
+      ],
+      "statement_latex": "Pour $n\\in \\mathbb{N}^{*}$, on pose $u_{n}=\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}-2\\sqrt{n}$ et $v_{n}=\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}-2\\sqrt{n+1}.$\nMontrer que les suites $(u_{n})$ et $(v_{n})$ sont adjacentes, et en déduire la limite de $\\sum_{k=1}^{n}\\frac{1}{\\sqrt{k}}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Étude de $u_{n+1}-u_n$ et $v_{n+1}-v_n$ (signe constant via quantités conjuguées). $u_n-v_n = 2(\\sqrt{n+1}-\\sqrt{n}) \\to 0$. Adjacentes donc convergent vers $L$. La somme tend vers $+\\infty$ car $u_n$ converge."
+    },
+    {
+      "id": "suites_reelles__champo_019",
+      "title": "TD Champo - 13.19",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_monotonie_suite_recurrente",
+        "suites_reelles__thm_suites_adjacentes",
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Segments emboîtés",
+        "Suites adjacentes",
+        "Intersection",
+        "champo"
+      ],
+      "statement_latex": "**Théorème des segments emboîtés**\nSoit $([a_{n},b_{n}])_{n}$ une suite décroissante (au sens de l'inclusion) de segments non vides de $\\mathbb{R}$ et dont les longueurs tendent vers 0 lorsque $n\\rightarrow+\\infty$.\nMontrer que $\\bigcap_{n\\in \\mathbb{N}}[a_{n},b_{n}]$ est un singleton.",
+      "sub_questions": [],
+      "global_solution_latex": "Inclusion $\\implies a_n$ croissante, $b_n$ décroissante. Longueur tend vers 0 $\\implies$ adjacentes. Convergent vers $l$. $l \\in [a_n, b_n]$ pour tout $n$. Unicité par longueurs tendant vers 0."
+    },
+    {
+      "id": "suites_reelles__champo_020",
+      "title": "TD Champo - 13.20",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_suites_adjacentes",
+        "suites_reelles__thm_limite_monotone",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__def_limite_suite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites adjacentes",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\theta\\in]0;\\frac{\\pi}{2}[$.\nPour $n\\in \\mathbb{N}$ on pose $u_{n}=2^{n}\\sin(\\frac{\\theta}{2^{n}})$ et $v_{n}=2^{n}\\tan(\\frac{\\theta}{2^{n}}).$\nMontrer que les suites $(u_{n})$ et $(v_{n})$ sont adjacentes. Quelle est leur limite commune ?",
+      "sub_questions": [],
+      "global_solution_latex": "$u_n$ croissante (formule double angle), $v_n$ décroissante. Différence tend vers 0. Limite commune $\\theta$ (limite usuelles sin(x)/x)."
+    },
+    {
+      "id": "suites_reelles__champo_021",
+      "title": "TD Champo - 13.21",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Critère des séries alternées",
+        "Suites adjacentes",
+        "champo"
+      ],
+      "statement_latex": "**Critère des séries alternées**\nSoit $(u_{n})$ une suite décroissante de limite nulle.\nPour $n\\in \\mathbb{N}$, on pose $S_{n}=\\sum_{k=0}^{n}(-1)^{k}u_{k}.$\n1. Étudier les monotonies de $(S_{2n})$ et $(S_{2n+1})$.\n2. En déduire que $(S_{n})$ converge.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $S_{2n+2}-S_{2n} = u_{2n+2}-u_{2n+1} \\le 0$ (décroissante). $S_{2n+3}-S_{2n+1} \\ge 0$ (croissante).\n2. $S_{2n+1}-S_{2n} = -u_{2n+1} \\to 0$. Adjacentes, donc même limite. $(S_n)$ converge."
+    },
+    {
+      "id": "suites_reelles__champo_022",
+      "title": "TD Champo - 13.22",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__def_thm_suites_arithmetico_geometriques",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__def_limite_suite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Moyenne arithmético-géométrique",
+        "Suites adjacentes",
+        "champo"
+      ],
+      "statement_latex": "**Moyenne arithmético-géométrique**\nSoient $a>b$ deux réels positifs. On définit deux suites $(a_{n})_{n\\in \\mathbb{N}}$ et $(b_{n})_{n\\in \\mathbb{N}}$ en posant $a_{0}=a,$ $b_{0}=b,$ et pour tout $n\\in \\mathbb{N},$ $a_{n+1}=\\frac{a_{n}+b_{n}}{2}, b_{n+1}=\\sqrt{a_{n}b_{n}}$.\nMontrer que $(a_{n})$ et $(b_{n})$ convergent vers une même limite qu'on ne cherchera pas à calculer.",
+      "sub_questions": [],
+      "global_solution_latex": "Récurrence $b_n \\le b_{n+1} \\le a_{n+1} \\le a_n$. Suites monotones bornées donc convergentes. Passage à la limite dans la relation arithmétique prouve $l_1 = l_2$."
+    },
+    {
+      "id": "suites_reelles__champo_023",
+      "title": "TD Champo - 13.23",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_composition_limite_fonction",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__thm_monotonie_suite_recurrente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites complexes",
+        "Récurrence linéaire",
+        "champo"
+      ],
+      "statement_latex": "Soit $(z_{n})_{n}$ une suite à valeurs complexes vérifiant, pour tout $n\\in \\mathbb{N}$ $z_{n+1}=\\frac{z_{n}-3\\overline{z_{n}}}{2}$.\nDonner l'expression de $z_{n}$ en fonction de $n$, et étudier la convergence de la suite $(z_{n})$.",
+      "sub_questions": [],
+      "global_solution_latex": "Décomposition $z_n=a_n+ib_n$. Système $a_{n+1}=-a_n, b_{n+1}=2b_n$. Geometric sequences. Convergence ssi $z_0=0$."
+    },
+    {
+      "id": "suites_reelles__champo_024",
+      "title": "TD Champo - 13.24",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_unicite_limite",
+        "suites_reelles__def_convergence_divergence",
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites complexes",
+        "Divergence",
+        "champo"
+      ],
+      "statement_latex": "Pour $n\\in \\mathbb{N}^{+}$ on pose $z_{n}=e^{i \\ln n}$. Montrer que $(z_{n})$ diverge.",
+      "sub_questions": [],
+      "global_solution_latex": "Supposons convergence vers $l$. $|z_n|=1 \\implies |l|=1$. $z_{2n} = e^{i \\ln 2} z_n \to e^{i \\ln 2} l$. Unicité limite $\\implies e^{i \\ln 2} = 1$, impossible."
+    },
+    {
+      "id": "suites_reelles__champo_025",
+      "title": "TD Champo - 13.25",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_monotone_majoree",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__def_limite_suite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites complexes",
+        "Bolzano-Weierstrass",
+        "Critère de Cauchy",
+        "champo"
+      ],
+      "statement_latex": "Soit $(z_{n})$ une suite complexe. On suppose que $\\forall p, q\\in \\mathbb{N}$, $p\\ne q \\implies |z_{p}-z_{q}|\\ge1$.\nProuver que $|z_{n}|\\xrightarrow[n\\to+\\infty]{} +\\infty.$",
+      "sub_questions": [],
+      "global_solution_latex": "Par l'absurde, si bornée, on extrait une sous-suite convergente (Bolzano-Weierstrass). Cette sous-suite serait de Cauchy, donc $|z_{\\phi(p)} - z_{\\phi(q)}| < 1$ pour rang grand, contradiction."
+    },
+    {
+      "id": "suites_reelles__champo_026",
+      "title": "TD Champo - 13.26",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__def_suite_reelle",
+        "suites_reelles__thm_suites_arithmetiques_geometriques"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite extraite",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n}$ une suite (réelle ou complexe). Parmi les suites suivantes, toutes extraites de $(u_{n})$, trouver celles qui sont extraites d'une autre :\n$(u_{2n})_{n},(u_{3n})_{n},(u_{6n})_{n},(u_{6^{n}})_{n},(u_{6^{n+1}})_{n},(u_{2^{n+1}})_{n},(u_{3\\times2^{n}})_{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Relations de divisibilité sur les indices (graphe fourni dans la correction)."
+    },
+    {
+      "id": "suites_reelles__champo_027",
+      "title": "TD Champo - 13.27",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_limites_suites_extraites",
+        "suites_reelles__method_montrer_divergence_extraites",
+        "suites_reelles__thm_suites_geometriques_limites",
+        "suites_reelles__def_convergence_divergence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite extraite",
+        "Recouvrement",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})$ une suite telle que les trois suites extraites $(u_{2n})$, $(u_{2n+1})$ et $(u_{3n})$ convergent.\nMontrer que $(u_{n})$ converge.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $l_1, l_2, l_3$ les limites respectives. $u_{6n}$ extraite de $u_{2n}$ et $u_{3n} \\implies l_1=l_3$. $u_{6n+3}$ extraite de $u_{2n+1}$ et $u_{3n} \\implies l_2=l_3$. Donc $l_1=l_2$. Convergence globale."
+    },
+    {
+      "id": "suites_reelles__champo_028",
+      "title": "TD Champo - 13.28",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite récurrente",
+        "Logarithme",
+        "Suite géométrique",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in \\mathbb{N}^{*}}$ une suite telle que $u_{1}>0$ et pour tout $n\\in \\mathbb{N}^{*}$\n$u_{n+1}=\\frac{\\sqrt{nu_{n}}}{n+1}$.\nMontrer que la suite $(u_{n})$ converge et déterminer sa limite.",
+      "sub_questions": [],
+      "global_solution_latex": "Poser $v_n = n u_n$. $v_{n+1}=\\sqrt{v_n}$. $\\ln(v_{n+1}) = 1/2 \\ln(v_n)$. Géométrique. $v_n \\to 1$. $u_n \\to 0$."
+    },
+    {
+      "id": "suites_reelles__champo_029",
+      "title": "TD Champo - 13.29",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_limite_monotone"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite récurrente",
+        "Divergence vers l'infini",
+        "champo"
+      ],
+      "statement_latex": "Soit $(u_{n})$ une suite telle que $u_{0}\\ge1$ et $\\forall n\\in \\mathbb{N},$ $u_{n+1}=\\sqrt{u_{n}^{2}+u_{n}+(-1)^{n}}$.\nMontrer que $u_{n} \\xrightarrow[n\\to+\\infty]{} +\\infty$.",
+      "sub_questions": [],
+      "global_solution_latex": "Montrer $u_n \\ge 1$ et croissante. Si limite finie $l$, alors $l = \\sqrt{l^2+l\\pm 1}$ absurde. Donc $+\\infty$."
+    },
+    {
+      "id": "suites_reelles__champo_030",
+      "title": "TD Champo - 13.30",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__def_limite_suite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Valeur d'adhérence",
+        "Bolzano-Weierstrass",
+        "Compactness",
+        "champo"
+      ],
+      "statement_latex": "1. Soit $(u_{n})$ une suite bornée. On suppose qu'il existe un réel $l$ tel que toute suite convergente extraite de $(u_{n})$ possède $l$ pour limite.\nMontrer que $(u_{n})$ est convergente.\n2. Soit $(v_{n})$ une suite bornée telle que $v_{n}+\\frac{v_{2n}}{2}$ converge vers un réel $l$. Montrer que $(v_{n})$ est convergente.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Absurde + Bolzano-Weierstrass : si ne converge pas vers $l$, on peut extraire une suite loin de $l$, qui elle-même contient une sous-suite convergente (vers $l$), contradiction.\n2. Si $\\alpha$ est valeur d'adhérence, alors $2(l-\\alpha)$ aussi. Suite arithmético-géométrique des valeurs d'adhérence, bornée seulement si $\\alpha = 2l/3$. Unique valeur d'adhérence + bornée $\\implies$ convergence."
+    },
+    {
+      "id": "suites_reelles__champo_031",
+      "title": "TD Champo - 13.31",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__thm_operations_bornes_sup",
+        "suites_reelles__def_suite_extraite_valeur_adherence",
+        "suites_reelles__thm_passage_limite_inegalite_large",
+        "suites_reelles__thm_carac_seq_borne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Borne supérieure",
+        "Borne inférieure",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les bornes supérieures et inférieures, si elles existent, des ensembles de réels suivants :\n$A=\\{\\frac{(-1)^{n}n}{n+1},n\\in \\mathbb{N}\\}$\n$B=\\{\\frac{pq}{p^{2}+q^{2}},(p,q)\\in \\mathbb{N}^{*}\\times \\mathbb{N}\\}$\n$C=\\{\\frac{2^{n}}{2^{m}+3^{n+m}},(m,n)\\in \\mathbb{N}^{2}\\}$",
+      "sub_questions": [],
+      "global_solution_latex": "$A$: $\\sup=1, \\inf=-1$ (valeurs d'adhérence).\n$B$: $\\inf=0, \\sup=1/2$ (inégalité classique).\n$C$: $\\inf=0, \\sup=1/2$ (croissance comparée)."
+    },
+    {
+      "id": "suites_reelles__champo_032",
+      "title": "TD Champo - 13.32",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "suites_reelles__def_limite_suite",
+        "suites_reelles__thm_limite_suite_recurrente_convergente",
+        "suites_reelles__thm_produit_suite_bornee_nulle",
+        "suites_reelles__thm_passage_limite_inegalite_large"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Densité",
+        "Ensemble dense",
+        "Racines carrées",
+        "champo"
+      ],
+      "statement_latex": "Dans cet exercice, on note $A=\\{\\sqrt{n}-\\sqrt{m}, (m,n)\\in \\mathbb{N}^{2}\\}$.\n1. Déterminer $\\lim_{x\\rightarrow0}\\frac{\\sqrt{1+x}-1}{x}.$\n2. Soit $r\\in \\mathbb{Q},$ et soient $p\\in \\mathbb{Z}$, $q\\in \\mathbb{N}$ tels que $r=\\frac{p}{q}.$\n(a) Justifier que pour $n$ suffisamment grand, le réel $u_{n}=\\sqrt{q^{2}n^{2}+2np}-\\sqrt{q^{2}n^{2}}$ est bien défini.\n(b) Prouver que $u_{n}\\xrightarrow[n\\to+\\infty]{} r.$\n3. En déduire que $A$ est dense dans $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Taux d'accroissement, limite $1/2$.\n2. (a) Positif à partir d'un rang. (b) Quantité conjuguée ou factorisation, limite $r$.\n3. Tout rationnel est limite d'une suite de $A$. $\\mathbb{Q}$ dense dans $\\mathbb{R}$, donc $A$ aussi."
+    }
+  ]
+}

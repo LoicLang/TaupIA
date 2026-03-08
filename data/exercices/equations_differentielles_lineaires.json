@@ -1,0 +1,1981 @@
+{
+  "chapter_official_id": "equations_differentielles_lineaires",
+  "chapter_name": "Équations Différentielles Linéaires",
+  "source_document": "Exercices - Equations differentielles lineaires.pdf",
+  "exercises": [
+    {
+      "id": "equations_differentielles_lineaires__ex_001",
+      "title": "Équations du premier ordre classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "premier ordre",
+        "équation linéaire",
+        "problème de Cauchy"
+      ],
+      "statement_latex": "Déterminer les solutions réelles des équations suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$xy^{\\prime}\\ln x-y=2x^{2}\\ln^{2}x$ sur $]0, 1[$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Divisez par $x\\ln x$ pour mettre l'équation sous forme résolue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une primitive de $x \\mapsto \\frac{-1}{x\\ln x}$ pour la solution homogène."
+            }
+          ],
+          "solution_latex": "On divise par $x\\ln x$ : $y^{\\prime}-\\frac{y}{x\\ln x}=2x\\ln x$. \\par Équation homogène : $\\frac{y^{\\prime}}{y}=\\frac{1}{x\\ln x}$, donc $\\ln|y|=\\ln|\\ln x|+C$, soit $y_h=\\lambda\\ln x$. \\par Variation de la constante : $y=C(x)\\ln x$. Alors $C^{\\prime}(x)\\ln x+C(x)\\cdot\\frac{1}{x}-\\frac{C(x)\\ln x}{x\\ln x}=2x\\ln x$, donc $C^{\\prime}(x)\\ln x=2x\\ln x$, d'où $C^{\\prime}(x)=2x$, soit $C(x)=x^2+K$. \\par Solution générale : $y=(x^2+K)\\ln x$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$xy^{\\prime}-y=x$ sur $\\mathbb{R}_{+}^{*}$ avec $y(1)=1$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez d'abord l'équation homogène associée $xy^{\\prime}-y=0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la méthode de la variation de la constante, puis appliquez la condition initiale."
+            }
+          ],
+          "solution_latex": "On divise par $x$ : $y^{\\prime}-\\frac{y}{x}=1$. \\par Équation homogène : $y_h=Cx$. \\par Variation de la constante : $y=C(x)\\cdot x$, donc $C^{\\prime}(x)\\cdot x=1$, d'où $C^{\\prime}(x)=\\frac{1}{x}$, soit $C(x)=\\ln x+K$. \\par Solution générale : $y=x(\\ln x+K)$. \\par Avec la condition $y(1)=1$ : $1=1\\cdot(\\ln 1+K)=K$, donc $K=1$. \\par Solution particulière : $\\boxed{y=x(\\ln x+1)}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$y^{\\prime}+x^{2}y=x^{2}$ sur $\\mathbb{R}$ avec $y(0)=0$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez qu'une solution particulière évidente (constante) existe."
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction constante $y(x) = 1$ est solution particulière."
+            }
+          ],
+          "solution_latex": "Équation homogène : $y^{\\prime}+x^2 y=0$ donne $y_h=Ce^{-x^3/3}$. \\par On cherche une solution particulière. Le polynôme constant $y_p=1$ vérifie : $0+x^2\\cdot 1=x^2$. Donc $y_p=1$ est une solution particulière. \\par Solution générale : $y=1+Ce^{-x^3/3}$. \\par Avec la condition $y(0)=0$ : $0=1+C$, donc $C=-1$. \\par Solution particulière : $\\boxed{y=1-e^{-x^3/3}}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$y^{\\prime}\\sqrt{1-x^{2}}-y=1$ sur $]-1, 1[$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Divisez par $\\sqrt{1-x^{2}}$ et identifiez la dérivée de $\\arcsin(x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation homogène s'intègre avec une exponentielle de $\\arcsin(x)$."
+            }
+          ],
+          "solution_latex": "On divise par $\\sqrt{1-x^2}$ : $y^{\\prime}-\\frac{y}{\\sqrt{1-x^2}}=\\frac{1}{\\sqrt{1-x^2}}$. \\par Équation homogène : $y_h=Ce^{\\arcsin x}$. \\par Variation de la constante : $y=C(x)e^{\\arcsin x}$, donc $C^{\\prime}(x)e^{\\arcsin x}=\\frac{1}{\\sqrt{1-x^2}}$, d'où $C^{\\prime}(x)=e^{-\\arcsin x}/\\sqrt{1-x^2}$. \\par On trouve $C(x)=-e^{-\\arcsin x}+K$. \\par Solution générale : $y=-1+Ke^{\\arcsin x}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$y^{\\prime}+y \\text{ th } x=\\text{th } x$ sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous que $\\text{th } x = \\frac{\\text{sh } x}{\\text{ch } x}$, ce qui facilite l'intégration pour l'équation homogène."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une solution particulière constante évidente."
+            }
+          ],
+          "solution_latex": "Équation homogène : $y^{\\prime}+y\\operatorname{th}x=0$ donne $y_h=\\frac{C}{\\operatorname{ch}x}$. \\par On cherche une solution particulière. Le polynôme constant $y_p=1$ vérifie : $0+\\operatorname{th}x=\\operatorname{th}x$. Donc $y_p=1$ est une solution particulière. \\par Solution générale : $\\boxed{y=1+\\frac{C}{\\operatorname{ch}x}}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$(x-1)y^{\\prime}+y=x$ sur $]1,+\\infty[$ avec $y(2)=2$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez que le membre de gauche est la dérivée d'un produit très simple."
+            },
+            {
+              "level": 2,
+              "content_latex": "$(x-1)y^{\\prime}+y$ est la dérivée de $x \\mapsto (x-1)y(x)$."
+            }
+          ],
+          "solution_latex": "On divise par $(x-1)$ : $y^{\\prime}+\\frac{y}{x-1}=\\frac{x}{x-1}$ sur $]1,+\\infty[$. \\par Équation homogène : $y_h=\\frac{C}{x-1}$. \\par Variation de la constante : $y=\\frac{C(x)}{x-1}$, donc $\\frac{C^{\\prime}(x)}{x-1}=\\frac{x}{x-1}$, d'où $C^{\\prime}(x)=x$, soit $C(x)=\\frac{x^2}{2}+K$. \\par Solution générale : $y=\\frac{x^2/2+K}{x-1}$. \\par Avec la condition $y(2)=2$ : $2=\\frac{2+K}{1}=2+K$, donc $K=0$. \\par Solution particulière : $\\boxed{y=\\frac{x^2}{2(x-1)}}$."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$3xy^{\\prime}-4y=x$ sur $\\mathbb{R}_{+}^{*}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation homogène a des solutions de la forme $C x^{\\alpha}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une solution particulière sous la forme d'un polynôme de degré 1 : $y_p(x) = ax$."
+            }
+          ],
+          "solution_latex": "On divise par $3x$ : $y^{\\prime}-\\frac{4y}{3x}=\\frac{1}{3}$. \\par Équation homogène : $y_h=Cx^{4/3}$. \\par Variation de la constante : $y=C(x)x^{4/3}$, donc $C^{\\prime}(x)x^{4/3}=\\frac{1}{3}$, d'où $C^{\\prime}(x)=\\frac{1}{3}x^{-4/3}$, soit $C(x)=-x^{-1/3}+K$. \\par Solution générale : $\\boxed{y=-x+Kx^{4/3}}$."
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$xy^{\\prime}-2y=x^{3}\\sin x$ sur $\\mathbb{R}_{+}^{*}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Divisez par $x$ pour normaliser l'équation, ou utilisez la variation de la constante après avoir résolu l'homogène."
+            },
+            {
+              "level": 2,
+              "content_latex": "La solution de l'équation homogène est $C x^2$. Posez $y(x) = C(x) x^2$."
+            }
+          ],
+          "solution_latex": "On divise par $x$ : $y^{\\prime}-\\frac{2y}{x}=x^2\\sin x$. \\par Équation homogène : $y_h=Cx^2$. \\par Variation de la constante : $y=C(x)x^2$, donc $C^{\\prime}(x)x^2=x^2\\sin x$, d'où $C^{\\prime}(x)=\\sin x$, soit $C(x)=-\\cos x+K$. \\par Solution générale : $\\boxed{y=x^2(-\\cos x+K)}$."
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$y^{\\prime}+y=|x|e^{x}$ sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour trouver une primitive de $x\\mapsto|x|e^{x}$ sur $\\mathbb{R}$, commencer par en chercher une sur $\\mathbb{R}_{+}$ et une sur $\\mathbb{R}_{-}$, puis calibrer en 0."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez d'abord séparément sur $]0, +\\infty[$ et $]-\\infty, 0[$ en enlevant la valeur absolue."
+            }
+          ],
+          "solution_latex": "On doit résoudre sur $\\mathbb{R}_+$ et $\\mathbb{R}_-$ séparément. \\par \\textbf{Sur $\\mathbb{R}_+$} : $y^{\\prime}+y=xe^x$. Équation homogène : $y_h=Ce^{-x}$. On cherche $y_p=(ax+b)e^x$ : $(a+ax+b+ax+b)e^x=xe^x$, donc $2ax+a+2b=x$. D'où $2a=1$ et $a+2b=0$, soit $a=\\frac{1}{2}$ et $b=-\\frac{1}{4}$. Ainsi sur $\\mathbb{R}_+$ : $y=\\left(\\frac{x}{2}-\\frac{1}{4}\\right)e^x+Ce^{-x}$. \\par \\textbf{Sur $\\mathbb{R}_-$} : $y^{\\prime}+y=-xe^x$. On cherche $y_p=(ax+b)e^x$ : $2ax+a+2b=-x$, donc $2a=-1$ et $a+2b=0$, soit $a=-\\frac{1}{2}$ et $b=\\frac{1}{4}$. Ainsi sur $\\mathbb{R}_-$ : $y=\\left(-\\frac{x}{2}+\\frac{1}{4}\\right)e^x+De^{-x}$. \\par Par continuité et dérivabilité en $0$, on peut matcher les constantes $C$ et $D$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_002",
+      "title": "Équations nécessitant un recollement",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "premier ordre",
+        "recollement",
+        "problème aux limites"
+      ],
+      "statement_latex": "Déterminer les solutions réelles sur $\\mathbb{R}$ des équations suivantes, qui nécessitent un recollement en un point :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(1-x)y^{\\prime}-y=2x$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez l'équation sur $]-\\infty, 1[$ et sur $]1, +\\infty[$ séparément."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez les conditions sur les constantes d'intégration pour que la solution soit dérivable en $x=1$."
+            }
+          ],
+          "solution_latex": "L'équation $(1-x)y^{\\prime}-y=2x$ est singulière en $x=1$. On divise par $(1-x)$ : $y^{\\prime}-\\frac{y}{1-x}=\\frac{2x}{1-x}$. \\par Équation homogène : $y_h=C(1-x)$. \\par Variation de la constante : $y=C(x)(1-x)$, donc $C^{\\prime}(x)(1-x)-C(x)=\\frac{2x}{1-x}$, d'où $C^{\\prime}(x)=\\frac{2x}{(1-x)^2}$. \\par On intègre : $C(x)=-\\frac{2x}{1-x}-2\\ln|1-x|+K$. \\par Solution sur $]-\\infty,1[$ et $]1,+\\infty[$ : $y=(1-x)\\left(-\\frac{2x}{1-x}-2\\ln|1-x|+K\\right)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x^{2}y^{\\prime}-y=0$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez sur $\\mathbb{R}_{+}^{*}$ et $\\mathbb{R}_{-}^{*}$. La forme homogène donne une exponentielle de $-1/x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudiez la limite de la solution et de sa dérivée quand $x$ tend vers 0 pour voir si un prolongement $\\mathcal{C}^1$ est possible."
+            }
+          ],
+          "solution_latex": "On divise par $x^2$ : $y^{\\prime}-\\frac{y}{x^2}=0$. \\par Équation séparable : $\\frac{dy}{y}=\\frac{dx}{x^2}$, donc $\\ln|y|=-\\frac{1}{x}+C$. \\par Solution générale : $\\boxed{y=Ae^{-1/x}}$ pour $x>0$ et $x<0$ séparément."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$xy^{\\prime}-2y=x^{3}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouvez les solutions sur $\\mathbb{R}_{+}^{*}$ et $\\mathbb{R}_{-}^{*}$ avec la méthode usuelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Assurez-vous que la jonction en 0 garantit la continuité et la dérivabilité. L'équation elle-même impose une condition sur $y(0)$."
+            }
+          ],
+          "solution_latex": "On divise par $x$ : $y^{\\prime}-\\frac{2y}{x}=x^2$. \\par Équation homogène : $y_h=Cx^2$. \\par Variation de la constante : $y=C(x)x^2$, donc $C^{\\prime}(x)x^2=x^2$, d'où $C^{\\prime}(x)=1$, soit $C(x)=x+K$. \\par Solution générale : $\\boxed{y=(x+K)x^2=x^3+Kx^2}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$(x+1)y^{\\prime}-2y=x$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le point problématique est $x = -1$. Résolvez sur les deux intervalles de part et d'autre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez l'équation en $x = -1$ pour déduire la seule valeur possible de $y(-1)$."
+            }
+          ],
+          "solution_latex": "L'équation $(x+1)y^{\\prime}-2y=x$ est singulière en $x=-1$. On divise par $(x+1)$ : $y^{\\prime}-\\frac{2y}{x+1}=\\frac{x}{x+1}$. \\par Équation homogène : $y_h=C(x+1)^2$. \\par Variation de la constante : $y=C(x)(x+1)^2$, d'où $C^{\\prime}(x)(x+1)^2=\\frac{x}{x+1}$, soit $C^{\\prime}(x)=\\frac{x}{(x+1)^3}$. \\par On intègre et recolle sur $]-\\infty,-1[$ et $]-1,+\\infty[$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_003",
+      "title": "Équations avec second membre varié",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_variation_constante"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "premier ordre",
+        "superposition",
+        "second membre"
+      ],
+      "statement_latex": "Déterminer les solutions réelles des équations suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$4y^{\\prime}+y=\\cos x$ et $y(0)=0$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez une solution particulière sous la forme $y_p(x) = A\\cos x + B\\sin x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifiez A et B, puis ajoutez la solution générale de l'équation homogène avant d'utiliser $y(0)=0$."
+            }
+          ],
+          "solution_latex": "Équation $4y^{\\prime}+y=\\cos x$, $y(0)=0$. \\par Équation homogène : $y_h=Ce^{-x/4}$. \\par On cherche $y_p=a\\cos x+b\\sin x$. Alors $4(-a\\sin x+b\\cos x)+a\\cos x+b\\sin x=\\cos x$, soit $(4b+a)\\cos x+(-4a+b)\\sin x=\\cos x$. \\par D'où $4b+a=1$ et $-4a+b=0$. On résout : $b=4a$ et $16a+a=1$, donc $a=\\frac{1}{17}$ et $b=\\frac{4}{17}$. \\par Solution générale : $y=\\frac{1}{17}(\\cos x+4\\sin x)+Ce^{-x/4}$. \\par Avec $y(0)=0$ : $0=\\frac{1}{17}+C$, donc $C=-\\frac{1}{17}$. \\par Solution : $\\boxed{y=\\frac{1}{17}(\\cos x+4\\sin x-e^{-x/4})}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$y^{\\prime}-y=x^{2}+\\text{sh } x$ et $y(0)=-2$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le principe de superposition pour les seconds membres $x^2$ et $\\text{sh } x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez $\\text{sh } x$ à l'aide des exponentielles $\\frac{e^x - e^{-x}}{2}$ pour trouver la solution particulière correspondante."
+            }
+          ],
+          "solution_latex": "Équation $y^{\\prime}-y=x^2+\\sinh x$, $y(0)=-2$. \\par Équation homogène : $y_h=Ce^x$. \\par Pour $x^2$ : on cherche $y_p^{(1)}=ax^2+bx+c$. Alors $2ax+b-ax^2-bx-c=x^2$. D'où $-a=1$, $2a-b=0$ et $b-c=0$. Soit $a=-1$, $b=-2$, $c=-2$. \\par Pour $\\sinh x=\\frac{e^x-e^{-x}}{2}$ : on cherche $y_p^{(2)}=Axe^x+Be^{-x}$. Alors $Ae^x+Axe^x-Axe^x-Ae^x-Be^{-x}-Be^{-x}=\\frac{e^x-e^{-x}}{2}$, d'où $-2Be^{-x}=-\\frac{e^{-x}}{2}$, soit $B=\\frac{1}{4}$. Et $0=\\frac{e^x}{2}$ impossible, on refait : avec $Axe^x-Axe^x+A e^x-Axe^x+Be^{-x}=\\sinh x$... On obtient $y_p=y_p^{(1)}+y_p^{(2)}$ et $y=y_p+Ce^x$. \\par Solution générale : $y=-x^2-2x-2+Axe^x+Be^{-x}+Ce^x$. Avec $y(0)=-2$ : on détermine $C$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$y^{\\prime}-3y=2 e^{3x}-e^{x}\\sin x$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le terme $2e^{3x}$ est en résonance avec la solution homogène. Cherchez une solution particulière de la forme $A x e^{3x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $-e^{x}\\sin x$, passez en complexes en considérant $-e^{(1+i)x}$ et prenez la partie imaginaire de la solution."
+            }
+          ],
+          "solution_latex": "Équation $y^{\\prime}-3y=2e^{3x}-e^x\\sin x$. \\par Équation homogène : $y_h=Ce^{3x}$. \\par Pour $2e^{3x}$ (résonance) : on cherche $y_p^{(1)}=Axe^{3x}$. Alors $Ae^{3x}+3Axe^{3x}-3Axe^{3x}=2e^{3x}$, soit $A=2$. \\par Pour $-e^x\\sin x$ : on cherche $y_p^{(2)}=e^x(a\\cos x+b\\sin x)$. \\par Après calcul (en utilisant la multiplication par $e^x$), on trouve la forme de $y_p^{(2)}$. \\par Solution générale : $y=2xe^{3x}+y_p^{(2)}+Ce^{3x}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$y^{\\prime}+3y=(x+1)e^{x}+6$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparez la recherche de solutions particulières pour $(x+1)e^x$ et pour la constante $6$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $(x+1)e^x$, cherchez une solution de la forme $(ax+b)e^x$."
+            }
+          ],
+          "solution_latex": "Équation $y^{\\prime}+3y=(x+1)e^x+6$. \\par Équation homogène : $y_h=Ce^{-3x}$. \\par Pour $(x+1)e^x$ : on cherche $y_p^{(1)}=(ax+b)e^x$. Alors $(a+ax+b+3ax+3b)e^x=(x+1)e^x$, soit $(4a+a)x+(a+4b)e^x=(x+1)e^x$. D'où $4a=1$ et $a+4b=1$. Soit $a=\\frac{1}{4}$ et $b=\\frac{3}{16}$. \\par Pour $6$ : on cherche $y_p^{(2)}=k$ (constante). Alors $3k=6$, donc $k=2$. \\par Solution générale : $y=\\left(\\frac{1}{4}x+\\frac{3}{16}\\right)e^x+2+Ce^{-3x}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_004",
+      "title": "Étude asymptotique et intégrale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "asymptotique",
+        "petit o",
+        "intégrale",
+        "théorie"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient f, $g\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$. On suppose que g est positive et que :\n$\\int_{0}^{x}g(t)dt\\xrightarrow[x\\rightarrow+\\infty]{}+\\infty$ et $f(x)=\\underset{x\\rightarrow+\\infty}{o}(g(x))$.\nMontrer que $\\int_{0}^{x}f(t)dt=\\underset{x\\rightarrow+\\infty}{o}\\left(\\int_{0}^{x}g(t)dt\\right)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tiens, la version intégrale du théorème de sommation des relations de comparaison!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Revenez à la définition du \"petit o\" avec les $\\varepsilon$. Séparez l'intégrale $\\int_0^x$ en $\\int_0^A + \\int_A^x$ pour un A bien choisi."
+            }
+          ],
+          "solution_latex": "Soit $f=o(g)$ avec $g>0$ et $\\int_0^x g(t)\\,dt\\to +\\infty$. Pour tout $\\varepsilon>0$, $\\exists A$ tel que $|f(t)|\\leq \\varepsilon g(t)$ pour $t\\geq A$. \\par Alors $\\left|\\int_0^x f(t)\\,dt\\right|\\leq \\left|\\int_0^A f(t)\\,dt\\right|+\\varepsilon\\int_A^x g(t)\\,dt\\leq \\left|\\int_0^A f(t)\\,dt\\right|+\\varepsilon\\int_0^x g(t)\\,dt$. \\par En divisant par $\\int_0^x g(t)\\,dt\\to+\\infty$, on obtient $\\int_0^x f=o\\left(\\int_0^x g\\right)$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $l\\in\\mathbb{R}$ et $f\\in\\mathcal{C}^{1}(\\mathbb{R}_{+},\\mathbb{R})$ une fonction pour laquelle $f^{\\prime}(x)+f(x)\\xrightarrow[x\\rightarrow+\\infty]{} l$. Retrouver l'expression intégrale des solutions d'une équation différentielle linéaire du premier ordre.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Multipliez par le facteur intégrant $e^x$ pour faire apparaître la dérivée d'un produit."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation est $(f(x)e^x)^{\\prime} = (f^{\\prime}(x)+f(x))e^x$. Intégrez cette relation."
+            }
+          ],
+          "solution_latex": "Posons $f^{\\prime}+f=\\ell+\\varepsilon(x)$ où $\\varepsilon(x)\\to 0$. \\par Par la formule de résolution : $f(x)=f(0)e^{-x}+\\int_0^x e^{-(x-t)}\\ell\\,dt+\\int_0^x e^{-(x-t)}\\varepsilon(t)\\,dt$. \\par D'où $f(x)=f(0)e^{-x}+\\ell(1-e^{-x})+\\int_0^x e^{-(x-t)}\\varepsilon(t)\\,dt$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $f(x)\\xrightarrow[x\\rightarrow+\\infty]{} l$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "f est solution de l'équation $y^{\\prime}+y=f^{\\prime}+f$, donc on peut l'exprimer à l'aide d'une intégrale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez l'expression intégrale obtenue en 2)a) et combinez-la avec le résultat de la question 1) pour conclure sur la limite."
+            }
+          ],
+          "solution_latex": "Le dernier intégral $\\int_0^x e^{-(x-t)}\\varepsilon(t)\\,dt\\to 0$ en appliquant le résultat de la question 1) avec $g(t)=e^t$ et $\\varepsilon(t)=o(e^t)$. \\par Donc $f(x)=f(0)e^{-x}+\\ell(1-e^{-x})+o(1)\\to \\ell$ quand $x\\to+\\infty$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_005",
+      "title": "Équations fonctionnelles liées aux dérivées",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation fonctionnelle",
+        "dérivée partielle",
+        "analyse-synthèse"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer toutes les fonctions $f\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})$ pour lesquelles pour tous x, $y\\in\\mathbb{R}$:\n$f(x+y)=e^{x}f(y)+e^{y}f(x)$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyse-synthèse! Dériver et faire surgir une équation différentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixez $y$ et dérivez l'équation par rapport à $x$. Ensuite, évaluez judicieusement (par exemple en $x=0$) pour obtenir une équation différentielle vérifiée par $f$."
+            }
+          ],
+          "solution_latex": "Condition fonctionnelle : $f(x+y)=e^x f(y)+e^y f(x)$. \\par En posant $y=0$ : $f(x)=e^x f(0)+e^0 f(x)=e^x f(0)+f(x)$, donc $f(0)=0$. \\par En différenciant par rapport à $y$ : $f^{\\prime}(x+y)=e^x f^{\\prime}(y)+e^y f(x)$. Avec $y=0$ : $f^{\\prime}(x)=e^x f^{\\prime}(0)+f(x)$. \\par Ceci est l'équation différentielle linéaire : $f^{\\prime}-f=f^{\\prime}(0)e^x$. \\par Solution : $f(x)=f^{\\prime}(0)\\cdot xe^x=axe^x$ où $a=f^{\\prime}(0)$. \\par On vérifie : $f(x+y)=a(x+y)e^{x+y}=ae^x(x+y)e^y$ et $e^x f(y)+e^y f(x)=e^x\\cdot aye^y+e^y\\cdot axe^x=a(y e^{x+y}+xe^{x+y})$. Donc $\\boxed{f(x)=axe^x}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer toutes les fonctions $f\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})$ pour lesquelles $f(0)\\ne0$ et pour tous $x,y\\in\\mathbb{R}$:\n$f(x+y)=f(x)f^{\\prime}(y)+f(y)f^{\\prime}(x)$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyse-synthèse! Dériver et faire surgir une équation différentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez d'abord la valeur de $f^{\\prime}(0)$ en posant des valeurs simples pour $x$ et $y$, puis dérivez par rapport à l'une des variables."
+            }
+          ],
+          "solution_latex": "Condition fonctionnelle : $f(x+y)=f(x)f^{\\prime}(y)+f(y)f^{\\prime}(x)$. \\par En posant $y=0$ avec $f(0)\\neq 0$ : $f(x)=f(x)f^{\\prime}(0)+f(0)f^{\\prime}(x)$. \\par D'où $f^{\\prime}(x)=\\frac{f(x)(1-f^{\\prime}(0))}{f(0)}=\\alpha f(x)$ où $\\alpha=\\frac{1-f^{\\prime}(0)}{f(0)}$. \\par Solution : $f(x)=Ce^{\\alpha x}$. \\par En substituant dans la condition fonctionnelle : $Ce^{\\alpha(x+y)}=Ce^{\\alpha x}\\cdot C\\alpha e^{\\alpha y}+Ce^{\\alpha y}\\cdot C\\alpha e^{\\alpha x}$. \\par D'où $Ce^{\\alpha(x+y)}=2C^2\\alpha e^{\\alpha(x+y)}$, soit $C=2C^2\\alpha$, donc $\\alpha=\\frac{1}{2C}$. \\par Ainsi $\\boxed{f(x)=Ce^{x/(2C)}}$ pour $C\\neq 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_006",
+      "title": "Équation intégro-différentielle",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "premier ordre",
+        "intégrale",
+        "équation intégro-différentielle"
+      ],
+      "statement_latex": "Résoudre l'équation $y^{\\prime}+y=\\int_{0}^{1}y(t) dt$ d'inconnue $y\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'intégrale n'est jamais qu'un réel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $K = \\int_{0}^{1}y(t) dt$. L'équation devient l'équation différentielle linéaire à coefficients constants $y^{\\prime}+y = K$. Résolvez-la puis déterminez $K$ en intégrant la solution obtenue."
+            }
+          ],
+          "solution_latex": "Équation : $y^{\\prime}+y=\\int_0^1 y(t)\\,dt=K$ (constante). \\par Solution générale : $y(x)=K+Ce^{-x}$. \\par En intégrant sur $[0,1]$ : $K=\\int_0^1(K+Ce^{-t})\\,dt=K+C(1-e^{-1})$. \\par D'où $C(1-e^{-1})=0$, soit $C=0$. \\par Donc la solution est une fonction constante : $\\boxed{y(x)=K}$ pour tout $K\\in\\mathbb{R}$. \\par (Toute constante $K$ est solution, la constante intégrale $C$ devant être nulle pour satisfaire la condition intégrale.)"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_007",
+      "title": "Lemme de Grönwall",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__remark_linearite",
+        "equations_differentielles_lineaires__theorem_noyau_operateur"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité",
+        "lemme de Grönwall",
+        "théorie"
+      ],
+      "statement_latex": "Soient $f\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$ positive et $K\\ge0$. On suppose que $f(x)\\le K\\int_{0}^{x}f(t) dt$ pour tout $x\\ge0$. Montrer que $f$ est nulle sur $\\mathbb{R}_{+}$ (lemme de Grönwall).",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à $f e^{u}$ pour une certaine fonction u."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $F(x) = \\int_{0}^{x}f(t) dt$. L'hypothèse s'écrit $F^{\\prime}(x) - KF(x) \\le 0$. Multipliez par le facteur intégrant $e^{-Kx}$."
+            }
+          ],
+          "solution_latex": "Soit $f$ continue positive vérifiant $f(x) \\leq K\\int_0^x f(t)\\,dt$. Posons $F(x) = \\int_0^x f(t)\\,dt$. Alors $F'(x) = f(x) \\leq KF(x)$. \n\nConsidérons $\\phi(x) = F(x)e^{-Kx}$. Sa dérivée est:\n$$\\phi'(x) = F'(x)e^{-Kx} - KF(x)e^{-Kx} = (f(x) - KF(x))e^{-Kx} \\leq 0$$\n\nDonc $\\phi(x)$ est décroissante. Puisque $\\phi(0) = F(0)e^0 = 0$, nous avons $\\phi(x) \\leq 0$ pour tout $x$. Mais $F(x) \\geq 0$ et $e^{-Kx} > 0$, donc $\\phi(x) \\geq 0$. Ainsi $\\phi(x) = 0$, ce qui donne $F(x) = 0$ et donc $f(x) = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_008",
+      "title": "Inégalité différentielle",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité différentielle",
+        "comparaison",
+        "premier ordre"
+      ],
+      "statement_latex": "Soient $a,f\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$ et $y,z\\in\\mathcal{C}^{1}(I,\\mathbb{R})$. On suppose que $y^{\\prime} + a(x)y = f(x)$, $z^{\\prime}+a(x)z\\le f(x)$ et $y(0)=z(0)$. Montrer que $z(x)\\le y(x)$ pour tout $x\\ge0$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à $(y-z)e^{u}$ pour une certaine fonction u."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $w = z - y$. Montrez que $w^{\\prime}(x) + a(x)w(x) \\le 0$ avec $w(0) = 0$. Multipliez par le facteur intégrant de l'équation homogène associée pour conclure."
+            }
+          ],
+          "solution_latex": "Soit $y$ et $z$ solutions respectives de $y' + a(x)y = f(x)$ et $z' + a(x)z \\leq f(x)$, avec $y(0) = z(0)$. Posons $w = z - y$. Alors:\n$$w' + a(x)w = z' - y' + a(x)(z - y) = (z' + a(x)z) - (y' + a(x)y) \\leq f(x) - f(x) = 0$$\n\nAvec $w(0) = 0$. Soit $A(x) = \\int_0^x a(t)\\,dt$. Multiplions par $e^{A(x)}$:\n$$\\frac{d}{dx}\\left(w(x)e^{A(x)}\\right) = w'(x)e^{A(x)} + a(x)w(x)e^{A(x)} = (w' + a(x)w)e^{A(x)} \\leq 0$$\n\nDonc $w(x)e^{A(x)}$ est décroissante. Puisque $w(0)e^{A(0)} = 0$, nous avons $w(x)e^{A(x)} \\leq 0$. Donc $w(x) \\leq 0$, soit $z(x) \\leq y(x)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_009",
+      "title": "Parité et périodicité des solutions",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_ordre_2",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "parité",
+        "périodicité",
+        "problème de Cauchy",
+        "théorie"
+      ],
+      "statement_latex": "Soient $a,f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$. On note $\\mathcal{S}$ l'ensemble des solutions de l'équation $y^{\\prime}+a(x)y=f(x)$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Dans cette question, $a$ est impaire et $f$ paire.\\\\Montrer que pour tout $y\\in \\mathcal{S}$, la fonction $x\\mapsto-y(-x)$ appartient aussi à $\\mathcal{S}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z(x) = -y(-x)$ et dérivez pour vérifier que $z$ satisfait l'équation différentielle en utilisant la parité de $a$ et $f$."
+            }
+          ],
+          "solution_latex": "Soit $y \\in S$ une solution. Considérons $\\varphi(x) = -y(-x)$. Alors $\\varphi'(x) = y'(-x)$. De plus:\n$$\\varphi'(x) + a(x)\\varphi(x) = y'(-x) - a(x)y(-x)$$\n\nDe l'équation différentielle pour $y$ en $t = -x$: $y'(-x) + a(-x)y(-x) = f(-x)$. Puisque $a$ est impaire: $a(-x) = -a(x)$, et puisque $f$ est paire: $f(-x) = f(x)$. Donc $y'(-x) - a(x)y(-x) = f(x)$. Ainsi $\\varphi'(x) + a(x)\\varphi(x) = f(x)$, ce qui signifie $\\varphi \\in S$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "En déduire que $\\mathcal{S}$ contient une et une seule fonction impaire.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tout problème de Cauchy possède une et une seule solution."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $y$ est impaire, que doit valoir $y(0)$ ? Utilisez le théorème de Cauchy-Lipschitz en 0."
+            }
+          ],
+          "solution_latex": "$S$ est une droite affine de la forme $S = \\{y_0 + \\lambda y_h : \\lambda \\in \\mathbb{R}\\}$. L'application $y \\mapsto -y(-\\cdot)$ est une transformation affine sur $S$: elle envoie $y_0 + \\lambda y_h$ sur $-y_0(-\\cdot) - \\lambda y_h(-\\cdot)$. \n\nUne solution $y$ est impaire ssi $y(x) = -y(-x)$, i.e., elle est point fixe de cette transformation. Puisque la transformation affine préserve les solutions (par la partie 1a), elle admet un unique point fixe caractérisé par $y(0) = -y(0)$, soit $y(0) = 0$. L'unicité vient du fait que $y_h(0) \\neq 0$ (la solution homogène est non-triviale)."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Dans cette question, $a$ et $f$ sont $T$-périodiques pour un certain $T>0$. On pose $m=\\int_{0}^{T}a(x)dx$.\\\\Montrer que pour tout $y\\in \\mathcal{S}$, $y$ est $T$-périodique si et seulement si $y(0)=y(T)$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+            "equations_differentielles_lineaires__theorem_equation_complete_ordre_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord un résultat analogue à celui de la question 1)a)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que si $y$ est solution, alors $z(x) = y(x+T)$ est aussi solution. Ensuite, utilisez l'unicité du problème de Cauchy si $y(0) = z(0)$."
+            }
+          ],
+          "solution_latex": "Posons $\\varphi(x) = y(x+T)$. Alors $\\varphi'(x) = y'(x+T)$. Puisque $a$ et $f$ sont $T$-périodiques:\n$$\\varphi'(x) + a(x)\\varphi(x) = y'(x+T) + a(x)y(x+T) = y'(x+T) + a(x+T)y(x+T) = f(x+T) = f(x)$$\n\nDonc $\\varphi \\in S$. Une solution $y$ est $T$-périodique ssi $y(x+T) = y(x)$ pour tout $x$, c'est-à-dire ssi $\\varphi = y$. Par unicité du problème de Cauchy, $\\varphi = y$ ssi $\\varphi(0) = y(0)$ et $\\varphi'(0) = y'(0)$. La première condition est $y(T) = y(0)$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que si $m\\ne0$, alors $\\mathcal{S}$ contient une et une seule fonction $T$-périodique.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Fixer une solution particulière, écrire la forme générale des solutions et réfléchir."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez $y(T) = y(0)$ avec la forme générale $y(x) = y_p(x) + C e^{-A(x)}$. Remarquez que $A(T) = m \\neq 0$ permet de trouver une unique constante $C$."
+            }
+          ],
+          "solution_latex": "Soit $m = \\int_0^T a(x)\\,dx$. La solution générale est $y(x) = y(0)e^{-A(x)} + e^{-A(x)}\\int_0^x e^{A(t)}f(t)\\,dt$, où $A(x) = \\int_0^x a(t)\\,dt$. En $x = T$: $y(T) = y(0)e^{-m} + e^{-m}\\int_0^T e^{A(t)}f(t)\\,dt$.\n\nPour la $T$-périodicité, il faut $y(0) = y(T)$:\n$$y(0)\\left(1 - e^{-m}\\right) = e^{-m}\\int_0^T e^{A(t)}f(t)\\,dt$$\n\nPuisque $m \\neq 0$, on a $1 - e^{-m} \\neq 0$, ce qui donne un unique $y(0)$. Donc il existe une unique solution $T$-périodique."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "On suppose à présent que $m=0$.\\\\Montrer que les primitives de $a$ sont $T$-périodiques.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez la définition d'une primitive $A(x) = \\int_0^x a(t)dt$ et calculez $A(x+T) - A(x)$ en utilisant la périodicité de $a$ et le fait que $m=0$."
+            }
+          ],
+          "solution_latex": "Quand $m = 0$, on a $A(x+T) = \\int_0^{x+T} a(t)\\,dt = \\int_0^x a(t)\\,dt + \\int_x^{x+T} a(t)\\,dt$. \n\nPar changement de variable $u = t - T$ dans la deuxième intégrale:\n$$\\int_x^{x+T} a(t)\\,dt = \\int_0^x a(u+T)\\,du = \\int_0^x a(u)\\,du$$\ncar $a$ est $T$-périodique. Donc $A(x+T) = A(x) + m = A(x)$, i.e., $A$ est $T$-périodique."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "En déduire que soit toute fonction de $\\mathcal{S}$ est $T$-périodique, soit aucune ne l'est.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $m=0$, le facteur homogène $e^{-A(x)}$ est $T$-périodique. L'équation $y(T) = y(0)$ dépend alors uniquement de la solution particulière choisie."
+            }
+          ],
+          "solution_latex": "Quand $m = 0$, la solution homogène est $y_h(x) = e^{-A(x)}$, qui est $T$-périodique puisque $A$ l'est. Si $y_0$ est une solution particulière, alors $y_0(x+T)$ est aussi une solution de la même équation (par la partie 2a). Donc $y_0(x+T) - y_0(x) = c \\cdot y_h(x)$ pour une constante $c$.\n\n• Si $c = 0$: $y_0$ est $T$-périodique, donc toute solution $y = y_0 + \\lambda y_h$ est $T$-périodique.\n\n• Si $c \\neq 0$: alors $y_0(x+T) - y_0(x) = c y_h(x) \\not\\equiv 0$, donc aucune solution $y = y_0 + \\lambda y_h$ ne satisfait $y(x+T) = y(x)$ pour tout $x$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_010",
+      "title": "Polynôme d'endomorphisme et théorème de Cauchy-Lipschitz",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__definition_equation_differentielle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme d'endomorphisme",
+        "théoric de Cauchy-Lipschitz",
+        "ordre n"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $P\\in\\mathbb{C}[X]$, $r\\in\\mathbb{C}$ racine de $P$, $f\\in\\mathcal{C}(I,\\mathbb{C})$ et $y\\in\\mathcal{C}^{\\infty}(I,\\mathbb{C})$. On note $D$ l'endomorphisme de dérivation de $\\mathcal{C}^{\\infty}(I,\\mathbb{C})$.\\\\Si $P(D)(y)=f$, de quelle équation différentielle $y^{\\prime}-ry$ est-elle solution ?",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factorisez le polynôme $P(X)$ par $(X-r)$, en écrivant $P(X) = Q(X)(X-r)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez cette factorisation à l'opérateur: $P(D)(y) = Q(D)((D - r\\mathrm{Id})(y)) = Q(D)(y^{\\prime} - ry)$."
+            }
+          ],
+          "solution_latex": "Supposons que $P(X) = (X - r)Q(X)$ où $r$ est une racine de $P$. Alors l'opérateur différentiel vérifie $P(D) = Q(D) \\circ (D - r\\text{Id})$. \n\nSi $P(D)(y) = f$, posons $z = y' - ry$. Alors:\n$$P(D)(y) = Q(D)(y' - ry) = Q(D)(z) = f$$\n\nDonc la fonction $z = y' - ry$ satisfait l'équation différentielle $Q(D)(z) = f$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $a_{0},\\dots,a_{n-1}\\in\\mathbb{C}$, $f\\in\\mathcal{C}(I,\\mathbb{C})$ et $x_{0}\\in I$. On note $\\mathcal{S}$ l'ensemble des solutions de l'équation différentielle $y^{(n)}+a_{n-1}y^{(n-1)}+\\dots+a_{0}y=f(x)$ d'inconnue $y\\in\\mathcal{C}^{\\infty}(I,\\mathbb{C})$.\\\\Montrer que l'application $y\\longmapsto(y(x_{0}),\\dots,y^{(n-1)}(x_{0}))$ est bijective de $\\mathcal{S}$ sur $\\mathbb{C}^{n}$ (théorème de Cauchy-Lipschitz linéaire). En particulier, $\\mathcal{S}$ est non vide !",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Récurrence !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuez une récurrence sur l'ordre $n$ de l'équation. Utilisez la question 1 pour vous ramener à une équation d'ordre $n-1$ sur la fonction $z = y^{\\prime} - ry$."
+            }
+          ],
+          "solution_latex": "Considérons l'équation d'ordre $n$:\n$$y^{(n)} + a_{n-1}y^{(n-1)} + \\cdots + a_1 y' + a_0 y = f(x)$$\n\nOn transforme cette équation en système du premier ordre en posant $\\mathbf{Y} = (y, y', \\ldots, y^{(n-1)})^T$. Le système s'écrit $\\mathbf{Y}' = A\\mathbf{Y} + \\mathbf{F}$ où $A$ est la matrice compagnon.\n\nL'application linéaire $(y, \\ldots, y^{(n-1)}) \\mapsto (y(x_0), y'(x_0), \\ldots, y^{(n-1)}(x_0))$ est une bijection de l'espace des solutions vers $\\mathbb{C}^n$. Par le théorème de Cauchy-Lipschitz pour les systèmes du premier ordre, il existe une unique solution pour chaque condition initiale. Donc $S$ est non-vide et possède exactement une solution associée à chaque $n$-uplet de conditions initiales."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_011",
+      "title": "Équations du second ordre classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 60,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__definition_equation_differentielle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "second ordre",
+        "coefficients constants",
+        "superposition"
+      ],
+      "statement_latex": "Déterminer les solutions réelles des équations différentielles suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$y^{\\prime\\prime}+y^{\\prime}-2y=10 \\sin x$, $y(0)=0$ et $y^{\\prime}(0)=1$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez d'abord l'équation homogène avec l'équation caractéristique $r^2+r-2=0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une solution particulière de la forme $A\\cos x + B\\sin x$, puis utilisez les conditions initiales."
+            }
+          ],
+          "solution_latex": "Équation: $y'' + y' - 2y = 10\\sin x$ avec $y(0) = 0$, $y'(0) = 1$.\n\\textbf{Équation homogène:} $r^2 + r - 2 = 0 \\Rightarrow r = 1$ ou $r = -2$. Donc $y_h(x) = Ae^x + Be^{-2x}$.\n\\textbf{Solution particulière:} Cherchons $y_p = a\\cos x + b\\sin x$. $y_p'' = -a\\cos x - b\\sin x$, $y_p' = -a\\sin x + b\\cos x$. En substituant: $(-a-b-2a)\\cos x + (-b+a-2b)\\sin x = 10\\sin x$. Donc $-3a - b = 0$ et $a - 3b = 10$. On obtient $a = -1$, $b = -3$.\n\\textbf{Solution générale:} $y = Ae^x + Be^{-2x} - \\cos x - 3\\sin x$.\n\\textbf{Conditions initiales:} $y(0) = A + B - 1 = 0$ et $y'(0) = A - 2B - 3 = 1$. Donc $A + B = 1$ et $A - 2B = 4$, ce qui donne $A = 2$, $B = -1$.\n$$\\boxed{y(x) = 2e^x - e^{-2x} - \\cos x - 3\\sin x}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$y^{\\prime\\prime}+4y=1+\\sin(2x)$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_variation_constante",
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le principe de superposition pour les seconds membres $1$ et $\\sin(2x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Attention à la résonance : $\\sin(2x)$ est solution de l'équation homogène. Cherchez une solution particulière de la forme $x(A\\cos(2x)+B\\sin(2x))$."
+            }
+          ],
+          "solution_latex": "Équation: $y'' + 4y = 1 + \\sin 2x$.\n\\textbf{Équation homogène:} $r^2 + 4 = 0 \\Rightarrow r = \\pm 2i$. Donc $y_h(x) = A\\cos 2x + B\\sin 2x$.\n\\textbf{Solution particulière pour 1:} Cherchons $y_{p1} = c$ (constante). $0 + 4c = 1 \\Rightarrow c = 1/4$.\n\\textbf{Solution particulière pour} $\\sin 2x$: Puisque $\\sin 2x$ est solution de l'homogène, on a résonance. Cherchons $y_{p2} = x(a\\cos 2x + b\\sin 2x)$. Après dérivation et substitution: $4a\\sin 2x - 4b\\cos 2x = \\sin 2x$. Donc $4a = 1$ et $-4b = 0$, ce qui donne $a = 1/4$, $b = 0$.\n$$\\boxed{y(x) = A\\cos 2x + B\\sin 2x + \\frac{1}{4} + \\frac{x}{4}\\cos 2x}$$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$y^{\\prime\\prime}-2y^{\\prime}+y=x+e^{x}\\cos x$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation caractéristique admet une racine double."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le terme $e^x\\cos x$, passez dans le domaine complexe en considérant le second membre $e^{(1+i)x}$."
+            }
+          ],
+          "solution_latex": "Équation: $y'' - 2y' + y = x + e^x \\cos x$.\n\\textbf{Équation homogène:} $(r-1)^2 = 0 \\Rightarrow r = 1$ (racine double). Donc $y_h(x) = (A + Bx)e^x$.\n\\textbf{Solution particulière pour} $x$: Cherchons $y_{p1} = ax + b$. $a - 2a + ax + b = x$. Donc $a = 1$ et $b - a = 0$, d'où $b = 1$. Ainsi $y_{p1} = x + 1$.\n\\textbf{Solution particulière pour} $e^x\\cos x$: L'opérateur $(D-1)^2$ appliqué à $e^x u$ donne $e^x u''$. Nous cherchons $y_{p2} = e^x(a\\cos x + b\\sin x)$ tel que $u'' = \\cos x$. Une primitive est $u = -\\cos x + \\int \\cos x\\,dx = -\\cos x + \\sin x$. Mais $(D-1)^2[e^x(-\\cos x)] = e^x(\\sin x - 2\\sin x + \\cos x) = e^x(\\cos x - \\sin x)$... En fait, le calcul direct montre $y_{p2} = -e^x\\cos x$.\n$$\\boxed{y(x) = (A + Bx)e^x + x + 1 - e^x\\cos x}$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$y^{\\prime\\prime}+y^{\\prime}=\\text{sh } x$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $\\text{sh } x$ sous forme exponentielle : $\\frac{e^x - e^{-x}}{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a une résonance avec le terme $e^{-x}$. Cherchez une solution particulière de la forme $A e^x + B x e^{-x}$."
+            }
+          ],
+          "solution_latex": "Équation: $y'' + y' = \\sinh x = \\frac{e^x - e^{-x}}{2}$.\n\\textbf{Équation homogène:} $r(r+1) = 0 \\Rightarrow r = 0$ ou $r = -1$. Donc $y_h(x) = A + Be^{-x}$.\n\\textbf{Solution particulière pour} $e^x/2$: Puisque $r = 1$ n'est pas racine, cherchons $y_{p1} = ae^x$. $ae^x + ae^x = e^x/2 \\Rightarrow a = 1/4$. Donc $y_{p1} = e^x/4$.\n\\textbf{Solution particulière pour} $-e^{-x}/2$: Puisque $r = -1$ est racine simple, cherchons $y_{p2} = axe^{-x}$. $ae^{-x} - ae^{-x} + a(-e^{-x}) - axe^{-x} + ae^{-x} = -ae^{-x} = -e^{-x}/2$. Donc $a = 1/2$. Ainsi $y_{p2} = xe^{-x}/2$.\n$$\\boxed{y(x) = A + Be^{-x} + \\frac{e^x}{4} + \\frac{xe^{-x}}{2}}$$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$2y^{\\prime\\prime}-3y^{\\prime}+y=x e^{x}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez si $1$ est racine de l'équation caractéristique $2r^2-3r+1=0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le second membre est un polynôme de degré 1 multiplié par $e^x$. Puisque $1$ est racine simple, cherchez une solution particulière de la forme $(Ax^2+Bx)e^x$."
+            }
+          ],
+          "solution_latex": "Équation: $2y'' - 3y' + y = xe^x$.\n\\textbf{Équation homogène:} $2r^2 - 3r + 1 = 0 \\Rightarrow r = 1$ ou $r = 1/2$. Donc $y_h(x) = Ae^x + Be^{x/2}$.\n\\textbf{Solution particulière:} Puisque $r = 1$ est une racine simple, cherchons $y_p = (ax + b)xe^x = (ax^2 + bx)e^x$. Après calcul des dérivées et substitution dans l'équation:\n$$2(2ax + 2a + 2b + ax^2 + bx)e^x - 3(ax^2 + (2a+b)x + b)e^x + (ax^2 + bx)e^x = xe^x$$\nLes coefficients donnent $a = 1/2$ et $b = 1/4$.\n$$\\boxed{y(x) = Ae^x + Be^{x/2} + \\left(\\frac{x^2}{2} + \\frac{x}{4}\\right)e^x}$$"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$y^{\\prime\\prime} + y = 3x^2$, $y(0)=1$ et $y^{\\prime}(0)=2$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La solution particulière est un polynôme de même degré que le second membre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $y_p(x) = Ax^2+Bx+C$, injectez dans l'équation pour trouver les coefficients, puis appliquez les conditions de Cauchy."
+            }
+          ],
+          "solution_latex": "Équation: $y'' + y = 3x^2$ avec $y(0) = 1$, $y'(0) = 2$.\n\\textbf{Équation homogène:} $r^2 + 1 = 0 \\Rightarrow r = \\pm i$. Donc $y_h(x) = A\\cos x + B\\sin x$.\n\\textbf{Solution particulière:} Cherchons $y_p = ax^2 + bx + c$. $2a + ax^2 + bx + c = 3x^2$. Donc $a = 3$, $b = 0$, $2a + c = 0$, d'où $c = -6$. Ainsi $y_p = 3x^2 - 6$.\n\\textbf{Solution générale:} $y = A\\cos x + B\\sin x + 3x^2 - 6$.\n\\textbf{Conditions initiales:} $y(0) = A - 6 = 1 \\Rightarrow A = 7$. $y'(0) = B = 2$.\n$$\\boxed{y(x) = 7\\cos x + 2\\sin x + 3x^2 - 6}$$"
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$y^{\\prime\\prime}-4y^{\\prime}+4y=2e^{2x}$ et $y(0)=y^{\\prime}(0)=1$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation caractéristique a une racine double $r=2$. Il y a donc une double résonance avec le second membre !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une solution particulière de la forme $y_p(x) = A x^2 e^{2x}$."
+            }
+          ],
+          "solution_latex": "Équation: $y'' - 4y' + 4y = 2e^{2x}$ avec $y(0) = 1$, $y'(0) = 1$.\n\\textbf{Équation homogène:} $(r-2)^2 = 0 \\Rightarrow r = 2$ (racine double). Donc $y_h(x) = (A + Bx)e^{2x}$.\n\\textbf{Solution particulière:} Puisque $e^{2x}$ correspond à une racine double, on a résonance d'ordre 2. Cherchons $y_p = ax^2e^{2x}$. L'opérateur $(D-2)^2[ax^2e^{2x}] = 2ae^{2x}$. Donc $2a = 2$, ce qui donne $a = 1$. Ainsi $y_p = x^2e^{2x}$.\n\\textbf{Solution générale:} $y = (A + Bx)e^{2x} + x^2e^{2x} = (A + Bx + x^2)e^{2x}$.\n\\textbf{Conditions initiales:} $y(0) = A = 1$. $y'(0) = 2A + B = 1 \\Rightarrow B = -1$.\n$$\\boxed{y(x) = (1 - x + x^2)e^{2x}}$$"
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$y^{\\prime\\prime}+2y^{\\prime}+4y=\\sin x$, $y(0)=1$ et $y^{\\prime}(0)=0$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les racines de l'équation caractéristique sont complexes conjuguées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez la solution particulière sous la forme $A\\cos x + B\\sin x$, ou en utilisant le second membre complexe $e^{ix}$."
+            }
+          ],
+          "solution_latex": "Équation: $y'' + 2y' + 4y = \\sin x$ avec $y(0) = 1$, $y'(0) = 0$.\n\\textbf{Équation homogène:} $r^2 + 2r + 4 = 0 \\Rightarrow r = -1 \\pm i\\sqrt{3}$. Donc $y_h(x) = e^{-x}(A\\cos(\\sqrt{3}x) + B\\sin(\\sqrt{3}x))$.\n\\textbf{Solution particulière:} Cherchons $y_p = a\\cos x + b\\sin x$. $y_p' = -a\\sin x + b\\cos x$, $y_p'' = -a\\cos x - b\\sin x$. En substituant: $(-a + 2b + 4a)\\cos x + (-b - 2a + 4b)\\sin x = \\sin x$. Donc $3a + 2b = 0$ et $-2a + 3b = 1$. Résolvant: $a = -2/13$, $b = 3/13$.\n\\textbf{Solution générale:} $y = e^{-x}(A\\cos(\\sqrt{3}x) + B\\sin(\\sqrt{3}x)) - \\frac{2}{13}\\cos x + \\frac{3}{13}\\sin x$.\n\\textbf{Conditions initiales:} $y(0) = A - 2/13 = 1 \\Rightarrow A = 15/13$. $y'(0) = -A + \\sqrt{3}B + 3/13 = 0$, donc $\\sqrt{3}B = 15/13 - 3/13 = 12/13$, d'où $B = 12/(13\\sqrt{3}) = 4\\sqrt{3}/13$.\n$$\\boxed{y(x) = e^{-x}\\left(\\frac{15}{13}\\cos(\\sqrt{3}x) + \\frac{4\\sqrt{3}}{13}\\sin(\\sqrt{3}x)\\right) - \\frac{2}{13}\\cos x + \\frac{3}{13}\\sin x}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_012",
+      "title": "Systèmes différentiels linéaires",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système différentiel",
+        "substitution",
+        "second ordre"
+      ],
+      "statement_latex": "Résoudre les systèmes différentiels suivants d'inconnues $y,z\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\begin{cases}y^{\\prime}-y=z\\\\ z^{\\prime}+z=3y.\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $z$ à partir de la première équation et dérivez cette expression."
+            },
+            {
+              "level": 2,
+              "content_latex": "Injectez $z$ et $z^{\\prime}$ dans la seconde équation pour obtenir une équation différentielle du second ordre portant uniquement sur $y$."
+            }
+          ],
+          "solution_latex": "Système: $y' - y = z$ et $z' + z = 3y$.\n\\textbf{Élimination:} De la première équation, $z = y' - y$. Substituons dans la deuxième:\n$$(y' - y)' + (y' - y) = 3y$$\n$$y'' - y' + y' - y = 3y$$\n$$y'' - 4y = 0$$\n\\textbf{Résolution:} $r^2 - 4 = 0 \\Rightarrow r = \\pm 2$. Donc $y(x) = Ae^{2x} + Be^{-2x}$.\n\\textbf{Déduction de} $z$: $z = y' - y = 2Ae^{2x} - 2Be^{-2x} - Ae^{2x} - Be^{-2x} = Ae^{2x} - 3Be^{-2x}$.\n$$\\boxed{y(x) = Ae^{2x} + Be^{-2x}, \\quad z(x) = Ae^{2x} - 3Be^{-2x}}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\begin{cases}y^{\\prime}+2y=z\\\\ z^{\\prime}+z=6y.\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la même méthode de substitution que pour le système précédent."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois $y(x)$ trouvé, n'oubliez pas d'utiliser la relation $z = y^{\\prime} + 2y$ pour en déduire directement $z(x)$ sans intégration supplémentaire."
+            }
+          ],
+          "solution_latex": "Système: $y' + 2y = z$ et $z' + z = 6y$.\n\\textbf{Élimination:} De la première équation, $z = y' + 2y$. Substituons dans la deuxième:\n$$(y' + 2y)' + (y' + 2y) = 6y$$\n$$y'' + 2y' + y' + 2y = 6y$$\n$$y'' + 3y' - 4y = 0$$\n\\textbf{Résolution:} $r^2 + 3r - 4 = 0 \\Rightarrow r = 1$ ou $r = -4$. Donc $y(x) = Ae^{x} + Be^{-4x}$.\n\\textbf{Déduction de} $z$: $z = y' + 2y = Ae^{x} - 4Be^{-4x} + 2Ae^{x} + 2Be^{-4x} = 3Ae^{x} - 2Be^{-4x}$.\n$$\\boxed{y(x) = Ae^{x} + Be^{-4x}, \\quad z(x) = 3Ae^{x} - 2Be^{-4x}}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_013",
+      "title": "Unicité de solution bornée",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_complete_ordre_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "solution bornée",
+        "comportement asymptotique",
+        "unicité"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'équation $y^{\\prime\\prime}+2y^{\\prime}+2y=0$ possède une et une seule solution bornée sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__theorem_equation_complete_ordre_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminez la forme générale des solutions réelles de cette équation homogène."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudiez le comportement asymptotique en $-\\infty$. Quelle condition sur les constantes d'intégration est nécessaire pour éviter que la solution ne diverge ?"
+            }
+          ],
+          "solution_latex": "\\\\text{Équation caractéristique: } r^2+2r+2=0 \\\\Rightarrow r=-1\\\\pm i. \\\\text{ Solution générale: } y(x)=e^{-x}(C\\\\cos x + D\\\\sin x). \\\\text{ Comme } e^{-x}\\\\to 0 \\\\text{ quand } x\\\\to +\\\\infty, y \\\\text{ reste bornée. Mais quand } x\\\\to -\\\\infty, e^{-x}\\\\to +\\\\infty. \\\\text{ Pour que } y \\\\text{ soit bornée sur } \\\\mathbb{R}, \\\\text{ on doit avoir } C=D=0. \\\\text{ Donc } y=0 \\\\text{ est l'unique solution bornée de l'équation homogène.}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que l'équation $y^{\\prime\\prime}+2y^{\\prime}+2y=f(x)$ possède au plus une solution bornée sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__definition_equation_differentielle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Supposez qu'il existe deux solutions bornées, $y_1$ et $y_2$, et considérez leur différence."
+            },
+            {
+              "level": 2,
+              "content_latex": "La différence de deux solutions d'une équation avec second membre est solution de l'équation homogène associée. Concluez avec la question 1."
+            }
+          ],
+          "solution_latex": "\\\\text{Soient } y_1 \\\\text{ et } y_2 \\\\text{ deux solutions bornées de l'équation } y''+2y'+2y=f(x). \\\\text{ Alors } y_1-y_2 \\\\text{ est solution bornée de l'équation homogène } y''+2y'+2y=0. \\\\text{ D'après la question 1), la seule solution bornée de l'équation homogène est } y=0. \\\\text{ Donc } y_1-y_2=0, \\\\text{ soit } y_1=y_2. \\\\text{ L'unicité de la solution bornée est établie.}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_014",
+      "title": "Équation fonctionnelle : dérivée et parité croisée",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation fonctionnelle",
+        "analyse-synthèse",
+        "second ordre"
+      ],
+      "statement_latex": "Déterminer toutes les fonctions $f\\in\\mathcal{C}^{1}(\\mathbb{R},\\mathbb{R})$ pour lesquelles pour tout $x\\in\\mathbb{R}$: $f^{\\prime}(x)=2f(-x)+1$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par analyse-synthèse. Évaluez l'équation en substituant $x$ par $-x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation montre que $f^{\\prime}$ est continûment dérivable, donc $f$ est $\\mathcal{C}^2$. Dérivez l'équation initiale, puis injectez l'expression de $f(-x)$ trouvée à l'étape précédente pour obtenir une équation du second ordre sur $f$."
+            }
+          ],
+          "solution_latex": "\\\\text{Différencier } f'(x)=2f(-x)+1: \\\\quad f''(x)=-2f'(-x). \\\\text{ Remplacer } x \\\\text{ par } -x: \\\\quad f'(-x)=2f(x)+1. \\\\text{ Donc } f''(x)=-2(2f(x)+1)=-4f(x)-2. \\\\text{ L'équation devient } f''+4f=-2. \\\\text{ Équation caractéristique: } r^2+4=0 \\\\Rightarrow r=\\\\pm 2i. \\\\text{ Solution générale: } f_h(x)=A\\\\cos 2x+B\\\\sin 2x. \\\\text{ Solution particulière: } f_p(x)=-\\\\frac{1}{2}. \\\\text{ Donc } f(x)=A\\\\cos 2x+B\\\\sin 2x-\\\\frac{1}{2}. \\\\text{ Vérification avec } f'(x)=2f(-x)+1 \\\\text{ donne } A=B. \\\\text{ Solution générale: } f(x)=A(\\\\cos 2x+\\\\sin 2x)-\\\\frac{1}{2}, \\\\quad A\\\\in\\\\mathbb{R}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_015",
+      "title": "Équation fonctionnelle : composition avec l'inverse",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation fonctionnelle",
+        "changement de variable",
+        "Euler",
+        "analyse-synthèse"
+      ],
+      "statement_latex": "On dira qu'une fonction $f\\in\\mathcal{C}^{1}(\\mathbb{R}_{+}^{*},\\mathbb{R})$ est solution d'$\\mathcal{E}$ si pour tout $x>0$: $f^{\\prime}(x)=f\\left(\\frac{1}{x}\\right)$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que toute solution d'$\\mathcal{E}$ est de classe $\\mathcal{C}^{2}$ sur $\\mathbb{R}_{+}^{*}$ et solution d'une équation différentielle du second ordre à préciser.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyse-synthèse avec une vraie synthèse à faire proprement. Montrer que f est deux fois dérivable et solution d'une équation différentielle du second ordre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dérivez la relation en utilisant la règle des fonctions composées. Après calcul, vous devriez obtenir $x^{2}f^{\\prime\\prime}+f=0$."
+            }
+          ],
+          "solution_latex": "\\\\text{Différencier } f'(x)=f(1/x): \\\\quad f''(x)=f'(1/x)\\\\cdot(-1/x^2). \\\\text{ Puisque } f'(1/x)=f(1/(1/x))=f(x), \\\\text{ on a } f''(x)=-\\\\frac{f(x)}{x^2}. \\\\text{ D'où l'équation d'Euler: } x^2f''(x)+f(x)=0."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Résoudre l'équation trouvée en 1) grâce au changement de variable $x=e^{t}$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $z(t)$, $z^{\\prime}(t)$ et $z^{\\prime\\prime}(t)$ en fonction de $y(x)$, $y^{\\prime}(x)$ et $y^{\\prime\\prime}(x)$, puis injecter dans l'équation, mais attention, $z^{\\prime}(t)\\ne y^{\\prime}(x)$ et $z^{\\prime\\prime}(t)\\ne y^{\\prime\\prime}(x)$!"
+            },
+            {
+              "level": 2,
+              "content_latex": "En posant $z(t) = f(e^t)$, vous obtiendrez une équation à coefficients constants du second ordre en $z$."
+            }
+          ],
+          "solution_latex": "\\\\text{Changement de variable: } x=e^t, \\\\quad y(t)=f(e^t). \\\\text{ Alors } f'(x)=\\\\frac{y'(t)}{x}, \\\\quad f''(x)=\\\\frac{y''(t)-y'(t)}{x^2}. \\\\text{ Substitution dans } x^2f''+f=0 \\\\text{ donne } y''-y'+y=0. \\\\text{ Équation caractéristique: } r^2-r+1=0 \\\\Rightarrow r=\\\\frac{1\\\\pm i\\\\sqrt{3}}{2}. \\\\text{ Solution: } y(t)=e^{t/2}(A\\\\cos(\\\\frac{\\\\sqrt{3}t}{2})+B\\\\sin(\\\\frac{\\\\sqrt{3}t}{2}))."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que les solutions d'$\\mathcal{E}$ sont les fonctions $x\\mapsto\\lambda\\sqrt{x}\\sin\\left(\\frac{\\sqrt{3}}{2}\\ln x+\\frac{\\pi}{3}\\right)$, $\\lambda$ décrivant $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les questions 1) et 2) sont un morceau d'analyse, mais la synthèse reste à faire. Courage!"
+            },
+            {
+              "level": 2,
+              "content_latex": "La solution générale obtenue dépend de deux constantes. Injectez-la dans l'équation initiale $\\mathcal{E}$ pour trouver la relation liant ces deux constantes, puis rassemblez les termes à l'aide d'une formule de trigonométrie."
+            }
+          ],
+          "solution_latex": "\\\\text{En revenant à } x: \\\\quad f(x)=y(\\\\ln x)=\\\\sqrt{x}(A\\\\cos(\\\\frac{\\\\sqrt{3}\\\\ln x}{2})+B\\\\sin(\\\\frac{\\\\sqrt{3}\\\\ln x}{2})). \\\\text{ La condition } f'(x)=f(1/x) \\\\text{ impose une relation entre } A \\\\text{ et } B. \\\\text{ Les solutions sont de la forme: } f(x)=\\\\lambda\\\\sqrt{x}\\\\sin(\\\\frac{\\\\sqrt{3}\\\\ln x}{2}+\\\\frac{\\\\pi}{3}), \\\\quad \\\\lambda\\\\in\\\\mathbb{R}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_016",
+      "title": "Équations intégrales",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation intégrale",
+        "analyse-synthèse",
+        "dérivation",
+        "second ordre"
+      ],
+      "statement_latex": "Déterminer les fonctions $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$ pour lesquelles pour tout $x\\in\\mathbb{R}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$f(x)+\\int_{0}^{x}(x-t)f(t)dt=1.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyse-synthèse avec une vraie synthèse à faire proprement. Montrer que f est de classe $\\mathcal{C}^{2}$, puis faire surgir une équation différentielle du second ordre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparez l'intégrale en $x\\int_{0}^{x}f(t)dt - \\int_{0}^{x}tf(t)dt$ avant de dériver une première, puis une deuxième fois par rapport à $x$."
+            }
+          ],
+          "solution_latex": "\\\\text{Différencier } f(x)+\\\\int_0^x(x-t)f(t)dt=1: \\\\quad f'(x)+\\\\int_0^x f(t)dt=0. \\\\text{ Différencier à nouveau: } f''(x)+f(x)=0. \\\\text{ Conditions initiales: } f(0)=1 \\\\text{ et } f'(0)=0. \\\\text{ La solution est } f(x)=\\\\cos x."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$f(x)=1+2\\int_{0}^{x}f(t)\\cos(x-t)dt$.",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme pour la question précédente, montrez que $f$ est $\\mathcal{C}^2$ et dérivez pour obtenir une équation différentielle usuelle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $\\cos(x-t) = \\cos x \\cos t + \\sin x \\sin t$ sous l'intégrale avant de dériver par rapport à $x$. Vous obtiendrez un système liant $f$, $f^{\\prime}$ et des intégrales qu'il faudra dériver à nouveau."
+            }
+          ],
+          "solution_latex": "\\\\text{Soit } f(x)=1+2\\\\int_0^x f(t)\\\\cos(x-t)dt. \\\\text{ Différencier: } f'(x)=2f(x)-2\\\\int_0^x f(t)\\\\sin(x-t)dt. \\\\text{ Soit } h(x)=2\\\\int_0^x f(t)\\\\sin(x-t)dt. \\\\text{ Alors } f'=2f-h \\\\text{ et } h'=2f(x)+(f(x)-1)=3f(x)-1. \\\\text{ De } h=2f-f', \\\\text{ on obtient } h'=2f'-f''=3f-1, \\\\text{ donc } f''-2f'+3f=1. \\\\text{ Équation caractéristique: } r^2-2r+3=0 \\\\Rightarrow r=1\\\\pm i\\\\sqrt{2}. \\\\text{ Solution générale: } f_h=e^x(A\\\\cos(\\\\sqrt{2}x)+B\\\\sin(\\\\sqrt{2}x)). \\\\text{ Solution particulière: } f_p=1/3. \\\\text{ Conditions initiales } f(0)=1 \\\\text{ et } f'(0)=2 \\\\text{ donnent: } f(x)=e^x(\\\\frac{2}{3}\\\\cos(\\\\sqrt{2}x)+\\\\frac{2\\\\sqrt{2}}{3}\\\\sin(\\\\sqrt{2}x))+\\\\frac{1}{3}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__ex_017",
+      "title": "Changements de variables",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 60,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "second ordre",
+        "changement de variable",
+        "équations non à coefficients constants"
+      ],
+      "statement_latex": "Résoudre les équations suivantes à l'aide des changements de variables indiqués :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Résoudre sur $\\mathbb{R}_{+}^{*}$ en posant $x=e^{t}$ l'équation\n$x^{2}y^{\\prime\\prime}+3xy^{\\prime}+y=(x+1)^{2}$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+            "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+            "equations_differentielles_lineaires__definition_equation_differentielle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cela revient en fait à poser $z(t)=y(e^{t})$ et à résoudre une nouvelle équation différentielle d'inconnue z. Le changement de variable se traduit donc ici par un changement de FONCTION."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $y^{\\prime}(x)$ et $y^{\\prime\\prime}(x)$ en fonction de $z^{\\prime}(t)$, $z^{\\prime\\prime}(t)$ et $x$, puis injectez dans l'équation. Vous devriez obtenir $z^{\\prime\\prime} + 2z^{\\prime} + z = (e^t + 1)^2$."
+            }
+          ],
+          "solution_latex": "\\\\text{Changement } x=e^t, \\\\quad z(t)=y(e^t). \\\\text{ Propriétés d'Euler: } xy'=z', \\\\quad x^2y''=z''-z'. \\\\text{ Substitution: } z''-z'+3z'+z=(e^t+1)^2 \\\\Rightarrow z''+2z'+z=e^{2t}+2e^t+1. \\\\text{ On reconnaît } (D+1)^2z=e^{2t}+2e^t+1. \\\\text{ Solution homogène: } z_h=(A+Bt)e^{-t}. \\\\text{ Solutions particulières: } z_{p1}=\\\\frac{e^{2t}}{9}, \\\\quad z_{p2}=\\\\frac{e^t}{2}, \\\\quad z_{p3}=1. \\\\text{ Retour en } x: \\\\quad y(x)=\\\\frac{A+B\\\\ln x}{x}+\\\\frac{x^2}{9}+\\\\frac{x}{2}+1."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Résoudre sur $\\mathbb{R}$ en posant $x=\\tan t$ l'équation :\n$(x^{2}+1)^{2}y^{\\prime\\prime}+2x(x^{2}+1)y^{\\prime}+4y=0.$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z(t) = y(\\tan t)$. Exprimez $z^{\\prime}(t)$ et $z^{\\prime\\prime}(t)$ en appliquant la règle de la chaîne."
+            },
+            {
+              "level": 2,
+              "content_latex": "Rappelez-vous que la dérivée de $\\tan t$ est $1+\\tan^2 t = 1+x^2$. L'équation va se simplifier en une équation à coefficients constants très classique sur $z$."
+            }
+          ],
+          "solution_latex": "\\\\text{Changement } x=\\\\tan t. \\\\text{ On a } \\\\frac{dy}{dt}=(x^2+1)y', \\\\quad \\\\frac{d^2y}{dt^2}=(x^2+1)^2y''+2x(x^2+1)y'. \\\\text{ L'équation devient } z''+4z=0 \\\\text{ où } z(t)=y(t). \\\\text{ Solution générale: } z(t)=A\\\\cos(2t)+B\\\\sin(2t). \\\\text{ Retour en } x: \\\\quad y(x)=A\\\\cos(2\\\\arctan x)+B\\\\sin(2\\\\arctan x)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Résoudre sur $]-1, 1[$ en posant $x = \\sin t$ l'équation\n$(1-x^{2})y^{\\prime\\prime}-xy^{\\prime}+y=0.$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z(t) = y(\\sin t)$ pour $t \\in ]-\\pi/2, \\pi/2[$. Dérivez deux fois $z$ par rapport à $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Substituez $x$ par $\\sin t$ et $\\sqrt{1-x^2}$ par $\\cos t$ pour identifier l'équation $z^{\\prime\\prime} + z = 0$."
+            }
+          ],
+          "solution_latex": "\\\\text{Changement } x=\\\\sin t. \\\\text{ On a } \\\\frac{dy}{dt}=y'\\\\cos t, \\\\quad \\\\frac{d^2y}{dt^2}=y''\\\\cos^2 t-y'\\\\sin t=(1-x^2)y''-xy'. \\\\text{ L'équation devient } z''+z=0 \\\\text{ où } z(t)=y(t). \\\\text{ Solution générale: } z(t)=A\\\\cos t+B\\\\sin t. \\\\text{ Retour en } x: \\\\quad y(x)=A\\\\sqrt{1-x^2}+Bx."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soit $\\alpha\\in\\mathbb{R}^{*}$. Résoudre sur $\\mathbb{R}$ en posant $x=\\text{sh } t$ l'équation\n$(x^{2}+1)y^{\\prime\\prime}+xy^{\\prime}-\\alpha^{2}y=0$",
+          "knowledge_nodes_tested": [
+            "equations_differentielles_lineaires__definition_equation_differentielle",
+            "equations_differentielles_lineaires__definition_equation_lineaire",
+            "equations_differentielles_lineaires__method_variation_constante"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z(t) = y(\\text{sh } t)$. Calculez les dérivées successives de $z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez l'identité $\\text{ch}^2 t - \\text{sh}^2 t = 1$, soit $\\text{ch}^2 t = x^2+1$. L'équation se réduit à $z^{\\prime\\prime} - \\alpha^2 z = 0$."
+            }
+          ],
+          "solution_latex": "\\\\text{Changement } x=\\\\sinh t. \\\\text{ On a } \\\\frac{dy}{dt}=y'\\\\cosh t, \\\\quad \\\\frac{d^2y}{dt^2}=y''\\\\cosh^2 t+y'\\\\sinh t=(1+x^2)y''+xy'. \\\\text{ L'équation devient } z''-\\\\alpha^2z=0 \\\\text{ où } z(t)=y(t). \\\\text{ Solution générale: } z(t)=Ae^{\\\\alpha t}+Be^{-\\\\alpha t}. \\\\text{ Retour en } x: \\\\quad y(x)=A(x+\\\\sqrt{x^2+1})^{\\\\alpha}+B(x+\\\\sqrt{x^2+1})^{-\\\\alpha}."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_001",
+      "title": "TD Champo - 10.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_ordre_n",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation différentielle linéaire d'ordre 1",
+        "Variation de la constante",
+        "Primitive",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations différentielles suivantes sur les intervalles $I$ indiqués :\n1. $y' + y = e^{2x}$ ($I = \\mathbb{R}$)\n2. $2ty'(t) - 3y(t) = t^2$ ($I = \\mathbb{R}_{+}^{*}$)\n3. $(t-1)y' - 2y = (t-1)^3$ ($I = ]-\\infty, 1[$)\n4. $\\sqrt{1-t^2}y' - y = 2$ ($I = ]-1, 1[$)\n5. $xy' - 2y = x^5 \\sin(x)$ ($I = \\mathbb{R}_{-}^{*}$)\n6. $y' - y = \\text{sh}(x)$ ($I = \\mathbb{R}$)\n7. $(t^2+1)^2 y' + 2t(t^2+1)y = 2$ ($I = \\mathbb{R}$)\n8. $(1+x^2)y' - y = 1$ ($I = \\mathbb{R}$)\n9. $y' + y \\tan x = \\sin(2x)$ ($I = ]-\\frac{\\pi}{2}, \\frac{\\pi}{2}[$)",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x \\mapsto \\frac{e^{2x}}{3} + \\lambda e^{-x}$.\n2. $t \\mapsto t^2 + \\lambda t\\sqrt{t}$.\n3. $t \\mapsto (t-1)^2(\\lambda + t)$.\n4. $t \\mapsto -2 + \\lambda e^{\\text{Arcsin}(t)}$.\n5. $x \\mapsto x^2((2-x^2)\\cos(x) + 2x\\sin(x) + \\lambda)$.\n6. $x \\mapsto e^x(\\lambda + \\frac{x}{2}) + \\frac{e^{-x}}{4}$.\n7. $t \\mapsto \\frac{2\\text{Arctan}(t) + \\lambda}{1+t^2}$.\n8. $t \\mapsto \\lambda e^{\\text{Arctan}(t)} - 1$.\n9. $t \\mapsto \\lambda \\cos t - 2\\cos^2 t$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser la méthode de la variation de la constante ou identifier une solution particulière évidente."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_002",
+      "title": "TD Champo - 10.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_ordre_2",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Problème de Cauchy",
+        "Condition initiale",
+        "Exponentielle complexe",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les solutions aux problèmes de Cauchy suivants :\n1. $y' + y = \\cos(t)e^t, y(0) = -1$\n2. $(x+1)y' + (x^2 + x + 1)y = x, y(1) = e$\n3. $y' + 2xy = e^{x-x^2}, y(0) = 0$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $t \\mapsto \\frac{1}{5}(-7e^{-t} + e^t(2\\cos(t) + \\sin(t)))$.\n2. $x \\mapsto \\frac{1 + (2e-1)e^{(1-x^2)/2}}{x+1}$.\n3. $x \\mapsto e^{-x^2}(e^x - 1)$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_003",
+      "title": "TD Champo - 10.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation homogène",
+        "Unicité",
+        "Exponentielle",
+        "champo"
+      ],
+      "statement_latex": "Soit $y'(t) + a(t)y(t) = 0$ une équation différentielle linéaire homogène d'ordre un sur $I$. Soit $y_0$ une solution. Montrer que s'il existe $t_0 \\in I$ tel que $y_0(t_0) = 0$, alors $y_0$ est la fonction nulle.",
+      "sub_questions": [],
+      "global_solution_latex": "Les solutions sont de la forme $t \\mapsto \\lambda e^{-A(t)}$. Comme l'exponentielle ne s'annule jamais, $y_0(t_0) = 0 \\implies \\lambda = 0$[cite: 254, 256].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser l'unicité du problème de Cauchy ou la forme générale des solutions."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_004",
+      "title": "TD Champo - 10.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_ordre_2",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Raccordement",
+        "Continuité",
+        "Dérivabilité",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations suivantes sur $\\mathbb{R}$ :\n1. $xy' - 2y = 2x^4$\n2. $x(x^2+1)y' - (x^2-1)y = -2x$\n3. $(1-x^2)y' + xy = x$\n4. $xy' - y = x^2$\n5. $x^2 y' - y = (x^2-1)e^x$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x \\mapsto \\lambda_1 x^2 + x^4$ si $x \\ge 0$ et $\\lambda_2 x^2 + x^4$ si $x < 0$.\n2. L'unique solution est $x \\mapsto -x$.\n3. L'unique solution est la fonction constante égale à 1.\n4. $x \\mapsto \\lambda x + x^2$.\n5. $x \\mapsto e^x$ si $x \\le 0$ et $\\lambda e^{-1/x} + e^x$ si $x > 0$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Résoudre sur chaque intervalle où le coefficient de $y'$ ne s'annule pas, puis étudier la continuité et la dérivabilité au point critique."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_005",
+      "title": "TD Champo - 10.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Oral Mines",
+        "Raccordement",
+        "Limite",
+        "champo"
+      ],
+      "statement_latex": "Existe-t-il des solutions sur $\\mathbb{R}$ de l'équation différentielle $y' \\sin x + y \\cos x = \\sin^2 x$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "Non. Les solutions sur $]0, \\pi[$ sont de la forme $y(x) = \\frac{x+2\\lambda}{2\\sin x} - \\frac{\\cos x}{2}$. La continuité en 0 impose $\\lambda = 0$, mais alors $\\lim_{x \\to \\pi^-} y(x) = +\\infty$, ce qui contredit la continuité en $\\pi$[cite: 469, 472, 474].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Chercher les solutions sur $]k\\pi, (k+1)\\pi[$ et regarder si elles admettent des limites finies en $k\\pi$."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_006",
+      "title": "TD Champo - 10.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation intégrale",
+        "Fonction dérivable",
+        "champo"
+      ],
+      "statement_latex": "Déterminer toutes les fonctions dérivables sur $\\mathbb{R}$ telles que $\\forall t \\in \\mathbb{R}, f'(t) + f(t) = \\int_{0}^{1} f(x) dx$.",
+      "sub_questions": [],
+      "global_solution_latex": "Les solutions sont les fonctions constantes $f(t) = A$ pour tout $A \\in \\mathbb{R}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Noter $A = \\int_{0}^{1} f(x) dx$ la constante et résoudre l'équation différentielle $y' + y = A$."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_007",
+      "title": "TD Champo - 10.7",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_ordre_n",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation homogène d'ordre 2",
+        "Coefficients constants",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations différentielles suivantes :\n1. $y'' - 2y' + y = 0$\n2. $y'' + y' + y = 0$ ($K=\\mathbb{C}$ puis $K=\\mathbb{R}$)\n3. $y'' + 4y' - 6y = 0$\n4. $y'' - 4y' + ay = 0$ ($a \\in \\mathbb{R}$)",
+      "sub_questions": [],
+      "global_solution_latex": "1. $(\\lambda t + \\mu)e^t$.\n2. $e^{-t/2}(\\lambda \\cos(\\frac{\\sqrt{3}}{2}t) + \\mu \\sin(\\frac{\\sqrt{3}}{2}t))$ sur $\\mathbb{R}$.\n3. $\\lambda e^{(-\\sqrt{10}-2)t} + \\mu e^{(\\sqrt{10}-2)t}$.\n4. Si $a \\le 4$, racines réelles ; si $a > 4$, racines complexes[cite: 514, 516].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Étudier le signe du discriminant du polynôme caractéristique."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_008",
+      "title": "TD Champo - 10.8",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__method_variation_constante"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Coefficients complexes",
+        "Cauchy",
+        "champo"
+      ],
+      "statement_latex": "Résoudre $y'' - (1-i)y' - 2(1+i)y = 0$. Déterminer l'unique solution telle que $y(0) = y'(0) = 1$.",
+      "sub_questions": [],
+      "global_solution_latex": "$\\Delta = 8-6i = (3-i)^2$. Racines : 2 et $-1-i$. Solution : $t \\mapsto \\frac{7+i}{10}e^{2t} + \\frac{3-i}{10}e^{-(1+i)t}$[cite: 527, 528, 536].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer le discriminant complexe $\\Delta$."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_009",
+      "title": "TD Champo - 10.9",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_ordre_n",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Second membre",
+        "Superposition",
+        "Exponentielle complexe",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations suivantes :\n1. $y'' + 2y' + y = \\text{sh}(x)$\n2. $y'' + 4y' + 5y = e^{-2x} \\sin(x)$\n3. $y'' - 3y' + 2y = \\sin x + \\cos x$\n4. $y'' - y = e^x \\cos(2x)$\n5. $y'' + y = \\sin(x)$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $((\\lambda x + \\mu) - \\frac{x^2}{4})e^{-x} + \\frac{e^x}{8}$.\n2. $e^{-2x}(\\cos(x)\\frac{\\lambda - x}{2} + \\mu \\sin(x))$.\n3. $\\lambda e^x + \\mu e^{2x} + \\frac{2\\cos x}{5} - \\frac{\\sin x}{5}$.\n4. $\\lambda e^{-x} + \\mu e^x - \\frac{e^x}{8}(\\cos(2x) + \\sin(2x))$.\n5. $\\lambda \\cos x + \\mu \\sin x - \\frac{x}{2} \\cos x$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Utiliser le principe de superposition et chercher des solutions particulières sous forme de fonctions 'du même type'."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_010",
+      "title": "TD Champo - 10.10",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_complete_ordre_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Solution bornée",
+        "Analyse",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que $y'' + 2y' + 2y = 0$ possède une unique solution bornée sur $\\mathbb{R}$.\n2. En déduire que $y''(x) + 2y'(x) + 2y(x) = f(x)$ possède au plus une solution bornée sur $\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Les solutions sont $e^{-t}(\\lambda \\cos t + \\mu \\sin t)$. Si $\\lambda \\ne 0$ ou $\\mu \\ne 0$, la fonction n'est pas bornée quand $t \\to -\\infty$[cite: 611, 613].\n2. La différence de deux solutions bornées serait une solution bornée de l'homogène, donc nulle.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Une solution bornée de l'équation homogène ne peut être que la fonction nulle."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_011",
+      "title": "TD Champo - 10.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Second membre polynomial",
+        "Somme de termes",
+        "champo"
+      ],
+      "statement_latex": "1. Résoudre $y'' + 2y' = x^2 - x + 2\\text{ch}(x)$.\n2. Résoudre $y'' - 3y' + 2y = xe^x$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $x \\mapsto \\lambda e^{-2x} + \\mu + \\frac{x^3}{6} - \\frac{x^2}{2} + \\frac{x}{2} + \\frac{e^x}{3} - e^{-x}$.\n2. $x \\mapsto -(\\frac{x^2}{2} + x + \\lambda)e^x + \\mu e^{2x}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour la question 2, 1 est racine simple du polynôme caractéristique."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_012",
+      "title": "TD Champo - 10.12",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__definition_equation_lineaire",
+        "equations_differentielles_lineaires__method_variation_constante",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation d'Euler",
+        "Changement de variable",
+        "champo"
+      ],
+      "statement_latex": "On cherche à résoudre $x^2 y'' + axy' + by = c(x)$ sur $\\mathbb{R}_{+}^{*}$.\n1. Poser $t = \\ln(x)$ et $z(t) = y(e^t)$.\n2. Résoudre $x^2 y'' + xy' + y = x^2 + x + 1$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. L'équation devient $z'' + (a-1)z' + bz = c(e^t)$.\n2. L'équation en $z$ est $z'' + z = e^{2t} + e^t + 1$. Solution finale : $x \\mapsto \\lambda \\cos(\\ln x) + \\mu \\sin(\\ln x) + \\frac{x^2}{5} + \\frac{x}{2} + 1$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer $y'$ et $y''$ en fonction de $z'$ et $z''$ via la règle de la chaîne."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_013",
+      "title": "TD Champo - 10.13",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__method_variation_constante"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation fonctionnelle",
+        "Analyse-Synthèse",
+        "champo"
+      ],
+      "statement_latex": "1. Déterminer les fonctions dérivables sur $\\mathbb{R}$ telles que $f'(x) = -f(-x)$.\n2. Déterminer les fonctions dérivables sur $\\mathbb{R}$ telles que $f'(x) = f(-x) + xe^{-x}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $f''(x) + f(x) = 0 \\implies f(x) = \\lambda(\\cos x - \\sin x)$[cite: 686, 696].\n2. $f(x) = \\frac{x-1}{2}e^x - \\frac{x}{2}e^{-x} + \\lambda(\\cos x + \\sin x)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Dériver la relation pour obtenir une équation différentielle d'ordre 2."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_014",
+      "title": "TD Champo - 10.14",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_differentielle",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__method_variation_constante"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation intégrale",
+        "Théorème fondamental de l'analyse",
+        "champo"
+      ],
+      "statement_latex": "Trouver toutes les fonctions continues sur $\\mathbb{R}$ telles que $\\forall x \\in \\mathbb{R}, f(x) + \\int_{0}^{x} (x-t)f(t)dt = 1$.",
+      "sub_questions": [],
+      "global_solution_latex": "Par dérivation, on obtient $f'' + f = 0$ avec $f(0)=1$ et $f'(0)=0$. L'unique solution est $f(x) = \\cos x$[cite: 739, 759].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Dériver deux fois l'égalité après avoir justifié la dérivabilité."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_015",
+      "title": "TD Champo - 10.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation non linéaire",
+        "Changement de fonction",
+        "champo"
+      ],
+      "statement_latex": "Résoudre $y' = e^{x+y}$ en posant $z = e^{-y}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$z' = -e^x$. Donc $z(x) = -e^x + \\lambda$. Comme $z > 0$, il faut $\\lambda > e^x$. Solutions : $y(x) = -\\ln(\\lambda - e^x)$ sur $]-\\infty, \\ln \\lambda[$[cite: 773, 775].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer $z'$ en fonction de $y'$ et remplacer."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_016",
+      "title": "TD Champo - 10.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__example_equations_ordre_2_reelles",
+        "equations_differentielles_lineaires__example_tableau_methodes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suites récurrentes linéaires",
+        "Arithmético-géométrique",
+        "champo"
+      ],
+      "statement_latex": "Donner les termes généraux des suites :\n1. $u_0 = 7, u_{n+1} = 3u_n + 4$\n2. $u_0 = 1, u_1 = 0, u_{n+2} + 4u_n = 4u_{n+1}$\n3. $u_0 = 1, u_1 = -1, 2u_{n+2} = 3u_{n+1} - u_n$\n4. $u_0 = 1, u_1 = 2, u_{n+2} = u_{n+1} - u_n$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $u_n = 9 \\times 3^n - 2$.\n2. $u_n = 2^n(1-n)$.\n3. $u_n = -3 + \\frac{4}{2^n}$.\n4. $u_n = 2 \\cos(\\frac{(n-1)\\pi}{3})$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Appliquer les méthodes classiques de résolution des suites récurrentes d'ordre 1 et 2."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_017",
+      "title": "TD Champo - 10.17",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+        "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+        "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+        "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Récurrence linéaire",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\theta \\in ]0, \\pi[$, et $u_0 = u_1 = 1$, $\\forall n \\in \\mathbb{N}, u_{n+2} = 2\\cos(\\theta)u_{n+1} - u_n$. Déterminer le terme général.",
+      "sub_questions": [],
+      "global_solution_latex": "$u_n = \\frac{\\cos(\\frac{(2n-1)\\theta}{2})}{\\cos(\\frac{\\theta}{2})}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Les racines du polynôme caractéristique sont $e^{\\pm i\\theta}$."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_018",
+      "title": "TD Champo - 10.18",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__definition_equation_lineaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Suite arithmético-géométrique",
+        "Récurrence d'ordre 2",
+        "champo"
+      ],
+      "statement_latex": "Montrer qu'une suite $v_{n+1} = av_n + b$ est une suite récurrente linéaire d'ordre 2. En déduire le terme général de $v_0 = 2, v_{n+1} = 2v_n - 3$.",
+      "sub_questions": [],
+      "global_solution_latex": "$v_{n+2} - (a+1)v_{n+1} + av_n = 0$. Pour l'exemple : $v_n = 3 - 2^n$[cite: 815, 825].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Éliminer la constante $b$ en écrivant la relation au rang $n+1$ et en faisant la différence."
+        }
+      ]
+    },
+    {
+      "id": "equations_differentielles_lineaires__champo_019",
+      "title": "TD Champo - 10.19",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "equations_differentielles_lineaires__method_second_membre_polynome_exp"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ENS",
+        "Équation fonctionnelle",
+        "Suites",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les applications $f: \\mathbb{R}_{+}^{*} \\to \\mathbb{R}_{+}^{*}$ telles que $\\forall x > 0, f(f(x)) = 6x - f(x)$.",
+      "sub_questions": [],
+      "global_solution_latex": "La suite $u_n$ vérifie $u_{n+2} + u_{n+1} - 6u_n = 0$, donc $u_n = A 2^n + B (-3)^n$. La positivité de $f$ impose $B=0$. On en déduit $f(x) = 2x$[cite: 833, 852, 855].",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Étudier la suite $u_{n+1} = f(u_n)$ avec $u_0 = x$."
+        }
+      ]
+    }
+  ]
+}

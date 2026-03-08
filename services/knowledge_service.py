@@ -1,9 +1,12 @@
 """
-Knowledge Service - Acces deterministe aux donnees via le knowledge graph.
+Knowledge Service - Acces deterministe aux donnees via le knowledge graph V3.
 
-Remplace le RAG vectoriel ChromaDB par un lookup en memoire sur les JSON structures.
-Charge ~2 Mo de donnees au demarrage, construit des index, et expose les memes
-signatures que l'ancien data/query.py pour une integration transparente.
+Charge les donnees JSON V3 au demarrage, construit des index en memoire,
+et expose l'API publique pour les chapitres, questions, exercices et contexte LLM.
+
+Architecture: 29 chapitres cours (user-facing) sont la reference.
+Les questions (groupees par programme) sont distribuees aux chapitres cours
+via le mapping linked_course_chapters.
 """
 
 import json
@@ -13,22 +16,27 @@ from typing import Optional
 
 
 class KnowledgeService:
-    """Base de connaissances en memoire chargee depuis les fichiers JSON."""
+    """Base de connaissances en memoire chargee depuis les fichiers JSON V3."""
 
     def __init__(self, base_dir: Optional[Path] = None):
         if base_dir is None:
             base_dir = Path(__file__).parent.parent
         self._base_dir = base_dir
 
-        # Alias de normalisation des chapter IDs
-        self._chapter_id_aliases = {"EV": "EV_AL"}
+        # Normalisation des exercise chapter IDs vers les IDs cours (reference)
+        # Corrige les mismatches entre exercices/ et cours/
+        self._exercise_id_to_cours_id = {
+            "calculs_algebriques_dans_r": "calculs_algebriques_dans_R",
+            "representation_matricielle": "representation_matricielle_applications_lineaires",
+            "arithmetique_polynomes_fractions": "arithmetique_des_polynomes_et_fractions_rationnelles",
+        }
 
         # Chargement des donnees
         self._load_knowledge_graph()
-        self._load_questions_kholle()
         self._load_programme()
         self._load_cours_json()
         self._load_exo_json()
+        self._load_questions_de_cours()
         self._build_indices()
 
     # =========================================================================
@@ -46,21 +54,27 @@ class KnowledgeService:
 
         self._graph_edges: list[dict] = data["edges"]
 
-    def _load_questions_kholle(self):
-        path = self._base_dir / "data" / "questions_kholle.json"
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        self._raw_questions: dict = data["chapters"]
-
     def _load_programme(self):
+        """Charge programme.json pour les metadonnees (semestre, importance, vigilance, etc.)."""
         path = self._base_dir / "data" / "programme.json"
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
         ref = data["referentiel_mpsi"]
-        # Retirer les metadata du referentiel
         self._raw_programme: dict = {k: v for k, v in ref.items() if k != "metadata"}
 
+        # Mapping programme_id -> course chapter IDs (pour distribuer les questions)
+        self._prog_to_course_chapters: dict[str, list[str]] = {}
+        # Mapping course_id -> programme_id (pour retrouver semestre/importance)
+        self._course_to_prog: dict[str, str] = {}
+        for prog_id, prog_data in self._raw_programme.items():
+            linked = prog_data.get("linked_course_chapters", [])
+            self._prog_to_course_chapters[prog_id] = linked
+            for course_id in linked:
+                self._course_to_prog[course_id] = prog_id
+
     def _load_cours_json(self):
+        """Charge les 29 fichiers cours. Les chapter_official_id sont la reference."""
+        self._course_chapters: dict[str, dict] = {}  # chapter_id -> metadata
         self._course_nodes_by_id: dict[str, dict] = {}
         self._course_nodes_by_chapter: dict[str, list[dict]] = {}
 
@@ -72,16 +86,26 @@ class KnowledgeService:
             with open(fpath, "r", encoding="utf-8") as f:
                 data = json.load(f)
             chapter_id = data.get("chapter_official_id", "")
+            chapter_name = data.get("chapter_name", "")
             nodes = data.get("knowledge_nodes", [])
 
-            if chapter_id not in self._course_nodes_by_chapter:
-                self._course_nodes_by_chapter[chapter_id] = []
+            # Stocker les metadonnees du chapitre
+            prog_id = self._course_to_prog.get(chapter_id, "")
+            prog_data = self._raw_programme.get(prog_id, {})
+            self._course_chapters[chapter_id] = {
+                "title": chapter_name,
+                "semestre": prog_data.get("semestre", 1),
+                "importance": prog_data.get("importance", 3),
+                "programme_id": prog_id,
+            }
 
+            self._course_nodes_by_chapter[chapter_id] = []
             for node in nodes:
                 self._course_nodes_by_id[node["id"]] = node
                 self._course_nodes_by_chapter[chapter_id].append(node)
 
     def _load_exo_json(self):
+        """Charge les exercices et normalise les chapter_official_id vers les IDs cours."""
         self._td_exercises_by_id: dict[str, dict] = {}
         self._td_exercises_by_chapter: dict[str, list[dict]] = {}
 
@@ -92,7 +116,9 @@ class KnowledgeService:
         for fpath in exo_dir.glob("*.json"):
             with open(fpath, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            chapter_id = data.get("chapter_official_id", "")
+            raw_chapter_id = data.get("chapter_official_id", "")
+            # Normaliser vers l'ID cours de reference
+            chapter_id = self._exercise_id_to_cours_id.get(raw_chapter_id, raw_chapter_id)
             exercises = data.get("exercises", [])
 
             if chapter_id not in self._td_exercises_by_chapter:
@@ -103,18 +129,38 @@ class KnowledgeService:
                 self._td_exercises_by_id[ex["id"]] = ex
                 self._td_exercises_by_chapter[chapter_id].append(ex)
 
+    def _load_questions_de_cours(self):
+        """Charge les questions et les distribue aux chapitres cours."""
+        # Questions indexees par cours chapter ID
+        self._questions_by_course_chapter: dict[str, list[dict]] = {}
+        # Garder les donnees brutes par programme pour get_programme_for_chapter
+        self._raw_questions_by_prog: dict[str, dict] = {}
+
+        qdir = self._base_dir / "data" / "questions_de_cours"
+        if not qdir.exists():
+            return
+
+        for fpath in qdir.glob("*.json"):
+            with open(fpath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            prog_id = data.get("programme_chapter_id", "")
+            questions = data.get("questions", [])
+            linked = data.get("linked_course_chapters", [])
+
+            self._raw_questions_by_prog[prog_id] = data
+
+            # Distribuer les questions aux chapitres cours lies
+            for course_id in linked:
+                if course_id not in self._questions_by_course_chapter:
+                    self._questions_by_course_chapter[course_id] = []
+                self._questions_by_course_chapter[course_id].extend(questions)
+
     # =========================================================================
     # Construction des index
     # =========================================================================
 
     def _build_indices(self):
-        # Index des chapitres
-        self._chapters: dict[str, dict] = {}
-        for node in self._graph_nodes.values():
-            if "Chapter" in node["labels"]:
-                self._chapters[node["id"]] = node["properties"]
-
-        # Index des aretes
+        """Construit les index du knowledge graph."""
         self._kholle_to_concepts: dict[str, list[tuple[str, float]]] = {}
         self._concept_to_kholles: dict[str, list[str]] = {}
         self._exercise_to_concepts: dict[str, list[tuple[str, float]]] = {}
@@ -125,7 +171,7 @@ class KnowledgeService:
 
         for edge in self._graph_edges:
             src, tgt, etype = edge["source"], edge["target"], edge["type"]
-            props = edge.get("properties", {})
+            props = edge.get("properties", {}) or {}
 
             if etype == "BELONGS_TO":
                 src_node = self._graph_nodes.get(src, {})
@@ -135,7 +181,7 @@ class KnowledgeService:
                     self._chapter_to_concepts.setdefault(tgt, []).append(src)
 
             elif etype == "TESTS":
-                confidence = props.get("confidence", 0.5)
+                confidence = props.get("confidence", 1.0)
                 src_node = self._graph_nodes.get(src, {})
                 labels = src_node.get("labels", [])
 
@@ -150,38 +196,20 @@ class KnowledgeService:
                 self._chapter_prerequisites.setdefault(src, []).append(tgt)
 
     # =========================================================================
-    # Utilitaires
-    # =========================================================================
-
-    def _normalize_chapter_id(self, chapter_id: str) -> str:
-        return self._chapter_id_aliases.get(chapter_id, chapter_id)
-
-    def _find_questions_for_chapter(self, chapter_id: str) -> tuple[list[dict], str]:
-        """Retourne (questions, chapter_title) pour un chapter_id (avec alias)."""
-        canonical = self._normalize_chapter_id(chapter_id)
-        # Chercher dans les deux IDs possibles
-        for cid in {chapter_id, canonical}:
-            if cid in self._raw_questions:
-                ch_data = self._raw_questions[cid]
-                title = ch_data.get("title", self._chapters.get(canonical, {}).get("title", ""))
-                return ch_data["questions_cours"], title
-        return [], self._chapters.get(canonical, {}).get("title", "")
-
-    # =========================================================================
-    # API publique - Drop-in pour data/query.py
+    # API publique
     # =========================================================================
 
     def get_chapters(self) -> list[dict]:
-        """Retourne la liste des chapitres avec stats."""
+        """Retourne la liste des 29 chapitres cours avec stats."""
         result = []
-        for chapter_id, props in self._chapters.items():
-            questions, _ = self._find_questions_for_chapter(chapter_id)
-            has_exercises = chapter_id in self._td_exercises_by_chapter
+        for chapter_id, props in self._course_chapters.items():
+            questions = self._questions_by_course_chapter.get(chapter_id, [])
+            exercises = self._td_exercises_by_chapter.get(chapter_id, [])
 
-            if not questions or not has_exercises:
+            if not questions or not exercises:
                 continue
 
-            difficulties = sorted({q["difficulte"] for q in questions})
+            difficulties = sorted({q["difficulty"] for q in questions})
             result.append({
                 "id": chapter_id,
                 "title": props["title"],
@@ -200,28 +228,25 @@ class KnowledgeService:
         question_type: Optional[str] = None,
         exclude_ids: Optional[list[str]] = None,
     ) -> Optional[dict]:
-        """Retourne une question aleatoire correspondant aux criteres."""
-        canonical = self._normalize_chapter_id(chapter_id)
-        questions, chapter_title = self._find_questions_for_chapter(chapter_id)
+        """Retourne une question aleatoire pour un chapitre cours."""
+        questions = self._questions_by_course_chapter.get(chapter_id, [])
+        chapter_title = self._course_chapters.get(chapter_id, {}).get("title", "")
 
         if not questions:
             return None
 
         candidates = list(questions)
 
-        # Filtrer par difficulte (+/- 1)
         if difficulty is not None:
-            filtered = [q for q in candidates if abs(q["difficulte"] - difficulty) <= 1]
+            filtered = [q for q in candidates if abs(q["difficulty"] - difficulty) <= 1]
             if filtered:
                 candidates = filtered
 
-        # Filtrer par type
         if question_type:
             filtered = [q for q in candidates if q["type"] == question_type]
             if filtered:
                 candidates = filtered
 
-        # Exclure les deja posees
         if exclude_ids:
             candidates = [q for q in candidates if q["id"] not in exclude_ids]
 
@@ -232,15 +257,14 @@ class KnowledgeService:
 
         return {
             "id": q["id"],
-            "chapter_id": canonical,
+            "chapter_id": chapter_id,
             "chapter_title": chapter_title,
-            "difficulty": q["difficulte"],
-            "question_raw": q["question"],
+            "difficulty": q["difficulty"],
+            "question_raw": q["question_latex"],
             "question_type": q["type"],
-            "temps_estime_min": q["temps_estime_min"],
-            "attendus_json": json.dumps(q["attendus"], ensure_ascii=False),
-            "erreurs_frequentes_json": json.dumps(q["erreurs_frequentes"], ensure_ascii=False),
-            "relances_prof_json": json.dumps(q["relances_prof"], ensure_ascii=False),
+            "answer_latex": q.get("answer_latex", ""),
+            "answer_node_id": q.get("answer_node_id", ""),
+            "programme_notion": q.get("programme_notion", ""),
         }
 
     def get_exercise_by_difficulty(
@@ -249,13 +273,11 @@ class KnowledgeService:
         difficulty: int = 3,
         exclude_ids: Optional[list[str]] = None,
     ) -> Optional[dict]:
-        """Retourne un exercice adapte au niveau."""
-        canonical = self._normalize_chapter_id(chapter_id) if chapter_id else None
-
+        """Retourne un exercice adapte au niveau pour un chapitre cours."""
         candidates = []
-        if canonical and canonical in self._td_exercises_by_chapter:
-            candidates = list(self._td_exercises_by_chapter[canonical])
-        else:
+        if chapter_id:
+            candidates = list(self._td_exercises_by_chapter.get(chapter_id, []))
+        if not candidates:
             candidates = list(self._td_exercises_by_id.values())
 
         if exclude_ids:
@@ -265,15 +287,15 @@ class KnowledgeService:
             return None
 
         def diff_distance(ex):
-            return abs(ex.get("metadata", {}).get("difficulty_score", 3) - difficulty)
+            return abs(ex.get("difficulty", 3) - difficulty)
 
         candidates.sort(key=diff_distance)
         best = diff_distance(candidates[0])
         tier = [ex for ex in candidates if diff_distance(ex) <= best + 1]
 
         ex = random.choice(tier)
-        ch_id = ex.get("_chapter_id", canonical or "")
-        chapter_title = self._chapters.get(ch_id, {}).get("title", "")
+        ch_id = ex.get("_chapter_id", chapter_id or "")
+        chapter_title = self._course_chapters.get(ch_id, {}).get("title", "")
 
         return self._format_exercise(ex, chapter_title, ch_id)
 
@@ -288,9 +310,6 @@ class KnowledgeService:
         Trouve un exercice TD testant les memes concepts que la question validee.
         Utilise les aretes TESTS du knowledge graph. Fallback sur chapter + difficulty.
         """
-        # Normaliser le chapter_id pour filtrer correctement
-        normalized_chapter = self._normalize_chapter_id(chapter_id) if chapter_id else None
-
         candidate_ids: set[str] = set()
         for concept_id in concept_ids:
             for ex_id in self._concept_to_exercises.get(concept_id, []):
@@ -302,8 +321,8 @@ class KnowledgeService:
                 if exclude_ids and ex_id in exclude_ids:
                     continue
                 ex = self._td_exercises_by_id[ex_id]
-                # Filtrer par chapitre pour eviter les exercices d'un autre chapitre
-                if normalized_chapter and ex.get("_chapter_id") != normalized_chapter:
+                # Si un chapitre est specifie, filtrer
+                if chapter_id and ex.get("_chapter_id") != chapter_id:
                     continue
                 candidates.append(ex)
 
@@ -315,7 +334,7 @@ class KnowledgeService:
         def score_exercise(ex):
             ex_concepts = {c_id for c_id, _ in self._exercise_to_concepts.get(ex["id"], [])}
             overlap = len(ex_concepts & concept_set)
-            ex_diff = ex.get("metadata", {}).get("difficulty_score", 3)
+            ex_diff = ex.get("difficulty", 3)
             diff_penalty = abs(ex_diff - difficulty)
             return (overlap, -diff_penalty)
 
@@ -324,31 +343,64 @@ class KnowledgeService:
         ex = random.choice(top)
 
         ch_id = ex.get("_chapter_id", "")
-        chapter_title = self._chapters.get(ch_id, {}).get("title", "")
+        chapter_title = self._course_chapters.get(ch_id, {}).get("title", "")
 
         return self._format_exercise(ex, chapter_title, ch_id)
 
     def _format_exercise(self, ex: dict, chapter_title: str, chapter_id: str) -> dict:
-        content = ex.get("content", {})
+        """Formate un exercice V3 pour l'API."""
+        enonce_parts = []
+        main_statement = ex.get("statement_latex", "")
+        if main_statement:
+            enonce_parts.append(main_statement)
+
+        sub_questions = ex.get("sub_questions", [])
+        for sq in sub_questions:
+            label = sq.get("label", "")
+            stmt = sq.get("statement_latex", "")
+            if label and stmt:
+                enonce_parts.append(f"{label} {stmt}")
+            elif stmt:
+                enonce_parts.append(stmt)
+
+        enonce = "\n\n".join(enonce_parts)
+
+        hints_parts = []
+        for hint in ex.get("hints", []):
+            hints_parts.append(hint.get("content_latex", ""))
+        for sq in sub_questions:
+            for hint in sq.get("hints", []):
+                hints_parts.append(hint.get("content_latex", ""))
+        indications = "\n\n".join(h for h in hints_parts if h)
+
+        correction_parts = []
+        global_sol = ex.get("global_solution_latex")
+        if global_sol:
+            correction_parts.append(global_sol)
+        else:
+            for sq in sub_questions:
+                sol = sq.get("solution_latex", "")
+                label = sq.get("label", "")
+                if sol:
+                    correction_parts.append(f"{label} {sol}" if label else sol)
+        correction = "\n\n".join(correction_parts)
+
         return {
             "id": ex["id"],
             "chapter": chapter_title,
             "chapter_id": chapter_id,
-            "difficulty": ex.get("metadata", {}).get("difficulty_score", 3),
-            "enonce": content.get("statement_latex", ""),
-            "indications": content.get("hint_latex", "") or "",
-            "correction": content.get("solution_latex", ""),
+            "difficulty": ex.get("difficulty", 3),
+            "enonce": enonce,
+            "indications": indications,
+            "correction": correction,
         }
 
     # =========================================================================
-    # Contexte structure pour le LLM (remplace le RAG)
+    # Contexte structure pour le LLM
     # =========================================================================
 
     def get_concepts_for_question(self, question_id: str) -> list[dict]:
-        """
-        Traverse les aretes TESTS pour trouver les concepts testes par une question.
-        Retourne le contenu LaTeX complet depuis les Cours JSON.
-        """
+        """Traverse les aretes TESTS pour trouver les concepts testes par une question."""
         tested = self._kholle_to_concepts.get(question_id, [])
         if not tested:
             return []
@@ -383,9 +435,10 @@ class KnowledgeService:
         return result
 
     def get_programme_for_chapter(self, chapter_id: str) -> dict:
-        """Retourne les contraintes du programme officiel pour un chapitre."""
-        canonical = self._normalize_chapter_id(chapter_id)
-        prog = self._raw_programme.get(canonical, {})
+        """Retourne les contraintes du programme officiel pour un chapitre cours."""
+        # Retrouver le programme_id depuis le chapitre cours
+        prog_id = self._course_to_prog.get(chapter_id, "")
+        prog = self._raw_programme.get(prog_id, {})
         return {
             "notions": prog.get("notions", []),
             "prerequis": prog.get("prerequis", []),
@@ -401,17 +454,11 @@ class KnowledgeService:
     ) -> str:
         """
         Construit le contexte structure pour le LLM.
-        Remplace get_context_for_evaluation() de l'ancien data/query.py.
-
-        Au lieu de 3 chunks RAG aleatoires, fournit :
-        1. Definitions/theoremes exacts testes par la question (via aretes TESTS)
-        2. Points de vigilance du programme officiel
-        3. Capacites exigibles
+        Fournit les definitions/theoremes exacts + vigilance programme + capacites.
         """
         parts = []
         total_chars = 0
 
-        # 1. Concepts testes par cette question
         concepts = self.get_concepts_for_question(question_id)
         if concepts:
             parts.append("### Concepts testes par cette question")
@@ -424,6 +471,9 @@ class KnowledgeService:
                     "theorem": "Theoreme",
                     "property": "Propriete",
                     "method": "Methode",
+                    "example": "Exemple",
+                    "remark": "Remarque",
+                    "warning": "Attention",
                 }.get(c["type"], c["type"].capitalize())
 
                 entry = f"**{type_label} : {c['title']}**"
@@ -435,9 +485,7 @@ class KnowledgeService:
                 parts.append(entry)
                 total_chars += len(entry)
 
-        # 2. Programme officiel
-        canonical = self._normalize_chapter_id(chapter_id)
-        prog = self.get_programme_for_chapter(canonical)
+        prog = self.get_programme_for_chapter(chapter_id)
 
         if prog["vigilance"] and total_chars < max_chars:
             vigilance_text = "### Points de vigilance (programme officiel)\n"
@@ -463,15 +511,11 @@ class KnowledgeService:
         top_k: int = 3,
         question_id: Optional[str] = None,
     ) -> list[dict]:
-        """
-        Retourne le contexte au format compatible avec le debug panel.
-        Utilise le graphe au lieu de ChromaDB.
-        """
+        """Retourne le contexte au format debug panel."""
         if question_id:
             concepts = self.get_concepts_for_question(question_id)
         elif chapter_id:
-            canonical = self._normalize_chapter_id(chapter_id)
-            concept_ids = self._chapter_to_concepts.get(canonical, [])[:top_k]
+            concept_ids = self._chapter_to_concepts.get(chapter_id, [])[:top_k]
             concepts = []
             for concept_id in concept_ids:
                 node = self._course_nodes_by_id.get(concept_id, {})
@@ -489,12 +533,13 @@ class KnowledgeService:
         for c in concepts[:top_k]:
             content = c.get("content_latex", "") or ""
             ch_id = self._concept_to_chapter.get(c["id"], "")
+            chapter_title = self._course_chapters.get(ch_id, {}).get("title", "")
             result.append({
                 "chunk_id": c["id"],
                 "content": content,
                 "score": c.get("confidence", 0.5) * 100,
                 "metadata": {
-                    "chapter": self._chapters.get(ch_id, {}).get("title", ""),
+                    "chapter": chapter_title,
                     "section": c.get("type", ""),
                     "subsection": c.get("title", ""),
                 },
@@ -505,7 +550,7 @@ class KnowledgeService:
     def get_collection_stats(self) -> dict:
         """Retourne les stats des collections de donnees."""
         total_questions = sum(
-            len(ch["questions_cours"]) for ch in self._raw_questions.values()
+            len(qs) for qs in self._questions_by_course_chapter.values()
         )
         return {
             "questions_cours": {"count": total_questions},

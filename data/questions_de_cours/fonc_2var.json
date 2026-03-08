@@ -1,0 +1,413 @@
+{
+  "programme_chapter_id": "FONC_2VAR",
+  "programme_chapter_title": "Fonctions de deux variables",
+  "semestre": 2,
+  "linked_course_chapters": [
+    "fonctions_de_deux_variables"
+  ],
+  "questions": [
+    {
+      "id": "FONC_2VAR__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Boules de R² muni de la norme euclidienne canonique.",
+      "programme_notion": "Boules de R² muni de la norme euclidienne canonique",
+      "answer_node_id": "fonctions_de_deux_variables__intro_identification",
+      "answer_latex": "Dans ce chapitre, $\\mathbb{R}^2$ et $\\mathbb{R}^3$ sont munis de leur structure euclidienne canonique. On identifiera $\\mathbb{R}^2$ au plan d'équation $z = 0$ de $\\mathbb{R}^3$, ce qui revient à identifier tout couple $(x, y)$ de $\\mathbb{R}^2$ au triplet $(x, y, 0)$ de $\\mathbb{R}^3$. On notera $(e_1, e_2)$ la base canonique de $\\mathbb{R}^2$ et $(e_1, e_2, e_3)$ celle de $\\mathbb{R}^3$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_002",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Ouverts de R².",
+      "programme_notion": "Ouverts de R²",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_composition_R2_R2_R",
+      "answer_latex": "Soient $U$ et $\\Omega$ deux ouverts de $\\mathbb{R}^2$, $x, y \\in C^1(U, \\mathbb{R})$ et $f \\in C^1(\\Omega, \\mathbb{R})$. On suppose que $(x(u, v), y(u, v)) \\in \\Omega$ pour tout $(u, v) \\in U$ et on pose $F(u, v) = f(x(u, v), y(u, v))$. La fonction $F$ est de classe $C^1$ sur $U$ et pour tout $(u, v) \\in U$ :\\par $\\frac{\\partial F}{\\partial u}(u, v) = \\frac{\\partial x}{\\partial u}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial u}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$\\par et :\\par $\\frac{\\partial F}{\\partial v}(u, v) = \\frac{\\partial x}{\\partial v}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial v}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$.\\par En résumé : $\\frac{\\partial F}{\\partial u} = \\frac{\\partial}{\\partial u}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial u}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial u}\\frac{\\partial f}{\\partial y}$ et $\\frac{\\partial F}{\\partial v} = \\frac{\\partial}{\\partial v}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial v}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial v}\\frac{\\partial f}{\\partial y}$.\\par Dans cet énoncé, les fonctions $x$ et $y$ sont perçues comme des fonctions des variables $u$ et $v$ et $f$ comme une fonction de $x$ et $y$, mais attention, ce $x$ et ce $y$ sont juste des noms de variables et non pas les fonctions $(u, v) \\mapsto x(u, v)$ et $(u, v) \\mapsto y(u, v)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_003",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Ouverts de R².",
+      "programme_notion": "Ouverts de R²",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_composition_R2_R2_R",
+      "answer_latex": "Soient $U$ et $\\Omega$ deux ouverts de $\\mathbb{R}^2$, $x, y \\in C^1(U, \\mathbb{R})$ et $f \\in C^1(\\Omega, \\mathbb{R})$. On suppose que $(x(u, v), y(u, v)) \\in \\Omega$ pour tout $(u, v) \\in U$ et on pose $F(u, v) = f(x(u, v), y(u, v))$. La fonction $F$ est de classe $C^1$ sur $U$ et pour tout $(u, v) \\in U$ :\\par $\\frac{\\partial F}{\\partial u}(u, v) = \\frac{\\partial x}{\\partial u}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial u}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$\\par et :\\par $\\frac{\\partial F}{\\partial v}(u, v) = \\frac{\\partial x}{\\partial v}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial v}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$.\\par En résumé : $\\frac{\\partial F}{\\partial u} = \\frac{\\partial}{\\partial u}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial u}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial u}\\frac{\\partial f}{\\partial y}$ et $\\frac{\\partial F}{\\partial v} = \\frac{\\partial}{\\partial v}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial v}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial v}\\frac{\\partial f}{\\partial y}$.\\par Dans cet énoncé, les fonctions $x$ et $y$ sont perçues comme des fonctions des variables $u$ et $v$ et $f$ comme une fonction de $x$ et $y$, mais attention, ce $x$ et ce $y$ sont juste des noms de variables et non pas les fonctions $(u, v) \\mapsto x(u, v)$ et $(u, v) \\mapsto y(u, v)$.\n\n\\textbf{Démonstration.} La règle de la chaîne nous permet de dériver la fonction $u \\mapsto F(u, v)$ à $v$ fixé et la fonction $v \\mapsto F(u, v)$ à $u$ fixé. Il se trouve enfin que les expressions obtenues de $\\frac{\\partial F}{\\partial u}$ et $\\frac{\\partial F}{\\partial v}$ sont continues sur $U$, donc $F \\in C^1$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_004",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Continuité d'une fonction définie sur un ouvert de R² à valeurs dans R.",
+      "programme_notion": "Continuité d'une fonction définie sur un ouvert de R² à valeurs dans R",
+      "answer_node_id": "fonctions_de_deux_variables__definition_continuite",
+      "answer_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ est continue en $a$ si $f(p) \\xrightarrow[p \\to a]{} f(a)$, i.e. si :\\par $\\forall \\varepsilon > 0, \\exists \\alpha > 0, \\forall p \\in E, \\|p - a\\| < \\alpha \\Rightarrow |f(p) - f(a)| < \\varepsilon$.\\par L'ensemble des fonctions sur $E$ et à valeurs dans $\\mathbb{R}$, i.e. continues en tout point de $E$, est noté $\\mathcal{C}(E, \\mathbb{R})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_005",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Représentation graphique par une surface.",
+      "programme_notion": "Représentation graphique par une surface",
+      "answer_node_id": "fonctions_de_deux_variables__definition_continuite",
+      "answer_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ est continue en $a$ si $f(p) \\xrightarrow[p \\to a]{} f(a)$, i.e. si :\\par $\\forall \\varepsilon > 0, \\exists \\alpha > 0, \\forall p \\in E, \\|p - a\\| < \\alpha \\Rightarrow |f(p) - f(a)| < \\varepsilon$.\\par L'ensemble des fonctions sur $E$ et à valeurs dans $\\mathbb{R}$, i.e. continues en tout point de $E$, est noté $\\mathcal{C}(E, \\mathbb{R})$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_006",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivées partielles en un point (notations ∂f/∂x, ∂f/∂y).",
+      "programme_notion": "Dérivées partielles en un point (notations ∂f/∂x, ∂f/∂y)",
+      "answer_node_id": "fonctions_de_deux_variables__calcul_derivees_partielles",
+      "answer_latex": "Le calcul concret des dérivées partielles est très facile. En effet, avec des notations évidentes :\\par $\\partial_1 f(a) = \\lim_{t \\to 0} \\frac{f(a + te_1) - f(a)}{t} = \\lim_{t \\to 0} \\frac{f(x_a + t, y_a) - f(x_a, y_a)}{t}$,\\par donc calculer $\\partial_1 f(a)$ revient à fixer $y$ à la valeur $y_a$ dans $f(x, y)$ et à dériver par rapport à $x$ au sens usuel. Pour la même raison, on obtient $\\partial_2 f$ en dérivant $f(x, y)$ par rapport à $y$ à $x$ fixé.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_007",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : L'existence des dérivées partielles n'entraîne pas la continuité.",
+      "programme_notion": "L'existence des dérivées partielles n'entraîne pas la continuité",
+      "answer_node_id": "fonctions_de_deux_variables__calcul_derivees_partielles",
+      "answer_latex": "Le calcul concret des dérivées partielles est très facile. En effet, avec des notations évidentes :\\par $\\partial_1 f(a) = \\lim_{t \\to 0} \\frac{f(a + te_1) - f(a)}{t} = \\lim_{t \\to 0} \\frac{f(x_a + t, y_a) - f(x_a, y_a)}{t}$,\\par donc calculer $\\partial_1 f(a)$ revient à fixer $y$ à la valeur $y_a$ dans $f(x, y)$ et à dériver par rapport à $x$ au sens usuel. Pour la même raison, on obtient $\\partial_2 f$ en dérivant $f(x, y)$ par rapport à $y$ à $x$ fixé.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_008",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction de classe C¹ sur un ouvert.",
+      "programme_notion": "Fonction de classe C¹ sur un ouvert",
+      "answer_node_id": "fonctions_de_deux_variables__definition_fonction_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f : \\Omega \\to \\mathbb{R}$ une fonction. On dit que $f$ est de classe $C^1$ sur $\\Omega$ si $f$ possède des dérivées partielles sur $\\Omega$ et si celles-ci sont continues sur $\\Omega$.\\par L'ensemble des fonctions de classe $C^1$ sur $\\Omega$ à valeurs dans $\\mathbb{R}$ est noté $C^1(\\Omega, \\mathbb{R})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Définition par la continuité des dérivées partielles.",
+      "programme_notion": "Définition par la continuité des dérivées partielles",
+      "answer_node_id": "fonctions_de_deux_variables__definition_derivees_partielles",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. S'il existe, le réel $D_{e_1} f(a)$ est appelé première dérivée partielle de $f$ en $a$ et noté $\\partial_1 f(a)$.\\par Même chose pour la notion de deuxième dérivée partielle. Le cas échéant, le réel $D_{e_2} f(a)$ est noté $\\partial_2 f(a)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_010",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Développement limité à l'ordre 1 au point (x₀, y₀) pour f de classe C¹.",
+      "programme_notion": "Développement limité à l'ordre 1 au point (x₀, y₀) pour f de classe C¹",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_existence_DL1_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Alors $f$ possède un développement limité à l'ordre 1 au voisinage de $a$ :\\par $f(a + v) = f(a) + \\langle \\nabla f(a), v \\rangle + o(\\|v\\|)$ quand $v \\to (0, 0)$.\\par Si les variables de $f$ sont notées $x$ et $y$ et si $a = (x_a, y_a)$, il est équivalent d'affirmer que :\\par $f(p) = f(a) + \\langle \\nabla f(a), p - a \\rangle + o(\\|p - a\\|)$\\par ou encore :\\par $f(x_a + h, y_a + k) = f(a) + \\frac{\\partial f}{\\partial x}(a) h + \\frac{\\partial f}{\\partial y}(a) k + o(\\|(h, k)\\|)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_011",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Développement limité à l'ordre 1 au point (x₀, y₀) pour f de classe C¹.",
+      "programme_notion": "Développement limité à l'ordre 1 au point (x₀, y₀) pour f de classe C¹",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_existence_DL1_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Alors $f$ possède un développement limité à l'ordre 1 au voisinage de $a$ :\\par $f(a + v) = f(a) + \\langle \\nabla f(a), v \\rangle + o(\\|v\\|)$ quand $v \\to (0, 0)$.\\par Si les variables de $f$ sont notées $x$ et $y$ et si $a = (x_a, y_a)$, il est équivalent d'affirmer que :\\par $f(p) = f(a) + \\langle \\nabla f(a), p - a \\rangle + o(\\|p - a\\|)$\\par ou encore :\\par $f(x_a + h, y_a + k) = f(a) + \\frac{\\partial f}{\\partial x}(a) h + \\frac{\\partial f}{\\partial y}(a) k + o(\\|(h, k)\\|)$.\n\n\\textbf{Démonstration.} Quitte à remplacer $f$ par $(x, y) \\mapsto f(x_a + x, y_a + y)$, on peut supposer sans perte de généralité que $a = (0, 0)$.\\par Soit $\\varepsilon > 0$. Comme $\\Omega$ est ouvert, nous pouvons nous donner un réel $r > 0$ pour lequel $B(a, r) \\subset \\Omega$. En outre, les fonctions $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ étant continues en $(0, 0)$ par hypothèse, il existe des réels $\\alpha_x > 0$ et $\\alpha_y > 0$, que nous pouvons choisir inférieurs à $r$, pour lesquels pour tout $(h, k) \\in \\mathbb{R}^2$ :\\par $\\|(h, k)\\| < \\alpha_x \\Rightarrow \\left|\\frac{\\partial f}{\\partial x}(h, k) - \\frac{\\partial f}{\\partial x}(0, 0)\\right| < \\frac{\\varepsilon}{2}$ et $\\|(h, k)\\| < \\alpha_y \\Rightarrow \\left|\\frac{\\partial f}{\\partial y}(h, k) - \\frac{\\partial f}{\\partial y}(0, 0)\\right| < \\frac{\\varepsilon}{2}$.\\par Posons $\\alpha = \\min\\{\\alpha_x, \\alpha_y\\}$. Soit ensuite $v = (h, k) \\in \\mathbb{R}^2$ un vecteur pour lequel $\\|v\\| < \\alpha$.\\par $f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle = (f(h, k) - f(0, k)) + (f(0, k) - f(0, 0)) - \\frac{\\partial f}{\\partial x}(0, 0)h - \\frac{\\partial f}{\\partial y}(0, 0)k$\\par $= \\int_0^h \\frac{\\partial f}{\\partial x}(s, k) ds - \\frac{\\partial f}{\\partial x}(0, 0)h + \\int_0^k \\frac{\\partial f}{\\partial y}(0, t) dt - \\frac{\\partial f}{\\partial y}(0, 0)k$ d'après le théorème fondamental de l'analyse\\par Or pour tout $s$ compris entre $0$ et $h$ : $\\left|\\frac{\\partial f}{\\partial x}(s, k) - \\frac{\\partial f}{\\partial x}(0, 0)\\right| \\leq \\frac{\\varepsilon}{2}$ et pour tout $t$ compris entre $0$ et $k$ : $\\left|\\frac{\\partial f}{\\partial y}(0, t) - \\frac{\\partial f}{\\partial y}(0, 0)\\right| \\leq \\frac{\\varepsilon}{2}$ car $\\|(s, k)\\| \\leq \\|v\\| < \\alpha \\leq \\alpha_x$ et $\\|(0, t)\\| \\leq \\|v\\| < \\alpha \\leq \\alpha_y$.\\par donc : $\\left|f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle\\right| \\leq \\frac{\\varepsilon}{2}|h| + \\frac{\\varepsilon}{2}|k| \\leq \\varepsilon \\|v\\|$.\\par En résumé, nous avons trouvé un réel $\\alpha > 0$ pour lequel pour tout $v \\in \\mathbb{R}^2 \\setminus \\{(0, 0)\\}$ : $\\|v\\| < \\alpha \\Rightarrow \\frac{\\left|f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle\\right|}{\\|v\\|} \\leq \\varepsilon$. Comme voulu : $f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle = o(\\|v\\|)$ quand $v \\to (0, 0)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_012",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Équation du plan tangent.",
+      "programme_notion": "Équation du plan tangent",
+      "answer_node_id": "fonctions_de_deux_variables__definition_plan_tangent",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a = (x_a, y_a) \\in \\Omega$. Le plan de $\\mathbb{R}^3$ d'équation :\\par $z = f(a) + \\frac{\\partial f}{\\partial x}(a)(x - x_a) + \\frac{\\partial f}{\\partial y}(a)(y - y_a)$\\par est appelé le plan tangent de $f$ en $a$.\\par Nous savons depuis longtemps qu'une courbe suffisamment régulière ressemble localement à une droite. Sans surprise, toute surface suffisamment régulière ressemble localement à un plan. Pour une fonction $\\phi$ d'une seule variable, l'équation de la tangente en $a$ s'exprimait naturellement en termes de développement limité à l'ordre 1 : $\\phi(x) = \\phi(a) + \\phi'(a)(x - a) + o(x - a)$. La situation est la même avec les fonctions de deux variables.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_013",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Gradient d'une fonction de classe C¹ (notation ∇f(x₀,y₀)).",
+      "programme_notion": "Gradient d'une fonction de classe C¹ (notation ∇f(x₀,y₀))",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_continuite_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$. Alors $f \\in \\mathcal{C}(\\Omega, \\mathbb{R})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_014",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Gradient d'une fonction de classe C¹ (notation ∇f(x₀,y₀)).",
+      "programme_notion": "Gradient d'une fonction de classe C¹ (notation ∇f(x₀,y₀))",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_continuite_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$. Alors $f \\in \\mathcal{C}(\\Omega, \\mathbb{R})$.\n\n\\textbf{Démonstration.} Pour tout $a \\in \\Omega$, par simple troncature du développement limité à l'ordre 1 de $f$ en $a$ : $f(p) \\xrightarrow[p \\to a]{} f(a)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_015",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression du DL à l'aide du gradient.",
+      "programme_notion": "Expression du DL à l'aide du gradient",
+      "answer_node_id": "fonctions_de_deux_variables__definition_gradient",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. Si $f$ possède des dérivées partielles en $a$, on appelle gradient de $f$ en $a$ le VECTEUR de $\\mathbb{R}^2$ :\\par $\\nabla f(a) = \\text{grad } f(a) = (\\partial_1 f(a), \\partial_2 f(a)) = \\partial_1 f(a) e_1 + \\partial_2 f(a) e_2$.\\par Le symbole $\\nabla$ se lit « nabla » !",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Le gradient indique la direction de plus forte croissance.",
+      "programme_notion": "Le gradient indique la direction de plus forte croissance",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$.\\par (i) Règle de la chaîne deuxième version : Soient $I$ un intervalle et $\\gamma \\in C^1(I, \\mathbb{R}^2)$ à valeurs dans $\\Omega$. La fonction $f \\circ \\gamma$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ : $(f \\circ \\gamma)'(t) = \\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle$.\\par (ii) Dérivées directionnelles : La fonction $f$ possède une dérivée en tout point de $\\Omega$ dans toutes les directions. Plus précisément, pour tous $a \\in \\Omega$ et $v = (h, k) \\in \\mathbb{R}^2$ : $D_v f(a) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$.\\par (iii) Interprétation géométrique du gradient : Le gradient de $f$ est orthogonal aux lignes de niveau de $f$ et dirigé dans le sens des pentes croissantes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_017",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Le gradient indique la direction de plus forte croissance.",
+      "programme_notion": "Le gradient indique la direction de plus forte croissance",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$.\\par (i) Règle de la chaîne deuxième version : Soient $I$ un intervalle et $\\gamma \\in C^1(I, \\mathbb{R}^2)$ à valeurs dans $\\Omega$. La fonction $f \\circ \\gamma$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ : $(f \\circ \\gamma)'(t) = \\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle$.\\par (ii) Dérivées directionnelles : La fonction $f$ possède une dérivée en tout point de $\\Omega$ dans toutes les directions. Plus précisément, pour tous $a \\in \\Omega$ et $v = (h, k) \\in \\mathbb{R}^2$ : $D_v f(a) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$.\\par (iii) Interprétation géométrique du gradient : Le gradient de $f$ est orthogonal aux lignes de niveau de $f$ et dirigé dans le sens des pentes croissantes.\n\n\\textbf{Démonstration.} (i) Simple réécriture de la règle de la chaîne.\\par (ii) Comme $\\Omega$ est ouvert, la fonction $t \\mapsto F(t) = f(a + tv)$ est définie sur $]-\\alpha, \\alpha[$ pour un certain $\\alpha > 0$ et elle y est de classe $C^1$ d'après la règle de la chaîne avec $F'(0) = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$. Le résultat en découle car $F'(0) = D_v f(a)$ par définition des dérivées directionnelles.\\par (iii) Fixons $\\lambda \\in \\mathbb{R}$ et notons $\\mathcal{C}_\\lambda$ la courbe de niveau $\\lambda$ de $f$ : $\\mathcal{C}_\\lambda = \\{(x, y) \\in \\mathbb{R}^2 \\mid f(x, y) = \\lambda\\}$. Pour $\\mathcal{C}_\\lambda$ non vide. Faisons aussi l'hypothèse — pas vraie en toute généralité sous cette forme, mais passons — que $\\mathcal{C}_\\lambda$ peut être paramétrée par une courbe paramétrée $\\gamma = (x, y)$ de classe $C^1$ sur un intervalle $I$ dont la dérivée ne s'annule pas. Dans ces conditions, pour tout point $p \\in \\mathcal{C}_\\lambda \\Leftrightarrow \\exists t \\in I, p = \\gamma(t)$, donc $f(\\gamma(t)) = \\lambda$ pour tout $t \\in I$. En retour, d'après la règle de la chaîne : $\\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle = 0$. En d'autres termes, $\\nabla f(\\gamma(t))$ est orthogonal au vecteur $\\gamma'(t)$ qui dirige la tangente de $\\gamma$ en $t$. C'est cela qu'on veut dire quand on affirme que le gradient est orthogonal aux lignes de niveau.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_018",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée selon un vecteur.",
+      "programme_notion": "Dérivée selon un vecteur",
+      "answer_node_id": "fonctions_de_deux_variables__definition_derivee_directionnelle",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction, $a \\in \\Omega$ et $v \\in \\mathbb{R}^2$. On dit que $f$ est dérivable en $a$ dans la direction $v$ si la fonction $t \\mapsto f(a + tv)$ est dérivable en $0$, i.e. si la fonction $F : t \\mapsto \\frac{f(a + tv) - f(a)}{t}$ possède une limite finie en $0$.\\par Le cas échéant, on appelle dérivée de $f$ en $a$ dans la direction $v$ le réel $D_v f(a) = F'(0) = \\lim_{t \\to 0} \\frac{f(a + tv) - f(a)}{t}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_019",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression à l'aide du gradient : ⟨∇f(x₀,y₀), u⟩.",
+      "programme_notion": "Expression à l'aide du gradient : ⟨∇f(x₀,y₀), u⟩",
+      "answer_node_id": "fonctions_de_deux_variables__definition_gradient",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. Si $f$ possède des dérivées partielles en $a$, on appelle gradient de $f$ en $a$ le VECTEUR de $\\mathbb{R}^2$ :\\par $\\nabla f(a) = \\text{grad } f(a) = (\\partial_1 f(a), \\partial_2 f(a)) = \\partial_1 f(a) e_1 + \\partial_2 f(a) e_2$.\\par Le symbole $\\nabla$ se lit « nabla » !",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_020",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Règle de la chaîne : d/dt(f(x(t),y(t))) = ∂f/∂x · x'(t) + ∂f/∂y · y'(t).",
+      "programme_notion": "Règle de la chaîne : d/dt(f(x(t),y(t))) = ∂f/∂x · x'(t) + ∂f/∂y · y'(t)",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $I$ un intervalle, $f \\in C^1(\\Omega, \\mathbb{R})$ et enfin $x, y \\in C^1(I, \\mathbb{R})$ deux fonctions pour lesquelles pour tout $t \\in I$ : $(x(t), y(t)) \\in \\Omega$.\\par La fonction $t \\mapsto F(t) = f(x(t), y(t))$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ :\\par $F'(t) = \\frac{d}{dt}f(x(t), y(t)) = x'(t)\\frac{\\partial f}{\\partial x}(x(t), y(t)) + y'(t)\\frac{\\partial f}{\\partial y}(x(t), y(t))$.\\par Dans cet énoncé, $f$ est perçue comme une fonction des variables $x$ et $y$, mais attention, ce $x$ et ce $y$ ne sont pas les fonctions $t \\mapsto x(t)$ et $t \\mapsto y(t)$ de l'énoncé, ce sont juste des noms de variables qui fixent la notation $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ des dérivées partielles.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_021",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Règle de la chaîne : d/dt(f(x(t),y(t))) = ∂f/∂x · x'(t) + ∂f/∂y · y'(t).",
+      "programme_notion": "Règle de la chaîne : d/dt(f(x(t),y(t))) = ∂f/∂x · x'(t) + ∂f/∂y · y'(t)",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $I$ un intervalle, $f \\in C^1(\\Omega, \\mathbb{R})$ et enfin $x, y \\in C^1(I, \\mathbb{R})$ deux fonctions pour lesquelles pour tout $t \\in I$ : $(x(t), y(t)) \\in \\Omega$.\\par La fonction $t \\mapsto F(t) = f(x(t), y(t))$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ :\\par $F'(t) = \\frac{d}{dt}f(x(t), y(t)) = x'(t)\\frac{\\partial f}{\\partial x}(x(t), y(t)) + y'(t)\\frac{\\partial f}{\\partial y}(x(t), y(t))$.\\par Dans cet énoncé, $f$ est perçue comme une fonction des variables $x$ et $y$, mais attention, ce $x$ et ce $y$ ne sont pas les fonctions $t \\mapsto x(t)$ et $t \\mapsto y(t)$ de l'énoncé, ce sont juste des noms de variables qui fixent la notation $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ des dérivées partielles.\n\n\\textbf{Démonstration.} Notons $\\gamma$ la fonction $t \\mapsto (x(t), y(t))$, de sorte que $F = f \\circ \\gamma$. Soit $t \\in I$. Composons le développement limité de $f$ au voisinage de $\\gamma(t)$ à l'ordre 1 avec la limite $\\lim_{h \\to 0}(\\gamma(t + h) - \\gamma(t)) = (0, 0)$.\\par $F(t + h) = f(\\gamma(t + h)) = f(\\gamma(t) + (\\gamma(t + h) - \\gamma(t)))$\\par $= f(\\gamma(t)) + \\langle \\nabla f(\\gamma(t)), (\\gamma(t + h) - \\gamma(t)) \\rangle + o(\\|\\gamma(t + h) - \\gamma(t)\\|)$\\par $= f(\\gamma(t)) + \\frac{\\partial f}{\\partial x}(\\gamma(t))(x(t + h) - x(t)) + \\frac{\\partial f}{\\partial y}(\\gamma(t))(y(t + h) - y(t)) + o(\\sqrt{(x(t + h) - x(t))^2 + (y(t + h) - y(t))^2})$.\\par Or : $\\|\\gamma(t + h) - \\gamma(t)\\| = \\sqrt{x'(t)^2 + y'(t)^2}|h| + o(h)$, donc on peut remplacer le $o(\\|\\gamma(t + h) - \\gamma(t)\\|)$ par un $o(h)$ :\\par $F(t + h) = F(t) + \\frac{\\partial f}{\\partial x}(\\gamma(t))(hx'(t) + o(h)) + \\frac{\\partial f}{\\partial y}(\\gamma(t))(hy'(t) + o(h)) + o(h)$\\par $= F(t) + \\left(x'(t)\\frac{\\partial f}{\\partial x}(\\gamma(t)) + y'(t)\\frac{\\partial f}{\\partial y}(\\gamma(t))\\right)h + o(h)$.\\par Ce développement limité prouve que $F$ est dérivable en $t$ et que $F'(t) = x'(t)\\frac{\\partial f}{\\partial x}(\\gamma(t)) + y'(t)\\frac{\\partial f}{\\partial y}(\\gamma(t))$. Pour finir, l'expression de $F'$ ainsi obtenue est continue sur $I$, donc $F$ y est de classe $C^1$. La petite subtilité de l'affaire, c'est que $\\gamma$ est à valeurs dans $\\mathbb{R}^2$ et non pas $\\mathbb{R}$, mais ses composantes $x$ et $y$ sont continues toutes les deux.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_022",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation comme dérivée le long d'un arc γ.",
+      "programme_notion": "Interprétation comme dérivée le long d'un arc γ",
+      "answer_node_id": "fonctions_de_deux_variables__definition_derivee_directionnelle",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction, $a \\in \\Omega$ et $v \\in \\mathbb{R}^2$. On dit que $f$ est dérivable en $a$ dans la direction $v$ si la fonction $t \\mapsto f(a + tv)$ est dérivable en $0$, i.e. si la fonction $F : t \\mapsto \\frac{f(a + tv) - f(a)}{t}$ possède une limite finie en $0$.\\par Le cas échéant, on appelle dérivée de $f$ en $a$ dans la direction $v$ le réel $D_v f(a) = F'(0) = \\lim_{t \\to 0} \\frac{f(a + tv) - f(a)}{t}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_023",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression (f∘γ)'(t) = ⟨∇f(γ(t)), γ'(t)⟩.",
+      "programme_notion": "Expression (f∘γ)'(t) = ⟨∇f(γ(t)), γ'(t)⟩",
+      "answer_node_id": "fonctions_de_deux_variables__definition_version_polaire",
+      "answer_latex": "Notons à présent $x$ la fonction $(r, \\theta) \\mapsto r\\cos\\theta$ et $y$ la fonction $(r, \\theta) \\mapsto r\\sin\\theta$, toutes deux de classe $C^1$ sur $\\mathbb{R}^2$. La fonction $(r, \\theta) \\mapsto (x(r, \\theta), y(r, \\theta)) = (r\\cos\\theta, r\\sin\\theta)$ est alors de classe $C^1$ de $\\mathbb{R}^2$ dans $\\mathbb{R}^2$ et c'est grâce à elle qu'on passe d'une expression en coordonnées cartésiennes à une expression en coordonnées polaires.\\par Donnons-nous à présent une fonction $f \\in C^1$ de variables $x$ et $y$ sur un ouvert $\\Omega_{\\text{cart}}$ de $\\mathbb{R}^2$. Notons ensuite $\\Omega_{\\text{pol}}$ l'image réciproque de $\\Omega_{\\text{cart}}$ par $\\phi$ — on peut montrer que $\\Omega_{\\text{pol}}$ est un ouvert de $\\mathbb{R}^2$. Posons enfin $F(r, \\theta) = f(r\\cos\\theta, r\\sin\\theta)$ pour tout $(r, \\theta) \\in \\Omega_{\\text{pol}}$. La fonction $F$ ainsi définie est la version polaire de $f$.\\par Les physiciens donneraient le même nom aux deux fonctions car elles représentent pour eux le même phénomène physique — force, température, champ magnétique... — exprimé simplement de deux façons différentes. Pour nous autres matheux, $f$ et $F$ sont bel et bien deux fonctions différentes définies sur des ensembles différents — mais de même image.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_024",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Le gradient de f est orthogonal aux lignes de niveau de f.",
+      "programme_notion": "Le gradient de f est orthogonal aux lignes de niveau de f",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$.\\par (i) Règle de la chaîne deuxième version : Soient $I$ un intervalle et $\\gamma \\in C^1(I, \\mathbb{R}^2)$ à valeurs dans $\\Omega$. La fonction $f \\circ \\gamma$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ : $(f \\circ \\gamma)'(t) = \\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle$.\\par (ii) Dérivées directionnelles : La fonction $f$ possède une dérivée en tout point de $\\Omega$ dans toutes les directions. Plus précisément, pour tous $a \\in \\Omega$ et $v = (h, k) \\in \\mathbb{R}^2$ : $D_v f(a) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$.\\par (iii) Interprétation géométrique du gradient : Le gradient de $f$ est orthogonal aux lignes de niveau de $f$ et dirigé dans le sens des pentes croissantes.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_025",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Le gradient de f est orthogonal aux lignes de niveau de f.",
+      "programme_notion": "Le gradient de f est orthogonal aux lignes de niveau de f",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$.\\par (i) Règle de la chaîne deuxième version : Soient $I$ un intervalle et $\\gamma \\in C^1(I, \\mathbb{R}^2)$ à valeurs dans $\\Omega$. La fonction $f \\circ \\gamma$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ : $(f \\circ \\gamma)'(t) = \\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle$.\\par (ii) Dérivées directionnelles : La fonction $f$ possède une dérivée en tout point de $\\Omega$ dans toutes les directions. Plus précisément, pour tous $a \\in \\Omega$ et $v = (h, k) \\in \\mathbb{R}^2$ : $D_v f(a) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$.\\par (iii) Interprétation géométrique du gradient : Le gradient de $f$ est orthogonal aux lignes de niveau de $f$ et dirigé dans le sens des pentes croissantes.\n\n\\textbf{Démonstration.} (i) Simple réécriture de la règle de la chaîne.\\par (ii) Comme $\\Omega$ est ouvert, la fonction $t \\mapsto F(t) = f(a + tv)$ est définie sur $]-\\alpha, \\alpha[$ pour un certain $\\alpha > 0$ et elle y est de classe $C^1$ d'après la règle de la chaîne avec $F'(0) = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$. Le résultat en découle car $F'(0) = D_v f(a)$ par définition des dérivées directionnelles.\\par (iii) Fixons $\\lambda \\in \\mathbb{R}$ et notons $\\mathcal{C}_\\lambda$ la courbe de niveau $\\lambda$ de $f$ : $\\mathcal{C}_\\lambda = \\{(x, y) \\in \\mathbb{R}^2 \\mid f(x, y) = \\lambda\\}$. Pour $\\mathcal{C}_\\lambda$ non vide. Faisons aussi l'hypothèse — pas vraie en toute généralité sous cette forme, mais passons — que $\\mathcal{C}_\\lambda$ peut être paramétrée par une courbe paramétrée $\\gamma = (x, y)$ de classe $C^1$ sur un intervalle $I$ dont la dérivée ne s'annule pas. Dans ces conditions, pour tout point $p \\in \\mathcal{C}_\\lambda \\Leftrightarrow \\exists t \\in I, p = \\gamma(t)$, donc $f(\\gamma(t)) = \\lambda$ pour tout $t \\in I$. En retour, d'après la règle de la chaîne : $\\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle = 0$. En d'autres termes, $\\nabla f(\\gamma(t))$ est orthogonal au vecteur $\\gamma'(t)$ qui dirige la tangente de $\\gamma$ en $t$. C'est cela qu'on veut dire quand on affirme que le gradient est orthogonal aux lignes de niveau.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_026",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivées partielles de (u,v) ↦ f(φ(u,v), ψ(u,v)).",
+      "programme_notion": "Dérivées partielles de (u,v) ↦ f(φ(u,v), ψ(u,v))",
+      "answer_node_id": "fonctions_de_deux_variables__definition_derivees_partielles",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. S'il existe, le réel $D_{e_1} f(a)$ est appelé première dérivée partielle de $f$ en $a$ et noté $\\partial_1 f(a)$.\\par Même chose pour la notion de deuxième dérivée partielle. Le cas échéant, le réel $D_{e_2} f(a)$ est noté $\\partial_2 f(a)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_027",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Maximum et minimum, local ou global.",
+      "programme_notion": "Maximum et minimum, local ou global",
+      "answer_node_id": "fonctions_de_deux_variables__definition_extremum_local",
+      "answer_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ possède un maximum local en $a$ si $f$ est majorée par $f(a)$ au voisinage de $a$, et un minimum local en $a$ si elle est minorée par $f(a)$ au voisinage de $a$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_028",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Point critique d'une fonction de classe C¹ sur un ouvert.",
+      "programme_notion": "Point critique d'une fonction de classe C¹ sur un ouvert",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_extrema_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Si $f$ possède un extremum local en $a$, alors $a$ est un point critique de $f$, autrement dit $\\nabla f(a) = (0, 0)$. A fortiori, le plan tangent de $f$ en $a$ est parallèle au plan abscisse et les dérivées directionnelles de $f$ en $a$ sont toutes nulles.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_029",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Point critique d'une fonction de classe C¹ sur un ouvert.",
+      "programme_notion": "Point critique d'une fonction de classe C¹ sur un ouvert",
+      "answer_node_id": "fonctions_de_deux_variables__theorem_extrema_C1",
+      "answer_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Si $f$ possède un extremum local en $a$, alors $a$ est un point critique de $f$, autrement dit $\\nabla f(a) = (0, 0)$. A fortiori, le plan tangent de $f$ en $a$ est parallèle au plan abscisse et les dérivées directionnelles de $f$ en $a$ sont toutes nulles.\n\n\\textbf{Démonstration.} Faisons l'hypothèse que $f$ a un maximum local en $a$. Pour tout $v \\in \\mathbb{R}^2$, la fonction d'une variable $t \\mapsto F(t) = f(a + tv)$ est de classe $C^1$ et majorée par $F(0) = f(a)$ au voisinage de $0$, donc possède un maximum local en $0$. Comme voulu : $D_v f(a) = F'(0) = 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_030",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Tout extremum local d'une fonction C¹ sur un ouvert est un point critique.",
+      "programme_notion": "Tout extremum local d'une fonction C¹ sur un ouvert est un point critique",
+      "answer_node_id": "fonctions_de_deux_variables__definition_extremum_local",
+      "answer_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ possède un maximum local en $a$ si $f$ est majorée par $f(a)$ au voisinage de $a$, et un minimum local en $a$ si elle est minorée par $f(a)$ au voisinage de $a$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "FONC_2VAR__qc_031",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Exemples d'étude de points critiques.",
+      "programme_notion": "Exemples d'étude de points critiques",
+      "answer_node_id": "fonctions_de_deux_variables__warning_fonctions_elementaires",
+      "answer_latex": "Dans les exemples qui précèdent, on a soigneusement fait appel aux fonctions élémentaires $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$, même pour justifier la continuité d'une fonction aussi simple que $(x, y) \\mapsto \\varphi(x)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "chapter_official_id": "series_et_familles_sommables",
+  "chapter_name": "Séries et familles sommables",
+  "source_document": "Cours - Series et familles sommables.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "series_et_familles_sommables__def_serie_sommes_partielles",
+      "type": "definition",
+      "title": "Définition : Série, sommes partielles",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. Pour tout $p\\in\\mathbb{N},$ on appelle $p^{\\text{ème}}$ somme partielle de $(u_{n})_{n\\in\\mathbb{N}}$ le nombre $U_{p}=\\sum_{k=0}^{p}u_{k}.$ La suite $(U_{n})_{n\\in\\mathbb{N}}$ est appelée la série de terme général $u_{n}$ et notée $\\sum u_{n}$. La nature de la série $\\sum u_{n}$ est par définition sa convergence ou sa divergence.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_series_convergentes_classiques",
+      "type": "example",
+      "title": "Exemple : Les séries convergentes $\\sum\\frac{1}{n^2}$ et $\\sum\\frac{(-1)^{n-1}}{n}$",
+      "content_latex": "Les séries $\\sum\\frac{1}{n^{2}}$ et $\\sum\\frac{(-1)^{n-1}}{n}$ convergent.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}^{*}$, posons $U_{n}=\\sum_{k=1}^{n}\\frac{1}{k^{2}}$ et $V_{n}=\\sum_{k=1}^{n}\\frac{(-1)^{k-1}}{k}$. La suite $(U_{n})_{n\\in\\mathbb{N}^{*}}$ est croissante, donc pour montrer qu'elle converge, il nous reste à montrer qu'elle est majorée. Or pour tout $n\\ge2$ : $U_{n}=1+\\sum_{k=2}^{n}\\frac{1}{k^{2}}\\le1+\\sum_{k=2}^{n}\\int_{k-1}^{k}\\frac{dt}{t^{2}}=1+\\int_{1}^{n}\\frac{dt}{t^{2}}=1+(1-\\frac{1}{n})\\le2.$ Pour la suite $(V_{n})_{n\\in\\mathbb{N}^{*}}$, $V_{2n}=\\sum_{k=1}^{2n}\\frac{(-1)^{k-1}}{k}=\\sum_{k=1}^{n}(\\frac{1}{2k-1}-\\frac{1}{2k})=\\sum_{k=1}^{n}\\frac{1}{2k(2k-1)}.$ Cette expression montre que $(V_{2n})_{n\\in\\mathbb{N}^{*}}$ est croissante, mais aussi majorée donc convergente car $V_{2n}\\le\\sum_{k=1}^{n}\\frac{1}{2k^{2}}=\\frac{U_{n}}{2}\\le1.$ Comme $V_{2n+1}=V_{2n}+\\frac{1}{2n+1}$, la suite $(V_{2n+1})_{n\\in\\mathbb{N}}$ converge vers la même limite, donc $(V_{n})_{n\\in\\mathbb{N}}$ converge."
+    },
+    {
+      "id": "series_et_familles_sommables__def_somme_serie_convergente",
+      "type": "definition",
+      "title": "Définition : Somme d'une série convergente, restes",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. On suppose que la série $\\sum u_{n}$ converge.\\par • Somme : Le nombre complexe $\\sum_{k=0}^{+\\infty}u_{k}=\\lim_{n\\rightarrow+\\infty}\\sum_{k=0}^{n}u_{k}$ est appelé la somme de la série $\\sum u_{n}.$\\par • Restes : Pour tout $n\\in\\mathbb{N}$, on appelle $n^{\\text{ème}}$ reste de la série $\\sum u_{n}$ le nombre $R_{n}=\\sum_{k=0}^{+\\infty}u_{k}-\\sum_{k=0}^{n}u_{k}=\\sum_{k=n+1}^{+\\infty}u_{k}.$ La suite des restes $(R_{n})_{n\\in\\mathbb{N}}$ converge vers 0.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_serie_geometrique",
+      "type": "theorem",
+      "title": "Définition-théorème : Série géométrique",
+      "content_latex": "Soit $z\\in\\mathbb{C}$. La série $\\sum z^{n}$, dite série géométrique de raison $z$, est convergente si et seulement si $|z|<1$. Dans ce cas : $\\sum_{n=0}^{+\\infty}z^{n}=\\frac{1}{1-z}.$",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}$ : $\\sum_{k=0}^{n}z^{k} = \\frac{1-z^{n+1}}{1-z}$ si $z\\ne1$, et $n+1$ si $z=1$. Si $|z|<1$, $\\lim_{n\\to+\\infty} z^{n+1} = 0$, d'où le résultat."
+    },
+    {
+      "id": "series_et_familles_sommables__example_serie_harmonique_divergence",
+      "type": "example",
+      "title": "Exemple : Divergence de la série harmonique",
+      "content_latex": "La série harmonique $\\sum\\frac{1}{n}$ diverge et pourtant $\\frac{1}{n}\\rightarrow 0$.",
+      "proof_latex": "Preuve n°1 : Pour tout $n\\in\\mathbb{N}^{*}$ : $\\sum_{k=n+1}^{2n}\\frac{1}{k}\\ge\\sum_{k=n+1}^{2n}\\frac{1}{2n}=\\frac{n}{2n}=\\frac{1}{2}.$ Si la série était convergente de somme $S$, on aurait $\\sum_{k=n+1}^{2n}\\frac{1}{k}=\\sum_{k=1}^{2n}\\frac{1}{k}-\\sum_{k=1}^{n}\\frac{1}{k} \\rightarrow S-S=0$, contradiction.\\par Preuve n°2 : Pour tout $x>-1$, $\\ln(1+x)\\le x$, donc pour tout $n\\in\\mathbb{N}^{*}$ : $\\sum_{k=1}^{n}\\frac{1}{k}\\ge\\sum_{k=1}^{n}\\ln(1+\\frac{1}{k})=\\sum_{k=1}^{n}(\\ln(k+1)-\\ln k)=\\ln(n+1)\\rightarrow+\\infty.$"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_condition_necessaire_convergence",
+      "type": "theorem",
+      "title": "Théorème : Condition nécessaire de convergence d'une série",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. Si la série $\\sum u_{n}$ converge, alors $u_{n}\\rightarrow0$.",
+      "proof_latex": "Si $\\sum u_{n}$ converge vers $S$, alors $u_{n}=\\sum_{k=0}^{n}u_{k}-\\sum_{k=0}^{n-1}u_{k} \\rightarrow S-S=0.$"
+    },
+    {
+      "id": "series_et_familles_sommables__def_divergence_grossiere",
+      "type": "definition",
+      "title": "Définition : Divergence grossière",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. On dit que la série $\\sum u_{n}$ diverge grossièrement si $(u_{n})_{n\\in\\mathbb{N}}$ n'admet pas 0 pour limite. Dans ce cas, $\\sum u_{n}$ diverge \"tout court\".",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__warning_reciproque_convergence_zero",
+      "type": "warning",
+      "title": "Attention : La réciproque est fausse",
+      "content_latex": "Attention ! La réciproque de l'implication : $\\sum u_{n}$ converge $\\Rightarrow u_{n}\\rightarrow0$ est fausse en général. Une somme infinie de quantités qui tendent vers 0 peut ne pas converger.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_divergence_harmonique_limite_zero",
+      "type": "example",
+      "title": "Exemple : Répétition série harmonique",
+      "content_latex": "Répétons-le, la série harmonique $\\sum\\frac{1}{n}$ diverge et pourtant $\\frac{1}{n}\\rightarrow0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_operations_series",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les séries",
+      "content_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}},(v_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}.\\par • Multiplication par un scalaire : Pour tout $\\lambda\\in\\mathbb{C}^{*}$, les séries $\\sum u_{n}$ et $\\sum(\\lambda u_{n})$ ont même nature.\\par • Somme : Si les séries $\\sum u_{n}$ et $\\sum v_{n}$ convergent, la série $\\sum(u_{n}+v_{n})$ converge aussi. Si la série $\\sum u_{n}$ converge alors que la série $\\sum v_{n}$ diverge, la série $\\sum(u_{n}+v_{n})$ diverge.\\par • Parties réelle et imaginaire : La série $\\sum u_{n}$ converge si et seulement si les séries $\\sum \\text{Re}(u_{n})$ et $\\sum \\text{Im}(u_{n})$ convergent.",
+      "proof_latex": "Le résultat est vrai pour les suites, et justement les séries sont des suites."
+    },
+    {
+      "id": "series_et_familles_sommables__warning_operations_series_divergentes",
+      "type": "warning",
+      "title": "Attention : Somme de deux séries divergentes et produit",
+      "content_latex": "Si les séries $\\sum u_{n}$ et $\\sum v_{n}$ divergent toutes les deux, on ne peut rien dire en général de $\\sum(u_{n}+v_{n})$. Par exemple, $\\sum\\frac{1}{n}$ diverge, donc $\\sum(-\\frac{1}{n})$ aussi, mais la série $\\sum\\frac{1}{n}+\\sum(-\\frac{1}{n})=0$ converge. Si les séries $\\sum u_{n}$ et $\\sum v_{n}$ convergent, on ne peut rien dire en général de la série $\\sum u_{n}v_{n}$. Par exemple, $\\sum\\frac{(-1)^{n}}{\\sqrt{n}}$ converge, et pourtant la série produit $\\sum\\frac{1}{n}$ diverge.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_series_riemann",
+      "type": "theorem",
+      "title": "Définition-théorème : Séries de Riemann, fonction $\\zeta$",
+      "content_latex": "Soit $\\alpha\\in\\mathbb{R}$. La série de Riemann $\\sum\\frac{1}{n^{\\alpha}}$ converge si et seulement si $\\alpha>1$. On pose le cas échéant $\\zeta(\\alpha)=\\sum_{n=1}^{+\\infty}\\frac{1}{n^{\\alpha}}.$ On rappelle que $\\zeta(2)=\\frac{\\pi^{2}}{6}.$",
+      "proof_latex": "Si $\\alpha\\le0,$ la suite $(\\frac{1}{n^{\\alpha}})_{n}$ ne converge pas vers 0, donc la série diverge grossièrement.\\par Désormais, $\\alpha>0$. La fonction $t\\mapsto\\frac{1}{t^{\\alpha}}$ est décroissante sur $\\mathbb{R}_{+}^{*}$, donc pour tous $k\\in\\mathbb{N}^{*}$ et $t\\in[k,k+1]$ : $\\frac{1}{(k+1)^{\\alpha}}\\le\\frac{1}{t^{\\alpha}}\\le\\frac{1}{k^{\\alpha}}$, puis $\\frac{1}{(k+1)^{\\alpha}}\\le\\int_{k}^{k+1}\\frac{dt}{t^{\\alpha}}\\le\\frac{1}{k^{\\alpha}}.\\par • Cas où $\\alpha\\in]0,1[$ : $\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}}\\ge\\sum_{k=1}^{n}\\int_{k}^{k+1}\\frac{dt}{t^{\\alpha}}=\\int_{1}^{n+1}\\frac{dt}{t^{\\alpha}}=\\frac{(n+1)^{1-\\alpha}-1}{1-\\alpha} \\rightarrow+\\infty,$ donc la série diverge.\\par • Cas où $\\alpha=1$ : $\\sum_{k=1}^{n}\\frac{1}{k}\\ge\\sum_{k=1}^{n}\\int_{k}^{k+1}\\frac{dt}{t}=\\int_{1}^{n+1}\\frac{dt}{t}=\\ln(n+1)\\rightarrow+\\infty.\\par • Cas où $\\alpha>1$ : La suite $(\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}})_{n}$ est croissante. $\\sum_{k=1}^{n}\\frac{1}{k^{\\alpha}}=1+\\sum_{k=1}^{n-1}\\frac{1}{(k+1)^{\\alpha}}\\le1+\\sum_{k=1}^{n-1}\\int_{k}^{k+1}\\frac{dt}{t^{\\alpha}}=1+\\int_{1}^{n}\\frac{dt}{t^{\\alpha}}=1+\\frac{1}{\\alpha-1}-\\frac{1}{(\\alpha-1)n^{\\alpha-1}}\\le1+\\frac{1}{\\alpha-1}.$ La suite est croissante et majorée, donc elle converge."
+    },
+    {
+      "id": "series_et_familles_sommables__example_divergence_bertrand",
+      "type": "example",
+      "title": "Exemple : La série $\\sum\\frac{1}{n\\ln n}$",
+      "content_latex": "La série $\\sum\\frac{1}{n\\ln n}$ diverge.",
+      "proof_latex": "Par décroissance de la fonction $t\\mapsto\\frac{1}{t\\ln t}$ sur $]1,+\\infty[$, pour tout $n\\ge2$ : $\\sum_{k=2}^{n}\\frac{1}{k\\ln k}=\\sum_{k=2}^{n-1}\\frac{1}{k\\ln k}+\\dots \\ge\\sum_{k=2}^{n-1}\\int_{k}^{k+1}\\frac{dt}{t\\ln t}=\\int_{2}^{n}\\frac{dt}{t\\ln t}=\\ln(\\ln n)-\\ln(\\ln 2)\\rightarrow+\\infty.$"
+    },
+    {
+      "id": "series_et_familles_sommables__warning_positivite_fondamentale",
+      "type": "warning",
+      "title": "Attention : Vérifier la positivité",
+      "content_latex": "Quand vous utilisez les théorèmes de ce paragraphe, vérifiez bien la POSITIVITÉ des suites étudiées !",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_limite_monotone_series",
+      "type": "theorem",
+      "title": "Théorème : Adaptation aux séries du théorème de la limite monotone",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}$ positive. La série $\\sum u_{n}$ converge si et seulement si elle est majorée. En cas de divergence, toujours grâce à la positivité : $\\sum_{k=0}^{n}u_{k}\\rightarrow+\\infty.$",
+      "proof_latex": "La suite $(\\sum_{k=0}^{n}u_{k})_{n}$ est croissante car pour tout $n\\in\\mathbb{N}$ : $\\sum_{k=0}^{n+1}u_{k}-\\sum_{k=0}^{n}u_{k}=u_{n+1}\\ge0$. D'après le théorème de la limite monotone, elle converge donc si et seulement si elle est majorée."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_comparaison_inegalites",
+      "type": "theorem",
+      "title": "Théorème : Comparaison par des inégalités",
+      "content_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}},(v_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}.$ On suppose que $0\\le u_{n}\\le v_{n}$ pour tout $n$ ou à partir d'un certain rang.\\par (i) Si la série $\\sum v_{n}$ converge, la série $\\sum u_{n}$ converge aussi.\\par (ii) Si la série $\\sum u_{n}$ diverge, la série $\\sum v_{n}$ diverge aussi.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}$ : $\\sum_{k=0}^{n}u_{k}\\le\\sum_{k=0}^{n}v_{k}.$ (i) Si la série $\\sum v_{n}$ converge, la série $\\sum u_{n}$ est majorée, donc converge. (ii) Si la série $\\sum u_{n}$ diverge, alors $\\sum_{k=0}^{n}u_{k}\\rightarrow+\\infty$, donc $\\sum_{k=0}^{n}v_{k}\\rightarrow+\\infty$ par minoration."
+    },
+    {
+      "id": "series_et_familles_sommables__example_comparaison_inegalite_convergente",
+      "type": "example",
+      "title": "Exemple : La série $\\sum\\frac{1}{(2+\\sin n)n^2}$",
+      "content_latex": "La série $\\sum\\frac{1}{(2+\\sin n)n^{2}}$ converge.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}^{*}$ : $0\\le\\frac{1}{(2+\\sin n)n^{2}}\\le\\frac{1}{n^{2}}$, or la série de Riemann $\\sum\\frac{1}{n^{2}}$ converge car $2>1$, donc la série $\\sum\\frac{1}{(2+\\sin n)n^{2}}$ aussi par comparaison."
+    },
+    {
+      "id": "series_et_familles_sommables__example_comparaison_inegalite_divergente",
+      "type": "example",
+      "title": "Exemple : La série $\\sum\\frac{e^{\\cos n}}{\\sqrt{n}}$",
+      "content_latex": "La série $\\sum\\frac{e^{\\cos n}}{\\sqrt{n}}$ diverge.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}^{*}$ : $0\\le\\frac{1}{e\\sqrt{n}}\\le\\frac{e^{\\cos n}}{\\sqrt{n}},$ or la série $\\sum\\frac{1}{\\sqrt{n}}$ diverge car $\\frac{1}{2}\\le1$, donc la série $\\sum\\frac{e^{\\cos n}}{\\sqrt{n}}$ diverge aussi par comparaison."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_comparaison_equivalents",
+      "type": "theorem",
+      "title": "Théorème : Comparaison par des équivalents",
+      "content_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}},(v_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}.$ On suppose que ces suites sont POSITIVES et que $u_{n}\\sim_{n\\rightarrow+\\infty}v_{n}$. Les séries $\\sum u_{n}$ et $\\sum v_{n}$ ont alors même nature.",
+      "proof_latex": "La relation d'équivalence sur les suites étant symétrique, il nous suffit de montrer que si $\\sum v_{n}$ converge, $\\sum u_{n}$ converge aussi. Or $\\frac{u_{n}}{v_{n}}\\rightarrow1$ par hypothèse, donc $|\\frac{u_{n}}{v_{n}}|<2$ à partir d'un certain rang, ou encore $0\\le u_{n}\\le 2v_{n}$. Par comparaison du coup, si la série $\\sum v_{n}$ converge, la série $\\sum u_{n}$ converge aussi."
+    },
+    {
+      "id": "series_et_familles_sommables__warning_oubli_positivite_equivalents",
+      "type": "warning",
+      "title": "Attention : Positivité et équivalents",
+      "content_latex": "Attention ! On a vite fait d'oublier l'hypothèse fondamentale de positivité !",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_comparaison_equivalents",
+      "type": "example",
+      "title": "Exemple : La série $\\sum\\frac{1}{n^2(n+\\sqrt{n})}$",
+      "content_latex": "La série $\\sum\\frac{1}{n^{2}(n+\\sqrt{n})}$ converge.",
+      "proof_latex": "Cette série est à termes positifs et $\\frac{1}{n^{2}(n+\\sqrt{n})}\\sim_{n\\rightarrow+\\infty}\\frac{1}{n^{3}},$ or la série de Riemann $\\sum\\frac{1}{n^{3}}$ converge car $3>1$, donc la série $\\sum\\frac{1}{n^{2}(n+\\sqrt{n})}$ aussi par comparaison."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_lien_suite_serie",
+      "type": "theorem",
+      "title": "Théorème : Lien suite-série",
+      "content_latex": "Soit $(a_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}.$ La suite $(a_{n})_{n\\in\\mathbb{N}}$ et la série $\\sum(a_{n+1}-a_{n})$ ont même nature.",
+      "proof_latex": "Pour tout $n\\in\\mathbb{N}^{*}$, par simplification télescopique : $\\sum_{k=0}^{n-1}(a_{k+1}-a_{k})=a_{n}-a_{0}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_divergence_harmonique_log",
+      "type": "example",
+      "title": "Exemple : Divergence de $\\sum\\frac{1}{n}$ (Preuve 4)",
+      "content_latex": "La série $\\sum\\frac{1}{n}$ diverge.",
+      "proof_latex": "La suite $(\\ln n)_{n\\in\\mathbb{N}^{*}}$ diverge, donc la série $\\sum(\\ln(n+1)-\\ln n)=\\sum\\ln(1+\\frac{1}{n})$ aussi. Or cette série est à termes positifs et $\\ln(1+\\frac{1}{n})\\sim_{n\\rightarrow+\\infty}\\frac{1}{n},$ donc la série $\\sum\\frac{1}{n}$ diverge par comparaison."
+    },
+    {
+      "id": "series_et_familles_sommables__example_constante_euler",
+      "type": "example",
+      "title": "Exemple : Constante d'Euler",
+      "content_latex": "Il existe un réel $\\gamma$, appelé constante d'Euler, pour lequel : $\\sum_{k=1}^{n}\\frac{1}{k}=\\ln n+\\gamma+o(1).$",
+      "proof_latex": "Posons $a_{n}=\\ln n-\\sum_{k=1}^{n}\\frac{1}{k}$ pour tout $n\\in\\mathbb{N}^{*}$. Pour prouver que la suite $(a_{n})_{n\\in\\mathbb{N}^{*}}$ converge, il nous suffit de montrer que la série $\\sum(a_{n+1}-a_{n})$ converge. Or pour tout $n\\ge2$ : $a_{n}-a_{n-1}=-\\frac{1}{n}-\\ln(1-\\frac{1}{n})\\sim_{n\\rightarrow+\\infty}\\frac{1}{2n^{2}}.$ Donc la série $\\sum(a_{n+1}-a_{n})$ est à termes positifs à partir d'un certain rang, et elle converge par comparaison avec la série de Riemann. Il en découle que $(a_{n})_{n\\in\\mathbb{N}^{*}}$ converge."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_formule_stirling",
+      "type": "theorem",
+      "title": "Théorème : Formule de Stirling",
+      "content_latex": "$n! \\sim_{n\\rightarrow+\\infty} (\\frac{n}{e})^{n}\\sqrt{2n\\pi}.$",
+      "proof_latex": "Posons $u_{n}=\\ln\\frac{n!}{n^{n}}$ pour tout $n\\in\\mathbb{N}^{*}$. Pour tout $n\\in\\mathbb{N}^{*}$ : $u_{n}-u_{n-1}=(n-1)\\ln(1-\\frac{1}{n}) \\sim_{n\\rightarrow+\\infty} -1+\\frac{1}{2n}+\\frac{1}{6n^{2}}+o(\\frac{1}{n^{2}})$. Ce développement montre par comparaison que la série $\\sum(u_{n}-u_{n-1}+1-\\frac{1}{2n})$ converge. Il existe donc un réel $a$ pour lequel : $\\sum_{k=2}^{n}(u_{k}-u_{k-1}+1-\\frac{1}{2k}) = a+o(1).$ Ainsi $u_{n} = -n+\\frac{\\ln n}{2}+b+o(1)$ si on pose $b=\\frac{\\gamma}{2}+u_{1}+a+\\frac{1}{2}$. En retour : $\\frac{n!}{n^{n}}=e^{u_{n}} \\sim_{n\\rightarrow+\\infty} e^{-n}e^{b}\\sqrt{n}$, donc $n! \\sim e^{-n}c\\sqrt{n}$ où $c=e^{b}$. On calcule $c$ avec la formule de Wallis et on trouve $c=\\sqrt{2\\pi}$. [cite: 251, 253-256, 259, 261-265]"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_formule_wallis",
+      "type": "theorem",
+      "title": "Théorème : Formule de Wallis",
+      "content_latex": "$\\binom{2n}{n} \\sim_{n\\rightarrow+\\infty} \\frac{2^{2n}}{\\sqrt{n\\pi}}.$",
+      "proof_latex": "Posons pour tout $n\\in\\mathbb{N}$ : $W_{n}=\\int_{0}^{\\frac{\\pi}{2}}\\sin^{n}t\\ dt$. Par IPP, $W_{n}=\\frac{n-1}{n}W_{n-2}$. La suite est décroissante, donc $\\frac{W_{2n}}{W_{2n+1}} \\rightarrow 1$. Un calcul explicite donne $\\frac{W_{2n}}{W_{2n+1}} = (\\frac{1}{2^{2n}}\\binom{2n}{n})^{2}\\frac{(2n+1)\\pi}{2} \\sim (\\frac{1}{2^{2n}}\\binom{2n}{n})^{2}n\\pi$. D'où le résultat. [cite: 272, 274, 278, 283-284]"
+    },
+    {
+      "id": "series_et_familles_sommables__def_convergence_absolue",
+      "type": "definition",
+      "title": "Définition : Convergence absolue",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. On dit que la série $\\sum u_{n}$ est absolument convergente ou qu'elle converge absolument si la série $\\sum|u_{n}|$ converge.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_convergence_absolue",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{(-1)^n}{n^2}$",
+      "content_latex": "La série $\\sum\\frac{(-1)^{n}}{n^{2}}$ converge absolument car, comme $2>1$, la série de Riemann $\\sum\\frac{1}{n^{2}}$ converge. [cite: 288-291]",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_conv_abs_implique_conv",
+      "type": "theorem",
+      "title": "Théorème : La convergence absolue implique la convergence",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. Si la série $\\sum u_{n}$ converge absolument, elle converge \"tout court\".",
+      "proof_latex": "Cas où $(u_{n})$ est réelle : La série $\\sum|u_{n}|$ converge et $0\\le u_{n}+|u_{n}|\\le 2|u_{n}|$, donc la série $\\sum(u_{n}+|u_{n}|)$ converge. Par différence, $\\sum u_{n}$ converge. Cas général : on sépare parties réelle et imaginaire, on a $0\\le|\\text{Re}(u_{n})|\\le|u_{n}|$ et $0\\le|\\text{Im}(u_{n})|\\le|u_{n}|$. [cite: 297-301]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_conv_abs_2",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{(-1)^{\\lfloor\\sqrt{n}\\rfloor}}{n^2+1}$",
+      "content_latex": "La série $\\sum\\frac{(-1)^{\\lfloor\\sqrt{n}\\rfloor}}{n^{2}+1}$ converge.",
+      "proof_latex": "Il suffit de montrer que la série converge absolument, i.e. que la série $\\sum\\frac{1}{n^{2}+1}$ converge. Or c'est le cas car $0\\le\\frac{1}{n^{2}+1}\\le\\frac{1}{n^{2}}$."
+    },
+    {
+      "id": "series_et_familles_sommables__warning_reciproque_conv_abs",
+      "type": "warning",
+      "title": "Attention : La réciproque est fausse",
+      "content_latex": "Attention ! La réciproque du théorème précédent est fausse ! Une série peut converger sans converger absolument. C'est le cas de la série $\\sum\\frac{(-1)^{n-1}}{n}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__def_semi_convergence",
+      "type": "definition",
+      "title": "Définition : Semi-convergence",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. On dit que la série $\\sum u_{n}$ est semi-convergente si elle est convergente mais pas absolument convergente.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_comparaison_grands_o",
+      "type": "theorem",
+      "title": "Théorème : Comparaison par des grands O",
+      "content_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$ et $(v_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}$. On suppose que $(v_{n})_{n\\in\\mathbb{N}}$ est positive, que $u_{n} = O(v_{n})$ et que la série $\\sum v_{n}$ converge. Dans ces conditions, la série $\\sum u_{n}$ converge (absolument).",
+      "proof_latex": "Par hypothèse, il existe un rang $N$ et un réel $K>0$ pour lesquels $|u_{n}|\\le K v_{n}$ pour tout $n\\ge N$. Comme la série $\\sum v_{n}$ converge, la série $\\sum|u_{n}|$ converge aussi."
+    },
+    {
+      "id": "series_et_familles_sommables__example_grand_o_1",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{\\lfloor\\sqrt{n}\\rfloor e^{\\cos n}}{n^3-n}$",
+      "content_latex": "La série $\\sum\\frac{\\lfloor\\sqrt{n}\\rfloor e^{\\cos n}}{n^{3}-n}$ converge.",
+      "proof_latex": "$\\frac{\\lfloor\\sqrt{n}\\rfloor e^{\\cos n}}{n^{3}-n} \\sim \\frac{e^{\\cos n}}{n^{5/2}} = o(\\frac{1}{n^{2}})$, or la série de Riemann à termes positifs $\\sum\\frac{1}{n^{2}}$ converge, donc la série converge aussi."
+    },
+    {
+      "id": "series_et_familles_sommables__example_grand_o_2",
+      "type": "example",
+      "title": "Exemple : $\\sum e^{-n^\\alpha}$",
+      "content_latex": "La série $\\sum e^{-n^{\\alpha}}$ converge pour tout $\\alpha>0$.",
+      "proof_latex": "Montrons que $e^{-n^{\\alpha}} = O(\\frac{1}{n^{2}})$. $\\ln(n) = o(n^{\\alpha})$ car $\\alpha>0$, donc $2\\ln n - n^{\\alpha} \\rightarrow -\\infty$, donc $n^{2}e^{-n^{\\alpha}} = e^{2\\ln n - n^{\\alpha}} \\rightarrow 0$. La convergence s'en déduit par comparaison avec Riemann."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_regle_dalembert",
+      "type": "theorem",
+      "title": "Théorème : Règle de d'Alembert",
+      "content_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{C}^{\\mathbb{N}}$. On suppose $u_{n}\\ne 0$ à partir d'un certain rang.\\par (i) Si $\\lim_{n\\rightarrow+\\infty}|\\frac{u_{n+1}}{u_{n}}|<1$, la série $\\sum u_{n}$ converge (absolument).\\par (ii) Si $\\lim_{n\\rightarrow+\\infty}|\\frac{u_{n+1}}{u_{n}}|>1$, la série $\\sum u_{n}$ diverge (grossièrement). [cite: 336-340]",
+      "proof_latex": "(i) Cas où $l<1$ : Posons $\\varepsilon=\\frac{1-l}{2}$. $|\\frac{u_{n+1}}{u_{n}}| < l+\\varepsilon < 1$ à partir d'un certain rang $N$, donc $|u_{n}| = O((l+\\varepsilon)^{n})$. La série géométrique convergeant, la série $\\sum u_{n}$ converge.\\par (ii) Cas où $l>1$ : $|u_{n+1}|\\ge |u_{n}|$ à partir d'un certain rang, donc la suite ne tend pas vers 0. [cite: 345-348]"
+    },
+    {
+      "id": "series_et_familles_sommables__warning_dalembert_douteux",
+      "type": "warning",
+      "title": "Attention : Cas douteux de d'Alembert",
+      "content_latex": "Attention ! La règle de d'Alembert est muette lorsque la limite vaut 1, on appelle ce cas le cas douteux de la règle de d'Alembert. Pensez aux séries de Riemann qui donnent toutes une limite de 1 en quotient. [cite: 341-343]",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_dalembert_1",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{n^4}{3^n}$",
+      "content_latex": "La série $\\sum\\frac{n^{4}}{3^{n}}$ converge.",
+      "proof_latex": "D'après la règle de d'Alembert : $|\\frac{3^{-(n+1)}(n+1)^{4}}{3^{-n}n^{4}}| = \\frac{1}{3}(1+\\frac{1}{n})^{4} \\rightarrow \\frac{1}{3} < 1$. [cite: 355-356]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_dalembert_2",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{z^n}{n!}$",
+      "content_latex": "La série $\\sum\\frac{z^{n}}{n!}$ converge pour tout $z\\in\\mathbb{C}$.",
+      "proof_latex": "La série converge si $z=0$, et sinon : $|\\frac{\\frac{z^{n+1}}{(n+1)!}}{\\frac{z^{n}}{n!}}| = \\frac{|z|}{n+1} \\rightarrow 0 < 1$. [cite: 358-359]"
+    },
+    {
+      "id": "series_et_familles_sommables__def_serie_alternee",
+      "type": "definition",
+      "title": "Définition : Série alternée",
+      "content_latex": "On appelle série alternée toute série de la forme $\\sum(-1)^{n}a_{n}$ avec $(a_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}$ de signe constant.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_serie_alternee",
+      "type": "example",
+      "title": "Exemple : Exemples de séries alternées",
+      "content_latex": "Les séries $\\sum\\frac{(-1)^{n-1}}{n}$ et $\\sum\\frac{(-1)^{n}e^{-n}}{n^{2}+1}$ sont alternées.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_critere_special_series_alternees",
+      "type": "theorem",
+      "title": "Théorème : Critère spécial des séries alternées",
+      "content_latex": "Soit $(a_{n})_{n\\in\\mathbb{N}}\\in\\mathbb{R}^{\\mathbb{N}}$ décroissante de limite nulle. La série alternée $\\sum(-1)^{n}a_{n}$ converge.",
+      "proof_latex": "Posons $S_{n}=\\sum_{k=0}^{n}(-1)^{k}a_{k}$. Les suites $(S_{2n})$ et $(S_{2n+1})$ sont adjacentes car $S_{2n+1}-S_{2n} = -a_{2n+1} \\rightarrow 0$, $(S_{2n})$ est décroissante ($S_{2n+2}-S_{2n} = a_{2n+2}-a_{2n+1} \\le 0$) et $(S_{2n+1})$ est croissante. Donc elles convergent vers la même limite, et $(S_{n})$ converge. [cite: 394-400]"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_riemann_alternees",
+      "type": "theorem",
+      "title": "Définition-théorème : Séries de Riemann alternées",
+      "content_latex": "Soit $\\alpha\\in\\mathbb{R}$. La série de Riemann alternée $\\sum\\frac{(-1)^{n}}{n^{\\alpha}}$ converge si et seulement si $\\alpha>0$. Pour $\\alpha\\in]0,1]$, la série est semi-convergente. [cite: 401-404]",
+      "proof_latex": "La série diverge si $\\alpha\\le0$, mais si $\\alpha>0$, elle converge d'après le critère spécial des séries alternées car la suite $(\\frac{1}{n^{\\alpha}})_{n\\in\\mathbb{N}^{*}}$ est décroissante de limite nulle. [cite: 405-410]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_alternee_1",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{(-1)^n}{n^{3/4}+n^{1/4}\\sin(\\pi^n)}$",
+      "content_latex": "La série $\\sum\\frac{(-1)^{n}}{n^{3/4}+n^{1/4}\\sin(\\pi^{n})}$ converge.",
+      "proof_latex": "On effectue un développement asymptotique : $\\frac{(-1)^{n}}{n^{3/4}+n^{1/4}\\sin(\\pi^{n})} = \\frac{(-1)^{n}}{n^{3/4}} \\times (1 + O(\\frac{1}{\\sqrt{n}})) = \\frac{(-1)^{n}}{n^{3/4}} + O(\\frac{1}{n^{5/4}})$. La série de Riemann alternée $\\sum\\frac{(-1)^{n}}{n^{3/4}}$ converge, et $\\sum O(\\frac{1}{n^{5/4}})$ converge absolument. Par somme, la série converge. [cite: 419-421, 427]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_alternee_2",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{(-1)^n}{\\sqrt{n}+(-1)^n}$",
+      "content_latex": "La série $\\sum\\frac{(-1)^{n}}{\\sqrt{n}+(-1)^{n}}$ diverge.",
+      "proof_latex": "$\\frac{(-1)^{n}}{\\sqrt{n}+(-1)^{n}} = \\frac{(-1)^{n}}{\\sqrt{n}} - \\frac{1}{n} + O(\\frac{1}{n^{3/2}})$. Or la série $\\sum\\frac{(-1)^{n}}{\\sqrt{n}}$ converge et $\\sum O(\\frac{1}{n^{3/2}})$ converge. La série harmonique $\\sum\\frac{1}{n}$ divergeant, la série diverge par somme. [cite: 432-441]"
+    },
+    {
+      "id": "series_et_familles_sommables__warning_alternee_equivalents",
+      "type": "warning",
+      "title": "Attention : Positivité et équivalents",
+      "content_latex": "Le théorème de comparaison par des équivalents requiert la positivité. Par exemple, $\\frac{(-1)^{n}}{\\sqrt{n}+(-1)^{n}} \\sim \\frac{(-1)^{n}}{\\sqrt{n}}$, la série de droite converge mais celle de gauche diverge. [cite: 446-450, 457, 458]",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_alternee_somme_euler",
+      "type": "example",
+      "title": "Exemple : Somme de la série de Riemann alternée",
+      "content_latex": "Pour tout $\\alpha>1$ : $\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^{\\alpha}}=(1-\\frac{1}{2^{\\alpha}})\\zeta(\\alpha)$ et $\\sum_{k=1}^{+\\infty}\\frac{(-1)^{k-1}}{k^{\\alpha}}=(1-\\frac{1}{2^{\\alpha-1}})\\zeta(\\alpha).$",
+      "proof_latex": "$\\sum_{k=0}^{n-1}\\frac{1}{(2k+1)^{\\alpha}}=\\sum_{k=1}^{2n}\\frac{1}{k^{\\alpha}}-\\sum_{k=1}^{n}\\frac{1}{(2k)^{\\alpha}} \\rightarrow (1-\\frac{1}{2^{\\alpha}})\\zeta(\\alpha)$. De même : $\\sum_{k=1}^{2n}\\frac{(-1)^{k-1}}{k^{\\alpha}}=\\sum_{k=1}^{2n}\\frac{1}{k^{\\alpha}}-2\\sum_{k=1}^{n}\\frac{1}{(2k)^{\\alpha}} \\rightarrow (1-\\frac{1}{2^{\\alpha-1}})\\zeta(\\alpha)$."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_somme_famille_positive",
+      "type": "theorem",
+      "title": "Définition-théorème : Somme d'une famille quelconque d'éléments de $[0,+\\infty]$",
+      "content_latex": "Pour toute famille $(x_{i})_{i\\in I}$ d'éléments de $[0,+\\infty]$, on appelle somme de la famille $(x_{i})_{i\\in I}$ l'élément $\\sum_{i\\in I}x_{i}=\\sup_{J\\in\\mathcal{P}_{f}(I)}\\sum_{j\\in J}x_{j}$ de $[0,+\\infty]$.",
+      "proof_latex": "Pour toute série $\\sum u_{n}$ de réels positifs : $\\sum_{k=0}^{N}u_{k} \\le \\sum_{n\\in\\mathbb{N}}u_{n}$ d'où l'équivalence avec le cas des séries."
+    },
+    {
+      "id": "series_et_familles_sommables__warning_dependance_ordre",
+      "type": "warning",
+      "title": "Attention : Ordre de sommation",
+      "content_latex": "Avec les sommes infinies, l'ordre des termes compte en général (cas des séries classiques de $\\mathbb{C}$), mais dans $[0,+\\infty]$, la définition par le supremum donne une indépendance par rapport à l'ordre.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_sommation_paquets_positive",
+      "type": "theorem",
+      "title": "Théorème : Théorème de sommation par paquets",
+      "content_latex": "Pour tout recouvrement disjoint $(I_{k})_{k\\in K}$ de $I$ et toute famille $(x_{i})_{i\\in I}$ d'éléments de $[0,+\\infty]$ : $\\sum_{i\\in I}x_{i}=\\sum_{k\\in K}\\sum_{j\\in I_{k}}x_{j}.$",
+      "proof_latex": "La preuve exploite les propriétés du supremum. On montre la double inégalité en approchant le $\\sup$ par des parties finies $J\\subset I$ qu'on intersecte avec les $I_k$ pour construire des $J_k$. [cite: 561-568]"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_regles_calcul_sommes_positives",
+      "type": "theorem",
+      "title": "Théorème : Règles de calcul sur les sommes quelconques d'éléments de $[0,+\\infty]$",
+      "content_latex": "(i) Changement d'indice : $\\sum_{i\\in I}x_{i}=\\sum_{j\\in J}x_{\\varphi(j)}$ (avec $\\varphi$ bijection).\\par (ii) Restriction : $\\sum_{i'\\in I'}x_{i'} \\le \\sum_{i\\in I}x_{i}$.\\par (iii) Linéarité : $\\sum_{i\\in I}(\\lambda x_{i}+y_{i})=\\lambda\\sum_{i\\in I}x_{i}+\\sum_{i\\in I}y_{i}$.\\par (iv) Croissance.\\par (v) Théorème de Fubini : $\\sum_{i\\in I}\\sum_{j\\in J}u_{i,j} = \\sum_{(i,j)\\in I\\times J}u_{i,j}$.\\par (vi) Familles produits : $\\sum_{(i,j)}a_{i}b_{j} = \\sum_{i}a_{i} \\times \\sum_{j}b_{j}$. [cite: 575-587]",
+      "proof_latex": "La démonstration s'appuie sur le théorème de sommation par paquets et la séparation des sous-ensembles. L'additivité se montre en découpant $I \\times \\{1,2\\}$. Fubini utilise la partition de $I \\times J$. [cite: 588-608]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_calcul_somme_1",
+      "type": "example",
+      "title": "Exemple : $\\sum_{n=2}^{+\\infty}(\\zeta(n)-1)$",
+      "content_latex": "$\\sum_{n=2}^{+\\infty}(\\zeta(n)-1)=1.$",
+      "proof_latex": "$\\sum_{n=2}^{+\\infty}\\sum_{p=2}^{+\\infty}\\frac{1}{p^{n}}=\\sum_{p=2}^{+\\infty}\\sum_{n=2}^{+\\infty}\\frac{1}{p^{n}}=\\sum_{p=2}^{+\\infty}\\frac{1}{p^{2}}\\times\\frac{1}{1-\\frac{1}{p}}=\\sum_{p=2}^{+\\infty}(\\frac{1}{p-1}-\\frac{1}{p})=1.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_calcul_somme_2",
+      "type": "example",
+      "title": "Exemple : $\\sum_{n=1}^{+\\infty}\\frac{n}{2^n}$",
+      "content_latex": "$\\sum_{n=1}^{+\\infty}\\frac{n}{2^{n}} = 2.$",
+      "proof_latex": "$\\sum_{n=1}^{+\\infty}\\sum_{k=1}^{n}\\frac{1}{2^{n}}=\\sum_{k=1}^{+\\infty}\\sum_{n=k}^{+\\infty}\\frac{1}{2^{n}}=\\sum_{k=1}^{+\\infty}\\frac{1}{2^{k-1}}=2.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_calcul_somme_3",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{p^q}{e^{2p}q!}$",
+      "content_latex": "$\\sum_{p,q\\in\\mathbb{N}}\\frac{p^{q}}{e^{2p}q!} = \\frac{e}{e-1}.$",
+      "proof_latex": "$\\sum_{p=0}^{+\\infty}e^{-2p}\\sum_{q=0}^{+\\infty}\\frac{p^{q}}{q!}=\\sum_{p=0}^{+\\infty}e^{-p}=\\frac{1}{1-e^{-1}}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_calcul_somme_4",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{1}{np(n+p-1)}$",
+      "content_latex": "$\\sum_{n,p\\in\\mathbb{N}^{*}}\\frac{1}{np(n+p-1)} = \\frac{\\pi^{2}}{3}.$",
+      "proof_latex": "Posons $k=n+p$. $\\sum_{k=2}^{+\\infty}\\sum_{n=1}^{k-1}\\frac{1}{n(k-n)(k-1)} = \\sum_{k=2}^{+\\infty}\\frac{1}{k-1}\\sum_{n=1}^{k-1}\\frac{1}{k}(\\frac{1}{n}+\\frac{1}{k-n}) = \\dots = 2\\sum_{n=1}^{+\\infty}\\frac{1}{n^{2}}=\\frac{\\pi^{2}}{3}.$ [cite: 613-615]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_calcul_somme_5",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{pq}{(p+q)^{\\alpha}}$",
+      "content_latex": "Pour $\\alpha\\le 4$, la somme vaut $+\\infty$. Pour $\\alpha>4$, elle vaut $\\frac{\\zeta(\\alpha-3)-\\zeta(\\alpha-1)}{6}$.",
+      "proof_latex": "Posons $k=p+q$. $\\sum_{k=2}^{+\\infty}\\sum_{p=1}^{k-1}\\frac{p(k-p)}{k^{\\alpha}} = \\frac{1}{6}\\sum_{k=2}^{+\\infty}(\\frac{1}{k^{\\alpha-3}}-\\frac{1}{k^{\\alpha-1}})$. C'est le terme général d'une série convergente si et seulement si $\\alpha-3>1$. [cite: 617-619]"
+    },
+    {
+      "id": "series_et_familles_sommables__def_famille_sommable",
+      "type": "definition",
+      "title": "Définition : Famille sommable",
+      "content_latex": "Soit $(x_{i})_{i\\in I}$ une famille de nombres complexes. On dit que $(x_{i})_{i\\in I}$ est sommable si $\\sum_{i\\in I}|x_{i}|<+\\infty$. L'ensemble des familles sommables de $\\mathbb{C}^{I}$ à valeurs dans $\\mathbb{K}$ est noté $\\ell^{1}(I,\\mathbb{K})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_proprietes_familles_sommables",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des familles sommables",
+      "content_latex": "(i) Restriction : La sous-famille reste sommable.\\par (ii) Linéarité : $\\ell^{1}(I,\\mathbb{K})$ est un e.v.\\par (iii) Croissance et Inégalité triangulaire.\\par (iv) Théorème de sommation par paquets.\\par (v) Changement d'indice.\\par (vi) Théorème de Fubini.\\par (vii) Familles produits.\\par (viii) Approximation par des sommes finies. [cite: 641-663]",
+      "proof_latex": "Pour la linéarité, on majore : $\\sum|\\lambda x_{i}+y_{i}| \\le |\\lambda|\\sum|x_{i}|+\\sum|y_{i}|<+\\infty$. L'inégalité triangulaire vient de la décomposition en parties positive et négative : $|\\sum x_{i}| \\le \\sum x_{i}^{+} + \\sum x_{i}^{-} = \\sum|x_{i}|$. Le reste se déduit de la théorie des sommes positives en appliquant le module."
+    },
+    {
+      "id": "series_et_familles_sommables__example_sommable_1",
+      "type": "example",
+      "title": "Exemple : $\\sum\\frac{\\sin(p+q)}{p^2q^2}$",
+      "content_latex": "La famille $(\\frac{\\sin(p+q)}{p^{2}q^{2}})_{p,q\\in\\mathbb{N}^{*}}$ est sommable.",
+      "proof_latex": "$\\sum_{p,q\\in\\mathbb{N}^{*}}\\frac{|\\sin(p+q)|}{p^{2}q^{2}}\\le\\sum_{p,q\\in\\mathbb{N}^{*}}\\frac{1}{p^{2}q^{2}}=(\\sum_{p=1}^{+\\infty}\\frac{1}{p^{2}})(\\sum_{q=1}^{+\\infty}\\frac{1}{q^{2}})<+\\infty.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_sommable_2",
+      "type": "example",
+      "title": "Exemple : $\\sum z^{ij}$",
+      "content_latex": "Pour tout $z\\in\\mathbb{C}$, la famille $(z^{ij})_{i,j\\in\\mathbb{N}^{*}}$ est sommable si et seulement si $|z|<1$.",
+      "proof_latex": "Si $|z|<1$ : $\\sum_{i,j\\in\\mathbb{N}^{*}}|z^{ij}| = \\sum_{i=1}^{+\\infty}\\frac{|z|^{i}}{1-|z|^{i}} \\le \\sum_{i=1}^{+\\infty}\\frac{|z|^{i}}{1-|z|} = \\frac{|z|}{(1-|z|)^{2}}<+\\infty.$ Si $|z|\\ge1$, $\\sum_{i,j}|z|^{ij} = +\\infty.$ [cite: 696-703]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_sommable_3",
+      "type": "example",
+      "title": "Exemple : Inversion de sommes",
+      "content_latex": "On calcule $\\sum_{k=1}^{+\\infty}\\frac{1}{k(k+1)}\\sum_{n=1}^{k}\\frac{(-1)^{n-1}}{n} = \\sum_{n=1}^{+\\infty}\\frac{(-1)^{n-1}}{n^{2}}$.",
+      "proof_latex": "Sous réserve de sommabilité de $(\\frac{(-1)^{n-1}}{nk(k+1)})$ : $\\sum_{n,k}|\\dots| = \\sum_{n=1}^{+\\infty}\\frac{1}{n}\\sum_{k=n}^{+\\infty}(\\frac{1}{k}-\\frac{1}{k+1}) = \\sum_{n=1}^{+\\infty}\\frac{1}{n^{2}} < +\\infty$. L'interversion est licite. [cite: 711-714]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_sommable_4",
+      "type": "example",
+      "title": "Exemple : $\\sum\\sum\\frac{e^{\\frac{2ik\\pi}{n}}}{2^n}$",
+      "content_latex": "On calcule $\\sum_{k=1}^{+\\infty}\\sum_{n=k+1}^{+\\infty}\\frac{e^{\\frac{2ik\\pi}{n}}}{2^{n}} = -\\frac{1}{2}.$",
+      "proof_latex": "Sommabilité : $\\sum|\\dots| = \\sum_{n=2}^{+\\infty}\\frac{n-1}{2^{n}} < +\\infty$. Calcul : On permute pour avoir $\\sum_{n=2}^{+\\infty}\\frac{1}{2^{n}}\\sum_{k=1}^{n-1}e^{\\frac{2ik\\pi}{n}} = \\sum_{n=2}^{+\\infty}\\frac{1}{2^{n}}(-1) = -\\frac{1}{2}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_produit_cauchy",
+      "type": "theorem",
+      "title": "Définition-théorème : Produit de Cauchy",
+      "content_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}},(v_{n})_{n\\in\\mathbb{N}}\\in\\ell^{1}(\\mathbb{N},\\mathbb{C})$. On appelle produit de Cauchy la suite $p_{n}=\\sum_{k=0}^{n}u_{k}v_{n-k}$. La famille $(p_{n})_{n\\in\\mathbb{N}}$ est sommable et : $\\sum_{n=0}^{+\\infty}p_{n}=\\sum_{n=0}^{+\\infty}u_{n}\\times\\sum_{n=0}^{+\\infty}v_{n}.$",
+      "proof_latex": "La famille $(u_{i}v_{j})_{i,j}$ est sommable et on peut sommer par diagonales : $\\sum u_{i} \\times \\sum v_{j} = \\sum_{n\\in\\mathbb{N}}\\sum_{i+j=n}u_{i}v_{j} = \\sum_{n\\in\\mathbb{N}}p_{n}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__warning_cauchy_absolue",
+      "type": "warning",
+      "title": "Attention : Le produit de Cauchy nécessite la convergence absolue",
+      "content_latex": "Le produit de Cauchy de deux séries semi-convergentes peut diverger. Par exemple avec $u_{n}=\\frac{(-1)^{n}}{\\sqrt{n+1}}$, on a $|p_{n}| \\ge 1$ donc la série $\\sum p_{n}$ diverge grossièrement. [cite: 727-730]",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_cauchy_1",
+      "type": "example",
+      "title": "Exemple : $\\sum nx^{n-1}$",
+      "content_latex": "Pour tout $x\\in]-1,1[$, $\\sum_{n=1}^{+\\infty}nx^{n-1}=\\frac{1}{(1-x)^{2}}.$",
+      "proof_latex": "Par produit de Cauchy de la suite $(x^{n})$ avec elle-même : $\\frac{1}{(1-x)^{2}} = (\\sum_{n=0}^{+\\infty}x^{n})^{2} = \\sum_{n=0}^{+\\infty}\\sum_{k=0}^{n}x^{k}x^{n-k} = \\sum_{n=0}^{+\\infty}(n+1)x^{n} = \\sum_{n=1}^{+\\infty}nx^{n-1}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__example_cauchy_2",
+      "type": "example",
+      "title": "Exemple : $e^{a+b}=e^{a}e^{b}$",
+      "content_latex": "Pour tous $a,b\\in\\mathbb{C}$ : $\\sum_{n=0}^{+\\infty}\\frac{(a+b)^{n}}{n!}=\\sum_{n=0}^{+\\infty}\\frac{a^{n}}{n!}\\times\\sum_{n=0}^{+\\infty}\\frac{b^{n}}{n!}.$",
+      "proof_latex": "Par produit de Cauchy : $\\sum_{n=0}^{+\\infty}\\frac{a^{n}}{n!}\\times\\sum_{n=0}^{+\\infty}\\frac{b^{n}}{n!} = \\sum_{n=0}^{+\\infty}\\sum_{k=0}^{n}\\frac{a^{k}}{k!}\\frac{b^{n-k}}{(n-k)!} = \\sum_{n=0}^{+\\infty}\\frac{1}{n!}\\sum_{k=0}^{n}\\binom{n}{k}a^{k}b^{n-k} = \\sum_{n=0}^{+\\infty}\\frac{(a+b)^{n}}{n!}.$"
+    },
+    {
+      "id": "series_et_familles_sommables__def_denombrable",
+      "type": "definition",
+      "title": "Définition : Ensemble dénombrable",
+      "content_latex": "Soit $E$ un ensemble. On dit que $E$ est dénombrable s'il est équipotent à $\\mathbb{N}$, et indénombrable dans le cas contraire.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__example_denombrable_1",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{N}^*$ et $\\mathbb{N}^2$",
+      "content_latex": "$\\mathbb{N}^{*}$ et $\\mathbb{N}^{2}$ sont dénombrables.",
+      "proof_latex": "L'application $(p,q)\\mapsto 2^{p}(2q+1)$ est bijective de $\\mathbb{N}^{2}$ sur $\\mathbb{N}^{*}$, donc $\\mathbb{N}^{2}$ est équipotent à $\\mathbb{N}^{*}$."
+    },
+    {
+      "id": "series_et_familles_sommables__example_denombrable_2",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{R}$ indénombrable",
+      "content_latex": "$\\mathbb{R}$ est indénombrable.",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_au_plus_denombrable",
+      "type": "theorem",
+      "title": "Définition-théorème : Ensemble au plus dénombrable",
+      "content_latex": "Soit $E$ un ensemble. Les assertions suivantes sont équivalentes :\\par (i) Il existe une injection de $E$ dans $\\mathbb{N}$.\\par (ii) $E$ est fini ou dénombrable.\\par Le cas échéant, on dit que $E$ est au plus dénombrable. [cite: 750-752]",
+      "proof_latex": null
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_parties_denombrables",
+      "type": "theorem",
+      "title": "Théorème : Parties d'un ensemble au plus dénombrable",
+      "content_latex": "Soient $E$ un ensemble au plus dénombrable et $A$ une partie de $E$. Alors $A$ est au plus dénombrable.",
+      "proof_latex": "La restriction d'une injection de $E$ dans $\\mathbb{N}$ à $A$ fournit une injection de $A$ dans $\\mathbb{N}$."
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_produit_denombrable",
+      "type": "theorem",
+      "title": "Théorème : Produit d'ensembles au plus dénombrables",
+      "content_latex": "Soient $E_{1}, \\dots, E_{p}$ des ensembles non vides au plus dénombrables. Alors $E_{1} \\times \\dots \\times E_{p}$ est au plus dénombrable.",
+      "proof_latex": "Par récurrence, on utilise que si $E_{1} \\times \\dots \\times E_{p}$ et $E_{p+1}$ s'injectent dans $\\mathbb{N}$, alors leur produit s'injecte dans $\\mathbb{N}^{2}$ qui s'injecte lui-même dans $\\mathbb{N}$. [cite: 758-763]"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_reunion_denombrable",
+      "type": "theorem",
+      "title": "Théorème : Réunion au plus dénombrable",
+      "content_latex": "Soient $I$ un ensemble au plus dénombrable et $(E_{i})_{i\\in I}$ une famille d'ensembles au plus dénombrables. Alors $\\bigcup_{i\\in I}E_{i}$ est au plus dénombrable.",
+      "proof_latex": "Chaque élément de la réunion peut être repéré par le plus petit indice (dans $\\mathbb{N}$ via l'injection de $I$) tel qu'il appartienne à $E_{i}$, et par son numéro d'injection dans $\\mathbb{N}$ pour l'ensemble $E_{i}$. Ceci définit une injection de la réunion dans $\\mathbb{N}^{2}$. [cite: 767-772]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_denombrable_3",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{Z}$, $\\mathbb{Q}$, et $\\mathbb{R}\\backslash\\mathbb{Q}$",
+      "content_latex": "$\\mathbb{Z}$ et $\\mathbb{Q}$ sont dénombrables, $\\mathbb{R}\\backslash\\mathbb{Q}$ est indénombrable.",
+      "proof_latex": "$\\mathbb{Q}$ est réunion dénombrable de singletons, donc dénombrable. Si $\\mathbb{R}\\backslash\\mathbb{Q}$ était dénombrable, $\\mathbb{R}$ serait réunion de deux ensembles dénombrables, ce qui est faux. [cite: 774-775]"
+    },
+    {
+      "id": "series_et_familles_sommables__theorem_support_sommable",
+      "type": "theorem",
+      "title": "Définition-théorème : Support d'une famille sommable",
+      "content_latex": "Si $(x_{i})_{i\\in I}$ est sommable, son support $\\{i\\in I | x_{i}\\ne 0\\}$ est au plus dénombrable.",
+      "proof_latex": "On a $\\bigcup_{k\\in\\mathbb{N}}E_{k} = \\{i\\in I | x_{i}\\ne 0\\}$ avec $E_{k} = \\{i\\in I | |x_{i}|\\ge 2^{-k}\\}$. Chaque $E_{k}$ est fini car $2^{-k}|E_{k}| \\le \\sum|x_{i}| < +\\infty$. La réunion est donc au plus dénombrable. [cite: 778-780]"
+    },
+    {
+      "id": "series_et_familles_sommables__example_denombrable_4",
+      "type": "example",
+      "title": "Exemple : Suites stationnaires",
+      "content_latex": "L'ensemble $\\mathcal{S}$ des suites stationnaires à coefficients dans $\\mathbb{Z}$ est dénombrable.",
+      "proof_latex": "$\\mathcal{S} = \\bigcup_{p\\in\\mathbb{Z}}\\bigcup_{N\\in\\mathbb{N}^{*}}\\mathcal{S}_{p,N}$. Chaque $\\mathcal{S}_{p,N}$ est en bijection avec $\\mathbb{Z}^{N}$ donc est dénombrable. Par réunion dénombrable, $\\mathcal{S}$ est dénombrable."
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,323 @@
+{
+  "chapter_official_id": "representation_matricielle_applications_lineaires",
+  "chapter_name": "Représentation Matricielle des Applications Linéaires",
+  "source_document": "Cours - Representation matricielle des applications lineaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+      "type": "definition",
+      "title": "Définition : Matrice d'une application linéaire dans des bases finies",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimensions respectives $p$ et $n$, $\\mathscr{B}=(e_{1},\\dots,e_{p})$ une base de $E$, $\\mathscr{C}=(f_{1},\\dots,f_{n})$ une base de $F$ et $u\\in\\mathscr{L}(E,F)$.\\par On appelle matrice de $u$ dans $\\mathscr{B}$ et $\\mathscr{C}$, et on note $\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$ la matrice de la famille $u(\\mathscr{B})=(u(e_{1}),\\dots,u(e_{p}))$ dans la base $\\mathscr{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_matrice_id",
+      "type": "example",
+      "title": "Exemple : Matrice de l'identité",
+      "content_latex": "Pour tout $\\mathbb{K}$-espace vectoriel $E$ de dimension finie $n$ et pour toute base $\\mathscr{B}$ de $E$ : $\\text{Mat}_{\\mathscr{B}}(Id_{E})=I_{n}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_matrice_derivation_polynome",
+      "type": "example",
+      "title": "Exemple : Matrice d'un endomorphisme sur $\\mathbb{R}_2[X]$",
+      "content_latex": "En notant $T$ l'endomorphisme $P\\mapsto XP'+P(1)$ de $\\mathbb{R}_{2}[X]$ : $\\text{Mat}_{(1,X,X^{2})}(T)=\\begin{pmatrix}1&1&1\\\\0&1&0\\\\0&0&2\\end{pmatrix}$.",
+      "proof_latex": "Car $T(1)=1$, $T(X)=X+1$ et $T(X^{2})=2X^{2}+1$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+      "type": "theorem",
+      "title": "Théorème : Matrice dans les bases canoniques de l'application linéaire canoniquement associée",
+      "content_latex": "Soit $A\\in\\mathscr{M}_{n,p}(\\mathbb{K})$. Si on note $\\tilde{A}$ l'application linéaire canoniquement associée à $A$ et $\\mathscr{B}_{p}$ et $\\mathscr{B}_{n}$ les bases canoniques respectives de $\\mathbb{K}^{p}$ et $\\mathbb{K}^{n}$, alors $A=\\text{Mat}_{\\mathscr{B}_{p},\\mathscr{B}_{n}}(\\tilde{A})$.",
+      "proof_latex": "Il suffit d'appliquer scrupuleusement la définition."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+      "type": "theorem",
+      "title": "Théorème : Rang d'une application linéaire, rang d'une matrice associée",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimensions finies non nulles, $\\mathscr{B}$ une base de $E$, $\\mathscr{C}$ une base de $F$ et $u\\in\\mathscr{L}(E,F)$. Alors $\\text{rg}(u)=\\text{rg}(\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u))$.",
+      "proof_latex": "$\\text{rg}(\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u))=\\text{rg}(\\text{Mat}_{\\mathscr{C}}(u(\\mathscr{B})))=\\text{rg}(u(\\mathscr{B}))=\\dim\\text{Vect}(u(\\mathscr{B}))=\\dim\\text{Im }u=\\text{rg}(u)$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_calcul_matriciel_image",
+      "type": "theorem",
+      "title": "Théorème : Calcul matriciel de l'image d'un vecteur",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimensions finies non nulles, $\\mathscr{B}$ une base de $E$, $\\mathscr{C}$ une base de $F$, $u\\in\\mathscr{L}(E,F)$ et $x\\in E$. Alors :\\par $\\text{Mat}_{\\mathscr{C}}(u(x))=\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)\\times\\text{Mat}_{\\mathscr{B}}(x)$.",
+      "proof_latex": "Introduisons $X=\\text{Mat}_{\\mathscr{B}}(x)$ et $U=\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$.\\par $u(x)=u\\left(\\sum_{j=1}^{p}x_{j}e_{j}\\right)=\\sum_{j=1}^{p}x_{j}u(e_{j})=\\sum_{i=1}^{n}\\left(\\sum_{j=1}^{p}u_{ij}x_{j}\\right)f_{i}$, ce qui correspond au produit $U \\times X$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_noyau_image_matrice",
+      "type": "example",
+      "title": "Exemple : Noyau et Image via la matrice",
+      "content_latex": "On note $f$ l'endomorphisme de $\\mathbb{R}_{2}[X]$ de matrice $A=\\begin{pmatrix}3&3&6\\\\0&1&2\\\\0&2&4\\end{pmatrix}$ dans la base canonique.\\par Alors $\\text{Im }f=\\text{Vect}(1,2X^{2}+X)$ et $\\text{Ker }f=\\text{Vect}(X^{2}-2X)$.",
+      "proof_latex": "$\\text{Im }f=\\text{Vect}(f(1),f(X),f(X^{2}))=\\text{Vect}(3,2X^{2}+X+3,4X^{2}+2X+6)=\\text{Vect}(1,2X^{2}+X)$.\\par Pour le noyau, $\\text{Ker }A = \\text{Vect}((0,-2,1))$, donc de nouveau $\\text{Ker }f=\\text{Vect}(X^{2}-2X)$ après réincarnation."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__warning_reincarnation_vectorielle",
+      "type": "warning",
+      "title": "Attention : Coordonnées et réincarnation vectorielle",
+      "content_latex": "Les coordonnées de $aX^{2}+bX+c$ dans la base canonique de $\\mathbb{R}_{2}[X]$ sont $(c, b, a)$ dans cet ordre et non pas $(a, b, c)$.\\par De plus, on raisonne matriciellement sur un squelette numérique, mais il ne faut pas oublier à la fin de réincarner le résultat dans le monde vectoriel. La réponse $\\text{Ker }f=\\text{Vect}((0,-2,1))$ n'est pas correcte, c'est $X^2-2X$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_dictionnaire_vectoriel_matriciel",
+      "type": "theorem",
+      "title": "Théorème : Dictionnaire entre les points de vue vectoriel et matriciel",
+      "content_latex": "(i) L'application $u\\mapsto\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$ est un isomorphisme de $\\mathscr{L}(E, F)$ sur $\\mathscr{M}_{n,p}(\\mathbb{K})$.\\par (ii) $\\text{Mat}_{\\mathscr{B},\\mathscr{D}}(v\\circ u)=\\text{Mat}_{\\mathscr{C},\\mathscr{D}}(v)\\times\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$.\\par (iii) $u$ est un isomorphisme de $E$ sur $F$ si et seulement si $\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$ est inversible. Dans ce cas : $\\text{Mat}_{\\mathscr{C},\\mathscr{B}}(u^{-1})=(\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u))^{-1}$.",
+      "proof_latex": "(ii) $\\text{Mat}_{\\mathscr{C},\\mathscr{D}}(v)\\times\\text{Mat}_{\\mathscr{B}}(u(e_{j})) = \\text{Mat}_{\\mathscr{D}}(v(u(e_{j})))$, ce qui correspond à la $j$-ème colonne de $\\text{Mat}_{\\mathscr{B},\\mathscr{D}}(v\\circ u)$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_symetrie_R3X",
+      "type": "example",
+      "title": "Exemple : Matrice d'une symétrie dans $\\mathbb{R}_3[X]$",
+      "content_latex": "L'endomorphisme $\\omega$ de $\\mathbb{R}_{3}[X]$ dont la matrice dans la base canonique est $\\begin{pmatrix}0&0&1&-1\\\\-1&1&1&-1\\\\0&2&1&-2\\\\-1&2&1&-2\\end{pmatrix}$ est la symétrie par rapport à $\\text{Vect}(X^{3}+X^{2}+X,X^{2}+1)$ parallèlement à $\\text{Vect}(X^{3}+X+1,X^{3}+X^{2})$.",
+      "proof_latex": "$A^{2}=I_{4}$ donc c'est une symétrie. L'étude de $\\text{Ker}(A-I_4)$ et $\\text{Ker}(A+I_4)$ donne les sous-espaces après réincarnation vectorielle."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_vandermonde",
+      "type": "theorem",
+      "title": "Définition-théorème : Matrice de Vandermonde",
+      "content_latex": "La matrice de Vandermonde de $x_{1},\\dots,x_{n}$, notée $(x_{i}^{j-1})_{1\\le i,j\\le n}$, est inversible si et seulement si les scalaires $x_{1},\\dots,x_{n}$ sont distincts deux à deux.",
+      "proof_latex": "Si distincts, l'application $P\\mapsto(P(x_{1}),\\dots,P(x_{n}))$ de $\\mathbb{K}_{n-1}[X]$ dans $\\mathbb{K}^{n}$ est injective (plus de racines que le degré), donc un isomorphisme. Sa matrice dans les bases canoniques est exactement la matrice de Vandermonde."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__remark_blocs_stables",
+      "type": "remark",
+      "title": "Remarque : Interprétation géométrique des blocs",
+      "content_latex": "Pour $E=F\\oplus G$ et $u\\in\\mathscr{L}(E)$, si $\\text{Mat}_{\\mathscr{B}}(u)=\\begin{pmatrix}A&C\\\\B&D\\end{pmatrix}$ :\\par — $B=0 \\iff \\forall x\\in F, u(x)\\in F \\iff F$ est stable par $u$.\\par — $B=0$ et $D=0 \\iff \\text{Im }u\\subset F$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_blocs_projecteur_symetrie",
+      "type": "example",
+      "title": "Exemple : Blocs pour projecteur et symétrie",
+      "content_latex": "Soit $p$ la projection sur $F$ parallèlement à $G$ et $s$ la symétrie correspondante. Dans une base adaptée : $\\text{Mat}_{\\mathscr{B}}(p)=\\begin{pmatrix}I_{m}&0\\\\0&0_{n}\\end{pmatrix}$ et $\\text{Mat}_{\\mathscr{B}}(s)=\\begin{pmatrix}I_{m}&0\\\\0&-I_{n}\\end{pmatrix}$.",
+      "proof_latex": "$F$ et $G$ sont stables, avec $p_{|F}=Id_F$, $p_{|G}=0$, $s_{|F}=Id_F$, $s_{|G}=-Id_G$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_commutation_stables",
+      "type": "theorem",
+      "title": "Théorème : Commutation et sous-espaces stables",
+      "content_latex": "Soient $f,g\\in\\mathscr{L}(E)$. Si $f$ et $g$ commutent, alors $\\text{Im }g$ et $\\text{Ker }g$ sont stables par $f$. En corollaire, pour tout $P\\in\\mathbb{K}[X]$, $\\text{Ker }P(u)$ et $\\text{Im }P(u)$ sont stables par $u$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_endomorphisme_nilpotent",
+      "type": "example",
+      "title": "Exemple : Endomorphisme nilpotent d'indice 2",
+      "content_latex": "Soient $E$ un espace de dimension 2 et $f\\in\\mathscr{L}(E)$. Si $f$ est nilpotent d'indice 2, alors $f$ a pour matrice $\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ dans une certaine base de $E$.",
+      "proof_latex": "$f\\neq 0$ donc $\\text{Ker }f \\neq E$. On choisit $e_2 \\notin \\text{Ker }f$ et $e_1 = f(e_2)$. Alors $f(e_1) = f^2(e_2) = 0$. La famille $(e_1, e_2)$ est libre et forme la base cherchée."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_matrice_passage",
+      "type": "definition",
+      "title": "Définition-théorème : Matrice de passage",
+      "content_latex": "Soient $\\mathscr{B}$ et $\\mathscr{B}'$ deux bases de $E$. On appelle matrice de passage de $\\mathscr{B}$ à $\\mathscr{B}'$ la matrice $P_{\\mathscr{B}}^{\\mathscr{B}'}=\\text{Mat}_{\\mathscr{B}',\\mathscr{B}}(Id_{E})$.\\par (i) $P$ est inversible d'inverse $P_{\\mathscr{B}'}^{\\mathscr{B}}$.\\par (ii) $P_{\\mathscr{B}}^{\\mathscr{B}'}P_{\\mathscr{B}'}^{\\mathscr{B}''} = P_{\\mathscr{B}}^{\\mathscr{B}''}$.",
+      "proof_latex": "$(P_{\\mathscr{B}}^{\\mathscr{B}'})^{-1}=(\\text{Mat}_{\\mathscr{B}',\\mathscr{B}}(Id_{E}))^{-1}=\\text{Mat}_{\\mathscr{B},\\mathscr{B}'}(Id_{E}^{-1})=P_{\\mathscr{B}'}^{\\mathscr{B}}$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_changement_base_vecteur",
+      "type": "theorem",
+      "title": "Théorème : Changement de base pour un vecteur",
+      "content_latex": "Soit $P=P_{\\mathscr{B}}^{\\mathscr{B}'}$. Pour tout $x\\in E$ de coordonnées $X$ dans $\\mathscr{B}$ et $X'$ dans $\\mathscr{B}'$ : $X=PX'$.",
+      "proof_latex": "L'égalité $x=Id_{E}(x)$ s'écrit matriciellement dans les bases adaptées $X=PX'$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_base_tournee",
+      "type": "example",
+      "title": "Exemple : Base tournée dans $\\mathbb{R}^2$",
+      "content_latex": "Dans $\\mathbb{R}^2$, avec $\\mathscr{B}_{\\theta}=(\\vec{u_{\\theta}},\\vec{v_{\\theta}})$ définie par rotation d'angle $\\theta$ : $P_{\\mathscr{B}}^{\\mathscr{B}_{\\theta}}=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\ \\sin\\theta&\\cos\\theta\\end{pmatrix}$. Les coordonnées s'obtiennent par $X = P_{\\mathscr{B}}^{\\mathscr{B}_{\\theta}} X_{\\theta}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__warning_deux_formules_changement",
+      "type": "warning",
+      "title": "Attention : Deux formules de changement de bases",
+      "content_latex": "Il y a deux formules de changement de bases, une pour les vecteurs et une pour les applications linéaires, merci de ne pas les confondre !",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_changement_base_app_lin",
+      "type": "theorem",
+      "title": "Théorème : Changement de bases pour une application linéaire",
+      "content_latex": "Soient $E, F$ de dimensions finies, $\\mathscr{B}, \\mathscr{B}'$ bases de $E$, $\\mathscr{C}, \\mathscr{C}'$ bases de $F$ et $u\\in\\mathscr{L}(E,F)$.\\par On pose $P=P_{\\mathscr{B}}^{\\mathscr{B}'}$, $Q=P_{\\mathscr{C}}^{\\mathscr{C}'}$, $A=\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)$ et $A'=\\text{Mat}_{\\mathscr{B}',\\mathscr{C}'}(u)$.\\par Alors $A'=Q^{-1}AP$.",
+      "proof_latex": "L'égalité $u\\circ Id_{E}=Id_{F}\\circ u$ s'écrit matriciellement $AP=QA'$, i.e. $A'=Q^{-1}AP$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+      "type": "theorem",
+      "title": "Théorème : Changement de bases et matrice $J_r$",
+      "content_latex": "Pour toute application $u\\in\\mathscr{L}(E,F)$ de rang $r$, il existe une base $\\mathscr{B}$ de $E$ et une base $\\mathscr{C}$ de $F$ telles que $\\text{Mat}_{\\mathscr{B},\\mathscr{C}}(u)=J_{r}=\\begin{pmatrix}I_{r}&0\\\\0&0\\end{pmatrix}$.",
+      "proof_latex": "On prend $(e_{r+1},\\dots,e_{p})$ une base de $\\text{Ker }u$ complétée en base de $E$. Pour $j\\le r$, on pose $f_j = u(e_j)$, famille libre car $(e_1,\\dots,e_r)$ est un supplémentaire de $\\text{Ker }u$. On la complète en base de $F$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+      "type": "definition",
+      "title": "Définition : Matrices équivalentes",
+      "content_latex": "Soient $A,B\\in\\mathscr{M}_{n,p}(\\mathbb{K})$. On dit que $B$ est équivalente à $A$ s'il existe $P\\in GL_{p}(\\mathbb{K})$ et $Q\\in GL_{n}(\\mathbb{K})$ telles que $B=Q^{-1}AP$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation par le rang",
+      "content_latex": "Deux matrices de $\\mathscr{M}_{n,p}(\\mathbb{K})$ sont équivalentes si et seulement si elles ont le même rang.\\par Toute matrice de rang $r$ est équivalente à $J_{r}$.",
+      "proof_latex": "Si $\\text{rg}(A)=r$, d'après le théorème sur $J_r$, il existe des bases où la matrice de $\\tilde{A}$ est $J_r$. Donc $J_r=Q^{-1}AP$, ce qui prouve que $A$ et $J_r$ sont équivalentes. L'équivalence conserve le rang."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_matrices_semblables",
+      "type": "definition",
+      "title": "Définition : Matrices semblables",
+      "content_latex": "Soient $A,B\\in\\mathscr{M}_{n}(\\mathbb{K})$. On dit que $B$ est semblable à $A$ s'il existe une matrice inversible $P\\in GL_{n}(\\mathbb{K})$ pour laquelle $B=P^{-1}AP$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__warning_similitude_vs_equivalence",
+      "type": "warning",
+      "title": "Attention : Équivalence vs Similitude",
+      "content_latex": "On a vite fait de confondre équivalence et similitude. La relation de similitude n'est définie que pour des matrices carrées. Avec la similitude, on travaille avec la MÊME BASE AU DÉPART ET À L'ARRIVÉE, ce qui offre moins de souplesse que l'équivalence ($P$ et $Q$ distinctes).",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+      "type": "theorem",
+      "title": "Théorème : Invariance du rang et de la trace",
+      "content_latex": "Deux matrices semblables de $\\mathscr{M}_{n}(\\mathbb{K})$ ont même trace et même rang.",
+      "proof_latex": "Si $B=P^{-1}AP$, elles sont équivalentes (donc même rang). Pour la trace : $\\text{tr}(B)=\\text{tr}(P^{-1}(AP))=\\text{tr}((AP)P^{-1})=\\text{tr}(A)$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_matrices_non_semblables",
+      "type": "example",
+      "title": "Exemple : Matrices non semblables via trace",
+      "content_latex": "Les matrices $\\begin{pmatrix}1&2&3\\\\1&1&3\\\\2&2&0\\end{pmatrix}$ et $\\begin{pmatrix}1&2&3\\\\2&2&0\\\\1&1&3\\end{pmatrix}$ ne sont pas semblables car elles n'ont pas la même trace (2 contre 6), bien qu'elles soient équivalentes.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_matrices_semblables_calcul",
+      "type": "example",
+      "title": "Exemple : Matrices semblables (calcul)",
+      "content_latex": "Les matrices $\\begin{pmatrix}0&1&1\\\\0&0&0\\\\0&0&1\\end{pmatrix}$ et $\\begin{pmatrix}0&4&2\\\\0&0&0\\\\0&0&1\\end{pmatrix}$ sont semblables.",
+      "proof_latex": "En notant $f$ l'endomorphisme canoniquement associé à la première matrice, un changement de base approprié (par exemple $(e_1, 4e_2, 2e_3)$) donne la seconde matrice."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+      "type": "definition",
+      "title": "Définition : Trace d'un endomorphisme",
+      "content_latex": "Soit $u\\in\\mathscr{L}(E)$ en dimension finie. La trace de la matrice $\\text{Mat}_{\\mathscr{B}}(u)$ ne dépend pas du choix de la base. On l'appelle trace de $u$, notée $\\text{tr}(u)$.\\par Propriété : $\\text{tr}(uv)=\\text{tr}(vu)$ et $\\text{tr}(gug^{-1})=\\text{tr}(u)$.",
+      "proof_latex": "Les matrices de $u$ dans deux bases différentes sont semblables, et ont donc la même trace."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_trace_projecteur",
+      "type": "example",
+      "title": "Exemple : Trace d'un projecteur",
+      "content_latex": "Pour tout projecteur $p$ d'un espace vectoriel de dimension finie : $\\text{tr}(p)=\\text{rg}(p)$.",
+      "proof_latex": "Dans une base adaptée à $E=\\text{Im }p\\oplus\\text{Ker }p$, la matrice est diagonale avec $r$ fois le chiffre $1$ (où $r=\\text{rg}(p)$), donc la somme diagonale vaut $r$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+      "type": "definition",
+      "title": "Définition : Valeurs propres, vecteurs propres, sous-espaces propres (Endomorphismes)",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u\\in\\mathscr{L}(E)$. On pose $E_{\\lambda}(u)=\\text{Ker}(u-\\lambda Id_{E})=\\{x\\in E|u(x)=\\lambda x\\}$ pour tout $\\lambda\\in\\mathbb{K}$.\\par On appelle valeur propre de $u$ tout scalaire $\\lambda\\in\\mathbb{K}$ pour lequel $E_{\\lambda}(u)\\ne\\{0_{E}\\}$. Le cas échéant, $E_{\\lambda}(u)$ est appelé le sous-espace propre de $u$ associé à $\\lambda$ et tout élément NON NUL de $E_{\\lambda}(u)$ est appelé un vecteur propre de $u$. L'ensemble des valeurs propres est le spectre de $u$, noté $\\text{sp}(u)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+      "type": "definition",
+      "title": "Définition : Valeurs propres, vecteurs propres, sous-espaces propres (Matrices carrées)",
+      "content_latex": "Soit $A\\in\\mathscr{M}_{n}(\\mathbb{K})$. On pose $E_{\\lambda}(A)=\\text{Ker}(A-\\lambda I_{n})=\\{X\\in\\mathbb{K}^{n}|AX=\\lambda X\\}$. On appelle valeur propre de $A$ toute valeur propre de l'endomorphisme canoniquement associé, i.e. $\\lambda$ tel que $E_{\\lambda}(A)\\ne\\{0_{\\mathbb{K}^{n}}\\}$. Le spectre de $A$ est noté $\\text{sp}(A)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_valeurs_propres_matrice_3x3",
+      "type": "example",
+      "title": "Exemple : Recherche d'éléments propres d'une matrice $3\\times3$",
+      "content_latex": "La matrice $A=\\begin{pmatrix}-1&3&3\\\\3&-1&-3\\\\-3&3&5\\end{pmatrix}$ possède exactement deux valeurs propres, à savoir $2$ et $-1$.\\par $\\text{Ker}(A-2I_{3})=\\text{Vect}((1,1,0),(1,0,1))$ et $\\text{Ker}(A+I_{3})=\\text{Vect}((1,-1,1))$.",
+      "proof_latex": "Il s'agit de résoudre $AX=\\lambda X$ par des opérations sur les lignes pour trouver le noyau de $A-\\lambda I_3$. Pour $\\lambda=2$, on obtient $x=y+z$. Pour $\\lambda=-1$, on obtient $y=-x$ et $z=x$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_elements_propres_similitude",
+      "type": "theorem",
+      "title": "Théorème : Éléments propres et similitude",
+      "content_latex": "Soient $A, B\\in\\mathscr{M}_{n}(\\mathbb{K})$. Si $A$ et $B$ sont semblables, alors $\\text{sp}(A)=\\text{sp}(B)$ et $\\dim E_{\\lambda}(A)=\\dim E_{\\lambda}(B)$ pour tout $\\lambda\\in\\mathbb{K}$.",
+      "proof_latex": "Si $B=P^{-1}AP$, l'application $X\\mapsto PX$ est un isomorphisme de $E_{\\lambda}(B)$ sur $E_{\\lambda}(A)$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+      "type": "theorem",
+      "title": "Théorème : Valeurs propres et polynômes annulateurs",
+      "content_latex": "(i) Pour tous $\\lambda\\in\\mathbb{K}$, $x\\in E_{\\lambda}(u)$ et $P\\in\\mathbb{K}[X]$ : $P(u)(x)=P(\\lambda)x$.\\par (ii) Toute valeur propre de $u$ est racine de tout polynôme annulateur de $u$.",
+      "proof_latex": "(i) $u^k(x) = \\lambda^k x$, donc par linéarité $P(u)(x)=P(\\lambda)x$. (ii) Si $P$ annule $u$, $P(u)(x)=0_{E}$, donc $P(\\lambda)x=0_{E}$, ce qui implique $P(\\lambda)=0$ car $x\\ne0_{E}$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_spectre_projecteur",
+      "type": "example",
+      "title": "Exemple : Spectre d'un projecteur",
+      "content_latex": "Pour un projecteur $p$, le polynôme $X^{2}-X$ annule $p$, donc $\\text{sp}(p)\\subset\\{0,1\\}$. Si $p=0$, $\\text{sp}(p)=\\{0\\}$. Si $p=Id_{E}$, $\\text{sp}(p)=\\{1\\}$. Sinon $\\text{sp}(p)=\\{0,1\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_matrice_sans_vp_reelles",
+      "type": "example",
+      "title": "Exemple : Matrice sans valeur propre réelle",
+      "content_latex": "En posant $A=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$ : $\\text{sp}_{\\mathbb{C}}(A)=\\{\\pm i\\}$ et $\\text{sp}_{\\mathbb{R}}(A)=\\emptyset$.",
+      "proof_latex": "$A^2 = -I_2$ donc $X^2+1$ annule $A$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_non_vacuite_spectre_C",
+      "type": "theorem",
+      "title": "Théorème : Non-vacuité du spectre sur $\\mathbb{C}$",
+      "content_latex": "Soient $E$ un $\\mathbb{C}$-espace vectoriel de dimension finie non nulle et $u\\in\\mathscr{L}(E)$. Alors $\\text{sp}(u)\\ne\\emptyset$.",
+      "proof_latex": "Il existe un polynôme annulateur non nul $P$ (car $\\dim \\mathscr{L}(E)$ est finie). $P$ est scindé sur $\\mathbb{C}$. Évalué en $u$, au moins un facteur $(u-\\lambda_i Id_E)$ n'est pas injectif."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte",
+      "type": "theorem",
+      "title": "Théorème : Finitude du spectre et liberté des vecteurs propres",
+      "content_latex": "Le spectre de $u$ est fini de cardinal au plus $\\dim E$.\\par Les sous-espaces propres de $u$ sont en somme directe. De façon équivalente, toute famille de vecteurs propres associée à des valeurs propres distinctes est libre.",
+      "proof_latex": "Démonstration par récurrence sur le cardinal de la famille. On compose une combinaison linéaire par $u$ et on élimine un terme pour utiliser l'hypothèse de récurrence."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__def_diagonalisable",
+      "type": "definition",
+      "title": "Définition-théorème : Endomorphisme et matrice diagonalisable",
+      "content_latex": "(i) $u\\in\\mathscr{L}(E)$ est diagonalisable si sa matrice est diagonale dans une certaine base, i.e. si $E$ possède une base constituée de vecteurs propres de $u$.\\par (ii) $A\\in\\mathscr{M}_{n}(\\mathbb{K})$ est diagonalisable si elle est semblable à une matrice diagonale : $A=P\\,\\text{diag}(\\lambda_{1},\\dots,\\lambda_{n})\\,P^{-1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_condition_suffisante_diag",
+      "type": "theorem",
+      "title": "Théorème : Condition suffisante de diagonalisabilité",
+      "content_latex": "Soit $A\\in\\mathscr{M}_{n}(\\mathbb{K})$. Si $A$ possède $n$ valeurs propres distinctes, alors $A$ est diagonalisable.",
+      "proof_latex": "Les $n$ vecteurs propres associés forment une famille libre (donc une base en dimension $n$)."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__warning_reciproque_diag_fausse",
+      "type": "warning",
+      "title": "Attention : Réciproque fausse pour la condition suffisante",
+      "content_latex": "La réciproque est fausse. La matrice $\\text{diag}(1,1,0)$ est diagonale, donc diagonalisable, mais son spectre ne contient que $2$ valeurs propres et non pas $3$.",
+      "proof_latex": null
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_derivation_diagonalisable",
+      "type": "example",
+      "title": "Exemple : Endomorphisme de dérivation diagonalisable",
+      "content_latex": "L'endomorphisme $P\\mapsto XP'$ de $\\mathbb{K}_{n}[X]$ est diagonalisable.",
+      "proof_latex": "$\\varphi(X^k)=kX^k$ pour $k\\in[[0,n]]$, donc il possède $n+1$ valeurs propres distinctes ($0, 1, \\dots, n$) pour un espace de dimension $n+1$."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+      "type": "theorem",
+      "title": "Théorème : Caractérisations de la diagonalisabilité",
+      "content_latex": "Les assertions suivantes sont équivalentes :\\par (i) $u$ est diagonalisable.\\par (ii) $E=\\bigoplus_{\\lambda\\in\\text{sp}(u)}E_{\\lambda}(u)$.\\par (iii) $u$ possède un polynôme annulateur scindé à racines simples.\\par (iv) Le polynôme $\\prod_{\\lambda\\in\\text{sp}(u)}(X-\\lambda)$ annule $u$.",
+      "proof_latex": "Si (iii), le lemme de décomposition des noyaux donne $E = \\bigoplus \\text{Ker}(u-\\lambda_i Id_E)$. Si (i), $\\text{Mat}(P(u)) = \\text{diag}(P(\\lambda_1),\\dots) = 0$, donc (iv) est vrai."
+    },
+    {
+      "id": "representation_matricielle_applications_lineaires__ex_puissances_matrice_diag",
+      "type": "example",
+      "title": "Exemple : Calcul des puissances d'une matrice",
+      "content_latex": "Pour $A=\\begin{pmatrix}-1&3&3\\\\3&-1&-3\\\\-3&3&5\\end{pmatrix}$, $A$ est diagonalisable car la somme des dimensions de ses sous-espaces propres vaut $3$. On peut écrire $A=P D P^{-1}$ et calculer $A^k = P D^k P^{-1}$.",
+      "proof_latex": "En utilisant la base de vecteurs propres $P$, $A^{k}=\\begin{pmatrix}(-1)^{k}&a_{k}&a_{k}\\\\a_{k}&(-1)^{k}&-a_{k}\\\\-a_{k}&a_{k}&2^{k}+a_{k}\\end{pmatrix}$ avec $a_{k}=2^{k}-(-1)^{k}$."
+    }
+  ],
+  "exercises": []
+}

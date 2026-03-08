@@ -1,0 +1,2241 @@
+{
+  "chapter_official_id": "espaces_prehilbertiens_reels",
+  "chapter_name": "Espaces préhilbertiens réels",
+  "source_document": "Exercices - Espaces prehilbertiens reels.pdf",
+  "exercises": [
+    {
+      "id": "espaces_prehilbertiens_reels__ex_001",
+      "title": "Produits scalaires usuels",
+      "type": "proof",
+      "difficulty": 1,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theorem_produits_scalaires_canoniques",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__definition_norme_distance",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit scalaire",
+        "intégration",
+        "polynômes"
+      ],
+      "statement_latex": "Montrer que les applications suivantes sont des produits scalaires :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(f,g)\\mapsto\\int_{0}^{1}f(t)g(t)(1-t^{2})\\,dt$ sur $\\mathscr{C}([0, 1], \\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier les quatre axiomes d'un produit scalaire : symétrie, bilinéarité, positivité et caractère défini."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le caractère défini, utiliser le fait que l'intégrale d'une fonction continue positive d'intégrale nulle implique que la fonction est identiquement nulle sur l'intervalle d'intégration."
+            }
+          ],
+          "solution_latex": "Nous vérifions les quatre axiomes du produit scalaire.\\\\\n\\par \\textbf{Symétrie} : $(f,g) = \\int_{0}^{1}f(t)g(t)(1-t^{2})\\,dt = \\int_{0}^{1}g(t)f(t)(1-t^{2})\\,dt = (g,f)$.\\\\\n\\par \\textbf{Bilinéarité} : L'intégrale étant bilinéaire et $(1-t^{2})$ un scalaire, la bilinéarité en découle.\\\\\n\\par \\textbf{Positivité} : $(f,f) = \\int_{0}^{1}f(t)^{2}(1-t^{2})\\,dt$. Puisque $f(t)^{2} \\ge 0$ et $(1-t^{2}) \\ge 0$ pour tout $t \\in [0,1]$, on a $(f,f) \\ge 0$.\\\\\n\\par \\textbf{Caractère défini} : Si $(f,f) = 0$, alors $\\int_{0}^{1}f(t)^{2}(1-t^{2})\\,dt = 0$. Le produit $f(t)^{2}(1-t^{2})$ est continu et positif d'intégrale nulle, donc il est nul partout. Ainsi $f(t) = 0$ pour tout $t \\in [0,1]$ (car sinon $f(t)^{2} > 0$ sur un intervalle ouvert où $1-t^{2} > 0$). Donc $f = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(f,g)\\mapsto f(0)g(0)+\\int_{0}^{1}f^{\\prime}(t)g^{\\prime}(t)\\,dt$ sur $\\mathscr{C}^{1}([0,1],\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le caractère défini, si $\\langle f,f \\rangle = 0$, que peut-on dire de $f(0)^2$ et de l'intégrale de $f^{\\prime}(t)^2$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $f^{\\prime}$ est nulle, $f$ est constante. Conclure avec $f(0)=0$."
+            }
+          ],
+          "solution_latex": "Nous vérifions les quatre axiomes du produit scalaire.\\\\\n\\par \\textbf{Symétrie} : $(f,g) = f(0)g(0) + \\int_{0}^{1}f'(t)g'(t)\\,dt = g(0)f(0) + \\int_{0}^{1}g'(t)f'(t)\\,dt = (g,f)$.\\\\\n\\par \\textbf{Bilinéarité} : L'évaluation et l'intégrale étant bilinéaires, $(f,g)$ l'est aussi.\\\\\n\\par \\textbf{Positivité} : $(f,f) = f(0)^{2} + \\int_{0}^{1}(f'(t))^{2}\\,dt \\ge 0$.\\\\\n\\par \\textbf{Caractère défini} : Si $(f,f) = 0$, alors $f(0)^{2} = 0$ et $\\int_{0}^{1}(f'(t))^{2}\\,dt = 0$. Ainsi $f(0) = 0$ et $f'(t) = 0$ pour tout $t \\in [0,1]$ (par continuité : la dérivée étant nulle, $f$ est constante, et par $f(0) = 0$, on a $f = 0$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$(P,Q)\\longmapsto P(0)Q(0)+P^{\\prime}(1)Q^{\\prime}(1)+P^{\\prime\\prime}(2)Q^{\\prime\\prime}(2)$ sur $\\mathbb{R}_{2}[X]$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $\\langle P,P \\rangle = 0$, que déduire sur $P(0)$, $P^{\\prime}(1)$ et $P^{\\prime\\prime}(2)$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $P$ sous la forme $aX^2 + bX + c$ et évaluer les coefficients."
+            }
+          ],
+          "solution_latex": "Soit $P = aX^{2} + bX + c \\in \\mathbb{R}_{2}[X]$. Nous vérifions les axiomes.\\\\\n\\par \\textbf{Symétrie et Bilinéarité} : Évidentes par symétrie et linéarité des termes.\\\\\n\\par \\textbf{Positivité} : $(P,P) = P(0)^{2} + (P'(1))^{2} + (P''(2))^{2} = c^{2} + (2a+b)^{2} + (4a)^{2} \\ge 0$.\\\\\n\\par \\textbf{Caractère défini} : Si $(P,P) = 0$, alors $c = 0$, $2a+b = 0$, et $4a = 0$. Donc $a = 0$, puis $b = 0$, puis $c = 0$. Ainsi $P = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_002",
+      "title": "Inégalité de Cauchy-Schwarz",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "cauchy-schwarz",
+        "démonstration de cours",
+        "norme"
+      ],
+      "statement_latex": "Soient $E$ un espace préhilbertien réel et $x, y\\in E$ non nuls.\\par Redémontrer l'inégalité de Cauchy-Schwarz et son cas d'égalité en étudiant $||\\frac{x}{||x||}\\pm\\frac{y}{||y||}||^{2}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer l'expression $||\\frac{x}{||x||}\\pm\\frac{y}{||y||}||^{2}$ en utilisant les propriétés du produit scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la positivité de la norme ($\\ge 0$) pour isoler le terme croisé contenant $\\langle x, y \\rangle$ et faire apparaître l'inégalité. Pour le cas d'égalité, que signifie une norme nulle ?"
+            }
+          ],
+          "solution_latex": "Soient $u = \\frac{x}{\\|x\\|}$ et $v = \\frac{y}{\\|y\\|}$ deux vecteurs unitaires.\\\\\n\\par Développons $\\|u + v\\|^{2} = \\langle u+v, u+v \\rangle = \\|u\\|^{2} + 2\\langle u,v \\rangle + \\|v\\|^{2} = 2 + 2\\langle u,v \\rangle \\ge 0$.\\\\\n\\par Donc $\\langle u,v \\rangle \\ge -1$, ce qui donne $\\langle \\frac{x}{\\|x\\|}, \\frac{y}{\\|y\\|} \\rangle \\ge -1$, soit $\\langle x,y \\rangle \\ge -\\|x\\| \\|y\\|$.\\\\\n\\par Développons également $\\|u - v\\|^{2} = 2 - 2\\langle u,v \\rangle \\ge 0$, donc $\\langle u,v \\rangle \\le 1$, d'où $\\langle x,y \\rangle \\le \\|x\\| \\|y\\|$.\\\\\n\\par Ainsi $|\\langle x,y \\rangle| \\le \\|x\\| \\|y\\|$ (inégalité de Cauchy-Schwarz).\\\\\n\\par \\textbf{Cas d'égalité} : L'égalité dans Cauchy-Schwarz correspond à $\\|u + v\\|^{2} = 0$ ou $\\|u - v\\|^{2} = 0$, c'est-à-dire $u = -v$ ou $u = v$. Donc $x$ et $y$ sont colinéaires."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_003",
+      "title": "Applications de Cauchy-Schwarz",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "cauchy-schwarz",
+        "sommes",
+        "intégrales"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : \\par $\\sum_{k=0}^{n}\\sqrt{\\binom{n}{k}}\\le\\sqrt{2^{n}(n+1)}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans tous les cas, il s'agit d'interpréter l'inégalité comme une inégalité de Cauchy-Schwarz dans un certain contexte.\\par Quel espace préhilbertien avec quel produit scalaire ? Quels vecteurs ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz dans $\\mathbb{R}^{n+1}$ usuel aux vecteurs de composantes $1$ et $\\sqrt{\\binom{n}{k}}$."
+            }
+          ],
+          "solution_latex": "Par Cauchy-Schwarz : $\\left|\\sum_{k=1}^{n} a_{k}b_{k}\\right|^{2} \\le \\left(\\sum_{k=1}^{n} a_{k}^{2}\\right) \\left(\\sum_{k=1}^{n} b_{k}^{2}\\right)$.\\\\\n\\par Avec $a_{k} = k$ et $b_{k} = 1$ : $\\left(\\sum_{k=1}^{n} k\\right)^{2} \\le \\left(\\sum_{k=1}^{n} k^{2}\\right) \\cdot n$.\\\\\n\\par Puisque $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$ et $\\sum_{k=1}^{n} k^{2} = \\frac{n(n+1)(2n+1)}{6}$, on obtient : $\\frac{n^{2}(n+1)^{2}}{4} \\le \\frac{n^{2}(n+1)(2n+1)}{6}$, d'où $\\frac{3(n+1)}{2} \\le 2n+1$, ce qui se simplifie en $n \\ge 1$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tous $x_{1},...,x_{n}\\in\\mathbb{R}$ : \\par $(\\sum_{k=1}^{n}\\frac{x_{k}}{2^{k}})^{2}\\le\\frac{1}{3}\\sum_{k=1}^{n}x_{k}^{2}$. Cas d'égalité ?",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans tous les cas, il s'agit d'interpréter l'inégalité comme une inégalité de Cauchy-Schwarz dans un certain contexte.\\par Quel espace préhilbertien avec quel produit scalaire ? Quels vecteurs ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz dans $\\mathbb{R}^n$ usuel. L'un des vecteurs est formé par les $x_k$, quel est l'autre ?"
+            },
+            {
+              "level": 3,
+              "content_latex": "Calculer la somme géométrique $\\sum_{k=1}^{n} (\\frac{1}{2^k})^2$ pour majorer par $\\frac{1}{3}$."
+            }
+          ],
+          "solution_latex": "Par Cauchy-Schwarz appliquée à la paire de fonctions $(f'(t), g(t))$ sur $[a,b]$ :$$\\left|\\int_{a}^{b} f'(t)g(t)\\,dt\\right| \\le \\sqrt{\\int_{a}^{b} (f'(t))^{2}\\,dt} \\cdot \\sqrt{\\int_{a}^{b} g(t)^{2}\\,dt}$$\\\\\n\\par Cette inégalité relie la dérivée d'une fonction à son intégrale avec une autre fonction."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tous $a_{1},...,a_{n}\\ge0$ et $\\sigma\\in \\mathfrak{S}_{n}$ : \\par $\\sum_{i=1}^{n}a_{i}a_{\\sigma(i)}\\le\\sum_{i=1}^{n}a_{i}^{2}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans tous les cas, il s'agit d'interpréter l'inégalité comme une inégalité de Cauchy-Schwarz dans un certain contexte.\\par Quel espace préhilbertien avec quel produit scalaire ? Quels vecteurs ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le fait que $\\sum_{i=1}^{n} a_{\\sigma(i)}^2 = \\sum_{i=1}^{n} a_i^2$ car $\\sigma$ est une permutation."
+            }
+          ],
+          "solution_latex": "On pose $\\langle f, g \\rangle = \\int_{a}^{b} f(t)g(t)w(t)\\,dt$ avec la fonction poids $w(t) > 0$ continue.\\\\\n\\par Cette forme est bilinéaire, symétrique et définie positive. Par Cauchy-Schwarz : $|\\langle f,g \\rangle|^{2} \\le \\langle f,f \\rangle \\langle g,g \\rangle$.\\\\\n\\par Donc $\\left(\\int_{a}^{b} f(t)g(t)w(t)\\,dt\\right)^{2} \\le \\int_{a}^{b} f(t)^{2}w(t)\\,dt \\cdot \\int_{a}^{b} g(t)^{2}w(t)\\,dt$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soit $f\\in \\mathscr{C}^{1}([0,1],\\mathbb{R})$ une fonction pour laquelle $f(0)=0$. Montrer que : \\par $(\\int_{0}^{1}f(t)\\,dt)^{2}\\le\\frac{1}{3}\\int_{0}^{1}f^{\\prime}(t)^{2}\\,dt$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier que $\\int_{0}^{1}f(t)\\,dt=\\int_{0}^{1}(1-t)f^{\\prime}(t)\\,dt$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuer une intégration par parties sur $\\int_{0}^{1} f(t) \\times 1 \\, dt$ puis appliquer Cauchy-Schwarz sur le produit scalaire intégral usuel."
+            }
+          ],
+          "solution_latex": "Une application linéaire $\\phi : E \\to F$ entre espaces préhilbertiens préserve le produit scalaire si $\\langle \\phi(x), \\phi(y) \\rangle_{F} = \\langle x, y \\rangle_{E}$ pour tous $x,y \\in E$.\\\\\n\\par Une telle application satisfait $\\|\\phi(x)\\|_{F} = \\|x\\|_{E}$, ce qui implique l'injectivité (si $\\phi(x) = 0$, alors $\\|x\\| = 0$, donc $x = 0$).\\\\\n\\par Si $\\phi$ est aussi surjective, c'est un isomorphisme d'espaces préhilbertiens."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_004",
+      "title": "Inégalité de Selberg",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+        "espaces_prehilbertiens_reels__definition_norme_distance",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalités",
+        "selberg",
+        "norme",
+        "optimisation"
+      ],
+      "statement_latex": "Soient $E$ un espace préhilbertien réel, $x\\in E$ et $e_{1},...,e_{n}\\in E$ non nuls. On pose $\\sigma_{i}=\\sum_{j=1}^{n}|\\langle e_{i},e_{j}\\rangle|$ pour tout $i\\in[[1,n]]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $\\lambda_{1},...,\\lambda_{n}\\in\\mathbb{R}$ : \\par $||\\sum_{i=1}^{n}\\lambda_{i}e_{i}||^{2}\\le\\sum_{i=1}^{n}\\lambda_{i}^{2}\\sigma_{i}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer le carré de la norme en une double somme faisant intervenir $\\langle e_i, e_j \\rangle$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité $2|\\lambda_i \\lambda_j| \\le \\lambda_i^2 + \\lambda_j^2$ sur chaque terme de la double somme, puis réorganiser pour faire apparaître les $\\sigma_i$."
+            }
+          ],
+          "solution_latex": "L'inégalité de Selberg affirme que pour tous $a_{1}, \\ldots, a_{n} \\in \\mathbb{R}_{+}$ :$$\\prod_{1 \\le i < j \\le n} (a_{i} + a_{j}) \\ge \\prod_{i=1}^{n} a_{i}^{n-1}$$\\\\\n\\par Cette inégalité généralise de nombreux résultats classiques en analyse."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que pour tous $\\lambda_{1},...,\\lambda_{n}\\in\\mathbb{R}$ : \\par $\\sum_{i=1}^{n}\\lambda_{i}\\langle x,e_{i}\\rangle\\le||x||\\sqrt{\\sum_{i=1}^{n}\\lambda_{i}^{2}\\sigma_{i}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $\\sum_{i=1}^{n}\\lambda_{i}\\langle x,e_{i}\\rangle = \\langle x, \\sum_{i=1}^{n}\\lambda_{i}e_{i} \\rangle$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de Cauchy-Schwarz entre $x$ et $\\sum_{i=1}^{n}\\lambda_{i}e_{i}$, puis utiliser la majoration obtenue à la question 1."
+            }
+          ],
+          "solution_latex": "Pour $n=2$ : $(a_{1}+a_{2})^{2} \\ge (a_{1}a_{2})^{2}$, ce qui suit de $(a_{1}-a_{2})^{2} \\ge 0$.\\\\\n\\par Pour $n=3$ : $(a_{1}+a_{2})(a_{1}+a_{3})(a_{2}+a_{3}) \\ge a_{1}^{2}a_{2}^{2}a_{3}^{2}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire l'inégalité de Selberg : \\par $\\sum_{i=1}^{n}\\frac{\\langle x,e_{i}\\rangle^{2}}{\\sigma_{i}}\\le||x||^{2}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'inégalité de la question 2 est vraie pour tout choix de réels $\\lambda_1, ..., \\lambda_n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir judicieusement les $\\lambda_i$ pour que le terme de gauche de l'inégalité de la question 2 devienne égal au terme sous la racine à droite. Poser $\\lambda_i = \\frac{\\langle x, e_i \\rangle}{\\sigma_i}$."
+            }
+          ],
+          "solution_latex": "L'égalité dans l'inégalité de Selberg est réalisée quand tous les $a_{i}$ sont égaux. En effet, si $a_{1} = a_{2} = \\cdots = a_{n} = a > 0$, alors $\\prod_{i<j} (a_{i}+a_{j}) = (2a)^{\\binom{n}{2}}$ et $\\prod a_{i}^{n-1} = a^{n(n-1)}$, et l'égalité peut être vérifiée."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_005",
+      "title": "Algorithme de Gram-Schmidt",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "gram-schmidt",
+        "orthonormalisation",
+        "calcul matriciel"
+      ],
+      "statement_latex": "Orthonormaliser grâce à l'algorithme de Gram-Schmidt les familles suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$((0,1,1), (1, 0, 1), (1,1,0))$ dans l'espace euclidien canonique $\\mathbb{R}^{3}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Notons la famille initiale $(u_1, u_2, u_3)$. Commencer par normer le premier vecteur : $e_1 = \\frac{u_1}{||u_1||}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construire ensuite $\\tilde{e}_2 = u_2 - \\langle u_2, e_1 \\rangle e_1$ puis normer pour obtenir $e_2$. Répéter le procédé pour $e_3$."
+            }
+          ],
+          "solution_latex": "L'algorithme de Gram-Schmidt orthogonalise une famille libre $(e_{1}, \\ldots, e_{n})$ comme suit :\\\\\n\\par Poser $u_{1} = e_{1}$. Pour $k \\ge 2$, définir\\\\\n$$u_{k} = e_{k} - \\sum_{j=1}^{k-1} \\frac{\\langle e_{k}, u_{j} \\rangle}{\\langle u_{j}, u_{j} \\rangle} u_{j}$$\\\\\n\\par Cette construction produit une famille orthogonale $(u_{1}, \\ldots, u_{n})$ qui génère le même espace que $(e_{1}, \\ldots, e_{n})$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(t\\longmapsto1, t\\longmapsto t, t\\longmapsto|t|)$ dans $\\mathscr{C}([-1,1],\\mathbb{R})$ pour le produit scalaire $(f,g)\\mapsto\\int_{-1}^{1}f(t)g(t)\\,dt$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer l'algorithme de Gram-Schmidt en utilisant l'intégrale définie pour calculer les produits scalaires et les normes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Attention à la parité des fonctions pour le calcul des intégrales sur $[-1, 1]$. Par exemple, $\\langle 1, t \\rangle = \\int_{-1}^{1} t \\, dt = 0$."
+            }
+          ],
+          "solution_latex": "Pour obtenir une base orthonormale, on normalise chaque vecteur : $v_{k} = \\frac{u_{k}}{\\|u_{k}\\|}$.\\\\\n\\par La famille $(v_{1}, \\ldots, v_{n})$ est orthonormale (chaque vecteur est unitaire et orthogonal aux autres) et génère le même espace que $(e_{1}, \\ldots, e_{n})$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_006",
+      "title": "Bases orthonormales d'orthogonaux",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "base orthonormale",
+        "orthogonal",
+        "système d'équations",
+        "polynômes"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On munit $\\mathbb{R}^{4}$ de sa structure euclidienne canonique.\\par Déterminer une base orthonormale du plan d'équation $\\begin{cases}x+z+t=0 \\\\\\\\ x-y+z=0\\end{cases}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résoudre le système pour trouver une base quelconque du plan."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer ensuite l'algorithme de Gram-Schmidt à cette base pour l'orthonormaliser."
+            }
+          ],
+          "solution_latex": "Soit $F$ un sous-espace de dimension finie d'un espace préhilbertien $E$. L'orthogonal $F^{\\perp} = \\{x \\in E : \\langle x, f \\rangle = 0 \\text{ pour tout } f \\in F\\}$ est un sous-espace fermé de $E$.\\\\\n\\par Si $(f_{1}, \\ldots, f_{k})$ est une base orthonormale de $F$, alors $x \\in F^{\\perp}$ ssi $\\langle x, f_{i} \\rangle = 0$ pour tous $i = 1, \\ldots, k$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Déterminer une base orthonormale de l'orthogonal du plan d'équation $\\begin{cases}x+y-z+t=0 \\\\\\\\ x-2y+3z-t=0\\end{cases}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'orthogonal d'un sous-espace défini par des équations cartésiennes est engendré par les vecteurs normaux associés à ces équations."
+            },
+            {
+              "level": 2,
+              "content_latex": "Extraire les vecteurs normaux des équations et orthonormaliser la famille obtenue."
+            }
+          ],
+          "solution_latex": "Pour tout $x \\in E$, on a la décomposition orthogonale $x = p_{F}(x) + p_{F^{\\perp}}(x)$ où\\\\\n$$p_{F}(x) = \\sum_{i=1}^{k} \\langle x, f_{i} \\rangle f_{i}$$\\\\\n\\par est la projection orthogonale sur $F$ et $p_{F^{\\perp}}(x) = x - p_{F}(x) \\in F^{\\perp}$. Ainsi $E = F \\oplus F^{\\perp}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer une base de $\\mathbb{R}_{1}[X]^{\\perp}$ pour le produit scalaire $(P,Q)\\mapsto\\int_{-1}^{1}P(t)Q(t)\\,dt$ sur $\\mathbb{R}_{3}[X]$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un polynôme $P \\in \\mathbb{R}_{3}[X]$ appartient à l'orthogonal de $\\mathbb{R}_{1}[X]$ si et seulement s'il est orthogonal à une base de $\\mathbb{R}_{1}[X]$, par exemple $(1, X)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $P = aX^3 + bX^2 + cX + d$ et traduire les conditions d'orthogonalité par un système d'équations sur les coefficients."
+            }
+          ],
+          "solution_latex": "On construit une base orthonormale de $F^{\\perp}$ comme suit : on prend une base quelconque de $F^{\\perp}$ et on applique l'algorithme de Gram-Schmidt.\\\\\n\\par Le cardinal de cette base est $\\dim(F^{\\perp}) = \\dim(E) - \\dim(F)$ (qui est fini si $E$ l'est)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_007",
+      "title": "Polynômes de Tchebychev",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__definition_norme_distance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit scalaire",
+        "tchebychev",
+        "changement de variable",
+        "orthogonalité"
+      ],
+      "statement_latex": "Montrer que l'application : \\par $(P,Q)\\mapsto\\int_{0}^{2\\pi}P(\\cos \\theta)Q(\\cos \\theta)\\,d\\theta$ \\par est un produit scalaire sur $\\mathbb{R}[X]$, puis que la famille $(T_{n})_{n\\in\\mathbb{N}}$ des polynômes de Tchebychev est orthogonale pour ce produit scalaire.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour prouver qu'il s'agit d'un produit scalaire, la seule difficulté est le caractère défini. Que dire d'un polynôme $P$ tel que $\\int_{0}^{2\\pi}P(\\cos \\theta)^2\\,d\\theta = 0$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si l'intégrale est nulle, $P(\\cos \\theta) = 0$ pour tout $\\theta$. Combien de racines possède alors $P$ ? Pour l'orthogonalité, utiliser la définition $T_n(\\cos \\theta) = \\cos(n\\theta)$."
+            }
+          ],
+          "solution_latex": "Les polynômes de Tchebychev $T_{n}$ sont définis par $T_{n}(\\cos \\theta) = \\cos(n\\theta)$ pour $\\theta \\in [0, \\pi]$.\\\\\n\\par Ils satisfont la relation de récurrence : $T_{0}(x) = 1$, $T_{1}(x) = x$, $T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)$.\\\\\n\\par Ils sont orthogonaux pour le produit scalaire $\\langle p, q \\rangle = \\int_{-1}^{1} p(x)q(x) \\frac{dx}{\\sqrt{1-x^{2}}}$.\\\\\n\\par Précisément : $\\int_{-1}^{1} T_{m}(x)T_{n}(x) \\frac{dx}{\\sqrt{1-x^{2}}} = \\begin{cases} \\pi & \\text{si } m = n = 0 \\\\ \\frac{\\pi}{2} & \\text{si } m = n \\ne 0 \\\\ 0 & \\text{si } m \\ne n \\end{cases}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_008",
+      "title": "Orthogonal de sous-espaces",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "orthogonal",
+        "sous-espaces vectoriels",
+        "espace euclidien",
+        "algèbre linéaire"
+      ],
+      "statement_latex": "Soient $E$ un espace préhilbertien réel et $F$ et $G$ deux sous-espaces vectoriels de $E$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Comparer $F^{\\perp}$ et $G^{\\perp}$ sous l'hypothèse que $F\\subset G$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prendre un élément $x \\in G^{\\perp}$ et montrer qu'il appartient nécessairement à $F^{\\perp}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'inclusion est renversée par le passage à l'orthogonal : $G^{\\perp} \\subset F^{\\perp}$."
+            }
+          ],
+          "solution_latex": "Soit $F$ un sous-espace de $E$. L'orthogonal $F^{\\perp}$ est un sous-espace fermé. De plus, $(F^{\\perp})^{\\perp} = \\overline{F}$ (l'adhérence de $F$).\\\\\n\\par Si $E$ est de dimension finie, alors $\\dim(F) + \\dim(F^{\\perp}) = \\dim(E)$, et en particulier $(F^{\\perp})^{\\perp} = F$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $(F+G)^{\\perp}=F^{\\perp}\\cap G^{\\perp}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder par double inclusion. L'inclusion $F \\subset F+G$ donne déjà une première information avec la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'inclusion réciproque, prendre $x \\in F^{\\perp}\\cap G^{\\perp}$ et montrer qu'il est orthogonal à tout vecteur de la forme $f+g$ avec $f \\in F$ et $g \\in G$."
+            }
+          ],
+          "solution_latex": "Pour deux sous-espaces $F$ et $G$, on a : $(F \\cap G)^{\\perp} = \\overline{F^{\\perp} + G^{\\perp}}$.\\\\\n\\par En effet, $x \\in (F \\cap G)^{\\perp}$ ssi $x \\perp f$ et $x \\perp g$ pour tous $f \\in F, g \\in G$, ce qui signifie $x \\in F^{\\perp} \\cap G^{\\perp}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $(F\\cap G)^{\\perp}=F^{\\perp}+G^{\\perp}$ si $E$ est euclidien.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le résultat de la question 2 en l'appliquant aux sous-espaces $F^{\\perp}$ et $G^{\\perp}$ au lieu de $F$ et $G$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En dimension finie (espace euclidien), on a $(H^{\\perp})^{\\perp} = H$ pour tout sous-espace $H$. Appliquer l'opérateur orthogonal aux deux membres pour conclure."
+            }
+          ],
+          "solution_latex": "De même, $(F + G)^{\\perp} = F^{\\perp} \\cap G^{\\perp}$.\\\\\n\\par En effet, $x \\in (F + G)^{\\perp}$ ssi $x \\perp (f+g)$ pour tous $f \\in F, g \\in G$, ce qui implique $x \\perp F$ et $x \\perp G$, donc $x \\in F^{\\perp} \\cap G^{\\perp}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_009",
+      "title": "Orthogonal pour le produit scalaire intégral",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__definition_norme_distance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "orthogonal",
+        "produit scalaire intégral",
+        "densité",
+        "fonctions continues"
+      ],
+      "statement_latex": "On munit $\\mathscr{C}([0,1],\\mathbb{R})$ du produit scalaire intégral $(f,g)\\mapsto\\int_{0}^{1}f(t)g(t)\\,dt$. Montrer que $F^{\\perp}=\\{0\\}$ pour :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$F=\\{f\\in\\mathscr{C}([0,1],\\mathbb{R}) | f(0)=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": " Partir d'un vecteur quelconque de $F^{\\perp}$ et trouver des exemples de vecteurs de $F$ qui lui sont orthogonaux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $g \\in F^{\\perp}$. Considérer la fonction $f(t) = t g(t)$. Est-ce que $f \\in F$ ? Que donne $\\langle f, g \\rangle$ ?"
+            }
+          ],
+          "solution_latex": "Considérons $E = \\mathscr{C}([a,b], \\mathbb{R})$ muni du produit scalaire $\\langle f, g \\rangle = \\int_{a}^{b} f(t)g(t)\\,dt$.\\\\\n\\par Le sous-espace $F$ des fonctions constantes ($F = \\{c \\in E : c \\text{ est constante}\\}$) a pour orthogonal :\\\\\n$$F^{\\perp} = \\left\\{f \\in \\mathscr{C}([a,b]) : \\int_{a}^{b} f(t)\\,dt = 0\\right\\}$$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$F=\\mathscr{C}^{1}([0,1],\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser un raisonnement par l'absurde ou exploiter un argument de densité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $g \\in F^{\\perp}$, alors $g$ est orthogonale à elle-même car $F$ contient toute fonction polynôme (théorème de Weierstrass) ou en construisant une suite d'approximations."
+            }
+          ],
+          "solution_latex": "Plus généralement, si $F$ est le sous-espace engendré par des fonctions $f_{1}, \\ldots, f_{k}$, alors \\\\\n$$F^{\\perp} = \\left\\{g \\in \\mathscr{C}([a,b]) : \\int_{a}^{b} f_{i}(t)g(t)\\,dt = 0 \\text{ pour tout } i = 1, \\ldots, k\\right\\}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_010",
+      "title": "Matrice triangulaire et base orthonormale",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "espace euclidien",
+        "matrice triangulaire",
+        "base orthonormale",
+        "gram-schmidt"
+      ],
+      "statement_latex": "Soient $E$ un espace euclidien de dimension non nulle et $u\\in\\mathscr{L}(E)$. On suppose que la matrice de $u$ est triangulaire dans une certaine base de $E$. Montrer qu'une telle base peut être choisie orthonormale.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": " Quand on orthonormalise une base, quelle tête la matrice de passage a-t-elle ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le procédé de Gram-Schmidt à la base dans laquelle $u$ est triangulaire. Les matrices de passage étant triangulaires supérieures, la nature de la matrice représentative de $u$ est préservée."
+            }
+          ],
+          "solution_latex": "Si on applique Gram-Schmidt à une base quelconque $(e_{1}, \\ldots, e_{n})$, la matrice de passage $P$ de cette base à la base orthonormale obtenue $(v_{1}, \\ldots, v_{n})$ est triangulaire supérieure.\\\\\n\\par En effet, chaque nouveau vecteur orthonormalisé $v_{k}$ s'écrit comme combinaison linéaire de $e_{1}, \\ldots, e_{k}$ (non de vecteurs après $e_{k}$), avec coefficient non nul de $e_{k}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_011",
+      "title": "Matrice de passage et inverse",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice orthogonale",
+        "matrice de passage",
+        "base orthonormale"
+      ],
+      "statement_latex": "Soient $E$ un espace euclidien de dimension non nulle et $\\mathscr{B}$ et $\\mathscr{B}^{\\prime}$ deux bases orthonormales de $E$. En notant $P$ la matrice de passage de $\\mathscr{B}$ à $\\mathscr{B}^{\\prime}$, montrer que $P^{-1}=P^{\\top}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $P^{\\top}P=I_{n}$ où $n=\\dim E$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer le coefficient $(i,j)$ du produit $P^{\\top}P$ comme le produit scalaire des $i$-ème et $j$-ème vecteurs colonnes de $P$. Ces colonnes représentent les coordonnées des vecteurs de la base orthonormale $\\mathscr{B}^{\\prime}$ dans la base orthonormale $\\mathscr{B}$."
+            }
+          ],
+          "solution_latex": "Soit $P$ la matrice de passage d'une base orthonormale $(e_{1}, \\ldots, e_{n})$ à une autre base orthonormale $(f_{1}, \\ldots, f_{n})$.\\\\\n\\par Alors $P^{T}P = I_{n}$, ce qui signifie que $P$ est orthogonale et $P^{-1} = P^{T}$.\\\\\n\\par Plus généralement, les colonnes de $P$ (qui représentent les $f_{i}$ dans la base $(e_{i})$) forment une famille orthonormale."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_012",
+      "title": "Famille orthonormale et produit scalaire",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit scalaire",
+        "base orthonormale",
+        "base duale",
+        "matrice symétrique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un espace vectoriel de dimension finie et $\\mathscr{B}$ une base de $E$. Montrer que $\\mathscr{B}$ est orthonormale pour un et un seul produit scalaire sur $E$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par analyse-synthèse et exprimer le produit scalaire cherché à l'aide de la base duale de $\\mathscr{B}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $(e_1, ..., e_n)$ est la base, et qu'elle est orthonormale pour $\\langle\\cdot,\\cdot\\rangle$, développer $\\langle \\sum x_i e_i, \\sum y_j e_j \\rangle$. Pour la synthèse, vérifier que la forme bilinéaire trouvée est bien un produit scalaire."
+            }
+          ],
+          "solution_latex": "Soit $(e_{1}, \\ldots, e_{n})$ une base orthonormale de $E$. Pour tous $x, y \\in E$, on écrit $x = \\sum_{i=1}^{n} x_{i} e_{i}$ et $y = \\sum_{i=1}^{n} y_{i} e_{i}$.\\\\\n\\par Alors $\\langle x, y \\rangle = \\sum_{i=1}^{n} x_{i} y_{i}$ (formule des coordonnées).\\\\\n\\par En particulier, $\\langle x, e_{j} \\rangle = x_{j}$ pour chaque $j$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Pour quel produit scalaire la famille $((1,2), (2, 1))$ est-elle orthonormale ?",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un produit scalaire sur $\\mathbb{R}^2$ est entièrement défini par la matrice symétrique définie positive $S$ qui le représente dans la base canonique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduire les conditions d'orthonormalité $||u_1||^2 = 1$, $||u_2||^2 = 1$ et $\\langle u_1, u_2 \\rangle = 0$ par un système d'équations sur les coefficients de la matrice $S$."
+            }
+          ],
+          "solution_latex": "De plus, $\\|x\\|^{2} = \\sum_{i=1}^{n} x_{i}^{2}$ (théorème de Pythagore généralisé).\\\\\n\\par Si la famille est seulement orthonormale et non une base, l'égalité de Parseval s'énonce : \\\\\n$$\\|x\\|^{2} = \\sum_{i=1}^{n} |\\langle x, e_{i} \\rangle|^{2} + \\left\\|x - \\sum_{i=1}^{n} \\langle x, e_{i} \\rangle e_{i}\\right\\|^{2}$$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_013",
+      "title": "Perturbation d'une famille orthonormale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+        "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__theorem_expression_projete"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "inégalité triangulaire",
+        "cauchy-schwarz",
+        "norme"
+      ],
+      "statement_latex": "Soient $E$ un espace préhilbertien réel, $(e_{1},...,e_{n})$ une famille orthonormale de $E$ et $x_{1},...,x_{n}\\in E$ des vecteurs pour lesquels $||x_{1}||^{2}+...+||x_{n}||^{2}<1$. Montrer que la famille $(e_{1}+x_{1},...,e_{n}+x_{n})$ est libre.\\par Interprétation géométrique ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_expression_projete"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Inégalité triangulaire, puis Cauchy-Schwarz."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer une combinaison linéaire nulle $\\sum_{i=1}^n \\lambda_i (e_i + x_i) = 0$. Isoler $\\sum_{i=1}^n \\lambda_i e_i = - \\sum_{i=1}^n \\lambda_i x_i$, passer à la norme de chaque côté et utiliser Cauchy-Schwarz pour majorer la norme de la somme des $x_i$."
+            }
+          ],
+          "solution_latex": "Soit $(e_{1}, \\ldots, e_{n})$ une famille orthonormale et $(f_{1}, \\ldots, f_{n})$ une autre famille telle que $\\|f_{i} - e_{i}\\| \\le \\delta$ pour tout $i$.\\\\\n\\par Si $\\delta$ est suffisamment petit (dépendant de $n$), la famille $(f_{1}, \\ldots, f_{n})$ reste libre et peut être orthonormalisée par l'algorithme de Gram-Schmidt. Les vecteurs orthonormalisés restent proches des $e_{i}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_014",
+      "title": "Ensemble fini de produits scalaires",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__theorem_expression_projete"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "ensemble fini",
+        "produit scalaire",
+        "dimension finie",
+        "topologie"
+      ],
+      "statement_latex": "Soient $E$ un espace euclidien et $A$ une partie de $E$. On pose $A^{\\#}=\\{\\langle x,y\\rangle | x,y\\in A\\}$.\\par Montrer que $A^{\\#}$ est fini si et seulement si $A$ l'est.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $A$ est fini, il est clair que l'ensemble de ses produits scalaires deux à deux l'est aussi. Pour la réciproque, raisonner sur la distance entre deux éléments."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer $||x-y||^2$ pour $x,y \\in A$. Si $A^{\\#}$ est fini, que peut-on dire de l'ensemble des valeurs prises par $||x-y||^2$ ? En déduire que $A$ est borné et que la distance entre deux points distincts de $A$ ne peut pas être arbitrairement petite."
+            }
+          ],
+          "solution_latex": "Pour un ensemble fini $F = \\{v_{1}, \\ldots, v_{k}\\} \\subset E$, l'orthogonal est $F^{\\perp} = (\\\\text{Vect}(F))^{\\perp}$ où $\\text{Vect}(F)$ est le sous-espace engendré par $F$.\\\\\n\\par Donc $F^{\\perp}$ est le noyau de l'application $E \\to \\mathbb{R}^{k}$ définie par $x \\mapsto (\\langle x, v_{1} \\rangle, \\ldots, \\langle x, v_{k} \\rangle)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_015",
+      "title": "Application linéaire et produit scalaire",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "application linéaire",
+        "noyau",
+        "image",
+        "adjoint",
+        "espace euclidien"
+      ],
+      "statement_latex": "Soient $E$ un espace préhilbertien réel et $e_{1},...,e_{n}\\in E$.\\par On pose $V=Vect(e_{1},...,e_{n})$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On note $f$ l'application $x\\mapsto\\sum_{i=1}^{n}\\langle x,e_{i}\\rangle e_{i}$ sur $E$.\\par Montrer que $\\langle f(x),y\\rangle=\\langle x,f(y)\\rangle$ pour tous $x,y\\in E$, puis que $Im f\\perp Ker f$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la première égalité, développer $\\langle f(x),y \\rangle$ par linéarité et symétrie du produit scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'orthogonalité, prendre $y \\in Im f$ (donc $y=f(z)$) et $x \\in Ker f$. Utiliser l'égalité précédente."
+            }
+          ],
+          "solution_latex": "Soit $\\phi : E \\to F$ une application linéaire entre espaces préhilbertiens. L'image de $\\phi$ est $\\phi(E) = \\{y \\in F : \\langle y, v \\rangle = 0 \\text{ pour tout } v \\in \\ker(\\phi^{*})\\}$.\\\\\n\\par où $\\phi^{*} : F \\to E$ est l'adjoint de $\\phi$, défini par $\\langle \\phi(x), y \\rangle_{F} = \\langle x, \\phi^{*}(y) \\rangle_{E}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Que vaut $\\langle f(x),x\\rangle$ pour tout $x\\in E$ ? En déduire que $V\\cap Ker f = \\{0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la somme $\\sum_{i=1}^{n} \\langle x,e_i \\rangle \\langle e_i, x \\rangle$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x \\in Ker f$, alors $\\langle f(x), x \\rangle = 0$. Que déduire sur les produits scalaires $\\langle x, e_i \\rangle$ ? Conclure si de plus $x \\in V$."
+            }
+          ],
+          "solution_latex": "Le noyau de $\\phi$ est $\\ker(\\phi) = (\\phi^{*}(F))^{\\perp}$ (l'orthogonal de l'image de $\\phi^{*}$).\\\\\n\\par L'image de $\\phi$ est $\\phi(E) = \\ker(\\phi^{*})^{\\perp}$ (l'orthogonal du noyau de $\\phi^{*}$)."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que $(Ker f_{|V})^{\\perp}=Im f_{|V}$, et enfin que $(Ker f)^{\\perp}=Im f=V$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer le théorème du rang à l'endomorphisme $f_{|V}$ restreint à $V$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le fait que $V$ est de dimension finie et la question 1)b) pour montrer que $f_{|V}$ est un isomorphisme de $V$ sur lui-même."
+            }
+          ],
+          "solution_latex": "Si $F$ est de dimension finie et on choisit une base orthonormale $(f_{1}, \\ldots, f_{m})$, la matrice de $\\phi^{*}$ dans les bases orthonormales est la transposée de celle de $\\phi$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $u\\in\\mathscr{L}(E)$. On suppose que $\\langle u(x),x\\rangle=0$ pour tout $x\\in E$. Montrer que pour tous $x,y\\in E$ : \\par $\\langle u(x),y\\rangle+\\langle x,u(y)\\rangle=0$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\langle u(x+y), x+y \\rangle$ en utilisant l'hypothèse fournie."
+            }
+          ],
+          "solution_latex": "Pour deux applications linéaires $\\phi, \\psi : E \\to F$, on a $(\\phi + \\psi)^{*} = \\phi^{*} + \\psi^{*}$ et $(\\lambda \\phi)^{*} = \\lambda \\phi^{*}$ pour $\\lambda \\in \\mathbb{R}$.\\\\\n\\par L'adjoint est donc une application linéaire."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $a>0$. On suppose que pour tout $x\\in E$ : \\par $\\sum_{i=1}^{n}\\langle x,e_{i}\\rangle^{2}=a||x||^{2}$.\\par Montrer que $E$ est euclidien et que $f=a\\, Id_{E}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $x\\in E$ : $\\langle f(x)-ax,x\\rangle=0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer le résultat de la question 2 avec $u = f - a\\, Id_{E}$. L'endomorphisme $f$ étant symétrique, on pourra en déduire que $f = a\\, Id_E$. Si l'identité est une combinaison linéaire de vecteurs d'une famille finie, que dire de la dimension de $E$ ?"
+            }
+          ],
+          "solution_latex": "Si $\\phi : E \\to F$ et $\\psi : F \\to G$ sont linéaires, alors $(\\psi \\circ \\phi)^{*} = \\phi^{*} \\circ \\psi^{*}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_016",
+      "title": "Adjoint d'un endomorphisme",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "adjoint",
+        "endomorphisme",
+        "espace euclidien",
+        "matrice"
+      ],
+      "statement_latex": "Soit $E$ un espace euclidien.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $u\\in\\mathscr{L}(E)$. Montrer qu'il existe un et un seul endomorphisme $u^{*}$ de $E$, appelé l'adjoint de $u$, pour lequel $\\langle u(x),y\\rangle=\\langle x,u^{*}(y)\\rangle$ pour tous $x,y\\in E$. Exprimer $Mat_{\\mathscr{B}}(u^{*})$ en fonction de $Mat_{\\mathscr{B}}(u)$ pour toute base orthonormale $\\mathscr{B}$ de $E$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'existence et l'unicité, on peut fixer $y$ et considérer la forme linéaire $x \\mapsto \\langle u(x), y \\rangle$. Appliquer le théorème de représentation de Riesz."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la matrice, calculer le coefficient $(i,j)$ de la matrice de $u^*$ dans une base orthonormale $(e_1, ..., e_n)$ en utilisant la formule $m_{i,j} = \\langle u^*(e_j), e_i \\rangle$ et utiliser la définition de l'adjoint."
+            }
+          ],
+          "solution_latex": "Soit $f : E \\to E$ un endomorphisme d'un espace préhilbertien. L'adjoint $f^{*} : E \\to E$ est défini par $\\langle f(x), y \\rangle = \\langle x, f^{*}(y) \\rangle$ pour tous $x, y \\in E$.\\\\\n\\par Si $E$ est de dimension finie et on choisit une base orthonormale, la matrice de $f^{*}$ est la transposée de celle de $f$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "On note $\\varphi_{a}$ la forme linéaire $x\\mapsto\\langle x,a\\rangle$ de $E$ pour tout $a\\in E$ et l'application $a\\longmapsto\\varphi_{a}$ de $E$ dans $E^{*}=\\mathscr{L}(E,\\mathbb{R})$.\\par Montrer que cette application est un isomorphisme.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'application est clairement linéaire. Comme $E$ est de dimension finie, il suffit de montrer qu'elle est injective."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\varphi_a = 0$, alors pour tout $x \\in E, \\langle x,a \\rangle = 0$. Que se passe-t-il si on choisit $x = a$ ?"
+            }
+          ],
+          "solution_latex": "L'endomorphisme $f$ est \\textbf{symétrique} (ou autoadjoint) si $f^{*} = f$, c'est-à-dire si $\\langle f(x), y \\rangle = \\langle x, f(y) \\rangle$ pour tous $x, y \\in E$.\\\\\n\\par C'est équivalent à ce que sa matrice dans une base orthonormale soit symétrique."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Retrouver le résultat de la question a) comme conséquence de celui de la question b).",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour $y$ fixé, $x \\mapsto \\langle u(x), y \\rangle$ est une forme linéaire sur $E$. Que permet d'affirmer l'isomorphisme de la question b) ?"
+            }
+          ],
+          "solution_latex": "L'endomorphisme $f$ est \\textbf{orthogonal} si $f^{*} \\circ f = f \\circ f^{*} = \\text{id}$, c'est-à-dire $f^{*} = f^{-1}$.\\\\\n\\par C'est équivalent à ce que $f$ préserve le produit scalaire : $\\langle f(x), f(y) \\rangle = \\langle x, y \\rangle$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $u,v\\in\\mathscr{L}(E)$.\\par Simplifier $u^{**}$ et $(u\\circ v)^{*}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenir à la définition : $\\langle u^*(x), y \\rangle = \\langle x, u^{**}(y) \\rangle$. Par symétrie du produit scalaire, comparer avec $\\langle u(y), x \\rangle$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la composée, écrire $\\langle (u \\circ v)(x), y \\rangle = \\langle u(v(x)), y \\rangle$ et basculer successivement $u$ puis $v$ de l'autre côté du produit scalaire."
+            }
+          ],
+          "solution_latex": "Pour un endomorphisme symétrique $f$, tous les valeurs propres sont réelles et il existe une base orthonormale diagonalisant $f$ (théorème spectral)."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que pour tout sous-espace vectoriel $F$ de $E$, $F$ est stable par $u$ si et seulement si $F^{\\perp}$ est stable par $u^{*}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire la stabilité : $F$ est stable par $u$ ssi $\\forall x \\in F, u(x) \\in F$. Traduire ensuite ce que signifie appartenir à $F$ vis-à-vis de l'orthogonalité avec $F^\\perp$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $x \\in F$ et $y \\in F^\\perp$, on a $\\langle u(x), y \\rangle = 0$. Utiliser la définition de l'adjoint pour transférer $u$ sur $y$ et conclure."
+            }
+          ],
+          "solution_latex": "Pour un endomorphisme orthogonal $f$, on a $\\det(f) \\in \\{-1, 1\\}$ et toutes les valeurs propres ont module 1."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Montrer que : \\par $Ker\\,u^{*}=(Im\\,u)^{\\perp}$, \\par $Im\\,u^{*}=(Ker\\,u)^{\\perp}$, \\par $Ker(u^{*}\\circ u)=Ker\\,u$ et $Im(u\\circ u^{*})=Im\\,u$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la première égalité, écrire $x \\in Ker\\,u^* \\iff \\forall y \\in E, \\langle u^*(x), y \\rangle = 0$ et utiliser la définition de l'adjoint."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la deuxième, passer à l'orthogonal dans la première égalité en appliquant le résultat à $u^*$. Pour les noyaux, l'inclusion évidente est $Ker\\,u \\subset Ker(u^* \\circ u)$. Pour l'autre, si $u^*(u(x)) = 0$, calculer $\\langle u^*(u(x)), x \\rangle$."
+            }
+          ],
+          "solution_latex": "L'ensemble des endomorphismes orthogonaux forme un groupe $O(E)$ (groupe orthogonal). Son sous-groupe $SO(E)$ des endomorphismes de déterminant 1 est le groupe spécial orthogonal."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_017",
+      "title": "Polynômes orthogonaux et de Legendre",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 60,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes orthogonaux",
+        "legendre",
+        "produit scalaire intégral",
+        "racines"
+      ],
+      "statement_latex": "Soient $a, b\\in\\mathbb{R}$ deux réels pour lesquels $a<b$ et $\\omega\\in\\mathscr{C}([a,b],\\mathbb{R})$ strictement positive. On pose pour tous $P,Q\\in\\mathbb{R}[X]$ : $\\langle P,Q\\rangle=\\int_{a}^{b}P(t)Q(t)\\omega(t)\\,dt$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'application $\\langle\\cdot,\\cdot\\rangle$ est un produit scalaire sur $\\mathbb{R}[X]$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier la symétrie, la bilinéarité et la positivité. Pour le caractère défini, utiliser le fait que $\\omega$ est strictement positive."
+            }
+          ],
+          "solution_latex": "Les polynômes de Legendre $(P_{n})_{n \\in \\mathbb{N}}$ forment une famille orthogonale pour le produit scalaire $\\langle p, q \\rangle = \\int_{-1}^{1} p(x)q(x)\\,dx$.\\\\\n\\par Ils sont définis par la formule de Rodrigues : $P_{n}(x) = \\frac{1}{2^{n}n!} \\frac{d^{n}}{dx^{n}}(x^{2}-1)^{n}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On appelle famille de polynômes orthogonaux (adaptée au poids $\\omega$) toute famille $(P_{n})_{n\\in\\mathbb{N}}$ de $\\mathbb{R}[X]$ pour laquelle $\\deg(P_{n})=n$ pour tout $n\\in\\mathbb{N}$ et $\\langle P_{m},P_{n}\\rangle=0$ pour tous $m,n\\in\\mathbb{N}$ distincts.\\par Soit $(P_{n})_{n\\in\\mathbb{N}}$ une famille de polynômes orthogonaux. Montrer que $(P_{0},...,P_{n})$ est une base de $\\mathbb{R}_{n}[X]$ pour tout $n\\in\\mathbb{N}$ et que $P_{n+1}$ est orthogonal à $\\mathbb{R}_{n}[X]$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une famille de polynômes à degrés étagés forme une base de l'espace des polynômes correspondant."
+            },
+            {
+              "level": 2,
+              "content_latex": "$P_{n+1}$ est orthogonal à chaque vecteur de la base $(P_0, ..., P_n)$ par définition de la famille."
+            }
+          ],
+          "solution_latex": "Les premiers polynômes de Legendre sont : $P_{0}(x) = 1$, $P_{1}(x) = x$, $P_{2}(x) = \\frac{1}{2}(3x^{2}-1)$, $P_{3}(x) = \\frac{1}{2}(5x^{3}-3x)$."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$, il existe un et un seul polynôme unitaire $U_{n}\\in\\mathbb{R}[X]$ de degré $n$ orthogonal à $\\mathbb{R}_{n-1}[X]$.\\par Par convention, $\\mathbb{R}_{-1}[X]=\\{0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire de l'orthogonal de $\\mathbb{R}_{n-1}[X]$ dans $\\mathbb{R}_{n}[X]$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La dimension de $\\mathbb{R}_n[X]$ est $n+1$ et celle de $\\mathbb{R}_{n-1}[X]$ est $n$. L'orthogonal est donc une droite vectorielle. Imposer le coefficient dominant à $1$ fixe un unique élément sur cette droite."
+            }
+          ],
+          "solution_latex": "Ils satisfont la relation de récurrence : $(n+1)P_{n+1}(x) = (2n+1)xP_{n}(x) - nP_{n-1}(x)$."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "Montrer que $(U_{n})_{n\\in\\mathbb{N}}$ est une famille de polynômes orthogonaux et que pour toute famille $(P_{n})_{n\\in\\mathbb{N}}$ de polynômes orthogonaux, $P_{n}$ et $U_{n}$ sont colinéaires pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $m < n$, alors $U_m \\in \\mathbb{R}_{n-1}[X]$. Par construction de $U_n$, que vaut $\\langle U_m, U_n \\rangle$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "$P_n$ est de degré $n$ et orthogonal à $\\mathbb{R}_{n-1}[X]$. Il appartient donc à l'orthogonal de $\\mathbb{R}_{n-1}[X]$ dans $\\mathbb{R}_n[X]$, qui est de dimension 1 et engendré par $U_n$."
+            }
+          ],
+          "solution_latex": "L'intégrale $\\int_{-1}^{1} P_{m}(x)P_{n}(x)\\,dx = \\frac{2}{2n+1} \\delta_{mn}$ où $\\delta_{mn}$ est le symbole de Kronecker."
+        },
+        {
+          "label": "3) c)",
+          "statement_latex": "Montrer que $U_{n+1}-XU_{n}$ est combinaison linéaire de $U_{n-1}$ et $U_{n}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $i\\in[[0,n-2]]$ : $\\langle XU_{n},U_{i}\\rangle=\\langle U_{n},XU_{i}\\rangle$ et $XU_{i}$ n'a pas n'importe quel degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "$U_{n+1}-XU_n$ est de degré au plus $n$ car les termes en $X^{n+1}$ s'annulent. Écrire ce polynôme dans la base orthogonale $(U_0, ..., U_n)$ et utiliser l'indication pour montrer que les coefficients d'indice $\\le n-2$ sont nuls."
+            }
+          ],
+          "solution_latex": "Les racines de $P_{n}$ sont toutes réelles et situées dans $(-1, 1)$. Il y en a exactement $n$."
+        },
+        {
+          "label": "3) d)",
+          "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$. On note $x_{1},...,x_{r}$ les racines de $U_{n}$ dans $]a, b[$ de multiplicité impaire.\\par Que dire du signe de $t\\longmapsto(t-x_{1})...(t-x_{r})U_{n}(t)$ sur $]a, b[$ ? En déduire que $U_{n}$ est scindé à racines simples et que ses racines appartiennent toutes à $]a, b[$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire de $r$ une fois qu'on sait que : $\\langle(X-x_{1})...(X-x_{r}),U_{n}\\rangle\\neq 0$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La fonction polynomiale étudiée garde un signe constant sur $]a,b[$, donc son intégrale (avec poids $\\omega > 0$) est strictement positive. Si $r < n$, alors $(X-x_1)...(X-x_r) \\in \\mathbb{R}_{n-1}[X]$, contredisant l'orthogonalité."
+            }
+          ],
+          "solution_latex": "Pour $|x| > 1$, la fonction génératrice est $\\sum_{n=0}^{\\infty} P_{n}(x)t^{n} = \\frac{1}{\\sqrt{1-2xt+t^{2}}}$."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Dans cette question, $(a,b)=(-1,1)$ et $\\omega$ est la fonction $t\\mapsto 1$. Pour tout $n\\in\\mathbb{N}$ le polynôme $L_{n}=\\frac{1}{2^{n}n!}K_{n}^{(n)}$ est appelé le $n^{\\text{ème}}$ polynôme de Legendre, où $K_{n}=(X^{2}-1)^{n}$.\\par Déterminer le degré de $L_{n}$ et son coefficient dominant pour tout $n\\in\\mathbb{N}$, puis calculer $L_{n}(1)$ et $L_{n}(-1)$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+            "espaces_prehilbertiens_reels__definition_theorem_produits_scalaires_canoniques"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $K_n = X^{2n} + ...$ et dériver $n$ fois. Pour évaluer en $\\pm 1$, écrire $K_n(X) = (X-1)^n(X+1)^n$ et utiliser la formule de Leibniz."
+            }
+          ],
+          "solution_latex": "Les polynômes de Legendre peuvent être utilisés pour développer toute fonction en série : si $f \\in L^{2}([-1,1])$, alors $f = \\sum_{n=0}^{\\infty} a_{n} P_{n}$ où $a_{n} = \\frac{2n+1}{2} \\int_{-1}^{1} f(x)P_{n}(x)\\,dx$."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "Montrer que $(L_{n})_{n\\in\\mathbb{N}}$ est orthogonale. Que vaut $U_{n}$ pour tout $n\\in\\mathbb{N}$ ?",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "IPP successives."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $\\langle L_n, P \\rangle$ pour $P \\in \\mathbb{R}_{n-1}[X]$ en intégrant par parties $n$ fois. Les termes de bord s'annulent car 1 et -1 sont racines de multiplicité $n$ de $K_n$. Conclure que $U_n$ est proportionnel à $L_n$."
+            }
+          ],
+          "solution_latex": "Les polynômes orthogonaux généraux $\\{p_{n}\\}$ satisfont une équation différentielle de Sturm-Liouville et forment une base orthogonale d'un espace de Hilbert approprié."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "On se donne maintenant une fois pour toutes une famille $(P_{n})_{n\\in\\mathbb{N}}$ de polynômes orthogonaux unitaires au sens du produit scalaire $\\langle\\cdot,\\cdot\\rangle$ et on fixe $n\\in\\mathbb{N}^{*}$.\\par Soient $\\tilde{x}_{1},...,\\tilde{x}_{n}\\in]a,b[$ distincts et $\\tilde{\\lambda}_{1},...,\\tilde{\\lambda}_{n}\\in\\mathbb{R}$. On note $\\tilde{\\Lambda}_{1},...,\\tilde{\\Lambda}_{n}$ les polynômes de Lagrange de $\\tilde{x}_{1},...,\\tilde{x}_{n}$ et on suppose que pour tout $P\\in\\mathbb{R}_{2n-1}[X]$ : \\par $\\int_{a}^{b}P(t)\\omega(t)\\,dt=\\sum_{i=1}^{n}\\tilde{\\lambda}_{i}P(\\tilde{x}_{i})$ \\par Montrer que $\\langle\\tilde{\\Lambda}_{i},1\\rangle=\\tilde{\\lambda}_{i}>0$ pour tout $i\\in[[1,n]]$ et que $\\tilde{x}_{1},...,\\tilde{x}_{n}$ sont exactement les racines de $P_{n}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la formule supposée vraie avec des polynômes bien choisis de degré $\\le 2n-1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir $P = \\tilde{\\Lambda}_i^2$ pour montrer que $\\tilde{\\lambda}_i > 0$. Pour les racines, tester $P = P_n \\cdot \\tilde{\\Lambda}_i$ qui est de degré $2n-1$."
+            }
+          ],
+          "solution_latex": "Pour les polynômes de Chebyshev de première espèce, on a $\\langle T_{m}, T_{n} \\rangle = \\int_{-1}^{1} T_{m}(x)T_{n}(x) \\frac{dx}{\\sqrt{1-x^{2}}} = \\frac{\\pi}{2}\\delta_{mn}$ pour $m, n \\ge 1$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "On note enfin $p_{n}$ le coefficient dominant de $P_{n}$, $x_{1},...,x_{n}$ ses racines distinctes de $P_{n}$ et $\\Lambda_{1},...,\\Lambda_{n}$ les polynômes de Lagrange de $x_{1},...,x_{n}$, puis on pose $\\lambda_{i}=\\langle\\Lambda_{i},1\\rangle$ pour tout $i\\in[[1,n]]$.\\par Montrer que pour tout $P\\in\\mathbb{R}_{2n-1}[X]$ : \\par $\\int_{a}^{b}P(t)\\omega(t)\\,dt=\\sum_{i=1}^{n}\\lambda_{i}P(x_{i})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $P\\in\\mathbb{R}_{2n-1}[X]$, $P-\\sum_{i=1}^{n}P(x_{i})\\Lambda_{i}$ est divisible par $P_{n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $P = Q P_n + R$ par division euclidienne et intégrer. Remarquer que $\\deg(Q) \\le n-1$, donc $Q$ est orthogonal à $P_n$."
+            }
+          ],
+          "solution_latex": "Les polynômes d'Hermite $(H_{n})$ sont orthogonaux pour le poids $e^{-x^{2}}$ : $\\int_{-\\infty}^{\\infty} H_{m}(x)H_{n}(x)e^{-x^{2}}\\,dx = 2^{n}n!\\sqrt{\\pi} \\delta_{mn}$."
+        },
+        {
+          "label": "7) a)",
+          "statement_latex": "Soit $f\\in\\mathscr{C}^{2n}([a,b],\\mathbb{R})$.\\par Montrer qu'il existe un et un seul polynôme $H\\in\\mathbb{R}_{2n-1}[X]$ pour lequel $H(x_{i})=f(x_{i})$ et $H^{\\prime}(x_{i})=f^{\\prime}(x_{i})$ pour tout $i\\in[[1,n]]$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dénicher un isomorphisme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer l'application linéaire $\\Phi : \\mathbb{R}_{2n-1}[X] \\to \\mathbb{R}^{2n}$ définie par les évaluations de $P$ et $P'$ aux points $x_i$. Étudier son noyau : un polynôme du noyau admet les $x_i$ comme racines au moins doubles."
+            }
+          ],
+          "solution_latex": "Les polynômes de Laguerre $(L_{n})$ sont orthogonaux pour le poids $e^{-x}$ sur $[0, \\infty)$ : $\\int_{0}^{\\infty} L_{m}(x)L_{n}(x)e^{-x}\\,dx = \\delta_{mn}$."
+        },
+        {
+          "label": "7) b)",
+          "statement_latex": "Soit $x\\in[a,b]\\setminus\\{x_{1},...,x_{n}\\}$. Montrer que pour un certain $c\\in]a,b[$ : \\par $f(x)-H(x)=\\frac{f^{(2n)}(c)}{(2n)!p_{n}^{2}}P_{n}(x)^{2}$.\\par On pourra s'intéresser à une certaine fonction $t\\mapsto f(t)-H(t)-AP_{n}(t)^{2}$ avec $A\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Théorème de Rolle !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir $A$ tel que la fonction s'annule en $x$. Cette fonction possède alors $n+1$ zéros distincts. Appliquer le théorème de Rolle de façon répétée pour trouver un point $c$ où la dérivée $2n$-ième s'annule."
+            }
+          ],
+          "solution_latex": "Une famille de polynômes orthogonaux $\\{p_{n}\\}$ avec poids $w(x)$ admet une relation de récurrence à trois termes : $p_{n+1}(x) = (a_{n}x + b_{n})p_{n}(x) - c_{n}p_{n-1}(x)$."
+        },
+        {
+          "label": "7) c)",
+          "statement_latex": "En déduire que : \\par $\\left|\\int_{a}^{b}f(t)\\omega(t)\\,dt-\\sum_{i=1}^{n}\\lambda_{i}f(x_{i})\\right|\\le\\frac{||f^{(2n)}||_{\\infty}}{(2n)!p_{n}^{2}}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparer l'intégrale de $f$ en l'intégrale de $H$ plus l'intégrale de l'erreur $f-H$. Appliquer la formule de la question 6) au polynôme $H$ de degré $\\le 2n-1$."
+            }
+          ],
+          "solution_latex": "La formule de Christoffel-Darboux fournit une expression fermée pour les noyaux de reproduisant : $K_{n}(x,y) = \\sum_{k=0}^{n} \\frac{p_{k}(x)p_{k}(y)}{h_{k}}$"
+        },
+        {
+          "label": "8) a)",
+          "statement_latex": "On reprend le fil de la question 4). Soit $n\\in\\mathbb{N}$.\\par Déterminer un réel $a$ pour lequel $L_{n+1}^{\\prime}-aL_{n}$ appartient à $\\mathbb{R}_{n-1}[X]$ et en déduire $\\langle L_{n+1}^{\\prime},L_{n}\\rangle$ en fonction de $||L_{n}||$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyser les coefficients dominants pour annuler le terme en $X^n$ dans la soustraction. L'orthogonalité des $L_k$ permet de relier $\\langle L_{n+1}^{\\prime}, L_n \\rangle$ à $\\langle a L_n, L_n \\rangle$."
+            }
+          ],
+          "solution_latex": "Les polynômes orthogonaux vérifient des propriétés d'interlacement des zéros et d'asymptotique utiles en analyse numérique."
+        },
+        {
+          "label": "8) b)",
+          "statement_latex": "Montrer que $L_{n+1}^{\\prime}=XL_{n}^{\\prime}+(n+1)L_{n}$ en dérivant la relation $K_{n+1}^{\\prime}=2(n+1)XK_{n}$ et en déduire que $||L_{n}||=\\sqrt{\\frac{2}{2n+1}}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver l'expression polynomiale de proche en proche et réutiliser les relations établies en 8a) avec l'intégration par parties."
+            }
+          ],
+          "solution_latex": "Pour les polynômes de Jacobi avec paramètres $\\alpha, \\beta > -1$, le produit scalaire est $\\langle p, q \\rangle = \\int_{-1}^{1} p(x)q(x)(1-x)^{\\alpha}(1+x)^{\\beta}\\,dx$."
+        },
+        {
+          "label": "8) c)",
+          "statement_latex": "En déduire que $P_{n} \\underset{n\\rightarrow+\\infty}{\\sim} \\frac{2^{n}}{\\sqrt{\\pi}}$.\\par On rappelle que $P_{n}$ est unitaire au sens du produit scalaire $\\langle\\cdot,\\cdot\\rangle$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression exacte de la norme de $L_n$ et l'équivalent de Wallis pour les factorielles."
+            }
+          ],
+          "solution_latex": "Les polynômes orthogonaux jouent un rôle fondamental en approximation, en quadrature numérique et en résolution d'équations différentielles."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_018",
+      "title": "Distance à un hyperplan",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "distance",
+        "hyperplan",
+        "géométrie",
+        "projection orthogonale"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un espace euclidien de dimension non nulle, $\\mathscr{H}$ un hyperplan affine de $E$ de direction $H$, $a$ un vecteur normal unitaire de $H$ et $h\\in\\mathscr{H}$. Montrer que pour tout $x\\in E$ : $d(x,\\mathscr{H})=|\\langle x-h,a\\rangle|$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Transformer $d(x,\\mathscr{H})$ en une distance $d(...,H)$ pour se ramener au contexte vectoriel du cours."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le vecteur normal unitaire $a$ engendre l'orthogonal de $H$. La distance de $x-h$ à $H$ est la norme de sa projection orthogonale sur $H^\\perp$."
+            }
+          ],
+          "solution_latex": "Soit $H$ un hyperplan de $E$. Il existe un vecteur non nul $a \\in E$ tel que $H = \\{x \\in E : \\langle x, a \\rangle = c\\}$ pour une constante $c \\in \\mathbb{R}$.\\\\\n\\par La distance d'un point $x_{0}$ à l'hyperplan $H$ est $d(x_{0}, H) = \\frac{|\\langle x_{0}, a \\rangle - c|}{\\|a\\|}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On munit $\\mathbb{R}^{3}$ de sa structure euclidienne canonique. Soit $\\mathscr{P}$ un plan de $\\mathbb{R}^{3}$ d'équation $ax+by+cz=d$ avec $a,b,c,d\\in\\mathbb{R}$. Montrer que pour tout point $M=(x_{M},y_{M},z_{M})\\in\\mathbb{R}^{3}$ : \\par $d(M,\\mathscr{P})=\\frac{|ax_{M}+by_{M}+cz_{M}-d|}{\\sqrt{a^{2}+b^{2}+c^{2}}}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer soigneusement 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifier un vecteur normal unitaire à partir de l'équation cartésienne, et un point $h$ appartenant au plan. Injecter dans la formule de la question 1."
+            }
+          ],
+          "solution_latex": "La projection orthogonale de $x_{0}$ sur $H$ est le point $p \\in H$ minimisant la distance $\\|x - x_{0}\\|$.\\\\\n\\par On a $p = x_{0} - \\frac{\\langle x_{0}, a \\rangle - c}{\\|a\\|^{2}} a$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_019",
+      "title": "Inégalité de norme et projecteur orthogonal",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+        "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+        "espaces_prehilbertiens_reels__theorem_expression_projete"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "orthogonalité",
+        "projecteur",
+        "norme"
+      ],
+      "statement_latex": "Soit $E$ un espace préhilbertien réel.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $x,y\\in E$ : \\par $x\\perp y \\iff \\forall t\\in\\mathbb{R},\\ ||x+ty||\\ge||x||$.\\par On commencera par se convaincre sur une figure que le résultat est vrai.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Élever au carré l'inégalité $||x+ty||^2 \\ge ||x||^2$ et développer le terme de gauche avec le produit scalaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Obtenir un polynôme de degré 2 en $t$ qui doit être toujours positif ou nul. Que peut-on dire sur son discriminant et sur le coefficient de $t$ ?"
+            }
+          ],
+          "solution_latex": "Pour un projecteur orthogonal $p_{F}$ sur un sous-espace $F$, on a $\\|p_{F}(x)\\| \\le \\|x\\|$ pour tout $x \\in E$.\\\\\n\\par En effet, $\\|p_{F}(x)\\|^{2} = \\langle p_{F}(x), p_{F}(x) \\rangle = \\langle p_{F}(x), x \\rangle \\le \\|p_{F}(x)\\| \\|x\\|$ (Cauchy-Schwarz)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $p$ un projecteur de $E$. Montrer que $p$ est un projecteur orthogonal si et seulement si pour tout $x\\in E$ : $||p(x)||\\le||x||$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le fait que pour un projecteur, $x = p(x) + (x-p(x))$ avec $p(x) \\in Im\\,p$ et $x-p(x) \\in Ker\\,p$. Appliquer le théorème de Pythagore pour le sens direct."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la réciproque, montrer que $Ker\\,p \\perp Im\\,p$. Prendre $u \\in Im\\,p$ et $v \\in Ker\\,p$, poser $x = u+tv$ et utiliser l'hypothèse de contraction ainsi que la question 1."
+            }
+          ],
+          "solution_latex": "La norme du projecteur orthogonal est $\\|p_{F}\\| = 1$. Elle n'augmente jamais la norme des vecteurs, ce qui en fait une contraction."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_020",
+      "title": "Calculs de projections orthogonales",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "projection orthogonale",
+        "hyperplan",
+        "matrice",
+        "symétrie"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Dans l'espace euclidien canonique $\\mathbb{R}^{3}$, on pose : \\par $F=\\{(x,y,z)\\in\\mathbb{R}^{3} | z=x+y\\}$ \\par et on note $p$ la projection orthogonale sur $F$. Déterminer la matrice de $p$ dans la base canonique.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans les deux cas, $F$ est un hyperplan, c'est pratique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouver un vecteur normal $n$ définissant $F$. La projection de $v$ sur la droite engendrée par $n$ est facilement calculable, en déduire $p(v)$ par $p(v) = v - p_{n}(v)$."
+            }
+          ],
+          "solution_latex": "Pour un vecteur $u$ non nul, la projection orthogonale d'un vecteur $x$ sur la droite $\\text{Vect}(u)$ est\\\\\n$$p_{\\text{Vect}(u)}(x) = \\frac{\\langle x, u \\rangle}{\\|u\\|^{2}} u"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On munit $\\mathcal{M}_{n}(\\mathbb{R})$ de sa structure euclidienne canonique et on pose $F=\\{M\\in\\mathcal{M}_{n}(\\mathbb{R}) | tr(M)=0\\}$.\\par Déterminer une expression explicite de la réflexion de $\\mathcal{M}_{n}(\\mathbb{R})$ par rapport à $F$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans les deux cas, $F$ est un hyperplan, c'est pratique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit scalaire canonique est $\\langle A, B \\rangle = tr(A^\\top B)$. Trouver la matrice normale à l'hyperplan des matrices de trace nulle (c'est-à-dire l'identité $I_n$) et appliquer la formule de symétrie $s(M) = M - 2 p_{n}(M)$."
+            }
+          ],
+          "solution_latex": "Pour un sous-espace $F = \\text{Vect}(v_{1}, \\ldots, v_{k})$ avec base orthonormale $(e_{1}, \\ldots, e_{k})$, la projection de $x$ sur $F$ est\\\\\n$$p_{F}(x) = \\sum_{i=1}^{k} \\langle x, e_{i} \\rangle e_{i}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Dans l'espace euclidien canonique $\\mathbb{R}^{4}$ on pose : \\par $F=\\{(x,y,z,t)\\in\\mathbb{R}^{4} | x=y \\text{ et } z=-t\\}$ \\par et on note $p$ la projection orthogonale sur $F$. Déterminer la matrice de $p$ dans la base canonique.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$F$ est un plan. On peut soit chercher une base orthonormale de $F$, soit déterminer $F^\\perp$."
+            }
+          ],
+          "solution_latex": "Pour calculer une projection sans base orthonormale, on utilise la formule : $p_{F}(x) = V(V^{T}V)^{-1}V^{T}x$ où $V$ est la matrice dont les colonnes forment une base quelconque de $F$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "On munit $\\mathscr{C}([0,2\\pi],\\mathbb{R})$ du produit scalaire intégral $(f,g)\\longmapsto\\int_{0}^{2\\pi}f(t)g(t)\\,dt$. Déterminer l'image $\\sin t$ par la symétrie orthogonale par rapport à $F=Vect(t\\mapsto 1,t\\mapsto t)$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par calculer la projection orthogonale de $\\sin(t)$ sur $F$. Utiliser pour cela l'orthonormalisation de la base de $F$ ou un système normal."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer les intégrales de $\\sin(t)$ et $t\\sin(t)$ sur $[0, 2\\pi]$. Une fois la projection $p$ obtenue, la symétrie s'écrit $s = 2p - id$."
+            }
+          ],
+          "solution_latex": "La distance de $x$ à $F$ est $d(x, F) = \\|x - p_{F}(x)\\|$ et elle est minimale parmi toutes les distances d'un point à un point de $F$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_021",
+      "title": "Distances, polynômes et matrices",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_norme_distance",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit scalaire",
+        "distance",
+        "polynômes",
+        "matrices"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'application : \\par $(P,Q)\\longmapsto P(0)Q(0)+P^{\\prime}(0)Q^{\\prime}(0)+P(1)Q(1)$ \\par est un produit scalaire sur $\\mathbb{R}_{2}[X]$, puis calculer la distance de $X^{2}$ à $\\mathbb{R}_{1}[X]$ pour ce produit scalaire.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire d'une fonction polynomiale de degré 2 positive sur $\\mathbb{R}$ tout entier ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la distance, chercher la projection orthogonale de $X^2$ sur $\\mathbb{R}_1[X]$. On peut chercher $a,b \\in \\mathbb{R}$ tels que $X^2 - (aX+b)$ soit orthogonal à $1$ et à $X$."
+            }
+          ],
+          "solution_latex": "Soit $P$ le sous-espace des polynômes de degré $\\le n$ sur $[a,b]$. La projection du monôme $x^{n+1}$ sur l'orthogonal $P^{\\perp}$ a une norme qui estime la meilleure approximation."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On munit $\\mathcal{M}_{2}(\\mathbb{R})$ de sa structure euclidienne canonique et on note $F$ l'ensemble des matrices $\\begin{pmatrix}a&-b\\\\b&a\\end{pmatrix}$ $a$ et $b$ décrivant $\\mathbb{R}$. Déterminer une base de $F^{\\perp}$ et calculer la distance de $\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$ à $F$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouver une base de $F$, par exemple en décomposant la matrice avec $a$ et $b$. L'orthogonal $F^{\\perp}$ sera l'ensemble des matrices orthogonales à cette base pour le produit scalaire $\\langle A, B \\rangle = \\operatorname{tr}(A^{\\top}B)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La distance de la matrice $M$ à $F$ est la norme de $M - p_F(M)$, où $p_F(M)$ est sa projection orthogonale sur $F$."
+            }
+          ],
+          "solution_latex": "Pour une matrice $M \\in M_{m,n}(\\mathbb{R})$, on définit la distance minimale au sous-espace des matrices de rang $\\le k$ par $d(M, \\mathcal{R}_{k}) = \\|M - M_{k}\\|$ où $M_{k}$ est la meilleure approximation de rang $k$ (décomposition SVD)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_022",
+      "title": "Projecteurs orthogonaux et matrices de Gram",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "projecteur orthogonal",
+        "matrice",
+        "trace",
+        "rang"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un espace euclidien de dimension non nulle, $\\mathscr{B}$ une base orthonormale de $E$ et $p$ un projecteur de $E$. On pose $P=Mat_{\\mathscr{B}}(p)$. Montrer l'équivalence des assertions suivantes : \\par (i) $p$ est un projecteur orthogonal. \\par (ii) $Im\\,p\\perp Im(p-Id_{E})$. \\par (iii) $P^{\\top}P=P$. \\par (iv) $P$ est symétrique.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer une boucle d'implications, par exemple (i) $\\implies$ (ii) $\\implies$ (iii) $\\implies$ (iv) $\\implies$ (i)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour (ii) $\\implies$ (iii), traduire l'orthogonalité matriciellement. Pour (iii) $\\implies$ (iv), transposer la relation $P^{\\top}P=P$."
+            }
+          ],
+          "solution_latex": "Soit $(v_{1}, \\ldots, v_{k})$ une base (pas nécessairement orthonormale) d'un sous-espace $F \\subseteq \\mathbb{R}^{n}$.\\\\\n\\par La matrice de Gram est $G = V^{T}V$ où $V$ est la matrice $n \\times k$ de colonnes $v_{1}, \\ldots, v_{k}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On munit $\\mathbb{R}^{n}$ de sa structure euclidienne canonique. Soient $F$ un sous-espace vectoriel de $\\mathbb{R}^{n}$ de dimension $p\\ge 1$ et $A$ une matrice de $\\mathcal{M}_{n,p}(\\mathbb{R})$ dont les colonnes forment une base de $F$. \\par Montrer que $Ker(A^{\\top}A)=Ker(A)$, puis que $A^{\\top}A$ est inversible.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Forcer une norme au carrée $X\\in\\mathbb{R}^{n}$ à apparaître."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $X \\in Ker(A^{\\top}A)$, alors $A^{\\top}AX = 0$. Multiplier à gauche par $X^{\\top}$ pour faire apparaître $||AX||^2=0$."
+            }
+          ],
+          "solution_latex": "Le projecteur orthogonal sur $F$ est donné par $P_{F} = V(V^{T}V)^{-1}V^{T} = VG^{-1}V^{T}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $A(A^{\\top}A)^{-1}A^{\\top}$ est la matrice de la projection orthogonale de $\\mathbb{R}^{n}$ sur $Im\\,A$ dans la base canonique.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit surtout de montrer que $Im\\,P=Im\\,A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vérifier que la matrice $M = A(A^{\\top}A)^{-1}A^{\\top}$ est symétrique et idempotente ($M^2 = M$), ce qui caractérise un projecteur orthogonal. Puis identifier son image."
+            }
+          ],
+          "solution_latex": "Le déterminant de la matrice de Gram $\\det(G) = \\det(V^{T}V)$ est positif si $(v_{i})$ est libre, et il égale le carré du volume du parallélépipède engendré par les $v_{i}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On munit $\\mathbb{R}^{n}$ de sa structure euclidienne canonique. Soit $A\\in\\mathcal{M}_{n}(\\mathbb{R})$. On note $P$ la matrice dans la base canonique de la projection orthogonale de $\\mathbb{R}^{n}$ sur $Im\\,A$. \\par Que vaut $PA$ ? En déduire que : \\par $\\operatorname{tr}(A)^{2}\\le \\operatorname{rg}(A)\\operatorname{tr}(A^{\\top}A)$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $PA=P$ puis appliquer l'inégalité de Cauchy-Schwarz."
+            },
+            {
+              "level": 2,
+              "content_latex": "En réalité $PA=A$ car l'image de $A$ est invariante par la projection sur l'image de $A$. Exprimer $\\operatorname{tr}(A) = \\operatorname{tr}(PA)$ et appliquer Cauchy-Schwarz sur le produit scalaire $\\langle M, N \\rangle = \\operatorname{tr}(M^{\\top}N)$."
+            }
+          ],
+          "solution_latex": "Le rang de $G$ égale le rang de $V$, donc $(v_{1}, \\ldots, v_{k})$ est libre ssi $G$ est inversible."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{R})$ une matrice pour laquelle $a_{ii}=1$ et $|a_{ij}|\\le\\frac{1}{\\sqrt{n}}$ pour tous $i,j\\in[[1,n]]$ distincts. \\par Montrer que $\\operatorname{tr}(B^{\\top}B)\\le 2n-1$ pour $B=\\frac{A+A^{\\top}}{2}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theorem_produits_scalaires_canoniques",
+            "espaces_prehilbertiens_reels__definition_norme_distance",
+            "espaces_prehilbertiens_reels__definition_distance_partie"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\operatorname{tr}(B^{\\top}B)$ qui est la somme des carrés de tous les coefficients de $B$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorer les coefficients extra-diagonaux de $B$ en utilisant l'hypothèse sur les $a_{ij}$, tout en gardant à l'esprit que les termes diagonaux valent $1$."
+            }
+          ],
+          "solution_latex": "La distance de $x$ à $F$ peut s'exprimer via la matrice de Gram augmentée : $(d(x, F))^{2} = \\frac{\\det(\\widetilde{G})}{\\det(G)}$ où $\\widetilde{G}$ inclut la ligne/colonne des produits scalaires de $x$ avec les $v_{i}$."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "En déduire que $\\operatorname{rg}(A)>\\frac{n}{4}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer entre autres que $\\operatorname{rg}(B)\\le 2\\operatorname{rg}(A)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer l'inégalité de la question 3) à la matrice $B$, qui est symétrique (donc $\\operatorname{tr}(B) = n$). Puis relier le rang de $B$ au rang de $A$."
+            }
+          ],
+          "solution_latex": "Deux bases $(v_{i})$ et $(w_{i})$ du même espace $F$ donnent des matrices de Gram liées par : si $V = WA$, alors $G_{V} = A^{T}G_{W}A$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_023",
+      "title": "Borne inférieure d'intégrale (calcul de distance)",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "distance",
+        "borne inférieure",
+        "projection orthogonale"
+      ],
+      "statement_latex": "On veut calculer \\par $I=\\inf_{a,b\\in\\mathbb{R}}\\int_{0}^{1}(t-a\\sqrt{t}-b)^{2}\\,dt$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Trouver un espace préhilbertien réel $E$, un sous-espace vectoriel de dimension finie $F$ de $E$ et un vecteur $\\varphi\\in E$ pour lesquels $I=d(\\varphi,F)^{2}$, puis en déduire $I$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour une fois, il vaut mieux orthonormaliser !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici, $E = \\mathscr{C}([0,1],\\mathbb{R})$ avec le produit scalaire intégral classique. Le vecteur est $\\varphi(t) = t$, et on cherche la distance au sous-espace engendré par $1$ et $\\sqrt{t}$."
+            }
+          ],
+          "solution_latex": "Pour minorer $\\int_{a}^{b} f(x)^{2}\\,dx$, on peut la décomposer : $\\int_{a}^{b} f(x)^{2}\\,dx = \\|p_{F}(f)\\|^{2} + \\|f - p_{F}(f)\\|^{2}$ où $F$ est un sous-espace approprié.\\\\\n\\par Le premier terme donne la contribution de la projection, le second est la distance à $F$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Retrouver $I$ en calculant l'intégrale explicitement et en l'écrivant comme la somme d'une constante et d'une somme de carrés.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_distance_partie",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_norme_distance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $(t-a\\sqrt{t}-b)^2$, intégrer terme à terme pour obtenir un polynôme en $a$ et $b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettre l'expression sous la forme canonique pour les deux variables $a$ et $b$ afin de trouver le minimum global."
+            }
+          ],
+          "solution_latex": "Pour améliorer la borne, on choisit $F$ contenant les fonctions faciles à évaluer (polynômes, par exemple). La distance $d(f, F)$ fournit une minoration de l'intégrale complète."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_024",
+      "title": "Minoration d'intégrale par projection",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité",
+        "projection orthogonale",
+        "intégrale"
+      ],
+      "statement_latex": "Soient $a\\in\\mathbb{R}$ et $f\\in\\mathscr{C}([0,1],\\mathbb{R})$. On suppose que $\\int_{0}^{1}f(t)\\,dt=1$ et $\\int_{0}^{1}tf(t)\\,dt=a$. Montrer que : \\par $\\int_{0}^{1}f(t)^{2}\\,dt\\ge 1+3(2a-1)^{2}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La norme d'un vecteur est toujours supérieure à celle de son projeté orthogonal sur tel ou tel sous-espace vectoriel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Se placer dans $E = \\mathscr{C}([0,1],\\mathbb{R})$ avec le produit scalaire usuel. Projeter orthogonalement $f$ sur le sous-espace $F = Vect(t\\mapsto 1, t\\mapsto t)$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Trouver une base orthonormale de $F$ en appliquant Gram-Schmidt à $(1, t)$, puis utiliser le fait que $||f||^2 \\ge ||p_F(f)||^2$ et calculer $p_F(f)$ grâce aux intégrales fournies en hypothèses."
+            }
+          ],
+          "solution_latex": "Soit $f \\in L^{2}([a,b])$ et $F$ un sous-espace fermé. Pour tout $g \\in F$, on a\\\\\n$$\\|f\\|^{2} \\ge \\|p_{F}(f)\\|^{2}$$\\\\\n\\par ce qui donne une minoration de l'intégrale de $f^{2}$ en termes de sa projection sur $F$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_025",
+      "title": "Projection orthogonale et distance dans $\\mathscr{C}^1$",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+        "espaces_prehilbertiens_reels__definition_produit_scalaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit scalaire de sobolev",
+        "équations différentielles",
+        "projection orthogonale",
+        "distance",
+        "optimisation"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un espace préhilbertien réel et $F$ un sous-espace vectoriel de dimension finie de $E$. On note $p$ la projection orthogonale sur $F$. Montrer que pour tout $x\\in E$, $d(x,F^{\\perp})=||p(x)||$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer $x$ sur $F$ et $F^{\\perp}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $x = p(x) + (x-p(x))$. Pour tout $y \\in F^{\\perp}$, développer $||x-y||^2 = ||p(x) + (x-p(x)-y)||^2$ et utiliser le théorème de Pythagore."
+            }
+          ],
+          "solution_latex": "Dans $E = \\mathscr{C}^{1}([a,b], \\mathbb{R})$ muni du produit scalaire $\\langle f, g \\rangle = f(a)g(a) + \\int_{a}^{b} f'(t)g'(t)\\,dt$, on peut calculer la projection sur des sous-espaces de dimension finie."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que l'application : \\par $(f,g)\\longmapsto\\int_{0}^{1}(f(t)g(t)+f^{\\prime}(t)g^{\\prime}(t))\\,dt$ \\par est un produit scalaire sur $\\mathscr{C}^{1}([0,1],\\mathbb{R})$. On pose $F=\\{f\\in\\mathscr{C}^{2}([0,1],\\mathbb{R}) | f^{\\prime\\prime}=f\\}$ ainsi que $c=\\operatorname{ch}(1)$ et $s=\\operatorname{sh}(1)$, puis on fixe $\\alpha, \\beta\\in\\mathbb{R}$ et on pose : \\par $E=\\{f\\in\\mathscr{C}^{1}([0,1],\\mathbb{R}) | f(0)=\\alpha \\text{ et } f(1)=\\beta\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_produit_scalaire",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier la positivité et le caractère défini : si $||f||^2=0$, alors l'intégrale d'une fonction continue positive est nulle."
+            }
+          ],
+          "solution_latex": "Le sous-espace des fonctions affines $F = \\{f : f(t) = \\alpha + \\beta t\\}$ est de dimension 2. Sa projection sur ce sous-espace minimise une fonctionnelle spécifique."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $F=Vect(\\operatorname{ch},\\operatorname{sh})$, puis que : \\par $F^{\\perp}=\\{f\\in\\mathscr{C}^{1}([0,1],\\mathbb{R}) | f(0)=f(1)=0\\}$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__definition_theoreme_orthogonal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour caractériser $F$, résoudre l'équation différentielle linéaire d'ordre 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'orthogonal, prendre $g \\in F$ et $f \\in \\mathscr{C}^1$. Calculer $\\langle f,g \\rangle$ en intégrant par parties le terme $\\int f'(t)g'(t)\\,dt$, puis utiliser le fait que $g''=g$."
+            }
+          ],
+          "solution_latex": "Pour un fonction $f \\in E$, sa projection orthogonale sur $F$ (polynômes de degré $\\le 1$) est la fonction affine qui minimise $f(a)^{2} + \\int_{a}^{b} (f'(t) - g'(t))^{2}\\,dt$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminer une expression explicite de la projection orthogonale de $\\mathscr{C}^{1}([0,1],\\mathbb{R})$ sur $F$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La caractérisation de $F^{\\perp}$ de la question 3) rend le calcul facile."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $f \\in \\mathscr{C}^1$, on cherche $p(f) = a\\operatorname{ch} + b\\operatorname{sh} \\in F$ tel que $f - p(f) \\in F^{\\perp}$. Traduire cela avec les conditions aux limites en $0$ et en $1$ pour trouver $a$ et $b$."
+            }
+          ],
+          "solution_latex": "La distance $d(f, F) = \\|f - p_{F}(f)\\|$ mesure l'éloignement de $f$ au sous-espace des fonctions affines."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Montrer que $E$ est un sous-espace affine de $\\mathscr{C}^{1}([0,1],\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouver une fonction de référence $f_0 \\in E$ et montrer que $E = f_0 + F^{\\perp}$."
+            }
+          ],
+          "solution_latex": "La projection satisfait l'équation variationnelle : pour tout $h \\in F$, $\\langle p_{F}(f) - f, h \\rangle = 0$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "Montrer que : \\par $\\inf_{f\\in E}\\int_{0}^{1}(f(t)^{2}+f^{\\prime}(t)^{2})\\,dt=\\frac{\\alpha^{2}c-2\\alpha\\beta+\\beta^{2}c}{s}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer 1) après avoir exprimé $||\\operatorname{sh}||^{2}$, $||\\operatorname{ch}||^{2}$ et $\\langle\\operatorname{ch}, \\operatorname{sh}\\rangle$ en fonction de $c$ et $s$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'infimum cherché est la distance au carré de l'origine au sous-espace affine $E$. Utiliser la relation avec $F^{\\perp}$ et la question 1 pour ramener ce calcul à la norme d'une projection orthogonale bien choisie sur $F$."
+            }
+          ],
+          "solution_latex": "Les calculs explicites de projections dans $\\mathscr{C}^{1}$ impliquent souvent de résoudre un système linéaire ou une équation différentielle."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__ex_026",
+      "title": "Matrice et déterminant de Gram",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+        "espaces_prehilbertiens_reels__theorem_expression_projete",
+        "espaces_prehilbertiens_reels__theorem_distance_ssev",
+        "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice de gram",
+        "déterminant",
+        "projection orthogonale",
+        "distance"
+      ],
+      "statement_latex": "Soit $E$ un espace préhilbertien réel.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $x_{1},...,x_{n}\\in E.$ On appelle matrice de Gram de $(x_{1},...,x_{n})$ la matrice $M=(\\langle x_{i},x_{j}\\rangle)_{1\\le i,j\\le n}$ et on note $G(x_{1},...,x_{n})$ son déterminant. Soit $\\mathscr{B}$ une base orthonormale de $Vect(x_{1},...,x_{n})$. On pose $X=Mat_{\\mathscr{B}}(x_{1},...,x_{n})$.\\par Exprimer $M$ en fonction de $X$, puis montrer que $Ker M = Ker X$. En déduire que la famille $(x_{1},...,x_{n})$ a le même rang que sa matrice de Gram.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_expression_projete",
+            "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+            "espaces_prehilbertiens_reels__definition_produit_scalaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer le produit matriciel $X^{\\top}X$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les colonnes de $X$ sont les coordonnées des vecteurs $x_i$ dans une base orthonormale, donc le coefficient $(i,j)$ de $X^{\\top}X$ correspond exactement au produit scalaire $\\langle x_i, x_j \\rangle$. Pour les noyaux, montrer la double inclusion en utilisant $||XU||^2 = U^{\\top}X^{\\top}XU$."
+            }
+          ],
+          "solution_latex": "Soit $(v_{1}, \\ldots, v_{k})$ une famille de vecteurs dans un espace préhilbertien $E$. La matrice de Gram est $G_{ij} = \\langle v_{i}, v_{j} \\rangle$.\\\\\n\\par Ses propriétés : $G$ est symétrique, positive (tous les mineurs principaux $\\ge 0$), et définie positive ssi $(v_{i})$ est libre."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que $G(x_{1},...,x_{n})\\ge 0$ avec égalité si et seulement si $(x_{1},...,x_{n})$ est liée.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__theorem_gram_schmidt"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer le résultat sous l'hypothèse que la famille $(x_{1},...,x_{n})$ est liée, puis sous l'hypothèse qu'elle est libre."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la famille est libre, la matrice $X$ est inversible (ou de rang maximal) et $X^{\\top}X$ l'est aussi, ce qui permet de relier le déterminant de $M$ à $\\det(X)^2$."
+            }
+          ],
+          "solution_latex": "Le déterminant de Gram $\\det(G) = \\det(G(v_{1}, \\ldots, v_{k}))$ satisfait $\\det(G) = (V(v_{1}, \\ldots, v_{k}))^{2}$ où $V$ est le volume signé du parallélépipède engendré par les $v_{i}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Montrer que si $x_{n}$ est orthogonal à $x_{1},...,x_{n-1}$ alors $G(x_{1},...,x_{n})=||x_{n}||^{2}G(x_{1},...,x_{n-1})$.",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+            "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+            "espaces_prehilbertiens_reels__theorem_expression_projete"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la matrice de Gram de $(x_1, ..., x_n)$ sous forme de blocs."
+            },
+            {
+              "level": 2,
+              "content_latex": "La dernière ligne et la dernière colonne de la matrice de Gram ne contiennent que des zéros, à l'exception du terme diagonal $(n,n)$ qui vaut $\\langle x_n, x_n \\rangle = ||x_n||^2$. Développer le déterminant par rapport à la dernière colonne."
+            }
+          ],
+          "solution_latex": "Pour des vecteurs dans $\\mathbb{R}^{n}$, si $(v_{1}, \\ldots, v_{k})$ a rang $k$, alors $\\sqrt{\\det(G(v_{1}, \\ldots, v_{k}))}$ est le volume du parallélépipède."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $F$ un sous-espace vectoriel de dimension finie de $E$, $(f_{1},...,f_{n})$ une base quelconque de $F$ et $x\\in E$. On note $p$ la projection orthogonale sur $F$. Montrer que : \\par $G(f_{1},...,f_{n},x)=||x-p(x)||^{2}G(f_{1},...,f_{n}).$ \\par puis que $d(x,F)=\\sqrt{\\frac{G(f_{1},...,f_{n},x)}{G(f_{1},...,f_{n})}}.$",
+          "knowledge_nodes_tested": [
+            "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+            "espaces_prehilbertiens_reels__theorem_distance_ssev",
+            "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer $x = p(x) + (x-p(x))$ dans la dernière colonne de la matrice de Gram $G(f_1, ..., f_n, x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par multilinéarité du déterminant, séparer en deux déterminants. L'un correspond à $G(f_1, ..., f_n, p(x))$ qui est nul (famille liée car $p(x) \\in F$). L'autre utilise l'orthogonalité de $x-p(x)$ avec les $f_i$ pour appliquer le résultat de la question 1)c)."
+            }
+          ],
+          "solution_latex": "Le déterminant de Gram est invariant par changement de base orthonormale. Si on remplace les $v_{i}$ par des colonnes $Av_{1}, \\ldots, Av_{k}$ où $A$ est orthogonale, le déterminant de Gram reste inchangé."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

@@ -1,0 +1,792 @@
+{
+  "chapter_official_id": "rappels_et_complements_sur_les_fonctions_reelles",
+  "chapter_name": "Rappels et compléments sur les fonctions réelles",
+  "source_document": "Cours - Rappels et complements sur les fonctions reelles.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_composees",
+      "type": "remark",
+      "title": "Remarque : Définition des fonctions composées",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions. La composée $g\\circ f$ n'est définie que si $f$ est à valeurs dans $F$, i.e. si $f(E)\\subset F$. Quand la fonction extérieure $g$ est définie sur $\\mathbb{R}$ tout entier, la condition $f(E)\\subset\\mathbb{R}$ est trivialement vraie et $g\\circ f$ est définie sans qu'aucun obstacle se soit présenté.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_domaine_def_racine",
+      "type": "example",
+      "title": "Exemple : Ensemble de définition avec racine carrée",
+      "content_latex": "La fonction $x\\mapsto\\sqrt{x+3}$ est définie sur $[-3,+\\infty[$.",
+      "proof_latex": "La fonction $x\\mapsto x+3$ est définie sur $\\mathbb{R}$ et la fonction $\\sqrt{\\cdot}$ l'est sur $\\mathbb{R}_{+}$, mais quand $x$ décrit $\\mathbb{R}$, $x+3$ n'appartient pas forcément à $\\mathbb{R}_{+}$. Pour quels $x\\in\\mathbb{R}$ est-il vrai que $x+3\\ge0$ : Réponse : $x\\in[-3,+\\infty[$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_domaine_def_ln",
+      "type": "example",
+      "title": "Exemple : Ensemble de définition avec logarithme",
+      "content_latex": "La fonction $x\\mapsto \\ln(x^{2}-3x+2)$ est définie sur $]-\\infty, 1[\\cup]2, +\\infty[$.",
+      "proof_latex": "La fonction $x\\mapsto x^{2}-3x+2$ est définie sur $\\mathbb{R}$ et $x\\mapsto \\ln x$ l'est sur $\\mathbb{R}_{+}^{*}$, mais quand $x$ décrit $\\mathbb{R}$, $x^{2}-3x+2$ n'appartient pas forcément à $\\mathbb{R}_{+}^{*}$. Pour quels $x\\in\\mathbb{R}$ est-il vrai que $x^{2}-3x+2>0$ ? Réponse : $x\\in]-\\infty, 1[\\cup]2, +\\infty[$ car les racines du polynôme sont 1 et 2 et son coefficient dominant est strictement positif."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_domaine_def_fraction",
+      "type": "example",
+      "title": "Exemple : Ensemble de définition complexe",
+      "content_latex": "La fonction $x\\mapsto\\frac{1+e^{\\sqrt{x}}}{x\\sqrt{2-x}}$ est définie sur $]0,2[$.",
+      "proof_latex": "L'ensemble de définition est $\\{x\\in\\mathbb{R} \\mid x\\sqrt{2-x}\\ne0 \\text{ et } 2-x\\ge0 \\text{ et } x\\ge0\\} = \\{x\\in\\mathbb{R} \\mid x\\ne0 \\text{ et } x\\ne2 \\text{ et } 0\\le x\\le2\\} = ]0,2[$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_fonction_monotone",
+      "type": "definition",
+      "title": "Définition : Fonction monotone",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par — On dit que $f$ est croissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)\\le f(y)$.\\par — On dit que $f$ est strictement croissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)<f(y)$.\\par — On dit que $f$ est décroissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)\\ge f(y)$.\\par — On dit que $f$ est (resp. strictement) monotone si $f$ est (resp. strictement) croissante ou décroissante.\\par Une fonction croissante (resp. décroissante) est une fonction qui préserve (resp. renverse) les inégalités.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_injectivite_stricte_monotonie",
+      "type": "theorem",
+      "title": "Théorème : Injectivité et stricte monotonie",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. Si $f$ est strictement monotone, $f$ est injective.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_fonctions_monotones",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les fonctions monotones",
+      "content_latex": "(i) Addition : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes, $f+g$ l'est aussi. Si $f$ et $g$ sont décroissantes, $f+g$ l'est aussi.\\par (ii) Produit : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes POSITIVES, $fg$ est croissante. Si $f$ et $g$ sont décroissantes POSITIVES, $fg$ est décroissante.\\par (iii) Composition : Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont monotones de même sens de variation, $g\\circ f$ est croissante. Si $f$ et $g$ sont monotones de sens de variation opposés, $g\\circ f$ est décroissante.\\par (iv) Réciproque : Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $f$ est monotone, elle l'est strictement et $f^{-1}$ est strictement monotone de même sens de variation.",
+      "proof_latex": "(i) Dans le cas où $f$ et $g$ sont croissantes, soient $x,y\\in E$. Si $x<y$, alors par hypothèse $f(x)\\le f(y)$ et $g(x)\\le g(y)$ donc $f(x)+g(x)\\le f(y)+g(y)$ par somme.\\par (ii) Dans le cas où $f$ et $g$ sont décroissantes, soient $x,y\\in E$. Si $x<y$, alors par hypothèse $0\\le f(y)\\le f(x)$ et $0\\le g(y)\\le g(x)$, donc $f(y)g(y)\\le f(x)g(x)$ par produit d'inégalités POSITIVES.\\par (iii) Dans le cas où $f$ est croissante et $g$ décroissante, soient $x,y\\in E$. Si $x<y$, alors $f(x)\\le f(y)$ par croissance de $f$, puis $g(f(y))\\le g(f(x))$ par décroissance de $g$.\\par (iv) Dans le cas croissant : $\\forall x,y\\in E, x<y \\Rightarrow f(x)\\le f(y)$, $f$ est en fait strictement croissante, car si $f(x)=f(y)$ alors $x=y$ par injectivité. Montrons que $f^{-1}$ est strictement croissante. Soient $y,y'\\in F$ deux réels pour lesquels $y<y'$. Si jamais $f^{-1}(y)\\ge f^{-1}(y')$ alors $y=f(f^{-1}(y))\\ge f(f^{-1}(y'))=y'$ par croissance de $f$, contradiction."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_produit_fonctions_croissantes",
+      "type": "warning",
+      "title": "Attention : Produit de fonctions croissantes et positivité",
+      "content_latex": "Attention ! La fonction identité $x\\mapsto x$ est croissante sur $\\mathbb{R}$, mais quand on la multiplie par elle-même, le résultat $x\\mapsto x^{2}$ n'est pas une fonction croissante sur $\\mathbb{R}$. Comme quoi la positivité compte !",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_composition_monotonie",
+      "type": "example",
+      "title": "Exemple : Croissance par composition et somme",
+      "content_latex": "Pas besoin de dériver pour expliquer que les fonctions $x\\mapsto e^{x}+x$ et $x\\mapsto e^{e^{x}}$ sont croissantes sur $\\mathbb{R}$ !",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_fonction_majoree_minoree_bornee",
+      "type": "definition",
+      "title": "Définition : Fonction majorée/minorée/bornée",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par — On dit que $f$ est majorée si : $\\exists M\\in\\mathbb{R}, \\forall x\\in E, f(x)\\le M$. Un tel réel $M$ est appelé UN majorant de $f$. On dit ausi que $f$ est majorée par $M$ ou que $M$ majore $f$.\\par — On dit que $f$ est minorée si : $\\exists m\\in\\mathbb{R}, \\forall x\\in E, f(x)\\ge m$. Un tel réel $m$ est appelé UN minorant de $f$. On dit aussi que $f$ est minorée par $m$ ou que $m$ minore $f$.\\par — On dit que $f$ est bornée si $f$ est à la fois majorée et minorée, i.e. si : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "type": "property",
+      "title": "Propriété : Caractérisation d'une fonction bornée",
+      "content_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.",
+      "proof_latex": "Si pour un certain $K\\ge0$, il est vrai que $|f(x)|\\le K$ pour tout $x\\in E$, alors $-K\\le f(x)\\le K$ pour tout $x\\in E$, donc $f$ est minorée par $-K$ et majorée par $K$. Pour la réciproque, supposons $f$ minorée par $m$ et majorée par $M$ et posons $K=\\max\\{|m|,|M|\\}$. Pour tout $x\\in E$ : $-K\\le-|m|\\le m\\le f(x)\\le M\\le|M|\\le K$, donc $|f(x)|\\le K$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_maximum_minimum",
+      "type": "definition",
+      "title": "Définition : Maximum/minimum d'une fonction",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in E$.\\par — On dit que $f$ possède un maximum en $a$ si : $\\forall x\\in E, f(x)\\le f(a)$. Le réel $f(a)$ est alors appelé le maximum de $f$ et noté $\\max_{E}f$ ou $\\max_{x\\in E}f(x)$.\\par — On dit que $f$ possède un minimum en $a$ si : $\\forall x\\in E, f(x)\\ge f(a)$. Le réel $f(a)$ est alors appelé le minimum de $f$ et noté $\\min_{E}f$ ou $\\min_{x\\in E}f(x)$.\\par En résumé, un maximum est un majorant de la forme « $f$ de quelqu'un », i.e. un majorant qui est aussi une valeur de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_existence_maximum",
+      "type": "warning",
+      "title": "Attention : Existence et unicité du maximum/minimum",
+      "content_latex": "Attention ! Une fonction peut ne pas avoir de maximum ou de minimum, même en étant bornée, et quand elle en a un, il peut être atteint plusieurs fois.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_transformations_affines",
+      "type": "theorem",
+      "title": "Théorème : Transformations affines du graphe d'une fonction",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a,b\\in\\mathbb{R}$ et $\\lambda>0$. On munit le plan d'un repère orthonormal direct $(O,\\vec{i},\\vec{j})$.\\par • Symétries : Le graphe de la fonction $x\\mapsto-f(x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Ox)$. Le graphe de la fonction $x\\mapsto f(-x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Oy)$.\\par • Translations : Le graphe de la fonction $x\\mapsto f(x)+a$ s'obtient à partir de celui de $f$ par une translation de vecteur $a\\vec{j}$. Le graphe de la fonction $x\\mapsto f(x+a)$ s'obtient à partir de celui de $f$ par une translation de vecteur $-a\\vec{i}$.\\par • Contractions/dilatations : Le graphe de la fonction $x\\mapsto\\lambda f(x)$ s'obtient à partir de celui de $f$ par une dilatation verticale de rapport $\\lambda$ si $\\lambda\\ge1$ et une contraction verticale de rapport $\\lambda$ si $\\lambda<1$. Le graphe de la fonction $x\\mapsto f(\\lambda x)$ s'obtient à partir de celui de $f$ par une contraction horizontale de rapport $\\lambda$ si $\\lambda\\ge1$ et une dilatation horizontale de rapport $\\frac{1}{\\lambda}$ si $\\lambda<1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_translation_horizontale",
+      "type": "warning",
+      "title": "Attention : Signe dans la translation horizontale",
+      "content_latex": "Attention ! Dans le cas de la fonction $x\\mapsto f(x+a)$, il y a un signe $-$ dans l'expression du vecteur de translation $-a\\vec{i}$ et c'est normal. La fonction $x\\mapsto f(x+a)$ atteint la valeur $f(0)$ en $-a$, puis la valeur $f(1)$ en $-a+1$, etc. En résumé, on peut dire que $x\\mapsto f(x+a)$ est EN AVANCE de $a$ sur $x\\mapsto f(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_transformations_sinus",
+      "type": "example",
+      "title": "Exemple : Transformations affines successives sur le sinus",
+      "content_latex": "Graphes successifs : $y=\\sin x \\rightarrow y=\\sin(x+1) \\rightarrow y=\\sin(2x+1) \\rightarrow y=\\frac{\\sin(2x+1)}{2} \\rightarrow y=-\\frac{\\sin(2x+1)}{2} \\rightarrow y=1-\\frac{\\sin(2x+1)}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_symetries_decales",
+      "type": "example",
+      "title": "Exemple : Symétries par rapport à un axe décalé",
+      "content_latex": "Pour tous $a, x\\in\\mathbb{R}$, les réels $x$ et $a-x$ sont symétriques l'un de l'autre par rapport à $\\frac{a}{2}$ car $\\frac{a}{2}$ est le milieu du segment d'extrémités $x$ et $a-x$ : $\\frac{x+(a-x)}{2}=\\frac{a}{2}$. Le graphe de la fonction $x\\mapsto a-f(x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à la droite d'équation $y=\\frac{a}{2}$. Le graphe de la fonction $x\\mapsto f(a-x)$ s'obtient quant à lui à partir de celui de $f$ par une symétrie par rapport à la droite d'équation $x=\\frac{a}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_parite_imparite",
+      "type": "definition",
+      "title": "Définition : Fonction paire/impaire",
+      "content_latex": "On suppose $E$ symétrique par rapport à $0$, i.e. que : $\\forall x\\in E, -x\\in E$. Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par • Parité : On dit que $f$ est paire si : $\\forall x\\in E, f(-x)=f(x)$. Le graphe de $f$ est alors symétrique par rapport à l'axe des ordonnées.\\par • Imparité : On dit que $f$ est impaire si : $\\forall x\\in E, f(-x)=-f(x)$. Le graphe de $f$ est alors symétrique par rapport à l'origine. Le graphe d'une fonction impaire définie en $0$ passe toujours par l'origine.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_etude_parite",
+      "type": "remark",
+      "title": "Remarque : Domaine d'étude pour la parité",
+      "content_latex": "Pas besoin d'étudier une fonction $f:E\\longrightarrow\\mathbb{R}$ paire ou impaire sur $E$ tout entier, une étude sur $E\\cap\\mathbb{R}_{+}$ suffit.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_reciproque_impaire",
+      "type": "theorem",
+      "title": "Théorème : Réciproque d'une fonction bijective impaire",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $E$ est symétrique par rapport à $0$ et si $f$ est impaire, $F$ est symétrique par rapport à $0$ et $f^{-1}$ est impaire.",
+      "proof_latex": "Soit $y\\in F$, disons $y=f(x)$ pour un certain $x\\in E$. Aussitôt, $-x\\in E$ car $E$ est symétrique par rapport à $0$, donc $-y=-f(x)=f(-x)\\in F$ par imparité de $f$. Conclusion : $F$ est symétrique par rapport à $0$. Ensuite $f^{-1}(-y)=f^{-1}(-f(x))=f^{-1}(f(-x))=-x=-f^{-1}(y)$, donc $f^{-1}$ est impaire."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_periodicite",
+      "type": "definition",
+      "title": "Définition : Fonction périodique",
+      "content_latex": "Soit $T>0$. On suppose que $E$ est $T$-périodique, i.e. que : $\\forall x\\in E, x+T\\in E$ et $x-T\\in E$. Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. On dit que $f$ est $T$-périodique ou périodique de période $T$ si : $\\forall x\\in E, f(x+T)=f(x)$. Le réel $T$ est alors appelé UNE période de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_etude_periodicite",
+      "type": "remark",
+      "title": "Remarque : Domaine d'étude pour la périodicité",
+      "content_latex": "Pas besoin d'étudier une fonction $f:E\\longrightarrow\\mathbb{R}$ $T$-périodique sur $E$ tout entier, une étude sur une période suffit, par exemple $E\\cap[0,T[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_plusieurs_periodes",
+      "type": "warning",
+      "title": "Attention : Multiplicité des périodes",
+      "content_latex": "Attention ! Une fonction périodique ne possède jamais qu'une seule période. Tout multiple entier d'une période $T$ est encore une période : $2T, 3T, 4T\\dots$. Voilà pourquoi on ne parle jamais de « la » période, mais toujours d'UNE période. Certaines fonctions possèdent en revanche une plus petite période, mais pas toutes. On peut montrer que toute fonction continue non constante périodique possède une plus petite période. Les fonctions sinus et cosinus admettent par exemple $2\\pi$ pour plus petite période. Certaines fonctions admettent au contraire tout réel strictement positif pour période et n'en ont donc pas de plus petite. C'est le cas des fonctions constantes et de la fonction indicatrice $\\mathbb{I}_{\\mathbb{Q}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_periodiques",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les fonctions périodiques",
+      "content_latex": "Soit $T>0$. On suppose que $E$ est $T$-périodique. Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions $T$-périodiques.\\par (i) Les fonctions $f+g$ et $f\\times g$ sont aussi $T$-périodiques, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas.\\par (ii) Pour tout $\\omega>0$, la fonction $x\\mapsto f(\\omega x)$ est $\\frac{T}{\\omega}$-périodique sur l'ensemble dilaté/contracté $\\frac{1}{\\omega}E$.",
+      "proof_latex": "(i) Concernant $f+g$ pour tout $x\\in E$ : $(f+g)(x+T)=f(x+T)+g(x+T)=f(x)+g(x)=(f+g)(x)$.\\par (ii) Notons $g$ la fonction $x\\mapsto f(\\omega x)$ définie sur $\\{x\\in\\mathbb{R} \\mid \\omega x\\in E\\} = \\frac{1}{\\omega}E$. Pour tout $x\\in\\frac{1}{\\omega}E$ : $g(x+\\frac{T}{\\omega})=f(\\omega(x+\\frac{T}{\\omega}))=f(\\omega x+T)=f(\\omega x)=g(x)$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_fonction_continue",
+      "type": "definition",
+      "title": "Définition : Fonction continue",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. Pour tout $a\\in E$ on dit que $f$ est continue en $a$ si $f(x)\\longrightarrow_{x\\rightarrow a}f(a)$. On dit que $f$ est continue sur $E$ si $f$ est continue en tout point de $E$. L'ensemble des fonctions continues sur $E$ est noté $\\mathcal{C}(E,\\mathbb{R})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_fonctions_continues",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les fonctions continues",
+      "content_latex": "— Combinaison linéaire, produit, quotient : Pour toutes fonctions $f,g\\in\\mathcal{C}(E,\\mathbb{R})$ et $\\lambda,\\mu\\in\\mathbb{R}$, les fonctions $\\lambda f+\\mu g$ et $fg$ sont continues sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas.\\par — Composition : Pour toutes fonctions $f\\in\\mathcal{C}(E,\\mathbb{R})$ et $g\\in\\mathcal{C}(F,\\mathbb{R})$ si $f(E)\\subset F$ alors $g\\circ f$ est continue sur $E$.\\par — Réciproque : Soient $I$ et $J$ deux intervalles. Pour toute fonction $f\\in\\mathcal{C}(I,\\mathbb{R})$ bijective de $I$ sur $J$, $f^{-1}$ est continue sur $J$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_composition_continuite",
+      "type": "warning",
+      "title": "Attention : Composition et ensembles de définition",
+      "content_latex": "Attention ! La composition est plus délicate à manier que l'addition et le produit car elle jongle avec plusieurs ensembles de définition. Ainsi, on ne peut pas dire que « la fonction $x\\mapsto\\sqrt{x^{2}+1}$ est continue sur $\\mathbb{R}$ comme composée de fonctions qui le sont » car $\\sqrt{\\cdot}$ n'est pas continue sur $\\mathbb{R}$ tout entier. Que dire alors ? Par exemple ceci : « La fonction $x\\mapsto x^{2}+1$ est continue sur $\\mathbb{R}$ À VALEURS DANS $\\mathbb{R}_{+}$ et est continue sur $\\mathbb{R}_{+}$, donc la fonction $x\\mapsto\\sqrt{x^{2}+1}$ est continue sur $\\mathbb{R}$ ».",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_valeurs_intermediaires",
+      "type": "theorem",
+      "title": "Théorème : Théorème des valeurs intermédiaires ou TVI",
+      "content_latex": "Soient $a$ et $b$ deux réels pour lesquels $a<b$ et $f\\in\\mathcal{C}([a,b],\\mathbb{R})$. Tout réel $y$ compris entre $f(a)$ et $f(b)$ possède au moins un antécédent par $f$ dans $[a, b]$, éventuellement plusieurs.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_tvi_existence",
+      "type": "remark",
+      "title": "Remarque : Sens profond du TVI",
+      "content_latex": "Le TVI est un théorème d'EXISTENCE d'antécédent, existence de solutions pour les équations $y=f(x)$ d'inconnue $x$ avec $y$ fixé. Sans rentrer dans les détails, un intervalle n'est jamais qu'une partie sans trou de $\\mathbb{R}$. Conclusion : $f(I)$ est forcément un intervalle quand $I$ en est un, du moins si $f$ est continue.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_image_intervalle",
+      "type": "theorem",
+      "title": "Théorème : Image d'un intervalle par une fonction continue",
+      "content_latex": "— Version image d'un intervalle du TVI : Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{R})$ et tout intervalle $I$ inclus dans $E$, $f(I)$ est aussi un intervalle.\\par — En cas de monotonie : Soient $a,b\\in\\mathbb{R}$ deux réels pour lesquels $a<b$. Si $f$ est continue et croissante sur $[a, b]$, alors $f([a,b])=[f(a),f(b)]$. Si $f$ est continue et décroissante sur $[a, b]$, alors $f([a,b])=[f(b),f(a)]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_image_intervalle_general",
+      "type": "warning",
+      "title": "Attention : Image d'un segment dans le cas général",
+      "content_latex": "Attention ! En général : $f([a,b]) \\neq [f(a),f(b)]$ et $f(]a,b[) \\neq ]f(a),f(b)[$. Par ailleurs, si $f$ n'est pas continue, l'image $f([a,b])$ n'a aucune raison d'être un intervalle, elle peut avoir des trous et posséder plusieurs morceaux. Enfin, même quand $f([a,b])$ est un intervalle, cet intervalle n'a aucune raison d'avoir $f(a)$ et $f(b)$ pour bornes si $f$ n'est pas monotone.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_tvi_strictement_monotone",
+      "type": "theorem",
+      "title": "Théorème : TVI strictement monotone",
+      "content_latex": "Soient $a, b\\in\\mathbb{R}$ deux réels pour lesquels $a<b$.\\par — En cas de continuité et monotonie stricte, la forme des intervalles est correctement préservée. Par exemple : si $f$ est continue et strictement croissante sur $[a, b[$, alors $f([a,b[)=[f(a),\\lim_{b^{-}}f[$.\\par — TVI strictement monotone : Par exemple, si $f$ est continue et strictement croissante sur $[a, b]$, $f$ est bijective de $[a, b]$ sur $[f(a),f(b)]$. Par rapport au TVI de base, la stricte monotonie apporte l'injectivité, donc l'unicité dès lors qu'on s'intéresse aux équations $y=f(x)$ d'inconnue $x$ avec $y$ fixé.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__method_points_fixes",
+      "type": "method",
+      "title": "Méthode : Recherche de points fixes via le TVI",
+      "content_latex": "En pratique, le TVI et sa version strictement monotone sont très utiles quand on cherche des points fixes. Étudier les POINTS FIXES de $f$, c'est étudier les ZÉROS de $x\\mapsto f(x)-x$, i.e. résoudre l'équation $f(x)-x=0$ d'inconnue $x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_point_fixe_exponentielle",
+      "type": "example",
+      "title": "Exemple : Point fixe de l'exponentielle décroissante",
+      "content_latex": "La fonction $x\\mapsto e^{-x}$ possède un et un seul point fixe sur $\\mathbb{R}$.",
+      "proof_latex": "La fonction $f : x\\mapsto e^{-x}-x$ est continue et strictement décroissante sur $\\mathbb{R}$ par somme des fonctions $x\\mapsto e^{-x}$ et $x\\mapsto -x$ qui le sont. Par ailleurs, $f(x)\\longrightarrow_{x\\rightarrow+\\infty}-\\infty$ et $f(x)\\longrightarrow_{x\\rightarrow-\\infty}+\\infty$, donc $f$ s'annule une et une seule fois sur $\\mathbb{R}$ d'après le TVI strictement monotone."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_derivable_tangente",
+      "type": "definition",
+      "title": "Définition : Fonction dérivable, tangente",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par • Dérivabilité : Pour tout $a\\in E$, on dit que $f$ est dérivable en $a$ si la fonction $x\\mapsto\\frac{f(x)-f(a)}{x-a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$. On dit que $f$ est dérivable sur $E$ si $f$ est dérivable en tout point de $E$. Le cas échéant, la fonction $x\\mapsto f'(x)$ est appelée la dérivée de $f$. L'ensemble des fonctions dérivables sur $E$ est noté $\\mathcal{D}(E,\\mathbb{R})$.\\par • Tangente : Pour tout $a\\in E$ en lequel $f$ est dérivable, la droite d'équation $y=f(a)+f'(a)(x-a)$ est appelée la tangente de $f$ en $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_notation_derivee",
+      "type": "warning",
+      "title": "Attention : Notation de la dérivée",
+      "content_latex": "La notation $(f(x))'$ est INTERDITE ! La quantité $f(x)$ dépend de $x$, c'est une EXPRESSION et non pas une FONCTION. Pour la dériver, on a besoin de préciser par rapport à quelle variable on dérive. Notez désormais simplement ce que vous auriez aimé noter $(f(x))'$ : $\\frac{d}{dx}(f(x))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_derivable_implique_continue",
+      "type": "theorem",
+      "title": "Théorème : Dérivable implique continue",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in E$. Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.",
+      "proof_latex": "Si $f$ est dérivable en $a$ : $f(x)=\\frac{f(x)-f(a)}{x-a}\\times(x-a)+f(a)\\longrightarrow_{x\\rightarrow a}f'(a)\\times0+f(a)=f(a)$, donc $f$ est continue en $a$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_continue_nimplique_pas_derivable",
+      "type": "warning",
+      "title": "Attention : Continue n'implique pas dérivable",
+      "content_latex": "La réciproque est fausse ! Les fonctions valeur absolue $y=|x|$ et racine carrée $y=\\sqrt{x}$ sont continues en $0$, mais n'y sont pas dérivables. Le graphe de $|x|$ présente un pic en $0$ et celui de $\\sqrt{x}$ une tangente verticale.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_derivees_successives",
+      "type": "definition",
+      "title": "Définition : Dérivées successives",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. On pose $f^{(0)}=f$. Ensuite, pour tout $k\\in\\mathbb{N}^{*}$, si on a réussi à définir $f^{(k-1)}$ de proche en proche et si elle est dérivable sur $E$, on dit que $f$ est $k$ fois dérivable sur $E$ et on pose $f^{(k)}=(f^{(k-1)})'$. La fonction $f^{(k)}$ est alors appelée la dérivée $k^{\\text{ème}}$ de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_notation_derivees_successives",
+      "type": "warning",
+      "title": "Attention : Notation des dérivées successives",
+      "content_latex": "La notation $(f(x))^{(k)}$ est INTERDITE ! Notez $\\frac{d^{k}}{dx^{k}}(f(x))$ ce que vous auriez aimé noter $(f(x))^{(k)}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_derivees_puissance",
+      "type": "example",
+      "title": "Exemple : Dérivées successives de $x^n$",
+      "content_latex": "Soit $n\\in\\mathbb{N}$. La fonction $x\\mapsto x^{n}$ est indéfiniment dérivable sur $\\mathbb{R}$ et pour tous $k\\in\\mathbb{N}$ et $x\\in\\mathbb{R}$ : $f^{(k)}(x) = \\frac{n!}{(n-k)!}x^{n-k}$ si $k\\le n$, et $0$ si $k>n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_classe_ck",
+      "type": "definition",
+      "title": "Définition : Fonction de classe $\\mathcal{C}^k$",
+      "content_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par • Classe $\\mathcal{C}^{k}$ : Pour tout $k\\in\\mathbb{N}$, on dit que $f$ est de classe $\\mathcal{C}^{k}$ sur $E$ si $f$ est $k$ fois dérivable sur $E$ et si $f^{(k)}$ est continue sur $E$. L'ensemble des fonctions de classe $\\mathcal{C}^{k}$ sur $E$ est noté $\\mathcal{C}^{k}(E,\\mathbb{R})$.\\par • Classe $\\mathcal{C}^{\\infty}$ : On dit que $f$ est de classe $\\mathcal{C}^{\\infty}$ sur $E$ si $f$ est $k$ fois dérivable sur $E$ pour tout $k\\in\\mathbb{N}$. L'ensemble des fonctions de classe $\\mathcal{C}^{\\infty}$ sur $E$ est noté $\\mathcal{C}^{\\infty}(E,\\mathbb{R})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_classe_c1_vs_derivable",
+      "type": "warning",
+      "title": "Attention : De classe $\\mathcal{C}^1$ vs Dérivable",
+      "content_latex": "De classe $\\mathcal{C}^{1}$ = Dérivable à dérivée continue $\\Rightarrow$ Dérivable ET continue. Dire « Dérivable et continue » est maladroit, donc à éviter, car la dérivabilité implique la continuité !",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_fonctions_derivables",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les fonctions dérivables/de classe $\\mathcal{C}^k$",
+      "content_latex": "• Combinaison linéaire, produit, quotient : Pour toutes fonctions $f,g\\in\\mathcal{D}(E,\\mathbb{R})$ et $\\lambda,\\mu\\in\\mathbb{R}$, les fonctions $\\lambda f+\\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f+\\mu g)'=\\lambda f'+\\mu g'$, $(fg)'=f'g+fg'$, et $(\\frac{f}{g})'=\\frac{f'g-fg'}{g^{2}}$.\\par • Composition : Pour toutes fonctions $f\\in\\mathcal{D}(E,\\mathbb{R})$ et $g\\in\\mathcal{D}(F,\\mathbb{R})$, si $f(E)\\subset F$, alors $g\\circ f$ est dérivable sur $E$ et : $(g\\circ f)'=f'\\times g'\\circ f$.\\par • Réciproque : Soient $I$ et $J$ deux intervalles. Pour toute fonction $f\\in\\mathcal{C}(I,\\mathbb{R})$ bijective de $I$ sur $J$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})'=\\frac{1}{f'\\circ f^{-1}}$.\\par On peut remplacer partout « dérivable » par « $k$ fois dérivable » ou par « de classe $\\mathcal{C}^{k}$ », mais les formules énoncées ne sont valables que pour les dérivées premières.",
+      "proof_latex": "La dérivabilité de $f^{-1}$ demande du travail, mais la formule de dérivation en découle aisément. En dérivant simplement la relation $f\\circ f^{-1}=\\text{Id}_{J}$ on obtient $(f^{-1})'\\times f'\\circ f^{-1}=1$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_reciproque_annulation",
+      "type": "warning",
+      "title": "Attention : Hypothèse de la réciproque",
+      "content_latex": "Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale ! Si $f'$ s'annule en $a$, $f^{-1}$ possède une tangente verticale en $f(a)$, donc n'est pas dérivable en $f(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_derivation_successive_theoreme",
+      "type": "warning",
+      "title": "Attention : Savoir qu'une fonction est de classe $\\mathcal{C}^\\infty$",
+      "content_latex": "On n'a pas besoin de dériver 99 fois une fonction pour savoir qu'elle est 100 fois dérivable ! Par exemple, la fonction $x\\mapsto x^{2}e^{x}$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$ pour la seule raison que les fonctions $x\\mapsto x^{2}$ et $x\\mapsto e^{x}$ le sont.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_derivabilite_composee",
+      "type": "example",
+      "title": "Exemple : Continuité et dérivabilité d'une fonction composée",
+      "content_latex": "La fonction $x\\mapsto \\ln(x+\\sqrt{x(1-x)})$ est définie et continue sur $]0, 1]$ et dérivable sur $]0, 1[$.",
+      "proof_latex": "• Ensemble de définition : $\\{ x\\in\\mathbb{R} \\mid x(1-x)\\ge0 \\text{ et } x+\\sqrt{x(1-x)}>0 \\} = ]0,1]$.\\par • Ensemble de continuité : Les fonctions usuelles utilisées pour construire $f$ sont toutes continues en tout point en lequel elles sont définies, donc $f$ est continue sur $]0, 1]$.\\par • Ensemble de dérivabilité : La fonction racine carrée est dérivable seulement sur $\\mathbb{R}_{+}^{*}$. La fonction $f$ est donc dérivable sur $\\{x \\in \\mathbb{R} \\mid x(1-x)>0 \\text{ et } x+\\sqrt{x(1-x)}>0\\} = ]0, 1[$. Attention, nous n'avons pas prouvé la non-dérivabilité de $f$ en 1, il faudrait revenir au taux d'accroissement."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_derivees_successives_fraction",
+      "type": "example",
+      "title": "Exemple : Dérivées successives avec puissance négative",
+      "content_latex": "La fonction $x\\mapsto\\frac{1}{x-1}$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}\\setminus\\{1\\}$, et pour calculer ses dérivées successives, il vaut mieux l'écrire comme une PUISSANCE NÉGATIVE que comme un quotient.",
+      "proof_latex": "Pour tous $k\\in\\mathbb{N}$ et $x\\in\\mathbb{R}\\setminus\\{1\\}$ : $f^{(k)}(x)=\\frac{d^{k}}{dx^{k}}((x-1)^{-1})=(-1)(-2)\\dots(-k)(x-1)^{-k-1}=\\frac{(-1)^{k}k!}{(x-1)^{k+1}}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_caracterisation_derivables",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions dérivables constantes/monotones",
+      "content_latex": "Soient $I$ un INTERVALLE et $f\\in\\mathcal{D}(I,\\mathbb{R})$.\\par • Constance : $f$ est constante sur $I$ si et seulement si $f'$ est nulle sur $I$.\\par • Monotonie : $f$ est croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$.\\par • Monotonie stricte : $f$ est strictement croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$ et n'est identiquement nulle sur aucun intervalle $[a, b]$ inclus dans $I$ avec $a<b$. En particulier, si $f'$ est strictement positive sur $I$, $f$ est strictement croissante sur $I$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_necessite_intervalle",
+      "type": "warning",
+      "title": "Attention : L'hypothèse de l'intervalle est indispensable",
+      "content_latex": "Mine de rien, il est indispensable que $I$ soit un intervalle. $f$ peut avoir $f'=0$ sur $I_{1}$ et sur $I_{2}$, mais ne pas être constante sur $I_{1}\\cup I_{2}$. De même, $f$ peut être croissante sur $I_{1}$ et sur $I_{2}$ sans l'être sur $I_{1}\\cup I_{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__method_etude_variations",
+      "type": "method",
+      "title": "Méthode : Étude des variations",
+      "content_latex": "On montre beaucoup d'inégalités en mathématiques, et l'une des premières techniques qu'on apprend à ce sujet, c'est l'étude des variations ou du signe d'une fonction. FACTORISEZ VOS DÉRIVÉES LE PLUS POSSIBLE !",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_inegalite_rationnelle",
+      "type": "example",
+      "title": "Exemple : Inégalité par étude de fonction",
+      "content_latex": "Pour tout $x\\in[0,2]$ : $\\frac{x+1}{x^{2}+3}\\in[\\frac{1}{3},\\frac{1}{2}]$. Par ailleurs, pour tout $x\\in\\mathbb{R}$ : $\\frac{x+1}{x^{2}+3}\\in[-\\frac{1}{6},\\frac{1}{2}]$.",
+      "proof_latex": "La fonction $f : x\\mapsto\\frac{x+1}{x^{2}+3}$ est définie et dérivable sur $\\mathbb{R}$ et $f'(x)=\\frac{1\\times(x^{2}+3)-(x+1)\\times2x}{(x^{2}+3)^{2}}=-\\frac{x^{2}+2x-3}{(x^{2}+3)^{2}}=-\\frac{(x-1)(x+3)}{(x^{2}+3)^{2}}$. Un tableau de variations permet de conclure."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_inegalite_logarithme",
+      "type": "example",
+      "title": "Exemple : Inégalité avec logarithme",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}_{+}^{*}\\setminus\\{1\\}$ : $\\frac{x+1}{x-1}\\ln x\\ge2$.",
+      "proof_latex": "Étudions plutôt le signe de $x\\mapsto(x+1)\\ln x-2(x-1)$ sur $\\mathbb{R}_{+}^{*}$. Nous diviserons par $x-1$ à la fin. Pour tout $x>0$ : $f'(x)=\\ln x+\\frac{1}{x}-1$ et $f''(x)=\\frac{x-1}{x^{2}}$. Un tableau de variations basé sur $f''$ permet de conclure."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_inegalite_deux_variables",
+      "type": "example",
+      "title": "Exemple : Inégalité à deux variables",
+      "content_latex": "Pour tous $x,y\\in]-1,1[$ : $\\frac{x+y}{1+xy}\\in]-1,1[$.",
+      "proof_latex": "Pour prouver une inégalité de deux variables, on en fixe une, par exemple $y$, et on fait une étude de fonction par rapport à l'autre variable, ici $x$. Fixons donc $y\\in]-1,1[$. La fonction $x\\mapsto\\frac{x+y}{1+xy}$ est dérivable sur $]-1,1[$ et pour tout $x\\in]-1,1[$ : $f'(x)=\\frac{1-y^{2}}{(1+xy)^{2}}>0$. Un tableau de variations permet de conclure."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_convexe_concave",
+      "type": "definition",
+      "title": "Définition : Fonction convexe/concave",
+      "content_latex": "Soient $I$ un intervalle et $f:I\\longrightarrow\\mathbb{R}$ une fonction. \\par • Fonction convexe : On dit que $f$ est convexe si son graphe est situé en-dessous de toutes ses cordes, i.e. si : $\\forall x,y\\in I, \\forall\\lambda\\in[0,1], f((1-\\lambda)x+\\lambda y)\\le(1-\\lambda)f(x)+\\lambda f(y)$. \\par • Fonction concave : On dit que $f$ est concave si son graphe est situé au-dessus de toutes ses cordes, i.e. si : $\\forall x,y\\in I, \\forall\\lambda\\in[0,1], f((1-\\lambda)x+\\lambda y)\\ge(1-\\lambda)f(x)+\\lambda f(y)$. Il est équivalent de dire que $-f$ est convexe.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_convexite_valeur_absolue",
+      "type": "example",
+      "title": "Exemple : Convexité de la valeur absolue",
+      "content_latex": "La fonction valeur absolue est convexe sur $\\mathbb{R}$.",
+      "proof_latex": "Pour tous $x,y\\in\\mathbb{R}$ et $\\lambda\\in[0,1]$, d'après l'inégalité triangulaire : $|(1-\\lambda)x+\\lambda y|\\le|1-\\lambda||x|+|\\lambda||y|=(1-\\lambda)|x|+\\lambda|y|$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_caracterisation_convexes_derivables",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions convexes dérivables",
+      "content_latex": "Soient $I$ un intervalle et $f\\in\\mathcal{D}(I,\\mathbb{R})$. Les assertions suivantes sont équivalentes : \\par (i) $f$ est convexe sur $I$. \\par (ii) $f'$ est croissante sur $I$ ou bien $f''\\ge0$ si $f$ est deux fois dérivable sur $I$. \\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes. On dispose bien sûr d'une caractérisation analogue de la concavité.",
+      "proof_latex": "(Implication $(ii)\\Rightarrow(iii)$) Supposons $f'$ croissante et fixons $a\\in I$. Montrons que le graphe de $f$ est situé au-dessus de sa tangente en $a$, i.e. que $f(x)\\ge f'(a)(x-a)+f(a)$ pour tout $x\\in I$. Notons pour cela la fonction $\\varphi : x\\mapsto f(x)-f'(a)(x-a)-f(a)$. Cette fonction est dérivable sur $I$ et pour tout $x\\in I$ : $\\varphi'(x)=f'(x)-f'(a)$, donc par croissance de $f'$, $\\varphi'$ est négative à gauche de $a$ et positive à droite. Ainsi, $\\varphi$ est décroissante à gauche de $a$ et croissante à droite, donc positive sur $I$ tout entier puisque $\\varphi(a)=0$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_convexite_puissance_paire",
+      "type": "example",
+      "title": "Exemple : Convexité de $x^{2n}$",
+      "content_latex": "Soit $n\\in\\mathbb{N}$. La fonction puissance $x\\mapsto x^{2n}$ est convexe sur $\\mathbb{R}$.",
+      "proof_latex": "Sa dérivée seconde $x\\mapsto 2n(2n-1)x^{2(n-1)}$ est positive sur $\\mathbb{R}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_concavite_racine_carree",
+      "type": "example",
+      "title": "Exemple : Inégalité par concavité de la racine carrée",
+      "content_latex": "Pour tout $x>0$ : $\\sqrt{x}\\le\\frac{x+1}{2}$.",
+      "proof_latex": "La fonction $x\\mapsto\\sqrt{x}$ est concave sur $\\mathbb{R}_{+}^{*}$ car sa dérivée $x\\mapsto\\frac{1}{2\\sqrt{x}}$ y est décroissante. Son graphe est situé sous sa tangente en 1, d'équation $y=\\frac{x+1}{2}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_point_inflexion",
+      "type": "definition",
+      "title": "Définition : Point d'inflexion",
+      "content_latex": "Soient $I$ un intervalle, $f:I\\longrightarrow\\mathbb{R}$ une fonction et $a\\in I$ un point qui n'est pas une borne de $I$. On dit que $f$ possède un point d'inflexion en $a$ si $f$ est convexe au voisinage de $a$ à gauche et concave au voisinage de $a$ à droite ou l'inverse. Si $f$ est deux fois dérivable sur $I$, $f$ possède un point d'inflexion en $a$ si et seulement si $f''$ s'annule en $a$ et est positive au voisinage de $a$ à gauche et négative au voisinage de $a$ à droite ou l'inverse.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_inflexion_puissance_impaire",
+      "type": "example",
+      "title": "Exemple : Point d'inflexion de $x^{2n+1}$",
+      "content_latex": "Soit $n\\in\\mathbb{N}$. La fonction puissance $x\\mapsto x^{2n+1}$ possède un et un seul point d'inflexion, à savoir en 0.",
+      "proof_latex": "Sa dérivée seconde $x\\mapsto 2n(2n+1)x^{2n-1}$ s'annule en changeant de signe en 0 et ne le fait nulle part ailleurs."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_inflexion_polynome_degre_3",
+      "type": "example",
+      "title": "Exemple : Point d'inflexion d'un polynôme de degré 3",
+      "content_latex": "Soient $a\\in\\mathbb{R}^{*}$ et $b, c, d \\in \\mathbb{R}$. La fonction $x\\mapsto ax^{3}+bx^{2}+cx+d$ possède un et un seul point d'inflexion, à savoir en $-\\frac{b}{3a}$.",
+      "proof_latex": "Sa dérivée seconde $x\\mapsto 6ax+2b$ s'annule en changeant de signe en $-\\frac{b}{3a}$ et ne le fait nulle part ailleurs."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_formule_fonctions_affines",
+      "type": "theorem",
+      "title": "Théorème : La seule formule à connaître sur les fonctions affines",
+      "content_latex": "Le graphe d'une fonction affine $f$ est une droite, donc coïncide avec sa tangente en tout point. Ainsi, pour tous $a, x\\in\\mathbb{R}$ : $f(x)=f'(a)(x-a)+f(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_ordonnee_origine_affine",
+      "type": "warning",
+      "title": "Attention : Ordonnée à l'origine",
+      "content_latex": "On vous a habitués à utiliser l'ordonnée à l'origine $p$ d'une fonction affine $x\\mapsto mx+p$, mais la plupart du temps, on se fiche royalement de ce qui se passe à l'origine. Si vous connaissez la pente $m$ de $f$ et sa valeur en un point $a$, $f$ a pour expression $x\\mapsto m(x-a)+f(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_calcul_fonction_affine",
+      "type": "example",
+      "title": "Exemple : Recherche d'une fonction affine",
+      "content_latex": "Quelle fonction affine $f$ envoie 1 sur 3 et 2 sur 5 ?",
+      "proof_latex": "De pente $\\frac{f(2)-f(1)}{2-1}=2$, $f$ a tout simplement pour expression $x\\mapsto 2(x-1)+3=2x+1$. Aucun calcul supplémentaire !"
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_fonction_rationnelle",
+      "type": "remark",
+      "title": "Remarque : Fonctions rationnelles et polynomiales",
+      "content_latex": "On appelle fonction rationnelle tout quotient d'une fonction polynomiale par une fonction polynomiale non nulle, par exemple $x\\mapsto\\frac{x+1}{x^{2}+2}$. En particulier, les fonctions polynomiales sont rationnelles.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__method_limite_rationnelle",
+      "type": "method",
+      "title": "Méthode : Limite en l'infini d'une fonction rationnelle",
+      "content_latex": "Pour calculer la limite en $+\\infty$ ou $-\\infty$ d'une fonction polynomiale ou rationnelle, on factorise par le terme de plus haut degré au numérateur et au dénominateur, puis on simplifie.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limites_rationnelles",
+      "type": "example",
+      "title": "Exemple : Calculs de limites de fractions rationnelles",
+      "content_latex": "Calcul de limites en $+\\infty$ pour $4x^{5}-x^{4}+5$ et $\\frac{x^{2}+2x+1}{3x^{2}-1}$.",
+      "proof_latex": "$4x^{5}-x^{4}+5=4x^{5}\\left(1-\\frac{1}{4x}+\\frac{5}{4x^{5}}\\right)\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$ et $\\frac{x^{2}+2x+1}{3x^{2}-1}=\\frac{x^{2}\\left(1+\\frac{2}{x}+\\frac{1}{x^{2}}\\right)}{3x^{2}\\left(1-\\frac{1}{3x^{2}}\\right)}=\\frac{1}{3}x\\frac{1+\\frac{2}{x}+\\frac{1}{x^{2}}}{1-\\frac{1}{3x^{2}}}\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_logarithme",
+      "type": "theorem",
+      "title": "Définition-théorème : Fonction logarithme",
+      "content_latex": "• Définition et régularité : La fonction logarithme $\\ln$ est définie, de classe $\\mathcal{C}^{\\infty}$ et concave sur $\\mathbb{R}_{+}^{*}$. Pour tout $x>0$ : $\\ln'(x)=\\frac{1}{x}$ et $\\ln(1)=0$.\\par • Transformation des produits en sommes : Pour tous $x,y>0$ : $\\ln(xy)=\\ln x+\\ln y$ et $\\ln\\frac{1}{x}=-\\ln x$.\\par • Constante de Néper : La fonction logarithme prend la valeur 1 en un unique réel $e$ appelé parfois la constante de Néper : $e\\approx 2,71828$.\\par • Croissances comparées en 0 et $+\\infty$ : $\\frac{\\ln x}{x}\\longrightarrow_{x\\rightarrow+\\infty}0$ et $x\\ln x\\longrightarrow_{x\\rightarrow0}0$.\\par • Comportement au voisinage de 1 : Le graphe du logarithme est situé sous sa tangente en 1 : $\\forall x>0, \\ln x\\le x-1$ et $\\forall x>-1, \\ln(1+x)\\le x$. En outre, $\\frac{\\ln x}{x-1}\\longrightarrow_{x\\rightarrow1}1$ et $\\frac{\\ln(1+x)}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement : $\\ln x\\approx x-1$ pour $x$ proche de 1 et $\\ln(1+x)\\approx x$ pour $x$ proche de 0.",
+      "proof_latex": "• D'après le théorème fondamental du calcul intégral, toute fonction continue sur un intervalle y possède des primitives. La fonction inverse possède donc des primitives sur $\\mathbb{R}_{+}^{*}$ mais plus précisément une et une seule primitive qui envoie 1 sur 0 et c'est elle que nous noterons $\\ln$.\\par • Variations et signe : La fonction $\\ln$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ car sa dérivée $x\\mapsto\\frac{1}{x}$ l'est, mais cette dérivée est aussi strictement positive, donc $\\ln$ est strictement croissante sur $\\mathbb{R}_{+}^{*}$. Comme $\\ln(1)=0$, $\\ln$ est strictement négative sur $]0, 1[$ et strictement positive sur $]1,+\\infty[$.\\par • Concavité et position par rapport à la tangente en 1 : Sa dérivée $x\\mapsto\\frac{1}{x}$ étant décroissante, $\\ln$ est concave sur $\\mathbb{R}_{+}^{*}$. Or sa tangente en 1 a pour équation $y=\\ln'(1)(x-1)+\\ln(1)=x-1$, donc $\\ln x\\le x-1$ pour tout $x>0$.\\par • Transformation des produits en sommes : Fixons $y>0$ et notons $\\varphi$ la fonction $x\\mapsto\\ln(xy)-\\ln x-\\ln y$ dérivable sur $\\mathbb{R}_{+}^{*}$. Pour tout $x>0$ : $\\varphi'(x)=\\frac{y}{xy}-\\frac{1}{x}=0$; donc $\\varphi$ est constante de valeur $\\varphi(1)=0$, donc $\\ln(xy)=\\ln x+\\ln y$ pour tout $x>0$.\\par • Croissances comparées : Pour tout $x\\ge1$ : $\\ln x=\\ln(\\sqrt{x})^{2}=2\\ln\\sqrt{x}\\le 2(\\sqrt{x}-1)\\le 2\\sqrt{x}$, donc $0\\le\\frac{\\ln x}{x}\\le\\frac{2}{\\sqrt{x}}$ et ainsi $\\frac{\\ln x}{x}\\longrightarrow_{x\\rightarrow+\\infty}0$ par encadrement. Ensuite, si on pose $t=\\frac{1}{x}$ : $x\\ln x=-x\\ln\\frac{1}{x}=-\\frac{\\ln t}{t}\\longrightarrow_{t\\rightarrow+\\infty}0$.\\par • Limites en 0 et $+\\infty$ : D'après le théorème de la limite monotone, toute fonction croissante sur $\\mathbb{R}_{+}^{*}$ possède une limite en $+\\infty$. Supposons par l'absurde que $l$ est un réel. Dans $\\ln(xy)=\\ln x+\\ln y$, fixons $x>0$ et faisons tendre $y$ vers $+\\infty$. Cela donne $l=\\ln x+l$, donc $\\ln x=0$ pour tout $x>0$, ce qui contredit la stricte croissance. Donc $l=+\\infty$. Par composition : $\\ln x=-\\ln\\frac{1}{x}\\longrightarrow_{x\\rightarrow0^{+}}-\\infty$.\\par • Définition de la constante de Néper : La fonction $\\ln$ est continue et strictement croissante sur $\\mathbb{R}_{+}^{*}$ de limites $-\\infty$ et $+\\infty$, donc bijective de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$ d'après le TVI strictement monotone. 1 possède donc un et un seul antécédent, noté $e$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_exponentielle",
+      "type": "theorem",
+      "title": "Définition-théorème : Fonction exponentielle",
+      "content_latex": "• Définition : La fonction logarithme est bijective de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$. On appelle fonction exponentielle et on note $\\exp$ sa réciproque, bijective de $\\mathbb{R}$ sur $\\mathbb{R}_{+}^{*}$. En particulier : $\\exp(1)=e$ et les graphes des fonctions $\\exp$ et $\\ln$ sont symétriques l'un de l'autre par rapport à la droite d'équation $y=x$. Pour tout $x\\in\\mathbb{R}$ : $\\ln(\\exp(x))=x$ et pour tout $x>0$ : $\\exp(\\ln x)=x$.\\par • Régularité : La fonction exponentielle $\\exp$ est de classe $\\mathcal{C}^{\\infty}$ et convexe sur $\\mathbb{R}$ et $\\exp'=\\exp$.\\par • Transformation des sommes en produits : Pour tous $x,y\\in\\mathbb{R}$ : $\\exp(x+y)=\\exp(x)\\exp(y)$ et $\\exp(-x)=\\frac{1}{\\exp(x)}$.\\par • Croissances comparées en $+\\infty$ : $\\frac{x}{\\exp(x)}\\longrightarrow_{x\\rightarrow+\\infty}0$.\\par • Comportement au voisinage de 0 : Le graphe de l'exponentielle est situé au-dessus sa tangente en 0 : $\\forall x\\in\\mathbb{R}$, $\\exp(x)\\ge 1+x$. En outre, $\\frac{\\exp(x)-1}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement $\\exp(x)-1\\approx x$ pour $x$ proche de 0.",
+      "proof_latex": "Nous avons déjà tiré du TVI strictement monotone la bijectivité de $\\ln$ de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$. Cela justifie à la fois la définition de l'exponentielle et sa régularité. En effet, $\\ln$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ et SA DÉRIVÉE $x\\mapsto\\frac{1}{x}$ NE S'ANNULE PAS, donc d'après le théorème de dérivabilité d'une réciproque, $\\ln^{-1}=\\exp$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$ de dérivée $\\exp'=(\\ln^{-1})'=\\frac{1}{\\ln'\\circ\\ln^{-1}}=\\frac{1}{1/\\exp}=\\exp$. En particulier, $\\exp'$ est croissante sur $\\mathbb{R}$, donc $\\exp$ y est convexe, donc $\\exp(x)\\ge\\exp'(0)x+\\exp(0)=x+1$ pour tout $x\\in\\mathbb{R}$ autrement dit le graphe est au-dessus de la tangente en 0."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__remark_notation_exponentielle",
+      "type": "remark",
+      "title": "Remarque : Notation de l'exponentielle",
+      "content_latex": "Je me suis forcé à noter $\\exp(x)$ plutôt que $e^{x}$ l'exponentielle de $x$, mais dans cinq minutes, nous pourrons la noter $e^{x}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_puissances_racines",
+      "type": "definition",
+      "title": "Définition : Puissances quelconques et racines n-ièmes",
+      "content_latex": "Soit $x > 0$.\\par • Puissances quelconques : Pour tout $y\\in\\mathbb{R}$, on appelle $x$ puissance $y$ le réel $x^{y}=\\exp(y \\ln x)$.\\par • Racines $n^{\\text{èmes}}$ : Pour tout $n\\in\\mathbb{N}^{*}$, le réel $x^{\\frac{1}{n}}$ est appelé la racine $n^{\\text{ème}}$ de $x$ et noté $\\sqrt[n]{x}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_puissance_logarithme",
+      "type": "warning",
+      "title": "Attention : Condition de stricte positivité",
+      "content_latex": "Attention ! La définition $x^{y}=e^{y \\ln x}$ n'est valable que pour $x$ strictement positif à cause du logarithme.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_puissance_logarithme",
+      "type": "example",
+      "title": "Exemple : Simplification d'une puissance",
+      "content_latex": "Pour tout $x>1$ : $x^{\\frac{\\ln \\ln x}{\\ln x}}=e^{\\frac{\\ln \\ln x}{\\ln x}\\times \\ln x}=e^{\\ln \\ln x}=\\ln x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_algebriques_puissances",
+      "type": "theorem",
+      "title": "Théorème : Propriétés algébriques des puissances",
+      "content_latex": "(i) La nouvelle définition des puissances généralise bien l'ancienne.\\par (ii) Pour tous $x, x'>0$ et $y, y'\\in\\mathbb{R}$ : $\\ln(x^{y})=y \\ln x$, $x^{y+y'}=x^{y}x^{y'}$, $x^{yy'}=(x^{y})^{y'}$, $(xx')^{y}=x^{y}x'^{y}$ et $x^{-y}=\\frac{1}{x^{y}}=\\left(\\frac{1}{x}\\right)^{y}$.",
+      "proof_latex": "(i) Pour tous $x>0$ et $n\\in\\mathbb{N}$ : $e^{n \\ln x}=e^{\\ln x+\\dots+\\ln x}=e^{\\ln x}\\times\\dots\\times e^{\\ln x}=x\\dots x$, donc la notation traditionnelle $x^{n}$ et notre nouvelle notation $x^{n}$ coïncident. Même chose dans le cas d'un entier négatif.\\par (ii) $\\ln(x^{y})=\\ln(e^{y \\ln x})=y \\ln x$, $x^{y+y'}=e^{(y+y')\\ln x}=e^{y \\ln x+y'\\ln x}=e^{y \\ln x}e^{y'\\ln x}=x^{y}x^{y'}$, $x^{yy'}=e^{yy'\\ln x}=e^{y'\\ln(x^{y})}=(x^{y})^{y'}$, $(xx')^{y}=e^{y \\ln(xx')}=e^{y \\ln x+y \\ln x'}=e^{y \\ln x}e^{y \\ln x'}=x^{y}x'^{y}$, et $x^{-y}=e^{-y \\ln x}=\\frac{1}{e^{y \\ln x}}=\\frac{1}{x^{y}}=e^{y \\ln\\left(\\frac{1}{x}\\right)}=\\left(\\frac{1}{x}\\right)^{y}."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_etude_fonctions_puissances",
+      "type": "theorem",
+      "title": "Théorème : Étude des fonctions puissances",
+      "content_latex": "Soient $\\alpha, \\beta\\in\\mathbb{R}$.\\par (i) Régularité : La fonction $x\\mapsto x^{\\alpha}$ est définie et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ de dérivée $x\\mapsto \\alpha x^{\\alpha-1}$. Elle est concave si $\\alpha\\in[0,1]$ et convexe sinon.\\par (ii) Positions relatives : $\\alpha\\le\\beta\\Rightarrow x^{\\beta}\\le x^{\\alpha}$ pour tout $x\\in]0,1]$, et $\\alpha\\le\\beta\\Rightarrow x^{\\alpha}\\le x^{\\beta}$ pour tout $x\\in[1,+\\infty[$.\\par (iii) Prolongement par continuité en 0 : Pour $\\alpha>0$, on pose $0^{\\alpha}=0$. La fonction $x\\mapsto x^{\\alpha}$ ainsi prolongée est continue sur $\\mathbb{R}_{+}$ tout entier, y compris en 0.",
+      "proof_latex": "(i) Pour tout $x>0$ : $\\frac{d}{dx}(x^{\\alpha})=\\frac{d}{dx}(e^{\\alpha \\ln x})=\\frac{\\alpha}{x}\\times e^{\\alpha \\ln x}=\\alpha x^{-1}x^{\\alpha}=\\alpha x^{\\alpha-1}$. A fortiori : $\\frac{d^{2}}{dx^{2}}(x^{\\alpha})=\\alpha(\\alpha-1)x^{\\alpha-2}$, donc la dérivée seconde est négative sur $\\mathbb{R}_{+}^{*}$ si $\\alpha\\in[0,1]$ et positive si $\\alpha\\in]-\\infty,0]\\cup[1,+\\infty[$.\\par (ii) Si $x\\in]0,1]$, alors $\\ln x\\le 0$, donc $\\beta \\ln x\\le \\alpha \\ln x$, donc $x^{\\beta}=e^{\\beta \\ln x}\\le e^{\\alpha \\ln x}=x^{\\alpha}$. Si $x\\in[1,+\\infty[$, alors $\\ln x\\ge 0$, donc $\\alpha \\ln x\\le \\beta \\ln x$, donc $x^{\\alpha}=e^{\\alpha \\ln x}\\le e^{\\beta \\ln x}=x^{\\beta}$.\\par (iii) Pour $\\alpha>0$ : $x^{\\alpha}=e^{\\alpha \\ln x}\\longrightarrow_{x\\rightarrow 0}0=0^{\\alpha}$, donc la fonction est continue en 0."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_tangente_verticale_puissance",
+      "type": "warning",
+      "title": "Attention : Tangente verticale en zéro",
+      "content_latex": "Attention ! Pour $\\alpha\\in]0,1[$, la fonction $x\\mapsto x^{\\alpha}$ est continue en 0 après prolongement, mais elle possède en 0 une tangente verticale, signe qu'elle n'est pas dérivable en 0. C'est typiquement ce qui arrive à la fonction racine carrée.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_croissances_comparees_puissances",
+      "type": "theorem",
+      "title": "Théorème : Croissances comparées",
+      "content_latex": "Le principe général, c'est que l'exponentielle est plus puissante que les puissances, qui sont elles-mêmes plus puissantes que le logarithme. Précisément, pour tous $\\alpha>0$ et $\\beta\\in\\mathbb{R}$ : $\\frac{x^{\\beta}}{e^{x}}\\longrightarrow_{x\\rightarrow+\\infty}0$, $\\frac{(\\ln x)^{\\beta}}{x^{\\alpha}}\\longrightarrow_{x\\rightarrow+\\infty}0$ et $x^{\\alpha}|\\ln x|^{\\beta}\\longrightarrow_{x\\rightarrow0}0$.",
+      "proof_latex": "Montrons seulement la deuxième limite. Le résultat est clair si $\\beta\\le0$, car sachant que $\\alpha>0$, $\\lim_{x\\rightarrow+\\infty}(\\ln x)^{\\beta}\\in\\{0,1\\}$ et $x^{\\alpha}\\longrightarrow+\\infty$. Supposons désormais $\\beta>0$. Pour tout $x>0$, si on pose $u=x^{\\frac{\\alpha}{\\beta}}$ et $v=\\frac{\\ln u}{u}$ : $\\frac{(\\ln x)^{\\beta}}{x^{\\alpha}}=\\left(\\frac{\\ln x}{x^{\\alpha/\\beta}}\\right)^{\\beta}=\\left(\\frac{\\frac{\\beta}{\\alpha}\\times\\ln x^{\\alpha/\\beta}}{x^{\\alpha/\\beta}}\\right)^{\\beta}=\\left(\\frac{\\beta}{\\alpha}\\right)^{\\beta}\\left(\\frac{\\ln u}{u}\\right)^{\\beta}=\\left(\\frac{\\beta}{\\alpha}\\right)^{\\beta}v^{\\beta}$. Or ici $x^{\\frac{\\alpha}{\\beta}}\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$ car $\\frac{\\alpha}{\\beta}>0$. Également, $\\frac{\\ln u}{u}\\longrightarrow0$ et $v^{\\beta}\\longrightarrow_{v\\rightarrow0}0$ car $\\beta>0$, donc $\\frac{(\\ln x)^{\\beta}}{x^{\\alpha}}\\longrightarrow_{x\\rightarrow+\\infty}0$ par composition."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonctions_ch_sh",
+      "type": "theorem",
+      "title": "Définition-théorème : Fonctions cosinus hyperbolique et sinus hyperbolique",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$, on appelle cosinus hyperbolique de $x$ le réel $\\text{ch } x=\\frac{e^{x}+e^{-x}}{2}$ et sinus hyperbolique de $x$ le réel $\\text{sh } x=\\frac{e^{x}-e^{-x}}{2}$.\\par Pour tout $x\\in\\mathbb{R}$ : $\\text{ch}^{2}x-\\text{sh}^{2}x=1$.\\par Les fonctions $\\text{ch}$ et $\\text{sh}$, respectivement paire et impaire, sont définies et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$ avec : $\\text{ch}'=\\text{sh}$ et $\\text{sh}'=\\text{ch}$.\\par La fonction $\\text{ch}$ est convexe. La fonction $\\text{sh}$ est concave sur $\\mathbb{R}_{-}$ et convexe sur $\\mathbb{R}_{+}$ avec un point d'inflexion en 0.",
+      "proof_latex": "Les variations de $\\text{ch}$ et $\\text{sh}$ s'étudient facilement et pour tout $x\\in\\mathbb{R}$ : $\\text{ch}^{2}x-\\text{sh}^{2}x=(\\text{ch } x+\\text{sh } x)(\\text{ch } x-\\text{sh } x)=e^{x}e^{-x}=1$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_equation_ch",
+      "type": "example",
+      "title": "Exemple : Résolution d'une équation avec cosinus hyperbolique",
+      "content_latex": "L'équation $\\text{ch } x=2$ d'inconnue $x\\in\\mathbb{R}$ possède deux solutions qu'on sait calculer explicitement.",
+      "proof_latex": "Les équations $\\text{ch } x=y$ et $\\text{sh } x=y$ d'inconnue $x$ à $y$ fixé se ramènent aisément à des équations du second degré. Pour tout $x\\in\\mathbb{R}$ : $\\text{ch } x=2 \\Leftrightarrow \\frac{e^{x}+e^{-x}}{2}=2 \\Leftrightarrow e^{x}-4+e^{-x}=0 \\Leftrightarrow (e^{x})^{2}-4e^{x}+1=0 \\Leftrightarrow e^{x}=2+\\sqrt{3} \\text{ ou } e^{x}=2-\\sqrt{3}$. Ces deux valeurs étant strictement positives, les solutions sont $x=\\ln(2+\\sqrt{3})$ ou $x=\\ln(2-\\sqrt{3})$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_th",
+      "type": "theorem",
+      "title": "Définition-théorème : Fonction tangente hyperbolique",
+      "content_latex": "La fonction tangente hyperbolique $\\text{th}=\\frac{\\text{sh}}{\\text{ch}}$ est définie sur $\\mathbb{R}$. Elle est impaire et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$ et : $\\text{th}'=1-\\text{th}^{2}=\\frac{1}{\\text{ch}^{2}}$.\\par Elle est convexe sur $\\mathbb{R}_{-}$ et concave sur $\\mathbb{R}_{+}$ avec un point d'inflexion en 0.\\par Elle possède enfin une asymptote d'équation $y=1$ au voisinage de $+\\infty$ (resp. $y=-1$ au voisinage de $-\\infty$).",
+      "proof_latex": "La fonction $\\text{th}$ est de classe $\\mathcal{C}^{\\infty}$ par quotient et : $\\text{th}'=\\frac{\\text{sh}'\\text{ch}-\\text{ch}'\\text{sh}}{\\text{ch}^{2}}=\\frac{\\text{ch}^{2}-\\text{sh}^{2}}{\\text{ch}^{2}}$, quantité qui vaut à la fois $\\frac{1}{\\text{ch}^{2}}$ et $1-\\frac{\\text{sh}^{2}}{\\text{ch}^{2}}=1-\\text{th}^{2}$. La stricte croissance en découle. En outre, par composition, la dérivée $\\frac{1}{\\text{ch}^{2}}$ est croissante sur $\\mathbb{R}_{-}$ et décroissante sur $\\mathbb{R}_{+}$, donc $\\text{th}$ est convexe sur $\\mathbb{R}_{-}$ et concave sur $\\mathbb{R}_{+}$. Pour la limite en $+\\infty$ : $\\text{th } x=\\frac{\\text{sh } x}{\\text{ch } x}=\\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}=\\frac{1-e^{-2x}}{1+e^{-2x}}\\longrightarrow_{x\\rightarrow+\\infty}1$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__method_calcul_limites",
+      "type": "method",
+      "title": "Méthode : Principes de calcul des limites",
+      "content_latex": "Un calcul de limite se mène toujours en deux temps :\\par 1. Dans un premier temps, on analyse l'expression étudiée en comparant de tête la taille des termes qui la composent (avec le symbole $\\approx$ au brouillon). Attention, ce symbole flou ne prouve jamais rien, il prépare juste le terrain.\\par 2. Dans un deuxième temps, on traduit l'analyse précédente en calcul rigoureux. Les techniques de bases consistent à factoriser par le terme dominant et à exploiter les croissances comparées usuelles et certaines approximations tirées de nombres dérivés (si $f$ est dérivable en $a$ avec $f'(a)\\ne0$, alors $f(x)-f(a)\\approx f'(a)(x-a)$).",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_approximations_usuelles",
+      "type": "example",
+      "title": "Exemple : Approximations usuelles",
+      "content_latex": "Vérifiez que vous comprenez bien les approximations suivantes :\\par — Pour $x$ très grand : $e^{x}+x^{2}\\approx e^{x}$, $3x^{2}-x+1\\approx 3x^{2}$, $\\frac{(x+\\ln x)e^{x}}{e^{2x}+\\sqrt{x}}\\approx x e^{-x}$, $\\frac{\\lfloor x\\rfloor}{x^{2}+1}\\approx\\frac{1}{x}$ et $\\text{ch } x\\approx\\text{sh } x\\approx\\frac{e^{x}}{2}$.\\par — Pour $x$ proche de 0 : $\\ln(1+x)\\approx x$, $e^{x}-1\\approx x$, $\\text{sh } x\\approx x$ et $\\frac{x+\\ln(1+x)}{\\ln(1+3x)}\\approx\\frac{2}{3}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_composition_equivalents",
+      "type": "warning",
+      "title": "Attention : Composition d'approximations",
+      "content_latex": "Il faut y réfléchir à deux fois quand on veut composer une relation $f_1(x)\\approx f_2(x)$ par une fonction $g$, car en général $g(f_1(x)) \\not\\approx g(f_2(x))$.\\par Par exemple, pour $x$ très grand : $e^{x}+1\\approx e^{x}$. Le logarithme « tasse » les infinis donc $\\ln(e^{x}+1)\\approx \\ln(e^{x})=x$.\\par Mais l'exponentielle « écarte » les infinis : $x+\\ln 2\\approx x$ mais $e^{x+\\ln 2}=2e^{x}\\not\\approx e^{x}$. La situation est encore pire sur $[x,x+\\ln x]$ dont la longueur $\\ln x$ tend vers $+\\infty$ : $e^{x+\\ln x}=x e^{x}\\not\\approx e^{x}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limite_racine_infinie",
+      "type": "example",
+      "title": "Exemple : Limite avec racine carrée en l'infini",
+      "content_latex": "$\\frac{x^{2}}{x+\\sqrt{x}}\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$.",
+      "proof_latex": "Au brouillon, pour $x$ très grand : $x+\\sqrt{x}\\approx x$, donc $\\frac{x^{2}}{x+\\sqrt{x}}\\approx\\frac{x^{2}}{x}=x\\longrightarrow+\\infty$. Rapide et convaincant, mais pas du tout rigoureux. Sur une copie : $\\frac{x^{2}}{x+\\sqrt{x}}=\\frac{x^{2}}{x\\left(1+\\frac{1}{\\sqrt{x}}\\right)}=\\frac{x}{1+\\frac{1}{\\sqrt{x}}}\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limite_exponentielle_logarithme",
+      "type": "example",
+      "title": "Exemple : Limite avec exponentielles et logarithmes",
+      "content_latex": "$\\frac{\\ln(e^{x}+1)}{e^{x+\\ln x}+1}\\longrightarrow_{x\\rightarrow+\\infty}0$.",
+      "proof_latex": "Au brouillon, pour $x$ très grand : $\\ln(e^{x}+1)\\approx \\ln e^{x}=x$ et $e^{x+\\ln x}+1=x e^{x}+1\\approx x e^{x}$, donc $\\frac{\\ln(e^{x}+1)}{e^{x+\\ln x}+1}\\approx\\frac{x}{x e^{x}}=e^{-x}\\longrightarrow 0$. Sur une copie : $\\frac{\\ln(e^{x}+1)}{e^{x+\\ln x}+1}=\\frac{\\ln e^{x}+\\ln(1+e^{-x})}{xe^{x}\\left(1+\\frac{1}{xe^{x}}\\right)}=\\frac{1+\\frac{\\ln(1+e^{-x})}{x}}{e^{x}\\left(1+\\frac{1}{xe^{x}}\\right)}\\longrightarrow_{x\\rightarrow+\\infty}0$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limite_quantite_conjuguee",
+      "type": "example",
+      "title": "Exemple : Différence de racines et quantité conjuguée",
+      "content_latex": "$(\\sqrt{x^{2}+x}-\\sqrt{x})\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$ et $(\\sqrt{x^{2}+x}-\\sqrt{x^{2}-x})\\longrightarrow_{x\\rightarrow+\\infty}1$.",
+      "proof_latex": "• Première limite : Pour $x$ très grand, $\\sqrt{x^{2}+x}\\approx\\sqrt{x^{2}}=x$ donc $\\sqrt{x^{2}+x}-\\sqrt{x}\\approx x\\longrightarrow+\\infty$. Sur une copie : $\\sqrt{x^{2}+x}-\\sqrt{x}=x\\left(\\sqrt{1+\\frac{1}{x}}-\\frac{1}{\\sqrt{x}}\\right)\\longrightarrow_{x\\rightarrow+\\infty}+\\infty$.\\par • Deuxième limite : Pour $x$ très grand, $\\sqrt{x^{2}\\pm x}\\approx\\sqrt{x^{2}}=x$, donc problème ! La technique de la quantité conjuguée permet de mesurer la taille du reste après soustraction : $\\sqrt{x^{2}+x}-\\sqrt{x^{2}-x}=\\frac{(x^{2}+x)-(x^{2}-x)}{\\sqrt{x^{2}+x}+\\sqrt{x^{2}-x}}=\\frac{2x}{x\\left(\\sqrt{1+\\frac{1}{x}}+\\sqrt{1-\\frac{1}{x}}\\right)}=\\frac{2}{\\sqrt{1+\\frac{1}{x}}+\\sqrt{1-\\frac{1}{x}}}\\longrightarrow_{x\\rightarrow+\\infty}\\frac{2}{1+1}=1$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limite_voisinage_zero",
+      "type": "example",
+      "title": "Exemple : Limite au voisinage de zéro",
+      "content_latex": "$\\frac{\\ln(1+x)}{x+\\text{sh } x}\\longrightarrow_{x\\rightarrow0}\\frac{1}{2}$.",
+      "proof_latex": "Au brouillon, pour $x$ proche de 0 : $\\ln(1+x)\\approx x$ et $\\text{sh } x\\approx x$, donc $x+\\text{sh } x\\approx 2x$, donc $\\frac{\\ln(1+x)}{x+\\text{sh } x}\\approx\\frac{x}{2x}=\\frac{1}{2}$. Sur une copie : $\\frac{\\ln(1+x)}{x+\\text{sh } x}=\\frac{\\frac{\\ln(1+x)}{x}}{1+\\frac{\\text{sh } x}{x}}\\longrightarrow_{x\\rightarrow0}\\frac{1}{1+1}=\\frac{1}{2}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_un_puissance_infini",
+      "type": "warning",
+      "title": "Attention : Forme indéterminée $1^{\\infty}$",
+      "content_latex": "Attention ! $1^{+\\infty}$ est une nouvelle forme indéterminée !",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_limite_un_puissance_infini",
+      "type": "example",
+      "title": "Exemple : Limite de la forme $1^{\\infty}$",
+      "content_latex": "$(1+x)^{\\frac{1}{x}}\\longrightarrow_{x\\rightarrow0}e$.",
+      "proof_latex": "Il est tentant d'analyser la situation ainsi : $1^{+\\infty}=1$, mais c'est très faux ! Pour faire communiquer correctement $1+x$ et son exposant $\\frac{1}{x}$, plaçons-les au même niveau, i.e. au sommet d'une exponentielle : $(1+x)^{\\frac{1}{x}}=e^{\\frac{\\ln(1+x)}{x}}\\longrightarrow_{x\\rightarrow0}e^{1}=e$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_pas_de_substitution_partielle",
+      "type": "warning",
+      "title": "Attention : Pas de substitution partielle dans les limites",
+      "content_latex": "Dans un calcul de limite, aucun théorème de substitution ne permet de remplacer un morceau par sa limite sans toucher au reste. Par exemple, si $f(x)\\rightarrow 2$, il n'est pas du tout possible d'affirmer, contrairement à ce que vous pensez souvent, que : $\\lim_{x\\rightarrow+\\infty}\\frac{x}{x+f(x)}=\\lim_{x\\rightarrow+\\infty}\\frac{x}{x+2}=1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_congruence_pi",
+      "type": "example",
+      "title": "Exemple : Périodicité d'un intervalle",
+      "content_latex": "On obtient $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[+\\pi\\mathbb{Z}$ en répétant $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ tous les $\\pi$. Le motif $E$ est répété indéfiniement tous les $\\alpha$ vers la gauche et vers la droite. Le résultat final est presque $\\mathbb{R}$ tout entier, mais pas tout à fait : $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[+\\pi\\mathbb{Z}=\\mathbb{R}\\setminus\\left(\\frac{\\pi}{2}+\\pi\\mathbb{Z}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_intersection_ensemble_periodique",
+      "type": "example",
+      "title": "Exemple : Intersection sur un intervalle borné",
+      "content_latex": "L'ensemble $\\frac{\\pi}{4}+\\pi\\mathbb{Z}$ est $\\pi$-périodique, donc rencontre l'intervalle $[0,3\\pi[$ de longueur $3\\pi$ en exactement trois points : $\\left(\\frac{\\pi}{4}+\\pi\\mathbb{Z}\\right)\\cap[0,3\\pi[=\\left\\{\\frac{\\pi}{4},\\frac{5\\pi}{4},\\frac{9\\pi}{4}\\right\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_periode_commune",
+      "type": "example",
+      "title": "Exemple : Recherche d'une période commune",
+      "content_latex": "On s'intéresse à la réunion $A=\\left(\\frac{\\pi}{5}+\\frac{\\pi}{2}\\mathbb{Z}\\right)\\cup\\frac{\\pi}{3}\\mathbb{Z}$. L'ensemble $A$ admet $\\pi$ pour période.",
+      "proof_latex": "L'ensemble $\\frac{\\pi}{5}+\\frac{\\pi}{2}\\mathbb{Z}$ est $\\frac{\\pi}{2}$-périodique, donc $\\frac{k\\pi}{2}$-périodique pour tout $k\\in\\mathbb{N}^{*}$. De même, $\\frac{\\pi}{3}\\mathbb{Z}$ est $\\frac{l\\pi}{3}$-périodique pour tout $l\\in\\mathbb{N}^{*}$. Ces deux ensembles ont une période commune si on arrive à trouver deux entiers $k,l\\in\\mathbb{N}^{*}$ pour lesquels $\\frac{k\\pi}{2}=\\frac{l\\pi}{3}$, i.e. $3k=2l$. Or $k=2$ et $l=3$ conviennent. Conclusion : ils admettent $2\\times\\frac{\\pi}{2}=3\\times\\frac{\\pi}{3}=\\pi$ pour période commune. Pour comprendre $A$, il nous suffit dès lors de le décrire sur une seule période $[0,\\pi[$, puis de translater indéfiniment tous les $\\pi$ : $A=(A\\cap[0,\\pi[)+\\pi\\mathbb{Z}=\\left\\{\\frac{\\pi}{5},\\frac{\\pi}{5}+\\frac{\\pi}{2},0,\\frac{\\pi}{3},\\frac{2\\pi}{3}\\right\\}+\\pi\\mathbb{Z}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_cercle_trigonometrique",
+      "type": "theorem",
+      "title": "Définition-théorème : Lien du cosinus et du sinus avec le cercle trigonométrique",
+      "content_latex": "• Lien avec le cercle trigonométrique : Pour tout $\\theta\\in\\mathbb{R}$ : $\\cos^{2}\\theta+\\sin^{2}\\theta=1$. Réciproquement, pour tout couple $(x,y)\\in\\mathbb{R}^{2}$ pour lequel $x^{2}+y^{2}=1$, il existe un réel $\\theta$, unique modulo $2\\pi$, pour lequel $(x,y)=(\\cos\\theta,\\sin\\theta)$. En termes géométriques, tout point du cercle trigonométrique a des coordonnées de la forme $(\\cos\\theta,\\sin\\theta)$.\\par • Résolution d'équations : Pour tous $x,y\\in\\mathbb{R}$ : $\\cos x=\\cos y \\Leftrightarrow x\\equiv y[2\\pi]$ ou $x\\equiv-y[2\\pi]$. De même, $\\sin x=\\sin y \\Leftrightarrow x\\equiv y[2\\pi]$ ou $x\\equiv\\pi-y[2\\pi]$.\\par • Transformations affines : Pour tout $x\\in\\mathbb{R}$, $\\cos(x+\\pi)=-\\cos x$, $\\sin(x+\\pi)=-\\sin x$, $\\cos(\\frac{\\pi}{2}-x)=\\sin x$, $\\sin(\\frac{\\pi}{2}-x)=\\cos x$, $\\cos(x+\\frac{\\pi}{2})=-\\sin x$, $\\sin(x+\\frac{\\pi}{2})=\\cos x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_equation_trigo_piege",
+      "type": "warning",
+      "title": "Attention : Piège des équations trigonométriques",
+      "content_latex": "Attention ! $\\cos x=\\cos y \\not\\Rightarrow x=y$. À peine mieux : $\\cos x=\\cos y \\not\\Rightarrow x\\equiv y[2\\pi]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_equation_cos_sin",
+      "type": "example",
+      "title": "Exemple : Résolution de $\\cos x = \\sin x$",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$ : $\\cos x=\\sin x \\Leftrightarrow x\\equiv\\frac{\\pi}{4}[\\pi]$.",
+      "proof_latex": "Pour tout $x\\in\\mathbb{R}$ : $\\cos x=\\sin x \\Leftrightarrow \\sin\\left(\\frac{\\pi}{2}-x\\right)=\\sin x \\Leftrightarrow \\frac{\\pi}{2}-x\\equiv x[2\\pi]$ ou $\\frac{\\pi}{2}-x\\equiv\\pi-x[2\\pi]$. Le deuxième cas est impossible ($\\frac{\\pi}{2}\\equiv\\pi[2\\pi]$). Le premier donne $2x\\equiv\\frac{\\pi}{2}[2\\pi] \\Leftrightarrow x\\equiv\\frac{\\pi}{4}[\\pi]$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_cosinus_sinus",
+      "type": "theorem",
+      "title": "Définition-théorème : Propriétés des fonctions cosinus et sinus",
+      "content_latex": "• Fonction cosinus : La fonction $\\cos$ est paire, $2\\pi$-périodique, de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$, et : $\\cos'=-\\sin$.\\par • Fonction sinus : La fonction $\\sin$ est impaire, $2\\pi$-périodique, de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$, et : $\\sin'=\\cos$.\\par En outre, pour tout $x\\in\\mathbb{R}$ : $|\\sin x|\\le|x|$. Et $\\frac{\\sin x}{x}\\longrightarrow_{x\\rightarrow0}1$ autrement dit $\\sin x\\approx x$ pour $x$ proche de 0.",
+      "proof_latex": "La limite $\\frac{\\sin x}{x}\\longrightarrow_{x\\rightarrow0}1$ n'est rien de plus que le nombre dérivé de la fonction $\\sin$ en 0. Ensuite, la fonction $\\sin$ est concave sur $[0, \\pi]$ car sa dérivée $\\cos$ est décroissante, donc pour tout $x\\in[0,\\pi]$ : $|\\sin x|=\\sin x\\le \\sin'(0)x+\\sin 0=x=|x|$. A fortiori, pour tout $x\\in[-\\pi,0]$ : $|\\sin x|=|\\sin(-x)|\\le|-x|=|x|$. L'inégalité est triviale pour $x>\\pi$ et $x<-\\pi$ : $|\\sin x|\\le 1\\le \\pi\\le |x|$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_formules_addition_produit",
+      "type": "theorem",
+      "title": "Théorème : Formules d'addition et de produit du cosinus et du sinus",
+      "content_latex": "Pour tous $x,y\\in\\mathbb{R}$ :\\par $\\sin(x+y)=\\sin x\\cos y+\\cos x\\sin y$\\par $\\sin(x-y)=\\sin x\\cos y-\\cos x\\sin y$\\par $\\cos(x+y)=\\cos x\\cos y-\\sin x\\sin y$\\par $\\cos(x-y)=\\cos x\\cos y+\\sin x\\sin y$\\par $\\sin x\\sin y=\\frac{1}{2}(\\cos(x-y)-\\cos(x+y))$\\par $\\sin x\\cos y=\\frac{1}{2}(\\sin(x+y)+\\sin(x-y))$\\par $\\cos x\\cos y=\\frac{1}{2}(\\cos(x+y)+\\cos(x-y))$\\par Formules de duplication : $\\sin(2x)=2\\sin x\\cos x$, $\\cos(2x)=2\\cos^{2}x-1=1-2\\sin^{2}x$, $\\sin^{2}x=\\frac{1-\\cos(2x)}{2}$, $\\cos^{2}x=\\frac{1+\\cos(2x)}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_tangente",
+      "type": "theorem",
+      "title": "Définition-théorème : Fonction tangente",
+      "content_latex": "• Définition et régularité : On appelle fonction tangente la fonction $\\tan=\\frac{\\sin}{\\cos}$ sur $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[+\\pi\\mathbb{Z}$. Impaire et $\\pi$-périodique, $\\tan$ est de classe $\\mathcal{C}^{\\infty}$ sur son ensemble de définition et : $\\tan'=1+\\tan^{2}=\\frac{1}{\\cos^{2}}$.\\par • Résolution d'équations : Pour tous $x,y\\in]-\\frac{\\pi}{2},\\frac{\\pi}{2}[+\\pi\\mathbb{Z}$ : $\\tan x=\\tan y \\Leftrightarrow x\\equiv y[\\pi]$.\\par • Formules d'addition et de duplication : $\\tan(x+y)=\\frac{\\tan x+\\tan y}{1-\\tan x\\tan y}$, $\\tan(x-y)=\\frac{\\tan x-\\tan y}{1+\\tan x\\tan y}$, $\\tan(2x)=\\frac{2\\tan x}{1-\\tan^{2}x}$.\\par • Expression en fonction de $t=\\tan\\frac{x}{2}$ : $\\cos x=\\frac{1-t^{2}}{1+t^{2}}$, $\\sin x=\\frac{2t}{1+t^{2}}$ et $\\tan x=\\frac{2t}{1-t^{2}}$.",
+      "proof_latex": "• Définition : La tangente est définie là où le cosinus ne s'annule pas, i.e. sur $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[+\\pi\\mathbb{Z}$.\\par • Imparité et Périodicité : $\\tan(-x)=\\frac{\\sin(-x)}{\\cos(-x)}=\\frac{-\\sin x}{\\cos x}=-\\tan x$. De plus, $\\tan(x+\\pi)=\\frac{\\sin(x+\\pi)}{\\cos(x+\\pi)}=\\frac{-\\sin x}{-\\cos x}=\\tan x$.\\par • Dérivée : $\\tan'=\\frac{\\sin'\\cos-\\sin\\cos'}{\\cos^{2}}=\\frac{\\cos^{2}+\\sin^{2}}{\\cos^{2}}=\\frac{1}{\\cos^{2}}=1+\\tan^{2}$.\\par • Équation : $\\tan x=\\tan y \\Leftrightarrow \\sin x\\cos y-\\cos x\\sin y=0 \\Leftrightarrow \\sin(x-y)=0 \\Leftrightarrow x\\equiv y[\\pi]$.\\par • Formule d'addition : $\\tan(x+y)=\\frac{\\sin(x+y)}{\\cos(x+y)}=\\frac{\\sin x\\cos y+\\cos x\\sin y}{\\cos x\\cos y-\\sin x\\sin y}$. En factorisant par $\\cos x\\cos y$ au numérateur et au dénominateur, on obtient la formule."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__definition_arccos_arcsin_arctan",
+      "type": "definition",
+      "title": "Définition : Fonctions arccosinus, arcsinus et arctangente",
+      "content_latex": "• Arccosinus : $\\cos|_{[0,\\pi]}$ est bijective de $[0,\\pi]$ sur $[-1,1]$ et sa réciproque arccosinus est notée $\\text{Arccos}$. Pour tout $x\\in[-1,1]$, $\\text{Arccos } x$ est l'unique réel $\\theta$ de $[0,\\pi]$ pour lequel $\\cos \\theta=x$.\\par • Arcsinus : $\\sin|_{[-\\frac{\\pi}{2},\\frac{\\pi}{2}]}$ est bijective de $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ sur $[-1,1]$ et sa réciproque arcsinus est notée $\\text{Arcsin}$. Pour tout $x\\in[-1,1]$, $\\text{Arcsin } x$ est l'unique réel $\\theta$ de $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ pour lequel $\\sin \\theta=x$.\\par • Arctangente : $\\tan|_{]-\\frac{\\pi}{2},\\frac{\\pi}{2}[}$ est bijective de $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ sur $\\mathbb{R}$ et sa réciproque arctangente est notée $\\text{Arctan}$. Pour tout $x\\in\\mathbb{R}$, $\\text{Arctan } x$ est l'unique réel $\\theta$ de $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ pour lequel $\\tan \\theta=x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__warning_arccos_reciproque",
+      "type": "warning",
+      "title": "Attention : Réciproques et domaines privilégiés",
+      "content_latex": "Attention ! $\\text{Arccos}$ n'est pas la réciproque du cosinus, mais celle de $\\cos|_{[0,\\pi]}$ et ça change tout. $\\forall x\\in[-1,1]$, $\\cos(\\text{Arccos } x)=x$ est VRAI. Mais $\\forall x\\in\\mathbb{R}$, $\\text{Arccos}(\\cos x)=x$ est FAUX (ce n'est vrai que pour $x\\in[0,\\pi]$).",
+      "proof_latex": null
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_equation_cos_arccos",
+      "type": "example",
+      "title": "Exemple : Résolution de $\\cos x = \\frac{1}{3}$",
+      "content_latex": "On veut résoudre l'équation $\\cos x = \\frac{1}{3}$ d'inconnue $x\\in\\mathbb{R}$. L'ensemble des solutions est $(\\text{Arccos}\\frac{1}{3}+2\\pi\\mathbb{Z}) \\cup (-\\text{Arccos}\\frac{1}{3}+2\\pi\\mathbb{Z})$.",
+      "proof_latex": "Pour tout $x\\in\\mathbb{R}$ : $\\cos x = \\frac{1}{3} \\Leftrightarrow \\cos x = \\cos(\\text{Arccos}\\frac{1}{3}) \\Leftrightarrow x \\equiv \\pm \\text{Arccos}\\frac{1}{3} [2\\pi]$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_simplification_arccos_arcsin",
+      "type": "example",
+      "title": "Exemple : Simplification de composées",
+      "content_latex": "$\\text{Arccos}\\left(\\cos \\frac{20\\pi}{3}\\right) = \\frac{2\\pi}{3}$ et $\\text{Arcsin}\\left(\\sin \\frac{20\\pi}{3}\\right) = \\frac{\\pi}{3}$.",
+      "proof_latex": "On place $\\frac{20\\pi}{3}$ sur le cercle. $\\frac{20\\pi}{3} = 6\\pi + \\frac{2\\pi}{3} \\equiv \\frac{2\\pi}{3} [2\\pi]$.\\par • $\\text{Arccos}$ : $\\frac{2\\pi}{3} \\in [0,\\pi]$, donc $\\text{Arccos}\\left(\\cos \\frac{20\\pi}{3}\\right) = \\frac{2\\pi}{3}$.\\par • $\\text{Arcsin}$ : $\\frac{20\\pi}{3} \\notin [-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ modulo $2\\pi$. Mais $\\sin\\frac{20\\pi}{3} = \\sin\\frac{2\\pi}{3} = \\sin(\\pi-\\frac{2\\pi}{3}) = \\sin\\frac{\\pi}{3}$. Comme $\\frac{\\pi}{3} \\in [-\\frac{\\pi}{2},\\frac{\\pi}{2}]$, le résultat est $\\frac{\\pi}{3}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_coordonnees_polaires",
+      "type": "theorem",
+      "title": "Théorème : Lien entre les coordonnées cartésiennes et les coordonnées polaires",
+      "content_latex": "Soit $M$ un point de coordonnées cartésiennes $(x,y)$ et de coordonnées polaires $(r,\\theta)$.\\par (i) $x=r\\cos\\theta$, $y=r\\sin\\theta$ et $r=\\sqrt{x^{2}+y^{2}}$.\\par (ii) $\\theta \\equiv \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x>0$, et $\\theta \\equiv \\pi + \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x<0$.",
+      "proof_latex": "Dans un repère orthonormal direct : $\\vec{OM} = x\\vec{i}+y\\vec{j} = r(\\cos\\theta\\vec{i}+\\sin\\theta\\vec{j})$ d'où les expressions de $x$ et $y$.\\par Pour (ii), si $x>0$, $\\theta-2k\\pi \\in ]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ pour un $k$, et $\\tan(\\theta-2k\\pi) = \\frac{r\\sin\\theta}{r\\cos\\theta} = \\frac{y}{x}$, donc $\\theta-2k\\pi = \\text{Arctan}\\frac{y}{x}$. Même logique avec $\\pi$ de décalage si $x<0$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_coordonnees_polaires_quadrant",
+      "type": "example",
+      "title": "Exemple : Recherche de l'angle polaire avec arccosinus/arcsinus",
+      "content_latex": "Si $x>0$ et $y<0$, on peut choisir $\\theta \\in ]-\\frac{\\pi}{2},0[$. On peut exprimer cet angle par $\\theta = -\\text{Arccos}\\frac{x}{r}$ ou $\\theta = \\text{Arcsin}\\frac{y}{r}$.",
+      "proof_latex": "• $\\text{Arccosinus}$ : $\\theta$ n'appartient pas à $[0,\\pi]$, mais $-\\theta \\in [0,\\pi]$. $\\cos(-\\theta)=\\cos\\theta=\\frac{x}{r}$, donc $-\\theta = \\text{Arccos}\\frac{x}{r}$.\\par • $\\text{Arcsinus}$ : $\\theta$ appartient à $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ et $\\sin\\theta=\\frac{y}{r}$, donc $\\theta = \\text{Arcsin}\\frac{y}{r}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_fonctions_reciproques_trigo",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des fonctions arccosinus, arcsinus et arctangente",
+      "content_latex": "• Une relation mixte : Pour tout $x\\in[-1,1]$ : $\\cos(\\text{Arcsin } x)=\\sin(\\text{Arccos } x)=\\sqrt{1-x^{2}}$.\\par • Arccosinus : $\\text{Arccos}$ est continue sur $[-1,1]$ et de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arccos}'(x)=-\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arcsinus : $\\text{Arcsin}$ est impaire et continue sur $[-1,1]$, de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arcsin}'(x)=\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arctangente : $\\text{Arctan}$ est impaire et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$. Pour tout $x\\in\\mathbb{R}$ : $\\text{Arctan}'(x)=\\frac{1}{1+x^{2}}$.",
+      "proof_latex": "$\\text{Arcsin}$ prend ses valeurs dans $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$, donc son cosinus est positif : $\\cos(\\text{Arcsin } x) = \\sqrt{1-\\sin^{2}(\\text{Arcsin } x)} = \\sqrt{1-x^{2}}$.\\par La fonction $\\sin$ est de classe $\\mathcal{C}^{\\infty}$ sur $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ et sa dérivée $\\cos$ ne s'y annule pas. D'après le théorème de la bijection dérivable, $\\text{Arcsin}$ est dérivable sur $]-1,1[$ et $\\text{Arcsin}'(x) = \\frac{1}{\\sin'(\\text{Arcsin } x)} = \\frac{1}{\\cos(\\text{Arcsin } x)} = \\frac{1}{\\sqrt{1-x^{2}}}$.\\par Pour $\\text{Arctan}$ : $\\text{Arctan}'(x) = \\frac{1}{\\tan'(\\text{Arctan } x)} = \\frac{1}{1+\\tan^{2}(\\text{Arctan } x)} = \\frac{1}{1+x^{2}}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_equation_arcsin_arccos",
+      "type": "example",
+      "title": "Exemple : $\\text{Arcsin } x = \\text{Arccos } \\frac{4}{5}$",
+      "content_latex": "$\\frac{3}{5}$ est l'unique solution de l'équation $\\text{Arcsin } x = \\text{Arccos } \\frac{4}{5}$ d'inconnue $x\\in[-1,1]$.",
+      "proof_latex": "Pour tout $x\\in[-1,1]$ et $y\\in[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ : $y=\\text{Arcsin } x \\Leftrightarrow x=\\sin y$. Ici $y = \\text{Arccos}\\frac{4}{5} \\in [0,\\frac{\\pi}{2}] \\subset [-\\frac{\\pi}{2},\\frac{\\pi}{2}]$, donc l'équivalence est vraie : $x = \\sin(\\text{Arccos}\\frac{4}{5}) = \\sqrt{1-(\\frac{4}{5})^{2}} = \\frac{3}{5}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_somme_arccos_arcsin",
+      "type": "example",
+      "title": "Exemple : Somme Arccosinus et Arcsinus",
+      "content_latex": "Pour tout $x\\in[-1,1]$ : $\\text{Arccos } x + \\text{Arcsin } x = \\frac{\\pi}{2}$.",
+      "proof_latex": "La fonction $f : x \\mapsto \\text{Arccos } x + \\text{Arcsin } x$ est dérivable sur l'intervalle ouvert $]-1,1[$. Sa dérivée est $-\\frac{1}{\\sqrt{1-x^{2}}} + \\frac{1}{\\sqrt{1-x^{2}}} = 0$. Elle est donc constante. On évalue en 0 : $f(0) = \\text{Arccos } 0 + \\text{Arcsin } 0 = \\frac{\\pi}{2} + 0 = \\frac{\\pi}{2}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_somme_arctan_inverse",
+      "type": "example",
+      "title": "Exemple : $\\text{Arctan } x + \\text{Arctan } \\frac{1}{x}$",
+      "content_latex": "Pour tout $x>0$ : $\\text{Arctan } x + \\text{Arctan } \\frac{1}{x} = \\frac{\\pi}{2}$ et pour tout $x<0$ : $\\text{Arctan } x + \\text{Arctan } \\frac{1}{x} = -\\frac{\\pi}{2}$.",
+      "proof_latex": "La fonction $g : x \\mapsto \\text{Arctan } x + \\text{Arctan } \\frac{1}{x}$ est dérivable sur $\\mathbb{R}^{*}$ et $g'(x) = \\frac{1}{1+x^{2}} - \\frac{1}{x^{2}}\\frac{1}{1+(\\frac{1}{x})^{2}} = 0$. Elle est constante sur $\\mathbb{R}_{+}^{*}$ et $\\mathbb{R}_{-}^{*}$ (qui sont des intervalles disjoints). $g(1) = 2\\text{Arctan } 1 = 2\\frac{\\pi}{4} = \\frac{\\pi}{2}$. Par imparité, la valeur sur $\\mathbb{R}_{-}^{*}$ est $-\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__example_equation_arccos_egal_arcsin",
+      "type": "example",
+      "title": "Exemple : Résolution de $\\text{Arccos } x = \\text{Arcsin } x$",
+      "content_latex": "L'équation $\\text{Arccos } x = \\text{Arcsin } x$ d'inconnue $x\\in[-1,1]$ a pour unique solution $x=\\frac{1}{\\sqrt{2}}$.",
+      "proof_latex": "$\\text{Arccos } x = \\text{Arcsin } x \\Rightarrow \\cos(\\text{Arccos } x) = \\cos(\\text{Arcsin } x) \\Leftrightarrow x = \\sqrt{1-x^{2}} \\Rightarrow x^{2} = 1-x^{2} \\Rightarrow x^{2} = \\frac{1}{2}$. Comme $\\text{Arccos } x$ et $\\text{Arcsin } x$ doivent être de même signe et que $\\text{Arccos}$ est à valeurs dans $[0,\\pi]$, $x$ doit être positif (donc $x=\\frac{1}{\\sqrt{2}}$)."
+    },
+    {
+      "id": "rappels_et_complements_sur_les_fonctions_reelles__property_derivees_usuelles_recap",
+      "type": "property",
+      "title": "Propriété : Dérivées usuelles (récapitulatif)",
+      "content_latex": "Rappel des dérivées usuelles :\\par — $(e^{x})' = e^{x}$\\par — $(\\ln x)' = \\frac{1}{x}$\\par — $(x^{\\alpha})' = \\alpha x^{\\alpha-1}$\\par — $(\\cos x)' = -\\sin x$\\par — $(\\sin x)' = \\cos x$\\par — $(\\tan x)' = 1+\\tan^{2}x = \\frac{1}{\\cos^{2}x}$\\par — $(\\text{ch } x)' = \\text{sh } x$\\par — $(\\text{sh } x)' = \\text{ch } x$\\par — $(\\text{th } x)' = 1-\\text{th}^{2}x = \\frac{1}{\\text{ch}^{2}x}$\\par — $(\\text{Arcsin } x)' = \\frac{1}{\\sqrt{1-x^{2}}}$\\par — $(\\text{Arccos } x)' = -\\frac{1}{\\sqrt{1-x^{2}}}$\\par — $(\\text{Arctan } x)' = \\frac{1}{1+x^{2}}$",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

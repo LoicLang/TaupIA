@@ -1,0 +1,1705 @@
+{
+  "chapter_official_id": "denombrement",
+  "chapter_name": "Dénombrements divers, double comptage, principe des tiroirs",
+  "source_document": "Exercices - Denombrement.pdf et Exercices indications - Denombrement.pdf",
+  "exercises": [
+    {
+      "id": "denombrement__ex_001",
+      "title": "Tirages au tarot",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__theorem_principe_bergers",
+        "denombrement__theorem_formule_crible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "combinaisons",
+        "tirages"
+      ],
+      "statement_latex": "On tire simultanément 7 cartes d'un jeu de tarot. On ne cherchera pas à évaluer numériquement les résultats obtenus, ce n'est pas l'objet de l'exercice.\\par Combien de tirages différents peut-on obtenir contenant :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "2 cœurs, 2 trèfles et 3 atouts?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quel est le modèle mathématique d'un tirage simultané sans remise ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser les combinaisons en multipliant les choix indépendants pour chaque famille de cartes (cœurs, trèfles, atouts)."
+            }
+          ],
+          "solution_latex": "Le tarot comporte 78 cartes : 21 atouts, 1 excuse, et 56 cartes en 4 familles de 14 cartes chacune. On cherche les tirages de 7 cartes avec exactement 2 cœurs, 2 trèfles et 3 atouts. Total : 7 cartes, configuration complète.\\\\par Nombre de tirages : $\\binom{14}{2}\\times\\binom{14}{2}\\times\\binom{21}{3}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "exactement 3 atouts et exactement 2 piques?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ne pas oublier de compléter le tirage avec les autres cartes pour arriver à 7 cartes en tout."
+            },
+            {
+              "level": 2,
+              "content_latex": "Combien de cartes restent-elles à choisir en dehors des atouts et des piques, et parmi quel sous-ensemble de cartes ?"
+            }
+          ],
+          "solution_latex": "On veut exactement 3 atouts et 2 piques. Total : 5 cartes. Il manque 2 cartes parmi celles restantes (54 cartes : 14 cœurs, 12 trèfles, 28 carreaux).\\\\par Nombre de tirages : $\\binom{21}{3}\\times\\binom{14}{2}\\times\\binom{54}{2}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "7 carreaux, ou bien au moins 5 piques et l'excuse?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_principe_bergers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire le « ou bien » par une union. Les deux événements sont-ils disjoints ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Séparer en cas disjoints pour la condition « au moins 5 piques et l'excuse » (exactement 5 piques, ou exactement 6 piques)."
+            }
+          ],
+          "solution_latex": "Événement A : les 7 cartes sont des carreaux. Événement B : au moins 5 piques ET l'excuse. Ces événements sont disjoints.\\\\par $|A|=\\binom{14}{7}$.\\\\par Pour B : exactement 5 piques et l'excuse (1 pique, 5 autres) donne $\\binom{14}{5}\\times 63$ ; exactement 6 piques et l'excuse donne $\\binom{14}{6}\\times 63$ ; exactement 7 piques impossible si excuse incluse. Correction : avec excuse + 5 piques, on a 6 cartes, besoin de 1 autre (42 choix) ; avec excuse + 6 piques, on a 7 cartes (complet). Donc $|B|=\\binom{14}{5}\\times 42+\\binom{14}{6}$.\\\\par Total : $\\binom{14}{7}+\\binom{14}{5}\\times 42+\\binom{14}{6}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "au plus un cœur et au moins 5 atouts?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un tableau à double entrée ou lister rigoureusement les cas disjoints selon le nombre exact de cœurs et d'atouts."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les différents cas sont : (0 cœur, 5 atouts), (0 cœur, 6 atouts), (0 cœur, 7 atouts), (1 cœur, 5 atouts), et (1 cœur, 6 atouts)."
+            }
+          ],
+          "solution_latex": "Cas disjoints selon (nombre de cœurs, nombre d'atouts).\\\\par $(0,5)$: $\\binom{21}{5}\\times\\binom{42}{2}$ ; $(0,6)$: $\\binom{21}{6}\\times 42$ ; $(0,7)$: $\\binom{21}{7}$ ; $(1,5)$: $14\\times\\binom{21}{5}\\times 42$ ; $(1,6)$: $14\\times\\binom{21}{6}$.\\\\par Total : somme des 5 termes."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_002",
+      "title": "Anagrammes de mots",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_proprietes_coefficients_binomiaux",
+        "denombrement__definition_coefficients_binomiaux",
+        "denombrement__theorem_nombre_applications",
+        "denombrement__theorem_vandermonde",
+        "denombrement__theorem_cardinal_produit_cartesien"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "anagrammes",
+        "permutations",
+        "répétitions"
+      ],
+      "statement_latex": "Combien les mots suivants ont-ils d'anagrammes?",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "RIQUIQUI.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Compter le nombre total de lettres et les occurrences de chaque lettre identique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule des permutations avec répétitions (ou coefficients multinomiaux) : diviser la factorielle du nombre total par le produit des factorielles des effectifs de chaque lettre."
+            }
+          ],
+          "solution_latex": "RIQUIQUI : 8 lettres avec R(2), I(4), Q(1), U(1).\\\\par Nombre d'anagrammes : $\\frac{8!}{2!\\cdot 4!\\cdot 1!\\cdot 1!}=\\frac{40320}{48}=840$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "ABRACADABRA.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la même méthode en recensant soigneusement les lettres multiples (A, B, R, C, D)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a 11 lettres au total. Compter combien de fois apparaissent le A, le B, et le R."
+            }
+          ],
+          "solution_latex": "ABRACADABRA : 11 lettres avec A(5), B(2), R(2), C(1), D(1).\\\\par Nombre d'anagrammes : $\\frac{11!}{5!\\cdot 2!\\cdot 2!\\cdot 1!\\cdot 1!}=\\frac{39916800}{480}=83160$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_003",
+      "title": "Tableaux binaires",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_coefficients_binomiaux",
+        "denombrement__theorem_proprietes_coefficients_binomiaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "tableaux",
+        "combinaisons",
+        "bijections"
+      ],
+      "statement_latex": "On s'intéresse à des tableaux de n lignes et p colonnes dont chaque case contient 0 ou 1. Combien en existe-t-il :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "qui contiennent n coefficients 1 en tout?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_coefficients_binomiaux",
+            "denombrement__theorem_proprietes_coefficients_binomiaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combien y a-t-il de cases au total dans le tableau ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit de choisir l'emplacement des $n$ coefficients 1 parmi le nombre total de cases."
+            }
+          ],
+          "solution_latex": "Tableau $n\\times p$ avec $n$ cases contenant 1. Il y a $np$ cases au total.\\\\par Nombre de tableaux : $\\binom{np}{n}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "dont chaque ligne contient exactement un coefficient 1?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les choix de la position du coefficient 1 pour chaque ligne sont-ils indépendants ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour chacune des $n$ lignes, on doit choisir une colonne parmi $p$ pour y placer le 1."
+            }
+          ],
+          "solution_latex": "Pour chaque ligne, placer 1 dans une colonne parmi $p$. Les $n$ choix sont indépendants.\\\\par Nombre de tableaux : $p^n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "dont chaque ligne contient exactement deux coefficients 1?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_coefficients_binomiaux",
+            "denombrement__theorem_proprietes_coefficients_binomiaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Généraliser le raisonnement de la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour chaque ligne, il faut choisir 2 colonnes parmi $p$."
+            }
+          ],
+          "solution_latex": "Pour chaque ligne, choisir 2 colonnes parmi $p$ pour les 1. Les $n$ lignes fournissent $n$ choix indépendants.\\\\par Nombre de tableaux : $\\binom{p}{2}^n$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "(ici $n=p$) dont chaque ligne et chaque colonne contiennent exactement un coefficient 1?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cela rappelle la définition d'un objet mathématique bien connu en algèbre ou en dénombrement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Penser aux matrices de permutation : placer ces 1 revient à définir une bijection d'un ensemble à $n$ éléments vers lui-même."
+            }
+          ],
+          "solution_latex": "Cas $n=p$ : chaque ligne et colonne a exactement un 1. Cela correspond aux matrices de permutation. Nombre : $n!$ (permutations des colonnes)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_004",
+      "title": "Alternance sur un banc et table",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__example_personnes_banc_table",
+        "denombrement__example_chemins_grille",
+        "denombrement__example_tirages_tarot",
+        "denombrement__example_permutations_1sur2_2sur3"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "permutations",
+        "disposition circulaire",
+        "alternance"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "De combien de manières peut-on asseoir n filles et n garçons sur un banc rectiligne avec une alternance parfaite fille-garçon?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par quel genre la file peut-elle commencer sur le banc rectiligne ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a deux configurations possibles (F-G-F-G... ou G-F-G-F...). Ensuite, on permute les filles entre elles et les garçons entre eux."
+            }
+          ],
+          "solution_latex": "Banc rectiligne, alternance F-G-F-G... ou G-F-G-F... Deux configurations de départ. Pour chaque : $n!$ permutations des filles, $n!$ des garçons.\\\\par Nombre de dispositions : $2(n!)^2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Même question autour d'une table ronde.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui change autour d'une table ronde par rapport à un banc pour gérer les rotations équivalentes ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixer une personne (par exemple, une fille précise) à une place de référence pour casser la symétrie circulaire, puis placer les autres personnes en respectant l'alternance."
+            }
+          ],
+          "solution_latex": "Table ronde : fixer une fille donnée (casse la rotationévite les rotations équivalentes). Ensuite, l'alternance impose les positions des autres. Les $n-1$ autres filles se permutent entre $(n-1)!$ places, les $n$ garçons entre $n!$ places.\\\\par Nombre de dispositions : $(n-1)!\\times n!$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_005",
+      "title": "Couples d'entiers sous contraintes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_somme_indicatrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "cardinaux",
+        "inégalités",
+        "couples"
+      ],
+      "statement_latex": "Combien y a-t-il de couples (x, y) :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "dans $[[1,n]]^{2}$ pour lesquels $x + y = n$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $x$ est fixé, combien y a-t-il de choix possibles pour $y$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "$y$ est entièrement déterminé par $x$ ($y = n - x$). Il suffit de trouver pour quelles valeurs de $x$ on a bien $y \\in [[1,n]]$."
+            }
+          ],
+          "solution_latex": "Chercher $y=n-x$ avec $1\\le x\\le n$ et $1\\le n-x\\le n$. Cela donne $1\\le x\\le n-1$, soit $n-1$ couples."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "dans $[[1,n]]^{2}$ pour lesquels $x<y$?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_liste_arrangement"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Choisir un couple $(x,y)$ d'éléments distincts où l'ordre est imposé ($x < y$) revient à choisir un sous-ensemble."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est équivalent au choix d'une paire (sous-ensemble de 2 éléments) parmi $n$."
+            }
+          ],
+          "solution_latex": "Choisir 2 éléments distincts de $[[1,n]]$ (paire). Une seule façon de les ordonner avec $x<y$.\\\\par Nombre de couples : $\\binom{n}{2}=\\frac{n(n-1)}{2}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "dans $[[1,n]]\\times[[1,2n]]$ pour lesquels $x<y$?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Discuter selon les valeurs de l'entier $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour un $x$ fixé dans $[[1,n]]$, la variable $y$ peut prendre n'importe quelle valeur de $x+1$ à $2n$. Compter ces valeurs puis sommer sur tous les $x$ possibles."
+            }
+          ],
+          "solution_latex": "Pour $x\\in[[1,n]]$, il y a $2n-x$ valeurs de $y\\in[[x+1,2n]]$. Somme : $\\sum_{x=1}^{n}(2n-x)=\\frac{3n^2-n}{2}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "dans $[[1,n]]^{2}$ pour lesquels $|x-y|\\le1$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer la condition de valeur absolue en trois cas mutuellement exclusifs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les trois cas sont : $x=y$, $y=x+1$, et $x=y+1$. Compter le nombre de couples pour chaque cas en faisant attention aux effets de bord."
+            }
+          ],
+          "solution_latex": "Trois cas : $x=y$ (n couples), $y=x+1$ (n-1 couples), $x=y+1$ (n-1 couples).\\\\par Total : $3n-2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_006",
+      "title": "Mots contenant un sous-mot",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_formule_crible",
+        "denombrement__remark_bilan_pratique",
+        "denombrement__theorem_proprietes_coefficients_binomiaux",
+        "denombrement__theorem_principe_bergers",
+        "denombrement__definition_liste_arrangement"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "mots",
+        "formule du crible",
+        "chevauchement"
+      ],
+      "statement_latex": "Combien existe-t-il de mots de 9 lettres contenant le mot:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "MERCI?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Avec MERCI, c'est facile, il ne peut apparaître qu'une fois..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir la position de la première lettre du mot \"MERCI\" dans le mot de 9 lettres, puis choisir librement les lettres restantes."
+            }
+          ],
+          "solution_latex": "Le mot MERCI a 5 lettres, peut commencer aux positions 1 à 5. Pour chaque position, les 4 autres places libres contiennent $26^4$ mots possibles.\\\\par Nombre de mots : $5\\times 26^4$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "QUOI?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "... mais QUOI peut apparaître deux fois..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule du crible de Poincaré. Compter les mots contenant \"QUOI\" une fois à une position donnée, puis retrancher les mots contenant \"QUOI\" à deux endroits différents pour ne pas les compter deux fois."
+            }
+          ],
+          "solution_latex": "Le mot QUOI a 4 lettres, peut commencer aux positions 1 à 6. Utiliser inclusion-exclusion. Les mots contenant QUOI à position $i$ : $|A_i|=26^5$. Les deux positions disjointes $(1,5), (1,6), (2,6)$ donnent $|A_i\\cap A_j|=26$. Après calcul : $6\\times 26^5-3\\times 26$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "OSLO?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "... et avec OSLO vient OSLOSLO."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire attention aux mots contenant \"OSLO\" à deux positions qui se chevauchent (formant \"OSLOSLO\"). Il faut adapter le dénombrement des intersections dans la formule du crible."
+            }
+          ],
+          "solution_latex": "Le mot OSLO (4 lettres) se chevauche à distance 3 formant OSLOSLO (7 lettres). Positions disjointes : $(1,5), (1,6), (2,6)$ donnent chacune 26. Positions $(1,4), (2,5), (3,6)$ avec chevauchement OSLOSLO donnent $26^2$. Total : $6\\times 26^5-3\\times 26-3\\times 26^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_007",
+      "title": "Diagonales d'un polygone",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_nombre_applications",
+        "denombrement__theorem_nombre_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "géométrie",
+        "combinaisons"
+      ],
+      "statement_latex": "On appelle diagonale d'un polygone convexe tout segment joignant deux sommets non consécutifs.\\par Si un polygone possède autant de diagonales que de côtés, combien possède-t-il de côtés ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un segment joignant deux sommets quelconques du polygone est soit un côté, soit une diagonale. Combien y a-t-il de segments possibles au total pour un polygone à $n$ sommets ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre total de paires de sommets (les segments) est $\\binom{n}{2}$. Poser l'équation reliant ce nombre total au nombre de côtés $n$."
+            }
+          ],
+          "solution_latex": "Un polygone convexe à $n$ sommets possède $\\binom{n}{2}$ segments au total. Nombre de diagonales : $\\binom{n}{2}-n=\\frac{n(n-3)}{2}$. Équation : $\\frac{n(n-3)}{2}=n$ donne $n=5$ (pentagone)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_008",
+      "title": "Nombre de diviseurs positifs",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_cardinal_produit_cartesien"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "arithmétique",
+        "diviseurs"
+      ],
+      "statement_latex": "Étant donnée sa factorisation première, combien un entier naturel non nul possède-t-il de diviseurs positifs?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_cardinal_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par le cas d'un entier $p^{\\alpha}$ avec $p$ premier."
+            },
+            {
+              "level": 2,
+              "content_latex": "Généraliser à un entier $n = p_1^{\\alpha_1} p_2^{\\alpha_2} \\dots p_k^{\\alpha_k}$. Tout diviseur s'écrit sous la forme $d = p_1^{\\beta_1} p_2^{\\beta_2} \\dots p_k^{\\beta_k}$. Quelles sont les valeurs possibles pour chaque exposant $\\beta_i$ ?"
+            }
+          ],
+          "solution_latex": "Pour $n=p_1^{\\alpha_1}\\cdots p_k^{\\alpha_k}$, tout diviseur s'écrit $d=p_1^{\\beta_1}\\cdots p_k^{\\beta_k}$ avec $0\\le\\beta_i\\le\\alpha_i$. Il y a $\\alpha_i+1$ choix par facteur. Nombre de diviseurs : $\\prod_{i=1}^{k}(\\alpha_i+1)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_009",
+      "title": "Classement de concours parité",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__remark_enumerer",
+        "denombrement__definition_coefficients_binomiaux",
+        "denombrement__theorem_proprietes_coefficients_binomiaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "arrangements",
+        "combinaisons"
+      ],
+      "statement_latex": "Soient $p\\in\\mathbb{N}^{*}$ et $m, n\\ge p$. À l'issue d'un concours, $m$ filles et $n$ garçons sont admis.\\par Combien de classements des $2p$ premiers admis contenant autant de filles que de garçons peut-on former?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer la formation du classement en étapes indépendantes : le choix des personnes, puis leur agencement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir $p$ filles parmi les $m$ filles admises, puis choisir $p$ garçons parmi les $n$ garçons. Enfin, ordonner ces $2p$ personnes pour créer un classement."
+            }
+          ],
+          "solution_latex": "Choisir $p$ filles parmi $m$ et $p$ garçons parmi $n$ : $\\binom{m}{p}\\binom{n}{p}$ sélections. Ordonner les $2p$ personnes : $(2p)!$ façons.\\\\par Nombre de classements : $\\binom{m}{p}\\binom{n}{p}(2p)!$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_010",
+      "title": "Involution et point fixe",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_effet_application_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "involution",
+        "point fixe",
+        "parité"
+      ],
+      "statement_latex": "Soit $f$ une involution de $[[1,2n+1]],$ i.e. une application de $[[1,2n+1]]$ dans lui-même pour laquelle $f\\circ f=Id_{E}.$ Montrer que $f$ possède un point fixe.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire des paquets de deux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x$ n'est pas un point fixe de $f$, alors $f(x) \\neq x$. Grouper les éléments par paires $\\{x, f(x)\\}$. Conclure en utilisant le fait que le cardinal de l'ensemble de départ est impair ($2n+1$)."
+            }
+          ],
+          "solution_latex": "Partitionner les éléments : points fixes vs paires $\\{x,f(x)\\}$ avec $x\\ne f(x)$. Si $s$ points fixes et $2k$ non-fixes, alors $s+2k=2n+1$, donc $s=2n+1-2k$ (impair). Donc $s\\ge 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_011",
+      "title": "Surjections entre ensembles finis",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_nombre_applications",
+        "denombrement__definition_liste_arrangement"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "surjections",
+        "applications"
+      ],
+      "statement_latex": "Combien existe-t-il de surjections de E sur F:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "si $|E|=n$ et $|F|=2$?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_nombre_applications"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ici, il vaut mieux compter les applications non surjectives."
+            },
+            {
+              "level": 2,
+              "content_latex": "Combien y a-t-il d'applications au total ? Parmi elles, quelles sont les seules qui ne sont pas surjectives lorsque $F$ a exactement 2 éléments (par exemple $F = \\{a, b\\}$) ?"
+            }
+          ],
+          "solution_latex": "Avec $F=\\{a,b\\}$, il y a $2^n$ applications totales. Seules les 2 applications constantes ne sont pas surjectives.\\\\par Nombre de surjections : $2^n-2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "si $|E|=n+1$ et $|F|=n$?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_liste_arrangement"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que signifie pour une application d'un ensemble à $n+1$ éléments vers un ensemble à $n$ éléments d'être surjective ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Nécessairement, exactement deux éléments de $E$ ont la même image dans $F$, et tous les autres éléments de $E$ ont des images distinctes. Choisir la paire d'éléments de $E$, puis la façon d'associer les éléments."
+            }
+          ],
+          "solution_latex": "Avec $|E|=n+1, |F|=n$, exactement deux éléments de $E$ ont même image, autres distincts. Choisir la paire : $\\binom{n+1}{2}$, son image parmi $n$ éléments : $n$ choix, les $n-1$ autres éléments bijectifs : $(n-1)!$.\\\\par Nombre : $\\frac{n(n+1)!}{2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_012",
+      "title": "Parties avec intersection imposée",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties",
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_principe_bergers"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "ensembles",
+        "cardinaux"
+      ],
+      "statement_latex": "Soient $n,p\\in\\mathbb{N}^{*}$ avec $p\\le n$. Combien existe-t-il de parties de $[[1, n]]$ qui contiennent :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "un et un seul élément de $[[1,p]]$?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_ensemble_fini_cardinal",
+            "denombrement__theorem_parties_ensemble_fini",
+            "denombrement__theorem_nombre_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Décomposer la construction de la partie en deux choix indépendants."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir d'abord l'unique élément parmi $[[1,p]]$, puis choisir un sous-ensemble quelconque parmi les $n-p$ éléments restants."
+            }
+          ],
+          "solution_latex": "Choisir l'unique élément de $[[1,p]]$ ($p$ choix), puis un sous-ensemble de $[[p+1,n]]$ ($2^{n-p}$ choix).\\\\par Nombre : $p\\times 2^{n-p}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "au moins un élément de $[[1, p]]$?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_parties_ensemble_fini",
+            "denombrement__theorem_nombre_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quand on voit « au moins un », il est souvent judicieux de passer par le complémentaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Compter le nombre total de parties de $[[1,n]]$ et y soustraire le nombre de parties qui ne contiennent aucun élément de $[[1,p]]$ (c'est-à-dire les parties formées uniquement avec les éléments de $p+1$ à $n$)."
+            }
+          ],
+          "solution_latex": "Complémentaire : parties sans élément de $[[1,p]]$ (il y en a $2^{n-p}$). Total : $2^n-2^{n-p}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_013",
+      "title": "Fonctions croissantes",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_k_listes_strictement_croissantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "fonctions",
+        "ordre",
+        "combinaisons avec répétition"
+      ],
+      "statement_latex": "Combien existe-t-il de fonctions de $[[1, p]]$ dans $[[1,n]]$:",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "strictement croissantes?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_k_listes_strictement_croissantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une fonction strictement croissante est entièrement déterminée par son ensemble image."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il suffit de choisir $p$ éléments distincts parmi les $n$ éléments de l'ensemble d'arrivée. Une fois ces $p$ éléments choisis, il n'y a qu'une seule façon de les ordonner."
+            }
+          ],
+          "solution_latex": "Fonction strictement croissante = choix de $p$ éléments ordonnés = choix d'une paire sans ordre.\\\\par Nombre : $\\binom{n}{p}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "croissantes?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_k_listes_strictement_croissantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Bâtons-boules!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir les $p$ images revient à choisir $p$ éléments parmi $n$ avec remise, sans se soucier de l'ordre d'obtention (puisqu'on les triera par ordre croissant à la fin). C'est le nombre de combinaisons avec répétition."
+            }
+          ],
+          "solution_latex": "Fonction croissante = choix de $p$ éléments avec remise = combinaisons avec répétition.\\\\par Nombre : $\\binom{n+p-1}{p}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_014",
+      "title": "Relations binaires",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties",
+        "denombrement__theorem_effet_application_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "relations binaires",
+        "réflexivité",
+        "symétrie"
+      ],
+      "statement_latex": "Soit E un ensemble fini non vide de cardinal n.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Combien existe-t-il de relations binaires sur E?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_ensemble_fini_cardinal",
+            "denombrement__theorem_parties_ensemble_fini",
+            "denombrement__theorem_effet_application_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une relation binaire sur $E$ n'est jamais qu'une partie de $E\\times E$. Pour tous $x, y\\in E$, dire que $x\\mathcal{R}y$ revient à dire que $(x,y)\\in\\mathcal{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de relations binaires est donc le nombre de sous-ensembles de l'ensemble $E \\times E$. Quel est le cardinal de $E \\times E$ ?"
+            }
+          ],
+          "solution_latex": "Une relation binaire sur $E$ est un sous-ensemble de $E\\times E$ (cardinal $n^2$).\\\\par Nombre de relations : $2^{n^2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Combien de relations binaires réflexives?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une relation est réflexive si et seulement si elle contient tous les couples de la forme $(x,x)$ pour $x \\in E$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La diagonale est fixée. Pour tous les autres couples $(x,y)$ avec $x \\neq y$, on est libre de les inclure ou non."
+            }
+          ],
+          "solution_latex": "Réflexivité fixe la diagonale ($n$ couples). Les $n(n-1)$ couples non-diagonaux sont libres.\\\\par Nombre : $2^{n(n-1)}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Combien de relations binaires réflexives symétriques?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser à la représentation de la relation sous forme de matrice carrée ou de graphe. La symétrie lie la présence de $(x,y)$ à celle de $(y,x)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La diagonale est fixée (réflexivité). Ensuite, pour chaque paire non ordonnée $\\{x, y\\}$ avec $x \\neq y$, on choisit simultanément si on inclut le couple $(x,y)$ et le couple $(y,x)$. Combien y a-t-il de telles paires ?"
+            }
+          ],
+          "solution_latex": "Réflexivité + symétrie : diagonale fixée. Pour chaque paire $\\{x,y\\}$ avec $x\\ne y$ ($\\binom{n}{2}$ paires), on inclut ou exclut simultanement $(x,y)$ et $(y,x)$.\\\\par Nombre : $2^{n(n-1)/2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_015",
+      "title": "Couples de parties",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties",
+        "denombrement__theorem_effet_application_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "ensembles",
+        "choix indépendants"
+      ],
+      "statement_latex": "Soit E un ensemble fini de cardinal n. Combien existe-t-il de couples (A, B) de parties de E pour lesquels :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$A\\cap B=\\emptyset$ et $A\\cup B=E$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que peut-on dire du lien entre l'ensemble $A$ et l'ensemble $B$ sous ces deux conditions ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble $B$ est nécessairement le complémentaire de $A$ dans $E$. Le choix de $A$ détermine donc entièrement le couple $(A,B)$."
+            }
+          ],
+          "solution_latex": "Si $A\\cap B=\\emptyset$ et $A\\cup B=E$, alors $B=\\complement_E A$. Nombre de couples : $2^n$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$A\\cap B=\\emptyset$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner élément par élément de $E$. Pour un élément donné $x \\in E$, quelles sont les situations possibles par rapport à son appartenance à $A$ et à $B$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme l'intersection est vide, un élément $x$ ne peut pas appartenir aux deux à la fois. Il y a donc 3 choix pour $x$ : appartenir à $A$ seulement, à $B$ seulement, ou à aucun des deux."
+            }
+          ],
+          "solution_latex": "Pour chaque $x\\in E$, trois états : $x\\in A\\setminus B$, $x\\in B\\setminus A$, ou $x\\notin A\\cup B$.\\\\par Nombre : $3^n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$A\\cup B=E$?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le même principe de disjonction des cas pour chaque élément $x \\in E$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Un élément $x$ doit obligatoirement appartenir à au moins l'un des deux ensembles pour que l'union fasse $E$. Combien y a-t-il de choix valides pour $x$ ?"
+            }
+          ],
+          "solution_latex": "Pour chaque $x\\in E$, trois états : $x\\in A\\cap B$, $x\\in A\\setminus B$, ou $x\\in B\\setminus A$ (le cas $x\\notin A\\cup B$ est interdit).\\\\par Nombre : $3^n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_016",
+      "title": "Familles de parties incluses",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties",
+        "denombrement__definition_ensemble_fini_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "ensembles",
+        "inclusion",
+        "suites de parties"
+      ],
+      "statement_latex": "Soient E un ensemble fini et $p\\in\\mathbb{N}^{*}$. Combien y a-t-il de familles $(A_{1},...,A_{p})$ de parties de E pour lesquelles $A_{1}\\subset...\\subset A_{p}$?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner élément par élément de $E$ plutôt que partie par partie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour un élément $x \\in E$, dans combien d'états possibles peut-il se trouver vis-à-vis de la chaîne d'inclusions ? S'il appartient à $A_k$, l'inclusion impose qu'il appartienne à tous les $A_j$ pour $j \\ge k$."
+            }
+          ],
+          "solution_latex": "Pour chaque $x\\in E$ et la chaîne $A_1\\subset\\cdots\\subset A_p$, l'élément $x$ a $p+1$ états : soit $x\\notin A_1$ (donc $\\notin$ toutes), soit $x\\in A_1,\\ldots,A_i$ et $\\notin A_{i+1},\\ldots,A_p$ pour un certain $i\\in[[1,p]]$.\\\\par Nombre de familles : $(p+1)^n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_017",
+      "title": "Chemins sur un réseau",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_nombre_parties",
+        "denombrement__theorem_nombre_applications",
+        "denombrement__example_chemins_grille",
+        "denombrement__example_chemins_grille_n_p"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "chemins",
+        "réseau",
+        "combinaisons"
+      ],
+      "statement_latex": "On se promène sur $\\mathbb{Z}^{2}$ par petits sauts de longueur 1.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Un point de départ étant fixé, combien de chemins de longueur n peut-on emprunter?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combien de directions possibles y a-t-il à chaque saut de longueur 1 sur le réseau $\\mathbb{Z}^{2}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "À chaque étape, on peut aller en haut, en bas, à gauche ou à droite. Les choix à chaque étape sont totalement indépendants."
+            }
+          ],
+          "solution_latex": "À chaque étape, 4 choix de direction (haut, bas, gauche, droite). $n$ étapes indépendantes.\\\\par Nombre de chemins : $4^n$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On appelle circuit tout chemin dont le point de départ coïncide avec le point d'arrivée.\\par Montrer qu'il existe $\\binom{2n}{n}^{2}$ circuits de longueur 2n de point de départ fixé.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour revenir au point de départ, quelle est la relation entre le nombre de pas vers la droite/gauche et vers le haut/bas ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire un changement de repère en tournant les axes de 45 degrés : un pas horizontal ou vertical correspond à modifier simultanément les deux nouvelles coordonnées de $\\pm \\frac{1}{2}$. Cela permet de découpler les deux dimensions."
+            }
+          ],
+          "solution_latex": "Après rotation de 45°, on compte des chemins sur réseau où il faut revenir à l'origine après $2n$ pas. Avec $n$ pas augmentant chaque coordonnée, $n$ pas la diminuant : $\\binom{2n}{n}$ pour chaque coordonnée.\\\\par Nombre de circuits : $\\binom{2n}{n}^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_018",
+      "title": "Formule du crible et applications",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_formule_crible",
+        "denombrement__theorem_nombre_applications",
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_somme_indicatrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "formule du crible",
+        "surjections",
+        "sommes"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}k^{n}=n!$ en appliquant la formule du crible aux ensembles $([[1,n]]-\\{k\\})^{n}$, k décrivant $[[1,n]]$.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_formule_crible",
+            "denombrement__theorem_nombre_applications",
+            "denombrement__definition_ensemble_fini_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer la formule du crible, dénombrer soigneusement les intersections qui y figurent et ne pas oublier $\\binom{n}{k}$ familles $(i_{1},...,i_{k})$ d'entiers pour lesquels $1\\le i_{1}<...<i_{k}\\le n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble total est l'ensemble des applications de $[[1,n]]$ dans $[[1,n]]$. Que représente l'union de ces ensembles $A_k = ([[1,n]]-\\{k\\})^n$ ? Ce sont les applications non surjectives."
+            }
+          ],
+          "solution_latex": "Soit $\\Omega$ l'ensemble des applications $[[1,n]]\\to[[1,n]]$ (cardinal $n^n$). Soit $A_i$ l'ensemble sans élément $i$ dans l'image. Inclusion-exclusion : $|\\overline{A_1\\cup\\cdots\\cup A_n}|=\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(n-k)^n=\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}k^n=n!$ (surjections = permutations)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Simplifier de même $\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}k^{p}$ pour tout $p\\in[[0,n]]$.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_nombre_applications"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le raisonnement est identique à la question précédente, mais on considère cette fois des applications de $[[1,p]]$ dans $[[1,n]]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $p < n$, est-il possible de trouver des applications surjectives d'un ensemble à $p$ éléments vers un ensemble à $n$ éléments ?"
+            }
+          ],
+          "solution_latex": "Pour applications $[[1,p]]\\to[[1,n]]$ avec $p<n$ : impossible surjection, résultat = 0. Avec $p\\ge n$ : $\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}k^p$ (nombre de surjections)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_019",
+      "title": "Dérangements",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_formule_crible",
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_nombre_applications",
+        "denombrement__definition_liste_arrangement"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "dérangements",
+        "formule du crible",
+        "permutations"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$. On appelle dérangement de $[[1, n]]$ toute permutation sans point fixe de $[[1, n]]$ et on note $d_{n}$ leur nombre.\\par Montrer que $d_{n}=n!\\sum_{k=0}^{n}\\frac{(-1)^{k}}{k!}$ en appliquant la formule du crible aux ensembles: $\\{\\sigma\\in S_{n}|\\sigma(i)=i\\}$ i décrivant $[[1,n]]$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_ensemble_fini_cardinal",
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_cardinal_reunion_difference"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le nombre de dérangements correspond au cardinal du complémentaire (dans le groupe symétrique $S_n$) de l'union des ensembles $A_i = \\{\\sigma \\in S_n \\mid \\sigma(i) = i\\}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour utiliser la formule du crible, il faut évaluer l'intersection de $k$ ensembles de ce type. C'est l'ensemble des permutations fixant au moins $k$ points donnés. Quel est le cardinal de cette intersection, et combien de choix a-t-on pour les $k$ points ?"
+            }
+          ],
+          "solution_latex": "Pour chaque $i\\in[[1,n]]$, soit $A_i$ l'ensemble des permutations fixant $i$ (cardinal $(n-1)!$). Les dérangements sont $\\overline{A_1\\cup\\cdots\\cup A_n}$. Inclusion-exclusion : $d_n=\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(n-k)!=n!\\sum_{k=0}^{n}\\frac{(-1)^k}{k!}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_020",
+      "title": "Principe des tiroirs et multiples",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_principe_tiroirs",
+        "denombrement__theorem_principe_bergers",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "principe des tiroirs",
+        "arithmétique"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$. Étant donnés $n+1$ entiers compris entre 1 et $2n$, montrer qu'il en existe toujours deux :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "consécutifs.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_principe_tiroirs",
+            "denombrement__theorem_principe_bergers"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Définir des « tiroirs » astucieux contenant des paires d'entiers consécutifs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer les $n$ tiroirs disjoints suivants : $\\{1, 2\\}, \\{3, 4\\}, \\dots, \\{2n-1, 2n\\}$. On a $n+1$ entiers à répartir dans ces $n$ tiroirs."
+            }
+          ],
+          "solution_latex": "Tiroirs $\\{1,2\\}, \\{3,4\\}, \\ldots, \\{2n-1,2n\\}$ (au nombre de $n$). Distribuer $n+1$ entiers : par le principe des tiroirs, un tiroir contient au moins 2, qui sont consécutifs."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "dont l'un est un multiple de l'autre.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_principe_tiroirs",
+            "denombrement__theorem_parties_ensemble_fini",
+            "denombrement__theorem_nombre_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tout entier naturel non nul s'écrit $2^{\\alpha}m$ avec $\\alpha\\in\\mathbb{N}$ et m impair."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regrouper les nombres dans des tiroirs en fonction de leur « partie impaire » $m$. Combien y a-t-il de nombres impairs possibles dans l'intervalle $[[1, 2n]]$ ?"
+            }
+          ],
+          "solution_latex": "Décomposer $k=2^\\\\alpha m$ avec $m$ impair. Les $n$ parties impaires possibles forment $n$ tiroirs. Distribuer $n+1$ entiers : deux partagent la même partie impaire, donc l'un divise l'autre."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_021",
+      "title": "Graphe d'amis et ennemis",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_principe_tiroirs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "principe des tiroirs",
+        "graphes",
+        "relations"
+      ],
+      "statement_latex": "Étant données 6 personnes deux à deux amies ou ennemies, montrer qu'il en existe toujours trois mutuellement amies ou trois mutuellement ennemies.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_principe_tiroirs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Modéliser la situation à l'aide d'un graphe complet à 6 sommets, où les arêtes sont colorées de deux couleurs différentes (par exemple bleu pour ami, rouge pour ennemi)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Fixer un sommet particulier. Il est relié aux 5 autres sommets. D'après le principe des tiroirs, combien d'arêtes au minimum partagent la même couleur parmi ces 5 ?"
+            }
+          ],
+          "solution_latex": "Graphe complet $K_6$ avec arêtes bleues (amis) ou rouges (ennemis). Fixer un sommet $P$. Parmi ses 5 arêtes, au moins 3 partagent la même couleur (par tiroirs). Si $A,B,C$ sont bleus à $P$ : soit $(A,B)$ bleu (triangle bleu $P,A,B$), soit tous trois rouges entre eux (triangle rouge $A,B,C$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_022",
+      "title": "Somme de produits binomiaux",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__definition_coefficients_binomiaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "coefficients binomiaux",
+        "sommes"
+      ],
+      "statement_latex": "Simplifier $\\sum_{k=0}^{n}\\binom{n}{k}\\binom{2n}{k}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__definition_coefficients_binomiaux"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser une propriété de symétrie bien connue des coefficients binomiaux pour réécrire l'un des deux termes du produit."
+            },
+            {
+              "level": 2,
+              "content_latex": "En écrivant $\\binom{2n}{k} = \\binom{2n}{2n-k}$, la somme devient $\\sum_{k=0}^{n} \\binom{n}{k} \\binom{2n}{2n-k}$. Utiliser ensuite la formule de Vandermonde ou une identité polynomiale associée."
+            }
+          ],
+          "solution_latex": "Réécrire $\\binom{2n}{k}=\\binom{2n}{2n-k}$. Alors $\\sum_{k=0}^{n}\\binom{n}{k}\\binom{2n}{2n-k}$ est le coefficient de $x^n$ dans $(1+x)^n(1+x)^{2n}=(1+x)^{3n}$, qui vaut $\\binom{3n}{n}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_023",
+      "title": "Double comptage de combinaisons",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__definition_coefficients_binomiaux",
+        "denombrement__method_addition_multiplication"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "double comptage",
+        "combinaisons"
+      ],
+      "statement_latex": "Soient n, $p\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Quelles sont les valeurs possibles du maximum d'une $(p+1)$ -combinaison de $[[1, n+p+1]]$?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_coefficients_binomiaux",
+            "denombrement__theorem_somme_indicatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le maximum d'une combinaison de $p+1$ éléments stictement positifs ne peut pas être trop petit."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisqu'il faut au moins $p$ éléments strictement plus petits que le maximum dans la combinaison, le maximum vaut au minimum $p+1$ et au maximum $n+p+1$."
+            }
+          ],
+          "solution_latex": "Une $(p+1)$-combinaison avec maximum $m$ requiert $m\\ge p+1$ (au moins $p$ éléments plus petits). Donc $m\\in[[p+1,n+p+1]]$, soit $n+1$ valeurs."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer de deux manières le nombre de $(p+1)-$ combinaisons de $[[1,n+p+1]]$. Conclusion?",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__method_addition_multiplication"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La première méthode est le calcul direct du nombre de combinaisons."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la deuxième méthode, partitionner l'ensemble des combinaisons en fonction de la valeur de leur plus grand élément (trouvée à la question 1), puis faire la somme."
+            }
+          ],
+          "solution_latex": "Première méthode : $\\binom{n+p+1}{p+1}$. Deuxième : partitionner par maximum $m$, donner $\\sum_{m=p+1}^{n+p+1}\\binom{m-1}{p}=\\binom{n+p+1}{p+1}$ (identité du hockey stick)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_024",
+      "title": "Inversion binomiale",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties",
+        "denombrement__theorem_effet_application_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "coefficients binomiaux",
+        "bijections",
+        "suites"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient E un ensemble fini de cardinal n ainsi que p, $k\\in\\mathbb{N}$ Calculer de deux manières le nombre de couples (A, B) de parties de E pour lesquels: $A\\subset B$ $|A|=k$ et $|B|=p$ Conclusion?",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_ensemble_fini_cardinal",
+            "denombrement__theorem_parties_ensemble_fini",
+            "denombrement__theorem_nombre_parties"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Première manière : choisir $B$ d'abord, puis $A$ inclus dans $B$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Deuxième manière : choisir $A$ d'abord (parmi $E$), puis choisir comment compléter $A$ pour former $B$ (en choisissant des éléments dans le complémentaire de $A$ dans $E$)."
+            }
+          ],
+          "solution_latex": "Première méthode : choisir $B$ ($\\binom{n}{p}$), puis $A\\subseteq B$ avec $|A|=k$ ($\\binom{p}{k}$). Total : $\\binom{n}{p}\\binom{p}{k}$. Deuxième : choisir $A$ ($\\binom{n}{k}$), puis compléter vers $B$ ($\\binom{n-k}{p-k}$). Total : $\\binom{n}{k}\\binom{n-k}{p-k}$. Identité : $\\binom{n}{p}\\binom{p}{k}=\\binom{n}{k}\\binom{n-k}{p-k}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note S (resp. T) l'application de $\\mathbb{R}^{\\mathbb{N}}$ dans $\\mathbb{R}^{\\mathbb{N}}$ qui associe à toute suite $(x_{n})_{n\\in\\mathbb{N}}$ la suite $(y_{n})_{n\\in\\mathbb{N}}$ définie pour tout $n\\in\\mathbb{N}$ par: $y_{n}=\\sum_{k=0}^{n}\\binom{n}{k}x_{k}$ (resp. $y_{n}=\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}x_{k}).$ Montrer que S et T sont deux bijections de $\\mathbb{R}^{\\mathbb{N}}$ dans $\\mathbb{R}^{\\mathbb{N}}$ réciproques l'une de l'autre.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_effet_application_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simplifier $S\\circ T$ et $T\\circ S$ en appliquant notamment la relation de la question 1) qui transforme le produit de deux coefficients binomiaux en un autre produit de coefficients binomiaux."
+            },
+            {
+              "level": 2,
+              "content_latex": "Inverser l'ordre des deux sommes (somme double) obtenues lors de la composition, et isoler la somme intérieure pour la calculer à l'aide de la formule du binôme de Newton."
+            }
+          ],
+          "solution_latex": "$S\\\\circ T : (x_n)\\\\mapsto(z_n)$ avec $z_n=\\\\sum_{k=0}^n x_k\\\\binom{n}{k}\\\\sum_{j=k}^n (-1)^{n-j}\\\\binom{n-k}{j-k}$. L'intérieure $\\\\sum$=0 si $n>k$ et $=1$ si $n=k$. Donc $z_n=x_n$. Ainsi $T\\\\circ S=\\\\mathrm{Id}$ et de même $S\\\\circ T=\\\\mathrm{Id}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_025",
+      "title": "Double comptage d'incidences",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_ensemble_fini_cardinal",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_effet_application_cardinal",
+        "denombrement__theorem_nombre_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "double comptage",
+        "incidences"
+      ],
+      "statement_latex": "Soit E un ensemble de cardinal np et $\\Omega$ un ensemble de p-combinaisons de E. On suppose que tout élément de E appartient à exactement n éléments de $\\Omega$. Calculer le cardinal de $\\Omega$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dénombrer de deux manières les couples $(x,D)$ pour lesquels $D\\in\\Omega$ et $x\\in D$"
+            },
+            {
+              "level": 2,
+              "content_latex": "D'une part, on peut sommer sur tous les éléments $x \\in E$ le nombre de parties $D$ qui les contiennent. D'autre part, on peut sommer sur toutes les parties $D \\in \\Omega$ le nombre d'éléments $x$ qu'elles contiennent."
+            }
+          ],
+          "solution_latex": "Double comptage des couples $(x,D)$ avec $D\\\\in\\\\Omega, x\\\\in D$. Première manière (sommation sur $x$) : $|E|\\\\times n=np\\\\times n=n^2p$. Deuxième (sommation sur $D$) : $|\\\\Omega|\\\\times p$. Égalité : $|\\\\Omega|=n^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_026",
+      "title": "Relations de récurrence (listes)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "denombrement__definition_liste_arrangement",
+        "denombrement__theorem_k_listes_strictement_croissantes",
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__theorem_proprietes_coefficients_binomiaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "relations de récurrence",
+        "compositions d'entiers",
+        "bâtons-boules"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour tout $n\\in\\mathbb{N}^{*}$, on note $s_{n}$ le nombre de listes d'entiers naturels non nuls de somme n.\\par a) Calculer $s_{1}$, $s_{2}$ et $s_{3}$ et montrer que pour tout $n\\in\\mathbb{N}^{*}$: $s_{n+1}=1+s_{0}+...+s_{n}$.\\par b) En déduire une expression explicite de $s_{n}$ pour tout $n\\in\\mathbb{N}^{*}$.\\par c) Trouver une preuve combinatoire directe du résultat de la question b).",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_liste_arrangement",
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_k_listes_strictement_croissantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "b) Classer les listes en fonction de leur dernière composante."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour calculer $s_{n+1}$, si la dernière composante de la liste vaut $k$ (avec $1 \\le k \\le n+1$), la somme des termes précédents doit valoir $(n+1) - k$. Sommer sur toutes les valeurs de $k$ possibles."
+            }
+          ],
+          "solution_latex": "{\"a\": \"$s_1=1$ (liste (1)), $s_2=2$ (listes (2), (1,1)), $s_3=4$ (listes (3), (2,1), (1,2), (1,1,1)). Pour la r\\u00e9currence, une $(n+1)$-liste se termine par $k\\\\\\\\in[[1,n+1]]$. Si $k=n+1$, une seule liste. Si $k\\\\\\\\in[[1,n]]$, le pr\\u00e9fixe est une liste de somme $n+1-k$. Donc $s_{n+1}=1+\\\\\\\\sum_{i=0}^n s_i$.\", \"b\": \"De $s_{n+1}=1+\\\\\\\\sum_{i=0}^n s_i$ et $s_n=1+\\\\\\\\sum_{i=0}^{n-1}s_i$, on tire $s_{n+1}=2s_n$. Avec $s_1=1$, on obtient $s_n=2^{n-1}$.\", \"c\": \"Une liste de somme $n$ s'encode par $n$ points et des s\\u00e9parateurs dans les $n-1$ espaces. Il y a $2^{n-1}$ choix de s\\u00e9parateurs.\"}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Pour tous n, $p\\in\\mathbb{N}^{*}$, on note $s_{n,p}$ le nombre de p-listes d'entiers naturels non nuls de somme n.\\par a) Calculer $s_{1,p}$, $s_{2,p}$, $s_{n,1}$ et $s_{n,2}$ pour tous n, $p\\in\\mathbb{N}^{*}$.\\par b) Montrer que $s_{n+1,p+1}=s_{n,p}+s_{n,p+1}$ pour tous $n,p\\in\\mathbb{N}^{2}$.\\par c) En déduire que $s_{n,p}=\\binom{n-1}{p-1}$ pour tous $n,p\\in\\mathbb{N}^{*}$.\\par d) Trouver une preuve combinatoire directe du résultat de la question c).",
+          "knowledge_nodes_tested": [
+            "denombrement__definition_liste_arrangement",
+            "denombrement__theorem_k_listes_strictement_croissantes",
+            "denombrement__theorem_somme_indicatrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "b) Distinguer les listes qui finissent par 1 des autres. d) Bâtons-boules!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la d), imaginez le nombre $n$ comme une suite de $n$ points. Une p-liste d'entiers non nuls de somme $n$ revient à placer $p-1$ séparateurs dans les $n-1$ espaces disponibles entre ces points."
+            }
+          ],
+          "solution_latex": "{\"a\": \"$s_{n,1}=1$ (toujours la liste $(n)$). $s_{n,n}=1$ (liste $(1,1,\\\\\\\\ldots,1)$). $s_{n,2}=n-1$ (paires $(a,n-a)$ avec $a\\\\\\\\in[[1,n-1]]$).\", \"b\": \"Une $(p+1)$-liste de somme $n+1$ finissant par 1 donne une $p$-liste de somme $n$ (enlever le dernier 1) : $s_{n,p}$ listes. Finissant par $\\\\\\\\ge 2$ correspond \\u00e0 une $p$-liste de somme $n$ (\\u00f4ter 1 du dernier terme) : $s_{n,p}$ listes. Donc $s_{n+1,p+1}=s_{n,p}+s_{n,p+1}$.\", \"c\": \"Par induction : $s_{n,1}=1=\\\\\\\\binom{n-1}{0}$. Pas : $s_{n+1,p+1}=s_{n,p}+s_{n,p+1}=\\\\\\\\binom{n-1}{p-1}+\\\\\\\\binom{n-1}{p}=\\\\\\\\binom{n}{p}$ (Pascal).\", \"d\": \"Interpr\\u00e9ter $n$ comme $n$ points align\\u00e9s. Une $p$-liste de somme $n$ revient \\u00e0 placer $p-1$ s\\u00e9parateurs dans les $n-1$ espaces entre points. Nombre : $\\\\\\\\binom{n-1}{p-1}$.\"}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_027",
+      "title": "Principe des tiroirs sur des sommes",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__theorem_principe_tiroirs",
+        "denombrement__theorem_parties_ensemble_fini",
+        "denombrement__theorem_nombre_parties"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "principe des tiroirs",
+        "sommes",
+        "arithmétique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $x_{1},...,x_{n}\\in\\mathbb{Z}.$ Montrer l'existence d'une partie non vide I de $[[1, n]]$ pour laquelle $\\sum_{i\\in I}x_{i}$ est un multiple de n.",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_principe_tiroirs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser aux entiers $x_{1}+...+x_{k}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer les $n$ sommes partielles $S_k = \\sum_{i=1}^k x_i$. Analyser leurs restes dans la division euclidienne par $n$. Si aucun reste n'est nul, que se passe-t-il d'après le principe des tiroirs ?"
+            }
+          ],
+          "solution_latex": "Considérer les $n$ sommes partielles $S_k=\\\\sum_{i=1}^k x_i$. Si l'une est $\\\\equiv 0\\\\pmod{n}$, on a gagné. Sinon, les restes $S_k\\\\bmod n$ sont dans $\\\\{1,\\\\ldots,n-1\\\\}$. Par tiroirs, deux indices $i<j$ ont même reste, donc $S_j-S_i\\\\equiv 0\\\\pmod{n}$. La partie $I=[[i+1,j]]$ satisfait."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $x_{1},...,x_{n}\\in\\mathbb{R}$ Montrer l'existence d'une partie non vide I de $[[1,n]]$ et d'un entier N pour lesquels $|N-\\sum_{i\\in I}x_{i}|\\le\\frac{1}{n+1}.$",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__theorem_principe_tiroirs",
+            "denombrement__theorem_parties_ensemble_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traiter d'abord le cas où l'un des réels $x_{1}+...+x_{k}$ appartient à $[-\\frac{1}{n+1},\\frac{1}{n+1}[.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Sinon, considérer les parties fractionnaires des sommes partielles $S_k$. Diviser l'intervalle $]0, 1[$ en $n+1$ sous-intervalles et appliquer le principe des tiroirs aux $n$ parties fractionnaires."
+            }
+          ],
+          "solution_latex": "Cas 1 : si une somme partielle $S_k\\\\in[-1/(n+1), 1/(n+1))$, on pose $N=0$ et $I=[[1,k]]$. Cas 2 : sinon, les parties fractionnaires $\\\\{S_k\\\\}\\\\in(0,1)$ se placent dans $n+1$ sous-intervalles de longueur $1/(n+1)$. Avec $n$ parties fractionnaires et $n+1$ tiroirs, deux indices $i<j$ partagent un sous-intervalle, donnant $|S_j-S_i|<1/(n+1)$. Écrire $S_j-S_i=(\\\\lfloor S_j\\\\rfloor-\\\\lfloor S_i\\\\rfloor)+\\\\{S_j\\\\}-\\\\{S_i\\\\}$ et poser $N=\\\\lfloor S_j\\\\rfloor$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_028",
+      "title": "Théorème d'approximation de Dirichlet",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_principe_tiroirs",
+        "denombrement__theorem_principe_bergers",
+        "denombrement__definition_liste_arrangement",
+        "denombrement__definition_coefficients_binomiaux"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "principe des tiroirs",
+        "approximation",
+        "irrationnels"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $x\\in\\mathbb{R}$ et $n\\in\\mathbb{N}^{*}$. Pour tout $k\\in[[0,n]]$, on pose $\\delta_{k}=kx-\\lfloor kx\\rfloor$.\\par En appliquant le principe des tiroirs aux réels $\\delta_{k}$ k décrivant $[[0, n]]$, montrer le théorème d'approximation de Dirichlet suivant : $\\exists(p,q)\\in\\mathbb{Z}\\times\\mathbb{N}^{*}$, $q\\le n$ et $|x-\\frac{p}{q}|<\\frac{1}{nq}$",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_principe_tiroirs",
+            "denombrement__theorem_principe_bergers",
+            "denombrement__definition_liste_arrangement"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les réels $\\delta_k$ appartiennent tous à l'intervalle $[0, 1[$. Divisez cet intervalle en $n$ sous-intervalles de longueur $1/n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a $n+1$ éléments $\\delta_k$ à placer dans $n$ tiroirs (les sous-intervalles). Il existe donc $i < j$ tels que $\\delta_i$ et $\\delta_j$ sont dans le même tiroir. Évaluer $|\\delta_j - \\delta_i|$ et poser $q = j - i$."
+            }
+          ],
+          "solution_latex": "Pour $k\\\\in[[0,n]]$, poser $\\\\delta_k=\\\\{kx\\\\}\\\\in[0,1)$. Placer $n+1$ nombres dans $n$ sous-intervalles de longueur $1/n$. Deux indices $0\\\\le i<j\\\\le n$ ont $|\\\\delta_j-\\\\delta_i|<1/n$. Or $|\\\\delta_j-\\\\delta_i|=|(j-i)x-(\\\\lfloor jx\\\\rfloor-\\\\lfloor ix\\\\rfloor)|$. Poser $q=j-i\\\\in[[1,n]]$ et $p=\\\\lfloor jx\\\\rfloor-\\\\lfloor ix\\\\rfloor\\\\in\\\\mathbb{Z}$. Alors $|qx-p|<1/n$, d'où $|x-p/q|<1/(nq)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $x\\in\\mathbb{R}\\backslash\\mathbb{Q}$\\par a) Montrer qu'il existe une infinité de $(p,q)\\in\\mathbb{Z}\\times\\mathbb{N}^{*}$ pour lesquels $|x-\\frac{p}{q}|<\\frac{1}{q^{2}}$\\par b) Montrer qu'il existe une infinité de $p\\in\\mathbb{Z}$ pour lesquels: $\\exists q\\in\\mathbb{N}^{*}$, $|x-\\frac{p}{q}|<\\frac{1}{q^{2}}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde pour la question a). Supposer qu'il n'y a qu'un nombre fini de fractions $p/q$ solutions."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $x$ est irrationnel, la distance $|x - p_k/q_k|$ pour cet ensemble fini de solutions est strictement positive. Prendre un entier $N$ tel que $1/N$ soit strictement inférieur à toutes ces distances, et appliquer le résultat de la question 1 pour trouver une nouvelle solution."
+            }
+          ],
+          "solution_latex": "Si seulement finiment de solutions, soit $\\\\epsilon$ la plus petite distance $|x-p_k/q_k|$. Prendre $N$ tel que $1/N<\\\\epsilon$ et appliquer Dirichlet pour obtenir $(p',q')$ avec $|x-p'/q'|<1/(Nq')<\\\\epsilon$, contradiction. Donc infinité de solutions."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "denombrement__ex_029",
+      "title": "Théorème de Beatty",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "denombrement__theorem_cardinal_reunion_difference",
+        "denombrement__theorem_somme_indicatrice",
+        "denombrement__theorem_effet_application_cardinal",
+        "denombrement__definition_ensemble_fini_cardinal"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "théorème de Beatty",
+        "parties entières",
+        "irrationnels"
+      ],
+      "statement_latex": "Soient $p,q>1$ deux irrationnels pour lesquels $\\frac{1}{p}+\\frac{1}{q}=1.$\\par On pose: $\\mathcal{S}=\\{\\lfloor kp\\rfloor|k\\in\\mathbb{N}^{*}\\}$ et $\\mathcal{Q}=\\{\\lfloor kq\\rfloor|k\\in\\mathbb{N}^{*}\\}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathcal{S} \\cap \\mathcal{Q} = \\emptyset$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que si $x=\\lfloor ip\\rfloor=\\lfloor jq\\rfloor$ avec $i,j\\in\\mathbb{N}^{*}$ alors $x=i+j$, puis $x=ip=jq.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'encadrement de la partie entière : $x < ip < x+1$ et $x < jq < x+1$ (les inégalités sont strictes car $p$ et $q$ sont irrationnels). Diviser par $p$ et $q$, puis sommer pour obtenir une contradiction."
+            }
+          ],
+          "solution_latex": "Supposer $\\\\lfloor ip\\\\rfloor=\\\\lfloor jq\\\\rfloor=x$ avec $i,j\\\\in\\\\mathbb{N}^*$. Alors $x<ip<x+1$ et $x<jq<x+1$ (strictes, car $p,q$ irrationnels). On obtient des encadrements sur $p+q=pq$. L'analyse détaillée montre que l'égalité $ip=jq=x$ ne peut tenir (sinon $x\\\\in\\\\mathbb{Q}$). Donc $\\\\mathcal{S}\\\\cap\\\\mathcal{Q}=\\\\emptyset$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}^{*}$: $|\\mathcal{S}\\cap[[1,n]]|=\\lfloor\\frac{n+1}{p}\\rfloor$; puis que $|(\\mathcal{S}\\cup\\mathcal{Q})\\cap[[1,n]]|=n.$",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_cardinal_reunion_difference",
+            "denombrement__theorem_somme_indicatrice",
+            "denombrement__definition_ensemble_fini_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire l'appartenance à $[[1, n]]$ par une inégalité sur l'entier $k$ dans $\\lfloor kp \\rfloor \\le n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'inégalité devient $kp < n+1$, soit $k < (n+1)/p$. Compter le nombre de tels entiers $k$. Faire de même pour $q$ et sommer les cardinaux des deux ensembles (qui sont disjoints d'après la Q1)."
+            }
+          ],
+          "solution_latex": "Un élément $\\\\lfloor kp\\\\rfloor\\\\le n$ vérifie $kp<n+1$, soit $k\\\\le\\\\lfloor(n+1)/p\\\\rfloor$. Donc $|\\\\mathcal{S}\\\\cap[[1,n]]|=\\\\lfloor(n+1)/p\\\\rfloor$. De même, $|\\\\mathcal{Q}\\\\cap[[1,n]]|=\\\\lfloor(n+1)/q\\\\rfloor$. Puisque $\\\\mathcal{S}\\\\perp\\\\mathcal{Q}$, le cardinal de l'union est la somme. Or $(n+1)/p+(n+1)/q=n+1$ et $p,q$ irrationnels, donc $\\\\lfloor(n+1)/p\\\\rfloor+\\\\lfloor(n+1)/q\\\\rfloor=n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $\\mathbb{N}^{*}=\\mathcal{S}\\sqcup\\mathcal{Q}$ (théorème de Beatty).",
+          "knowledge_nodes_tested": [
+            "denombrement__theorem_cardinal_reunion_difference",
+            "denombrement__definition_ensemble_fini_cardinal",
+            "denombrement__theorem_effet_application_cardinal"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser le résultat de la question 2) sur l'union disjointe."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour tout entier $n$, il y a exactement $n$ éléments dans $(\\mathcal{S}\\cup\\mathcal{Q})\\cap[[1,n]]$. Puisque c'est un sous-ensemble de $[[1,n]]$ qui contient $n$ éléments, il est nécessairement égal à $[[1,n]]$. Conclure en passant à l'infini."
+            }
+          ],
+          "solution_latex": "Pour tout $n\\\\in\\\\mathbb{N}^*$, $(\\\\mathcal{S}\\\\cup\\\\mathcal{Q})\\\\cap[[1,n]]\\\\subseteq[[1,n]]$ avec cardinal exactement $n$. Donc $(\\\\mathcal{S}\\\\cup\\\\mathcal{Q})\\\\cap[[1,n]]=[[1,n]]$. Par union sur tous $n$, on obtient $\\\\mathcal{S}\\\\sqcup\\\\mathcal{Q}=\\\\mathbb{N}^*$ (théorème de Beatty)."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

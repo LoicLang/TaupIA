@@ -1,0 +1,974 @@
+{
+  "chapter_official_id": "espaces_vectoriels",
+  "chapter_name": "Espaces Vectoriels",
+  "source_document": "Cours - Espaces vectoriels.pdf",
+  "exercises": [],
+  "knowledge_nodes": [
+    {
+      "id": "espaces_vectoriels__definition_espace_vectoriel",
+      "type": "definition",
+      "title": "Définition : Espace vectoriel",
+      "content_latex": "On appelle $\\mathbb{K}$-espace vectoriel tout triplet $(E,+,\\cdot)$ vérifiant les propriétés suivantes :\\par — $(E,+)$ est un groupe commutatif dont l'élément neutre est noté $0_E$ ou $0$ et appelé le vecteur nul de $E$,\\par — $\\cdot$ est une application de $\\mathbb{K} \\times E$ dans $E$. À partir d'un élément $\\lambda$ de $\\mathbb{K}$ et d'un élément $x$ de $E$, $\\cdot$ fournit un élément de $E$ noté $\\lambda \\cdot x$ ou plus simplement $\\lambda x$.\\par Par définition, cette application doit satisfaire les propriétés suivantes :\\par — pour tout $x \\in E$ : $1 \\cdot x = x$,\\par — pour tous $x, y \\in E$ et $\\lambda \\in \\mathbb{K}$ : $\\lambda \\cdot (x+y) = (\\lambda \\cdot x) + (\\lambda \\cdot y)$,\\par — pour tous $x \\in E$ et $\\lambda, \\mu \\in \\mathbb{K}$ : $(\\lambda+\\mu) \\cdot x = (\\lambda \\cdot x) + (\\mu \\cdot x)$,\\par — pour tous $x \\in E$ et $\\lambda, \\mu \\in \\mathbb{K}$ : $\\lambda \\cdot (\\mu \\cdot x) = (\\lambda\\mu) \\cdot x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_regles_calcul_ev",
+      "type": "theorem",
+      "title": "Théorème : Règles de calcul dans un espace vectoriel",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel.\\par (i) Pour tous $x \\in E$ et $\\lambda \\in \\mathbb{K}$ : $\\lambda \\cdot x = 0_E \\Leftrightarrow \\lambda = 0 \\text{ ou } x = 0_E$.\\par (ii) Pour tout $x \\in E$ : $-x = (-1) \\cdot x$, où $-x$ est l'opposé de $x$ dans $E$ et $-1$ l'opposé de $1$ dans $\\mathbb{K}$.",
+      "proof_latex": "(i) Trois étapes. Soient $x \\in E$ et $\\lambda \\in \\mathbb{K}$.\\par D'abord : $0 \\cdot x = (0+0) \\cdot x = 0 \\cdot x + 0 \\cdot x$, donc $0 \\cdot x = 0_E$ après simplification dans le groupe $(E,+)$.\\par Ensuite : $\\lambda \\cdot 0_E = \\lambda \\cdot (0_E+0_E) = \\lambda \\cdot 0_E + \\lambda \\cdot 0_E$, donc $\\lambda \\cdot 0_E = 0_E$ après simplification.\\par Enfin, si $\\lambda \\cdot x = 0_E$ avec $\\lambda \\neq 0$, alors $x = 1 \\cdot x = (\\frac{1}{\\lambda} \\times \\lambda) \\cdot x = \\frac{1}{\\lambda} \\cdot (\\lambda \\cdot x) = \\frac{1}{\\lambda} \\cdot 0_E = 0_E$.\\par (ii) Pour tout $x \\in E$ : $x + (-1) \\cdot x = 1 \\cdot x + (-1) \\cdot x = (1-1) \\cdot x = 0 \\cdot x = 0_E$, donc $-x = (-1) \\cdot x$."
+    },
+    {
+      "id": "espaces_vectoriels__example_corps_ev",
+      "type": "example",
+      "title": "Exemple : Corps de base",
+      "content_latex": "$(\\mathbb{K},+,\\times)$ est un $\\mathbb{K}$-espace vectoriel.",
+      "proof_latex": "Simple conséquence de la définition des corps. La multiplication $\\times$ est une loi interne sur $\\mathbb{K}$, mais on peut aussi la voir comme une loi externe."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_espace_vectoriel_produit",
+      "type": "theorem",
+      "title": "Théorème : Espace vectoriel produit",
+      "content_latex": "Soient $E_1, \\dots, E_n$ des $\\mathbb{K}$-espaces vectoriels. Le produit $E_1 \\times \\dots \\times E_n$ est un groupe commutatif pour la loi $+$ définie pour tous $(x_1, \\dots, x_n), (y_1, \\dots, y_n) \\in E_1 \\times \\dots \\times E_n$ par :\\par $(x_1, \\dots, x_n) + (y_1, \\dots, y_n) = (x_1+y_1, \\dots, x_n+y_n)$.\\par On le munit d'une loi externe en posant $\\lambda \\cdot (x_1, \\dots, x_n) = (\\lambda \\cdot x_1, \\dots, \\lambda \\cdot x_n)$ pour tous $\\lambda \\in \\mathbb{K}$ et $(x_1, \\dots, x_n) \\in E_1 \\times \\dots \\times E_n$.\\par Le triplet $(E_1 \\times \\dots \\times E_n, +, \\cdot)$ est alors un $\\mathbb{K}$-espace vectoriel. Ici : $0_{E_1 \\times \\dots \\times E_n} = (0_{E_1}, \\dots, 0_{E_n})$.",
+      "proof_latex": "Vérifions seulement deux axiomes sur les quatre de la définition des espaces vectoriels. Pour tous $\\lambda \\in \\mathbb{K}$ et $(x_1, \\dots, x_n), (y_1, \\dots, y_n) \\in E_1 \\times \\dots \\times E_n$ : $1 \\cdot (x_1, \\dots, x_n) = (1 \\cdot x_1, \\dots, 1 \\cdot x_n) = (x_1, \\dots, x_n)$ et :\\par $\\lambda \\cdot ((x_1, \\dots, x_n) + (y_1, \\dots, y_n)) = \\lambda \\cdot (x_1+y_1, \\dots, x_n+y_n) = (\\lambda \\cdot (x_1+y_1), \\dots, \\lambda \\cdot (x_n+y_n))$\\par $= (\\lambda \\cdot x_1 + \\lambda \\cdot y_1, \\dots, \\lambda \\cdot x_n + \\lambda \\cdot y_n) = (\\lambda \\cdot x_1, \\dots, \\lambda \\cdot x_n) + (\\lambda \\cdot y_1, \\dots, \\lambda \\cdot y_n)$\\par $= \\lambda \\cdot (x_1, \\dots, x_n) + \\lambda \\cdot (y_1, \\dots, y_n)$."
+    },
+    {
+      "id": "espaces_vectoriels__example_familles_scalaires",
+      "type": "example",
+      "title": "Exemple : Familles de scalaires",
+      "content_latex": "En particulier, $\\mathbb{K}^n = \\mathbb{K} \\times \\dots \\times \\mathbb{K}$ est un $\\mathbb{K}$-espace vectoriel pour tout $n \\in \\mathbb{N}^*$.\\par Par exemple : $(1,4,-3) + 2 \\cdot (0,2,5) = (1,8,7)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_matrices",
+      "type": "example",
+      "title": "Exemple : Matrices",
+      "content_latex": "Pour tous $n,p \\in \\mathbb{N}^*$, l'ensemble $\\mathcal{M}_{n,p}(\\mathbb{K})$ est un $\\mathbb{K}$-espace vectoriel pour ses lois usuelles d'addition et de multiplication par un scalaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_polynomes",
+      "type": "example",
+      "title": "Exemple : Polynômes",
+      "content_latex": "$\\mathbb{K}[X]$ est un $\\mathbb{K}$-espace vectoriel pour ses lois usuelles d'addition et de multiplication par un scalaire.",
+      "proof_latex": "$(\\mathbb{K}[X],+)$ est déjà un groupe commutatif et les autres axiomes se vérifient aisément."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_ev_applications",
+      "type": "theorem",
+      "title": "Théorème : Espaces vectoriels d'applications",
+      "content_latex": "Soient $X$ un ensemble non vide et $E$ un $\\mathbb{K}$-espace vectoriel.\\par L'ensemble $E^X$ est un groupe commutatif pour la loi $+$ définie pour tous $f,g \\in E^X$ par : $\\forall x \\in X, (f+g)(x) = f(x) + g(x)$.\\par On le munit d'une loi externe en posant pour tous $\\lambda \\in \\mathbb{K}$ : $\\forall x \\in X, (\\lambda \\cdot f)(x) = \\lambda \\cdot (f(x))$.\\par Le triplet $(E^X, +, \\cdot)$ est alors un $\\mathbb{K}$-espace vectoriel. Ici, $0_{E^X}$ est l'application nulle $x \\mapsto 0_E$ de $X$ dans $E$.",
+      "proof_latex": "Vérifions seulement deux axiomes sur les quatre. Soient $\\lambda \\in \\mathbb{K}$ et $f,g \\in E^X$.\\par Alors $1 \\cdot f = f$ car pour tout $x \\in X$ : $(1 \\cdot f)(x) = 1 \\cdot (f(x)) = f(x)$ et $\\lambda \\cdot (f+g) = \\lambda \\cdot f + \\lambda \\cdot g$ car pour tout $x \\in X$ :\\par $(\\lambda \\cdot (f+g))(x) = \\lambda \\cdot ((f+g)(x)) = \\lambda \\cdot (f(x)+g(x)) = \\lambda \\cdot (f(x)) + \\lambda \\cdot (g(x)) = (\\lambda \\cdot f)(x) + (\\lambda \\cdot g)(x)$."
+    },
+    {
+      "id": "espaces_vectoriels__example_fonctions_suites",
+      "type": "example",
+      "title": "Exemple : Fonctions et suites",
+      "content_latex": "Ici, $\\mathbb{K} \\in \\{\\mathbb{R}, \\mathbb{C}\\}$.\\par • Pour tout intervalle $I$, l'ensemble $\\mathbb{K}^I$ des fonctions de $I$ dans $\\mathbb{K}$ est un $\\mathbb{K}$-espace vectoriel pour l'addition des fonctions et leur multiplication par un élément de $\\mathbb{K}$.\\par • L'ensemble $\\mathbb{K}^{\\mathbb{N}}$ des suites à valeurs dans $\\mathbb{K}$ est un $\\mathbb{K}$-espace vectoriel pour l'addition des suites et leur multiplication par un élément de $\\mathbb{K}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_sous_corps",
+      "type": "example",
+      "title": "Exemple : Sous-corps de base",
+      "content_latex": "Tout $\\mathbb{C}$-espace vectoriel est un $\\mathbb{R}$-espace vectoriel. Plus généralement, tout $\\mathbb{L}$-espace vectoriel est un $\\mathbb{K}$-espace vectoriel dès lors que $\\mathbb{K}$ est un sous-corps d'un autre corps $\\mathbb{L}$. En particulier, $\\mathbb{L}$ étant un $\\mathbb{L}$-espace vectoriel, on peut aussi le voir comme un $\\mathbb{K}$-espace vectoriel.",
+      "proof_latex": "Dans un $\\mathbb{L}$-espace vectoriel $E$, $\\lambda \\cdot x$ est défini pour tous $\\lambda \\in \\mathbb{L}$ et $x \\in E$ donc en particulier pour tout $\\lambda \\in \\mathbb{K}$. En restreignant le corps de base, on peut ainsi considérer $E$ comme un $\\mathbb{K}$-espace vectoriel."
+    },
+    {
+      "id": "espaces_vectoriels__definition_algebre",
+      "type": "definition",
+      "title": "Définition : Algèbre",
+      "content_latex": "On appelle $\\mathbb{K}$-algèbre tout quadruplet $(A,+,\\cdot,\\times)$ vérifiant les propriétés suivantes :\\par — $(A,+,\\cdot)$ est un $\\mathbb{K}$-espace vectoriel,\\par — $(A,+,\\times)$ est un anneau,\\par — pour tous $x,y \\in A$ et $\\lambda \\in \\mathbb{K}$ : $(\\lambda \\cdot x) \\times y = x \\times (\\lambda \\cdot y) = \\lambda \\cdot (x \\times y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_algebres_importantes",
+      "type": "example",
+      "title": "Exemple : Quelques $\\mathbb{K}$-algèbres",
+      "content_latex": "Nous connaissons déjà quelques $\\mathbb{K}$-algèbres importantes : $\\mathbb{K}$ bien sûr, mais aussi $\\mathcal{M}_n(\\mathbb{K})$ et $\\mathbb{K}[X]$, ou encore $\\mathbb{K}^X$ pour tout ensemble non vide $X$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_combinaison_lineaire_finie",
+      "type": "definition",
+      "title": "Définition : Combinaisons linéaires d'un nombre fini de vecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $x_1, \\dots, x_n \\in E$. On appelle combinaison linéaire de $x_1, \\dots, x_n$ tout vecteur de $E$ de la forme $\\sum_{k=1}^n \\lambda_k x_k = \\lambda_1 x_1 + \\dots + \\lambda_n x_n$ pour certains $\\lambda_1, \\dots, \\lambda_n \\in \\mathbb{K}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__warning_identification_combinaison_lineaire",
+      "type": "warning",
+      "title": "Attention : Péché d'identification",
+      "content_latex": "En général : $\\sum_{k=1}^n \\lambda_k x_k = \\sum_{k=1}^n \\mu_k x_k \\not\\Rightarrow \\text{pour tout } k \\in [|1,n|], \\lambda_k = \\mu_k$.\\par Par exemple : $(1,1) + 2(0,1) + 2(1,0) = (3,3) = 2(1,1) + (0,1) + (1,0)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_combinaison_r2",
+      "type": "example",
+      "title": "Exemple : Combinaison linéaire dans $\\mathbb{R}^2$",
+      "content_latex": "Dans $\\mathbb{R}^2$, $(2,7)$ est combinaison linéaire des vecteurs $(5,-2)$ et $(1,-3)$ : $(2,7) = (5,-2) - 3(1,-3)$.",
+      "proof_latex": "C'est l'existence de solutions qui compte.\\par $\\exists \\lambda, \\mu \\in \\mathbb{R}, (2,7) = \\lambda(5,-2) + \\mu(1,-3) \\Leftrightarrow \\exists \\lambda, \\mu \\in \\mathbb{R}, \\begin{cases} 5\\lambda + \\mu = 2 \\\\ -2\\lambda - 3\\mu = 7 \\end{cases}$.\\par Nous sommes ainsi ramenés à la résolution d'un système linéaire. Or pour tout $(\\lambda, \\mu) \\in \\mathbb{R}^2$ :\\par $\\begin{cases} 5\\lambda + \\mu = 2 \\\\ -2\\lambda - 3\\mu = 7 \\end{cases} \\Leftrightarrow \\begin{cases} 5\\lambda + \\mu = 2 \\\\ 13\\lambda = 13 \\quad (L_2 \\leftarrow L_2 + 3L_1) \\end{cases}$.\\par Le système étudié possède des solutions, c'est exactement le résultat voulu."
+    },
+    {
+      "id": "espaces_vectoriels__example_combinaison_m2",
+      "type": "example",
+      "title": "Exemple : Combinaison linéaire dans $\\mathcal{M}_2(\\mathbb{R})$",
+      "content_latex": "Dans $\\mathcal{M}_2(\\mathbb{R})$, $\\begin{pmatrix} -1 & 2 \\\\ 2 & 0 \\end{pmatrix}$ n'est pas combinaison linéaire des vecteurs $\\begin{pmatrix} 1 & 1 \\\\ 0 & 0 \\end{pmatrix}$, $\\begin{pmatrix} -2 & 1 \\\\ 3 & 2 \\end{pmatrix}$ et $\\begin{pmatrix} 1 & 0 \\\\ -1 & 1 \\end{pmatrix}$.",
+      "proof_latex": "C'est l'existence de solutions qui compte. $\\exists x,y,z \\in \\mathbb{R}, \\begin{pmatrix} -1 & 2 \\\\ 2 & 0 \\end{pmatrix} = x\\begin{pmatrix} 1 & 1 \\\\ 0 & 0 \\end{pmatrix} + y\\begin{pmatrix} -2 & 1 \\\\ 3 & 2 \\end{pmatrix} + z\\begin{pmatrix} 1 & 0 \\\\ -1 & 1 \\end{pmatrix}$.\\par Résolvons ce système. Pour tout $(x,y,z) \\in \\mathbb{R}^3$ :\\par $\\begin{cases} x - 2y + z = -1 \\\\ x + y = 2 \\\\ 3y - z = 2 \\\\ 2y + z = 0 \\end{cases} \\Leftrightarrow \\dots \\Leftrightarrow \\begin{cases} x - 2y + z = -1 \\\\ 3y - z = 3 \\\\ 2y = 1 \\\\ 2y + z = 0 \\end{cases}$.\\par Ce dernier système n'a pas de solution d'où le résultat."
+    },
+    {
+      "id": "espaces_vectoriels__example_combinaison_polynome",
+      "type": "example",
+      "title": "Exemple : Combinaison linéaire de polynômes",
+      "content_latex": "Tout polynôme de $\\mathbb{K}[X]$ de degré au plus $n \\in \\mathbb{N}$ est combinaison linéaire des polynômes $1, X, X^2, \\dots, X^n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_famille_presque_nulle",
+      "type": "definition",
+      "title": "Définition : Famille presque nulle de scalaires",
+      "content_latex": "On dit qu'une famille d'éléments de $\\mathbb{K}$ indexée par $I$ est presque nulle si tous ses éléments sont nuls sauf un nombre fini d'entre eux.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_combinaison_lineaire_infinie",
+      "type": "definition",
+      "title": "Définition : Combinaisons linéaires d'un nombre quelconque de vecteurs",
+      "content_latex": "Soient $E$ un espace vectoriel et $(x_i)_{i \\in I}$ une famille de vecteurs de $E$. On appelle combinaison linéaire de $(x_i)_{i \\in I}$ tout vecteur de $E$ de la forme $\\sum_{i \\in I} \\lambda_i x_i$ où $(\\lambda_i)_{i \\in I}$ est une famille presque nulle d'éléments de $\\mathbb{K}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_combinaison_infinie_kx",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{K}[X]$ et sommes infinies",
+      "content_latex": "$\\mathbb{K}[X]$ est l'ensemble des combinaisons linéaires de la famille $(X^k)_{k \\in \\mathbb{N}}$. Rappelons que la notation des polynômes $\\sum_{k=0}^{+\\infty} a_k X^k$ cache toujours une somme finie.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_sous_espace_vectoriel",
+      "type": "definition",
+      "title": "Définition : Sous-espace vectoriel",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ une partie de $E$ stable par addition et multiplication par un scalaire. On dit que $F$ est un sous-espace vectoriel de $E$ si $F$ est un $\\mathbb{K}$-espace vectoriel pour les lois de $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_sev_triviaux",
+      "type": "example",
+      "title": "Exemple : Sous-espaces triviaux",
+      "content_latex": "Si $E$ est un $\\mathbb{K}$-espace vectoriel, $\\{0_E\\}$ et $E$ sont deux sous-espaces vectoriels de $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_non_sev_cercle",
+      "type": "example",
+      "title": "Exemple : Partie non stable",
+      "content_latex": "L'ensemble $F=\\{(x,y) \\in \\mathbb{R}^2 \\mid x^2+x+y^2=0\\}$ n'est pas un sous-espace vectoriel de $\\mathbb{R}^2$ car il n'est pas stable par multiplication par un scalaire.",
+      "proof_latex": "En effet, $(-1,0) \\in F$ mais $(-2,0) \\notin F$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisation_sev",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des sous-espaces vectoriels",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ une partie de $E$. Les assertions suivantes sont équivalentes :\\par (i) $F$ est un sous-espace vectoriel de $E$.\\par (ii) $0_E \\in F$ et $F$ est stable par combinaison linéaire : $\\forall x,y \\in F, \\forall \\lambda \\in \\mathbb{K}, \\lambda x+y \\in F$.",
+      "proof_latex": "$(i) \\Rightarrow (ii)$ Si $F$ est un sous-espace vectoriel de $E$, alors $0_E = 0_F \\in F$ et pour tous $x,y \\in F$ et $\\lambda \\in \\mathbb{K}$, $\\lambda x \\in F$ car $F$ est stable par multiplication par un scalaire, donc $\\lambda x+y \\in F$ car $F$ est stable par addition.\\par $(ii) \\Rightarrow (i)$ Si l'assertion (ii) est vraie, $F$ est stable par différence pour $\\lambda=-1$, donc est un sous-groupe additif de $E$. Pour les autres axiomes de la définition des espaces vectoriels, qui peut le plus peut le moins !"
+    },
+    {
+      "id": "espaces_vectoriels__theorem_solutions_systeme_homogene",
+      "type": "theorem",
+      "title": "Théorème : Ensemble des solutions d'un système linéaire homogène",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{m,p}(\\mathbb{K})$. L'ensemble des solutions du système linéaire homogène $AX=0$ d'inconnue $X \\in \\mathbb{K}^p$ est un sous-espace vectoriel de $\\mathbb{K}^p$. En particulier, toute droite de $\\mathbb{R}^2$ passant par $(0,0)$ est un sous-espace vectoriel de $\\mathbb{R}^2$, et toute droite et tout plan de $\\mathbb{R}^3$ passant par $(0,0,0)$ sont des sous-espaces vectoriels de $\\mathbb{R}^3$.",
+      "proof_latex": "Posons $S=\\{X \\in \\mathbb{K}^p \\mid AX=0\\}$, qui est une partie de $\\mathbb{K}^p$. Pour commencer, $0 \\in S$ car $A \\times 0 = 0$. Ensuite, $S$ est stable par combinaison linéaire car pour tous $X, X' \\in S$ et $\\lambda \\in \\mathbb{K}$ : $A(\\lambda X+X') = \\lambda AX + AX' = \\lambda \\times 0 + 0 = 0$, donc $\\lambda X+X' \\in S$."
+    },
+    {
+      "id": "espaces_vectoriels__example_sev_polynomes",
+      "type": "example",
+      "title": "Exemple : Polynômes de degré majoré",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$, l'ensemble $\\mathbb{K}_n[X]$ des polynômes de degré AU PLUS $n$ est un sous-espace vectoriel de $\\mathbb{K}[X]$.",
+      "proof_latex": "Pour commencer, $\\mathbb{K}_n[X] \\subset \\mathbb{K}[X]$ et $0 \\in \\mathbb{K}_n[X]$ car $\\deg(0) = -\\infty \\le n$. Ensuite, $\\mathbb{K}_n[X]$ est stable par combinaison linéaire car pour tous $P,Q \\in \\mathbb{K}_n[X]$ et $\\lambda \\in \\mathbb{K}$ : $\\deg(\\lambda P+Q) \\le \\max(\\deg(P), \\deg(Q)) \\le n$, donc $\\lambda P+Q \\in \\mathbb{K}_n[X]$."
+    },
+    {
+      "id": "espaces_vectoriels__example_sev_fonctions",
+      "type": "example",
+      "title": "Exemple : Fonctions s'annulant en 0",
+      "content_latex": "L'ensemble $F=\\{f \\in \\mathbb{R}^{\\mathbb{R}} \\mid f(0)=0\\}$ est quant à lui un sous-espace vectoriel de $\\mathbb{R}^{\\mathbb{R}}$.",
+      "proof_latex": "Pour commencer, $F \\subset \\mathbb{R}^{\\mathbb{R}}$ et la fonction $x \\mapsto 0$ envoie $0$ sur $0$, donc appartient à $F$. Ensuite, $F$ est stable par combinaison linéaire car pour tous $f,g \\in F$ et $\\lambda \\in \\mathbb{R}$ : $(\\lambda f+g)(0) = \\lambda f(0) + g(0) = 0+0 = 0$, donc $\\lambda f+g \\in F$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_intersection_sev",
+      "type": "theorem",
+      "title": "Théorème : Intersection de sous-espaces vectoriels",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel. Toute intersection de sous-espaces vectoriels de $E$ est un sous-espace vectoriel de $E$.",
+      "proof_latex": "Soit $(F_i)_{i \\in I}$ une famille de sous-espaces vectoriels de $E$. Montrons que $F = \\bigcap_{i \\in I} F_i$ est un sous-espace vectoriel de $E$. D'abord, $F \\subset E$ et $0_E \\in F$ car $0_E \\in F_i$ pour tout $i \\in I$, $F_i$ étant un sous-espace vectoriel de $E$. Pour la stabilité de $F$ par combinaison linéaire, soient $x,y \\in F$ et $\\lambda \\in \\mathbb{K}$. Pour tout $i \\in I$, $F_i$ contient $x$ et $y$, donc $\\lambda x+y$ en tant que sous-espace vectoriel de $E$. Par conséquent, $\\lambda x+y \\in F$."
+    },
+    {
+      "id": "espaces_vectoriels__warning_reunion_sev",
+      "type": "warning",
+      "title": "Attention : Réunion de sous-espaces",
+      "content_latex": "La réunion de deux sous-espaces vectoriels n'est pas un sous-espace vectoriel en général - pourquoi diable serait-elle stable par addition ?",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_sous_algebre",
+      "type": "definition",
+      "title": "Définition / Théorème : Sous-algèbre",
+      "content_latex": "Soient $A$ une $\\mathbb{K}$-algèbre et $B$ une partie de $A$ stable par addition, multiplication par un scalaire et produit. On dit que $B$ est une sous-algèbre de $A$ si $B$ est une $\\mathbb{K}$-algèbre pour les lois de $A$.\\par Caractérisation des sous-algèbres : Les assertions suivantes sont équivalentes :\\par (i) $B$ est une sous-algèbre de $A$.\\par (ii) $1_A \\in B$, $B$ est stable par combinaison linéaire ($\\forall x,y \\in B, \\forall \\lambda \\in \\mathbb{K}, \\lambda x+y \\in B$), et $B$ est stable par produit ($\\forall x,y \\in B, xy \\in B$).",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_sous_algebre_matrices",
+      "type": "example",
+      "title": "Exemple : Matrices triangulaires supérieures",
+      "content_latex": "L'ensemble des matrices triangulaires supérieures de taille $n$ à coefficients dans $\\mathbb{K}$ est une sous-algèbre de $\\mathcal{M}_n(\\mathbb{K})$.",
+      "proof_latex": "Cet ensemble est inclus dans $\\mathcal{M}_n(\\mathbb{K})$, il contient $I_n$ et toute combinaison linéaire et tout produit de matrices triangulaires supérieures sont encore des matrices triangulaires supérieures."
+    },
+    {
+      "id": "espaces_vectoriels__example_sous_algebre_fonctions",
+      "type": "example",
+      "title": "Exemple : Fonctions $\\mathcal{C}^k$ et suites convergentes",
+      "content_latex": "Ici, $\\mathbb{K} \\in \\{\\mathbb{R},\\mathbb{C}\\}$.\\par • Pour tout intervalle $I$ et tout $k \\in \\mathbb{N} \\cup \\{\\infty\\}$, $\\mathcal{C}^k(I,\\mathbb{K})$ est une sous-algèbre de $\\mathbb{K}^I$.\\par • L'ensemble des suites convergentes à valeurs dans $\\mathbb{K}$ est une sous-algèbre de $\\mathbb{K}^{\\mathbb{N}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_sous_espace_affine",
+      "type": "definition",
+      "title": "Définition : Sous-espace affine et direction",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel. On appelle sous-espace affine de $E$ toute partie de $E$ de la forme $\\mathcal{F} = x + F = \\{f+x \\mid f \\in F\\}$ où $F$ est un sous-espace vectoriel de $E$ et $x$ un vecteur de $E$. Le sous-espace vectoriel $F$ associé au sous-espace affine est unique. On l'appelle la direction de $\\mathcal{F}$ et ses éléments sont appelés les vecteurs directeurs de $\\mathcal{F}$.",
+      "proof_latex": "Montrons l'unicité de la direction de $\\mathcal{F}$. Soient $F$ et $F'$ deux sous-espaces vectoriels de $E$ et $x, x' \\in E$ pour lesquels $\\mathcal{F} = x+F = x'+F'$. Pour montrer que $F=F'$, il nous suffit par symétrie de prouver l'inclusion $F \\subset F'$. Soit $f \\in F$. Alors $x = x+0_E \\in x+F = x'+F'$ et $x+f \\in x+F$, donc $x = x'+f'_1$ et $x+f = x'+f'_2$ pour certains $f'_1, f'_2 \\in F'$, donc $f = f'_2 - f'_1 \\in F'$ par différence."
+    },
+    {
+      "id": "espaces_vectoriels__warning_sev_est_affine",
+      "type": "warning",
+      "title": "Attention : Sous-espace vectoriel vs affine",
+      "content_latex": "Tout sous-espace vectoriel $F$ de $E$ est un sous-espace affine de $E$ car $F = 0_E + F$, mais la réciproque est fausse car un sous-espace affine ne contient pas le vecteur nul en général.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_solutions_systeme_lineaire_affine",
+      "type": "theorem",
+      "title": "Théorème : Ensemble des solutions d'un système linéaire",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ et $B \\in \\mathbb{K}^n$. Si le système linéaire $AX=B$ d'inconnue $X \\in \\mathbb{K}^p$ est compatible, l'ensemble de ses solutions est un sous-espace affine de $\\mathbb{K}^p$ et sa direction n'est autre que l'ensemble des solutions du système linéaire homogène associé. En particulier, toute droite de $\\mathbb{R}^2$ ou $\\mathbb{R}^3$ et tout plan de $\\mathbb{R}^3$ en sont des sous-espaces affines.",
+      "proof_latex": "Posons $\\mathcal{S} = \\{X \\in \\mathbb{K}^p \\mid AX=B\\}$ et $S = \\{X \\in \\mathbb{K}^p \\mid AX=0\\}$. Le système étudié étant compatible, nous pouvons nous en donner une solution particulière $X_{\\text{part}}$ et nous savons qu'alors $\\mathcal{S} = X_{\\text{part}} + S$. Nous avons déjà montré par ailleurs que $S$ est un sous-espace vectoriel de $\\mathbb{K}^p$."
+    },
+    {
+      "id": "espaces_vectoriels__example_affine_droite_r3",
+      "type": "example",
+      "title": "Exemple : Droite affine dans $\\mathbb{R}^3$",
+      "content_latex": "La droite de $\\mathbb{R}^3$ d'équation $\\begin{cases} x+y=2 \\\\ x-y+z=1 \\end{cases}$ est un sous-espace affine de direction la droite d'équation $\\begin{cases} x+y=0 \\\\ x-y+z=0 \\end{cases}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_affine_polynome",
+      "type": "example",
+      "title": "Exemple : Sous-espace affine dans $\\mathbb{R}[X]$",
+      "content_latex": "$\\mathcal{E} = \\{P \\in \\mathbb{R}[X] \\mid XP' + P = 2X\\}$ est un sous-espace affine de $\\mathbb{R}[X]$ de direction $E = \\{P \\in \\mathbb{R}[X] \\mid XP' + P = 0\\}$.",
+      "proof_latex": "Il n'est pas dur de vérifier que $E$ est un sous-espace vectoriel de $\\mathbb{R}[X]$. Remarquons par ailleurs que $X \\in \\mathcal{E}$ (solution particulière !) Ainsi, pour tout $P \\in \\mathbb{R}[X]$ : $P \\in \\mathcal{E} \\Leftrightarrow XP'+P=2X \\Leftrightarrow X(P-X)'+(P-X)=0 \\Leftrightarrow P-X \\in E \\Leftrightarrow P \\in X+E$. Conclusion : $\\mathcal{E} = X+E$, ce qui confirme que $\\mathcal{E}$ est un sous-espace affine de $\\mathbb{R}[X]$ de direction $E$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisation_affine_direction_point",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des sous-espaces affines",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $\\mathcal{F}$ un sous-espace affine de $E$ de direction $F$. Pour tout $A \\in \\mathcal{F}$ : $\\mathcal{F} = A+F$. Ainsi, deux sous-espaces affines sont égaux si et seulement s'ils ont la même direction et un point en commun.",
+      "proof_latex": "Par définition, $\\mathcal{F} = x+F$ pour un certain $x \\in E$, donc $A = x+f$ pour un certain $f \\in F$, puis $\\mathcal{F} = x+F = (A-f)+F = A+(F-f)$. Or $F$ est un sous-espace vectoriel de $E$, donc $F-f = F$ car l'application $x \\mapsto x-f$ est bijective de $F$ sur $F$ de réciproque $x \\mapsto x+f$, donc $\\mathcal{F} = A+(F-f) = A+F$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_intersection_sous_espaces_affines",
+      "type": "theorem",
+      "title": "Théorème : Intersection de sous-espaces affines",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $(\\mathcal{F}_i)_{i \\in I}$ une famille de sous-espaces affines de $E$. Pour tout $i \\in I$, on note $F_i$ la direction de $\\mathcal{F}_i$. On dit que les $\\mathcal{F}_i$, $i$ décrivant $I$, sont concourants ou sécants si $\\bigcap_{i \\in I} \\mathcal{F}_i \\neq \\emptyset$. Le cas échéant, $\\bigcap_{i \\in I} \\mathcal{F}_i$ est un sous-espace affine de $E$ de direction $\\bigcap_{i \\in I} F_i$.",
+      "proof_latex": "Posons $\\mathcal{F} = \\bigcap_{i \\in I} \\mathcal{F}_i$ et $F = \\bigcap_{i \\in I} F_i$ et supposons $\\mathcal{F} \\neq \\emptyset$. Un point $A$ de $\\mathcal{F}$ étant donné, $\\mathcal{F}_i = A+F_i$ pour tout $i \\in I$. Il nous suffit dès lors de montrer que $\\mathcal{F} = A+F$. \\par • Montrons que $\\mathcal{F} \\subset A+F$. Soit $M \\in \\mathcal{F}$. Pour tout $i \\in I$, $M \\in \\mathcal{F}_i$ donc $M = A+f_i$ pour un certain $f_i \\in F_i$. Ainsi, les $f_i$ sont tous égaux, donc éléments de $\\bigcap_{i \\in I} F_i = F$, donc $M \\in A+F$.\\par • Inversement, $F \\subset F_i$ pour tout $i \\in I$, donc $A+F \\subset A+F_i = \\mathcal{F}_i$, donc $A+F \\subset \\mathcal{F}$."
+    },
+    {
+      "id": "espaces_vectoriels__warning_intersection_affine_vide",
+      "type": "warning",
+      "title": "Attention : Intersection vide",
+      "content_latex": "Alors qu'une intersection de sous-espaces vectoriels contient toujours le vecteur nul, une intersection de sous-espaces affines peut vraiment être vide. Pensez au cas de deux droites parallèles non confondues.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_sev_engendre",
+      "type": "definition",
+      "title": "Définition : Sous-espace vectoriel engendré par une partie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $X$ une partie de $E$.\\par (i) L'intersection de tous les sous-espaces vectoriels de $E$ contenant $X$ est appelée le sous-espace vectoriel (de $E$) engendré par $X$ et notée $\\text{Vect}(X)$. À ce titre, $\\text{Vect}(X)$ est le plus petit sous-espace vectoriel de $E$ contenant $X$. En particulier, tout sous-espace vectoriel de $E$ qui contient $X$ contient aussi $\\text{Vect}(X)$.\\par (ii) Si $X = \\{x_i \\mid i \\in I\\}$, $\\text{Vect}(X)$ est aussi l'ensemble des combinaisons linéaires de $(x_i)_{i \\in I}$ et noté $\\text{Vect}(x_i)_{i \\in I}$.",
+      "proof_latex": "(i) En tant qu'intersection de sous-espaces vectoriels de $E$ contenant $X$, $\\text{Vect}(X)$ est lui-même un sous-espace vectoriel de $E$ contenant $X$, et c'est le plus petit puisqu'il est inclus dans tous.\\par (ii) Notons $V$ l'ensemble des combinaisons linéaires de $(x_i)_{i \\in I}$ et montrons que $V = \\text{Vect}(X)$. Or $\\text{Vect}(X)$ contient $X$ et il est stable par combinaison linéaire en tant que sous-espace vectoriel de $E$, donc $\\text{Vect}(X)$ contient toute combinaison linéaire de $(x_i)_{i \\in I}$, autrement dit $V \\subset \\text{Vect}(X)$. Pour l'inclusion réciproque, il nous suffit d'après (i) de montrer que $V$ est un sous-espace vectoriel de $E$ contenant $X$. D'abord, $V \\subset E$ et $V$ contient à la fois $0_E$ et $X$ car $0_E = \\sum_{i \\in I} 0 \\cdot x_i$ et $x_j = 1 \\cdot x_j + \\sum_{i \\neq j} 0 \\cdot x_i$ pour tout $j \\in I$. Ensuite, pour la stabilité par combinaison linéaire, soient $v, w \\in V$ et $\\alpha \\in \\mathbb{K}$, disons $v = \\sum_{i \\in I} \\lambda_i x_i$ et $w = \\sum_{i \\in I} \\mu_i x_i$ pour certaines familles presque nulles $(\\lambda_i)_{i \\in I}$ et $(\\mu_i)_{i \\in I}$ d'éléments de $\\mathbb{K}$. La famille $(\\alpha\\lambda_i + \\mu_i)_{i \\in I}$ est aussi presque nulle et $\\alpha v + w = \\sum_{i \\in I} (\\alpha\\lambda_i + \\mu_i)x_i$, donc $\\alpha v + w \\in \\text{Vect}(X)$."
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_vide",
+      "type": "example",
+      "title": "Exemple : $\\text{Vect}(\\emptyset)$",
+      "content_latex": "Pour tout $\\mathbb{K}$-espace vectoriel $E$, par convention des sommes vides : $\\text{Vect}(\\emptyset) = \\{0_E\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_droite_r2",
+      "type": "example",
+      "title": "Exemple : Droite vectorielle dans $\\mathbb{R}^2$",
+      "content_latex": "$\\text{Vect}((1,2))$ est la droite de $\\mathbb{R}^2$ passant par $(0,0)$ dirigée par $(1, 2)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_polynomes",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{K}[X]$ engendré par les monômes",
+      "content_latex": "$\\mathbb{K}[X] = \\text{Vect}(X^k)_{k \\in \\mathbb{N}}$ et $\\mathbb{K}_n[X] = \\text{Vect}(1,X,\\dots,X^n)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_matrices_triangulaires",
+      "type": "example",
+      "title": "Exemple : Matrices triangulaires",
+      "content_latex": "Dans $\\mathcal{M}_2(\\mathbb{K})$, $\\text{Vect}\\left(\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}\\right)$ est l'ensemble des matrices triangulaires supérieures.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_plan_r3",
+      "type": "example",
+      "title": "Exemple : Plan affine de $\\mathbb{R}^3$",
+      "content_latex": "Le plan de $\\mathbb{R}^3$ d'équation $2x-y+3z=2$ est le sous-espace affine de direction $\\text{Vect}((1,2,0), (0,3,1))$ passant par $(0,-2,0)$. En résumé, $\\mathcal{P} = (0,-2,0) + \\text{Vect}((1,2,0), (0,3,1))$.",
+      "proof_latex": "$\\mathcal{P} = \\{(x, 2x+3z-2, z) \\mid x,z \\in \\mathbb{R}\\} = \\{(0,-2,0) + x(1,2,0) + z(0,3,1) \\mid x,z \\in \\mathbb{R}\\}$\\par $= (0,-2,0) + \\text{Vect}((1,2,0), (0,3,1))$."
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_droite_r3",
+      "type": "example",
+      "title": "Exemple : Droite affine de $\\mathbb{R}^3$",
+      "content_latex": "La droite $\\mathcal{D}$ de $\\mathbb{R}^3$ d'équation $\\begin{cases} 5x+y-z=2 \\\\ x+2y+z=1 \\end{cases}$ est le sous-espace affine de direction $\\text{Vect}((1,-2,3))$ passant par $(0,1,-1)$. En résumé, $\\mathcal{D} = (0,1,-1) + \\text{Vect}((1,-2,3))$.",
+      "proof_latex": "Pour tout $(x,y,z) \\in \\mathbb{R}^3$ : $(x,y,z) \\in \\mathcal{D} \\Leftrightarrow \\begin{cases} 5x+y-z=2 \\\\ 6x+3y=3 \\quad (L_2 \\leftarrow L_1+L_2) \\end{cases} \\Leftrightarrow \\begin{cases} y=1-2x \\\\ z=3x-1 \\end{cases}$.\\par Donc $\\mathcal{D} = \\{(x, 1-2x, 3x-1) \\mid x \\in \\mathbb{R}\\} = \\{(0,1,-1) + x(1,-2,3) \\mid x \\in \\mathbb{R}\\} = (0,1,-1) + \\text{Vect}((1,-2,3))$."
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_corps",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{C}$ sur différents corps de base",
+      "content_latex": "Sur le corps de base $\\mathbb{R}$ : $\\text{Vect}(1) = \\{a \\times 1 \\mid a \\in \\mathbb{R}\\} = \\mathbb{R}$ et $\\text{Vect}(1,i) = \\{a+ib \\mid a,b \\in \\mathbb{R}\\} = \\mathbb{C}$.\\par Sur le corps de base $\\mathbb{C}$ : $\\text{Vect}(1) = \\{a \\times 1 \\mid a \\in \\mathbb{C}\\} = \\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_proprietes_vect",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des Vect",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel, $X$ et $Y$ deux parties de $E$ et $x, a, b \\in E$.\\par (i) Inclusion : Si $X \\subset Y$, alors $\\text{Vect}(X) \\subset \\text{Vect}(Y)$.\\par (ii) Ôter un vecteur : Si $x \\in X$ est combinaison linéaire de $X \\setminus \\{x\\}$, alors $\\text{Vect}(X) = \\text{Vect}(X \\setminus \\{x\\})$.\\par (iii) Remplacer un vecteur : Si $b$ est combinaison linéaire de $X \\cup \\{a\\}$ avec un coefficient NON NUL sur $a$ : $\\text{Vect}(X \\cup \\{a\\}) = \\text{Vect}(X \\cup \\{b\\})$.",
+      "proof_latex": "(i) Toute combinaison linéaire de $X$ est une combinaison linéaire de $Y$.\\par (ii) Soit $x \\in X$ combinaison linéaire de $X \\setminus \\{x\\}$. D'après (i) : $\\text{Vect}(X \\setminus \\{x\\}) \\subset \\text{Vect}(X)$. Dans l'autre sens, $\\text{Vect}(X \\setminus \\{x\\})$ est un sous-espace vectoriel contenant $X \\setminus \\{x\\}$ et il contient aussi $x$ par hypothèse, il contient donc $X$ tout entier, donc $\\text{Vect}(X)$.\\par (iii) Dans un sens, $\\text{Vect}(X \\cup \\{a\\})$ contient $X$ et $a$, donc $b$ par hypothèse, donc $X \\cup \\{b\\}$, donc $\\text{Vect}(X \\cup \\{b\\})$. Dans l'autre sens, $b = x+\\lambda a$ avec $\\lambda \\in \\mathbb{K}^*$ par hypothèse et $x \\in \\text{Vect}(X)$, donc $a = \\frac{b-x}{\\lambda}$ est combinaison linéaire de $X \\cup \\{b\\}$ avec un coefficient non nul sur $b$. L'inclusion $\\text{Vect}(X \\cup \\{a\\}) \\subset \\text{Vect}(X \\cup \\{b\\})$ se montre par conséquent comme on a prouvé l'autre, les rôles de $a$ et $b$ étant finalement symétriques."
+    },
+    {
+      "id": "espaces_vectoriels__example_vect_r3_simplification",
+      "type": "example",
+      "title": "Exemple : Simplification d'un Vect dans $\\mathbb{R}^3$",
+      "content_latex": "Dans $\\mathbb{R}^3$ : $\\text{Vect}((1,1,0), (0,1,0), (1,3,0)) = \\text{Vect}((1,1,0), (0,1,0)) = \\text{Vect}((1,1,0)-(0,1,0), (0,1,0))$\\par $= \\text{Vect}((1,0,0), (0,1,0)) = \\mathbb{R}^2 \\times \\{0\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_partie_generatrice",
+      "type": "definition",
+      "title": "Définition : Partie/famille génératrice",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $X$ une partie de $E$. On dit que $X$ est génératrice de $E$ ou engendre $E$ si tout élément de $E$ est combinaison linéaire de $X$, i.e. si $E = \\text{Vect}(X)$.\\par Si $X = \\{x_i \\mid i \\in I\\}$, on dit aussi que la famille $(x_i)_{i \\in I}$ est génératrice de $E$ ou engendre $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_kx",
+      "type": "example",
+      "title": "Exemple : Familles génératrices de polynômes",
+      "content_latex": "$(X^k)_{k \\in \\mathbb{N}}$ engendre $\\mathbb{K}[X]$ et $(1,X,X^2,\\dots,X^n)$ engendre $\\mathbb{K}_n[X]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_r2_r3_rn",
+      "type": "example",
+      "title": "Exemple : Familles génératrices de $\\mathbb{R}^2$, $\\mathbb{R}^3$ et $\\mathbb{K}^n$",
+      "content_latex": "Pour tout $(x,y) \\in \\mathbb{R}^2$ : $(x,y) = x(1,0) + y(0,1)$, donc la famille $((1,0), (0,1))$ engendre $\\mathbb{R}^2$.\\par De même, pour tout $(x,y,z) \\in \\mathbb{R}^3$ : $(x,y,z) = x(1,0,0) + y(0,1,0) + z(0,0,1)$, donc $((1,0,0), (0,1,0), (0,0,1))$ engendre $\\mathbb{R}^3$.\\par Plus généralement, si on pose $e_i = (0,\\dots,0,1,0,\\dots,0)$ pour tout $i \\in [|1,n|]$ où le coefficient 1 apparaît en $i^{\\text{ème}}$ position, la famille $(e_1,\\dots,e_n)$ engendre $\\mathbb{K}^n$ car pour tout $(x_1,\\dots,x_n) \\in \\mathbb{K}^n$ : $(x_1,\\dots,x_n) = x_1e_1 + \\dots + x_ne_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_matrices",
+      "type": "example",
+      "title": "Exemple : Familles génératrices de matrices",
+      "content_latex": "La famille $\\left(\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}\\right)$ engendre $\\mathcal{M}_2(\\mathbb{K})$.\\par Plus généralement, si on note $E_{ij}$, pour tous $i \\in [|1,n|]$ et $j \\in [|1,p|]$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls sauf celui de position $(i, j)$ qui vaut 1, la famille $(E_{ij})_{\\substack{1 \\le i \\le n \\\\ 1 \\le j \\le p}}$ engendre $\\mathcal{M}_{n,p}(\\mathbb{K})$.",
+      "proof_latex": "Pour tout $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ : $A = \\sum_{i,j} a_{ij}E_{ij}$."
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_complexes",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{C}$ engendré sur $\\mathbb{R}$ ou $\\mathbb{C}$",
+      "content_latex": "La famille $(1, i)$ engendre le $\\mathbb{R}$-espace vectoriel $\\mathbb{C}$, mais $(1)$ suffit à l'engendrer en tant que $\\mathbb{C}$-espace vectoriel $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_proprietes_parties_generatrices",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des parties génératrices",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $X$ et $Y$ deux parties de $E$.\\par • Inclusion : Si $X$ engendre $E$ et si $X \\subset Y$, alors $Y$ engendre $E$.\\par • Ôter un vecteur : Si $X$ engendre $E$ et si $x \\in X$ est combinaison linéaire de $X \\setminus \\{x\\}$, alors $X \\setminus \\{x\\}$ engendre $E$.\\par • Remplacer un vecteur : Si $X \\cup \\{a\\}$ engendre $E$ et si $b$ est combinaison linéaire de $X \\cup \\{a\\}$ avec un coefficient NON NUL sur $a$, alors $X \\cup \\{b\\}$ engendre $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__method_trouver_partie_generatrice",
+      "type": "method",
+      "title": "Méthode : Trouver une partie génératrice",
+      "content_latex": "En pratique : Trouver une partie génératrice d'un sous-espace vectoriel, c'est l'écrire comme un Vect.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_sev_r4",
+      "type": "example",
+      "title": "Exemple : Génératrice d'un sous-espace de $\\mathbb{R}^4$",
+      "content_latex": "L'ensemble $E = \\{(x,y,z,t) \\in \\mathbb{R}^4 \\mid x+2y-z=0 \\text{ et } x-y+t=0\\}$ est un sous-espace vectoriel de $\\mathbb{R}^4$ engendré par la famille $((1, 0, 1, -1), (0, 1, 2, 1))$.",
+      "proof_latex": "Pour tout $(x, y, z, t) \\in \\mathbb{R}^4$ : $(x, y, z, t) \\in E \\Leftrightarrow \\begin{cases} z = x + 2y \\\\ t = -x + y \\end{cases}$,\\par donc : $E = \\{(x, y, x+2y, -x+y) \\mid x,y \\in \\mathbb{R}\\} = \\{x(1, 0, 1, -1) + y(0, 1, 2, 1) \\mid x,y \\in \\mathbb{R}\\} = \\text{Vect}((1, 0, 1, -1), (0, 1, 2, 1))$. Cela montre à la fois que $E$ est un sous-espace vectoriel de $\\mathbb{R}^4$ et que $((1,0,1,-1), (0, 1, 2, 1))$ engendre $E$."
+    },
+    {
+      "id": "espaces_vectoriels__example_generatrice_sev_r3x",
+      "type": "example",
+      "title": "Exemple : Génératrice d'un sous-espace de $\\mathbb{R}_3[X]",
+      "content_latex": "L'ensemble $F = \\{P \\in \\mathbb{R}_3[X] \\mid 2P(X+1) = XP'\\}$ est un sous-espace vectoriel de $\\mathbb{R}_3[X]$ engendré par $X^2-4X+3$.",
+      "proof_latex": "Pour tout $P = aX^3+bX^2+cX+d \\in \\mathbb{R}_3[X]$ : $P \\in F \\Leftrightarrow 2a(X+1)^3 + 2b(X+1)^2 + 2c(X+1) + 2d = X(3aX^2 + 2bX + c)$\\par $\\Leftrightarrow \\dots \\Leftrightarrow \\begin{cases} a=0 \\\\ 4b+c=0 \\\\ b+c+d=0 \\end{cases} \\Leftrightarrow \\begin{cases} a=0 \\\\ c=-4b \\\\ d=3b \\end{cases}$.\\par Conclusion : $F = \\{bX^2 - 4bX + 3b \\mid b \\in \\mathbb{R}\\} = \\{b(X^2 - 4X + 3) \\mid b \\in \\mathbb{R}\\} = \\text{Vect}(X^2 - 4X + 3)$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_famille_libre",
+      "type": "definition",
+      "title": "Définition / Théorème : Partie/famille libre d'un nombre fini de vecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $x_1, \\dots, x_n \\in E$. On dit que la famille $(x_1, \\dots, x_n)$ est libre ou que les vecteurs $x_1, \\dots, x_n$ sont linéairement indépendants si : $\\forall (\\lambda_1, \\dots, \\lambda_n), (\\mu_1, \\dots, \\mu_n) \\in \\mathbb{K}^n, \\left(\\sum_{i=1}^n \\lambda_i x_i = \\sum_{i=1}^n \\mu_i x_i \\Rightarrow \\forall i \\in [|1,n|], \\lambda_i = \\mu_i\\right)$.\\par En pratique, $(x_1, \\dots, x_n)$ est libre si et seulement si : $\\forall (\\lambda_1, \\dots, \\lambda_n) \\in \\mathbb{K}^n, \\left(\\sum_{i=1}^n \\lambda_i x_i = 0_E \\Rightarrow \\lambda_1 = \\dots = \\lambda_n = 0\\right)$.",
+      "proof_latex": "Pour l'équivalence des deux définitions, poser $\\mu_1 = \\dots = \\mu_n = 0$ dans un sens et remplacer $\\lambda_i$ par $\\lambda_i - \\mu_i$ pour tout $i \\in [|1,n|]$ dans l'autre."
+    },
+    {
+      "id": "espaces_vectoriels__remark_libre_vs_generatrice",
+      "type": "remark",
+      "title": "Remarque : Famille libre vs Famille génératrice",
+      "content_latex": "Famille génératrice = EXISTENCE pour TOUT vecteur d'une décomposition comme combinaison linéaire.\\par Famille libre = UNICITÉ des coefficients dans les combinaisons linéaires, donc possibilité d'identifier les coefficients.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__definition_famille_liee",
+      "type": "definition",
+      "title": "Définition : Partie/famille liée d'un nombre fini de vecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $x_1, \\dots, x_n \\in E$. On dit que la famille $(x_1, \\dots, x_n)$ est liée ou que les vecteurs $x_1, \\dots, x_n$ sont linéairement dépendants si la famille $(x_1, \\dots, x_n)$ n'est pas libre. Il est équivalent de dire que l'un des vecteurs $x_1, \\dots, x_n$ est combinaison linéaire des autres.\\par Pour deux vecteurs $x, y \\in E$, on dit que $x$ et $y$ sont colinéaires si la famille $(x, y)$ est liée, i.e. si $x$ ou $y$ est un multiple de l'autre.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__warning_famille_liee_inconnue",
+      "type": "warning",
+      "title": "Attention : Vecteur lié inconnu",
+      "content_latex": "Quand $(x_1, \\dots, x_n)$ est liée, l'un des vecteurs $x_i$ est combinaison linéaire des autres, mais on ne sait pas lequel !",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_vecteur_nul",
+      "type": "example",
+      "title": "Exemple : Ensemble contenant le vecteur nul",
+      "content_latex": "Tout ensemble de vecteurs qui contient le vecteur nul est lié.",
+      "proof_latex": "Le vecteur nul est combinaison linéaire de tout ensemble de vecteurs... à coefficients tous nuls."
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_1_i",
+      "type": "example",
+      "title": "Exemple : $(1,i)$ sur $\\mathbb{R}$ ou $\\mathbb{C}$",
+      "content_latex": "La famille $(1, i)$ est libre dans le $\\mathbb{R}$-espace vectoriel $\\mathbb{C}$, mais liée dans le $\\mathbb{C}$-espace vectoriel $\\mathbb{C}$.",
+      "proof_latex": "Montrons que $(1, i)$ est libre sur le corps de base $\\mathbb{R}$. Or pour tous $\\lambda, \\mu \\in \\mathbb{R}$ pour lesquels $\\lambda \\cdot 1 + \\mu \\cdot i = 0$, $\\lambda = \\mu = 0$ par simple identification des parties réelle et imaginaire.\\par En revanche, $(1, i)$ est liée sur le corps de base $\\mathbb{C}$ car $i = i \\times 1$ est un multiple complexe de 1."
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_base_canonique_rn",
+      "type": "example",
+      "title": "Exemple : Indépendance dans $\\mathbb{K}^n$",
+      "content_latex": "Si on pose $e_i = (0,\\dots,0,1,0,\\dots,0)$ pour tout $i \\in [|1,n|]$ où le coefficient 1 apparaît en $i^{\\text{ème}}$ position, la famille $(e_1, \\dots, e_n)$ est libre dans $\\mathbb{K}^n$.",
+      "proof_latex": "Pour tout $(\\lambda_1, \\dots, \\lambda_n) \\in \\mathbb{K}^n$ : $\\lambda_1e_1 + \\dots + \\lambda_ne_n = (\\lambda_1, \\dots, \\lambda_n)$, donc si $\\lambda_1e_1 + \\dots + \\lambda_ne_n = 0_{\\mathbb{K}^n}$, alors $\\lambda_1 = \\dots = \\lambda_n = 0$ par simple identification des coefficients d'une famille."
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_base_canonique_mnp",
+      "type": "example",
+      "title": "Exemple : Indépendance dans $\\mathcal{M}_{n,p}(\\mathbb{K})$",
+      "content_latex": "Si on note $E_{ij}$, pour tous $i \\in [|1,n|]$ et $j \\in [|1,p|]$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls sauf celui de position $(i, j)$ qui vaut 1, la famille $(E_{ij})$ est libre dans $\\mathcal{M}_{n,p}(\\mathbb{K})$ par simple identification des coefficients d'une matrice.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_liee_r2",
+      "type": "example",
+      "title": "Exemple : Famille liée dans $\\mathbb{R}^2$",
+      "content_latex": "La famille $((2,1), (-1,3), (0,1))$ est liée dans $\\mathbb{R}^2$.",
+      "proof_latex": "Pour tous $\\lambda, \\mu, \\nu \\in \\mathbb{R} : \\lambda(2,1) + \\mu(-1,3) + \\nu(0,1) = (0,0) \\Leftrightarrow \\begin{cases} 2\\lambda - \\mu = 0 \\\\ \\lambda + 3\\mu + \\nu = 0 \\end{cases}$. Ce système possède des solutions $(\\lambda, \\mu, \\nu)$ autres que $(0,0,0)$, par exemple $(1, 2, -7)$, donc les vecteurs $(2, 1)$, $(-1,3)$ et $(0, 1)$ sont linéairement dépendants."
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_polynomes",
+      "type": "example",
+      "title": "Exemple : Famille libre dans $\\mathbb{R}[X]$",
+      "content_latex": "La famille $(X^2-X+1, X^2+X-2, X^2-2X+3)$ est libre dans $\\mathbb{R}[X]$.",
+      "proof_latex": "Pour tous $\\lambda, \\mu, \\nu \\in \\mathbb{R}$ : $\\lambda(X^2-X+1) + \\mu(X^2+X-2) + \\nu(X^2-2X+3) = 0 \\Leftrightarrow \\dots \\Leftrightarrow \\lambda = \\mu = \\nu = 0$."
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_cos_sin",
+      "type": "example",
+      "title": "Exemple : Indépendance de $\\cos$ et $\\sin$",
+      "content_latex": "La famille $(\\cos, \\sin)$ est libre dans $\\mathbb{R}^{\\mathbb{R}}$.",
+      "proof_latex": "Soient $\\lambda, \\mu \\in \\mathbb{R}$. On suppose que $\\lambda \\cos + \\mu \\sin = 0$, i.e. que $\\lambda \\cos x + \\mu \\sin x = 0$ pour tout $x \\in \\mathbb{R}$. Dans ces conditions, $\\lambda = \\mu = 0$ après évaluation en $0$ et $\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_liberte_polynomes_echelonnes",
+      "type": "theorem",
+      "title": "Théorème : Liberté des familles de polynômes échelonnées en degré",
+      "content_latex": "Une famille de polynômes $(P_1, \\dots, P_n)$ de $\\mathbb{K}[X]$ est dite échelonnée en degré si $0 \\le \\deg(P_1) < \\dots < \\deg(P_n)$. Une telle famille est toujours libre.",
+      "proof_latex": "Pour tout $j \\in [|1,n|]$, posons $d_j = \\deg(P_j)$ et introduisons ses coefficients avec une double indexation : $P_j = a_{d_j,j}X^{d_j} + \\dots + a_{1,j}X + a_{0,j}$. À présent, soient $x_1, \\dots, x_n \\in \\mathbb{K}$ des scalaires pour lesquels $x_1P_1 + \\dots + x_nP_n = 0$. On tire de cette relation un système linéaire de $n$ équations et $n$ inconnues par identification des coefficients de degrés $d_1, \\dots, d_n$. Le système obtenu est triangulaire supérieur à coefficients diagonaux non nuls car $a_{d_j,j} \\neq 0$ pour tout $j$, donc admet $(x_1, \\dots, x_n) = (0, \\dots, 0)$ pour seule solution."
+    },
+    {
+      "id": "espaces_vectoriels__definition_libre_infinie",
+      "type": "definition",
+      "title": "Définition : Partie/famille libre/liée d'un nombre quelconque de vecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $(x_i)_{i \\in I}$ une famille de vecteurs de $E$.\\par • Partie/famille libre : On dit que la famille est libre si : $\\forall (\\lambda_i)_{i \\in I} \\in \\mathbb{K}^I$ presque nulle, $\\left(\\sum_{i \\in I} \\lambda_i x_i = 0_E \\Rightarrow \\forall i \\in I, \\lambda_i = 0\\right)$.\\par • Partie/famille liée : On dit que la famille est liée si elle n'est pas libre. Il est équivalent de dire que l'un d'entre eux est combinaison linéaire des autres.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__remark_libre_presque_nulle",
+      "type": "remark",
+      "title": "Remarque : Liberté infinie via sous-familles finies",
+      "content_latex": "L'expression « presque nulle » nous ramène toujours à un nombre fini de vecteurs utiles, donc la liberté d'une famille infinie de vecteurs est équivalente à la liberté de toutes ses sous-familles finies. Pour montrer qu'une famille $(x_n)_{n \\in \\mathbb{N}}$ de vecteurs est libre, il suffit même de montrer que la famille $(x_0, \\dots, x_n)$ est libre pour tout $n \\in \\mathbb{N}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_vide",
+      "type": "example",
+      "title": "Exemple : L'ensemble vide",
+      "content_latex": "L'ensemble vide est une partie libre de tout $\\mathbb{K}$-espace vectoriel.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_libre_xk",
+      "type": "example",
+      "title": "Exemple : Famille infinie libre",
+      "content_latex": "La famille $(X^k)_{k \\in \\mathbb{N}}$ est libre dans $\\mathbb{K}[X]$ par simple identification des coefficients.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_proprietes_parties_libres",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des parties libres/liées",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $X$ et $Y$ deux parties de $E$.\\par (i) Inclusion : Si $Y$ est libre et si $X \\subset Y$, alors $X$ est libre. Par contraposition, si $X$ est liée et si $X \\subset Y$, alors $Y$ est liée.\\par (ii) Ajouter un vecteur : Si $X$ est libre et si $y \\in E$ n'est pas combinaison linéaire de $X$, alors $X \\cup \\{y\\}$ est libre.",
+      "proof_latex": "(i) Si $X$ est liée et si $X \\subset Y$, l'un des vecteurs de $X$ est combinaison linéaire des autres, donc ce vecteur, élément de $Y$, est combinaison linéaire des autres, donc $Y$ est liée.\\par (ii) Supposons $X$ libre et donnons-nous un vecteur $y \\in E$ non combinaison linéaire de $X$. Pour montrer que $X \\cup \\{y\\}$ est libre, soient $(\\lambda_i)_{i \\in I} \\in \\mathbb{K}^I$ presque nulle et $\\mu \\in \\mathbb{K}$ pour lesquels $\\sum_{i \\in I} \\lambda_i x_i + \\mu y = 0_E$. Si jamais $\\mu \\neq 0$, alors $y = -\\frac{1}{\\mu} \\sum_{i \\in I} \\lambda_i x_i$ contrairement à notre hypothèse. Par conséquent, $\\mu = 0$ donc $\\sum_{i \\in I} \\lambda_i x_i = 0_E$, donc $\\lambda_i = 0$ pour tout $i \\in I$ par liberté de $X$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_base_coordonnees",
+      "type": "definition",
+      "title": "Définition : Base et coordonnées",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $\\mathcal{B} = (e_i)_{i \\in I}$ une famille de vecteurs de $E$. On dit que $\\mathcal{B}$ est une base de $E$ si $\\mathcal{B}$ est à la fois libre et génératrice de $E$, i.e. si et seulement si tout vecteur de $E$ est combinaison linéaire de $\\mathcal{B}$ d'une et une seule manière.\\par Dans ce cas, pour tout $x \\in E$, l'unique famille presque nulle $(x_i)_{i \\in I} \\in \\mathbb{K}^I$ pour laquelle $x = \\sum_{i \\in I} x_i e_i$ est appelée la famille des coordonnées de $x$ dans $\\mathcal{B}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__remark_convention_base_vide",
+      "type": "remark",
+      "title": "Remarque : Convention de la base vide",
+      "content_latex": "Un $\\mathbb{K}$-espace vectoriel $E$ réduit au singleton $\\{0_E\\}$ possède-t-il une base ? Oui, la famille vide ! $0_E$ est en effet combinaison linéaire de la famille vide, et ce d'une et une seule manière.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_bases_canoniques",
+      "type": "theorem",
+      "title": "Définition / Théorème : Bases canoniques",
+      "content_latex": "• Familles de scalaires : Si on pose $e_i = (0,\\dots,0,1,0,\\dots,0)$ pour tout $i \\in [|1,n|]$, $(e_1,\\dots,e_n)$ est une base de $\\mathbb{K}^n$ appelée sa base canonique.\\par • Polynômes : $(X^k)_{k \\in \\mathbb{N}}$ est la base canonique de $\\mathbb{K}[X]$ et $(1,X,\\dots,X^n)$ est celle de $\\mathbb{K}_n[X]$.\\par • Matrices : Si on note $E_{ij}$ la matrice élémentaire, $(E_{ij})_{\\substack{1 \\le i \\le n \\\\ 1 \\le j \\le p}}$ est la base canonique de $\\mathcal{M}_{n,p}(\\mathbb{K})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__warning_bases_canoniques",
+      "type": "warning",
+      "title": "Attention : Naturel vs Décrété",
+      "content_latex": "Seuls vos profs de maths ont le super-pouvoir de décréter qu'une base est canonique ! « Canonique » signifie « la plus naturelle ».",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__remark_coordonnees_canoniques",
+      "type": "remark",
+      "title": "Remarque : Coordonnées dans les bases canoniques",
+      "content_latex": "• Les coordonnées dans la base canonique d'un vecteur $(x_1,\\dots,x_n)$ sont données par le vecteur lui-même.\\par • Pour tout $P = a_0 + a_1X + \\dots$, ses coordonnées dans la base canonique sont données par la famille $(a_k)_{k \\in \\mathbb{N}}$.\\par • Les coordonnées d'une matrice $A$ sont données par la matrice $A$ elle-même.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_base_r2",
+      "type": "example",
+      "title": "Exemple : Base de $\\mathbb{R}^2$",
+      "content_latex": "La famille $((1,1), (1,-2))$ est une base de $\\mathbb{R}^2$.",
+      "proof_latex": "Soit $(x,y) \\in \\mathbb{R}^2$. Nous voulons montrer ceci : $\\exists! (a,b) \\in \\mathbb{R}^2, (x,y) = a(1,1) + b(1,-2)$. Or pour tout $(a,b) \\in \\mathbb{R}^2$ :\\par $\\begin{cases} a+b=x \\\\ a-2b=y \\end{cases} \\Leftrightarrow \\begin{cases} a+b=x \\\\ -3b=y-x \\end{cases}$. Triangulaire à coefficients diagonaux non nuls, le système obtenu possède une et une seule solution. Ces coordonnées sont $(a,b) = \\left(\\frac{2x+y}{3}, \\frac{x-y}{3}\\right)$."
+    },
+    {
+      "id": "espaces_vectoriels__example_base_r2x",
+      "type": "example",
+      "title": "Exemple : Base de $\\mathbb{R}_2[X]$",
+      "content_latex": "La famille $(X^2+X, X^2+1, X+1)$ est une base de $\\mathbb{R}_2[X]$.",
+      "proof_latex": "Montrer que c'est une base revient à montrer que tout polynôme est combinaison linéaire d'une unique façon. Fixons $P=aX^2+bX+c \\in \\mathbb{R}_2[X]$. Pour tous $\\lambda, \\mu, \\nu \\in \\mathbb{R}$ : $P = \\lambda(X^2+X) + \\mu(X^2+1) + \\nu(X+1) \\Leftrightarrow \\begin{cases} \\lambda+\\mu=a \\\\ \\lambda+\\nu=b \\\\ \\mu+\\nu=c \\end{cases} \\Leftrightarrow \\dots \\Leftrightarrow \\begin{cases} \\lambda+\\mu=a \\\\ \\mu-\\nu=a-b \\\\ 2\\nu=-a+b+c \\end{cases}$. Triangulaire à coefficients diagonaux non nuls, d'où le résultat."
+    },
+    {
+      "id": "espaces_vectoriels__method_trouver_base",
+      "type": "method",
+      "title": "Méthode : Trouver une base",
+      "content_latex": "En pratique : Pour trouver une base d'un espace vectoriel, on en cherche d'abord une famille génératrice en l'écrivant comme un Vect, puis on essaie de montrer que la famille ainsi obtenue est libre.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_base_matrices_sym",
+      "type": "example",
+      "title": "Exemple : Base d'un sous-espace de $\\mathcal{M}_2(\\mathbb{R})$",
+      "content_latex": "L'ensemble $F$ des matrices $M \\in \\mathcal{M}_2(\\mathbb{R})$ pour lesquelles $M^\\top = M + \\text{tr}(M)I_2$ est un sous-espace vectoriel de $\\mathcal{M}_2(\\mathbb{R})$ de base $\\left(\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}\\right)$.",
+      "proof_latex": "Pour tout $A = \\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}$ : $A \\in F \\Leftrightarrow \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix} + (a+d)\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\Leftrightarrow d=-a \\text{ et } c=b$.\\par Donc $F = \\left\\{\\begin{pmatrix} a & b \\\\ b & -a \\end{pmatrix} \\mid a,b \\in \\mathbb{R}\\right\\} = \\text{Vect}\\left(\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}\\right)$. La famille est manifestement libre, donc c'est une base."
+    },
+    {
+      "id": "espaces_vectoriels__example_base_lagrange",
+      "type": "example",
+      "title": "Exemple : Polynômes de Lagrange",
+      "content_latex": "Soient $x_1, \\dots, x_n \\in \\mathbb{K}$ distincts. On note $L_1, \\dots, L_n$ les polynômes de Lagrange de $x_1, \\dots, x_n$. La famille $(L_1, \\dots, L_n)$ est une base de $\\mathbb{K}_{n-1}[X]$ et les coordonnées d'un polynôme $P$ dans cette base sont $(P(x_1), \\dots, P(x_n))$.",
+      "proof_latex": "Comme vu au chapitre « Polynômes et racines », $P = P(x_1)L_1 + \\dots + P(x_n)L_n$ pour tout $P \\in \\mathbb{K}_{n-1}[X]$ et aucun autre polynôme de la forme $y_1L_1 + \\dots + y_nL_n$ ne coïncide avec $P$."
+    },
+    {
+      "id": "espaces_vectoriels__example_base_taylor",
+      "type": "example",
+      "title": "Exemple : Base de Taylor",
+      "content_latex": "Pour tout $\\lambda \\in \\mathbb{C}$, la famille $(1, X-\\lambda, (X-\\lambda)^2, \\dots, (X-\\lambda)^n)$ est une base de $\\mathbb{C}_n[X]$ et les coordonnées d'un polynôme $P$ dans cette base sont données par la formule de Taylor polynomiale : $P = \\sum_{i=0}^n \\frac{P^{(i)}(\\lambda)}{i!} (X-\\lambda)^i$.",
+      "proof_latex": "La famille engendre $\\mathbb{C}_n[X]$ d'après la formule de Taylor polynomiale et elle est libre en tant que famille de polynômes échelonnée en degré."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_inversibilite_colonnes",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des matrices inversibles (lignes/colonnes)",
+      "content_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$. Les assertions suivantes sont équivalentes :\\par (i) $A$ est inversible.\\par (ii) La famille des colonnes de $A$ est une base de $\\mathbb{K}^n$.\\par (iii) La famille des lignes de $A$ est une base de $\\mathbb{K}^n$.",
+      "proof_latex": "Notons $C_1, \\dots, C_n$ les colonnes de $A$. Le point important, c'est que pour tout $X \\in \\mathbb{K}^n$ : $AX = x_1C_1 + \\dots + x_nC_n$.\\par Ainsi : $A$ est inversible $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, Y = AX \\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! (x_1,\\dots,x_n) \\in \\mathbb{K}^n, Y = x_1C_1 + \\dots + x_nC_n \\Leftrightarrow (C_1, \\dots, C_n)$ est une base de $\\mathbb{K}^n$.\\par En retour, les lignes de $A$ n'étant jamais que les colonnes de $A^\\top$ : $A$ est inversible $\\Leftrightarrow A^\\top$ est inversible $\\Leftrightarrow (L_1, \\dots, L_n)$ est une base de $\\mathbb{K}^n$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_dimension_finie",
+      "type": "definition",
+      "title": "Définition : Espace vectoriel de dimension finie",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel. On dit que $E$ est de dimension finie s'il possède une partie génératrice finie, et de dimension infinie sinon.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_espaces_dimension_finie",
+      "type": "example",
+      "title": "Exemple : Espaces de dimension finie",
+      "content_latex": "Les espaces vectoriels $\\mathbb{K}^n$, $\\mathcal{M}_{n,p}(\\mathbb{K})$ et $\\mathbb{K}_n[X]$ sont de dimension finie car les bases canoniques sont des familles génératrices finies.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_espace_dimension_infinie",
+      "type": "example",
+      "title": "Exemple : Espace de dimension infinie",
+      "content_latex": "$\\mathbb{K}[X]$ est de dimension infinie.",
+      "proof_latex": "Montrons qu'aucune famille finie de $\\mathbb{K}[X]$ n'engendre $\\mathbb{K}[X]$. Soit $(P_1, \\dots, P_r)$ une famille finie de polynômes non nuls. En notant $m$ le maximum de leurs degrés, $\\text{Vect}(P_1, \\dots, P_r) \\subset \\mathbb{K}_m[X] \\neq \\mathbb{K}[X]$, donc $(P_1, \\dots, P_r)$ n'engendre pas $\\mathbb{K}[X]$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_max_vecteurs_independants",
+      "type": "theorem",
+      "title": "Théorème : Nombre maximal de vecteurs linéairement indépendants",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie engendré par $n$ éléments. Alors toute partie libre de $E$ possède au plus $n$ éléments.",
+      "proof_latex": "Soient $X$ une partie génératrice de $E$ à $n$ éléments et $Y$ une partie libre de $E$. Supposant par l'absurde que $Y$ possède au moins $n+1$ éléments, nous allons prouver par récurrence que pour tout $k \\in [|0,n|]$ : $E$ est engendré par une famille de $n$ vecteurs dont les $n-k$ premiers sont dans $X$ et les $k$ suivants dans $Y$.\\par Pour $k=n$, $E$ est engendré par une famille de $n$ vecteurs de $Y$. En particulier, tout vecteur de $Y$ est combinaison linéaire de ces $n$ vecteurs, donc comme $Y$ possède au moins $n+1$ éléments, $Y$ est liée — contradiction.\\par Initialisation : La famille des $n$ vecteurs de $X$ engendre $E$.\\par Hérédité : Soit $k \\in [|0,n-1|]$. Faisons l'hypothèse que $E$ est engendré par $(x_1, \\dots, x_{n-k}, y_1, \\dots, y_k)$ pour certains $x_i \\in X$ et $y_i \\in Y$. Comme $Y$ possède au moins $n+1$ éléments, nous pouvons nous donner un élément $y_{k+1}$ de $Y$ autre que $y_1, \\dots, y_k$. Par hypothèse de récurrence, $y_{k+1} = (\\lambda_1 x_1 + \\dots + \\lambda_{n-k} x_{n-k}) + (\\mu_1 y_1 + \\dots + \\mu_k y_k)$. Il est impossible que tous les $\\lambda_i$ soient nuls car $y_{k+1}$ serait combinaison linéaire de $y_1, \\dots, y_k$ — or $Y$ est libre. Quitte à modifier l'ordre des $x_i$, nous pouvons donc supposer $\\lambda_{n-k} \\neq 0$. De la sorte, $x_{n-k}$ est combinaison linéaire de $x_1, \\dots, x_{n-k-1}, y_1, \\dots, y_{k+1}$, donc $E$ est engendré par la famille dont les $n-k-1$ premiers vecteurs sont dans $X$ et les $k+1$ suivants dans $Y$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_algorithme_base_incomplete",
+      "type": "theorem",
+      "title": "Théorème : Algorithme de la base incomplète",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $(x_1, \\dots, x_n)$ une famille génératrice de $E$ dont les $p$ premiers vecteurs sont linéairement indépendants. Alors $E$ possède une base constituée des vecteurs $x_1, \\dots, x_p$ et de certains des vecteurs $x_{p+1}, \\dots, x_n$.",
+      "proof_latex": "Ce théorème repose sur un algorithme simple et fondamental dit de la base incomplète. Nous allons compléter peu à peu la famille LIBRE $(x_1, \\dots, x_p)$ à l'aide de certains vecteurs parmi $x_{p+1}, \\dots, x_n$ en prenant soin de CONSERVER LA LIBERTÉ À CHAQUE AJOUT. La variable $\\mathcal{B}$ est initialisée à la valeur $(x_1, \\dots, x_p)$ qui est libre. Ensuite on fait une boucle. Pour $k$ décrivant $[|p+1, n|]$ : si la famille $\\mathcal{B}$ augmentée de $x_k$ est libre, on remplace $\\mathcal{B}$ par la famille $\\mathcal{B}$ augmentée de $x_k$. On a pris soin de conserver la liberté de $\\mathcal{B}$ à chaque étape, donc la famille $\\mathcal{B}$ finale est libre. Il reste à montrer que la famille finale engendre $E$. Et comme $(x_1, \\dots, x_n)$ engendre $E$, il nous suffit de montrer que les $x_k$ sont tous combinaisons linéaires de $\\mathcal{B}$. Soit $k \\in [|1,n|]$. Si $x_k$ n'a pas été ajouté à la famille, la raison en était qu'il était combinaison linéaire de certains vecteurs de $\\mathcal{B}$."
+    },
+    {
+      "id": "espaces_vectoriels__example_base_incomplete_r3",
+      "type": "example",
+      "title": "Exemple : Base incomplète dans un sous-espace de $\\mathbb{R}^3$",
+      "content_latex": "La famille $((1,-5,7), (2,6,8))$ est une base de $F = \\text{Vect}((1,-5,7), (2,6,8), (3,1,15), (1,11,1))$.",
+      "proof_latex": "On va utiliser mécaniquement l'algorithme de la base incomplète. La famille $((1,-5,7))$ est libre car le vecteur $(1,-5,7)$ est non nul. Et la famille $((1,-5,7), (2,6,8))$ ? Soient $\\lambda, \\mu \\in \\mathbb{R}$ pour lesquels $\\lambda(1,-5,7) + \\mu(2,6,8) = (0,0,0)$. Aussitôt $\\lambda+2\\mu=0$ et $-5\\lambda+6\\mu=0$, donc $\\lambda=\\mu=0$. La famille est libre. Et la famille $((1,-5,7), (2,6,8), (3,1,15))$ ? Elle est liée car $(3,1,15) = (1,-5,7) + (2,6,8)$. Et la famille $((1,-5,7), (2,6,8), (1,11,1))$ ? Elle est liée car $(1,11,1) = (2,6,8) - (1,-5,7)$. Comme voulu, la famille $((1,-5,7), (2,6,8))$ est une base de $F$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_base_incomplete_extraite",
+      "type": "theorem",
+      "title": "Théorème : Théorèmes de la base incomplète/extraite et existence de bases finies",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie.\\par (i) Théorème de la base incomplète : Toute famille libre de $E$ peut être complétée en une base finie de $E$.\\par (ii) Théorème de la base extraite : De toute famille génératrice de $E$ on peut extraire une base finie de $E$. En particulier, $E$ possède une base finie. La définition « posséder une famille génératrice finie » est ainsi équivalente à « posséder une base finie ».",
+      "proof_latex": "(i) Soit $\\mathcal{L}$ une famille libre de $E$ (forcément finie). Ajoutons à cette famille les vecteurs d'une famille génératrice finie de $E$, puis appliquons l'algorithme de la base incomplète. Le résultat, c'est que $\\mathcal{L}$ se trouve ainsi complétée en une base finie de $E$.\\par (ii) Soit $\\mathcal{G}$ une famille génératrice de $E$. Par hypothèse, $E$ possède une partie génératrice finie $X$. Tout vecteur de $X$ étant combinaison linéaire d'un nombre fini de vecteurs de $\\mathcal{G}$, $E$ est en fait engendré par une certaine sous-famille finie $\\mathcal{G}'$ de $\\mathcal{G}$. L'algorithme de la base incomplète permet alors de compléter la famille vide en une base de $E$ par l'ajout de certains éléments de $\\mathcal{G}'$. La base obtenue est une sous-famille de $\\mathcal{G}$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_dimension",
+      "type": "definition",
+      "title": "Définition / Théorème : Dimension",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie. Les bases de $E$ sont toutes finies de même cardinal. Ce cardinal unique est appelé la dimension de $E$ et noté $\\dim E$. Si $\\dim E = 1$, on dit que $E$ est une droite (vectorielle), et si $\\dim E = 2$ que $E$ est un plan (vectoriel).",
+      "proof_latex": "Comme $E$ est de dimension finie, ses familles libres sont finies, donc ses bases aussi. Soient $\\mathcal{B}$ une base de $E$ à $n$ éléments et $\\mathcal{B}'$ une base de $E$ à $n'$ éléments. Aussitôt, $n' \\le n$ car $\\mathcal{B}$ engendre $E$ et $\\mathcal{B}'$ est libre, puis $n \\le n'$ par symétrie des rôles, donc $n=n'$."
+    },
+    {
+      "id": "espaces_vectoriels__example_dimension_zero",
+      "type": "example",
+      "title": "Exemple : Espace nul",
+      "content_latex": "Pour tout $\\mathbb{K}$-espace vectoriel $E$ réduit au singleton $\\{0_E\\}$ : $\\dim E = 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_dimensions_usuelles",
+      "type": "theorem",
+      "title": "Théorème : Quelques dimensions usuelles",
+      "content_latex": "$\\dim \\mathbb{K}^n = n$, $\\dim \\mathcal{M}_{n,p}(\\mathbb{K}) = np$ et $\\dim \\mathbb{K}_n[X] = n+1$.\\par En notant $\\mathcal{T}_n(\\mathbb{K})$ l'ensemble des matrices triangulaires de $\\mathcal{M}_n(\\mathbb{K})$, $\\mathcal{S}_n(\\mathbb{K})$ celui des matrices symétriques et $\\mathcal{A}_n(\\mathbb{K})$ celui des matrices antisymétriques :\\par $\\dim \\mathcal{T}_n(\\mathbb{K}) = \\dim \\mathcal{S}_n(\\mathbb{K}) = \\frac{n(n+1)}{2}$ et $\\dim \\mathcal{A}_n(\\mathbb{K}) = \\frac{n(n-1)}{2}$.",
+      "proof_latex": "Pour les trois premières dimensions, combien de vecteurs dans les bases canoniques ? Notons ensuite $(E_{ij})$ la base canonique de $\\mathcal{M}_n(\\mathbb{K})$.\\par • $\\mathcal{T}_n(\\mathbb{K}) = \\text{Vect}(E_{ij})_{1 \\le j \\le i \\le n}$. La famille est libre, c'est une base. $\\dim = \\sum_{i=1}^n i = \\frac{n(n+1)}{2}$.\\par • $\\mathcal{S}_n(\\mathbb{K}) = \\text{Vect}(\\{E_{kk} \\mid 1 \\le k \\le n\\} \\cup \\{E_{ij}+E_{ji} \\mid 1 \\le i < j \\le n\\})$. La famille est libre, donc base. Il y a $n + \\frac{n(n-1)}{2} = \\frac{n(n+1)}{2}$ vecteurs.\\par • $\\mathcal{A}_n(\\mathbb{K}) = \\text{Vect}(E_{ij}-E_{ji})_{1 \\le i < j \\le n}$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_dimension_cardinal_libre_gen",
+      "type": "theorem",
+      "title": "Théorème : Dimension et cardinal d'une partie libre/génératrice",
+      "content_latex": "Dans un $\\mathbb{K}$-espace vectoriel de dimension finie $n$, toute partie libre possède au plus $n$ éléments et toute partie génératrice en possède au moins $n$.",
+      "proof_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n$. Alors $E$ possède une base $\\mathcal{B}$ de cardinal $n$. Pour toute partie libre $Y$ de $E$, sachant que $\\mathcal{B}$ engendre $E$, $Y$ possède au plus $n$ éléments. De même, pour toute partie génératrice $X$, sachant que $\\mathcal{B}$ est libre, $\\mathcal{B}$ possède au plus autant d'éléments que $X$, donc $X$ en possède au moins $n$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisation_bases_dim_finie",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des bases en dimension finie",
+      "content_latex": "Dans un $\\mathbb{K}$-espace vectoriel de dimension finie $n$, une famille de $n$ vecteurs est une base si et seulement si elle est libre, ou bien si et seulement si elle est génératrice.",
+      "proof_latex": "Dans un $\\mathbb{K}$-espace vectoriel de dimension finie $n$, si une famille de $n$ vecteurs est libre (resp. génératrice), on peut la compléter en une base (resp. en extraire une base). Le résultat est une famille de $n$ vecteurs par définition de la dimension, ce qui veut dire qu'on n'a ajouté (resp. ôté) aucun vecteur. Conclusion : c'était une base dès le départ !"
+    },
+    {
+      "id": "espaces_vectoriels__warning_base_cardinal_strict",
+      "type": "warning",
+      "title": "Attention : Base et dimension stricte",
+      "content_latex": "Ce théorème ne dit pas que base = famille génératrice = famille libre en dimension finie, mais seulement que c'est vrai pour les familles dont le cardinal coïncide avec la dimension de l'espace ambiant.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_base_r3_rapide",
+      "type": "example",
+      "title": "Exemple : Base de $\\mathbb{R}^3$ via dimension",
+      "content_latex": "La famille $((0,1,2), (1,2,0), (2,0,1))$ est une base de $\\mathbb{R}^3$.",
+      "proof_latex": "Comme $\\mathbb{R}^3$ est de dimension 3, nous saurons que la famille de trois vecteurs étudiée est une base quand nous aurons montré qu'elle est libre. Or pour tous $\\lambda, \\mu, \\nu \\in \\mathbb{R}$, si $\\lambda(0,1,2) + \\mu(1,2,0) + \\nu(2,0,1) = (0,0,0)$ alors clairement $\\lambda=\\mu=\\nu=0$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisations_inversibilite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisations diverses de l'inversibilité",
+      "content_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$. Les assertions suivantes sont équivalentes :\\par (i) $A$ est inversible.\\par (ii) $A$ est inversible à droite : $\\exists B \\in \\mathcal{M}_n(\\mathbb{K}), AB=I_n$.\\par (iii) $A$ est inversible à gauche : $\\exists B \\in \\mathcal{M}_n(\\mathbb{K}), BA=I_n$.\\par (iv) Pour tout second membre $Y \\in \\mathbb{K}^n$, le système linéaire $Y=AX$ d'inconnue $X \\in \\mathbb{K}^n$ possède au moins une solution.\\par (v) Le système linéaire homogène $AX=0$ d'inconnue $X \\in \\mathbb{K}^n$ admet $0$ pour unique solution.",
+      "proof_latex": "Notons $C_1, \\dots, C_n$ les colonnes de $A$. La matrice $A$ étant carrée, $(C_1, \\dots, C_n)$ est une base de $\\mathbb{K}^n$ si et seulement si elle est libre (ou génératrice).\\par • Si (ii) est vraie, pour tout $Y \\in \\mathbb{K}^n$ : $A(BY) = (AB)Y = I_n Y = Y$, donc le système $Y=AX$ possède au moins une solution. Bref, (ii) $\\Rightarrow$ (iv).\\par • Supposons (iii) vraie. Pour tout $X \\in \\mathbb{K}^n$, si $AX=0$ alors $X = I_n X = (BA)X = B(AX) = B \\times 0 = 0$. Bref, (iii) $\\Rightarrow$ (v).\\par • Ensuite : (iv) $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists (x_1,\\dots,x_n) \\in \\mathbb{K}^n, Y = x_1C_1+\\dots+x_nC_n \\Leftrightarrow (C_1, \\dots, C_n)$ engendre $\\mathbb{K}^n \\Leftrightarrow (C_1, \\dots, C_n)$ est une base de $\\mathbb{K}^n \\Leftrightarrow$ (i).\\par • De même : (v) $\\Leftrightarrow \\forall (x_1,\\dots,x_n) \\in \\mathbb{K}^n, (x_1C_1+\\dots+x_nC_n=0 \\Rightarrow x_1=\\dots=x_n=0) \\Leftrightarrow (C_1, \\dots, C_n)$ est libre $\\Leftrightarrow (C_1, \\dots, C_n)$ est une base de $\\mathbb{K}^n \\Leftrightarrow$ (i)."
+    },
+    {
+      "id": "espaces_vectoriels__example_matrices_qui_commutent",
+      "type": "example",
+      "title": "Exemple : Matrices qui commutent",
+      "content_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$. Si $AB$ est combinaison linéaire de $A$ et $B$ sans être colinéaire à $A$ ou $B$, alors $A$ et $B$ commutent.",
+      "proof_latex": "Par hypothèse, $AB = \\lambda A + \\mu B$ pour certains $\\lambda, \\mu \\in \\mathbb{K}$ non nuls, donc : $(A-\\mu I_n)(B-\\lambda I_n) = AB - \\lambda A - \\mu B + \\lambda\\mu I_n = \\lambda\\mu I_n$, donc comme $\\lambda$ et $\\mu$ sont non nuls, les matrices $A-\\mu I_n$ et $B-\\lambda I_n$ sont inverses l'une de l'autre. Il en découle que $(B-\\lambda I_n)(A-\\mu I_n) = \\lambda\\mu I_n$ dans l'autre sens, i.e. que $BA = \\lambda A + \\mu B = AB$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_rang_famille",
+      "type": "definition",
+      "title": "Définition : Rang d'une famille finie de vecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel pas nécessairement de dimension finie et $x_1, \\dots, x_n \\in E$. On appelle rang de la famille $(x_1, \\dots, x_n)$, noté $\\text{rg}(x_1, \\dots, x_n)$, la dimension (finie) de $\\text{Vect}(x_1, \\dots, x_n)$. Il est toujours vrai que $\\text{rg}(x_1, \\dots, x_n) \\le n$ avec égalité si et seulement si $(x_1, \\dots, x_n)$ est libre.",
+      "proof_latex": "Engendré par un nombre fini de vecteurs, $\\text{Vect}(x_1, \\dots, x_n)$ est un $\\mathbb{K}$-espace vectoriel de dimension finie, or la dimension est toujours inférieure au nombre d'éléments d'une partie génératrice, donc $\\text{rg}(x_1, \\dots, x_n) = \\dim \\text{Vect}(x_1, \\dots, x_n) \\le n$. Pour le cas d'égalité, nous avons vu qu'en dimension $n$, une famille de $n$ vecteurs est libre si et seulement si elle est génératrice."
+    },
+    {
+      "id": "espaces_vectoriels__example_calcul_rang",
+      "type": "example",
+      "title": "Exemple : Calculs de rang",
+      "content_latex": "$\\text{rg}(1, X, X^2, X^3) = 4$, $\\text{rg}(X, 2X, 3X) = 1$, $\\text{rg}((1,1,0), (0,0,1)) = 2$ et $\\text{rg}((1,1,0), (0,0,1), (1,1,1)) = 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_dimension_sev",
+      "type": "theorem",
+      "title": "Théorème : Dimension d'un sous-espace vectoriel",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F$ un sous-espace vectoriel de $E$. Alors $F$ est de dimension finie et $\\dim F \\le \\dim E$, avec égalité si et seulement si $F=E$.",
+      "proof_latex": "L'ensemble $\\mathcal{N}$ des nombres d'éléments des familles libres de $F$ est non vide et majoré par $\\dim E$ car toute famille libre de $F$ est une famille libre de $E$, donc constituée d'au plus $\\dim E$ vecteurs. Conclusion : $\\mathcal{N}$ possède un plus grand élément $n \\le \\dim E$. Donnons-nous alors une famille libre $\\mathcal{L}$ de $F$ à $n$ éléments. Pour tout $x \\in F$, la famille $\\mathcal{L}$ augmentée de $x$ est liée par maximalité de $n$, donc comme $\\mathcal{L}$ est libre, $x$ est combinaison linéaire de $\\mathcal{L}$. Conclusion : libre et génératrice, $\\mathcal{L}$ est une base de $F$, donc $F$ est de dimension finie et $\\dim F = n \\le \\dim E$. Et si $\\dim F = \\dim E = n$ ? Dans ce cas, $\\mathcal{L}$ est une famille libre de $E$ à $n = \\dim E$ éléments, donc c'est déjà une base de $E$ et $E = \\text{Vect}(\\mathcal{L}) = F$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_dimension_affine",
+      "type": "definition",
+      "title": "Définition : Dimension d'un sous-espace affine",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $\\mathcal{F}$ un sous-espace affine de $E$ de direction $F$. On dit que $\\mathcal{F}$ est de dimension finie si $F$ l'est et la dimension de $F$ est alors appelée la dimension de $\\mathcal{F}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_base_espace_produit",
+      "type": "example",
+      "title": "Exemple : Base d'un espace produit",
+      "content_latex": "La famille $((1,0), (X,0), (X^2,0), (0,1), (0,X))$ est une base de $\\mathbb{R}_2[X] \\times \\mathbb{R}_1[X]$ ; les coordonnées d'un vecteur quelconque $(aX^2+bX+c, dX+e)$ dans cette base sont $(c, b, a, e, d)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_dimension_espace_produit",
+      "type": "theorem",
+      "title": "Théorème : Dimension d'un espace vectoriel produit",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimension finie. Alors $E \\times F$ est de dimension finie et : $\\dim(E \\times F) = \\dim E + \\dim F$. Le résultat se généralise au cas d'un nombre fini quelconque d'espaces vectoriels.",
+      "proof_latex": "Donnons-nous $(e_1, \\dots, e_m)$ une base de $E$ et $(f_1, \\dots, f_n)$ une base de $F$. Nous allons montrer que la famille $\\mathcal{B} = ((e_1, 0_F), \\dots, (e_m, 0_F), (0_E, f_1), \\dots, (0_E, f_n))$ est une base de $E \\times F$. Cela montrera bien que $E \\times F$ est de dimension finie $m+n = \\dim E + \\dim F$.\\par • Montrons que $\\mathcal{B}$ engendre $E \\times F$. Pour tout $(x,y) \\in E \\times F$, en notant $(x_1,\\dots,x_m)$ les coordonnées de $x$ et $(y_1,\\dots,y_n)$ celles de $y$ : $(x,y) = \\sum_{i=1}^m x_i(e_i, 0_F) + \\sum_{j=1}^n y_j(0_E, f_j)$.\\par • Pour la liberté, soient $\\lambda_i, \\mu_j \\in \\mathbb{K}$. Si $\\sum_{i=1}^m \\lambda_i(e_i, 0_F) + \\sum_{j=1}^n \\mu_j(0_E, f_j) = (0_E, 0_F)$, alors $\\sum_{i=1}^m \\lambda_i e_i = 0_E$ et $\\sum_{j=1}^n \\mu_j f_j = 0_F$, donc $\\lambda_1 = \\dots = \\mu_n = 0$ par liberté des bases initiales."
+    },
+    {
+      "id": "espaces_vectoriels__definition_matrice_famille",
+      "type": "definition",
+      "title": "Définition : Matrice d'une famille finie de vecteurs dans une base finie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n \\ge 1$, $\\mathcal{B} = (e_1, \\dots, e_n)$ une base de $E$ et $\\mathcal{X} = (x_1, \\dots, x_p)$ une famille finie de vecteurs de $E$ avec $p \\ge 1$. Pour tout $j \\in [|1,p|]$ on note $(a_{1j}, \\dots, a_{nj})$ les coordonnées de $x_j$ dans $\\mathcal{B}$. La matrice $\\text{Mat}_{\\mathcal{B}}(\\mathcal{X}) = (a_{ij})_{\\substack{1 \\le i \\le n \\\\ 1 \\le j \\le p}}$ est appelée la matrice de $\\mathcal{X}$ dans $\\mathcal{B}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_matrice_un_vecteur",
+      "type": "example",
+      "title": "Exemple : Matrice d'un seul vecteur",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $\\mathcal{B}$ une base de $E$. Alors pour tout $x \\in E$, $\\text{Mat}_{\\mathcal{B}}(x)$ est tout simplement la colonne des coordonnées de $x$ dans $\\mathcal{B}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_matrice_r4",
+      "type": "example",
+      "title": "Exemple : Matrice de vecteurs dans $\\mathbb{R}^4$",
+      "content_latex": "En notant $\\mathcal{B}_4$ la base canonique de $\\mathbb{R}^4$ : $\\text{Mat}_{\\mathcal{B}_4}((1,0,3,1), (2,-1,0,-1)) = \\begin{pmatrix} 1 & 2 \\\\ 0 & -1 \\\\ 3 & 0 \\\\ 1 & -1 \\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_matrice_polynomes",
+      "type": "example",
+      "title": "Exemple : Matrice de polynômes",
+      "content_latex": "$\\text{Mat}_{(1,X,X^2)}(3X^2+2X+1, X, X^2-X) = \\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & -1 \\\\ 3 & 0 & 1 \\end{pmatrix}$ et $\\text{Mat}_{(X^2,X,1)}(3X^2+2X+1, X^2-X, X) = \\begin{pmatrix} 3 & 1 & 0 \\\\ 2 & -1 & 1 \\\\ 1 & 0 & 0 \\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__theorem_matrice_colonnes_canonique",
+      "type": "theorem",
+      "title": "Théorème : Matrice des colonnes dans la base canonique",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ de colonnes $C_1, \\dots, C_p$. En notant $\\mathcal{B}_n$ la base canonique de $\\mathbb{K}^n$ : $A = \\text{Mat}_{\\mathcal{B}_n}(C_1, \\dots, C_p)$.",
+      "proof_latex": "Il suffit d'appliquer scrupuleusement la définition."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_inversibilite_matrice_famille",
+      "type": "theorem",
+      "title": "Théorème : Interprétation vectorielle de l'inversibilité",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n \\ge 1$, $\\mathcal{B}$ une base de $E$ et $\\mathcal{F}$ une famille de $n$ vecteurs de $E$. Alors $\\mathcal{F}$ est une base de $E$ si et seulement si $\\text{Mat}_{\\mathcal{B}}(\\mathcal{F})$ est inversible.",
+      "proof_latex": "Posons $A = \\text{Mat}_{\\mathcal{B}}(\\mathcal{F})$ et introduisons les vecteurs de $\\mathcal{B} = (e_1, \\dots, e_n)$ et $\\mathcal{F} = (f_1, \\dots, f_n)$. Pour tout $X \\in \\mathbb{K}^n$ et $y = \\sum_{j=1}^n x_j f_j$, on a $y = \\sum_{i=1}^n (AX)_i e_i$.\\par $\\mathcal{F}$ est une base de $E \\Leftrightarrow \\forall y \\in E, \\exists! (x_1, \\dots, x_n) \\in \\mathbb{K}^n, y = \\sum_{j=1}^n x_j f_j \\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, \\sum_{i=1}^n y_i e_i = \\sum_{i=1}^n (AX)_i e_i$ (car $\\mathcal{B}$ engendre $E$) $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, \\forall i \\in [|1,n|], y_i = (AX)_i$ (car $\\mathcal{B}$ est libre) $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, Y = AX \\Leftrightarrow A$ est inversible."
+    },
+    {
+      "id": "espaces_vectoriels__example_base_polynomes_via_matrice",
+      "type": "example",
+      "title": "Exemple : Base de $\\mathbb{R}_2[X]$ via sa matrice",
+      "content_latex": "La famille $(X^2+3X+5, 2X^2+X, X^2)$ de $\\mathbb{R}_2[X]$ est libre. C'est même une base de $\\mathbb{R}_2[X]$.",
+      "proof_latex": "$\\text{Mat}_{(1,X,X^2)}(X^2+3X+5, 2X^2+X, X^2) = \\begin{pmatrix} 5 & 0 & 0 \\\\ 3 & 1 & 0 \\\\ 1 & 2 & 1 \\end{pmatrix}$ est triangulaire à coefficients diagonaux non nuls, donc est inversible."
+    },
+    {
+      "id": "espaces_vectoriels__definition_somme_sev",
+      "type": "definition",
+      "title": "Définition : Somme de sous-espaces vectoriels",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F_1, \\dots, F_p$ des sous-espaces vectoriels de $E$. L'ensemble $\\sum_{i=1}^p F_i = F_1 + \\dots + F_p = \\{f_1 + \\dots + f_p \\mid f_1 \\in F_1, \\dots, f_p \\in F_p\\}$ est un sous-espace vectoriel de $E$. Ce sous-espace vectoriel appelé la somme de $F_1, \\dots, F_p$ est également le plus petit sous-espace vectoriel de $E$ contenant $F_1, \\dots, F_p$. En d'autres termes, tout sous-espace vectoriel de $E$ contenant $F_1, \\dots, F_p$ contient $F_1 + \\dots + F_p$.",
+      "proof_latex": "Il n'est pas dur de vérifier que $F_1 + \\dots + F_p$ est un sous-espace vectoriel de $E$. Précisons seulement pourquoi il contient $F_i$ pour tout $i \\in [|1,p|]$. Or $0_E$ appartient à $F_1, \\dots, F_p$, donc pour tout $f_i \\in F_i$ : $f_i = 0_E + \\dots + 0_E + f_i + 0_E + \\dots + 0_E \\in F_1 + \\dots + F_p$."
+    },
+    {
+      "id": "espaces_vectoriels__warning_somme_vs_reunion",
+      "type": "warning",
+      "title": "Attention : Somme $\\neq$ Réunion",
+      "content_latex": "Ne confondez pas somme et réunion ! La somme est un sous-espace vectoriel, mais pas la réunion en général.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_somme_droites_r3",
+      "type": "example",
+      "title": "Exemple : Somme de deux droites",
+      "content_latex": "Les droites $F = \\text{Vect}((1,0,0))$ et $G = \\text{Vect}((0,1,0))$ ont pour somme le plan d'équation $z=0$.",
+      "proof_latex": "$F + G = \\{(x,0,0) \\mid x \\in \\mathbb{R}\\} + \\{(0,y,0) \\mid y \\in \\mathbb{R}\\} = \\{(x,0,0) + (0,y,0) \\mid x,y \\in \\mathbb{R}\\} = \\{(x,y,0) \\mid x,y \\in \\mathbb{R}\\} = \\mathbb{R} \\times \\mathbb{R} \\times \\{0\\}$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_parties_generatrices_somme",
+      "type": "theorem",
+      "title": "Théorème : Parties génératrices d'une somme",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel, $F_1, \\dots, F_p$ des sous-espaces vectoriels de $E$ et $X_1, \\dots, X_p$ des parties de $E$. Alors $\\text{Vect}(\\bigcup_{i=1}^p X_i) = \\sum_{i=1}^p \\text{Vect}(X_i)$. Par conséquent, si $X_i$ engendre $F_i$ pour tout $i \\in [|1,p|]$, alors $X_1 \\cup \\dots \\cup X_p$ engendre $F_1 + \\dots + F_p$.",
+      "proof_latex": "Pour commencer, $\\text{Vect}(X_1 \\cup \\dots \\cup X_p)$ est un sous-espace vectoriel contenant $X_1, \\dots, X_p$, il contient donc $\\text{Vect}(X_1), \\dots, \\text{Vect}(X_p)$ donc aussi $\\text{Vect}(X_1) + \\dots + \\text{Vect}(X_p)$. Inversement, $\\text{Vect}(X_1) + \\dots + \\text{Vect}(X_p)$ est un sous-espace vectoriel contenant $\\text{Vect}(X_1), \\dots, \\text{Vect}(X_p)$, il contient donc $X_1, \\dots, X_p$, donc aussi $X_1 \\cup \\dots \\cup X_p$, donc aussi $\\text{Vect}(X_1 \\cup \\dots \\cup X_p)$."
+    },
+    {
+      "id": "espaces_vectoriels__definition_somme_directe",
+      "type": "definition",
+      "title": "Définition : Sous-espaces vectoriels en somme directe",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F_1, \\dots, F_p$ des sous-espaces vectoriels de $E$. On dit que $F_1, \\dots, F_p$ sont en somme directe si la décomposition d'un vecteur de $F_1 + \\dots + F_p$ comme somme de vecteurs de $F_1, \\dots, F_p$ est toujours unique, ce qui revient à dire que : $\\forall (f_1, \\dots, f_p), (f'_1, \\dots, f'_p) \\in F_1 \\times \\dots \\times F_p, (f_1+\\dots+f_p = f'_1+\\dots+f'_p \\Rightarrow \\forall i \\in [|1,p|], f_i = f'_i)$.\\par Il est équivalent d'exiger que l'égalité $0_E = 0_E + \\dots + 0_E$ soit la seule décomposition de $0_E$ : $\\forall (f_1, \\dots, f_p) \\in F_1 \\times \\dots \\times F_p, (f_1+\\dots+f_p = 0_E \\Rightarrow f_1 = \\dots = f_p = 0_E)$.\\par Le cas échéant, la somme $F_1 + \\dots + F_p$ est notée $\\bigoplus_{i=1}^p F_i$ ou $F_1 \\oplus \\dots \\oplus F_p$.",
+      "proof_latex": "Pour l'équivalence des deux définitions, poser $f'_1 = \\dots = f'_p = 0_E$ dans un sens et remplacer $f_i$ par $f_i - f'_i$ pour tout $i \\in [|1,p|]$ dans l'autre."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisation_somme_directe_deux",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la somme directe pour deux sous-espaces vectoriels",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels de $E$. Les assertions suivantes sont équivalentes :\\par (i) $F$ et $G$ sont en somme directe.\\par (ii) $F \\cap G = \\{0_E\\}$.",
+      "proof_latex": "$(i) \\Rightarrow (ii)$ Si $F$ et $G$ en somme directe, alors pour tout $x \\in F \\cap G$ : $x = x + 0_E = 0_E + x$, donc $x = 0_E$ par définition de la somme directe.\\par $(ii) \\Rightarrow (i)$ Faisons l'hypothèse que $F \\cap G = \\{0_E\\}$. Soient $f, f' \\in F$ et $g, g' \\in G$. Si $f+g = f'+g'$, alors $f-f' = g'-g \\in F \\cap G = \\{0_E\\}$, donc $f = f'$ et $g = g'$."
+    },
+    {
+      "id": "espaces_vectoriels__warning_somme_directe_multiple",
+      "type": "warning",
+      "title": "Attention : Somme directe multiple",
+      "content_latex": "Il est faux que $F_1, \\dots, F_p$ sont en somme directe si et seulement si $F_1 \\cap \\dots \\cap F_p = \\{0_E\\}$, ou bien si et seulement si $F_i \\cap F_j = \\{0_E\\}$ pour tous $i, j \\in [|1,p|]$ distincts. À partir de trois sous-espaces vectoriels, on en reste à la définition.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_somme_directe_r3",
+      "type": "example",
+      "title": "Exemple : Somme directe dans $\\mathbb{R}^3$",
+      "content_latex": "Dans $\\mathbb{R}^3$, le plan $F = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x+y+z=0\\}$ et la droite $G = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x=y=z\\}$ sont en somme directe.",
+      "proof_latex": "Pour commencer, $F$ et $G$ sont des ensembles de solutions de systèmes linéaires homogènes, donc des sous-espaces vectoriels de $\\mathbb{R}^3$. Montrons que $F \\cap G = \\{(0,0,0)\\}$. Pour tout $(x,y,z) \\in F \\cap G$ : $x=y=z$ et $x+y+z=0$ donc clairement $x=y=z=0$ i.e. $(x,y,z) = (0,0,0)$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_somme_directe_liberte",
+      "type": "theorem",
+      "title": "Théorème : Somme directe et liberté",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel, $(x_i)_{i \\in I}$ une famille de vecteurs de $E$ et $I = J \\sqcup K$ une partition de $I$. Les assertions suivantes sont équivalentes :\\par (i) $(x_i)_{i \\in I}$ est libre.\\par (ii) $(x_j)_{j \\in J}$ et $(x_k)_{k \\in K}$ sont libres et $\\text{Vect}(x_j)_{j \\in J}$ et $\\text{Vect}(x_k)_{k \\in K}$ sont en somme directe.\\par Le résultat se généralise au cas d'une partition finie quelconque $I = I_1 \\sqcup \\dots \\sqcup I_p$.",
+      "proof_latex": "$(i) \\Rightarrow (ii)$ Supposons $(x_i)_{i \\in I}$ libre. Toute sous-famille d'une famille libre étant libre, il nous suffit de montrer que $\\text{Vect}(x_j)_{j \\in J}$ et $\\text{Vect}(x_k)_{k \\in K}$ en somme directe. Soient $y \\in \\text{Vect}(x_j)_{j \\in J}$ et $z \\in \\text{Vect}(x_k)_{k \\in K}$ deux vecteurs pour lesquels $y+z=0_E$. Ainsi, $y = \\sum_{j \\in J} \\lambda_j x_j$ et $z = \\sum_{k \\in K} \\mu_k x_k$ pour certaines familles presque nulles, donc $\\sum_{j \\in J} \\lambda_j x_j + \\sum_{k \\in K} \\mu_k x_k = 0_E$, donc $\\lambda_j = \\mu_k = 0$ pour tous $j \\in J$ et $k \\in K$ par liberté de $(x_i)_{i \\in I}$. Conclusion : $y = z = 0_E$.\\par $(ii) \\Rightarrow (i)$ Supposons $(x_j)_{j \\in J}$ et $(x_k)_{k \\in K}$ libres et $\\text{Vect}(x_j)_{j \\in J}$ et $\\text{Vect}(x_k)_{k \\in K}$ en somme directe et montrons que $(x_i)_{i \\in I}$ est libre. Soit $(\\lambda_i)_{i \\in I} \\in \\mathbb{K}^I$ une famille presque nulle pour laquelle $\\sum_{i \\in I} \\lambda_i x_i = 0_E$. Ainsi $\\sum_{j \\in J} \\lambda_j x_j + \\sum_{k \\in K} \\lambda_k x_k = 0_E$, donc $\\sum_{j \\in J} \\lambda_j x_j = 0_E$ et $\\sum_{k \\in K} \\lambda_k x_k = 0_E$ par somme directe, puis $\\lambda_j = \\lambda_k = 0$ pour tous $j \\in J$ et $k \\in K$ par liberté. Conclusion : $\\lambda_i = 0$ pour tout $i \\in I$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_base_adaptee_dimension_somme",
+      "type": "theorem",
+      "title": "Théorème : Base adaptée et dimension d'une somme",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F_1, \\dots, F_p$ des sous-espaces vectoriels de $E$.\\par (i) Base adaptée à une somme directe : Si $F_i$ possède une base $\\mathcal{B}_i$ pour tout $i \\in [|1,p|]$ et si $F_1, \\dots, F_p$ sont en somme directe, la concaténation des bases $\\mathcal{B}_1, \\dots, \\mathcal{B}_p$ est une base de $F_1 \\oplus \\dots \\oplus F_p$ qu'on dit adaptée à la décomposition $F_1 \\oplus \\dots \\oplus F_p$.\\par (ii) Dimension d'une somme : Si $F_1, \\dots, F_p$ sont de dimension finie, alors $F_1 + \\dots + F_p$ est de dimension finie et : $\\dim \\sum_{i=1}^p F_i \\le \\sum_{i=1}^p \\dim F_i$, avec égalité si et seulement si $F_1, \\dots, F_p$ sont en somme directe.\\par Ainsi, en cas de somme directe : $\\dim \\bigoplus_{i=1}^p F_i = \\sum_{i=1}^p \\dim F_i$.",
+      "proof_latex": "(i) La concaténation des bases $\\mathcal{B}_1, \\dots, \\mathcal{B}_p$ engendre $F_1 + \\dots + F_p$ et l'implication $(ii) \\Rightarrow (i)$ du théorème précédent montre qu'elle est libre.\\par (ii) Donnons-nous pour tout $i \\in [|1,p|]$ une base finie $\\mathcal{B}_i$ de $F_i$. Leur concaténation $\\mathcal{B}$ est une famille génératrice finie de $F_1 + \\dots + F_p$, donc $F_1 + \\dots + F_p$ est de dimension finie inférieure à $\\dim F_1 + \\dots + \\dim F_p$. En outre, cette inégalité de dimensions est une égalité si et seulement si $\\mathcal{B}$ est libre, i.e. si et seulement si $F_1 = \\text{Vect}(\\mathcal{B}_1), \\dots, F_p = \\text{Vect}(\\mathcal{B}_p)$ sont en somme directe d'après le théorème précédent."
+    },
+    {
+      "id": "espaces_vectoriels__definition_supplementaires",
+      "type": "definition",
+      "title": "Définition : Sous-espaces vectoriels supplémentaires",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels de $E$. Les assertions suivantes sont équivalentes :\\par (i) Tout vecteur de $E$ est d'une et une seule manière la somme d'un élément de $F$ et d'un élément de $G$ : $\\forall x \\in E, \\exists! (f,g) \\in F \\times G, x = f+g$.\\par (ii) $E = F \\oplus G$, ce qui revient à dire que $E = F+G$ et que $F$ et $G$ sont en somme directe.\\par Le cas échéant, on dit que $F$ et $G$ sont supplémentaires dans $E$. On dit aussi que $F$ est UN supplémentaire de $G$ dans $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__warning_supplementaires_differences",
+      "type": "warning",
+      "title": "Attention : Nuances sur la supplémentarité",
+      "content_latex": "• Somme directe et supplémentarité sont deux notions distinctes. Dire que $F$ et $G$ sont en somme directe, c'est affirmer que tout vecteur de $E$ possède AU PLUS UNE décomposition $f+g$. Dire que $F$ et $G$ sont supplémentaires, c'est ajouter $E = F+G$, de sorte que tout vecteur possède EXACTEMENT UNE décomposition.\\par • On ne dit jamais « LE supplémentaire », faute d'unicité.\\par • Supplémentaire et complémentaire n'ont vraiment rien de commun. Les supplémentaires sont des sous-espaces vectoriels, au contraire, le complémentaire est unique et ce n'est jamais un sous-espace vectoriel.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementaires_r3_droites",
+      "type": "example",
+      "title": "Exemple : Droites et plans supplémentaires",
+      "content_latex": "Dans $\\mathbb{R}^3$, deux droites vectorielles non confondues sont toujours supplémentaires [Note: correction, deux droites engendrent un plan, pas $\\mathbb{R}^3$]. De même, dans $\\mathbb{R}^3$ un plan vectoriel et une droite vectorielle non contenue dans ce plan sont toujours supplémentaires.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementaire_parametre_r3",
+      "type": "example",
+      "title": "Exemple : Un supplémentaire paramétré",
+      "content_latex": "Pour tout $\\epsilon \\neq -2$, la droite $G_\\epsilon = \\text{Vect}((1,\\epsilon,1))$ est un supplémentaire de $F = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x+y+z=0\\}$ dans $\\mathbb{R}^3$.",
+      "proof_latex": "Soit $\\epsilon \\neq -2$. Soit $(x,y,z) \\in \\mathbb{R}^3$. Montrons que $(x,y,z)$ est d'une unique manière la somme d'un élément de $F$ et d'un élément de $G_\\epsilon$. Pour tous $(a,b,c) \\in \\mathbb{R}^3$ et $\\lambda \\in \\mathbb{R}$ : $(x,y,z) = (a,b,c) + \\lambda(1,\\epsilon,1)$ et $(a,b,c) \\in F \\Leftrightarrow \\begin{cases} a+\\lambda=x \\\\ b+\\epsilon\\lambda=y \\\\ c+\\lambda=z \\\\ a+b+c=0 \\end{cases} \\Leftrightarrow \\dots \\Leftrightarrow \\begin{cases} a+\\lambda=x \\\\ b+\\epsilon\\lambda=y \\\\ c+\\lambda=z \\\\ (2+\\epsilon)\\lambda=x+y+z \\end{cases}$. Comme $\\epsilon \\neq -2$, ce système triangulaire à coefficients diagonaux non nuls possède une et une seule solution."
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementaires_matrices_sym",
+      "type": "example",
+      "title": "Exemple : $\\mathcal{S}_n(\\mathbb{K})$ et $\\mathcal{A}_n(\\mathbb{K})$",
+      "content_latex": "$\\mathcal{S}_n(\\mathbb{K})$ et $\\mathcal{A}_n(\\mathbb{K})$ sont supplémentaires dans $\\mathcal{M}_n(\\mathbb{K})$.",
+      "proof_latex": "Soit $M \\in \\mathcal{M}_n(\\mathbb{K})$. Nous voulons montrer ceci : $\\exists! (S,A) \\in \\mathcal{S}_n(\\mathbb{K}) \\times \\mathcal{A}_n(\\mathbb{K}), M = S+A$.\\par • Analyse : Si $M=S+A$ alors $M^\\top = S^\\top + A^\\top = S-A$, donc par demi-somme et demi-différence : $S = \\frac{M+M^\\top}{2}$ et $A = \\frac{M-M^\\top}{2}$.\\par • Synthèse : Posons $S = \\frac{M+M^\\top}{2}$ et $A = \\frac{M-M^\\top}{2}$. Alors $M=S+A$ et par ailleurs, $S$ est symétrique et $A$ antisymétrique car $S^\\top = \\left(\\frac{M+M^\\top}{2}\\right)^\\top = \\frac{M^\\top+M}{2} = S$ et $A^\\top = \\frac{M^\\top-M}{2} = -A$."
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementaires_polynomes_division",
+      "type": "example",
+      "title": "Exemple : Supplémentaires et division euclidienne",
+      "content_latex": "Pour tout $A \\in \\mathbb{K}[X]$ non nul de degré $n$ : $\\mathbb{K}[X] = A\\mathbb{K}[X] \\oplus \\mathbb{K}_{n-1}[X]$ où $A\\mathbb{K}[X] = \\{AQ \\mid Q \\in \\mathbb{K}[X]\\}$.",
+      "proof_latex": "Il s'agit de montrer que : $\\forall P \\in \\mathbb{K}[X], \\exists! (Q,R) \\in \\mathbb{K}[X] \\times \\mathbb{K}_{n-1}[X], P = AQ+R$. C'est ni plus ni moins le théorème de la division euclidienne recuisiné à la sauce linéaire."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_existence_supplementaires_dim_finie",
+      "type": "theorem",
+      "title": "Théorème : Existence de supplémentaires en dimension finie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F$ un sous-espace vectoriel de $E$. Alors $F$ possède un supplémentaire dans $E$. En outre, les supplémentaires de $F$ dans $E$ ont tous pour dimension $\\dim E - \\dim F$.",
+      "proof_latex": "De même que $E$, $F$ est de dimension finie, donc possède une base $(e_1, \\dots, e_p)$ que nous pouvons compléter en une base $(e_1, \\dots, e_n)$ de $E$ d'après le théorème de la base incomplète. Posons $G = \\text{Vect}(e_{p+1}, \\dots, e_n)$. Il découle des théorèmes précédents que $E=F+G$ et que $F$ et $G$ sont en somme directe, i.e. que $F$ et $G$ sont supplémentaires dans $E$. A fortiori : $\\dim E = \\dim F + \\dim G$."
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementaire_r3x",
+      "type": "example",
+      "title": "Exemple : Un supplémentaire dans $\\mathbb{R}_3[X]$",
+      "content_latex": "$\\text{Vect}(X, X^3)$ est un supplémentaire de $F = \\{P \\in \\mathbb{R}_3[X] \\mid P(X+1) = P(1-X)\\}$ dans $\\mathbb{R}_3[X]$.",
+      "proof_latex": "• Nous avons besoin d'abord d'une base de $F$. Pour tout $P = aX^3+bX^2+cX+d \\in \\mathbb{R}_3[X]$ : $P \\in F \\Leftrightarrow a(X+1)^3 + b(X+1)^2 + c(X+1) + d = a(1-X)^3 + b(1-X)^2 + c(1-X) + d \\Leftrightarrow \\dots \\Leftrightarrow a=0$ et $2b+c=0$. Ce calcul montre que $(1, X^2-2X)$ engendre $F$. Cette famille étant libre, c'est une base de $F$.\\par • Complétons-la en une base de $\\mathbb{R}_3[X]$ avec certains vecteurs de la base canonique. Échelonnée en degré, la famille $(1, X^2-2X, X, X^3)$ est libre, et composée de 4 vecteurs alors que $\\dim \\mathbb{R}_3[X] = 4$, c'est donc une base de $\\mathbb{R}_3[X]$. Conclusion : $\\text{Vect}(X, X^3)$ est UN supplémentaire de $F$ dans $\\mathbb{R}_3[X]$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_formule_grassmann",
+      "type": "theorem",
+      "title": "Théorème : Formule de Grassmann",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel pas nécessairement de dimension finie et $F$ et $G$ deux sous-espaces vectoriels de dimension finie de $E$. La somme $F+G$ est elle aussi de dimension finie et : $\\dim(F+G) = \\dim F + \\dim G - \\dim(F \\cap G)$.",
+      "proof_latex": "Comme $F$ et $G$ sont de dimension finie, nous pouvons nous donner un supplémentaire $F'$ de $F \\cap G$ dans $F$ et un supplémentaire $G'$ de $F \\cap G$ dans $G$. Ainsi, tout vecteur de $F+G$ est une somme de vecteurs de $F \\cap G$, $F'$ et $G'$, donc $F+G = (F \\cap G) + F' + G'$. Montrons maintenant que $F+G = (F \\cap G) \\oplus F' \\oplus G'$. Soient $x \\in F \\cap G$, $f' \\in F'$ et $g' \\in G'$ trois vecteurs pour lesquels $x+f'+g'=0_E$. Ainsi $g' = -x-f' \\in F \\cap G$, donc $f' = -x-g' \\in (F \\cap G) \\cap F' = \\{0_E\\}$ car $F \\cap G$ et $F'$ sont en somme directe. Bref, $f'=0_E$ donc $x+g'=0_E$, donc $x=g'=0_E$ car $F \\cap G$ et $G'$ sont en somme directe. Conclusion : $\\dim(F+G) = \\dim(F \\cap G) + \\dim F' + \\dim G' = \\dim(F \\cap G) + (\\dim F - \\dim(F \\cap G)) + (\\dim G - \\dim(F \\cap G)) = \\dim F + \\dim G - \\dim(F \\cap G)$."
+    },
+    {
+      "id": "espaces_vectoriels__theorem_caracterisation_supplementarite_dim_finie",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la supplémentarité en dimension finie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $F$ et $G$ deux sous-espaces vectoriels de $E$. On s'intéresse aux trois assertions suivantes :\\par (i) $\\dim F + \\dim G = \\dim E$.\\par (ii) $F \\cap G = \\{0_E\\}$.\\par (iii) $F+G=E$.\\par Les sous-espaces vectoriels $F$ et $G$ sont supplémentaires dans $E$ si et seulement si deux de ces trois assertions sont vraies. Le cas échéant, la troisième est automatiquement vraie.",
+      "proof_latex": "Notons la formule de Grassmann : $\\dim(F+G) = \\dim F + \\dim G - \\dim(F \\cap G)$.\\par • (i) et (ii) $\\Rightarrow$ (iii) : D'après, $\\dim(F+G) = \\dim E$ avec $F+G \\subset E$, donc $F+G=E$.\\par • (ii) et (iii) $\\Rightarrow$ (i) : Simple conséquence de la formule.\\par • (iii) et (i) $\\Rightarrow$ (ii) : D'après, $\\dim(F \\cap G) = 0$ donc $F \\cap G = \\{0_E\\}$."
+    },
+    {
+      "id": "espaces_vectoriels__example_supplementarite_calcul_dim",
+      "type": "example",
+      "title": "Exemple : Utilisation de la dimension pour les supplémentaires",
+      "content_latex": "$F = \\text{Vect}((0,1,0))$ et $G = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x+2y+3z=0\\}$ sont supplémentaires dans $\\mathbb{R}^3$.",
+      "proof_latex": "$F$ est une droite vectorielle et $G = \\{(-2y-3z, y, z) \\mid y,z \\in \\mathbb{R}\\} = \\text{Vect}((-2,1,0), (-3,0,1))$ un plan vectoriel, donc $\\dim F + \\dim G = 1+2 = 3 = \\dim \\mathbb{R}^3$. Par ailleurs $F \\cap G = \\{(0,0,0)\\}$ (vérification facile), donc $F \\oplus G = \\mathbb{R}^3$."
+    }
+  ]
+}

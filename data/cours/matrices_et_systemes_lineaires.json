@@ -1,0 +1,421 @@
+{
+  "chapter_official_id": "matrices_et_systemes_lineaires",
+  "chapter_name": "MATRICES ET SYSTÈMES LINÉAIRES",
+  "source_document": "Cours - Matrices et systemes lineaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "matrices_et_systemes_lineaires__def_matrice",
+      "type": "definition",
+      "title": "Définition : Matrice, coefficients, lignes, colonnes",
+      "content_latex": "On appelle matrice de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ toute famille $A=(a_{ij})_{\\substack{1\\le i\\le n \\\\ 1\\le j\\le p}}$ de $np$ éléments de $\\mathbb{K}$ indexée par $[[1,n]]\\times[[1,p]]$. L'ensemble des matrices de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ est noté $\\mathcal{M}_{n,p}(\\mathbb{K})$. Pour $n=p$, on parle de matrices carrées et on note $\\mathcal{M}_{n}(\\mathbb{K})$. La matrice nulle est notée $0$ ou $0_{n,p}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_addition_scalaire",
+      "type": "definition",
+      "title": "Définition : Addition matricielle et multiplication par un scalaire",
+      "content_latex": "Pour tous $A,B\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $\\lambda, \\mu\\in\\mathbb{K}$, on note $\\lambda A+\\mu B$ la matrice dont le coefficient de position $(i,j)$ est $\\lambda a_{ij}+\\mu b_{ij}$. C'est appelé une combinaison linéaire de $A$ et $B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_comb_lineaire",
+      "type": "example",
+      "title": "Exemple : Combinaison linéaire",
+      "content_latex": "$$3\\begin{pmatrix}2&1\\\\ 0&4\\end{pmatrix}-2\\begin{pmatrix}1&1\\\\ -2&3\\end{pmatrix}=\\begin{pmatrix}4&1\\\\ 4&6\\end{pmatrix}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+      "type": "definition",
+      "title": "Définition : Matrices élémentaires",
+      "content_latex": "Pour tous $i,j\\in[[1,n]]\\times[[1,p]]$, on note $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$, égal à 1.\\par Toute matrice $M\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ est combinaison linéaire de matrices élémentaires : $M=\\sum_{1\\le i\\le n, 1\\le j\\le p}m_{ij}E_{ij}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_produit_matriciel",
+      "type": "definition",
+      "title": "Définition : Produit matriciel",
+      "content_latex": "Pour tous $A\\in\\mathcal{M}_{p,q}(\\mathbb{K})$ et $B\\in\\mathcal{M}_{q,r}(\\mathbb{K})$ on note $AB$ la matrice de $\\mathcal{M}_{p,r}(\\mathbb{K})$ définie pour tous $i\\in[[1,p]]$ et $j\\in[[1,r]]$ par la relation :\\par $$(AB)_{ij}=\\sum_{k=1}^{q}a_{ik}b_{kj}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_produit_matriciel",
+      "type": "example",
+      "title": "Exemple : Produit matriciel $3\\times 2$ par $2\\times 3$",
+      "content_latex": "$$\\begin{pmatrix}2&1\\\\ 1&3\\\\ 2&0\\end{pmatrix}\\times\\begin{pmatrix}1&0&1\\\\ 2&-1&3\\end{pmatrix}=\\begin{pmatrix}4&-1&5\\\\ 7&-3&10\\\\ 2&0&2\\end{pmatrix}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__warning_produit_pieges",
+      "type": "warning",
+      "title": "Attention : Pièges du produit matriciel",
+      "content_latex": "— Le produit n'est défini qu'en cas de compatibilité des formats (colonnes de gauche = lignes de droite).\\par — Le produit matriciel n'est pas commutatif : $AB \\ne BA$ en général.\\par — Un produit de matrices peut être nul sans qu'aucune d'entre elles ne le soit : $\\begin{pmatrix}0&1\\\\ 0&0\\end{pmatrix}\\begin{pmatrix}1&1\\\\ 0&0\\end{pmatrix}=\\begin{pmatrix}0&0\\\\ 0&0\\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_produit_lignes_colonnes",
+      "type": "theorem",
+      "title": "Théorème : Lignes et colonnes d'un produit",
+      "content_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathcal{M}_{q,r}(\\mathbb{K})$.\\par — $A \\times$ (colonne de zéros avec un $1$ en position $j$) est la $j$-ème colonne de $A$.\\par — (ligne de zéros avec un $1$ en position $i$) $\\times A$ est la $i$-ème ligne de $A$.\\par Plus généralement, pour les colonnes de $B$, $AB = (AC_1(B) \\dots AC_r(B))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_produit_colonne",
+      "type": "example",
+      "title": "Exemple : Produit par blocs (colonnes)",
+      "content_latex": "$$\\begin{pmatrix}1&3\\\\ 2&4\\end{pmatrix}\\begin{pmatrix}5&1\\\\ 0&1\\end{pmatrix}=\\begin{pmatrix}5\\times 1 & 1+3\\\\ 5\\times 2 & 2+4\\end{pmatrix}=\\begin{pmatrix}5&4\\\\ 10&6\\end{pmatrix}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_prop_produit",
+      "type": "theorem",
+      "title": "Théorème : Propriétés du produit matriciel",
+      "content_latex": "— Associativité : $(AB)C = A(BC)$.\\par — Bilinéarité : $(\\lambda A+\\mu B)C = \\lambda AC + \\mu BC$ et $B(\\lambda C+\\mu D) = \\lambda BC + \\mu BD$.\\par — Élément neutre : La matrice identité $I_n$ vérifie $I_n A = A I_p = A$ pour tout $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$.",
+      "proof_latex": "Pour l'associativité, soit $(i,j)\\in[[1,p]]\\times[[1,s]]$. \\par $((AB)C)_{ij} = \\sum_{l=1}^{r}(AB)_{il}c_{lj} = \\sum_{l=1}^{r}\\left(\\sum_{k=1}^{q}a_{ik}b_{kl}\\right)c_{lj} = \\sum_{k=1}^{q}a_{ik}\\left(\\sum_{l=1}^{r}b_{kl}c_{lj}\\right) = (A(BC))_{ij}."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_puissance",
+      "type": "definition",
+      "title": "Définition : Puissances d'une matrice carrée",
+      "content_latex": "Pour toute matrice carrée $A$, $A^0 = I_n$ et pour tout $k\\in\\mathbb{N}^*$, $A^k = A \\times \\dots \\times A$ ($k$ fois).",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_nilpotente",
+      "type": "definition",
+      "title": "Définition : Matrice nilpotente",
+      "content_latex": "Soit $A\\in\\mathcal{M}_n(\\mathbb{K})$. On dit que $A$ est nilpotente s'il existe $p\\in\\mathbb{N}^*$ tel que $A^p=0$. Le plus petit entier $p$ est appelé l'indice de nilpotence.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_binome_newton",
+      "type": "theorem",
+      "title": "Théorème : Formule du binôme et $A^k - B^k$",
+      "content_latex": "Soient $A,B\\in\\mathcal{M}_n(\\mathbb{K})$. Si $A$ et $B$ commutent ($AB=BA$) :\\par $$(A+B)^k = \\sum_{i=0}^k \\binom{k}{i} A^i B^{k-i}$$\\par $$A^k - B^k = (A-B)\\sum_{i=0}^{k-1} A^i B^{k-i-1}.$$",
+      "proof_latex": "Même preuve qu'avec des réels, par récurrence."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__warning_binome",
+      "type": "warning",
+      "title": "Attention : Commutativité pour le binôme",
+      "content_latex": "L'hypothèse de commutativité est indispensable. Si $A$ et $B$ ne commutent pas : $(A+B)^2 = A^2 + AB + BA + B^2 \\ne A^2 + 2AB + B^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_binome",
+      "type": "example",
+      "title": "Exemple : Application du binôme (matrice + nilpotente)",
+      "content_latex": "Si $A=\\begin{pmatrix}1&1&2\\\\ 0&1&0\\\\ 0&0&1\\end{pmatrix}$, pour tout $k\\in\\mathbb{N}$ : $A^k=\\begin{pmatrix}1&k&2k\\\\ 0&1&0\\\\ 0&0&1\\end{pmatrix}$.",
+      "proof_latex": "Écrivons $A=I_3+N$ avec $N=\\begin{pmatrix}0&1&2\\\\ 0&0&0\\\\ 0&0&0\\end{pmatrix}$. $I_3$ et $N$ commutent, et $N^2=0$. Donc : $A^k = \\sum_{i=0}^k \\binom{k}{i} I_3^i N^{k-i} = I_3 + kN$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_produit_blocs",
+      "type": "theorem",
+      "title": "Théorème : Produit par blocs",
+      "content_latex": "Tout se passe avec les blocs (de formats compatibles) comme si chacun était un scalaire :\\par $$\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}\\begin{pmatrix}A'&C'\\\\ B'&D'\\end{pmatrix} = \\begin{pmatrix}AA'+CB'&AC'+CD'\\\\ BA'+DB'&BC'+DD'\\end{pmatrix}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_produit_blocs",
+      "type": "example",
+      "title": "Exemple : Produit par blocs",
+      "content_latex": "$\\begin{pmatrix}0&-I_n\\\\ I_n&0\\end{pmatrix}\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix} = \\begin{pmatrix}-B&-D\\\\ A&C\\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_transposee",
+      "type": "definition",
+      "title": "Définition : Transposée",
+      "content_latex": "Soit $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$. On appelle transposée de $A$ la matrice de $\\mathcal{M}_{p,n}(\\mathbb{K})$, notée $A^\\top$, dont le coefficient $(i,j)$ est $a_{ji}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_transposee",
+      "type": "example",
+      "title": "Exemple : Transposée",
+      "content_latex": "$$\\begin{pmatrix}3&0&1\\\\ 5&2&7\\end{pmatrix}^\\top = \\begin{pmatrix}3&5\\\\ 0&2\\\\ 1&7\\end{pmatrix}.$$",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_prop_transpo",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de la transposition",
+      "content_latex": "— Linéarité : $(\\lambda A+\\mu B)^\\top = \\lambda A^\\top + \\mu B^\\top$.\\par — Involutivité : $(A^\\top)^\\top = A$.\\par — Effet sur un produit : $(AB)^\\top = B^\\top A^\\top$.",
+      "proof_latex": "Pour le produit : $((AB)^\\top)_{ij} = (AB)_{ji} = \\sum_{k=1}^q a_{jk}b_{ki} = \\sum_{k=1}^q (B^\\top)_{ik}(A^\\top)_{kj} = (B^\\top A^\\top)_{ij}."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_sym_antisym",
+      "type": "definition",
+      "title": "Définition : Matrice symétrique / antisymétrique",
+      "content_latex": "Une matrice carrée $A$ est dite symétrique si $A^\\top = A$ (ensemble $\\mathcal{S}_n(\\mathbb{K})$) et antisymétrique si $A^\\top = -A$ (ensemble $\\mathcal{A}_n(\\mathbb{K})$).",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_sym_antisym",
+      "type": "example",
+      "title": "Exemple : Matrices symétriques / antisymétriques",
+      "content_latex": "$\\begin{pmatrix}1&2&3\\\\ 2&5&0\\\\ 3&0&6\\end{pmatrix}$ est symétrique. $\\begin{pmatrix}0&1&-5\\\\ -1&0&2\\\\ 5&-2&0\\end{pmatrix}$ est antisymétrique (la diagonale d'une antisymétrique est toujours nulle).",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_diag_triang",
+      "type": "definition",
+      "title": "Définition : Diagonale, scalaire, triangulaire",
+      "content_latex": "— Matrice diagonale : coefficients non diagonaux nuls.\\par — Matrice scalaire : de la forme $\\lambda I_n$.\\par — Matrice triangulaire supérieure : $a_{ij}=0$ pour $j < i$.\\par — Matrice triangulaire inférieure : $a_{ij}=0$ pour $j > i$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_op_triang",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les matrices triangulaires",
+      "content_latex": "Soient $A,B$ triangulaires supérieures (resp. inférieures) et $\\lambda,\\mu\\in\\mathbb{K}$.\\par Les matrices $\\lambda A+\\mu B$ et $AB$ restent triangulaires supérieures (resp. inférieures).\\par De plus, pour tout $i\\in[[1,n]]$ : $(AB)_{ii} = a_{ii}b_{ii}$.",
+      "proof_latex": "Pour des matrices triangulaires supérieures : $(\\lambda A+\\mu B)_{ij} = 0$ pour $j<i$. \\par $(AB)_{ij} = \\sum_{k=1}^{i-1} a_{ik}b_{kj} + \\sum_{k=i}^n a_{ik}b_{kj} = 0$ si $j<i$. \\par Sur la diagonale : $(AB)_{ii} = \\sum_{k=1}^{i-1} a_{ik}b_{ki} + a_{ii}b_{ii} + \\sum_{k=i+1}^n a_{ik}b_{ki} = a_{ii}b_{ii}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_trace",
+      "type": "theorem",
+      "title": "Définition-théorème : Trace d'une matrice carrée",
+      "content_latex": "Soit $A\\in\\mathcal{M}_n(\\mathbb{K})$. On appelle trace de $A$ (notée $\\text{tr}(A)$) la somme de ses éléments diagonaux.\\par (i) Linéarité : $\\text{tr}(\\lambda A+\\mu B) = \\lambda \\text{tr}(A) + \\mu \\text{tr}(B)$.\\par (ii) Effet sur un produit : Pour tous $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathcal{M}_{p,n}(\\mathbb{K})$, $\\text{tr}(AB) = \\text{tr}(BA)$.",
+      "proof_latex": "(i) $\\text{tr}(\\lambda A+\\mu B) = \\sum_{k=1}^n (\\lambda a_{kk} + \\mu b_{kk}) = \\lambda \\text{tr}(A) + \\mu \\text{tr}(B)$.\\par (ii) $\\text{tr}(AB) = \\sum_{k=1}^n (AB)_{kk} = \\sum_{k=1}^n \\sum_{l=1}^p a_{kl}b_{lk} = \\sum_{l=1}^p \\sum_{k=1}^n b_{lk}a_{kl} = \\sum_{l=1}^p (BA)_{ll} = \\text{tr}(BA)$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_trace_commut",
+      "type": "example",
+      "title": "Exemple : Trace d'un commutateur",
+      "content_latex": "Pour $A,B\\in\\mathcal{M}_n(\\mathbb{K})$, l'équation $AB-BA=I_n$ n'a pas de solution car $\\text{tr}(AB-BA) = \\text{tr}(AB) - \\text{tr}(BA) = 0$, alors que $\\text{tr}(I_n) = n \\ne 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "type": "theorem",
+      "title": "Théorème : Structure de l'ensemble des solutions d'un système linéaire",
+      "content_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "proof_latex": "Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_systeme_incompatible",
+      "type": "example",
+      "title": "Exemple : Système incompatible",
+      "content_latex": "Le système linéaire $\\begin{cases}x+y=1\\\\ x+y=0\\end{cases}$ d'inconnue $(x,y)\\in\\mathbb{R}^{2}$ est incompatible.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_notation_vect",
+      "type": "definition",
+      "title": "Définition : Notation Vect",
+      "content_latex": "Soient $X_{1},...,X_{r}\\in\\mathbb{K}^{n}$. L'ensemble des combinaisons linéaires de $X_{1},...,X_{r}$ est noté $\\text{Vect}(X_{1},...,X_{r})$. Concrètement : $\\text{Vect}(X_{1},...,X_{r})=\\{\\lambda_{1}X_{1}+...+\\lambda_{r}X_{r} | \\lambda_{1},...,\\lambda_{r}\\in\\mathbb{K}\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_vect_r2_r3",
+      "type": "example",
+      "title": "Exemple : Vect dans $\\mathbb{R}^2$ et $\\mathbb{R}^3$",
+      "content_latex": "Dans $\\mathbb{R}^{2}$ : $\\text{Vect}((2,3))=\\{(2x,3x) | x\\in\\mathbb{R}\\}$ et $\\text{Vect}((1,0),(0,1))=\\{x(1,0)+y(0,1) | x,y\\in\\mathbb{R}\\}=\\{(x,y) | x,y\\in\\mathbb{R}\\}=\\mathbb{R}^{2}$.\\par Raisonnons dans l'autre sens : $\\{(x+y-z,2x-y,x+3y+z) | x,y,z\\in\\mathbb{R}\\} = \\{x(1,2,1)+y(1,-1,3)+z(-1,0,1) | x,y,z\\in\\mathbb{R}\\} = \\text{Vect}((1,2,1),(1,-1,3),(-1,0,1))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_solution_systeme_vect",
+      "type": "example",
+      "title": "Exemple : Solutions d'un système sous forme Vect",
+      "content_latex": "Les solutions du système linéaire $\\begin{cases}x+2y-z=1\\\\ 2x+5y+z=2\\end{cases}$ d'inconnue $(x,y,z)\\in\\mathbb{R}^{3}$ sont tous les triplets $(7\\lambda+1,-3\\lambda,\\lambda)$, $\\lambda$ décrivant $\\mathbb{R}$, dont l'ensemble est noté $(1,0,0)+\\text{Vect}((7,-3,1))$.",
+      "proof_latex": "Pour tout $(x,y,z)\\in\\mathbb{R}^{3}$ : $\\begin{cases}x+2y-z=1\\\\ 2x+5y+z=2\\end{cases} \\iff \\begin{cases}x+2y-z=1\\\\ y+3z=0\\end{cases}$ (avec $L_2 \\leftarrow L_2 - 2L_1$) $\\iff \\begin{cases}x=1+7z\\\\ y=-3z\\end{cases}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_geometrie_plans",
+      "type": "example",
+      "title": "Exemple : Interprétation géométrique (Intersection de plans)",
+      "content_latex": "L'ensemble des solutions du système linéaire $\\begin{cases}x+2y+z=5\\\\ 3x+y-2z=0\\end{cases}$ d'inconnue $(x,y,z)\\in\\mathbb{R}^{3}$ est l'ensemble $(-1,3,0)+\\text{Vect}((1,-1,1))$. Géométriquement, cet ensemble est la droite de l'espace passant par le point de coordonnées $(-1,3,0)$ et dirigée par le vecteur de coordonnées $(1,-1,1)$.",
+      "proof_latex": "$\\begin{cases}x+2y+z=5\\\\ 3x+y-2z=0\\end{cases} \\iff \\begin{cases}x+2y+z=5\\\\ 5y+5z=15\\end{cases}$ ($L_2 \\leftarrow 3L_1 - L_2$) $\\iff \\begin{cases}x+2y+z=5\\\\ y+z=3\\end{cases}$ $\\iff \\begin{cases}x=-1+z\\\\ y=3-z\\end{cases}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_operations_elementaires",
+      "type": "definition",
+      "title": "Définition-théorème : Opérations élémentaires sur les lignes",
+      "content_latex": "Soient $i, j\\in\\mathbb{N}^{*}$ et $\\lambda\\in\\mathbb{K}$. On appelle opération élémentaire les opérations suivantes :\\par — permutation des $i$-ème et $j$-ème lignes, notée $L_{i}\\leftrightarrow L_{j}$,\\par — multiplication de la $i$-ème ligne par $\\lambda\\ne 0$, notée $L_{i}\\leftarrow \\lambda L_{i}$,\\par — addition de la $j$-ème ligne multipliée par $\\lambda$ à la $i$-ème ligne (avec $i\\ne j$), notée $L_{i}\\leftarrow L_{i}+\\lambda L_{j}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__warning_preservation_solutions",
+      "type": "warning",
+      "title": "Attention : Préservation de l'ensemble des solutions",
+      "content_latex": "Transformer un système linéaire donné par des opérations élémentaires SUR LES LIGNES ne modifie pas l'ensemble de ses solutions. Les opérations élémentaires préservent les équivalences car on peut toujours les défaire. L'opération $L_1 \\leftarrow 2L_1$ est défaite par $L_1 \\leftarrow \\frac{1}{2}L_1$, et $L_2 \\leftarrow L_2 + L_1$ par $L_2 \\leftarrow L_2 - L_1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__method_algorithme_pivot",
+      "type": "method",
+      "title": "Méthode : Algorithme du pivot",
+      "content_latex": "C'EN EST FINI DES SUBSTITUTIONS ! On utilise l'algorithme du pivot.\\par Étape 1 : On choisit un coefficient non nul (pivot) et on le place en position $(1,1)$ par permutation si nécessaire. Privilégiez un pivot de valeur 1.\\par Étape 2 : On annule tous les coefficients de la première colonne sous le pivot par des opérations $L_i \\leftarrow L_i + \\lambda_i L_1$. On supprime les lignes nulles.\\par Reprise : On répète sur le sous-système (sans la ligne 1) jusqu'à obtenir une forme échelonnée.\\par Remontée : On annule les coefficients au-dessus des pivots pour exprimer les inconnues.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_pivot_1",
+      "type": "example",
+      "title": "Exemple : Résolution par le pivot (3 équations, 4 inconnues)",
+      "content_latex": "Les solutions du système $\\begin{cases}x-y+z-t=2\\\\ 2x-y+3z+t=3\\\\ x-2y+3z-t=0\\end{cases}$ d'inconnue $(x,y,z,t)\\in\\mathbb{R}^{4}$ sont tous les quadruplets $(3-2\\lambda,0,-1+\\lambda,\\lambda)$, $\\lambda$ décrivant $\\mathbb{R}$, soit l'ensemble $(3,0,-1,0)+\\text{Vect}((-2,0,1,1))$.",
+      "proof_latex": "$\\begin{cases}x-y+z-t=2\\\\ 2x-y+3z+t=3\\\\ x-2y+3z-t=0\\end{cases} \\iff \\begin{cases}x-y+z-t=2\\\\ y+z+3t=-1\\\\ -y+2z= -2\\end{cases}$ (avec $L_2 \\leftarrow L_2-2L_1$ et $L_3 \\leftarrow L_3-L_1$). \\par $\\iff \\begin{cases}x-y+z-t=2\\\\ y+z+3t=-1\\\\ 3z+3t=-3\\end{cases}$ ($L_3 \\leftarrow L_3+L_2$).\\par $\\iff \\begin{cases}x-y+2t=3\\\\ y+2t=0\\\\ z+t=-1\\end{cases}$ ($L_1 \\leftarrow L_1-L_3$ et $L_2 \\leftarrow L_2-L_3$) $\\iff \\begin{cases}x=3-2t\\\\ y=0\\\\ z=-1+t\\end{cases}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_pivot_2",
+      "type": "example",
+      "title": "Exemple : Résolution par le pivot (4 équations, 4 inconnues)",
+      "content_latex": "Les solutions du système $\\begin{cases}x+2y+z+3t=1\\\\ x+z+t=3\\\\ y+t=-1\\\\ x+y+z+2t=2\\end{cases}$ d'inconnue $(x,y,z,t)\\in\\mathbb{R}^{4}$ sont l'ensemble $(3,-1,0,0)+\\text{Vect}((-1,0,1,0),(-1,-1,0,1))$.",
+      "proof_latex": "$\\begin{cases}x+2y+z+3t=1\\\\ x+z+t=3\\\\ y+t=-1\\\\ x+y+z+2t=2\\end{cases} \\iff \\begin{cases}x+2y+z+3t=1\\\\ y+t=-1\\\\ y+t=-1\\\\ y+t=-1\\end{cases}$ (via opérations sur lignes). \\par $\\iff \\begin{cases}x+2y+z+3t=1\\\\ y+t=-1\\end{cases} \\iff \\begin{cases}x+z+t=3\\\\ y+t=-1\\end{cases}$ ($L_1 \\leftarrow L_1-2L_2$) $\\iff \\begin{cases}x=3-z-t\\\\ y=-1-t\\end{cases}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_matrice_inversible",
+      "type": "definition",
+      "title": "Définition-théorème : Matrice inversible, inverse, groupe linéaire",
+      "content_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. On dit que $A$ est inversible s'il existe une matrice $B\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour laquelle $AB=BA=I_{n}$. SI ELLE EXISTE, une telle matrice $B$ est unique, notée $A^{-1}$ et appelée l'inverse de $A$. L'ensemble des matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{K})$ est noté $GL_{n}(\\mathbb{K})$ et appelé le groupe linéaire de dimension $n$ sur $\\mathbb{K}$.",
+      "proof_latex": "Si $B$ et $B'$ sont deux inverses de $A$, alors $B=BI_{n}=B(AB')=(BA)B'=I_{n}B'=B'$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__def_systeme_cramer",
+      "type": "definition",
+      "title": "Définition-théorème : Système de Cramer",
+      "content_latex": "Un système linéaire est dit de Cramer si sa matrice est inversible. Pour tous $A\\in GL_{n}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$ le système de Cramer $AX=B$ d'inconnue $X\\in\\mathbb{K}^{n}$ possède une et une seule solution, à savoir $A^{-1}B$.",
+      "proof_latex": "Pour tout $X\\in\\mathbb{K}^{n}$ : $AX=B \\iff X=A^{-1}B$ - on a simplement multiplié par $A^{-1}$ à gauche pour passer de gauche à droite, et par $A$ à gauche pour passer de droite à gauche."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_matrice_inversible_intro",
+      "type": "example",
+      "title": "Exemple : Matrice inversible",
+      "content_latex": "La matrice $\\begin{pmatrix}1&1&3\\\\ 1&-1&0\\\\ 1&0&1\\end{pmatrix}$ est inversible d'inverse $\\begin{pmatrix}-1&-1&3\\\\ -1&-2&3\\\\ 1&1&-2\\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+      "type": "theorem",
+      "title": "Théorème : Une condition suffisante de non-inversibilité",
+      "content_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Si l'une des colonnes (resp. lignes) de $A$ est combinaison linéaire de ses autres colonnes (resp. lignes), alors $A$ n'est pas inversible.",
+      "proof_latex": "Notons $L_{1},...,L_{n}$ les lignes de $A$ et faisons l'hypothèse que $L_{1} = \\lambda_{2}L_{2}+...+\\lambda_{n}L_{n}$. Dans ces conditions : $(1 \\quad -\\lambda_{2} \\quad \\cdots \\quad -\\lambda_{n}) \\times A = L_{1} - \\lambda_{2}L_{2} - ... - \\lambda_{n}L_{n} = (0 \\quad \\cdots \\quad 0)$. Or si $A$ est inversible, on peut multiplier cette égalité par $A^{-1}$ à droite, il en découle que $1=0$. Conclusion : $A$ n'est pas inversible."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_matrices_non_inversibles",
+      "type": "example",
+      "title": "Exemple : Matrices non inversibles",
+      "content_latex": "La matrice $\\begin{pmatrix}1&1&0\\\\ 2&1&0\\\\ 3&2&0\\end{pmatrix}$ possède une colonne nulle, donc n'est pas inversible. La matrice $\\begin{pmatrix}0&1&1\\\\ 1&4&3\\\\ 1&3&2\\end{pmatrix}$ n'est pas inversible car sa deuxième ligne est égale à la somme des deux autres.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__warning_zero_inversibilite",
+      "type": "warning",
+      "title": "Attention : Zéro et inversibilité",
+      "content_latex": "Dans $\\mathbb{R}$ et $\\mathbb{C}$, 0 est le seul objet qu'on ne peut pas inverser. Dans $\\mathcal{M}_{n}(\\mathbb{K})$, une matrice non nulle peut ne pas être inversible.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_inversibilite_diagonale",
+      "type": "example",
+      "title": "Exemple : Inversibilité d'une matrice diagonale",
+      "content_latex": "Soient $\\alpha_{1},...,\\alpha_{n}\\in\\mathbb{K}$. La matrice $\\text{diag}(\\alpha_{1},...,\\alpha_{n})$ est inversible si et seulement si $\\alpha_{k}\\ne 0$ pour tout $k\\in[[1,n]]$. Dans ce cas : $\\text{diag}(\\alpha_{1},...,\\alpha_{n})^{-1} = \\text{diag}(\\alpha_{1}^{-1},...,\\alpha_{n}^{-1})$.",
+      "proof_latex": "Si les $\\alpha_{k}$ sont tous non nuls, le produit avec $\\text{diag}(\\alpha_{1}^{-1},...,\\alpha_{n}^{-1})$ donne $I_{n}$. Réciproquement, si l'un des nombres est nul, la matrice n'est pas inversible car l'une de ses colonnes est nulle."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_caract_inv_systeme",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de l'inversibilité en termes de systèmes linéaires",
+      "content_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. La matrice $A$ est inversible si et seulement si pour tout second membre $Y\\in\\mathbb{K}^{n}$, le système linéaire $Y=AX$ d'inconnue $X\\in\\mathbb{K}^{n}$ possède une et une seule solution.",
+      "proof_latex": "Si $A$ est inversible, le système $Y=AX$ est de Cramer, donc possède une unique solution. Réciproquement, si $Y=AX$ possède une unique solution pour tout $Y$, on résout $Y_{i}=AX$ pour les colonnes de $I_{n}$ pour construire $B$ telle que $AB=I_{n}$. On montre ensuite que $BA=I_{n}$ en étudiant le système homogène."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_calcul_inv_systeme",
+      "type": "example",
+      "title": "Exemple : Matrice inversible via résolution de système",
+      "content_latex": "La matrice $\\begin{pmatrix}2&3&1\\\\ 1&1&2\\\\ 1&1&1\\end{pmatrix}$ est inversible d'inverse $\\begin{pmatrix}-1&-2&5\\\\ 1&1&-3\\\\ 0&1&-1\\end{pmatrix}$.",
+      "proof_latex": "Pour tout $(a,b,c)\\in\\mathbb{R}^{3}$, on résout le système $AX=Y$ par la méthode du pivot. On obtient $x = -a - 2b + 5c$, $y = a + b - 3c$, $z = b - c$, ce qui identifie les coefficients de la matrice inverse."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_calcul_non_inv_systeme",
+      "type": "example",
+      "title": "Exemple : Matrice non inversible via résolution de système",
+      "content_latex": "La matrice $\\begin{pmatrix}1&0&-1\\\\ 1&2&1\\\\ -1&4&5\\end{pmatrix}$ n'est pas inversible.",
+      "proof_latex": "En résolvant le système $AX=Y$ avec second membre $(a,b,c)$, l'algorithme du pivot mène à une équation de compatibilité $0 = 3a - 2b + c$ sur la dernière ligne. Pour $a=1$ et $b=c=0$, le système n'a pas de solution, la matrice n'est donc pas inversible."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_det_taille_2",
+      "type": "definition",
+      "title": "Définition-théorème : Déterminant d'une matrice carrée de taille 2",
+      "content_latex": "Pour tous $a,b,c,d \\in \\mathbb{K}$, on appelle déterminant de $\\begin{pmatrix}a&c\\\\ b&d\\end{pmatrix}$, noté $\\det\\begin{pmatrix}a&c\\\\ b&d\\end{pmatrix}$ ou $\\begin{vmatrix}a&c\\\\ b&d\\end{vmatrix}$, le scalaire $ad-bc$.\\par (i) La matrice $\\begin{pmatrix}a&c\\\\ b&d\\end{pmatrix}$ est inversible si et seulement si $ad-bc \\ne 0$. Le cas échéant : $\\begin{pmatrix}a&c\\\\ b&d\\end{pmatrix}^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix}d&-c\\\\ -b&a\\end{pmatrix}$.\\par (ii) Effet sur un produit : Pour tous $M,N\\in\\mathcal{M}_{2}(\\mathbb{K})$, $\\det(MN) = \\det(M)\\det(N)$.",
+      "proof_latex": "(i) $\\begin{pmatrix}a&c\\\\ b&d\\end{pmatrix}\\begin{pmatrix}d&-c\\\\ -b&a\\end{pmatrix} = (ad-bc)I_{2}$. Si $ad-bc \\ne 0$, on divise pour obtenir l'inverse. Si $ad-bc = 0$ et la matrice inversible, on arrive à une contradiction $\\begin{pmatrix}d&-c\\\\ -b&a\\end{pmatrix} = \\begin{pmatrix}0&0\\\\ 0&0\\end{pmatrix}$. (ii) Calcul direct : $\\det(MN) = (ad-bc)(a'd'-b'c') = \\det(M)\\det(N)$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_cramer_2x2",
+      "type": "theorem",
+      "title": "Théorème : Formules de Cramer pour les systèmes $2\\times 2$",
+      "content_latex": "Soient $a,b,c,a',b',c'\\in\\mathbb{K}$. Si $\\begin{vmatrix}a&b\\\\ a'&b'\\end{vmatrix} \\ne 0$, la solution $(x,y)$ du système de Cramer $\\begin{cases}ax+by=c\\\\ a'x+b'y=c'\\end{cases}$ est donnée par : $x = \\frac{\\begin{vmatrix}c&b\\\\ c'&b'\\end{vmatrix}}{\\begin{vmatrix}a&b\\\\ a'&b'\\end{vmatrix}}$ et $y = \\frac{\\begin{vmatrix}a&c\\\\ a'&c'\\end{vmatrix}}{\\begin{vmatrix}a&b\\\\ a'&b'\\end{vmatrix}}$.",
+      "proof_latex": "Si le déterminant est non nul, la matrice est inversible. La solution unique vaut : $\\begin{pmatrix}x\\\\ y\\end{pmatrix} = \\frac{1}{ab'-ba'}\\begin{pmatrix}b'& -b\\\\ -a'& a\\end{pmatrix}\\begin{pmatrix}c\\\\ c'\\end{pmatrix} = \\frac{1}{ab'-ba'}\\begin{pmatrix}cb'-bc'\\\\ ac'-ca'\\end{pmatrix}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les matrices inversibles",
+      "content_latex": "Soient $A, B \\in GL_{n}(\\mathbb{K})$.\\par (i) Inverse : $A^{-1}$ est inversible et $(A^{-1})^{-1}=A$.\\par (ii) Produit et puissances : $AB$ est inversible et $(AB)^{-1}=B^{-1}A^{-1}$. Pour tout $k\\in\\mathbb{Z}$, $A^{k}$ est inversible et $(A^{k})^{-1}=(A^{-1})^{k}$.\\par (iii) Transposée : $A^\\top$ est inversible et $(A^\\top)^{-1}=(A^{-1})^\\top$.",
+      "proof_latex": "(i) $A A^{-1} = A^{-1} A = I_{n}$. (ii) $AB \\times B^{-1}A^{-1} = A(BB^{-1})A^{-1} = A I_{n} A^{-1} = I_{n}$. (iii) $A^\\top(A^{-1})^\\top = (A^{-1}A)^\\top = I_{n}^\\top = I_{n}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__warning_produit_inv",
+      "type": "warning",
+      "title": "Attention : Produit des inverses",
+      "content_latex": "Si $A$ et $B$ ne commutent pas, il est faux que $(AB)^{-1} = A^{-1}B^{-1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_op_elem_perm",
+      "type": "example",
+      "title": "Exemple : Opération élémentaire (Permutation)",
+      "content_latex": "L'opération élémentaire $L_{i} \\leftrightarrow L_{j}$ sur une matrice $A$ correspond à la multiplication à GAUCHE par la matrice obtenue en appliquant cette même opération sur $I_{n}$. L'opération sur les colonnes $C_{i} \\leftrightarrow C_{j}$ correspond à une multiplication à DROITE par la matrice modifiée correspondante.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_op_elem_mult",
+      "type": "example",
+      "title": "Exemple : Opération élémentaire (Multiplication)",
+      "content_latex": "L'opération élémentaire $L_{i} \\leftarrow \\lambda L_{i}$ (avec $\\lambda \\ne 0$) sur une matrice $A$ équivaut à la multiplication à gauche par la matrice diagonale obtenue en modifiant le $i$-ème coefficient diagonal de $I_{n}$. Idem à droite pour les colonnes ($C_{i} \\leftarrow \\lambda C_{i}$).",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_op_elem_add",
+      "type": "example",
+      "title": "Exemple : Opération élémentaire (Addition)",
+      "content_latex": "L'opération élémentaire $L_{i} \\leftarrow L_{i} + \\lambda L_{j}$ sur $A$ équivaut à la multiplication à gauche par la matrice obtenue en appliquant cette opération sur $I_{n}$. Idem à droite pour les colonnes ($C_{j} \\leftarrow C_{j} + \\lambda C_{i}$).",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__remark_multiplication_gauche_droite",
+      "type": "remark",
+      "title": "Remarque : Opérations élémentaires et multiplication matricielle",
+      "content_latex": "Opération élémentaire sur les LIGNES = Multiplication à GAUCHE par une matrice inversible.\\par Opération élémentaire sur les COLONNES = Multiplication à DROITE par une matrice inversible.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_non_inv_op_elem",
+      "type": "example",
+      "title": "Exemple : Matrice non inversible (par opérations élémentaires)",
+      "content_latex": "La matrice $B=\\begin{pmatrix}1&0&2\\\\ -1&-3&1\\\\ 0&1&-1\\end{pmatrix}$ n'est pas inversible car en appliquant $L_2 \\leftarrow L_2+L_1$ puis $L_3 \\leftarrow L_2+3L_3$, on obtient une ligne nulle.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_calcul_inv_gauss",
+      "type": "example",
+      "title": "Exemple : Calcul de l'inverse par la méthode de Gauss-Jordan",
+      "content_latex": "La matrice $A=\\begin{pmatrix}1&3&1\\\\ 1&2&2\\\\ 1&2&1\\end{pmatrix}$ est inversible. On peut trouver son inverse en appliquant des opérations élémentaires sur les lignes pour transformer $A$ en $I_{3}$, puis en reportant ces mêmes opérations dans le même ordre sur $I_{3}$. L'inverse est $\\begin{pmatrix}-2&-1&4\\\\ 1&0&-1\\\\ 0&1&-1\\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+      "type": "theorem",
+      "title": "Théorème : Inversibilité et inverse d'une matrice triangulaire",
+      "content_latex": "Une matrice triangulaire $A$ est inversible si et seulement si ses coefficients diagonaux sont tous non nuls. Dans ce cas, $A^{-1}$ est elle aussi triangulaire de même type et ses coefficients diagonaux sont exactement les inverses des coefficients diagonaux de $A$.",
+      "proof_latex": "Si l'un des $a_{ii}$ est nul dans l'algorithme du pivot par colonne, une colonne devient nulle et $A$ n'est pas inversible. Si tous sont non nuls, l'algorithme transforme $A$ en $I_{n}$ avec $C_i \\leftarrow \\frac{1}{a_{ii}} C_i$, générant une inverse triangulaire supérieure avec les inverses sur la diagonale. Par transposition, le résultat vaut pour les triangulaires inférieures."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+      "type": "theorem",
+      "title": "Théorème : Système triangulaire à coefficients diagonaux non nuls",
+      "content_latex": "Tout système triangulaire à coefficients diagonaux non nuls possède une et une seule solution.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

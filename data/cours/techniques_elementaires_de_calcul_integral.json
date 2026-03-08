@@ -1,0 +1,337 @@
+{
+  "chapter_official_id": "techniques_elementaires_de_calcul_integral",
+  "chapter_name": "Techniques Élémentaires de Calcul Intégral",
+  "source_document": "Cours - Techniques elementaires de calcul integral.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "type": "theorem",
+      "title": "Définition-théorème : Primitives, « unicité » à constante additive près",
+      "content_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.",
+      "proof_latex": "Pour toute fonction $G$ :\\par $G$ est une primitive de $f \\iff G'=f=F' \\iff (G-F)'=0 \\iff G-F$ est constante \\iff \\exists\\lambda\\in\\mathbb{C}, G=F+\\lambda$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__warning_une_seule_primitive",
+      "type": "warning",
+      "title": "Attention : Unicité et existence d'une primitive",
+      "content_latex": "Il n'existe jamais une seule primitive, on ne dit jamais la primitive mais UNE primitive. Il peut d'ailleurs ne pas en exister !",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__warning_difficulte_primitivation",
+      "type": "warning",
+      "title": "Attention : Difficulté de la primitivation",
+      "content_latex": "Les fonctions d'usage courant sont un empilement de fonctions usuelles liées entre elles par des additions, des multiplications, des passages à l'inverse et des compositions, et pour cette raison, vous savez toutes les dériver. Primitiver est autrement plus difficile. En toute généralité, on ne peut pas primitiver explicitement toutes les fonctions d'usage courant.\\par Quand on sait primitiver $f$ et $g$, on n'a aucune raison de savoir primitiver $fg$, $\\frac{f}{g}$ et $g\\circ f$. Cette mise en garde ne signifie pas qu'on ne sait rien faire. Par exemple, toute fonction de la forme $f'\\times g'\\circ f$ admet $g\\circ f$ pour primitive.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitives_formes_usuelles",
+      "type": "example",
+      "title": "Exemple : Primitivation de formes usuelles",
+      "content_latex": "La fonction $x\\mapsto\\frac{\\sin x}{5-3 \\cos x}$ admet $x\\mapsto\\frac{1}{3}\\ln(5-3 \\cos x)$ pour primitive sur $\\mathbb{R}$.\\par La fonction $x\\mapsto\\frac{e^{\\sqrt{x}}}{\\sqrt{x}}$ admet $x\\mapsto 2e^{\\sqrt{x}}$ pour primitive sur $\\mathbb{R}_{+}^{*}$.\\par La fonction $x\\mapsto\\frac{1}{4x^{2}+1}$ admet $x\\mapsto\\frac{1}{2}\\text{Arctan}(2x)$ pour primitive sur $\\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__method_primitivation_trigo_exponentielle",
+      "type": "method",
+      "title": "Méthode : Linéarisation et exponentielles complexes",
+      "content_latex": "La linéarisation des expressions trigonométriques est une technique de primitivation usuelle (pour les produits de cosinus et sinus).\\par Il faut aussi savoir primitiver les fonctions $x\\mapsto e^{ax}\\cos(bx)$ et $x\\mapsto e^{ax}\\sin(bx)$. Pour tout $x\\in\\mathbb{R}$ : $e^{ax}\\cos(bx)=\\text{Re}(e^{(a+ib)x})$ et $x\\longmapsto e^{(a+ib)x}$ admet $x\\mapsto\\frac{e^{(a+ib)x}}{a+ib}$ pour primitive. En vertu du principe $\\text{Re}(f')=\\text{Re}(f)'$, on en déduit la primitive en prenant la partie réelle (ou imaginaire pour le sinus).",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__remark_primitive_arctangente",
+      "type": "remark",
+      "title": "Bon à savoir : Forme générale d'Arctangente",
+      "content_latex": "Pour tout $a>0$, $x\\mapsto\\frac{1}{a} \\text{Arctan}\\left(\\frac{x}{a}\\right)$ est une primitive de $x \\mapsto \\frac{1}{x^{2}+a^{2}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_fraction_degre_2",
+      "type": "example",
+      "title": "Exemple : Primitive de fraction avec dénominateur de degré 2",
+      "content_latex": "On cherche une primitive de la fonction $x\\mapsto\\frac{1}{3x^{2}-x+1}$ sur $\\mathbb{R}$.",
+      "proof_latex": "Pour tout $x\\in\\mathbb{R}$ :\\par $\\frac{1}{3x^{2}-x+1}=\\frac{1}{3}\\times\\frac{1}{x^{2}-\\frac{x}{3}+\\frac{1}{3}}=\\frac{1}{3}\\times\\frac{1}{(x-\\frac{1}{6})^{2}+\\frac{11}{36}}=\\frac{1}{3}\\times\\frac{1}{(x-\\frac{1}{6})^{2}+(\\frac{\\sqrt{11}}{6})^{2}}$\\par Donc la fonction admet pour primitive :\\par $x\\mapsto\\frac{1}{3}\\times\\frac{6}{\\sqrt{11}}\\text{Arctan}\\left(\\frac{6}{\\sqrt{11}}(x-\\frac{1}{6})\\right)=\\frac{2}{\\sqrt{11}}\\text{Arctan}\\left(\\frac{6x-1}{\\sqrt{11}}\\right)$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+      "type": "property",
+      "title": "Propriété : Tableau des primitives usuelles",
+      "content_latex": "Les fonctions usuelles et leurs primitives à connaître :\\par — $\\cos x \\longrightarrow \\sin x$\\par — $\\sin x \\longrightarrow -\\cos x$\\par — $\\tan x \\longrightarrow -\\ln|\\cos x|$\\par — $\\text{ch } x \\longrightarrow \\text{sh } x$\\par — $\\text{sh } x \\longrightarrow \\text{ch } x$\\par — $\\text{th } x \\longrightarrow \\ln(\\text{ch } x)$\\par — $e^{x} \\longrightarrow e^{x}$\\par — $\\ln x \\longrightarrow x\\ln x - x$\\par — $\\frac{1}{1+x^{2}} \\longrightarrow \\text{Arctan } x$\\par — $\\frac{1}{\\sqrt{1-x^{2}}} \\longrightarrow \\text{Arcsin } x$\\par — $\\frac{1}{x} \\longrightarrow \\ln|x|$\\par — $x^{\\alpha} (\\alpha\\ne-1) \\longrightarrow \\frac{x^{\\alpha+1}}{\\alpha+1}$",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_continue",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de l'intégrale d'une fonction continue",
+      "content_latex": "Soient $f,g\\in\\mathcal{C}(I,\\mathbb{C})$, $a, b, c\\in I$ et $\\lambda, \\mu\\in\\mathbb{C}$.\\par • Lien avec les parties réelle et imaginaire : $\\int_{a}^{b}f(x)dx=\\int_{a}^{b}\\text{Re}(f(x))dx+i\\int_{a}^{b}\\text{Im}(f(x))dx$.\\par • Linéarité : $\\int_{a}^{b}(\\lambda f(x)+\\mu g(x))dx=\\lambda\\int_{a}^{b}f(x)dx+\\mu\\int_{a}^{b}g(x)dx$.\\par • Relation de Chasles : $\\int_{a}^{c}f(x)dx=\\int_{a}^{b}f(x)dx+\\int_{b}^{c}f(x)dx$.\\par • Inégalité triangulaire : Si $a\\le b$, alors $\\left|\\int_{a}^{b}f(x)dx\\right|\\le\\int_{a}^{b}|f(x)|dx$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_proprietes_integrale_reelle",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de l'intégrale d'une fonction continue réelle",
+      "content_latex": "Soient $f,g\\in\\mathcal{C}(I,\\mathbb{R})$ et $a, b\\in I$.\\par • Positivité : Si $f\\ge 0$ et $a\\le b$, alors $\\int_{a}^{b}f(x)dx\\ge 0$.\\par • Positivité stricte : Si $f$ est positive sur $[a, b]$ et strictement positive en au moins un point, et si de plus $a<b$, alors $\\int_{a}^{b}f(x)dx>0$.\\par • Croissance : Si $f\\le g$ et $a\\le b$ alors $\\int_{a}^{b}f(x)dx\\le\\int_{a}^{b}g(x)dx$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_fondamental_calcul_integral",
+      "type": "theorem",
+      "title": "Théorème : Théorème fondamental du calcul intégral",
+      "content_latex": "Soient $f\\in\\mathcal{C}(I,\\mathbb{C})$ et $a, b\\in I$.\\par (i) Primitivation : La fonction $x\\mapsto\\int_{a}^{x}f(t)dt$ est une primitive de $f$ sur $I$. Ainsi, toute fonction continue possède une primitive. Pour tout $A\\in\\mathbb{C}$ la fonction $x\\mapsto A+\\int_{a}^{x}f(t)dt$ est l'unique primitive de $f$ sur $I$ de valeur $A$ en $a$.\\par (ii) Calcul intégral : Pour toute primitive $F$ de $f$ : $\\int_{a}^{b}f(x)dx=F(b)-F(a)$. On note $[F]_{a}^{b}$ ou $[F(x)]_{x=a}^{x=b}$ le crochet $F(b)-F(a)$.",
+      "proof_latex": "L'assertion (ii) découle de l'assertion (i). D'après (i), la primitive quelconque $F$ est la seule à valoir $F(a)$ en $a$, donc pour tout $x\\in I$ : $F(x)=F(a)+\\int_{a}^{x}f(t)dt$. On en déduit (ii) en évaluant en $b$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_regularite_primitives",
+      "type": "example",
+      "title": "Exemple : Régularité des primitives",
+      "content_latex": "Pour tout $k\\in\\mathbb{N}$ toute primitive d'une fonction de classe $\\mathcal{C}^{k}$ est de classe $\\mathcal{C}^{k+1}$ et toute primitive d'une fonction de classe $\\mathcal{C}^{\\infty}$ est de classe $\\mathcal{C}^{\\infty}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_integrale_puissance",
+      "type": "example",
+      "title": "Exemple : Calcul d'intégrale de $x^\\alpha$",
+      "content_latex": "Pour tout $\\alpha\\ge 0$ : $\\int_{0}^{1}x^{\\alpha}dx=\\left[\\frac{x^{\\alpha+1}}{\\alpha+1}\\right]_{x=0}^{x=1}=\\frac{1}{\\alpha+1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_integrale_arctangente",
+      "type": "example",
+      "title": "Exemple : Calcul d'intégrale avec Arctangente",
+      "content_latex": "$\\int_{0}^{1}\\frac{dx}{x^{2}+1}=[\\text{Arctan}]_{0}^{1}=\\frac{\\pi}{4}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_integrale_sinus",
+      "type": "example",
+      "title": "Exemple : Calculs d'intégrales avec sinus et valeur absolue",
+      "content_latex": "$\\int_{0}^{2\\pi}\\sin x dx=[-\\cos]_{0}^{2\\pi}=0$\\par Intégrale courante à connaître par cœur :\\par $\\int_{0}^{2\\pi}|\\sin x|dx=\\int_{0}^{\\pi}\\sin x dx-\\int_{\\pi}^{2\\pi}\\sin x dx=[-\\cos]_{0}^{\\pi}-[-\\cos]_{\\pi}^{2\\pi}=4$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_exponentielle_trigo",
+      "type": "example",
+      "title": "Exemple : Calcul de primitive (exponentielle et sinus)",
+      "content_latex": "On cherche une primitive de la fonction $x\\mapsto e^{-x}\\sin x$ sur $\\mathbb{R}$.",
+      "proof_latex": "$\\int^{x}e^{-t}\\sin t dt=\\int^{x}\\text{Im}(e^{(-1+i)t})dt=\\text{Im}\\left(\\int^{x}e^{(-1+i)t}dt\\right)=\\text{Im}\\left(\\frac{e^{(-1+i)x}}{-1+i}\\right)=-\\frac{e^{-x}}{2}\\text{Im}((1+i)e^{ix})=-\\frac{e^{-x}}{2}(\\cos x+\\sin x)$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_inegalite_convexite_exp",
+      "type": "example",
+      "title": "Exemple : Inégalité de convexité pour l'exponentielle",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$ : $e^{x}\\ge 1+x$.",
+      "proof_latex": "Si $x\\ge 0$, alors $e^{t}\\ge 1$ pour tout $t\\in[0,x]$ donc $e^{x}-1=\\int_{0}^{x}e^{t}dt\\ge\\int_{0}^{x}dt=x$.\\par Si $x<0$ alors $e^{t}\\le 1$ pour tout $t\\in[x,0]$ donc $e^{x}-1=\\int_{0}^{x}e^{t}dt\\le\\int_{0}^{x}dt=x$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_inegalite_sinus",
+      "type": "example",
+      "title": "Exemple : Inégalité classique pour le sinus",
+      "content_latex": "Pour tout $x\\in\\mathbb{R}$ : $|\\sin x|\\le|x|$.",
+      "proof_latex": "$|\\sin x|=\\left|\\int_{0}^{x}\\cos t dt\\right|\\overset{\\text{Parité}}{=}\\left|\\int_{0}^{|x|}\\cos t dt\\right|\\overset{|x|\\ge 0}{\\le}\\int_{0}^{|x|}|\\cos t|dt\\le\\int_{0}^{|x|}dt=|x|$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+      "type": "theorem",
+      "title": "Théorème : Intégration par parties ou IPP",
+      "content_latex": "Soient $u,v\\in\\mathcal{C}^{1}(I,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}u'(x)v(x)dx=[uv]_{a}^{b}-\\int_{a}^{b}u(x)v'(x)dx$.",
+      "proof_latex": "Comme $u$ et $v$ sont de classe $\\mathcal{C}^{1}$, les fonctions $(uv)'$, $u'v$ et $uv'$ sont continues, donc d'après le théorème fondamental du calcul intégral et par linéarité de l'intégrale :\\par $[uv]_{a}^{b}=\\int_{a}^{b}(uv)'(x)dx=\\int_{a}^{b}(u'(x)v(x)+u(x)v'(x))dx=\\int_{a}^{b}u'(x)v(x)dx+\\int_{a}^{b}u(x)v'(x)dx$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__warning_ipp_c1",
+      "type": "warning",
+      "title": "Attention : Classe C1 dans l'IPP",
+      "content_latex": "Ce sont les fonctions $u$ et $v$ à l'intérieur du crochet qui doivent être de classe $\\mathcal{C}^{1}$, pas les fonctions $u'$ et $v$ qu'on a au départ dans l'intégrale de gauche.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_ipp_trigo",
+      "type": "example",
+      "title": "Exemple : Calcul par IPP avec cosinus",
+      "content_latex": "$\\int_{0}^{\\pi}t\\cos t dt = \\int_{0}^{\\pi} t \\cos t dt = [t\\sin t]_{0}^{\\pi} - \\int_{0}^{\\pi}\\sin t dt = -[-\\cos t]_{0}^{\\pi} = -2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_ipp_exponentielle",
+      "type": "example",
+      "title": "Exemple : Calcul par IPP avec exponentielle",
+      "content_latex": "$\\int_{0}^{1}t^{3}e^{t^{2}}dt = \\frac{1}{2}\\int_{0}^{1}(2t e^{t^{2}}) \\times t^{2} dt = \\frac{1}{2}[t^{2}e^{t^{2}}]_{0}^{1} - \\frac{1}{2}\\int_{0}^{1}2t e^{t^{2}}dt = \\frac{e}{2} - \\frac{1}{2}[e^{t^{2}}]_{0}^{1} = \\frac{1}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__remark_ipp_sans_borne",
+      "type": "remark",
+      "title": "Remarque : IPP sur intégrale sans borne",
+      "content_latex": "On peut faire des intégrations par parties sur des intégrales sans borne inférieure. La formule prend dans ce cas la forme suivante : $\\int^{x}u'(t)v(t)dt=u(x)v(x)-\\int^{x}u(t)v'(t)dt$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_logarithme",
+      "type": "example",
+      "title": "Exemple : Primitive de la fonction logarithme",
+      "content_latex": "On cherche une primitive de la fonction logarithme sur $\\mathbb{R}_{+}^{*}$.",
+      "proof_latex": "$\\int^{x}\\ln t dt = \\int^{x} 1 \\times \\ln t dt = x\\ln x - \\int^{x}t\\times\\frac{1}{t}dt = x\\ln x - \\int^{x}dt = x\\ln x - x$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+      "type": "theorem",
+      "title": "Théorème : Changement de variable",
+      "content_latex": "Soient $\\varphi\\in\\mathcal{C}^{1}(I,\\mathbb{R})$ à valeurs dans $J$, $f\\in\\mathcal{C}(J,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}f(\\varphi(t))\\varphi'(t)dt=\\int_{\\varphi(a)}^{\\varphi(b)}f(x)dx$.",
+      "proof_latex": "Continue, $f$ possède une primitive $F$ de classe $\\mathcal{C}^{1}$, et comme $\\varphi$ est de classe $\\mathcal{C}^{1}$, la fonction $(F\\circ\\varphi)'=(f\\circ\\varphi)\\varphi'$ est continue. Par conséquent, d'après le théorème fondamental du calcul intégral : $\\int_{a}^{b}f(\\varphi(t))\\varphi'(t)dt=[F\\circ\\varphi]_{a}^{b}=F(\\varphi(b))-F(\\varphi(a))=[F]_{\\varphi(a)}^{\\varphi(b)}=\\int_{\\varphi(a)}^{\\varphi(b)}f(x)dx$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__method_retrouver_formule_cdv",
+      "type": "method",
+      "title": "Méthode : Retrouver la formule du changement de variable",
+      "content_latex": "Pour retrouver vite et bien la formule :\\par 1. On part de $x=\\varphi(t)$ et on dérive : $\\frac{dx}{dt}=\\varphi'(t)$ donc $dx=\\varphi'(t)dt$.\\par 2. On multiplie par $f(x)=f(\\varphi(t))$ : $f(x)dx=f(\\varphi(t))\\varphi'(t)dt$.\\par 3. On intègre en observant que pendant que $t$ varie de $a$ à $b$, $x=\\varphi(t)$ varie de $\\varphi(a)$ à $\\varphi(b)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_cdv_successifs",
+      "type": "example",
+      "title": "Exemple : Changements de variable successifs",
+      "content_latex": "Pour $\\int_{0}^{1}\\frac{e^{t}}{1+t}dt$, le changement $t=\\ln u$ donne $\\int_{1}^{e}\\frac{du}{1+\\ln u}$. Le changement $u=\\frac{x}{e}$ donne $\\int_{e}^{e^{2}}\\frac{dx}{e\\ln x}$. Enfin, le changement $x=s^{2}$ donne $\\int_{\\sqrt{e}}^{e}\\frac{s ds}{e\\ln s}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_cdv_fraction_racine",
+      "type": "example",
+      "title": "Exemple : Calcul d'intégrale avec $x=u^2$",
+      "content_latex": "$\\int_{1}^{3}\\frac{\\sqrt{x}}{x+1}dx=2\\sqrt{3}-\\frac{\\pi}{6}-2$.",
+      "proof_latex": "Le changement de variable $x=u^{2}$ paraît naturel à cause du numérateur $\\sqrt{x}$. La fonction $u\\longmapsto u^{2}$ est de classe $\\mathcal{C}^{1}$ sur $[1,\\sqrt{3}]$ et d'image $[1,3]$.\\par On dérive : $\\frac{dx}{du}=2u$, et ainsi $dx=2u du$. Ensuite : $\\frac{\\sqrt{x}}{x+1}dx=\\frac{\\sqrt{u^{2}}}{u^{2}+1}\\times 2u du=\\frac{|u|}{u^{2}+1}\\times 2u du \\overset{u\\ge0}{=} \\frac{2u^{2}}{u^{2}+1}du$.\\par Enfin, $u=1$ quand $x=1$, et $u=\\sqrt{3}$ quand $x=3$.\\par Donc $\\int_{1}^{3}\\frac{\\sqrt{x}}{x+1}dx=2\\int_{1}^{\\sqrt{3}}\\frac{u^{2}}{u^{2}+1}du = 2\\int_{1}^{\\sqrt{3}}\\left(1-\\frac{1}{u^{2}+1}\\right)du = 2[u-\\text{Arctan } u]_{1}^{\\sqrt{3}} = 2\\sqrt{3}-\\frac{\\pi}{6}-2$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_cdv_trigo",
+      "type": "example",
+      "title": "Exemple : Calcul d'aire par changement de variable trigonométrique",
+      "content_latex": "$\\int_{-1}^{1}\\sqrt{1-x^{2}}dx=\\frac{\\pi}{2}$.",
+      "proof_latex": "On effectue le changement de variable $x=\\sin\\theta$. La fonction $\\theta\\mapsto\\sin\\theta$ est de classe $\\mathcal{C}^{1}$ sur $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ et d'image $[-1,1]$.\\par On dérive : $\\frac{dx}{d\\theta}=\\cos\\theta$, donc $dx=\\cos\\theta d\\theta$. Ensuite : $\\sqrt{1-x^{2}}dx=\\sqrt{1-\\sin^{2}\\theta}\\cos\\theta d\\theta=|\\cos\\theta|\\cos\\theta d\\theta=\\cos^{2}\\theta d\\theta$.\\par Ainsi : $\\int_{-1}^{1}\\sqrt{1-x^{2}}dx=\\int_{-\\frac{\\pi}{2}}^{\\frac{\\pi}{2}}\\cos^{2}\\theta d\\theta=\\int_{-\\frac{\\pi}{2}}^{\\frac{\\pi}{2}}\\left(\\frac{1+\\cos(2\\theta)}{2}\\right)d\\theta=\\frac{\\pi}{2}+\\left[\\frac{\\sin(2\\theta)}{4}\\right]_{-\\frac{\\pi}{2}}^{\\frac{\\pi}{2}}=\\frac{\\pi}{2}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__remark_cdv_sans_borne",
+      "type": "remark",
+      "title": "Remarque : Changement de variable sans borne",
+      "content_latex": "On peut faire des changements de variable sur des intégrales sans borne inférieure. La formule prend dans ce cas la forme suivante : $\\int^{x}f(\\varphi(t))\\varphi'(t)dt=\\int^{\\varphi(x)}f(u)du$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_changement_variable",
+      "type": "example",
+      "title": "Exemple : Calcul de primitive par changement de variable",
+      "content_latex": "On cherche une primitive de la fonction $x\\mapsto\\cos(2\\ln x)$ sur $\\mathbb{R}_{+}^{*}$ en procédant au changement de variable $u=e^{t}$ dans la fausse intégrale $\\int^{x}\\cos(2\\ln u)du$.",
+      "proof_latex": "On dérive : $\\frac{du}{dt}=e^{t}$, donc $du=e^{t}dt$. Finalement :\\par $\\int^{x}\\cos(2\\ln u)du=\\int_{0}^{\\ln x}e^{t}\\cos(2t)dt=\\text{Re}\\left(\\int^{\\ln x}e^{(1+2i)t}dt\\right)=\\text{Re}\\left(\\frac{e^{(1+2i)\\ln x}}{1+2i}\\right)=\\frac{x}{5}\\text{Re}((1-2i)e^{2i\\ln x})=\\frac{x}{5}(\\cos(2\\ln x)+2\\sin(2\\ln x))$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__thm_integrales_parite_periodicite",
+      "type": "theorem",
+      "title": "Théorème : Intégrales d'une fonction paire/impaire/périodique",
+      "content_latex": "(i) Fonctions paires/impaires : Soit $f\\in\\mathcal{C}([-a,a],\\mathbb{C})$ avec $a\\ge 0$. Si $f$ est paire, alors $\\int_{-a}^{a}f(x)dx=2\\int_{0}^{a}f(x)dx$, et si $f$ est impaire, alors $\\int_{-a}^{a}f(x)dx=0$.\\par (ii) Fonctions périodiques : Pour tout $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{C})$ $T$-périodique et tout $a\\in\\mathbb{R}$ : $\\int_{a}^{a+T}f(x)dx=\\int_{0}^{T}f(x)dx$.",
+      "proof_latex": "(i) Si $f$ est paire, alors $\\int_{-a}^{0}f(x)dx = \\int_{a}^{0}f(-t)(-dt) = \\int_{0}^{a}f(t)dt$. Donc d'après la relation de Chasles : $\\int_{-a}^{a}f(x)dx=\\int_{-a}^{0}f(x)dx+\\int_{0}^{a}f(x)dx=2\\int_{0}^{a}f(x)dx$. Si $f$ est impaire, l'intégrale sur $[-a,0]$ vaut $-\\int_{0}^{a}f(t)dt$, donc l'intégrale totale vaut $0$.\\par (ii) D'après la relation de Chasles : $\\int_{a}^{a+T}f(x)dx=\\int_{a}^{0}f(x)dx+\\int_{0}^{T}f(x)dx+\\int_{T}^{a+T}f(x)dx$. Or $\\int_{T}^{a+T}f(x)dx = \\int_{0}^{a}f(t+T)dt = \\int_{0}^{a}f(t)dt$, donc l'intégrale globale vaut $\\int_{0}^{T}f(x)dx$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_somme_1_sur_k",
+      "type": "example",
+      "title": "Exemple : Approximation de la série harmonique par une intégrale",
+      "content_latex": "$\\sum_{k=1}^{n}\\frac{1}{k}\\underset{n\\rightarrow+\\infty}{\\sim}\\ln n$.",
+      "proof_latex": "Idée de la preuve : Pour tout $k\\in\\mathbb{N}^{*}$ : $\\frac{1}{k}=\\int_{k}^{k+1}\\frac{dt}{k}\\approx\\int_{k}^{k+1}\\frac{dt}{t}$, donc pour tout $n\\in\\mathbb{N}^{*}$ : $\\sum_{k=1}^{n}\\frac{1}{k}\\approx\\sum_{k=1}^{n}\\int_{k}^{k+1}\\frac{dt}{t}=\\int_{1}^{n+1}\\frac{dt}{t}=\\ln(n+1)\\approx \\ln n$.\\par Rigueur : Pour tous $k\\in\\mathbb{N}^{*}$ et $t\\in[k,k+1]$, par décroissance de la fonction inverse : $\\frac{1}{k+1}\\le\\frac{1}{t}\\le\\frac{1}{k}$, donc par croissance de l'intégrale : $\\frac{1}{k+1}=\\int_{k}^{k+1}\\frac{dt}{k+1}\\le\\int_{k}^{k+1}\\frac{dt}{t}\\le\\int_{k}^{k+1}\\frac{dt}{k}=\\frac{1}{k}$.\\par En sommant pour tout $n\\in\\mathbb{N}^{*}$ : $\\sum_{k=1}^{n-1}\\frac{1}{k+1}\\le\\int_{1}^{n}\\frac{dt}{t}\\le\\sum_{k=1}^{n-1}\\frac{1}{k}\\le\\sum_{k=1}^{n}\\frac{1}{k}$.\\par On en déduit : $\\ln n\\le\\sum_{k=1}^{n}\\frac{1}{k}=1+\\sum_{k=1}^{n-1}\\frac{1}{k+1}\\le \\ln n+1$, ou encore $0\\le\\sum_{k=1}^{n}\\frac{1}{k}-\\ln n\\le 1$.\\par On en déduit que $\\frac{1}{\\ln n}\\sum_{k=1}^{n}\\frac{1}{k}\\underset{n\\rightarrow+\\infty}{\\longrightarrow} 1$ par encadrement après division par $\\ln n$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_division_euclidienne",
+      "type": "example",
+      "title": "Exemple : Algorithme de la division euclidienne",
+      "content_latex": "Division de $7X^{5}+4X^{4}+2X^{3}-X+5$ par $X^{2}+2$.\\par Résultat : $7X^{5}+4X^{4}+2X^{3}-X+5 = (X^{2}+2)(7X^{3}+4X^{2}-12X-8) + 23X+21$.\\par En particulier, $7X^{5}+4X^{4}+2X^{3}-X+5$ n'est pas divisible par $X^{2}+2$ car le reste obtenu n'est pas nul.",
+      "proof_latex": "On divise le terme de plus haut degré du dividende par celui du diviseur, on retranche le produit, et on itère jusqu'à ce que le degré du reste soit strictement inférieur au degré du diviseur."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__definition_multiplicite",
+      "type": "definition",
+      "title": "Définition-théorème : Multiplicité",
+      "content_latex": "Soient $P$ un polynôme et $\\lambda\\in\\mathbb{C}$. La plus grande puissance de $X-\\lambda$ qu'on peut mettre en facteur dans $P$ est appelée la multiplicité de $\\lambda$ dans $P$. Une racine de multiplicité 1 est dite simple, une racine de multiplicité 2 est dite double.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_1",
+      "type": "example",
+      "title": "Exemple : Multiplicité et racines complexes",
+      "content_latex": "Notons $P$ le polynôme $(X-3)^{2}(X^{2}+X+1)$. $P$ est divisible par $(X-3)^{2}$ mais pas par $(X-3)^{3}$ car $X^{2}+X+1$ n'admet pas 3 pour racine, donc n'est pas divisible par $X-3$. Conclusion : $P$ admet 3 pour racine double.\\par $P$ est divisible par $X-j$ car $X^{2}+X+1=(X-j)(X-\\overline{j})$, mais pas par $(X-j)^{2}$ donc admet $j$ comme racine simple.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_multiplicite_racines_2",
+      "type": "example",
+      "title": "Exemple : Division par une racine évidente",
+      "content_latex": "Le polynôme $Q=X^{3}-4X^{2}+7X-6$ admet 2 pour racine car $Q(2)=0$, et après division euclidienne par $X-2$ : $Q=(X-2)(X^{2}-2X+3)$.\\par Ensuite, après calcul : $Q=(X-2)(X-1-i\\sqrt{2})(X-1+i\\sqrt{2})$ donc $Q$ possède trois racines simples, à savoir 2, $1+i\\sqrt{2}$ et $1-i\\sqrt{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__remark_factorisation_irreductible",
+      "type": "remark",
+      "title": "Remarque : Théorème de d'Alembert-Gauss et factorisation sur R",
+      "content_latex": "Tout polynôme non nul à coefficients complexes peut être écrit d'une et une seule façon comme un produit de polynômes $X-\\lambda$ (Théorème de d'Alembert-Gauss).\\par Dans le cas d'un polynôme à coefficients réels, les racines non réelles peuvent être regroupées par paires de conjuguées de même multiplicité. Les factorisations irréductibles sur $\\mathbb{R}$ font intervenir des polynômes $X-\\lambda$ avec $\\lambda\\in\\mathbb{R}$ et des polynômes $X^{2}+aX+b$ à discriminant strictement négatif.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__warning_factorisation_irreductible_R",
+      "type": "warning",
+      "title": "Attention : Polynôme de degré 2 dans une factorisation sur R",
+      "content_latex": "En dépit des apparences, $(X+1)(X^{2}-3X+2)^{2}$ n'est pas une factorisation irréductible sur $\\mathbb{R}$ car le polynôme $X^{2}-3X+2$ peut encore être brisé en morceaux plus petits à coefficients réels : $X^{2}-3X+2=(X-1)(X-2)$.\\par Un polynôme de degré 2 qui apparaît dans une factorisation irréductible sur $\\mathbb{R}$ est forcément de discriminant strictement négatif.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__method_decomposition_elements_simples",
+      "type": "method",
+      "title": "Méthode : Décomposition en éléments simples (Principe général)",
+      "content_latex": "Pour décomposer une fraction rationnelle $\\frac{A}{B}$ sur $\\mathbb{R}$ :\\par 1. **Calcul de la partie entière** : On effectue la division euclidienne de $A$ par $B$ pour en extraire le quotient. (Si $\\deg A < \\deg B$, la partie entière est nulle).\\par 2. **Factorisation** : Factorisation irréductible sur $\\mathbb{R}$ du dénominateur $B$.\\par 3. **Forme de la décomposition** : \\par — Chaque facteur $(X-\\lambda)^{m}$ engendre une somme $\\frac{a_{m}}{(X-\\lambda)^{m}} + \\ldots + \\frac{a_{1}}{X-\\lambda}$.\\par — Chaque facteur $(X^{2}+aX+b)^{m}$ (avec $\\Delta < 0$) engendre une somme $\\frac{c_{m}X+d_{m}}{(X^{2}+aX+b)^{m}} + \\ldots + \\frac{c_{1}X+d_{1}}{X^{2}+aX+b}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__method_calcul_coefficients_des",
+      "type": "method",
+      "title": "Méthode : 4 techniques pour calculer les coefficients d'une DES",
+      "content_latex": "Pour calculer les coefficients d'une décomposition en éléments simples, on exploite quatre techniques :\\par 1. Multiplier par $(X-\\lambda)^{m}$ puis évaluer en $\\lambda$, y compris lorsque $\\lambda\\in\\mathbb{C}\\setminus\\mathbb{R}$.\\par 2. Multiplier par $X$ puis passer à la limite en $+\\infty$.\\par 3. Évaluer en un point.\\par 4. Mettre au même dénominateur et identifier.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_des_calcul_1",
+      "type": "example",
+      "title": "Exemple : Calcul de DES (pôles réels multiples)",
+      "content_latex": "$\\frac{X+3}{(X+1)^{2}(X+2)}=\\frac{2}{(X+1)^{2}}-\\frac{1}{X+1}+\\frac{1}{X+2}$.",
+      "proof_latex": "Forme : $\\frac{X+3}{(X+1)^{2}(X+2)}=\\frac{a}{(X+1)^{2}}+\\frac{b}{X+1}+\\frac{c}{X+2}$.\\par • Calcul de $a$ : On multiplie par $(X+1)^{2}$ puis on évalue en $-1$ : $a=2$.\\par • Calcul de $c$ : On multiplie par $X+2$ puis on évalue en $-2$ : $c=1$.\\par • Calcul de $b$ : On multiplie par $X$ puis on passe à la limite en $+\\infty$ : $0=0+b+c$, donc $b=-c=-1$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_des_calcul_2",
+      "type": "example",
+      "title": "Exemple : Calcul de DES avec partie entière",
+      "content_latex": "$\\frac{X^{4}}{(X+3)(X^{2}+X+3)}=X-4+\\frac{9}{X+3}+\\frac{X+3}{X^{2}+X+3}$.",
+      "proof_latex": "• Partie entière : $X^{4}=(X+3)(X^{2}+X+3)(X-4)+10X^{2}+15X+36$, la partie entière vaut $X-4$.\\par • Forme de la DES du reste : $\\frac{10X^{2}+15X+36}{(X+3)(X^{2}+X+3)}=\\frac{a}{X+3}+\\frac{bX+c}{X^{2}+X+3}$.\\par • Calcul de $a$ : On multiplie par $X+3$ puis on évalue en $-3$ : $a=9$.\\par • Calcul de $b$ : On multiplie par $X$ puis on passe à la limite en $+\\infty$ : $10=a+b$, donc $b=1$.\\par • Calcul de $c$ : On évalue en $0$ : $0=-4+\\frac{a}{3}+\\frac{c}{3}$ donc $c=12-a=3$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_des_calcul_3",
+      "type": "example",
+      "title": "Exemple : Calcul de DES avec évaluation complexe",
+      "content_latex": "$\\frac{1}{(X-1)^{2}(X^{2}+4)}=\\frac{1}{5(X-1)^{2}}-\\frac{2}{25(X-1)}+\\frac{2X-3}{25(X^{2}+4)}$.",
+      "proof_latex": "Forme : $\\frac{1}{(X-1)^{2}(X^{2}+4)}=\\frac{a}{(X-1)^{2}}+\\frac{b}{X-1}+\\frac{cX+d}{X^{2}+4}$.\\par • Calcul de $a$ : On multiplie par $(X-1)^{2}$ puis on évalue en $1$ : $a=\\frac{1}{5}$.\\par • Calcul de $c$ et $d$ : On multiplie par $X^{2}+4$ puis on évalue en $2i$ : $2ic+d=\\frac{1}{(2i-1)^{2}}=\\frac{1}{-3-4i}=\\frac{-3+4i}{25}$. Par identification des parties réelles et imaginaires : $d=-\\frac{3}{25}$ et $c=\\frac{2}{25}$.\\par • Calcul de $b$ : On multiplie par $X$ puis on passe à la limite en $+\\infty$ : $0=b+c$, ce qui donne $b=-c=-\\frac{2}{25}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__method_primitivation_fractions_rationnelles",
+      "type": "method",
+      "title": "Méthode : Primitiver une fonction rationnelle",
+      "content_latex": "Pour primitiver une fonction rationnelle, on calcule la décomposition en éléments simples sur $\\mathbb{R}$ de la fraction rationnelle associée et on primitive morceau par morceau.",
+      "proof_latex": null
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_fraction_rationnelle_1",
+      "type": "example",
+      "title": "Exemple : Primitive avec Arctangente et décomposition",
+      "content_latex": "On cherche une primitive de la fonction $x\\mapsto\\frac{\\text{Arctan } x}{x^{2}}$ sur $\\mathbb{R}^{*}$.",
+      "proof_latex": "Commençons par une IPP : $\\int^{x}\\frac{\\text{Arctan } t}{t^{2}}dt=-\\frac{\\text{Arctan } x}{x}-\\int^{x}\\left(-\\frac{1}{t}\\right)\\times\\frac{1}{t^{2}+1}dt=-\\frac{\\text{Arctan } x}{x}+\\int^{x}\\frac{dt}{t(t^{2}+1)}$.\\par Décomposition de $\\frac{1}{X(X^{2}+1)}$ : $\\frac{1}{X(X^{2}+1)}=\\frac{a}{X}+\\frac{bX+c}{X^{2}+1}$.\\par Calcul : $a=1$ (multiplication par $X$ et éval en 0), $b=-1$ (limite en $+\\infty$), $c=0$ (éval en 1).\\par Primitivation finale : $\\int^{x}\\frac{\\text{Arctan } t}{t^{2}}dt = -\\frac{\\text{Arctan } x}{x} + \\int^{x}\\left(\\frac{1}{t}-\\frac{t}{t^{2}+1}\\right)dt = -\\frac{\\text{Arctan } x}{x}+\\ln|x|-\\frac{1}{2}\\ln(x^{2}+1) = \\ln\\frac{|x|}{\\sqrt{x^{2}+1}}-\\frac{\\text{Arctan } x}{x}$."
+    },
+    {
+      "id": "techniques_elementaires_de_calcul_integral__example_primitive_fraction_rationnelle_2",
+      "type": "example",
+      "title": "Exemple : Primitive trigonométrique ramenée à une fraction",
+      "content_latex": "On cherche une primitive de la fonction $x\\mapsto\\frac{1}{\\sin x}$ sur $\\mathbb{R}\\setminus\\pi\\mathbb{Z}$.",
+      "proof_latex": "Changement de variable $t=\\cos\\theta$ dans $\\int^{x}\\frac{d\\theta}{\\sin\\theta}$.\\par $\\frac{dt}{d\\theta}=-\\sin\\theta$, $dt=-\\sin\\theta d\\theta$. Ensuite : $\\frac{d\\theta}{\\sin\\theta}=\\frac{\\sin\\theta d\\theta}{\\sin^{2}\\theta}=\\frac{\\sin\\theta d\\theta}{1-\\cos^{2}\\theta}=\\frac{-dt}{1-t^{2}}$, d'où $\\int^{x}\\frac{d\\theta}{\\sin\\theta}=\\int^{\\cos x}\\frac{dt}{t^{2}-1}$.\\par Décomposition : $\\frac{1}{X^{2}-1}=\\frac{1}{2}\\left(\\frac{1}{X-1}-\\frac{1}{X+1}\\right)$.\\par Intégration : $\\int^{x}\\frac{d\\theta}{\\sin\\theta} = \\frac{1}{2}\\int^{\\cos x}\\left(\\frac{1}{t-1}-\\frac{1}{t+1}\\right)dt = \\frac{\\ln|\\cos x-1|}{2} - \\frac{\\ln|\\cos x+1|}{2} = \\frac{1}{2}\\ln\\frac{1-\\cos x}{1+\\cos x} = \\ln\\left|\\tan\\frac{x}{2}\\right|$."
+    }
+  ],
+  "exercises": []
+}

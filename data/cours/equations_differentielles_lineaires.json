@@ -1,0 +1,190 @@
+{
+  "chapter_official_id": "equations_differentielles_lineaires",
+  "chapter_name": "Équations différentielles linéaires",
+  "source_document": "Cours - Equations differentielles lineaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "equations_differentielles_lineaires__definition_equation_differentielle",
+      "type": "definition",
+      "title": "Définition : Équation différentielle",
+      "content_latex": "Une équation différentielle — équadiff en abrégé — est une équation dont l'inconnue est une fonction $y$ et dans laquelle cohabitent à la fois $y$ et ses dérivées $y', y'', \\ldots$ On appelle ordre d'une telle équation le plus grand exposant de dérivation de $y$ qui y figure.\\par\\par Par exemple, $y' = xe^y + 1$ est une équation différentielle du premier ordre et $xy'' - y^2 = yy'$ une équation différentielle du second ordre.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__warning_notation_equadiff",
+      "type": "warning",
+      "title": "Attention : Notation des équations différentielles",
+      "content_latex": "L'usage veut qu'on parle de l'équation différentielle $y' = xy + x^2$ — plutôt que de l'équation $y'(x) = xy(x) + x^2$ — mais cet usage manque de rigueur car on y mélange des fonctions ($y$ et $y'$) et des nombres ($x$ et $x^2$). Le raccourci est autorisé par souci de clarté, mais seulement pour désigner l'équation différentielle. Dans un calcul concret au cœur d'une démonstration, on écrit $y'(x) = e^{2x} + x$ mais JAMAIS $y' = e^{2x} + x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__definition_equation_lineaire",
+      "type": "definition",
+      "title": "Définition : Équation différentielle linéaire",
+      "content_latex": "On étudiera les équations de la forme :\\par — $y' + a(x)y = f(x)$ (équations différentielles linéaires du premier ordre)\\par — $y^{(n)} + a_{n-1}y^{(n-1)} + \\ldots + a_1y' + a_0y = f(x)$ (équations différentielles linéaires à coefficients constants).\\par\\par Ces équations sont linéaires au sens où elles sont de la forme $T(y) = f$ avec $T$ linéaire et $f$ fixée.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__remark_linearite",
+      "type": "remark",
+      "title": "Remarque : Pourquoi la linéarité ?",
+      "content_latex": "Les applications $y \\longmapsto y' + ay$ et $y \\longmapsto y'' + ay' + by$ sont en effet linéaires sur $C^1(I, \\mathbb{K})$ et $C^2(I, \\mathbb{K})$ respectivement si on note $I$ l'intervalle sur lequel on étudie l'équation différentielle.\\par\\par Intéressons-nous à présent à une équation différentielle $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ où $a$ et $f$ sont deux fonctions fixées de $C(I, \\mathbb{K})$. Nous verrons que cette équation possède des solutions. Fixons-en une $y_{\\text{part}}$, dite solution particulière. Par linéarité de l'application $y \\longmapsto y' + ay$, l'ensemble $S$ des solutions de l'équation complète $y' + a(x)y = f(x)$ est un sous-espace affine de $C^1(I, \\mathbb{K})$ de direction l'ensemble $\\mathcal{S}$ des solutions de l'équation homogène $y' + a(x)y = 0$. Concrètement, $S = y_{\\text{part}} + \\mathcal{S}$ et $\\mathcal{S}$ est le noyau de l'application $y \\longmapsto y' + ay$.\\par\\par Supposons maintenant que nous connaissons une solution particulière $y_1$ de l'équation $y' + a(x)y = f_1(x)$ et une autre $y_2$ de l'équation $y' + a(x)y = f_2(x)$ où $f_1$ et $f_2$ sont deux fonctions fixées de $C(I, \\mathbb{K})$. Pour tous $\\lambda_1, \\lambda_2 \\in \\mathbb{K}$, la fonction $\\lambda_1 y_1 + \\lambda_2 y_2$ est alors solution de l'équation $y' + a(x)y = \\lambda_1 f_1(x) + \\lambda_2 f_2(x)$ par simple linéarité de l'application $y \\longmapsto y' + ay$. Cette remarque simple s'appelle le principe de superposition.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "type": "theorem",
+      "title": "Théorème : Solutions de $y' + a(x)y = 0$",
+      "content_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.",
+      "proof_latex": "Pour tout $y \\in C^1(I, \\mathbb{K})$ :\\par $y' + ay = 0 \\Leftrightarrow (ye^A)' = 0$ car $(ye^A)' = y'e^A + yA'e^A = (y' + ay)e^A$,\\par donc $ye^A$ est constante, i.e. $\\exists \\lambda \\in \\mathbb{K}, y = \\lambda e^{-A}$.\\par\\par Vous noterez en passant que nous avons bien fait de travailler sur un INTERVALLE $I$. Si $I$ était une partie quelconque de $\\mathbb{R}$, une dérivée $f'$ pourrait être identiquement nulle sur $I$ sans que la fonction $f$ soit constante sur $I$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_equation_homogene",
+      "type": "example",
+      "title": "Exemple : Résolution d'une équation homogène",
+      "content_latex": "Les solutions réelles de l'équation $y' = \\frac{y}{1+x^2}$ sur $\\mathbb{R}$ sont les fonctions $x \\longmapsto \\lambda e^{\\text{Arctan }x}$, $\\lambda$ décrivant $\\mathbb{R}$.",
+      "proof_latex": "L'équation s'écrit $y' - \\frac{1}{1+x^2}y = 0$. Une primitive de $a(x) = -\\frac{1}{1+x^2}$ est $A(x) = -\\text{Arctan }x$. Donc les solutions sont $x \\longmapsto \\lambda e^{\\text{Arctan }x}$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+      "type": "theorem",
+      "title": "Théorème : Équations complètes $y' + a(x)y = f(x)$, problème de Cauchy",
+      "content_latex": "Soient $a, f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ est une droite affine. Si on note $y_{\\text{part}}$ une solution particulière de cette équation et $A$ une primitive de $a$ sur $I$, les solutions sur $I$ de l'équation complète sont les fonctions $y_{\\text{part}} + \\lambda e^{-A}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0 \\in \\mathbb{K}$, le système $\\begin{cases} y' + a(x)y = f(x) \\\\ y(x_0) = y_0 \\text{ (condition initiale)} \\end{cases}$ est appelé un problème de Cauchy et possède une et une seule solution sur $I$.",
+      "proof_latex": "Notons $A$ une primitive de $a$ sur $I$.\\par\\par Idée de la preuve : Les solutions de l'équation homogène sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$ dans lesquelles $\\lambda$ est une CONSTANTE. Pour résoudre l'équation complète, nous allons faire varier la constante, c'est-à-dire chercher les solutions sous la forme $x \\longmapsto \\lambda(x)e^{-A(x)}$ où $\\lambda$ est une FONCTION. Il s'avère ci-dessous que c'est une bonne idée.\\par\\par C'est parti. Soit $y \\in C^1(I, \\mathbb{K})$ quelconque. Notons $\\lambda$ la FONCTION $ye^A$, elle aussi de classe $C^1$. Ainsi $y = \\lambda e^{-A}$.\\par $y' + ay = f$ et $y(x_0) = y_0$\\par $\\Leftrightarrow (\\lambda'e^{-A} - \\lambda A'e^{-A}) + a\\lambda e^{-A} = f$ et $\\lambda(x_0)e^{-A(x_0)} = y_0$\\par $\\Leftrightarrow \\lambda'e^{-A} - a\\lambda e^{-A} + a\\lambda e^{-A} = f$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda' = fe^A$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda$ est l'unique primitive de $fe^A$ qui vaut $y_0e^{A(x_0)}$ en $x_0$.\\par\\par Ces équivalences prouvent l'existence et l'unicité d'une fonction $\\lambda$ répondant au problème car la fonction $fe^A$ est continue sur $I$, donc $y$ possède une et une seule primitive de valeur $y_0e^{A(x_0)}$ en $x_0$ d'après le théorème fondamental du calcul intégral. De nouveau, l'unicité exige que $I$ soit un intervalle. Plus explicitement, pour tout $x \\in I$ : $\\lambda(x) = y_0e^{A(x_0)} + \\int_{x_0}^x f(t)e^{A(t)}dt$, donc $y(x) = y_0e^{A(x_0)-A(x)} + \\int_{x_0}^x f(t)e^{A(t)-A(x)}dt$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__warning_resolution_limites",
+      "type": "warning",
+      "title": "Attention : Limites de la résolution",
+      "content_latex": "À ce stade, nous savons résoudre de façon théorique toutes les équations différentielles $y' + a(x)y = f(x)$ et le calcul explicite des solutions requiert DEUX primitivations, une de $a$ puis une de $fe^A$. Vous noterez que nous n'avons rien dit en revanche des équations $a(x)y' + b(x)y = f(x)$ dans lesquelles une fonction est autorisée en facteur de $y'$. La résolution précédente échoue dans ce cadre plus général, car pour isoler $\\lambda'$ et achever le calcul, on a besoin de diviser par la fonction en facteur de $y'$, ce qui n'est pas forcément possible sur $I$ tout entier, et il est important que $I$ reste un intervalle.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__method_variation_constante",
+      "type": "method",
+      "title": "Méthode : Variation de la constante",
+      "content_latex": "Pour résoudre $y' + a(x)y = f(x)$ :\\par 1. Résoudre l'homogène $y' + a(x)y = 0$ $\\rightarrow$ $y_h = \\lambda e^{-A(x)}$.\\par 2. Chercher $y_p = \\lambda(x)e^{-A(x)}$ (variation de la constante).\\par 3. Injecter dans l'équation $\\rightarrow$ $\\lambda'(x) = f(x)e^{A(x)}$.\\par 4. Intégrer pour trouver $\\lambda(x)$.\\par 5. Solution générale : $y = y_p + y_h$.\\par\\par Sur une copie, vous n'êtes pas obligés de rédiger la méthode de la variation de la constante. Vous pouvez vous contenter de la mettre en œuvre au brouillon, puis vérifier sur votre copie que vous avez bien trouvé une solution particulière.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_variation_constante",
+      "type": "example",
+      "title": "Exemple : Résolution par variation de la constante",
+      "content_latex": "On cherche les solutions réelles sur $\\mathbb{R}_+^*$ de l'équation $xy' + y = x^2$ avec la condition initiale $y(1) = 0$.\\par\\par Les solutions sur $\\mathbb{R}_+^*$ sont les fonctions $x \\longmapsto \\frac{x^2}{3} + \\frac{\\lambda}{x}$, $\\lambda$ décrivant $\\mathbb{R}$. L'unique solution qui s'annule en 1 est $x \\longmapsto \\frac{x^3 - 1}{3x}$ pour $\\lambda = -\\frac{1}{3}$.",
+      "proof_latex": "— Équation homogène : Divisons par $x$ pour obtenir une équation homogène de la forme $y' + a(x)y = 0$. Les solutions sur $\\mathbb{R}_+^*$ de l'équation homogène $y' + \\frac{y}{x} = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-\\ln x} = \\frac{\\lambda}{x}$, $\\lambda$ décrivant $\\mathbb{R}$, car la fonction logarithme est une primitive de la fonction inverse.\\par\\par — Solution particulière de l'équation $y' + \\frac{y}{x} = x$ : Cherchons-en une sous la forme $x \\longmapsto \\frac{\\lambda(x)}{x}$ avec $\\lambda \\in C^1(\\mathbb{R}_+^*, \\mathbb{R})$ — méthode de variation de la constante. Pour tout $x > 0$ :\\par $y'(x) + \\frac{y(x)}{x} = x \\Leftrightarrow \\frac{x\\lambda'(x) - \\lambda(x)}{x^2} + \\frac{\\lambda(x)}{x^2} = x \\Leftrightarrow \\lambda'(x) = x^2$.\\par PAR EXEMPLE, nous pouvons ainsi choisir pour $\\lambda$ la fonction $x \\longmapsto \\frac{x^3}{3}$. La fonction $x \\longmapsto \\frac{x^2}{3}$ est alors solution de l'équation complète.\\par\\par — Conclusion : Les solutions réelles de l'équation $xy' + y = x^2$ sur $\\mathbb{R}_+^*$ sont les fonctions $x \\longmapsto \\frac{x^2}{3} + \\frac{\\lambda}{x}$, $\\lambda$ décrivant $\\mathbb{R}$. L'unique solution qui s'annule en 1 est $x \\longmapsto \\frac{x^3 - 1}{3x}$ pour $\\lambda = -\\frac{1}{3}$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__warning_attention_redaction",
+      "type": "warning",
+      "title": "Attention : Rédaction de la conclusion",
+      "content_latex": "Ne concluez surtout pas ainsi : « Les fonctions $x \\longmapsto \\ldots$ sont solutions de l'équation $\\ldots$ », ni ainsi : « Toutes les fonctions $x \\longmapsto \\ldots$ sont solutions de l'équation $\\ldots$ », ni ainsi : « Les fonctions $x \\longmapsto \\ldots$ sont toutes solutions de l'équation $\\ldots$ ».\\par\\par Dans les trois cas, la phrase ne dit pas ce qu'elle doit dire, à savoir que nous avons trouvé EXACTEMENT toutes les solutions cherchées. Écrivez ceci et rien d'autre : « Les solutions de l'équation $\\ldots$ sont (toutes) les fonctions $x \\longmapsto \\ldots$ »",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_recollement_1",
+      "type": "example",
+      "title": "Exemple : Problème de recollement (perte de dimension)",
+      "content_latex": "On cherche les solutions réelles de l'équation $xy' + y = x^2$ sur $\\mathbb{R}$ tout entier.\\par\\par L'équation $xy' + y = x^2$ possède une et une seule solution sur $\\mathbb{R}$. L'ensemble de ses solutions est donc un singleton, i.e. un sous-espace affine de $C^1(\\mathbb{R}, \\mathbb{R})$ de dimension 0. C'est surprenant au premier abord, car sur $\\mathbb{R}_-^*$ et $\\mathbb{R}_+^*$, l'ensemble des solutions est une droite affine, donc de dimension 1. Dans cet exemple, le recollement en 0 a occasionné la perte d'une dimension.",
+      "proof_latex": "— Résolution sur $\\mathbb{R}_+^*$ et $\\mathbb{R}_-^*$ : Comme on l'a vu, les solutions sur $\\mathbb{R}_+^*$ sont les fonctions $x \\longmapsto \\frac{x^2}{3} + \\frac{\\lambda}{x}$, $\\lambda$ décrivant $\\mathbb{R}$, et on aurait trouvé les mêmes solutions exactement sur $\\mathbb{R}_-^*$.\\par\\par — Résolution sur $\\mathbb{R}$ : Soit $y \\in C^1(\\mathbb{R}, \\mathbb{R})$. Si $y$ est solution sur $\\mathbb{R}$, elle l'est en particulier sur $\\mathbb{R}_-^*$ et $\\mathbb{R}_+^*$, donc il existe deux réels $\\lambda$ et $\\mu$ pour lesquels pour tout $x \\in \\mathbb{R}^*$ :\\par $y(x) = \\begin{cases} \\frac{x^2}{3} + \\frac{\\lambda}{x} & \\text{si } x > 0 \\\\ \\frac{x^2}{3} + \\frac{\\mu}{x} & \\text{si } x < 0 \\end{cases}$\\par Le point important, c'est qu'il faut DEUX constantes !\\par\\par Par ailleurs, si $y$ est solution sur $\\mathbb{R}$, $y(0) = 0$ par simple substitution dans l'équation. En résumé, si $y$ est solution sur $\\mathbb{R}$, nous la connaissons parfaitement, mais la fonction obtenue est-elle bien solution ? Il lui suffit pour cela d'être de classe $C^1$ sur $\\mathbb{R}$. Or avec les notations précédentes, $y$ n'est continue en 0 que si $\\lambda = \\mu = 0$. Le cas échéant, $y$ est la fonction $x \\longmapsto \\frac{x^2}{3}$ sur $\\mathbb{R}$ tout entier et elle est bien de classe $C^1$.\\par\\par — Conclusion : L'équation $xy' + y = x^2$ possède une et une seule solution sur $\\mathbb{R}$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_recollement_2",
+      "type": "example",
+      "title": "Exemple : Problème de recollement (gain de dimension)",
+      "content_latex": "On cherche les solutions réelles de l'équation $xy' - 2y = x^3$ sur $\\mathbb{R}$ tout entier.\\par\\par Notons $f$ et $g$ les fonctions définies pour tout $x \\in \\mathbb{R}$ par :\\par $f(x) = \\begin{cases} x^2 & \\text{si } x \\leq 0 \\\\ 0 & \\text{si } x > 0 \\end{cases}$ et $g(x) = \\begin{cases} 0 & \\text{si } x < 0 \\\\ x^2 & \\text{si } x \\geq 0 \\end{cases}$.\\par\\par Ces deux fonctions sont de classe $C^1$ sur $\\mathbb{R}$ tout entier et l'ensemble des solutions de l'équation $xy' - 2y = x^3$ sur $\\mathbb{R}$ vaut $\\{x \\longmapsto x^3 + \\lambda f(x) + \\mu g(x) \\mid \\lambda, \\mu \\in \\mathbb{R}\\} = (x \\longmapsto x^3) + \\text{Vect}(f, g)$. Il n'est par ailleurs pas difficile de montrer que la famille $(f, g)$ est libre. Notre équation possède ainsi un plan affine de solutions sur $\\mathbb{R}$. Dans cet exemple, le recollement en 0 a occasionné le gain d'une dimension.",
+      "proof_latex": "— Résolution sur $\\mathbb{R}_+^*$ et $\\mathbb{R}_-^*$ : Soit $I \\in \\{\\mathbb{R}_-^*, \\mathbb{R}_+^*\\}$. Les solutions sur $I$ de l'équation homogène $y' - \\frac{2y}{x} = 0$ sont les fonctions $x \\longmapsto \\lambda e^{2\\ln|x|} = \\lambda|x|^2 = \\lambda x^2$, $\\lambda$ décrivant $\\mathbb{R}$, car $x \\longmapsto -2\\ln|x|$ est une primitive de $x \\longmapsto -\\frac{2}{x}$. En faisant varier la constante, on montre ensuite que la fonction $x \\longmapsto x^3$ est solution sur $I$ de l'équation $xy' - 2y = x^3$. Les solutions de cette équation sur $I$ sont finalement les fonctions $x \\longmapsto x^3 + \\lambda x^2$, $\\lambda$ décrivant $\\mathbb{R}$.\\par\\par — Résolution sur $\\mathbb{R}$ : Soit $y \\in C^1(\\mathbb{R}, \\mathbb{R})$. Si $y$ est solution de l'équation sur $\\mathbb{R}$, elle l'est en particulier sur $\\mathbb{R}_-^*$ et $\\mathbb{R}_+^*$, donc il existe deux réels $\\lambda$ et $\\mu$ pour lesquels pour tout $x \\in \\mathbb{R}^*$ :\\par $y(x) = \\begin{cases} x^3 + \\lambda x^2 & \\text{si } x > 0 \\\\ x^3 + \\mu x^2 & \\text{si } x < 0 \\end{cases}$\\par\\par Par ailleurs, si $y$ est solution sur $\\mathbb{R}$, $y(0) = 0$ par simple substitution dans l'équation. Réciproquement, la fonction obtenue est-elle bien solution ? Il lui suffit pour cela d'être de classe $C^1$ sur $\\mathbb{R}$. Or $y$ est de classe $C^1$ sur $\\mathbb{R}^*$ et continue en 0, et par ailleurs : $y'(x) = 3x^2 + 2\\lambda x \\xrightarrow[x \\to 0^-]{} 0$ et $y'(x) = 3x^2 + 2\\mu x \\xrightarrow[x \\to 0^+]{} 0$, donc $y'(x) \\xrightarrow[x \\to 0]{} 0$. Ainsi, $y$ est de classe $C^1$ sur $\\mathbb{R}$ tout entier d'après la version $C^1$ du théorème de la limite de la dérivée."
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_noyau_operateur",
+      "type": "theorem",
+      "title": "Théorème : Noyau de $(D - r\text{Id}_E)^m$",
+      "content_latex": "Pour tous $r \\in \\mathbb{C}$ et $m \\in \\mathbb{N}^*$ :\\par $\\text{Ker}(D - r\\text{Id}_E)^m = \\{x \\longmapsto P(x)e^{rx} \\mid P \\in \\mathbb{C}_{m-1}[X]\\}$.\\par\\par Il n'est pas difficile de vérifier que la famille génératrice $(x \\longmapsto e^{rx}, x \\longmapsto xe^{rx}, \\ldots, x \\longmapsto x^{m-1}e^{rx})$ est libre. Par conséquent, $\\dim \\text{Ker}(D - r\\text{Id}_E)^m = m$.",
+      "proof_latex": "Fixons $r \\in \\mathbb{C}$ et raisonnons par récurrence sur $m$.\\par\\par Initialisation : $\\text{Ker}(D - r\\text{Id}_E) = \\{y \\in E \\mid y' - ry = 0\\} = \\text{Vect}(e^r) = \\{Pe^r \\mid P \\in \\mathbb{C}_0[X]\\}$.\\par\\par Hérédité : Soit $m \\in \\mathbb{N}^*$. Faisons l'hypothèse que $\\text{Ker}(D - r\\text{Id}_E)^m = \\{Pe^r \\mid P \\in \\mathbb{C}_{m-1}[X]\\}$. Soit $y \\in E$, disons $y = ze^r$ avec $z \\in E$. Aussitôt : $(D - r\\text{Id}_E)(y) = y' - ry = (z'e^r + rze^r) - rze^r = z'e^r$, donc :\\par $y \\in \\text{Ker}(D - r\\text{Id}_E)^{m+1}$\\par $\\Leftrightarrow (D - r\\text{Id}_E)^m \\circ (D - r\\text{Id}_E)(y) = 0$\\par $\\Leftrightarrow (D - r\\text{Id}_E)^m(z'e^r) = 0$\\par $\\Leftrightarrow z'e^r \\in \\text{Ker}(D - r\\text{Id}_E)^m$\\par $\\Leftrightarrow \\exists P \\in \\mathbb{C}_{m-1}[X], z'e^r = Pe^r$\\par $\\Leftrightarrow \\exists P \\in \\mathbb{C}_{m-1}[X], z' = P$\\par $\\Leftrightarrow \\exists Q \\in \\mathbb{C}_m[X], z = Q$\\par $\\Leftrightarrow \\exists Q \\in \\mathbb{C}_m[X], y = Qe^r$.\\par\\par Comme voulu : $\\text{Ker}(D - r\\text{Id}_E)^{m+1} = \\{Qe^r \\mid Q \\in \\mathbb{C}_m[X]\\}$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_equations_ordre_2_complexes",
+      "type": "example",
+      "title": "Exemple : Équations d'ordre 2 à coefficients constants (solutions complexes)",
+      "content_latex": "— Les solutions complexes de l'équation différentielle $y'' + 4y' + 4y = 0$, de polynôme caractéristique $(X+2)^2$, sont les fonctions $x \\longmapsto (ax + b)e^{-2x}$, $a$ et $b$ décrivant $\\mathbb{C}$.\\par — Les solutions complexes de l'équation différentielle $y''' - 3y'' + 3y' - y = 0$, de polynôme caractéristique $(X-1)^3$, sont les fonctions $x \\longmapsto (ax^2 + bx + c)e^x$, $a$, $b$ et $c$ décrivant $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_homogene_ordre_n",
+      "type": "theorem",
+      "title": "Théorème : Équations homogènes $y^{(n)} + a_{n-1}y^{(n-1)} + \\ldots + a_1y' + a_0y = 0$",
+      "content_latex": "Soient $a_0, \\ldots, a_{n-1} \\in \\mathbb{C}$. Le $\\mathbb{C}$-espace vectoriel des solutions complexes de l'équation $y^{(n)} + a_{n-1}y^{(n-1)} + \\ldots + a_1y' + a_0y = 0$ est de dimension $n$.",
+      "proof_latex": "Avec les notations de l'introduction du paragraphe, $S = \\text{Ker}(D - r_1\\text{Id}_E)^{m_1} \\oplus \\ldots \\oplus \\text{Ker}(D - r_p\\text{Id}_E)^{m_p}$ comme nous l'avons vu, donc d'après le théorème précédent : $\\dim S = \\dim \\text{Ker}(D - r_1\\text{Id}_E)^{m_1} + \\ldots + \\dim \\text{Ker}(D - r_p\\text{Id}_E)^{m_p} = m_1 + \\ldots + m_p = n$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_equations_ordre_n",
+      "type": "example",
+      "title": "Exemple : Équations d'ordre $n$ à coefficients constants",
+      "content_latex": "— Les solutions complexes de l'équation $y''' - y'' - y' + y = 0$ de polynôme caractéristique $(X-1)^2(X+1)$ sont les fonctions $x \\longmapsto (ax + b)e^x + ce^{-x}$, $a$, $b$ et $c$ décrivant $\\mathbb{C}$.\\par — Les solutions complexes de l'équation $y^{(4)} = y$ de polynôme caractéristique $X^4 - 1 = (X-1)(X+1)(X^2+1)$ sont les fonctions $x \\longmapsto ae^x + be^{-x} + ce^{ix} + de^{-ix}$, $a$, $b$, $c$ et $d$ décrivant $\\mathbb{C}$.\\par — Les solutions complexes de l'équation $y^{(4)} = y^{(3)}$ de polynôme caractéristique $X^4 - X^3 = X^3(X-1)$ sont les fonctions $x \\longmapsto (ax^2 + bx + c)e^{0x} + de^x$, $a$, $b$, $c$ et $d$ décrivant $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_ordre_2_complexe",
+      "type": "theorem",
+      "title": "Théorème : Équations homogènes $y'' + ay' + by = 0$ pour $\\mathbb{K} = \\mathbb{C}$",
+      "content_latex": "Soient $a, b \\in \\mathbb{C}$. L'ensemble des solutions de l'équation homogène $y'' + ay' + by = 0$ est un plan vectoriel. Plus précisément, en notant $\\Delta$ le discriminant du polynôme caractéristique $X^2 + aX + b$ :\\par\\par $\\begin{array}{c|c|c} \\text{Racines de } X^2 + aX + b & \\Delta \\neq 0 & \\Delta = 0 \\\\ \\hline \\text{Forme des solutions} & x \\longmapsto \\lambda e^{rx} + \\lambda' e^{r'x} & x \\longmapsto (\\lambda x + \\mu)e^{rx} \\end{array}$",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_ordre_2_reel",
+      "type": "theorem",
+      "title": "Théorème : Équations homogènes $y'' + ay' + by = 0$ pour $\\mathbb{K} = \\mathbb{R}$",
+      "content_latex": "Soient $a, b \\in \\mathbb{R}$. L'ensemble des solutions de l'équation homogène $y'' + ay' + by = 0$ est un plan vectoriel. Plus précisément, en notant $\\Delta$ le discriminant du polynôme caractéristique $X^2 + aX + b$ :\\par\\par $\\begin{array}{c|c|c|c} \\text{Racines de } X^2 + aX + b & \\Delta > 0 & \\Delta = 0 & \\Delta < 0 \\\\ \\hline \\text{Forme des solutions} & x \\longmapsto \\lambda e^{rx} + \\lambda' e^{r'x} & x \\longmapsto (\\lambda x + \\mu)e^{rx} & x \\longmapsto e^{rx}(\\lambda\\cos(\\omega x) + \\mu\\sin(\\omega x)) \\end{array}$\\par\\par Dans le cas $\\Delta < 0$, les physicien(ne)s privilégient généralement d'autres formes équivalentes des solutions : $x \\longmapsto \\lambda e^{rx}\\cos(\\omega x + \\varphi)$ ou $x \\longmapsto \\lambda e^{rx}\\sin(\\omega x + \\varphi)$.",
+      "proof_latex": "Traitons seulement le cas $\\Delta < 0$, qui est le plus compliqué et le plus intéressant. Les racines de $X^2 + aX + b$ sont ici complexes conjuguées de la forme $r \\pm i\\omega$ avec $\\omega \\neq 0$.\\par\\par Soit $y$ une solution COMPLEXE de l'équation $y'' + ay' + by = 0$. D'après le théorème précédent, $y$ est de la forme $x \\longmapsto \\alpha e^{rx+i\\omega x} + \\beta e^{rx-i\\omega x} = e^{rx}(\\alpha e^{i\\omega x} + \\beta e^{-i\\omega x})$ pour certains $\\alpha, \\beta \\in \\mathbb{C}$. À quelle condition nécessaire et suffisante $y$ est-elle RÉELLE ? Si elle l'est, alors en particulier $\\text{Im}(y(0)) = 0$ et $\\text{Im}\\left(y\\left(\\frac{\\pi}{2\\omega}\\right)\\right) = 0$, donc : $\\text{Im}(\\alpha + \\beta) = 0$ et $\\text{Im}\\left(i(\\alpha - \\beta)e^{\\frac{\\pi r}{2\\omega}}\\right) = \\text{Re}(\\alpha - \\beta)e^{\\frac{\\pi r}{2\\omega}} = 0$, autrement dit $\\beta = \\bar{\\alpha}$. Posons dans ce cas $\\lambda = 2\\text{Re}(\\alpha)$ et $\\mu = -2\\text{Im}(\\alpha)$. Pour tout $x \\in \\mathbb{R}$ :\\par $y(x) = e^{rx}(\\alpha e^{i\\omega x} + \\bar{\\alpha} e^{-i\\omega x}) = 2e^{rx}\\text{Re}(\\alpha e^{i\\omega x}) = e^{rx}(2\\text{Re}(\\alpha)\\cos(\\omega x) - 2\\text{Im}(\\alpha)\\sin(\\omega x)) = e^{rx}(\\lambda\\cos(\\omega x) + \\mu\\sin(\\omega x))$.\\par\\par Réciproquement, cette fonction est bien réelle.\\par\\par Les formes $x \\longmapsto \\lambda e^{rx}\\cos(\\omega x + \\varphi)$ et $x \\longmapsto \\lambda e^{rx}\\sin(\\omega x + \\varphi)$ s'en déduisent aisément grâce à une technique du chapitre « Nombres complexes »."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_equations_ordre_2_reelles",
+      "type": "example",
+      "title": "Exemple : Équations d'ordre 2 à coefficients constants (solutions réelles)",
+      "content_latex": "— Les solutions réelles de l'équation $y'' - 3y' + 2y = 0$ de polynôme caractéristique $X^2 - 3X + 2 = (X-1)(X-2)$ sont les fonctions $x \\longmapsto \\lambda e^x + \\mu e^{2x}$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$.\\par — Les solutions réelles de l'équation $y'' - 2y' + y = 0$ de polynôme caractéristique $X^2 - 2X + 1 = (X-1)^2$ sont les fonctions $x \\longmapsto (\\lambda x + \\mu)e^x$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$.\\par — Les solutions réelles de l'équation $y'' + 4y = 0$ de polynôme caractéristique $X^2 + 4 = (X-2i)(X+2i)$ sont les fonctions $x \\longmapsto \\lambda\\cos(2x) + \\mu\\sin(2x)$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$.\\par — Les solutions réelles de l'équation $y'' + 2y' + 10y = 0$ de polynôme caractéristique $X^2 + 2X + 10 = (X+1-3i)(X+1+3i)$ sont les fonctions $x \\longmapsto e^{-x}(\\lambda\\cos(3x) + \\mu\\sin(3x))$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__theorem_equation_complete_ordre_2",
+      "type": "theorem",
+      "title": "Théorème : Équations complètes $y'' + ay' + by = f(x)$, problème de Cauchy",
+      "content_latex": "Soient $a, b \\in \\mathbb{K}$ et $f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y'' + ay' + by = f(x)$ d'inconnue $y \\in C^2(I, \\mathbb{K})$ est un plan affine.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0, y'_0 \\in \\mathbb{K}$, le problème de Cauchy $\\begin{cases} y'' + ay' + by = f(x) \\\\ y(x_0) = y_0 \\text{ et } y'(x_0) = y'_0 \\end{cases}$ possède une et une seule solution sur $I$.",
+      "proof_latex": "De nouveau, faisons varier la constante. Donnons-nous une racine $r$ du polynôme $X^2 + aX + b$.\\par\\par Soit $y \\in C^2(I, \\mathbb{K})$. Notons $\\lambda$ la fonction $x \\longmapsto y(x)e^{-rx}$, elle aussi de classe $C^2$, puis $\\mu$ sa dérivée $\\lambda'$ de classe $C^1$. Dans ces conditions, $y = \\lambda e^r$ et :\\par $y'' + ay' + by = (\\lambda'' + 2r\\lambda' + r^2\\lambda)e^r + a(\\lambda' + r\\lambda)e^r + b\\lambda e^r = (\\lambda'' + (2r+a)\\lambda')e^r = (\\mu' + (2r+a)\\mu)e^r$.\\par\\par Ainsi, résoudre l'équation du second ordre $y'' + ay' + by = f(x)$ d'inconnue $y$ revient à résoudre l'équation du premier ordre $\\mu' + (2r+a)\\mu = f(x)e^{-rx}$ d'inconnue $\\mu$. Le point important, c'est qu'en faisant varier la constante, on a abaissé d'une unité l'ordre de l'équation étudiée.\\par\\par Ensuite : $\\begin{cases} y(x_0) = y_0 \\\\ y'(x_0) = y'_0 \\end{cases} \\Leftrightarrow \\begin{cases} \\lambda(x_0) = y_0e^{-rx_0} \\\\ \\lambda'(x_0) + r\\lambda(x_0) = y'_0e^{-rx_0} \\end{cases} \\Leftrightarrow \\begin{cases} \\lambda(x_0) = y_0e^{-rx_0} \\\\ \\mu(x_0) = (y'_0 - ry_0)e^{-rx_0} \\end{cases}$.\\par\\par Notons à présent $\\mu_0$ l'unique solution sur $I$ du problème de Cauchy du premier ordre $\\begin{cases} \\mu' + (2r+a)\\mu = f(x)e^{-rx} \\\\ \\mu(x_0) = (y'_0 - ry_0)e^{-rx_0} \\end{cases}$, puis $\\lambda_0$ l'unique primitive de $\\mu_0$ pour laquelle $\\lambda_0(x_0) = y_0e^{-rx_0}$. Finalement :\\par $\\begin{cases} y'' + ay' + by = f(x) \\\\ y(x_0) = y_0 \\\\ y'(x_0) = y'_0 \\end{cases} \\Leftrightarrow \\begin{cases} \\lambda' = \\mu = \\mu_0 \\\\ \\lambda(x_0) = y_0e^{-rx_0} \\end{cases} \\Leftrightarrow \\lambda = \\lambda_0$.\\par\\par Comme voulu, le problème de Cauchy étudié possède une et une seule solution."
+    },
+    {
+      "id": "equations_differentielles_lineaires__warning_coefficients_constants",
+      "type": "warning",
+      "title": "Attention : Équations à coefficients constants",
+      "content_latex": "De nouveau, les équations différentielles de ce dernier paragraphe sont À COEFFICIENTS CONSTANTS.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+      "type": "method",
+      "title": "Méthode : Solutions particulières pour second membre $P(x)e^{ux}$",
+      "content_latex": "Pour un second membre $P(x)e^{ux}$, on cherche une solution particulière sous la forme $x \\longmapsto Q(x)e^{ux}$ avec $\\deg(Q) = \\deg(P) + m$ où $m$ est la multiplicité de $u$ dans le polynôme caractéristique de l'équation homogène.\\par\\par Pour les seconds membres de la forme $P(x)e^{kx}\\cos(ux)$ ou $P(x)e^{kx}\\sin(ux)$, on commence par chercher une solution complexe de l'équation avec second membre $P(x)e^{(k+iu)x}$, dont on calcule ensuite la partie réelle ou imaginaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_superposition",
+      "type": "example",
+      "title": "Exemple : Principe de superposition",
+      "content_latex": "On cherche les solutions réelles de l'équation $y' + y = 3e^{-x} + (6x + 5)e^{2x}$.\\par\\par Les solutions réelles de l'équation complète sont les fonctions $x \\longmapsto (3x + \\lambda)e^{-x} + (2x + 1)e^{2x}$, $\\lambda$ décrivant $\\mathbb{R}$.",
+      "proof_latex": "L'équation est à coefficients constants de polynôme caractéristique $X + 1$.\\par\\par — Équation homogène : Les solutions de l'équation $y' + y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-x}$, $\\lambda$ décrivant $\\mathbb{R}$.\\par\\par — Solution particulière de l'équation $y' + y = (6x + 5)e^{2x}$ : Comme $2$ est de multiplicité 0 dans $X + 1$, cherchons une solution sous la forme $x \\longmapsto (ax + b)e^{2x}$ avec $a, b \\in \\mathbb{R}$ — même degré que le polynôme $6X + 5$ du second membre.\\par $x \\longmapsto (ax + b)e^{2x}$ est solution de $y' + y = (6x + 5)e^{2x}$\\par $\\Leftrightarrow \\forall x \\in \\mathbb{R}, (2ax + a + 2b)e^{2x} + (ax + b)e^{2x} = (6x + 5)e^{2x}$\\par $\\Leftrightarrow \\forall x \\in \\mathbb{R}, 3ax + a + 3b = 6x + 5$\\par $\\Leftrightarrow 3a = 6$ et $a + 3b = 5$\\par $\\Leftrightarrow a = 2$ et $b = 1$.\\par La fonction $x \\longmapsto (2x + 1)e^{2x}$ convient.\\par\\par — Solution particulière de l'équation $y' + y = 3e^{-x}$ : Comme $-1$ est de multiplicité 1 dans $X + 1$, cherchons une solution sous la forme $x \\longmapsto (ax + b)e^{-x}$ avec $a, b \\in \\mathbb{R}$ — on ajoute 1 au degré du polynôme 3 du second membre.\\par $x \\longmapsto (ax + b)e^{-x}$ est solution de $y' + y = 3e^{-x}$\\par $\\Leftrightarrow \\forall x \\in \\mathbb{R}, (-ax + a - b)e^{-x} + (ax + b)e^{-x} = 3e^{-x}$\\par $\\Leftrightarrow a = 3$.\\par La fonction $x \\longmapsto (3x + b)e^{-x}$ convient donc pour tout $b \\in \\mathbb{R}$. Il n'est pas surprenant qu'on n'obtienne aucune condition sur $b$ car les fonctions $x \\longmapsto be^{-x}$ sont solutions de l'équation homogène $y' + y = 0$. Sachant cela, on aurait pu chercher dès le début une solution particulière sous la forme tronquée $x \\longmapsto axe^{-x}$. Finalement, la fonction $x \\longmapsto 3xe^{-x}$ est solution particulière de l'équation $y' + y = 3e^{-x}$.\\par\\par — Conclusion : D'après ce qui précède et le principe de superposition, la fonction $x \\longmapsto 3xe^{-x} + (2x + 1)e^{2x}$ est solution de l'équation complète. Les solutions réelles de l'équation complète sont ainsi les fonctions $x \\longmapsto (3x + \\lambda)e^{-x} + (2x + 1)e^{2x}$, $\\lambda$ décrivant $\\mathbb{R}$."
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_tableau_methodes",
+      "type": "example",
+      "title": "Exemple : Tableau de méthodes pour seconds membres polynômes-exponentielles",
+      "content_latex": "Le tableau ci-dessous propose différents exemples de recherches de solution particulière.\\par\\par $\\begin{array}{c|c|c|c} \\text{Second membre } P(x)e^{ux} & \\text{Polynôme caractéristique} & \\text{Multiplicité de } u & \\text{Solution particulière} \\\\ \\hline y' + 2y = x^3 - x & X + 2 & 0 & x \\longmapsto ax^3 + bx^2 + cx + d \\\\ y'' - 3y' + 2y = e^{4x} & X^2 - 3X + 2 & 0 & x \\longmapsto ae^{4x} \\\\ y'' - 3y' + 2y = (x+2)e^x & X^2 - 3X + 2 & 1 & x \\longmapsto (ax^2 + bx)e^x \\\\ y'' - 4y = x^2 + 1 & X^2 - 4 & 0 & x \\longmapsto ax^2 + bx + c \\\\ y'' - 2y' + y = xe^x & X^2 - 2X + 1 & 2 & x \\longmapsto (ax^3 + bx^2)e^x \\\\ y' + y = 3e^{2x}\\cos x & X + 1 & 0 & x \\longmapsto ae^{(2+i)x}, \\text{ puis partie réelle} \\\\ y'' + 4y = 3\\sin(2x) & X^2 + 4 & 1 & x \\longmapsto (ax + b)e^{2ix}, \\text{ puis partie imaginaire} \\end{array}$",
+      "proof_latex": null
+    },
+    {
+      "id": "equations_differentielles_lineaires__example_probleme_cauchy_complet",
+      "type": "example",
+      "title": "Exemple : Problème de Cauchy complet",
+      "content_latex": "On cherche les solutions réelles de l'équation $y'' - y = 2\\cos x + e^x$ avec les conditions initiales $y(0) = -1$ et $y'(0) = 0$.\\par\\par L'unique solution du problème de Cauchy étudié est finalement la fonction $x \\longmapsto \\frac{1}{4}((2x - 1)e^x + e^{-x}) - \\cos x$.",
+      "proof_latex": "— Équation homogène : Les solutions de l'équation $y'' - y = 0$ sont les fonctions $x \\longmapsto \\lambda e^x + \\mu e^{-x}$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$, car le polynôme $X^2 - 1$ possède deux racines réelles distinctes, $-1$ et $1$.\\par\\par — Solution particulière de l'équation $y'' - y = 2e^{ix}$ : Comme $i$ est de multiplicité 0 dans $X^2 - 1$, cherchons une solution sous la forme $x \\longmapsto ae^{ix}$ avec $a \\in \\mathbb{C}$.\\par $x \\longmapsto ae^{ix}$ est solution de $y'' - y = e^{ix} \\Leftrightarrow \\forall x \\in \\mathbb{R}, -ae^{ix} - ae^{ix} = 2e^{ix} \\Leftrightarrow a = -1$.\\par La fonction $x \\longmapsto -e^{ix}$ convient.\\par\\par — Solution particulière de l'équation $y'' - y = 2\\cos x$ : La fonction $x \\longmapsto \\text{Re}(-e^{ix}) = -\\cos x$ convient.\\par\\par — Solution particulière de l'équation $y'' - y = e^x$ : Comme $1$ est de multiplicité 1 dans $X^2 - 1$, cherchons une solution sous la forme $x \\longmapsto axe^x$ avec $a \\in \\mathbb{R}$.\\par $x \\longmapsto axe^x$ est solution de $y'' - y = e^x \\Leftrightarrow \\forall x \\in \\mathbb{R}, (axe^x + 2ae^x) - axe^x = e^x \\Leftrightarrow a = \\frac{1}{2}$.\\par La fonction $x \\longmapsto \\frac{x}{2}e^x$ convient.\\par\\par — Conclusion : D'après ce qui précède et le principe de superposition, la fonction $x \\longmapsto \\frac{x}{2}e^x - \\cos x$ est solution de l'équation complète. Les solutions réelles de l'équation complète sont finalement les fonctions $x \\longmapsto \\frac{x}{2}e^x + \\lambda e^x + \\mu e^{-x} - \\cos x$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$. Les conditions initiales $y(0) = -1$ et $y'(0) = 0$ imposent après calcul les relations $\\lambda + \\mu = 0$ et $\\lambda - \\mu = -\\frac{1}{2}$, donc $\\lambda = -\\frac{1}{4}$ et $\\mu = \\frac{1}{4}$. L'unique solution du problème de Cauchy étudié est finalement la fonction $x \\longmapsto \\frac{1}{4}((2x - 1)e^x + e^{-x}) - \\cos x$."
+    }
+  ],
+  "exercises": []
+}

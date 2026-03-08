@@ -242,27 +242,24 @@ class BaseLLMProvider(ABC):
         common_errors: Optional[list[str]] = None,
     ) -> str:
         """Build the evaluation prompt."""
+        # V3: expected_answers contient la reponse de reference en LaTeX
+        reference_answer = chr(10).join(expected_answers) if expected_answers else "Non disponible."
         try:
             template = self._load_prompt("evaluation")
             return template.format(
                 question=question,
-                expected_points=chr(10).join("- " + e for e in expected_answers),
-                common_errors=chr(10).join("- " + e for e in (common_errors or [])) or "Aucune erreur spécifique.",
+                reference_answer=reference_answer,
                 rag_context=rag_context,
                 student_answer=student_answer,
             )
         except FileNotFoundError:
-            # Fallback to inline prompt
             return f"""## Question posée
 {question}
 
-## Points attendus dans la réponse
-{chr(10).join('- ' + e for e in expected_answers)}
+## Réponse de référence (définition/théorème/démonstration attendue)
+{reference_answer}
 
-## Erreurs fréquentes à surveiller
-{chr(10).join('- ' + e for e in (common_errors or [])) or "Aucune erreur spécifique."}
-
-## Contexte du cours (pour vérification)
+## Référentiel mathématique (définitions et théorèmes exacts)
 {rag_context}
 
 ## Réponse de l'étudiant
@@ -271,6 +268,7 @@ class BaseLLMProvider(ABC):
 ---
 
 Évalue cette réponse. Donne un feedback constructif en suivant ton rôle de khôlleur.
+Compare la réponse de l'étudiant avec la réponse de référence ci-dessus.
 À la fin, indique sur une ligne séparée :
 - SCORE: X/100 (estimation)
 - COMPLET: OUI/NON

@@ -1,0 +1,3200 @@
+{
+  "chapter_official_id": "probabilites_sur_un_univers_fini",
+  "chapter_name": "Probabilités sur un univers fini",
+  "source_document": "Exercices - Probabilités sur un univers fini (Christophe Bertault)",
+  "exercises": [
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_001",
+      "title": "Dépistage de deux maladies",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "formule des probabilités totales",
+        "formule de Bayes",
+        "probabilités conditionnelles"
+      ],
+      "statement_latex": "Dans une population donnée, deux maladies $M_1$ et $M_2$ sont observables chez respectivement 1\\% et 4\\% des individus. On suppose pour simplifier qu'aucun individu n'est atteint par les deux maladies à la fois. On entreprend un dépistage systématique des deux maladies au moyen d'un test unique. Ce test est positif pour 90\\% des malades de $M_1$, 90\\% des malades de $M_2$ et 10\\% des individus sains.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour un individu choisi au hasard, avec quelle probabilité le test est-il positif ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_composees"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Définir les événements $M_1$, $M_2$ et $S$ (être sain), puis utiliser la formule des probabilités totales avec le système complet d'événements $(M_1, M_2, S)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(T) = P(T|M_1)P(M_1) + P(T|M_2)P(M_2) + P(T|S)P(S)$."
+            }
+          ],
+          "solution_latex": "Notons $T$ l'événement « test positif », $M_1$ « malade de $M_1$ », $M_2$ « malade de $M_2$ » et $S$ « sain ».\\par On a: $P(M_1) = 0.01$, $P(M_2) = 0.04$, $P(S) = 0.95$, et $P(T|M_1) = 0.9$, $P(T|M_2) = 0.9$, $P(T|S) = 0.1$.\\par Par la formule des probabilités totales:\\par $P(T) = P(T|M_1)P(M_1) + P(T|M_2)P(M_2) + P(T|S)P(S)$\\par $= 0.9 \\cdot 0.01 + 0.9 \\cdot 0.04 + 0.1 \\cdot 0.95 = 0.009 + 0.036 + 0.095 = 0.14$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Avec quelle probabilité un individu pour lequel le test est positif est-il atteint de la maladie $M_1$ ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la définition de la probabilité conditionnelle ou la formule de Bayes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(M_1 | T) = \\frac{P(T|M_1)P(M_1)}{P(T)}$ en utilisant le résultat de la question précédente."
+            }
+          ],
+          "solution_latex": "Par la formule de Bayes:\\par $P(M_1|T) = \\frac{P(T|M_1)P(M_1)}{P(T)} = \\frac{0.9 \\cdot 0.01}{0.14} = \\frac{0.009}{0.14} = \\frac{9}{140}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_002",
+      "title": "Proportion de blonds et yeux bleus",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_formules_de_bayes",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites",
+        "probabilites_sur_un_univers_fini__theorem_probabilites_composees",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "probabilités conditionnelles",
+        "intersections d'événements"
+      ],
+      "statement_latex": "Dans une population donnée, un individu sur 8 est blond, deux blonds sur trois ont les yeux bleus et 80\\% des individus qui ont les yeux bleus sont blonds. Quelle est la proportion des individus qui ne sont pas blonds mais qui ont les yeux bleus ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_formules_de_bayes",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_composees"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire les données de l'énoncé en termes de probabilités avec les événements $B$ « être blond » et $Y$ « avoir les yeux bleus »."
+            },
+            {
+              "level": 2,
+              "content_latex": "On cherche à calculer $P(\\overline{B} \\cap Y)$. Commencer par trouver $P(Y)$ en utilisant la relation $P(B \\cap Y) = P(Y | B)P(B) = P(B | Y)P(Y)$."
+            }
+          ],
+          "solution_latex": "Posons $B$ « être blond » et $Y$ « avoir les yeux bleus ».\\par Données: $P(B) = \\frac{1}{8}$, $P(Y|B) = \\frac{2}{3}$, $P(B|Y) = 0.8$.\\par Par le théorème de Bayes: $P(B|Y)P(Y) = P(Y|B)P(B)$, donc:\\par $0.8 \\cdot P(Y) = \\frac{2}{3} \\cdot \\frac{1}{8} = \\frac{1}{12}$\\par $P(Y) = \\frac{1}{12 \\cdot 0.8} = \\frac{1}{9.6} = \\frac{5}{48}$\\par Ainsi: $P(\\overline{B} \\cap Y) = P(Y) - P(B \\cap Y) = P(Y) - P(Y|B)P(B) = \\frac{5}{48} - \\frac{2}{3} \\cdot \\frac{1}{8} = \\frac{5}{48} - \\frac{1}{12} = \\frac{5}{48} - \\frac{4}{48} = \\frac{1}{48}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_003",
+      "title": "Dé pipé parmi 4 dés",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "formule de Bayes",
+        "probabilités conditionnelles",
+        "schéma binomial"
+      ],
+      "statement_latex": "On dispose de 4 dés à 6 faces, dont un pipé qui tombe sur 1 avec probabilité $\\frac{5}{6}$ et donne la même probabilité aux autres faces. On choisit un dé parmi les 4, on le lance 2n fois et on obtient n fois l'entier 1. Avec quelle probabilité le dé choisi est-il pipé ? Conclusion ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_formules_de_bayes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Noter $P$ l'événement « choisir le dé pipé » et $E_n$ l'événement « obtenir $n$ fois la face 1 sur $2n$ lancers ». Utiliser la formule de Bayes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(E_n | P)$ et $P(E_n | \\overline{P})$ en modélisant les lancers successifs par des lois binomiales de paramètres différents, puis appliquer la formule de Bayes pour trouver $P(P | E_n)$."
+            }
+          ],
+          "solution_latex": "Notons $P$ « le dé est pipé » et $E_n$ « obtenir $n$ fois le 1 sur $2n$ lancers ».\\par Pour le dé pipé: $P(E_n|P) = \\binom{2n}{n}\\left(\\frac{5}{6}\\right)^n\\left(\\frac{1}{36}\\right)^n = \\binom{2n}{n}\\frac{5^n}{6^{2n}}$\\par Pour un dé normal: $P(E_n|\\overline{P}) = \\binom{2n}{n}\\left(\\frac{1}{6}\\right)^{2n}$\\par Par Bayes avec $P(P) = \\frac{1}{4}$ et $P(\\overline{P}) = \\frac{3}{4}$:\\par $P(P|E_n) = \\frac{\\binom{2n}{n}\\frac{5^n}{6^{2n}} \\cdot \\frac{1}{4}}{\\binom{2n}{n}\\frac{5^n}{6^{2n}} \\cdot \\frac{1}{4} + 3 \\cdot \\binom{2n}{n}\\frac{1}{6^{2n}} \\cdot \\frac{1}{4}} = \\frac{5^n}{5^n + 3}$\\par Conclusion: quand $n \\to \\infty$, $P(P|E_n) \\to 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_004",
+      "title": "Lois de fonctions de variables uniformes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi de probabilité",
+        "variable aléatoire discrète",
+        "loi uniforme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit X une variable uniforme sur $[[1,20]]$. Déterminer la loi de $\\lfloor\\sqrt{X}\\rfloor$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher les différentes valeurs entières possibles prises par $k = \\lfloor\\sqrt{X}\\rfloor$ lorsque $X \\in [[1, 20]]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour chaque valeur de $k \\in \\{1, 2, 3, 4\\}$, déterminer l'ensemble des entiers $x$ tels que $\\lfloor\\sqrt{x}\\rfloor = k$, et utiliser l'uniformité de $X$ pour en déduire la probabilité correspondante."
+            }
+          ],
+          "solution_latex": "Pour $X \\sim \\mathcal{U}([[1,20]])$, on a $\\lfloor\\sqrt{X}\\rfloor = k$ lorsque $k^2 \\leq X < (k+1)^2$.\\par Pour $k=1$: $X \\in \\{1\\}$, donc $P(\\lfloor\\sqrt{X}\\rfloor=1) = \\frac{1}{20}$.\\par Pour $k=2$: $X \\in \\{4,5,\\ldots,8\\}$ (5 valeurs), donc $P(\\lfloor\\sqrt{X}\\rfloor=2) = \\frac{5}{20}$.\\par Pour $k=3$: $X \\in \\{9,10,\\ldots,15\\}$ (7 valeurs), donc $P(\\lfloor\\sqrt{X}\\rfloor=3) = \\frac{7}{20}$.\\par Pour $k=4$: $X \\in \\{16,17,\\ldots,20\\}$ (5 valeurs), donc $P(\\lfloor\\sqrt{X}\\rfloor=4) = \\frac{5}{20}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit X une variable uniforme sur $[[1,6n]]$. Déterminer la loi de $\\cos \\frac{X\\pi}{3}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier les valeurs prises par la fonction cosinus pour des angles de la forme $\\frac{k\\pi}{3}$ avec $k \\in \\mathbb{Z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regrouper les entiers $k \\in [[1, 6n]]$ selon leur valeur modulo 6 pour trouver le nombre d'antécédents de chaque valeur du cosinus sur cet intervalle."
+            }
+          ],
+          "solution_latex": "Pour $X \\sim \\mathcal{U}([[1,6n]])$, la fonction $\\cos\\frac{X\\pi}{3}$ a période 6. Les valeurs distinctes sont $1, -1, \\frac{1}{2}, -\\frac{1}{2}$. Sur chaque période de 6 entiers, le cosinus prend la valeur $1$ (pour $X \\equiv 0 \\pmod{6}$) une fois, $-1$ une fois, $\\frac{1}{2}$ deux fois, $-\\frac{1}{2}$ deux fois.\\par Loi: $P(\\cos\\frac{X\\pi}{3} = 1) = \\frac{1}{6}$, $P(\\cos\\frac{X\\pi}{3} = -1) = \\frac{1}{6}$, $P(\\cos\\frac{X\\pi}{3} = \\frac{1}{2}) = \\frac{1}{3}$, $P(\\cos\\frac{X\\pi}{3} = -\\frac{1}{2}) = \\frac{1}{3}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_005",
+      "title": "Maximum de la loi binomiale",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_loi_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "maximum",
+        "suites"
+      ],
+      "statement_latex": "Soient $n\\in\\mathbb{N}^*$, $p\\in]0,1[$ et X une variable aléatoire binomiale de loi $(n,p)$. Pour quel(s) entier(s) $k\\in[[0,n]]$ la probabilité $P(X=k)$ est-elle maximale ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Transformer l'inégalité $P(X=k)>P(X=k+1)$ en une condition de la forme $k>...$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour cela, expliciter le rapport $\\frac{P(X=k+1)}{P(X=k)}$ en utilisant les coefficients binomiaux, puis le comparer à 1 pour étudier les variations de la suite $(P(X=k))_{k\\in[[0,n]]}$."
+            }
+          ],
+          "solution_latex": "Pour $X \\sim \\mathcal{B}(n,p)$, étudions $\\frac{P(X=k+1)}{P(X=k)} = \\frac{n-k}{k+1} \\cdot \\frac{p}{1-p}$.\\par Ce rapport est $>1$ ssi $(n-k)p > (k+1)(1-p)$, soit $k < (n+1)p - 1$.\\par Ainsi $P(X=k)$ croît pour $k < (n+1)p - 1$ et décroît pour $k > (n+1)p - 1$.\\par Le maximum est atteint pour $k = \\lfloor (n+1)p \\rfloor$ si $(n+1)p \\notin \\mathbb{Z}$.\\par Si $(n+1)p \\in \\mathbb{Z}$, il y a deux maxima égaux pour $k = (n+1)p - 1$ et $k = (n+1)p$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_006",
+      "title": "Produit pair de variables uniformes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables aléatoires indépendantes",
+        "loi uniforme",
+        "parité",
+        "événement contraire"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes uniformes sur $[[1, 2p]]$. Avec quelle probabilité le produit $X_{1}...X_{n}$ est-il pair ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__definition_evenements_independants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser à passer par l'événement contraire : à quelle condition stricte le produit de $n$ entiers est-il impair ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit est impair si et seulement si tous les facteurs $X_i$ sont impairs. Calculer la probabilité que $X_i$ soit impair sur $[[1, 2p]]$, puis utiliser l'indépendance des variables pour conclure."
+            }
+          ],
+          "solution_latex": "Le produit $X_1 \\cdots X_n$ est pair ssi au moins un facteur est pair. L'événement contraire est que tous les facteurs soient impairs.\\par Sur $[[1, 2p]]$, il y a $p$ nombres impairs et $p$ nombres pairs. Donc $P(X_i \\text{ impair}) = \\frac{p}{2p} = \\frac{1}{2}$.\\par Par indépendance:\\par $P(X_1 \\cdots X_n \\text{ impair}) = P(X_1 \\text{ impair}) \\cdots P(X_n \\text{ impair}) = \\left(\\frac{1}{2}\\right)^n$\\par $P(X_1 \\cdots X_n \\text{ pair}) = 1 - \\left(\\frac{1}{2}\\right)^n = 1 - \\frac{1}{2^n}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_007",
+      "title": "Variables aléatoires symétriques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables symétriques",
+        "indépendance",
+        "égalité en loi"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles indépendantes. On suppose $X$ et $Y$ symétriques, i.e. que $X$ et $-X$ (resp. $Y$ et $-Y$) ont même loi.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $(X, Y)$ et $(X,-Y)$ ont même loi, puis que : \\par $P(X^2=Y^2)=2~P(X=Y)-P(X=0)P(Y=0)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $X+Y$ et $X-Y$ ont même loi."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'indépendance de $X$ et $Y$ et la symétrie de $Y$ pour écrire $P(X=x, -Y=y) = P(X=x)P(-Y=y) = P(X=x)P(Y=y)$. Pour l'égalité, décomposer l'événement $\\{X^2=Y^2\\}$ en distinguant le cas où les valeurs s'annulent."
+            }
+          ],
+          "solution_latex": "Puisque $X$ et $Y$ sont indépendantes et $X$ est symétrique, on a $(X, Y) \\stackrel{\\text{loi}}{=} (-X, Y)$.\\par Comme $-Y \\stackrel{\\text{loi}}{=} Y$, on a $(X, Y) \\stackrel{\\text{loi}}{=} (X, -Y)$ par indépendance.\\par Pour l'égalité: $P(X^2=Y^2) = P(X=Y \\text{ ou } X=-Y)$. Si $X$ et $Y$ prennent des valeurs distinctes, alors:\\par $P(X=Y \\text{ et } X=-Y) = P(X=Y=0)$, donc:\\par $P(X^2=Y^2) = P(X=Y) + P(X=-Y) - P(X=Y=0)$.\\par Par symétrie: $P(X=Y) = P(X=-Y)$, donc:\\par $P(X^2=Y^2) = 2P(X=Y) - P(X=0)P(Y=0)$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $P(X+Y\\ge0)=P(X+Y\\le0)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $(X,Y)$ et $(-X,-Y)$ ont même loi."
+            },
+            {
+              "level": 2,
+              "content_latex": "En déduire que la variable somme $Z = X+Y$ a la même loi que $-Z = -(X+Y)$, ce qui la rend symétrique, et permet d'égaler directement les probabilités des événements contraires au sens large."
+            }
+          ],
+          "solution_latex": "Puisque $X$ et $Y$ sont symétriques, le vecteur $(X, Y)$ a même loi que $(-X, -Y)$. Donc $X+Y \\stackrel{\\text{loi}}{=} -(X+Y)$. Cette variable est symétrique autour de 0.\\par On en déduit: $P(X+Y > 0) = P(-(X+Y) > 0) = P(X+Y < 0)$.\\par Donc: $P(X+Y \\geq 0) = P(X+Y > 0) + P(X+Y = 0) = P(X+Y < 0) + P(X+Y = 0) = P(X+Y \\leq 0)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_008",
+      "title": "Permutations et cardinaux aléatoires",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables i.i.d.",
+        "vecteur aléatoire",
+        "permutation",
+        "cardinal"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes de même loi avec $n\\ge2$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $(X_{1},...,X_{n})$ et $(X_{\\sigma(1)},...,X_{\\sigma(n)})$ ont même loi pour tout $\\sigma\\in S_{n}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la probabilité conjointe du vecteur permuté $P(X_{\\sigma(1)}=x_1, ..., X_{\\sigma(n)}=x_n)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'indépendance pour transformer la probabilité en produit, puis réordonner les termes du produit (puisque la multiplication est commutative et que toutes les variables ont la même loi marginale)."
+            }
+          ],
+          "solution_latex": "Par indépendance et même loi des $(X_i)$:\\par $P(X_{\\sigma(1)} = x_1, \\ldots, X_{\\sigma(n)} = x_n) = \\prod_{i=1}^n P(X_{\\sigma(i)} = x_i) = \\prod_{i=1}^n P(X_i = x_{\\sigma^{-1}(i)})$\\par Puisque tous les $X_i$ ont même loi, et la multiplication est commutative:\\par $= P(X_1 = x_1, \\ldots, X_n = x_n)$\\par Donc $(X_1, \\ldots, X_n) \\stackrel{\\text{loi}}{=} (X_{\\sigma(1)}, \\ldots, X_{\\sigma(n)})$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que les cardinaux aléatoires $|\\{X_{1},...,X_{n-1}\\}|$ et $|\\{X_{2},...,X_{n}\\}|$ ont même loi.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+            "probabilites_sur_un_univers_fini__definition_loi_bernoulli",
+            "probabilites_sur_un_univers_fini__theorem_loi_de_f_de_X"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se ramener au résultat de la question précédente avec une permutation bien choisie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer le vecteur $(X_2, ..., X_n, X_1)$ qui correspond à une permutation circulaire des indices. Les deux ensembles étudiés sont l'image d'une même fonction déterministe (le cardinal de l'ensemble des $n-1$ premières composantes) appliquée à deux vecteurs qui ont la même loi."
+            }
+          ],
+          "solution_latex": "Le cardinal $|\\{X_1, \\ldots, X_{n-1}\\}|$ est une fonction déterministe du vecteur $(X_1, \\ldots, X_{n-1})$. De même, $|\\{X_2, \\ldots, X_n\\}|$ est fonction de $(X_2, \\ldots, X_n)$.\\par Le vecteur $(X_2, \\ldots, X_n, X_1)$ est une permutation de $(X_1, \\ldots, X_n)$, donc par la question 1), il a la même loi que $(X_1, \\ldots, X_n)$.\\par Ainsi les vecteurs $(X_1, \\ldots, X_{n-1})$ et $(X_2, \\ldots, X_n)$ ont la même loi, ce qui implique que les cardinaux respectifs ont la même loi."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_009",
+      "title": "Minimum de variables uniformes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "minimum de variables aléatoires",
+        "loi uniforme",
+        "inégalités"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes uniformes sur $[[1,n]]$. On pose $M=\\min\\{X_{1},...,X_{n}\\}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $P(M\\ge k)$ pour tout $k\\in[[1,n]]$, puis en déduire la loi de $M$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire l'événement $(M \\ge k)$ en une intersection d'événements portant sur chacune des variables $X_i$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $(M \\ge k) = \\bigcap_{i=1}^n (X_i \\ge k)$. Utiliser l'indépendance pour écrire le produit des probabilités, puis calculer $P(M=k)$ via la différence $P(M \\ge k) - P(M \\ge k+1)$."
+            }
+          ],
+          "solution_latex": "L'événement $\\{M \\geq k\\} = \\{X_1 \\geq k, \\ldots, X_n \\geq k\\}$. Par indépendance:\\par $P(M \\geq k) = \\prod_{i=1}^n P(X_i \\geq k)$\\par Sur $[[1, n]]$, il y a $n - k + 1$ valeurs $\\geq k$, donc $P(X_i \\geq k) = \\frac{n-k+1}{n}$.\\par $P(M \\geq k) = \\left(\\frac{n-k+1}{n}\\right)^n$\\par $P(M = k) = P(M \\geq k) - P(M \\geq k+1) = \\left(\\frac{n-k+1}{n}\\right)^n - \\left(\\frac{n-k}{n}\\right)^n$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $P(\\exists i\\in[[1,n]], X_{i}=1)\\ge1-\\frac{1}{e}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est juste $P(M=1)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer $P(M=1)$ avec la formule de la question précédente (ou par l'événement contraire), ce qui fait apparaître un terme en $(1 - \\frac{1}{n})^n$. Conclure à l'aide de l'inégalité de convexité classique $\\ln(1-x) \\le -x$ (ou $1-x \\le e^{-x}$)."
+            }
+          ],
+          "solution_latex": "On a $P(\\exists i, X_i = 1) = P(M = 1) = 1 - P(M \\geq 2) = 1 - \\left(\\frac{n-1}{n}\\right)^n = 1 - \\left(1 - \\frac{1}{n}\\right)^n$.\\par Par l'inégalité classique $(1-x)^n \\leq e^{-nx}$ pour $x \\in [0,1]$:\\par $(1 - \\frac{1}{n})^n \\leq e^{-1}$\\par Donc: $P(\\exists i, X_i = 1) = 1 - (1 - \\frac{1}{n})^n \\geq 1 - e^{-1} = 1 - \\frac{1}{e}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_010",
+      "title": "Fonction de répartition et indépendance",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indépendance",
+        "fonction de répartition",
+        "limite"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles. On suppose que $P(X\\le x,Y\\le y)=P(X\\le x)P(Y\\le y)$ pour tous $x$, $y\\in\\mathbb{R}.$ Montrer que pour tous $x$, $y\\in\\mathbb{R}$ : \\par $P(X=x,Y\\le y)=P(X=x)P(Y\\le y)$ \\par puis que $X$ et $Y$ sont indépendantes.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+            "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour un réel $x^{\\prime}$ bien choisi : $P(X=x,Y\\le y)=P(x^{\\prime}<X\\le x,Y\\le y)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans le cas d'un univers fini ou dénombrable, isoler la probabilité d'un point en l'écrivant comme une différence : $P(X=x, Y\\le y) = P(X\\le x, Y\\le y) - P(X\\le x', Y\\le y)$ où $x'$ est le plus grand point de l'image de $X$ strictement inférieur à $x$. Remplacer ensuite par les hypothèses de l'énoncé."
+            }
+          ],
+          "solution_latex": "On suppose $P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$ pour tous $x, y$.\\par Pour isoler $P(X=x, Y \\leq y)$, considérons une suite $(x_n)$ d'éléments de l'image de $X$ convergente vers $x$ par la gauche. Alors:\\par $P(X=x, Y \\leq y) = \\lim_{n \\to \\infty} P(x_n < X \\leq x, Y \\leq y) = \\lim_{n \\to \\infty} [P(X \\leq x, Y \\leq y) - P(X \\leq x_n, Y \\leq y)]$\\par $= \\lim_{n \\to \\infty} [P(X \\leq x)P(Y \\leq y) - P(X \\leq x_n)P(Y \\leq y)] = [P(X \\leq x) - P(X \\leq x^-)]P(Y \\leq y) = P(X=x)P(Y \\leq y)$\\par En utilisant le même argument pour tous les ensembles de Borel, on en déduit l'indépendance de $X$ et $Y$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_011",
+      "title": "Probabilité d'égalité de deux variables",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi uniforme discrète",
+        "loi binomiale",
+        "optimisation"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires indépendantes de même loi.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $P(X=Y)$ dans le cas où $X$ et $Y$ sont uniformes sur $[[0,n]]$, puis dans le cas où $X$ et $Y$ sont binomiales de loi $(n,\\frac{1}{2})$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans les deux cas : $P(X=Y)=\\sum_{k=0}^{n}P(X=k,Y=k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'indépendance de $X$ et $Y$ et le fait qu'elles aient la même loi pour écrire $P(X=k, Y=k) = P(X=k)P(Y=k) = (P(X=k))^2$, puis sommer ces carrés."
+            }
+          ],
+          "solution_latex": "Cas 1 (loi uniforme): $P(X=Y) = \\sum_{k=0}^n P(X=k)^2 = \\sum_{k=0}^n \\left(\\frac{1}{n+1}\\right)^2 = (n+1) \\cdot \\frac{1}{(n+1)^2} = \\frac{1}{n+1}$.\\par Cas 2 (loi binomiale $(n, \\frac{1}{2})$): $P(X=Y) = \\sum_{k=0}^n \\left(\\binom{n}{k} \\frac{1}{2^n}\\right)^2 = \\frac{1}{2^{2n}} \\sum_{k=0}^n \\binom{n}{k}^2$\\par Par la formule $\\sum_{k=0}^n \\binom{n}{k}^2 = \\binom{2n}{n}$:\\par $P(X=Y) = \\frac{\\binom{2n}{n}}{2^{2n}} = \\frac{\\binom{2n}{n}}{4^n}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Comparer les résultats obtenus en 1) lorsque $n$ tend vers $+\\infty$. Explication ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer la limite de chacune des deux sommes lorsque $n$ tend vers l'infini."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la loi binomiale, utiliser l'équivalent du coefficient binomial central (ou la formule de Stirling) pour estimer la valeur de la somme. Comparer la dispersion d'une loi uniforme à celle d'une loi binomiale centrée sur son espérance."
+            }
+          ],
+          "solution_latex": "Pour la loi uniforme: $P(X=Y) = \\frac{1}{n+1} \\to 0$ quand $n \\to \\infty$.\\par Pour la loi binomiale: par la formule de Stirling, $\\binom{2n}{n} \\sim \\frac{4^n}{\\sqrt{\\pi n}}$, donc $P(X=Y) \\sim \\frac{1}{\\sqrt{\\pi n}} \\to 0$.\\par La loi binomiale décroît plus lentement. Explication: la loi uniforme est « étalée » uniformément, tandis que la binomiale se concentre autour de $n/2$, ce qui rend les coïncidences légèrement plus probables."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On note $u_0,...,u_n$ les valeurs de $X$ et $Y$ et on pose $p_k=P(X=u_k)$ pour tout $k\\in[[0,n]]$. Étudier les variations de la fonction $t \\mapsto\\sum_{k=0}^{n}(\\frac{1-t}{n+1}+tp_k)^2$ sur $[0, 1]$, puis en déduire que $P(X=Y)\\ge\\frac{1}{n+1}$. À quelle condition nécessaire et suffisante cette inégalité est-elle une égalité ? Explication ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer la fonction proposée, qui est un polynôme du second degré en $t$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer la fonction en $t=1$ (qui correspond à $\\sum p_k^2 = P(X=Y)$) et utiliser l'étude des variations ou la convexité pour lier cette valeur à celle en $t=0$."
+            }
+          ],
+          "solution_latex": "Soit $f(t) = \\sum_{k=0}^n\\left(\\frac{1-t}{n+1} + tp_k\\right)^2$ où les $u_0, \\ldots, u_n$ sont les valeurs et $p_k = P(X = u_k)$.\\par En développant: $f(t) = \\sum_k \\left[\\frac{(1-t)^2}{(n+1)^2} + 2\\frac{1-t}{n+1}tp_k + t^2p_k^2\\right]$\\par $= \\frac{(1-t)^2}{n+1} + 2t(1-t)\\sum_k \\frac{p_k}{n+1} + t^2 \\sum_k p_k^2$\\par $= \\frac{(1-t)^2}{n+1} + 2t(1-t)\\frac{1}{n+1} + t^2 P(X=Y)$\\par C'est un polynôme de degré 2 en $t$. On a $f(0) = \\frac{1}{n+1}$ et $f(1) = P(X=Y)$.\\par $f'(t) = -\\frac{2(1-t)}{n+1} + 2(1-2t)\\frac{1}{n+1} + 2tP(X=Y) = \\frac{-2 + 6t}{n+1} + 2tP(X=Y)$\\par Le minimum est atteint quand $f'(t) = 0$. Pour $t \\in [0,1]$, la fonction décroît d'abord si le discriminant est positif. En tout cas, par convexité, $P(X=Y) = f(1) \\geq f(0) = \\frac{1}{n+1}$.\\par Égalité ssi $X$ est uniforme."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_012",
+      "title": "Somme de variables uniformes",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi uniforme discrète",
+        "somme de variables aléatoires",
+        "convolution"
+      ],
+      "statement_latex": "Soient $X$, $Y$ et $Z$ trois variables aléatoires indépendantes uniformes sur $[[1, n]]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi de $X+Y$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__definition_loi_bernoulli",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'ensemble des valeurs possibles pour $X+Y$ est $[[2, 2n]]$. Exprimer $P(X+Y=k)$ sous forme d'une somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(X+Y=k) = \\sum_{i} P(X=i, Y=k-i)$. Attention à bien borner l'indice $i$ en distinguant les cas $k \\le n+1$ et $k > n+1$."
+            }
+          ],
+          "solution_latex": "Soit $S_n = X_1 + \\cdots + X_n$ où les $X_i \\sim \\mathcal{U}([[0,n-1]])$ indépendants. Alors $S_n$ prend des valeurs entières entre $0$ et $n(n-1)$. Le nombre de façons d'obtenir somme $s$ est le nombre de solutions entières à $x_1 + \\cdots + x_n = s$ avec $0 \\leq x_i < n$, égal au coefficient du terme $z^s$ dans $(1 + z + \\cdots + z^{n-1})^n = \\left(\\frac{1-z^n}{1-z}\\right)^n$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $P(X+Y=Z)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Partir de ceci : $P(X+Y=Z)=\\sum_{k=1}^{n}P(X+Y=k,Z=k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $Z \\in [[1, n]]$, on n'utilise que la première partie de la loi de $X+Y$ (lorsque $k \\le n$). Remplacer avec l'expression trouvée à la question précédente et calculer la somme."
+            }
+          ],
+          "solution_latex": "Pour $X+Y$ où $X, Y \\sim \\mathcal{U}([[1,n]])$ indépendantes:\\par $P(X+Y=k) = \\frac{\\#\\{(i,j) : i+j=k, 1 \\leq i,j \\leq n\\}}{n^2}$\\par Si $k \\leq n+1$: nombre de paires = $k-1$, donc $P(X+Y=k) = \\frac{k-1}{n^2}$\\par Si $k > n+1$: nombre de paires = $2n+1-k$, donc $P(X+Y=k) = \\frac{2n+1-k}{n^2}$\\par Pour la question 2): $P(X+Y=Z) = \\sum_{k=1}^n P(X+Y=k)P(Z=k) = \\sum_{k=1}^n \\frac{k-1}{n^2} \\cdot \\frac{1}{n} = \\frac{1}{n^3}\\sum_{k=1}^n (k-1) = \\frac{1}{n^3} \\cdot \\frac{n(n-1)}{2} = \\frac{n-1}{2n^2}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_013",
+      "title": "Produit de variables de Rademacher modifiées",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables indépendantes",
+        "suites récurrentes",
+        "produit de variables"
+      ],
+      "statement_latex": "Soient $p\\in]0,1[$ et $X_1,...,X_n$ des variables aléatoires indépendantes pour lesquelles $P(X_k=1)=p$ et $P(X_k=-1)=1-p$ pour tout $k\\in[[1,n]]$. On pose $Y_k=X_1...X_k$ pour tout $k\\in[[1,n]]$ puis $u_k=P(Y_k=1)$ et $v_k=P(Y_k=-1)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $u_k$ et $v_k$ pour tout $k\\in[[1,n]]$, puis vérifier que $u_n \\xrightarrow[n\\rightarrow+\\infty]{} \\frac{1}{2}$ et $v_n \\xrightarrow[n\\rightarrow+\\infty]{} \\frac{1}{2}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__definition_distribution_probabilites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer d'abord $u_{k+1}$ et $v_{k+1}$ en fonction de $u_k$ et $v_k$ à l'aide de la formule des probabilités totales. On finit par obtenir $u_k=\\frac{1+(2p-1)^k}{2}$ et $v_k=\\frac{1-(2p-1)^k}{2}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que $Y_{k+1} = Y_k X_{k+1}$. Le système complet d'événements à utiliser est $(Y_k=1, Y_k=-1)$."
+            }
+          ],
+          "solution_latex": "On a $Y_{k+1} = Y_k X_{k+1}$. Par probabilités totales:\\par $P(Y_{k+1}=1) = P(Y_{k+1}=1|Y_k=1)P(Y_k=1) + P(Y_{k+1}=1|Y_k=-1)P(Y_k=-1)$\\par $= P(X_{k+1}=1)u_k + P(X_{k+1}=-1)v_k = p \\cdot u_k + (1-p) \\cdot v_k$\\par Avec $u_0 = p$ et $v_0 = 1-p$, on obtient par récurrence:\\par $u_k = \\frac{1+(2p-1)^k}{2}$ et $v_k = \\frac{1-(2p-1)^k}{2}$\\par Limite: puisque $|2p-1| < 1$, on a $(2p-1)^k \\to 0$ quand $k \\to \\infty$, donc $u_k \\to 1/2$ et $v_k \\to 1/2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que l'équivalence des assertions suivantes : \\par (i) $p=\\frac{1}{2}$ \\par (ii) $Y_1$ et $Y_2$ sont indépendantes. \\par (iii) $Y_1,...,Y_n$ sont indépendantes.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder par implications, par exemple (i) $\\implies$ (iii) $\\implies$ (ii) $\\implies$ (i)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour montrer que (i) implique (iii), évaluer la probabilité de l'intersection $\\bigcap_{k=1}^n (Y_k = y_k)$ et montrer qu'elle s'écrit comme le produit des probabilités individuelles."
+            }
+          ],
+          "solution_latex": "(i) $\\Rightarrow$ (ii): Si $p=1/2$, alors $(2p-1)^k = 0$ pour tout $k \\geq 1$, donc $u_k = v_k = 1/2$ pour tout $k \\geq 1$. Ainsi $P(Y_1=1, Y_2=1) = P(Y_1=1)P(Y_2=1|Y_1=1) = (1/2)(1/2) = P(Y_1=1)P(Y_2=1)$. Indépendance vérifiée.\\par (ii) $\\Rightarrow$ (iii): Par récurrence, si deux variables consécutives $Y_k$ et $Y_{k+1}$ sont indépendantes, la même analyse montre l'indépendance de $Y_k$ et $Y_{k+2}$, etc.\\par (iii) $\\Rightarrow$ (i): Si les $Y_k$ sont indépendantes, alors $P(Y_1=1, Y_2=1) = P(Y_1=1)P(Y_2=1)$. Or $Y_1 = X_1$ et $Y_2 = X_1 X_2$, donc cette égalité impose $p(p^2 + (1-p)^2) = p^2$, qui donne $p = 1/2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_014",
+      "title": "Somme de variables non uniforme",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi uniforme",
+        "somme de variables aléatoires",
+        "raisonnement par l'absurde"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires indépendantes à valeurs dans $[[1,n]]$. Montrer que $X+Y$ ne suit pas la loi uniforme sur $[[2, 2n]]$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonner par l'absurde en supposant que la loi est uniforme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(X+Y=2)$ et $P(X+Y=2n)$ en fonction de $P(X=1)$, $P(Y=1)$, $P(X=n)$ et $P(Y=n)$, et aboutir à une contradiction en utilisant d'autres valeurs de la somme."
+            }
+          ],
+          "solution_latex": "La loi de Poisson avec paramètre $\\lambda > 0$ est: $P(X=k) = e^{-\\lambda}\\frac{\\lambda^k}{k!}$ pour $k \\in \\mathbb{N}$.\\par Propriétés:\\par (i) Espérance: $\\mathbb{E}[X] = \\sum_{k=0}^{\\infty} k \\cdot e^{-\\lambda}\\frac{\\lambda^k}{k!} = \\lambda e^{-\\lambda} \\sum_{j=0}^{\\infty} \\frac{\\lambda^j}{j!} = \\lambda$.\\par (ii) Variance: $\\mathbb{E}[X^2] = \\sum_{k=0}^{\\infty} k^2 e^{-\\lambda}\\frac{\\lambda^k}{k!} = \\lambda^2 + \\lambda$, donc $\\text{Var}(X) = \\lambda$.\\par (iii) Additivité: si $X \\sim \\mathcal{P}(\\lambda)$, $Y \\sim \\mathcal{P}(\\mu)$ indépendantes, alors $X+Y \\sim \\mathcal{P}(\\lambda+\\mu)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_015",
+      "title": "Indépendance avec soi-même et cardinal de l'univers",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indépendance",
+        "cardinal",
+        "ensembles"
+      ],
+      "statement_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "À quelle condition un événement $A\\in\\mathcal{P}(\\Omega)$ est-il indépendant de lui-même ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire la définition de l'indépendance de $A$ et $A$ : $P(A \\cap A) = P(A)P(A)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résoudre l'équation $P(A) = (P(A))^2$."
+            }
+          ],
+          "solution_latex": "Modèle: répétitions indépendantes avec succès probabilité $p$. Soit $X$ le rang du premier succès. Alors: $P(X=k) = (1-p)^{k-1}p$ pour $k \\in \\mathbb{N}^*$.\\par Espérance: $\\mathbb{E}[X] = \\sum_{k=1}^{\\infty} k(1-p)^{k-1}p = p \\frac{d}{d(1-p)} \\sum (1-p)^k = p \\frac{1}{(1-(1-p))^2} = \\frac{1}{p}$.\\par Variance: $\\mathbb{E}[X(X-1)] = \\sum_{k=1}^{\\infty} k(k-1)(1-p)^{k-1}p = 2(1-p)p^{-2}$, donc $\\text{Var}(X) = \\frac{1-p}{p^2}$.\\par Absence de mémoire: $P(X > m+n | X > m) = P(X > n)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $A_1,...,A_n\\in\\mathcal{P}(\\Omega)$ des événements indépendants pour lesquels $P(A_k)\\in]0,1[$ pour tout $k\\in[[1,n]]$. Montrer que $|\\Omega|\\ge 2^n$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérer toutes les intersections possibles de la forme $B_1 \\cap ... \\cap B_n$ où chaque $B_i$ est soit $A_i$, soit $\\overline{A_i}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Justifier que ces $2^n$ événements sont disjoints deux à deux. Puisque $P(A_i) \\in ]0, 1[$, montrer par indépendance que chacune de ces intersections a une probabilité strictement positive, et contient donc au moins un élément."
+            }
+          ],
+          "solution_latex": "Si $P(X=k) = \\lambda^k (1-\\lambda)$ pour une loi géométrique, alors l'espérance est $\\mathbb{E}[X] = \\sum_{k=1}^{\\infty} k \\lambda^k (1-\\lambda) = (1-\\lambda) \\frac{\\lambda}{(1-\\lambda)^2} = \\frac{\\lambda}{1-\\lambda}$. Pour deux variables indépendantes géométriques, la somme suit une loi de Pascal (ou binomiale négative)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_016",
+      "title": "Caractérisation des variables constantes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indépendance",
+        "loi de probabilité",
+        "presque sûrement"
+      ],
+      "statement_latex": "Soient $X$ et $Y$ deux variables aléatoires réelles indépendantes. On suppose $X+Y$ et $2X$ de même loi. Montrer que $X$ est presque sûrement constante, i.e. que $P(X=x)=1$ pour un certain $x\\in\\mathbb{R}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'égalité des variances si elles existent, ou comparer les supports des variables."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $X$ et $Y$ sont dans $L^2$, $V(X+Y)=V(2X)$ implique $V(X)+V(Y)=4V(X)$ par indépendance. Si $X$ et $Y$ ont même loi, on en déduit $V(X)=0$. Dans le cas général (univers fini), comparer le plus grand élément du support de $X+Y$ et de $2X$."
+            }
+          ],
+          "solution_latex": "Extension itérée: soit $(H_1, \\ldots, H_r)$ un système complet et $A$ un événement.\\par Formule des probabilités totales: $P(A) = \\sum_{i=1}^r P(A|H_i)P(H_i)$.\\par Formule de Bayes: $P(H_i|A) = \\frac{P(A|H_i)P(H_i)}{P(A)} = \\frac{P(A|H_i)P(H_i)}{\\sum_j P(A|H_j)P(H_j)}$.\\par Application itérée: après observation successive d'événements $A_1, A_2, \\ldots$, les probabilités a posteriori se mettent à jour de manière cohérente. Les probabilités conditionnelles deviennent les a priori de l'étape suivante."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_017",
+      "title": "Répétition d'expériences avec remise",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_variable_aleatoire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "schéma de Bernoulli",
+        "loi binomiale",
+        "probabilité complémentaire"
+      ],
+      "statement_latex": "1) [Question manquante dans le texte source]. \\par 2) On répète à présent $n$ fois avec remise l'expérience aléatoire de la question 1). À partir de quelle valeur de $n$ la probabilité de tirer toutes les boules blanches est-elle supérieure à $\\frac{1}{2}$ ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soit $p$ la probabilité de tirer toutes les boules blanches lors d'une expérience unique. La répétition $n$ fois suit un schéma de Bernoulli."
+            },
+            {
+              "level": 2,
+              "content_latex": "On cherche $n$ tel que $1 - (1-p)^n > \\frac{1}{2}$. Résoudre l'inégalité en utilisant le logarithme."
+            }
+          ],
+          "solution_latex": "Problème type: urne avec $n_1, n_2, \\ldots, n_r$ boules de chaque couleur (total $N = \\sum n_i$). On tire $n$ boules sans remise. Soit $(k_1, \\ldots, k_r)$ le nombre de boules de chaque couleur obtenu, avec $\\sum k_i = n$.\\par Le coefficient multinomial est: $\\binom{n}{k_1, \\ldots, k_r} = \\frac{n!}{k_1! \\cdots k_r!}$.\\par Probabilité: $P(k_1, \\ldots, k_r) = \\frac{\\binom{n_1}{k_1} \\cdots \\binom{n_r}{k_r}}{\\binom{N}{n}}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_018",
+      "title": "Stratégie de loterie : groupement ou étalement",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+        "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+        "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+        "probabilites_sur_un_univers_fini__theorem_probabilites_composees"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "combinaisons",
+        "indépendance",
+        "comparaison de probabilités"
+      ],
+      "statement_latex": "Une loterie a lieu chaque semaine. On y vend 100 billets de 1€ dont seulement 3 sont gagnants. Si on veut jouer 5€ pour obtenir au moins un billet gagnant, vaut-il mieux acheter 5 billets une même semaine ou un billet par semaine pendant 5 semaines ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la probabilité de l'événement contraire (ne jamais gagner) dans les deux situations."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cas 1 (même semaine) : tirage simultané sans remise, utiliser les combinaisons $\\binom{97}{5}/\\binom{100}{5}$. Cas 2 (5 semaines) : tirages indépendants, utiliser $(97/100)^5$."
+            }
+          ],
+          "solution_latex": "Extension itérée de la formule de Bayes: soit un système complet $(H_1, \\ldots, H_r)$ d'événements et $A$ un événement. Alors:\\par $P(A) = \\sum_{i=1}^r P(A|H_i)P(H_i)$ (formule des probabilités totales)\\par $P(H_i|A) = \\frac{P(A|H_i)P(H_i)}{\\sum_{j=1}^r P(A|H_j)P(H_j)}$ (formule de Bayes).\\par Application itérée: après observation successive d'événements $A_1, A_2, \\ldots$, les probabilités a posteriori des hypothèses se mettent à jour de façon cohérente par application répétée de Bayes."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_019",
+      "title": "Tirages successifs sans remise",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "probabilités conditionnelles",
+        "dénombrement",
+        "tirage sans remise"
+      ],
+      "statement_latex": "Une urne contient $n$ boules noires et $b$ blanches que l'on tire toutes une à une sans remise. Calculer la probabilité des événements :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "« La première boule tirée est noire, la deuxième blanche ».",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la formule des probabilités composées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(N_1) \\times P(B_2 | N_1) = \\frac{n}{n+b} \\times \\frac{b}{n+b-1}$."
+            }
+          ],
+          "solution_latex": "Problème type: urne avec $n_1$ boules de couleur 1, $n_2$ de couleur 2, etc. (avec $N = \\sum n_i$ boules au total). On tire $n$ boules sans remise. Le nombre de tirages donnant $k_i$ boules de couleur $i$ est le coefficient multinomial:\\par $\\binom{n}{k_1, k_2, \\ldots, r} = \\frac{n!}{k_1! k_2! \\cdots k_r!}$ où $\\sum k_i = n$.\\par Probabilité: $P(k_1, \\ldots, k_r) = \\frac{\\binom{N}{n} \\cdot \\binom{n_1}{k_1}\\cdots\\binom{n_r}{k_r}}{\\binom{N}{n}} = \\frac{\\binom{n}{k_1, \\ldots, k_r} \\cdot n_1!/(n_1-k_1)! \\cdots}{N!/(N-n)!}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_020",
+      "title": "Inégalité de Bonferroni (ordre 2)",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_evenements_independants",
+        "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+        "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "formule du crible",
+        "inégalités",
+        "union d'événements"
+      ],
+      "statement_latex": "Soit $(\\Omega, P)$ un espace probabilisé fini. Montrer que pour tous événements $A_{1},...,A_{n}$ : \\par $P(\\bigcup_{i=1}^{n}A_{i})\\ge\\sum_{i=1}^{n}P(A_{i})-\\sum_{1\\le i<j\\le n}P(A_{i}\\cap A_{j})$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder par récurrence sur $n$ ou utiliser la fonction indicatrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par récurrence : utiliser $P(E \\cup A_{n+1}) = P(E) + P(A_{n+1}) - P(E \\cap A_{n+1})$ et majorer $P(E \\cap A_{n+1}) = P((\\cup_{i=1}^n A_i) \\cap A_{n+1})$ par la somme des probabilités des intersections."
+            }
+          ],
+          "solution_latex": "Montrons par récurrence sur $n$ que $P(\\bigcup_{i=1}^n A_i) \\geq \\sum_i P(A_i) - \\sum_{i<j} P(A_i \\cap A_j)$.\\par Base ($n=1$): trivial.\\par Hérédité: soit $E_n = \\bigcup_{i=1}^n A_i$. Alors:\\par $P(E_n \\cup A_{n+1}) = P(E_n) + P(A_{n+1}) - P(E_n \\cap A_{n+1})$\\par Or $P(E_n \\cap A_{n+1}) = P((\\bigcup_{i=1}^n A_i) \\cap A_{n+1}) \\leq \\sum_{i=1}^n P(A_i \\cap A_{n+1})$ (union bornée par somme des termes).\\par Donc: $P(E_{n+1}) \\geq P(E_n) + P(A_{n+1}) - \\sum_{i=1}^n P(A_i \\cap A_{n+1})$\\par Par hypothèse: $P(E_n) \\geq \\sum_{i=1}^n P(A_i) - \\sum_{1 \\leq i < j \\leq n} P(A_i \\cap A_j)$\\par En combinant:\\par $P(E_{n+1}) \\geq \\sum_{i=1}^{n+1} P(A_i) - \\sum_{1 \\leq i < j \\leq n} P(A_i \\cap A_j) - \\sum_{i=1}^n P(A_i \\cap A_{n+1})$\\par $= \\sum_{i=1}^{n+1} P(A_i) - \\sum_{1 \\leq i < j \\leq n+1} P(A_i \\cap A_j)$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_021",
+      "title": "Lancers d'un dé équilibré",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi uniforme",
+        "événements indépendants",
+        "dénombrement"
+      ],
+      "statement_latex": "On lance 4 fois de suite un dé équilibré à 6 faces. Avec quelle probabilité obtient-on :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "au moins un 6 ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer par l'événement contraire : « n'obtenir aucun 6 lors des 4 lancers »."
+            },
+            {
+              "level": 2,
+              "content_latex": "La probabilité de n'avoir aucun 6 est $(\\frac{5}{6})^4$ par indépendance. La réponse est donc $1 - (\\frac{5}{6})^4$."
+            }
+          ],
+          "solution_latex": "L'événement contraire est ne jamais obtenir de 6 en 4 lancers. Par indépendance:\\par $P(\\text{aucun 6}) = (1 - \\frac{1}{6})^4 = (\\frac{5}{6})^4 = \\frac{625}{1296}$\\par $P(\\text{au moins un 6}) = 1 - \\frac{625}{1296} = \\frac{671}{1296}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "exactement un 6 ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaître un schéma de Bernoulli."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer la probabilité avec la loi binomiale $\\mathcal{B}(4, \\frac{1}{6})$ pour $k=1$, soit $\\binom{4}{1}(\\frac{1}{6})^1(\\frac{5}{6})^3$."
+            }
+          ],
+          "solution_latex": "Schéma de Bernoulli avec $n=4$ et $p=\\frac{1}{6}$. La probabilité d'exactement un 6 est:\\par $P(X=1) = \\binom{4}{1}\\left(\\frac{1}{6}\\right)^1\\left(\\frac{5}{6}\\right)^3 = 4 \\cdot \\frac{1}{6} \\cdot \\frac{125}{216} = \\frac{500}{1296} = \\frac{125}{324}$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "au moins 2 faces identiques ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer par l'événement contraire : « obtenir 4 faces toutes distinctes »."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de listes de 4 éléments distincts parmi 6 est l'arrangement $A_6^4$. Diviser par le nombre total d'issues $6^4$."
+            }
+          ],
+          "solution_latex": "L'événement contraire est obtenir 4 faces toutes distinctes. Le nombre de tels tirages est l'arrangement $A_6^4 = 6 \\cdot 5 \\cdot 4 \\cdot 3 = 360$. Le nombre total d'issues est $6^4 = 1296$.\\par $P(\\text{4 faces distinctes}) = \\frac{360}{1296} = \\frac{5}{18}$\\par $P(\\text{au moins 2 faces identiques}) = 1 - \\frac{5}{18} = \\frac{13}{18}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_022",
+      "title": "Anagramme du mot BAOBAB",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "anagrammes",
+        "permutations avec répétitions"
+      ],
+      "statement_latex": "On permute aléatoirement les lettres du mot BAOBAB. Avec quelle probabilité le mot obtenu est-il encore BAOBAB ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dénombrer le nombre total d'anagrammes possibles du mot BAOBAB."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le mot contient 6 lettres avec des répétitions : 3 'B', 2 'O' et 1 'A'. Le nombre d'anagrammes est donné par le coefficient multinomial $\\frac{6!}{3!2!1!}$."
+            }
+          ],
+          "solution_latex": "Le mot BAOBAB contient 6 lettres: 3 B, 2 O, 1 A. Le nombre total d'anagrammes est le coefficient multinomial:\\par $\\frac{6!}{3! \\cdot 2! \\cdot 1!} = \\frac{720}{6 \\cdot 2 \\cdot 1} = \\frac{720}{12} = 60$\\par Parmi ces 60 anagrammes, un seul est BAOBAB lui-même.\\par $P(\\text{obtenir BAOBAB}) = \\frac{1}{60}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_023",
+      "title": "Tirage simultané de boules blanches",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "combinaisons",
+        "tirage simultané",
+        "loi hypergéométrique"
+      ],
+      "statement_latex": "Une urne contient 6 boules blanches et 6 noires. Lorsqu'on tire simultanément 8 boules, avec quelle probabilité tire-t-on toutes les blanches ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les combinaisons pour dénombrer les cas favorables et les cas possibles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisir les 6 blanches parmi 6, et compléter le tirage en choisissant 2 noires parmi les 6 noires. Diviser par le nombre de façons de choisir 8 boules parmi 12."
+            }
+          ],
+          "solution_latex": "L'urne contient 6 blanches et 6 noires, total 12 boules. On tire 8 boules simultanément. Pour obtenir toutes les blanches, il faut tirer les 6 blanches et 2 noires parmi les 6.\\par Nombre de cas favorables: $\\binom{6}{6}\\binom{6}{2} = 1 \\cdot 15 = 15$\\par Nombre de cas possibles: $\\binom{12}{8} = \\binom{12}{4} = \\frac{12 \\cdot 11 \\cdot 10 \\cdot 9}{4 \\cdot 3 \\cdot 2 \\cdot 1} = 495$\\par $P(\\text{toutes les blanches}) = \\frac{15}{495} = \\frac{1}{33}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_024",
+      "title": "Alternance et séquences de piles ou faces",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_evenements_independants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indépendance",
+        "probabilités de séquences",
+        "événement contraire"
+      ],
+      "statement_latex": "On lance $2n$ fois une pièce et on note $F_k$ l'événement « On obtient face au $k^{\\hat{e}me}$ lancer » pour tout $k\\in[[1,2n]]$. La pièce est truquée et tombe sur face avec probabilité $p\\in[0,1]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Décrire à l'aide de $F_1,...,F_{2n}$ les événements : \\par a) A : « On obtient une alternance parfaite de piles et de faces ». \\par b) B : « On obtient exactement un pile ». \\par c) C : « La séquence pile-face n'apparaît jamais ».",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'alternance, il y a deux possibilités : (F, P, F, P...) ou (P, F, P, F...)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'événement C, l'absence de 'PF' signifie que dès qu'un 'F' apparaît, tous les lancers suivants doivent être des 'F'. La séquence doit donc être de la forme $P...PF...F$ (incluant les cas tout 'P' ou tout 'F')."
+            }
+          ],
+          "solution_latex": "Notons $F_k$ l'événement « face au $k$-ème lancer ».\\par a) L'alternance parfaite partir de pile est: $A = \\overline{F_1} \\cap F_2 \\cap \\overline{F_3} \\cap F_4 \\cap \\cdots \\cap F_{2n}$ ou $A' = F_1 \\cap \\overline{F_2} \\cap F_3 \\cap \\overline{F_4} \\cap \\cdots \\cap \\overline{F_{2n}}$.\\par $A = \\bigcap_{k=1}^{n} (\\overline{F_{2k-1}} \\cap F_{2k})$\\par b) B: exactement un pile signifie $2n-1$ faces et 1 pile.\\par $B = \\bigcup_{j=1}^{2n} (F_1 \\cap \\cdots \\cap F_{j-1} \\cap \\overline{F_j} \\cap F_{j+1} \\cap \\cdots \\cap F_{2n})$\\par c) C: la séquence PF n'apparaît jamais signifie qu'on ne peut pas avoir $\\overline{F_j}$ suivi de $F_{j+1}$.\\par $C = \\bigcap_{j=1}^{2n-1} \\overline{(\\overline{F_j} \\cap F_{j+1})}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer la probabilité des événements A, B et C.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'indépendance des lancers pour multiplier les probabilités."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour C, sommer les probabilités des séquences de type $P^k F^{2n-k}$ pour $k$ allant de 0 à $2n$."
+            }
+          ],
+          "solution_latex": "Probabilité de l'alternance. Si la première face cachée est la position 1 (pile), alors $P(A_1) = (1/2)^{2n}$ (l'alternance exacte). Par symétrie entre départ pile et départ face, $P(\\text{alternance}) = 2 \\cdot p(1-p)(p(1-p))^{n-1}$ où les termes se multiplient."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_025",
+      "title": "Intersections de tirages distincts",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "combinaisons",
+        "indépendance"
+      ],
+      "statement_latex": "On choisit simultanément deux entiers distincts entre 1 et $n$ — premier tirage — puis indépendamment, trois entiers distincts entre 1 et $n$ — deuxième tirage.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Avec quelle probabilité les entiers tirés au premier tirage le sont-ils aussi au deuxième ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Fixer le résultat du premier tirage et calculer la probabilité qu'il soit inclus dans le second."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de façons de choisir 3 entiers parmi $n$ contenant les 2 entiers fixés est $\\binom{n-2}{3-2} = \\binom{n-2}{1}$."
+            }
+          ],
+          "solution_latex": "Urne de Pólya: initialement $a$ boules blanches et $b$ boules noires. À chaque tirage, on tire une boule, on la remet, et on ajoute $s$ boules de la même couleur.\\par Après le premier tirage:\\par $P(B_1) = \\frac{a}{a+b}$, $P(N_1) = \\frac{b}{a+b}$\\par Après le second tirage (par probabilités totales):\\par $P(B_2) = P(B_2|B_1)P(B_1) + P(B_2|N_1)P(N_1) = \\frac{a+s}{a+b+s} \\cdot \\frac{a}{a+b} + \\frac{a}{a+b+s} \\cdot \\frac{b}{a+b}$\\par $= \\frac{a(a+s) + ab}{(a+b)(a+b+s)} = \\frac{a(a+b+s)}{(a+b)(a+b+s)} = \\frac{a}{a+b}$\\par Remarquable: $P(B_n) = \\frac{a}{a+b}$ pour tout $n$ (probabilité invariante)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Quelle est la probabilité pour qu'aucun des entiers tirés au premier tirage ne le soit de nouveau au deuxième ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'événement signifie que le deuxième tirage est effectué dans le complémentaire du premier tirage."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit de choisir 3 entiers parmi les $n-2$ restants. La probabilité est $\\frac{\\binom{n-2}{3}}{\\binom{n}{3}}$."
+            }
+          ],
+          "solution_latex": "Variance: $\\text{Var}(B_n) = \\mathbb{E}[B_n^2] - (\\mathbb{E}[B_n])^2$. En utilisant l'additivité itérée des variances et les dépendances introduites par le schéma de Pólya, on obtient $\\text{Var}(B_n) = n \\cdot \\frac{a}{a+b} \\cdot \\frac{b}{a+b} \\cdot \\frac{a+b+s}{s+1}$, qui dépend de la composition initiale et du taux d'augmentation."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_026",
+      "title": "Somme de 3 dés (9 vs 10)",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+        "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "combinaisons",
+        "somme de dés"
+      ],
+      "statement_latex": "Expliquer pourquoi, lorsqu'on lance 3 dés simultanément, on obtient plus souvent la somme 10 que la somme 9 alors que ces deux sommes peuvent être obtenues de 6 manières chacune.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Distinguer les combinaisons (non ordonnées) des listes (ordonnées)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si on note $(a,b,c)$ le résultat des 3 dés, l'univers pertinent est l'ensemble des triplets ordonnés (il y en a $6^3 = 216$, équiprobables). Écrire les 6 combinaisons pour la somme 9 et les 6 combinaisons pour la somme 10, puis compter le nombre de permutations (triplets) correspondant à chaque combinaison."
+            }
+          ],
+          "solution_latex": "Un mélange parfait de $n$ cartes (riffle shuffle) permute les cartes selon une permutation uniformément distribuée parmi les $n!$ permutations possibles.\\par Probabilité qu'une carte donnée reste à la même position après un mélange: $\\frac{1}{n!}$ (puisque la position après mélange est uniforme).\\par Probabilité qu'au moins une carte reste à sa position initiale après un mélange: par le paradoxe des dérangements, environ $1 - \\frac{1}{e}$ pour grand $n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_027",
+      "title": "Paradoxe des anniversaires",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "arrangements",
+        "limite",
+        "paradoxe des anniversaires"
+      ],
+      "statement_latex": "1) On range $k$ objets dans $n$ tiroirs. Avec quelle probabilité se retrouvent-ils dans des tiroirs distincts ? \\par 2) À partir de combien de personnes la probabilité que deux d'entre elles au moins aient la même date d'anniversaire dépasse-t-elle 0,5 (resp. 0,9, resp. 0,99) ? On fera l'hypothèse que le 29 février n'existe pas et pour une fois, vive la calculatrice ! \\par 3) Soit $t>0$. On reprend le contexte de la question 1) avec $k=\\lfloor t\\sqrt{n}\\rfloor$ et on note $p_{n}$ la probabilité de l'événement « Les $k$ objets se retrouvent dans des tiroirs distincts ». \\par a) Montrer l'existence d'un réel $\\alpha>0$ pour lequel $x-x^2\\le \\ln(1+x)\\le x$ pour tout $x\\in]-\\alpha, \\alpha[$. En déduire que $p_{n} \\xrightarrow[n\\rightarrow+\\infty]{} e^{-\\frac{t^2}{2}}$. \\par b) Soit $\\sigma$ une permutation aléatoire de $[[1, n]]$. On note $N$ le plus grand entier $k$ de $[[1,n]]$ pour lequel $\\sigma(1)<...<\\sigma(k)$. Déterminer la loi de $N$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On range $k$ objets dans $n$ tiroirs. Avec quelle probabilité se retrouvent-ils dans des tiroirs distincts ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tout rangement est une liste et on s'intéresse ici à des arrangements."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de rangements possibles est $n^k$. Le nombre de rangements sans collision (tiroirs distincts) est l'arrangement $A_n^k = \\frac{n!}{(n-k)!}$."
+            }
+          ],
+          "solution_latex": "Problème classique: $n$ personnes tirent au sort leurs chapeaux, un par un. Soit $X$ le nombre de personnes qui récupèrent leur propre chapeau.\\par Par linéarité de l'espérance, notons $X_i$ l'indicatrice « la personne $i$ récupère son chapeau ». Alors:\\par $\\mathbb{E}[X] = \\sum_{i=1}^n \\mathbb{E}[X_i] = \\sum_{i=1}^n P(X_i = 1) = \\sum_{i=1}^n \\frac{1}{n} = 1$\\par Remarquablement, cette espérance vaut 1 indépendamment de $n$.\\par La probabilité qu'aucune personne ne récupère son chapeau (dérangement complet) tend vers $e^{-1}$ quand $n \\to \\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "À partir de combien de personnes la probabilité que deux d'entre elles au moins aient la même date d'anniversaire dépasse-t-elle 0,5 (resp. 0,9, resp. 0,99) ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer par l'événement contraire : « toutes les personnes ont des dates d'anniversaire distinctes »."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquer la formule de la question 1 avec $n=365$. On cherche $k$ tel que $1 - \\frac{A_{365}^k}{365^k} > p$. Tester les valeurs avec la calculatrice."
+            }
+          ],
+          "solution_latex": "Deuxième lemme (avec indépendance): si les $A_n$ sont indépendants deux à deux et $\\sum_{n=1}^{\\infty} P(A_n) = \\infty$, alors $P(\\limsup A_n) = 1$. Preuve: $P(\\bigcap_{k=n}^{\\infty} \\overline{A_k}) = \\prod_{k=n}^{\\infty} (1-P(A_k)) \\leq e^{-\\sum P(A_k)} = 0$ quand $n \\to \\infty$ (puisque la série diverge)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Limite asymptotique et loi de $N$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__theorem_loi_de_f_de_X",
+            "probabilites_sur_un_univers_fini__theorem_loi_de_f_X_Y"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer d'abord que $p_{n}=\\prod_{i=1}^{k-1}(1-\\frac{i}{n})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la limite, passer au logarithme : $\\ln(p_n) = \\sum_{i=1}^{k-1} \\ln(1 - \\frac{i}{n})$. Utiliser l'encadrement de $\\ln(1+x)$ donné en a) pour encadrer cette somme et conclure avec le théorème des gendarmes en sachant que $\\sum i = \\frac{k(k-1)}{2}$. Pour le b), l'événement $(N=k)$ signifie que les $k$ premiers éléments sont triés mais le $(k+1)$-ème casse l'ordre."
+            }
+          ],
+          "solution_latex": "Application à la loi des grands nombres: si $A_n = \\{|\\overline{X}_n - \\mu| \\geq \\varepsilon\\}$ et $\\sum P(A_n) < \\infty$, alors avec probabilité 1, la moyenne empirique converge vers $\\mu$ (convergence p.s., plus forte que la convergence en probabilité)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_028",
+      "title": "Indicatrice d'Euler par les probabilités",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_evenements_independants",
+        "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+        "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmétique",
+        "indépendance",
+        "indicatrice d'Euler",
+        "événements mutuellement indépendants"
+      ],
+      "statement_latex": "On redémontre ici de façon probabiliste les propriétés de l'indicatrice d'Euler du chapitre « Groupes et anneaux ». On fixe $n\\in\\mathbb{N}^*$. Par définition : $\\varphi(n)=|\\{k\\in[[1,n]]|k\\wedge n=1\\}|$. Soit X une variable aléatoire uniforme sur $[[1, n]]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) Calculer $P(X\\in k\\mathbb{Z})$ pour tout $k\\in[[1,n]]$ puis sous l'hypothèse que $k$ divise $n$. \\par b) Montrer que pour tous diviseurs $k_1,...,k_r$ de $n$ premiers entre eux deux à deux, $\\{X\\in k_1\\mathbb{Z}\\}$, ..., $\\{X\\in k_r\\mathbb{Z}\\}$ sont indépendants.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Attention, la définition de l'indépendance dit « pour toute partie finie... »."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), les multiples de $k$ dans $[[1,n]]$ sont au nombre de $\\lfloor \\frac{n}{k} \\rfloor$. Si $k$ divise $n$, c'est exactement $\\frac{n}{k}$. Pour b), prendre une sous-famille et montrer que la probabilité de l'intersection est le produit des probabilités, en utilisant le fait que l'intersection des multiples correspond aux multiples du PPCM (donc du produit puisqu'ils sont premiers entre eux)."
+            }
+          ],
+          "solution_latex": "Lemme de Borel-Cantelli: soit $(A_n)$ une suite d'événements. Posons $B = \\limsup_{n \\to \\infty} A_n = \\bigcap_{n=1}^{\\infty} \\bigcup_{k=n}^{\\infty} A_k$ (l'ensemble des $\\omega$ qui appartiennent à une infinité de $A_n$).\\par Si $\\sum_{n=1}^{\\infty} P(A_n) < \\infty$, alors $P(B) = 0$.\\par Démonstration: on a $P(B) = P(\\limsup A_n) = \\lim_{n \\to \\infty} P(\\bigcup_{k=n}^{\\infty} A_k) \\leq \\lim_{n \\to \\infty} \\sum_{k=n}^{\\infty} P(A_k) = 0$ (queue d'une série convergente)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $P(X\\wedge n=1)$ et en déduire que : \\par $\\varphi(n)=n\\prod_{p\\in\\mathbb{P}, p|n}(1-\\frac{1}{p})$",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer $\\{X\\wedge n=1\\}$ à l'aide de certains événements $\\{X\\in p\\mathbb{Z}\\}$, $p$ décrivant l'ensemble des nombres premiers divisant $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'événement $X \\wedge n = 1$ est l'intersection des événements contraires des $\\{X \\in p\\mathbb{Z}\\}$ pour tous les facteurs premiers $p$ de $n$. Utiliser l'indépendance mutuelle prouvée en 1)b)."
+            }
+          ],
+          "solution_latex": "Corollaire de Bienaymé-Tchebychev: pour $\\varepsilon > 0$ fixé,\\par $\\lim_{n \\to \\infty} P(|\\overline{X}_n - \\mu| \\geq \\varepsilon) \\leq \\lim_{n \\to \\infty} \\frac{\\sigma^2}{n\\varepsilon^2} = 0$\\par C'est la convergence en probabilité, notée $\\overline{X}_n \\xrightarrow{P} \\mu$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que pour tout diviseur positif $d$ de $n$ : \\par $P(X\\wedge n=\\frac{n}{d})=\\frac{\\varphi(d)}{n}$ puis que $\\sum_{d|n}\\varphi(d)=n$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_bernoulli",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduire la condition $X \\wedge n = \\frac{n}{d}$ en écrivant $X = k \\frac{n}{d}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On doit avoir $k \\wedge d = 1$ avec $k \\in [[1, d]]$. Il y a exactement $\\varphi(d)$ tels entiers $k$, ce qui donne la probabilité. Puis sommer sur tous les diviseurs pour retrouver la probabilité totale égale à 1."
+            }
+          ],
+          "solution_latex": "Lien avec l'indicatrice d'Euler $\\phi(n)$: le nombre d'entiers de $[[1, n]]$ premiers avec $n$ est exactement $\\phi(n)$. Pour une permutation uniformément choisie parmi $S_n$, le nombre de points fixes suit la loi des dérangements, reliée à $\\phi$ par des formules combinatoires."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_029",
+      "title": "Temps d'attente et séquences dans un schéma de Bernoulli",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "schéma de Bernoulli",
+        "temps d'attente",
+        "probabilité d'une séquence"
+      ],
+      "statement_latex": "Soit $X_{1},...,X_{n}$ des variables aléatoires indépendantes de Bernoulli de paramètre $p\\in]0,1[$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On note $T$ l'indice du premier 1 dans $(X_{1},...,X_{n})$ s'il existe et on pose $T=+\\infty$ sinon. Déterminer la loi de $T$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'événement $(T=k)$ signifie que l'on a obtenu $k-1$ échecs (0) suivis d'un succès (1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $k \\in [[1,n]]$, $P(T=k) = (1-p)^{k-1}p$. Ne pas oublier de calculer $P(T=+\\infty)$ qui correspond à $n$ échecs."
+            }
+          ],
+          "solution_latex": "Loi des grands nombres faible: soit $(X_n)$ une suite de variables i.i.d. d'espérance $\\mu$ et de variance $\\sigma^2$. Soit $\\overline{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$ la moyenne empirique.\\par Pour tout $\\varepsilon > 0$:\\par $P(|\\overline{X}_n - \\mu| \\geq \\varepsilon) \\leq \\frac{\\text{Var}(\\overline{X}_n)}{\\varepsilon^2} = \\frac{\\sigma^2}{n\\varepsilon^2}$ (par Bienaymé-Tchebychev)\\par Donc: $\\lim_{n \\to \\infty} P(|\\overline{X}_n - \\mu| \\geq \\varepsilon) = 0$ pour tout $\\varepsilon > 0$.\\par Interprétation: la moyenne empirique converge en probabilité vers l'espérance théorique."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $r\\in[[1,n]]$, $s\\in[[0,r]]$ puis $\\epsilon_0,...,\\epsilon_{r-1}$ des entiers dont $s$ valent 1 et $r-s$ valent 0. On note $E$ l'événement « La séquence $\\epsilon_0-\\epsilon_1-...-\\epsilon_{r-1}$ n'apparaît jamais dans $(X_1,...,X_n)$ ». \\par a) Calculer pour tout $k\\in[[1,n-r+1]]$ la probabilité de l'événement « La séquence $\\epsilon_0-\\epsilon_1-...-\\epsilon_{r-1}$ apparaît dans $(X_1,...,X_n)$ à partir de la position $k$ ». \\par b) En déduire que $P(E)\\le(1-p^s(1-p)^{r-s})^{\\lfloor\\frac{n}{r}\\rfloor}$. Calculer la limite de $P(E)$ lorsque $n$ tend vers $+\\infty$ et interpréter le résultat.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_calcul_lois_marginales",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le b), découper la suite de longueur $n$ en blocs indépendants de longueur $r$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a $\\lfloor \\frac{n}{r} \\rfloor$ blocs complets disjoints. Si la séquence n'apparaît jamais, c'est qu'elle n'apparaît dans aucun de ces blocs disjoints (qui sont indépendants). La probabilité d'apparaître dans un bloc précis est calculée en a)."
+            }
+          ],
+          "solution_latex": "Temps d'attente du prochain succès: si on est au $n$-ème succès et on attend le $(n+1)$-ème, le nombre de lancers restants suit une loi géométrique indépendante du passé (absence de mémoire).\\par Pour la première occurrence d'une séquence « succès-succès », on peut modéliser par une chaîne de Markov avec états menant au motif recherché."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_030",
+      "title": "Problème de Monty Hall",
+      "type": "application",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__definition_loi_bernoulli"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "probabilités conditionnelles",
+        "formule de Bayes",
+        "paradoxe",
+        "Monty Hall"
+      ],
+      "statement_latex": "Trois verres opaques sont retournés devant vous. L'un d'eux cache une bille et vous devez deviner lequel.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Quelle probabilité avez-vous de deviner juste ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérer le choix initial de manière uniforme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il y a 1 bonne réponse sur 3 verres, la probabilité est donc simplement de $1/3$."
+            }
+          ],
+          "solution_latex": "Deux variables aléatoires $X$ et $Y$ sont faiblement dépendantes (ou positivement corrélées) si $\\text{Cov}(X,Y) \\geq 0$, ce qui équivaut à $\\mathbb{E}[XY] \\geq \\mathbb{E}[X]\\mathbb{E}[Y]$.\\par Propriétés:\\par (i) Si $f$ et $g$ sont des fonctions croissantes sur le même domaine, et $(X,Y)$ suit une loi en deux dimensions, alors $f(X)$ et $g(Y)$ sont positivement corrélées (inégalité de FKG pour les mesures positives).\\par (ii) Pour la variance de la somme: $\\text{Var}(X+Y) = \\text{Var}(X) + \\text{Var}(Y) + 2\\text{Cov}(X,Y) \\geq \\text{Var}(X) + \\text{Var}(Y)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Pris de pitié devant votre malchance à répétition, le maître du jeu décide de vous donner un coup de pouce. Après votre réponse, il vous indique, parmi les deux verres que vous n'avez pas désignés, un verre qui ne contient pas la bille et vous propose de revoir votre réponse. Préférez-vous confirmer votre réponse initiale ou la modifier ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la probabilité de gagner si on garde son choix, par rapport à si on change. Où se trouve la probabilité complémentaire de $2/3$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La probabilité que votre premier choix soit le bon reste de $1/3$. La probabilité que la bille soit sous un des deux autres verres est de $2/3$. Puisque le maître élimine toujours un verre vide parmi ces deux-là, le verre restant de ce groupe concentre toute la probabilité de $2/3$. Il faut donc toujours changer."
+            }
+          ],
+          "solution_latex": "Intersection complémentaire: $P(\\overline{A \\cap B}) = 1 - P(A \\cap B)$ (trivial). De plus:\\par $P((\\overline{A} \\cup \\overline{B}) \\cap C) = P(\\overline{A \\cap B} \\cap C) = P(C) - P(A \\cap B \\cap C)$ par décomposition."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_031",
+      "title": "Choix du petit-déjeuner",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_evenements_independants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "probabilités totales",
+        "chaîne de Markov"
+      ],
+      "statement_latex": "Au petit-déjeuner, je mange soit des tartines, soit des céréales. Si je me prépare des tartines un matin, j'en remange le lendemain avec probabilité $\\frac{3}{4}$ mais si ce sont des céréales, j'en remange le lendemain avec probabilité $\\frac{4}{5}$. Étudier la convergence de la suite $(p_{n})_{n\\in\\mathbb{N}}$ où $p_{n}$ est, pour tout $n\\in\\mathbb{N}$ la probabilité que je me fasse des tartines le $n^{\\hat{e}me}$ jour.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_independance_complementaires",
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la formule des probabilités totales avec le système complet d'événements (Tartines au jour $n$, Céréales au jour $n$)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $p_{n+1}$ en fonction de $p_n$. On obtient une suite arithmético-géométrique : $p_{n+1} = \\frac{3}{4}p_n + \\frac{1}{5}(1-p_n)$. Chercher ensuite le point fixe pour déterminer la limite."
+            }
+          ],
+          "solution_latex": "Relation fondamentale pour le complémentaire:\\par $P(\\overline{A} \\cap B) = P(B) - P(A \\cap B)$\\par $P(\\overline{A} \\cap \\overline{B}) = P(\\overline{A \\cup B}) = 1 - P(A \\cup B) = 1 - P(A) - P(B) + P(A \\cap B)$\\par De plus: $P(\\overline{A \\cap B}) = P(\\overline{A} \\cup \\overline{B}) = P(\\overline{A}) + P(\\overline{B}) - P(\\overline{A} \\cap \\overline{B})$\\par Cas particulier d'indépendance: si $A \\perp B$, alors $\\overline{A} \\perp B$, $A \\perp \\overline{B}$, et $\\overline{A} \\perp \\overline{B}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_032",
+      "title": "Urne de Pólya",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+        "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "urne de Pólya",
+        "récurrence",
+        "probabilités conditionnelles",
+        "loi uniforme"
+      ],
+      "statement_latex": "Une urne, dite de Pólya, contient au départ une boule noire et une blanche. On répète $n$ fois l'expérience aléatoire qui consiste à tirer une boule, à la remettre et à ajouter une boule supplémentaire de la même couleur.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour tout $k\\in[[1,n]]$, combien l'urne contient-elle de boules à l'issue de la $k^{\\hat{e}me}$ expérience ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer le nombre de boules ajoutées à chaque tirage."
+            },
+            {
+              "level": 2,
+              "content_latex": "Initialement il y a 2 boules. Chaque tirage ajoute exactement 1 boule. À l'issue de la $k$-ème expérience, l'urne contient donc $k+2$ boules."
+            }
+          ],
+          "solution_latex": "Soit $X = \\max(X_1, \\ldots, X_n)$ où les $X_i$ sont des variables aléatoires. Si les $X_i$ sont i.i.d. de loi continue $F$, alors la loi du maximum est:\\par $P(X \\leq x) = P(X_1 \\leq x, \\ldots, X_n \\leq x) = F(x)^n$\\par Pour une loi uniforme sur $[0,1]$: $\\mathbb{E}[X] = \\int_0^1 x \\cdot n x^{n-1} dx = n \\int_0^1 x^n dx = \\frac{n}{n+1}$\\par Pour une loi uniforme discrète sur $[[1,N]]$: $\\mathbb{E}[\\max] = \\frac{n(N+1)}{n+1}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Pour tout $k\\in[[1,n]]$, on note $N_{k}$ le nombre de boules blanches dans l'urne à l'issue de la $k^{\\hat{e}me}$ expérience. Montrer par récurrence que $N_{k}$ suit la loi uniforme sur $[[1,k+1]]$ pour tout $k\\in[[1,n]]$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_loi_uniforme_produit_cartesien"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Récurrence !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'hérédité, exprimer $P(N_{k+1}=i)$ en conditionnant par les valeurs possibles de $N_k$ à l'aide de la formule des probabilités totales. $N_{k+1}$ peut valoir $i$ si $N_k=i$ (tirage noir) ou si $N_k=i-1$ (tirage blanc)."
+            }
+          ],
+          "solution_latex": "Variance totale: $\\text{Var}(X) = \\mathbb{E}[\\text{Var}(X|Y)] + \\text{Var}(\\mathbb{E}[X|Y])$ où la première partie mesure la variance « intra-classe » et la deuxième partie la variance « inter-classe »."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_033",
+      "title": "Matrice stochastique et limites",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice stochastique",
+        "probabilités totales",
+        "polynôme annulateur",
+        "limite"
+      ],
+      "statement_latex": "Soient $X_{0},...,X_{n}$ des variables aléatoires à valeurs dans $[[1,3]]$. On pose $M=\\frac{1}{4}\\begin{pmatrix}2&0&2\\\\ 1&3&0\\\\ 1&3&0\\end{pmatrix}$. Cette matrice est stochastique : ses coefficients sont positifs, et sur chaque ligne, la somme des coefficients vaut 1. On suppose que $P_{(X_{k}=i)}(X_{k+1}=j)=m_{ij}$ pour tous $k\\in[[0,n-1]]$ et $i,j\\in[[1,3]]$. On pose alors pour tout $k\\in[[0,n]]$ : $\\pi_{k}=(P(X_{k}=1)\\ \\ P(X_{k}=2)\\ \\ P(X_{k}=3))$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Vérifier que $\\pi_{k+1}=\\pi_{k}M$ pour tout $k\\in[[0,n-1]]$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formule des probabilités totales !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser le système complet d'événements $(X_k=1, X_k=2, X_k=3)$ pour exprimer $P(X_{k+1}=j)$. La traduction matricielle de cette somme donne le produit vecteur-matrice."
+            }
+          ],
+          "solution_latex": "Un vecteur aléatoire $(X, Y)$ a pour lois marginales les lois respectives de $X$ et $Y$. On a:\\par $P(X = x) = \\sum_y P(X = x, Y = y)$\\par $P(Y = y) = \\sum_x P(X = x, Y = y)$\\par Indépendance: $P(X=x, Y=y) = P(X=x)P(Y=y)$ pour tous $x, y$.\\par Espérance conditionnelle: $\\mathbb{E}[X|Y=y] = \\sum_x x \\cdot P(X=x|Y=y) = \\sum_x x \\cdot \\frac{P(X=x, Y=y)}{P(Y=y)}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $4M^3-5M^2$ et en déduire les puissances de $M$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_distribution_probabilites",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Division euclidienne !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le calcul donne $4M^3-5M^2+M=0$. Le polynôme $P(X)=4X^3-5X^2+X=X(X-1)(4X-1)$ est annulateur. Diviser $X^n$ par $P(X)$ pour trouver l'expression de $M^n$."
+            }
+          ],
+          "solution_latex": "Convergence: pour une chaîne irréductible et apériodique, $P_n = P^n \\to J$ où chaque ligne de $J$ est la distribution stationnaire $\\pi^*$. Vitesse: il existe $\\lambda < 1$ tel que $\\|P_n - J\\| = O(\\lambda^n)$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire la limite de $P(X_{n}=j)$ lorsque $n$ tend vers $+\\infty$ pour tout $j\\in[[1,3]]$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_distribution_probabilites",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression de $M^n$ pour faire tendre $n$ vers l'infini."
+            },
+            {
+              "level": 2,
+              "content_latex": "La relation $\\pi_n = \\pi_0 M^n$ est valable. Les termes en $(\\frac{1}{4})^n$ s'annulent à l'infini, la matrice limite ne gardera qu'une composante constante."
+            }
+          ],
+          "solution_latex": "Comportement asymptotique: pour une matrice stochastique irréductible, la suite des puissances $P^n$ converge vers la projection $J$ où chaque ligne est la distribution stationnaire unique $\\pi^*$.\\par Vitesse de convergence: gouvernée par la deuxième plus grande valeur propre (en valeur absolue). Plus la « mélange » est efficace, plus rapide la convergence."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_034",
+      "title": "Séquence de deux victoires consécutives",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes linéaires",
+        "probabilités totales",
+        "séquences de Bernoulli"
+      ],
+      "statement_latex": "Un joueur joue $n$ parties d'un jeu de probabilité de gain $\\frac{2}{3}$. Pour tout $k\\in[[1,n-1]]$, on note $G_{k}$ l'événement « Le joueur gagne la $k^{\\hat{e}me}$ partie » et $C_{k}$ l'événement « Le joueur gagne les $k^{\\hat{e}me}$ et $(k+1)^{\\hat{e}me}$ parties et c'était la première fois qu'il gagnait deux parties consécutives », puis on pose $c_{k}=P(C_{k})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) Calculer $c_{1}$ et $c_{2}$. Que valent $P_{G_1\\cap G_2}(C_{k+2})$ et $P_{\\overline{G_1}}(C_{k+2})$ pour tout $k\\in[[1,n-3]]$ ? \\par b) En déduire que $c_{k+2}=\\frac{1}{3}c_{k+1}+\\frac{2}{9}c_{k}$ pour tout $k\\in[[1,n-3]]$, puis une expression explicite de $c_{k}$ pour tout $k\\in[[1,n-1]]$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_probabilites"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "b) S'intéresser au système complet d'événements $\\{\\overline{G_{1}}, G_{1}\\cap G_{2}, G_{1}\\cap\\overline{G_{2}}\\} $."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule des probabilités totales avec ce système pour décomposer $P(C_{k+2})$. Remarquer que si les deux premières sont gagnées ($G_1 \\cap G_2$), il est impossible que la première double victoire ait lieu plus tard, donc la probabilité conditionnelle est nulle."
+            }
+          ],
+          "solution_latex": "Une chaîne de Markov homogène sur un espace fini d'états est définie par une matrice de transition $P = (p_{ij})$ où $p_{ij} = P(X_{n+1} = j | X_n = i)$. Propriétés:\\par (i) Chaque ligne de $P$ est une distribution de probabilité: $\\sum_j p_{ij} = 1$.\\par (ii) Distribution au temps $n+1$: $\\pi^{(n+1)} = \\pi^{(n)} P$ (relation de récurrence).\\par (iii) Distribution stationnaire $\\pi^*$: si $\\pi^* P = \\pi^*$ et les transitions sont irréductibles et apériodiques, alors la chaîne converge vers $\\pi^*$ indépendamment de l'état initial."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Et maintenant, plus de rigueur ! Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes de Bernoulli de paramètre $\\frac{2}{3}$. On note $T$ le plus petit entier $k\\in[[1,n-1]]$ pour lequel $X_{k}=X_{k+1}=1$, du moins s'il existe, et on pose $T=+\\infty$ sinon. \\par a) Montrer que $(X_{1},...,X_{k})$ et $(X_{2},...,X_{k+1})$ ont même loi pour tout $k\\in[[1,n-1]]$. \\par b) En déduire que $P_{(X_{1}=0)}(T=k+1)=P(T=k)$ pour tout $k\\in[[1,n-2]]$ et se demander si le lien avec la question 1) est compris !",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les variables $(X_i)$ sont indépendantes et identiquement distribuées."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), sachant que la première partie est perdue ($X_1=0$), le processus de recherche du premier \"11\" repart de zéro à partir de $X_2$. Le temps d'attente $T$ est alors décalé d'une unité. C'est la justification rigoureuse de la récurrence de la question 1."
+            }
+          ],
+          "solution_latex": "Modélisation par chaîne de Markov avec états $0$ (aucune victoire récente), $1$ (une victoire récente), $2$ (deux victoires consécutives).\\par Matrice de transition: $P = \\begin{pmatrix} 1-p & p & 0 \\\\ 1-p & 0 & p \\\\ 0 & 0 & 1 \\end{pmatrix}$\\par Espérance du temps pour atteindre l'état 2: résoudre le système linéaire $\\mathbb{E}[T_2 | \\text{état } i] = 1 + \\sum_j P_{ij} \\mathbb{E}[T_2 | \\text{état } j]$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_035",
+      "title": "Lancers aléatoires de pièces selon un dé",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "formule de Vandermonde",
+        "probabilités totales"
+      ],
+      "statement_latex": "Après avoir effectué $n$ lancers d'un dé à 6 faces, on lance une pièce autant de fois qu'on a obtenu 6 avec le dé. On note $S$ le nombre de 6 obtenus avec le dé et $F$ le nombre de faces obtenues avec la pièce.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $s\\in[[0,n]]$ et $k\\in[[0,s]]$ : \\par $\\binom{s}{k}\\binom{n}{s}=\\binom{n}{k}\\binom{n-k}{s-k}$",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer les coefficients binomiaux avec la formule des factorielles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le membre de gauche s'écrit $\\frac{s!}{k!(s-k)!}\\frac{n!}{s!(n-s)!}$. Simplifier par $s!$ puis réorganiser les termes pour faire apparaître le membre de droite."
+            }
+          ],
+          "solution_latex": "Formule de l'espérance totale (ou loi de l'espérance itérée): soit $(A_i)$ un système complet d'événements et $X$ une variable aléatoire. Alors:\\par $\\mathbb{E}[X] = \\sum_i \\mathbb{E}[X | A_i] P(A_i)$\\par Variant avec variables aléatoires: si $Y$ est une variable aléatoire discrète,\\par $\\mathbb{E}[X] = \\sum_y \\mathbb{E}[X | Y=y] P(Y=y)$\\par Application: cela permet de calculer $\\mathbb{E}[X]$ en le conditionnant sur tous les cas possibles d'une autre variable."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Quelle est la loi de $S$ ? Montrer que $F \\sim \\mathcal{B}(n, \\frac{1}{12})$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__theorem_probabilites_totales",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On connaît pour tout $s\\in[[0,n]]$ la loi conditionnelle de $F$ sachant $\\{S=s\\}$. Vive les indicatrices !"
+            },
+            {
+              "level": 2,
+              "content_latex": "S suit une loi $\\mathcal{B}(n, 1/6)$. Conditionnellement à $S=s$, $F$ suit $\\mathcal{B}(s, 1/2)$. Exprimer $P(F=k)$ à l'aide de la formule des probabilités totales en sommant sur $s$ allant de $k$ à $n$, et utiliser l'identité de la question 1 pour factoriser $\\binom{n}{k}$ et conclure avec le binôme de Newton."
+            }
+          ],
+          "solution_latex": "Procédure: tirer le dé pour déterminer le nombre de pièces à lancer, puis lancer cette nombre de pièces.\\par Loi du nombre de piles: par probabilités totales, $P(\\text{nb piles} = k) = \\sum_{n=1}^6 P(\\text{nb piles}=k | \\text{dé}=n)P(\\text{dé}=n) = \\sum_{n=k}^6 \\binom{n}{k}(1/2)^n \\cdot (1/6)$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_036",
+      "title": "Premier 6 simultané",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi géométrique",
+        "indépendance",
+        "événements simultanés"
+      ],
+      "statement_latex": "Deux joueurs lancent chacun n fois un dé équilibré à 6 faces. Ils lancent à chaque coup leurs dés en même temps. Avec quelle probabilité obtiennent-ils chacun leur premier 6 en même temps ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Définir l'événement $A_k$ : « le premier 6 est obtenu au $k$-ème lancer » pour chaque joueur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(A_k)$ pour un joueur, puis utiliser l'indépendance pour trouver la probabilité que les deux joueurs obtiennent leur premier 6 exactement au $k$-ème lancer. Sommer ensuite ces probabilités disjointes pour $k$ allant de 1 à $n$."
+            }
+          ],
+          "solution_latex": "Propriété de conditionnement itéré: pour des événements $A \\subseteq B$ avec $P(B) > 0$:\\par $P(A|B) = P(A|B)$ (trivialité)\\par $P(A \\cap B | C) = P(A | B \\cap C) P(B | C)$ (règle de la chaîne)\\par Plus généralement, pour $C \\subseteq B$:\\par $P(A|B) = \\sum_c P(A|B \\cap C=c) P(C=c | B)$\\par Cette permet de décomposer un problème complexe en cas plus simples en conditionnant progressivement sur d'autres variables."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_037",
+      "title": "La taupe et le renard",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_loi_conditionnelle",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "marche aléatoire",
+        "probabilités de trajectoires",
+        "limite"
+      ],
+      "statement_latex": "Pour échapper à un renard, une taupe pénètre son terrier par l'entrée A et tourne à gauche ou à droite à chaque intersection avec probabilité $\\frac{1}{2}$. Si la taupe sort par l'entrée A, le renard l'y attend et la croque. Au-delà de $2n$ intersections sans sortir, la taupe s'épuise et meurt de faim.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Si la taupe sort par l'entrée B, que peut-on dire du nombre d'intersections qu'elle a rencontrées ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observer la parité du nombre de déplacements nécessaires pour revenir à l'axe central puis passer à la sortie opposée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour ressortir par l'entrée B, le nombre d'intersections parcourues doit nécessairement être pair."
+            }
+          ],
+          "solution_latex": "Formule de la variance totale (ou loi de la variance itérée): soit $Y$ une variable aléatoire discrète et $X$ une variable quelconque. Alors:\\par $\\text{Var}(X) = \\mathbb{E}[\\text{Var}(X|Y)] + \\text{Var}(\\mathbb{E}[X|Y])$\\par Interprétation: la variance totale se décompose en deux parts:\\par (i) L'espérance de la variance conditionnelle: variabilité « intra-classe ».\\par (ii) La variance de l'espérance conditionnelle: variabilité « inter-classe ».\\par Cette décomposition est cruciale en statistique pour l'analyse de variance (ANOVA)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Avec quelle probabilité la taupe sort-elle indemne de cette situation périlleuse ? Quelle limite quand $n$ tend vers $+\\infty$ ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $G_k$ l'événement « La taupe a tourné à gauche à la $k^{\\hat{e}me}$ intersection », exprimer l'événement étudié en fonction de $G_1,...,G_{2n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour survivre, la taupe doit sortir par B. Modéliser son cheminement par une marche aléatoire symétrique et chercher la probabilité d'atteindre la sortie B en un nombre de pas $\\le 2n$."
+            }
+          ],
+          "solution_latex": "Applications concaves: si $\\phi$ est concave et $\\phi$ positive, alors $\\phi(\\mathbb{E}[X]) \\geq \\mathbb{E}[\\phi(X)]$. Exemple: $\\phi(x) = \\ln(x)$ pour $x > 0$ donne $\\ln(\\mathbb{E}[X]) \\geq \\mathbb{E}[\\ln(X)]$ (inégalité de la moyenne géométrique)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_038",
+      "title": "Jeu alterné à deux joueurs",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "série géométrique",
+        "probabilités totales",
+        "équité d'un jeu"
+      ],
+      "statement_latex": "1) Deux joueurs A et B s'affrontent autour d'un jeu dont A joue la première partie, B la deuxième, A la troisième, etc. Le jeu comporte au plus $2n$ parties et le premier qui gagne une partie gagne le jeu entier. La probabilité de gain d'une partie vaut a pour le joueur A et b pour le joueur B avec a, $b\\in]0, 1[$. \\par 2) On en sait maintenant plus sur le jeu. Les joueurs A et B disposent de 2 dés équilibrés à 6 faces et les lancent à tour de rôle. Quand A joue, il gagne la partie si la somme des faces obtenue est supérieure à 8. Quand B joue, il gagne si le maximum des faces obtenu est supérieur à 4. Des deux joueurs, lequel a le plus de chances de gagner ?",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Avec quelle probabilité aucun des deux joueurs ne gagne-t-il le jeu ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va",
+            "probabilites_sur_un_univers_fini__definition_loi_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimer cet événement comme l'intersection des pertes successives de A et B sur les $2n$ parties alternées."
+            },
+            {
+              "level": 2,
+              "content_latex": "La probabilité est le produit des probabilités de défaite : $((1-a)(1-b))^n$."
+            }
+          ],
+          "solution_latex": "Théorème de Jensen: soit $\\phi$ une fonction convexe et $X$ une variable aléatoire intégrable. Alors:\\par $\\phi(\\mathbb{E}[X]) \\leq \\mathbb{E}[\\phi(X)]$\\par Si $\\phi$ est concave, l'inégalité s'inverse.\\par Applications:\\par (i) Pour $\\phi(x) = x^2$: $(\\mathbb{E}[X])^2 \\leq \\mathbb{E}[X^2]$ (positivité de la variance).\\par (ii) Pour $\\phi(x) = e^{tx}$ convexe: $e^{t\\mathbb{E}[X]} \\leq \\mathbb{E}[e^{tX}]$ (relation avec la fonction génératrice des moments).\\par (iii) Pour $\\phi(x) = |x|$: $|\\mathbb{E}[X]| \\leq \\mathbb{E}[|X|]$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "À quelle condition nécessaire et suffisante sur a et b le jeu est-il équilibré ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $A_k$ l'événement « A l'emporte à la $k^{\\hat{e}me}$ partie » et $B_k$ l'événement « B l'emporte à la $k^{\\hat{e}me}$ partie », exprimer « A gagne » et « B gagne » en fonction de $A_1,...,A_n,B_1,...,B_n$, puis comparer leurs probabilités."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(A \\text{ gagne})$ via la somme d'une suite géométrique. Faire de même pour $B$ et poser l'égalité $P(A) = P(B)$."
+            }
+          ],
+          "solution_latex": "Modèle: joueur 1 gagne avec probabilité $p$ à chaque tour, joueur 2 avec probabilité $1-p$. Probabilité que joueur 1 gagne le jeu complet dépend de la règle (premier à $n$ victoires, par exemple).\\par Pour premier à 1 victoire: $P(\\text{joueur 1 gagne}) = p$. Pour premier à 2 victoires: $P = p^2 + 2p(1-p)p = p(2-p)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Des deux joueurs, lequel a le plus de chances de gagner ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer d'abord les probabilités de succès individuel $a$ et $b$ à partir des règles des dés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour A : sommer les cas favorables pour somme $> 8$. Pour B : utiliser l'événement contraire pour max $> 4$. Conclure en comparant avec la condition trouvée en 1)b)."
+            }
+          ],
+          "solution_latex": "Stratégie optimale: si les joueurs peuvent choisir l'ordre des tours ou les enjeux, maximiser l'espérance de gain revient à choisir la stratégie qui rend l'inégalité de Jensen maximale en faveur du joueur.\\par Espérance du gain: $\\mathbb{E}[\\text{gain}] = \\sum (\\text{paiement}_i) \\cdot P(\\text{joueur 1 gagne cas } i)$, somme sur tous les cas possibles."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_039",
+      "title": "Apparition des faces d'un dé",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "formule du crible",
+        "événement contraire"
+      ],
+      "statement_latex": "On lance un dé équilibré à 6 faces n fois de suite. \\par 1) Calculer la probabilité de l'événement « La face i n'apparaît jamais » pour tout $i\\in[[1,6]]$. \\par 2) Calculer la probabilité de l'événement « Chacune des faces 1, 2 et 3 apparaît au moins une fois ».",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question 2) : Formule du crible !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Définir $A_i$ l'événement « la face $i$ n'apparaît jamais ». L'événement de la question 2 est l'intersection des événements contraires de $A_1, A_2, A_3$. Passer par l'événement contraire global (union de $A_1, A_2, A_3$) et appliquer la formule du crible de Poincaré."
+            }
+          ],
+          "solution_latex": "Soit $A_i$ l'événement « la face $i$ est restée visible à chaque lancer » pour $i \\in [[1,3]]$ (le dé étant tétraédrique avec 3 faces visibles).\\par L'événement cherché est $\\bigcup_{i=1}^3 A_i$.\\par Pour chaque face: $P(A_i) = (3/4)^n$ (probabilité que la face cachée ne soit jamais la face $i$).\\par Par inclusion-exclusion: $P(\\bigcup A_i) = 3 \\cdot (3/4)^n - 3 \\cdot (1/2)^n + 0$ (car les trois faces ne peuvent toutes rester visibles si deux d'entre elles sont cachées alternativement).\\par Mais l'énoncé parle d'un dé à 4 faces. Correct: $A_i$ = face $i$ jamais cachée.\\par $P(A_i) = (3/4)^n$, $P(A_i \\cap A_j) = (1/2)^n$ (deux faces jamais cachées).\\par $P(\\bigcup A_i) = \\binom{4}{1}(3/4)^n - \\binom{4}{2}(1/2)^n + \\binom{4}{3}(1/4)^n - 0$\\par $= 4(3/4)^n - 6(1/2)^n + 4(1/4)^n$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_040",
+      "title": "Dérangements et cadeaux de Noël",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérangements",
+        "formule du crible",
+        "série exponentielle",
+        "limite"
+      ],
+      "statement_latex": "Joyeux Noël ! Les n convives ont tous posé le cadeau qu'ils ont apporté au pied du sapin. À minuit, on distribue au hasard un cadeau à chacun. \\par 1) À combien estimez-vous intuitivement la probabilité de l'événement E « Personne n'a reçu son propre cadeau » lorsque n est grand ? \\par 2) On note $D_n$ l'ensemble des dérangements de $[[1,n]]$, i.e. des permutations sans point fixe de $[[1,n]]$. Déduire de la formule du crible que $|D_n|=n!\\sum_{k=0}^{n}\\frac{(-1)^k}{k!}$. \\par 3) Calculer la probabilité de l'événement E de la question 1), puis sa limite lorsque n tend vers $+\\infty$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "2) S'intéresser pour tout $i\\in[[1,n]]$ à l'ensemble $F_i$ des permutations de $[[1, n]]$ qui fixent $i$. Formule du crible !"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'ensemble des dérangements est le complémentaire de l'union des $F_i$. Calculer le cardinal de l'intersection de $k$ ensembles $F_i$ (qui vaut $(n-k)!$), puis appliquer la formule du crible. Pour la limite, reconnaître le développement en série de $e^x$ évalué en $x=-1$."
+            }
+          ],
+          "solution_latex": "1) Intuitivement, la probabilité que personne n'ait son cadeau tend vers $1/e \\approx 0.368$.\\par 2) Notons $F_i$ l'ensemble des permutations qui fixent $i$ (i.e., la personne $i$ récupère son cadeau).\\par $|F_i| = (n-1)!$, $|F_i \\cap F_j| = (n-2)!$, et plus généralement $|\\bigcap_{i \\in I} F_i| = (n-|I|)!$.\\par Par la formule du crible:\\par $|D_n| = n! - |F_1 \\cup \\cdots \\cup F_n| = n! - \\binom{n}{1}(n-1)! + \\binom{n}{2}(n-2)! - \\cdots + (-1)^n \\binom{n}{n}0!$\\par $= n! \\sum_{k=0}^n \\frac{(-1)^k}{k!}$\\par 3) Probabilité d'un dérangement: $P(D_n) = \\frac{|D_n|}{n!} = \\sum_{k=0}^n \\frac{(-1)^k}{k!}$.\\par Limite: $\\lim_{n \\to \\infty} P(D_n) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k!} = e^{-1}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_041",
+      "title": "Lancers d'un dé tétraédrique",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "formule du crible",
+        "équivalent",
+        "limite"
+      ],
+      "statement_latex": "Quand on lance un dé tétraédrique, 3 faces sont visibles et une seule reste cachée. On lance n fois de suite un tel dé dont les faces sont notées 1, 2, 3 et 4. Calculer un équivalent lorsque n tend vers $+\\infty$ de la probabilité de l'événement « L'une des faces est restée visible à chaque lancer ».",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formule du crible !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Définir l'événement $A_i$ : « la face $i$ est restée visible à chaque lancer », c'est-à-dire « la face $i$ n'a jamais été la face cachée ». L'événement cherché est l'union des $A_i$ pour $i \\in [[1,4]]$. Calculer $P(A_i)$, $P(A_i \\cap A_j)$, etc., puis utiliser la formule du crible. Chercher le terme dominant lorsque $n \\to +\\infty$."
+            }
+          ],
+          "solution_latex": "Soit $A_i$ l'événement « la face $i$ reste visible à chaque lancer », c'est-à-dire « la face cachée n'est jamais la face $i$.\\par Chaque lancer cache exactement une face parmi 4 avec probabilité $1/4$. Donc $P(A_i) = (3/4)^n$.\\par $P(A_i \\cap A_j) = (1/2)^n$ (jamais face $i$ ni face $j$ cachées).\\par $P(A_i \\cap A_j \\cap A_k) = (1/4)^n$ (seulement la face complémentaire cachée).\\par $P(A_1 \\cap A_2 \\cap A_3 \\cap A_4) = 0$ (impossible).\\par Par le crible:\\par $P(\\bigcup A_i) = 4(3/4)^n - 6(1/2)^n + 4(1/4)^n \\approx 4(3/4)^n$ pour $n$ grand.\\par Équivalent: $P \\sim 4 \\cdot 3^n / 4^n = 3^n / 4^{n-1}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_042",
+      "title": "Mot de 7 lettres et séquence OUI",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__definition_evenements_independants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "formule du crible",
+        "probabilité d'une séquence"
+      ],
+      "statement_latex": "On forme un mot de 7 lettres à partir des 26 lettres de l'alphabet. Avec quelle probabilité la séquence OUI apparaît-elle au moins une fois ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__definition_systeme_complet_evenements",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Définir les événements $E_k$ : « Le mot contient la séquence OUI commençant à la position $k$ » pour $k \\in [[1, 5]]$, puis appliquer la formule du crible de Poincaré."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer $P(E_k) = \\frac{26^4}{26^7}$. Pour les intersections $E_i \\cap E_j$ avec $i < j$, remarquer qu'elles sont vides si les séquences se chevauchent ($j-i < 3$) puisqu'elles correspondraient à des lettres incompatibles, et non vides seulement si elles sont disjointes (ex: $E_1 \\cap E_4$). Il n'y a pas d'intersection triple possible dans un mot de 7 lettres."
+            }
+          ],
+          "solution_latex": "Événements $E_k$ : « OUI commence à la position $k$ » pour $k \\in [[1,5]]$ (dans un mot de 7 lettres).\\par $P(E_k) = \\frac{26^4}{26^7} = \\frac{1}{26^3}$ (les 3 lettres O-U-I sont fixées, les 4 autres sont libres).\\par Intersections: $E_1 \\cap E_2$ est vide car on ne peut avoir O à deux positions simultanément.\\par $E_1 \\cap E_4$ : OUI à position 1 et OUI à position 4 (disjoints, 4 lettres fixées, 3 libres).\\par $P(E_1 \\cap E_4) = \\frac{26^3}{26^7} = \\frac{1}{26^4}$\\par Paires disjointes: $(1,4), (1,5), (2,5)$. Donc 3 intersections non vides.\\par Par le crible:\\par $P(\\bigcup E_k) = 5 \\cdot \\frac{1}{26^3} - 3 \\cdot \\frac{1}{26^4} = \\frac{5 \\cdot 26 - 3}{26^4} = \\frac{127}{26^4}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_043",
+      "title": "Variables non indépendantes à covariance nulle",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "indépendance",
+        "espérance",
+        "covariance",
+        "loi de Bernoulli"
+      ],
+      "statement_latex": "Soient X et Y deux variables de Bernoulli indépendantes de paramètre $\\frac{1}{2}$. Montrer que $S=X+Y$ et $D=X-Y$ ne sont pas indépendantes, mais que $E(SD)=E(S)E(D)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer la non-indépendance, trouver des valeurs $s$ et $d$ telles que $P(S=s \\cap D=d) \\neq P(S=s)P(D=d)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regarder par exemple l'événement $(S=2)$ qui implique $X=1, Y=1$. Dans ce cas, on a forcément $D=0$. Donc $P(S=2 \\cap D=1) = 0$, ce qui contredit l'indépendance. Pour l'espérance, développer le produit $SD = (X+Y)(X-Y) = X^2 - Y^2$ et utiliser la linéarité de l'espérance ainsi que le fait que $X^2=X$ pour une variable de Bernoulli."
+            }
+          ],
+          "solution_latex": "Soient $X, Y \\sim \\mathcal{B}(1/2)$ indépendantes. Alors $S = X + Y$ et $D = X - Y$.\\par Non-indépendance: notons les lois.\\par $S$ prend les valeurs 0, 1, 2 avec probabilités $1/4, 1/2, 1/4$.\\par $D$ prend les valeurs -1, 0, 1 avec probabilités $1/4, 1/2, 1/4$.\\par Considérons l'événement $(S = 2)$ qui implique $X = Y = 1$, donc $D = 0$. Ainsi $P(S=2, D=1) = 0 \\neq P(S=2)P(D=1) = 1/4 \\cdot 1/4$. Non-indépendance confirmée.\\par Espérance: $SD = (X+Y)(X-Y) = X^2 - XY + XY - Y^2 = X^2 - Y^2 = X - Y$ (car $X^2 = X$ pour une Bernoulli).\\par $\\mathbb{E}[SD] = \\mathbb{E}[X - Y] = 1/2 - 1/2 = 0$.\\par Aussi: $\\mathbb{E}[S] = 1$, $\\mathbb{E}[D] = 0$, donc $\\mathbb{E}[S]\\mathbb{E}[D] = 0 = \\mathbb{E}[SD]$. ✓"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_044",
+      "title": "Tirage dans une urne à effectifs variables",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi de probabilité",
+        "espérance",
+        "limite",
+        "sommes"
+      ],
+      "statement_latex": "On tire une boule dans une urne qui contient pour tout $k\\in[[1,2n]]$ exactement k boules de même numéro k. On note N le numéro de la boule tirée.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi et l'espérance de N.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par calculer le nombre total de boules dans l'urne pour déterminer $P(N=k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre total de boules est la somme des entiers de $1$ à $2n$, soit $\\frac{2n(2n+1)}{2}$. La probabilité de tirer la boule $k$ est le nombre de boules $k$ divisé par le total. Utiliser ensuite $E(N) = \\sum_{k=1}^{2n} k P(N=k)$ avec la formule de la somme des carrés."
+            }
+          ],
+          "solution_latex": "Nombre total de boules: $\\sum_{k=1}^{2n} k = \\frac{2n(2n+1)}{2} = n(2n+1)$.\\par Loi de $N$: $P(N=k) = \\frac{k}{n(2n+1)}$ pour $k \\in [[1, 2n]]$.\\par Espérance:\\par $\\mathbb{E}[N] = \\sum_{k=1}^{2n} k \\cdot \\frac{k}{n(2n+1)} = \\frac{1}{n(2n+1)} \\sum_{k=1}^{2n} k^2$\\par $= \\frac{1}{n(2n+1)} \\cdot \\frac{2n(2n+1)(4n+1)}{6} = \\frac{(4n+1)}{3}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Avec quelle probabilité N dépasse-t-il strictement n ? Avec quelle probabilité N est-il pair ? Quelles limites quand n tend vers $+\\infty$ ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution",
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer la somme $\\sum_{k=n+1}^{2n} P(N=k)$ et la somme $\\sum_{p=1}^{n} P(N=2p)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacer $P(N=k)$ par son expression. Il s'agit de calculer la somme des termes d'une suite arithmétique. Factoriser par le dénominateur commun, puis faire tendre $n$ vers $+\\infty$ en ne gardant que les termes de plus haut degré."
+            }
+          ],
+          "solution_latex": "Probabilité que $N > n$:\\par $P(N > n) = \\sum_{k=n+1}^{2n} \\frac{k}{n(2n+1)} = \\frac{1}{n(2n+1)} \\sum_{k=n+1}^{2n} k$\\par $= \\frac{1}{n(2n+1)} \\cdot \\frac{(n+1+2n)(2n-n)}{2} = \\frac{1}{n(2n+1)} \\cdot \\frac{(3n+1) \\cdot n}{2} = \\frac{3n+1}{2(2n+1)}$\\par Limite: $\\lim_{n \\to \\infty} \\frac{3n+1}{2(2n+1)} = \\frac{3}{4}$\\par Probabilité que $N$ soit pair:\\par $P(N \\text{ pair}) = \\sum_{j=1}^{n} \\frac{2j}{n(2n+1)} = \\frac{2}{n(2n+1)} \\sum_{j=1}^n j = \\frac{2}{n(2n+1)} \\cdot \\frac{n(n+1)}{2} = \\frac{n+1}{2n+1}$\\par Limite: $\\lim_{n \\to \\infty} \\frac{n+1}{2n+1} = \\frac{1}{2}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_045",
+      "title": "Jeu de tirages avec remise et gain d'espérance nulle",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "espérance",
+        "jeu équitable"
+      ],
+      "statement_latex": "Une urne contient n boules noires et b blanches. Un joueur tire k boules dans cette urne successivement avec remise. S'il tire une boule blanche, il gagne g points, et sinon il en perd 1. Quelle valeur de g choisir pour que le jeu soit d'espérance nulle ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Introduire la variable aléatoire $X$ représentant le nombre de boules blanches tirées au cours des $k$ tirages."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les tirages étant avec remise, $X$ suit une loi binomiale $\\mathcal{B}(k, \\frac{b}{n+b})$. Exprimer le gain $G$ en fonction de $X$ : $G = gX - 1 \\times (k - X)$. Utiliser la linéarité de l'espérance pour écrire l'équation $E(G)=0$ et résoudre pour $g$."
+            }
+          ],
+          "solution_latex": "Soit $X$ le nombre de boules blanches tirées en $k$ tirages avec remise. $X \\sim \\mathcal{B}(k, p)$ où $p = \\frac{b}{n+b}$.\\par Gain: $G = g \\cdot X - 1 \\cdot (k - X) = (g+1)X - k$.\\par Espérance:\\par $\\mathbb{E}[G] = (g+1)\\mathbb{E}[X] - k = (g+1) \\cdot kp - k = k[(g+1)p - 1]$\\par Pour un jeu d'espérance nulle: $(g+1)p = 1$, soit $g = \\frac{1}{p} - 1 = \\frac{1-p}{p} = \\frac{n}{b}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_046",
+      "title": "Loi et espérance par tirages successifs",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi conditionnelle",
+        "espérance",
+        "formule des probabilités totales"
+      ],
+      "statement_latex": "On tire au hasard un entier X entre 1 et n, puis de nouveau au hasard un entier Y entre 1 et X. Déterminer la loi et l'espérance de Y.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On connaît la loi conditionnelle de Y sachant $\\{X=i\\}$ pour tout $i\\in[[1,n]]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule des probabilités totales pour exprimer $P(Y=k)$. Calculer ensuite l'espérance $E(Y)$ en intervertissant les sommes ou en utilisant la formule de l'espérance totale $E(Y) = E(E(Y|X))$."
+            }
+          ],
+          "solution_latex": "On tire $X \\sim \\mathcal{U}([[1,n]])$ puis $Y | X \\sim \\mathcal{U}([[1,X]])$.\\par Loi de $Y$: pour $k \\in [[1,n]]$,\\par $P(Y=k) = \\sum_{i=k}^n P(Y=k | X=i)P(X=i) = \\sum_{i=k}^n \\frac{1}{i} \\cdot \\frac{1}{n} = \\frac{1}{n} \\sum_{i=k}^n \\frac{1}{i}$\\par Espérance (par loi totale):\\par $\\mathbb{E}[Y] = \\mathbb{E}[\\mathbb{E}[Y|X]] = \\mathbb{E}\\left[\\frac{X+1}{2}\\right] = \\frac{1}{2}\\mathbb{E}[X] + \\frac{1}{2} = \\frac{1}{2} \\cdot \\frac{n+1}{2} + \\frac{1}{2} = \\frac{n+3}{4}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_047",
+      "title": "Probabilité d'aucune crue sur 100 ans",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+        "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+        "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+        "probabilites_sur_un_univers_fini__theorem_caracterisation_probabilite_distribution"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi binomiale",
+        "approximation de Poisson",
+        "limite"
+      ],
+      "statement_latex": "Il a été constaté empiriquement qu'un certain fleuve déborde de son lit en moyenne une fois tous les 100 ans à raison d'une crue par an au plus. Montrer que la probabilité de n'observer aucune crue sur une période de 100 ans est proche de $e^{-1}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_probabilite_fini",
+            "probabilites_sur_un_univers_fini__definition_probabilite_conditionnelle",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Modéliser le nombre de crues sur 100 ans par une loi binomiale."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $p$ la probabilité de crue par an. L'espérance est $100p = 1$, donc $p = 1/100$. Calculer la probabilité de 0 succès pour une loi $\\mathcal{B}(100, 1/100)$ et chercher la limite de $(1 - 1/n)^n$."
+            }
+          ],
+          "solution_latex": "Modèle: $n = 100$ années, $p = 1/100$ (probabilité de crue par an). Soit $X$ le nombre de crues, $X \\sim \\mathcal{B}(100, 1/100)$.\\par $P(X = 0) = (1 - 1/100)^{100} = (99/100)^{100}$\\par Limite classique: $\\lim_{n \\to \\infty} (1 - 1/n)^n = e^{-1}$\\par Pour $n = 100$: $(1 - 1/100)^{100} \\approx e^{-1} \\approx 0.368$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_048",
+      "title": "Plus grand numéro tiré",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "loi du maximum",
+        "somme de coefficients binomiaux"
+      ],
+      "statement_latex": "On tire simultanément k boules d'une urne en contenant n numérotées de 1 à n et on note M le plus grand numéro tiré.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi de M.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_binomiale",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'événement $(M=m)$ signifie que l'on a tiré la boule numéro $m$ et que les $k-1$ autres boules ont été tirées parmi les numéros strictement inférieurs à $m$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le nombre de tirages favorables est $\\binom{m-1}{k-1}$. Diviser par le nombre total de tirages simultanés possibles $\\binom{n}{k}$."
+            }
+          ],
+          "solution_latex": "L'événement $(M = m)$ signifie que le maximum des $k$ boules est $m$, donc:\\par - la boule $m$ est tirée,\\par - les $k-1$ autres boules sont choisies parmi $[[1, m-1]]$.\\par Nombre de cas: $\\binom{m-1}{k-1}$.\\par Loi: $P(M=m) = \\frac{\\binom{m-1}{k-1}}{\\binom{n}{k}}$ pour $m \\in [[k, n]]$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) Montrer que $\\sum_{i=k}^{n}\\binom{i}{k}=\\binom{n+1}{k+1}$. \\par b) En déduire une expression simple de $E(M)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "a) Utiliser la formule du triangle de Pascal par récurrence ou un argument combinatoire. b) Utiliser la définition de l'espérance et la formule $\\binom{m-1}{k-1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), remarquer que $m \\binom{m-1}{k-1} = k \\binom{m}{k}$. Sortir le $k$ de la somme et utiliser la formule prouvée en a)."
+            }
+          ],
+          "solution_latex": "a) Identité: $\\sum_{i=k}^n \\binom{i}{k} = \\binom{n+1}{k+1}$. Preuve par récurrence:\\par Base ($n=k$): $\\binom{k}{k} = 1 = \\binom{k+1}{k+1}$. ✓\\par Hérédité: $\\sum_{i=k}^{n+1} \\binom{i}{k} = \\sum_{i=k}^n \\binom{i}{k} + \\binom{n+1}{k} = \\binom{n+1}{k+1} + \\binom{n+1}{k} = \\binom{n+2}{k+1}$ par Pascal.\\par b) Espérance:\\par $\\mathbb{E}[M] = \\sum_{m=k}^n m \\cdot \\frac{\\binom{m-1}{k-1}}{\\binom{n}{k}}$\\par Identité: $m\\binom{m-1}{k-1} = m \\cdot \\frac{(m-1)!}{(k-1)!(m-k)!} = \\frac{m!}{(k-1)!(m-k)!} = k \\cdot \\frac{m!}{k!(m-k)!} = k\\binom{m}{k}$\\par Donc: $\\mathbb{E}[M] = \\frac{k}{\\binom{n}{k}} \\sum_{m=k}^n \\binom{m}{k} = \\frac{k}{\\binom{n}{k}} \\cdot \\binom{n+1}{k+1} = \\frac{k(n+1)}{n+1-k}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_049",
+      "title": "Nombre de croissances dans une suite",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables indicatrices",
+        "loi uniforme discrète",
+        "linéarité de l'espérance"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables indépendantes uniformes sur $[[1, p]]$. On note N le nombre de $i \\in [[1, n-1]]$ pour lesquels $X_{i+1}\\ge X_{i}$. Calculer $P(X_{i+1}\\ge X_{i})$ pour tout $i\\in[[1,n-1]]$, puis l'espérance de N.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_probabilite_uniforme",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vive les indicatrices !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $I_i$ l'indicatrice de l'événement $(X_{i+1} \\ge X_i)$. $N$ est la somme de ces indicatrices. Pour calculer $P(X_{i+1} \\ge X_i)$, utiliser un argument de symétrie avec $P(X_{i+1} < X_i)$ ou la formule des probabilités totales."
+            }
+          ],
+          "solution_latex": "Soit $I_i$ l'indicatrice de $(X_{i+1} \\geq X_i)$ pour $i \\in [[1, n-1]]$. Alors $N = \\sum_{i=1}^{n-1} I_i$.\\par Par symétrie (puisque $X_i$ et $X_{i+1}$ sont i.i.d.), les événements $(X_{i+1} > X_i)$ et $(X_{i+1} < X_i)$ ont la même probabilité. De plus:\\par $P(X_{i+1} > X_i) + P(X_{i+1} = X_i) + P(X_{i+1} < X_i) = 1$\\par Donc: $2P(X_{i+1} \\geq X_i) = P(X_{i+1} > X_i) + P(X_{i+1} = X_i) + P(X_{i+1} < X_i) + P(X_{i+1} = X_i) = 1 + P(X_{i+1} = X_i)$\\par Pour l'uniforme discrète: $P(X_{i+1} = X_i) = \\sum_{j=1}^p (1/p)^2 = 1/p$\\par Donc: $P(X_{i+1} \\geq X_i) = \\frac{1 + 1/p}{2} = \\frac{p+1}{2p}$\\par Espérance: $\\mathbb{E}[N] = (n-1) \\cdot \\frac{p+1}{2p}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_050",
+      "title": "Espérance par la fonction de survie",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "espérance",
+        "maximum de variables aléatoires",
+        "inversion de sommes"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit X une variable aléatoire à valeurs dans $[[0, n]]$. Montrer que $E(X)=\\sum_{k=0}^{n-1}P(X>k)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $P(X>k)$ comme une somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacer $P(X>k)$ par $\\sum_{j=k+1}^n P(X=j)$ dans la somme globale, puis intervertir les deux sommes (Fubini discrète)."
+            }
+          ],
+          "solution_latex": "Décomposition: $\\mathbb{E}[X] = \\sum_{k=1}^n k \\cdot P(X=k) = \\sum_{k=1}^n \\sum_{j=1}^k P(X=k) = \\sum_{j=1}^n \\sum_{k=j}^n P(X=k) = \\sum_{j=1}^n P(X \\geq j)$\\par Formule équivalente: $\\mathbb{E}[X] = \\sum_{k=0}^{n-1} P(X > k)$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes uniformes sur $[[1,p]]$. Calculer l'espérance de $M_{n}=\\max\\{X_{1},...,X_{n}\\}$, puis sa limite lorsque n tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer d'abord la fonction de répartition de $M_n$, c'est-à-dire $P(M_n \\le k)$, puis en déduire $P(M_n > k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser la formule de la question 1 pour calculer l'espérance de $M_n$ comme une somme. Pour la limite, remarquer que pour $k<p$, le terme $(k/p)^n$ tend vers 0."
+            }
+          ],
+          "solution_latex": "Pour le maximum: $P(M_n \\leq k) = P(X_1 \\leq k, \\ldots, X_n \\leq k) = (k/p)^n$ pour $k \\in [[1,p]]$.\\par Donc: $P(M_n > k) = 1 - (k/p)^n$\\par Espérance:\\par $\\mathbb{E}[M_n] = \\sum_{k=0}^{p-1} P(M_n > k) = \\sum_{k=0}^{p-1} \\left[1 - (k/p)^n\\right] = p - \\frac{1}{p^n}\\sum_{k=0}^{p-1} k^n$\\par Limite: quand $n \\to \\infty$, le terme $\\sum k^n \\approx (p-1)^n$, donc $\\mathbb{E}[M_n] \\to p$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_051",
+      "title": "Minimum et maximum de variables uniformes",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "loi du minimum",
+        "loi du maximum",
+        "loi conjointe",
+        "espérance"
+      ],
+      "statement_latex": "Soient U et V deux variables indépendantes uniformes sur $[[1,n]]$. On note I leur minimum et S leur maximum.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi et l'espérance de I.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer par la probabilité de l'événement $(I \\ge k)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $I = \\min(U,V)$, l'événement $(I \\ge k)$ équivaut à $(U \\ge k \\cap V \\ge k)$. Utiliser l'indépendance pour calculer la probabilité, puis en déduire $P(I=k)$."
+            }
+          ],
+          "solution_latex": "$P(M \\leq k) = (k/n)^n$, $P(M > k) = 1 - (k/n)^n$. Minimum pour $k=1$: $P(m=1) = 1 - ((n-1)/n)^n$. Maximum: $\\mathbb{E}[M] = n \\cdot \\frac{n+1}{n+1} = n$ (mais plus précisément $\\frac{n(n+1)}{n+1} = n$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Les variables I et S sont-elles indépendantes ?",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher un cas simple où la probabilité de l'intersection n'est pas le produit des probabilités."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluer par exemple $P(I=n \\cap S=1)$ et comparer avec $P(I=n)P(S=1)$."
+            }
+          ],
+          "solution_latex": "Pour le minimum: $P(m \\geq k) = ((n-k+1)/n)^n$. $P(m = k) = ((n-k+1)/n)^n - ((n-k)/n)^n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Calculer l'espérance de S sans déterminer sa loi.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut $I+S$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquer que pour tous réels, $\\min(U,V) + \\max(U,V) = U + V$. Appliquer la linéarité de l'espérance pour en déduire $E(S)$."
+            }
+          ],
+          "solution_latex": "Espérance du minimum: $\\mathbb{E}[m] = \\sum_{k=1}^n ((n-k+1)/n)^n = \\sum_{j=1}^n (j/n)^n = \\frac{1}{n^n}\\sum_{j=1}^n j^n$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminer la loi du couple (I, S).",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_calcul_lois_marginales",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer $P(I=i, S=s)$ en distinguant les cas $i=s$, $i<s$ et $i>s$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $i<s$, l'événement $(I=i \\cap S=s)$ se décompose en l'union disjointe $(U=i \\cap V=s) \\cup (U=s \\cap V=i)$. Utiliser l'indépendance des variables $U$ et $V$."
+            }
+          ],
+          "solution_latex": "Relations: $\\mathbb{E}[M] + \\mathbb{E}[m] = \\frac{n(n+1)}{n+1}$ (approximativement $n+1$ pour grand $n$). Pour petit $n$, on a $\\mathbb{E}[M] \\approx \\frac{(n+1)n}{n+1}$ et $\\mathbb{E}[m] \\approx \\frac{n+1}{n+1} = 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_052",
+      "title": "Rang d'apparition dans une urne",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+        "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "rang d'apparition",
+        "loi conditionnelle",
+        "tirage sans remise"
+      ],
+      "statement_latex": "Une urne contient $n-2$ boules blanches et 2 boules noires. On la vide progressivement boule après boule. On note $R_{1}$ le rang d'apparition de la première boule noire et $R_{2}$ celui de la deuxième.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la loi et l'espérance de $R_{1}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__definition_loi_uniforme_rademacher",
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'événement $(R_1=k)$ signifie que les $k-1$ premiers tirages ont donné des boules blanches et le $k$-ème une noire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Après calcul, on doit trouver $E(R_{1})=\\frac{n+1}{3}$."
+            }
+          ],
+          "solution_latex": "Soit $R$ le rang (position) d'apparition d'une boule donnée dans l'ordre de tirage sans remise. Alors $P(R = k) = 1/n$ pour tout $k \\in [[1,n]]$ (par symétrie).\\par Loi uniforme sur $[[1,n]]$. Espérance: $\\mathbb{E}[R] = \\frac{n+1}{2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer pour tout $i\\in[[1,n-1]]$ la loi conditionnelle de $R_{2}$ sachant $\\{R_{1}=i\\}$ puis la loi de $R_{2}$, et montrer enfin que $E(R_{2})=2~E(R_{1})$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__theorem_esperance_lois_usuelles",
+            "probabilites_sur_un_univers_fini__theorem_proprietes_esperance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sachant $(R_1=i)$, il reste $n-i$ boules dans l'urne, dont exactement une seule boule noire."
+            },
+            {
+              "level": 2,
+              "content_latex": "La loi conditionnelle de $R_2$ correspond donc à un tirage uniforme parmi les positions restantes de $i+1$ à $n$. Appliquer la formule des probabilités totales pour obtenir la loi marginale de $R_2$."
+            }
+          ],
+          "solution_latex": "Si on tire avec remise jusqu'à obtenir la première apparition, le nombre de tirages suit une loi géométrique de paramètre $p = 1/n$. Espérance: $\\mathbb{E}[\\text{nb tirages}] = n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_053",
+      "title": "Inégalité sur le produit d'espérances",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__definition_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalités",
+        "espérance",
+        "polynôme du second degré"
+      ],
+      "statement_latex": "Soient a et b deux réels pour lesquels $0<a\\le b$ et X une variable aléatoire à valeurs dans $[a, b]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\frac{1}{X}\\le\\frac{a+b-X}{ab}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le signe de la différence $\\frac{a+b-X}{ab} - \\frac{1}{X}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En réduisant au même dénominateur, le numérateur vaut $-X^2 + (a+b)X - ab$, qui se factorise en $-(X-a)(X-b)$. Conclure avec les bornes de $X$."
+            }
+          ],
+          "solution_latex": "Inégalité: si $X, Y \\geq 0$ sont indépendantes et $\\phi, \\psi$ convexes, alors $\\mathbb{E}[\\phi(X)\\psi(Y)] \\geq \\mathbb{E}[\\phi(X)]\\mathbb{E}[\\psi(Y)]$ (FKG inégalité).\\par Plus généralement, pour variables positivement corrélées: $\\mathbb{E}[XY] \\geq \\mathbb{E}[X]\\mathbb{E}[Y]$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $E(X)E(\\frac{1}{X})\\le\\frac{(a+b)^2}{4ab}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Majorer $E(X)E(\\frac{1}{X})$, puis optimiser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prendre l'espérance de l'inégalité précédente pour isoler $E(1/X)$, puis multiplier par $E(X)$. Il reste à chercher le maximum de la fonction $x \\mapsto x\\frac{a+b-x}{ab}$."
+            }
+          ],
+          "solution_latex": "Pour indépendantes: $\\mathbb{E}[XY] = \\mathbb{E}[X]\\mathbb{E}[Y]$ toujours (définition).\\par Pour dépendantes: Cauchy-Schwarz donne $|\\mathbb{E}[XY]| \\leq \\sqrt{\\mathbb{E}[X^2]\\mathbb{E}[Y^2]}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_054",
+      "title": "Inégalité de Jensen et applications",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+        "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+        "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité de Jensen",
+        "fonction concave",
+        "espérance"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient I un intervalle, X une variable aléatoire à valeurs dans I et $f:I\\longrightarrow\\mathbb{R}$ une fonction concave. \\par a) Montrer que $E(X)\\in I$. \\par b) Montrer l'inégalité de Jensen : $E(f(X))\\le f(E(X))$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_esperance_complexe",
+            "probabilites_sur_un_univers_fini__definition_loi_variable_aleatoire",
+            "probabilites_sur_un_univers_fini__theorem_systeme_complet_associe_va"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), voir l'espérance comme un barycentre des valeurs possibles de l'univers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Un barycentre à coefficients positifs d'éléments de l'intervalle $I$ reste dans cet intervalle. Pour b), utiliser la définition de la concavité (position par rapport à la corde) étendue aux sommes finies."
+            }
+          ],
+          "solution_latex": "Théorème: si $\\phi$ convexe et $X$ intégrable, alors $\\phi(\\mathbb{E}[X]) \\leq \\mathbb{E}[\\phi(X)]$.\\par Preuve: par définition de convexité, en tout point $a$, la tangente minore la courbe. Prendre $a = \\mathbb{E}[X]$ et appliquer l'espérance."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient X et Y deux variables aléatoires strictement positives de même loi. Montrer que $E(\\frac{X}{Y})\\ge1$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter la symétrie du problème pour construire une somme d'espérances."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $X$ et $Y$ ont même loi, elles sont interchangeables. Évaluer $E(\\frac{X}{Y}) + E(\\frac{Y}{X}) = E(\\frac{X^2+Y^2}{XY})$ et utiliser une inégalité classique sur les carrés."
+            }
+          ],
+          "solution_latex": "Applications:\\par (i) $\\phi(x) = x^2$: $(\\mathbb{E}[X])^2 \\leq \\mathbb{E}[X^2]$.\\par (ii) $\\phi(x) = e^{tx}$: $e^{t\\mathbb{E}[X]} \\leq \\mathbb{E}[e^{tX}]$.\\par (iii) $\\phi(x) = 1/x$ (concave pour $x>0$): $\\mathbb{E}[1/X] \\geq 1/\\mathbb{E}[X]$ (inégalité inversée)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_055",
+      "title": "Inégalités avec des variables complexes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "variables complexes",
+        "inégalités",
+        "espérance",
+        "optimisation"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $Z_{1}$ et $Z_{2}$ deux variables aléatoires complexes indépendantes de même loi. Montrer que : \\par $|E(Z_{1})|^2=E(Z_{1}\\overline{Z_{2}})$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_esperance_produit_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappeler la définition du module au carré d'un nombre complexe."
+            },
+            {
+              "level": 2,
+              "content_latex": "$|E(Z_1)|^2 = E(Z_1)\\overline{E(Z_1)}$. Puis utiliser la linéarité du conjugué et l'indépendance de $Z_1$ et $Z_2$ (qui ont la même loi) pour regrouper sous l'espérance."
+            }
+          ],
+          "solution_latex": "Chebyshev: $P(|X - \\mathbb{E}[X]| \\geq t) \\leq \\text{Var}(X)/t^2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient X et Y deux variables aléatoires indépendantes de même loi à valeurs dans un intervalle de longueur $t\\in[0,\\frac{\\pi}{2}]$. \\par a) Montrer que $|E(e^{iX})|^2=E(\\cos(X-Y))$. \\par b) Montrer que $|\\cos x|\\ge\\frac{1+\\cos(2x)}{2}$ pour tout $x\\in\\mathbb{R}$. \\par c) En déduire que $|E(e^{iX})|\\ge\\max\\{\\frac{1}{\\sqrt{2}},\\sqrt{\\cos t}\\}$. \\par d) Trouver un exemple de variable aléatoire X pour laquelle $|E(e^{iX})|=\\frac{1}{\\sqrt{2}}$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+            "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), appliquer 1) aux variables $e^{iX}$ et $e^{iY}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour c), la variable $\\cos(X-Y)$ est positive. Ensuite, deux variables de même loi ont la même espérance."
+            }
+          ],
+          "solution_latex": "Markov: $P(X \\geq a) \\leq \\mathbb{E}[X]/a$ pour $X \\geq 0$ et $a > 0$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soient $\\theta_{1},...,\\theta_{n}\\in\\mathbb{R}$. On suppose que $|\\theta_{i}-\\theta_{j}|\\le\\frac{\\pi}{2}$ pour tous $i, j\\in[[1,n]]$. Montrer que : \\par $|\\sum_{k=1}^{n}e^{i\\theta_{k}}|\\ge\\frac{n}{\\sqrt{2}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simple conséquence de 2), mais attention, $\\theta_{1},...,\\theta_{n}$ ne sont pas forcément distincts."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérer une variable aléatoire uniforme discrète $X$ prenant ses valeurs dans $\\{\\theta_1, ..., \\theta_n\\}$ pour faire le lien avec l'espérance du module."
+            }
+          ],
+          "solution_latex": "Chernoff: pour $t > 0$, $P(X \\geq a) \\leq e^{-ta}\\mathbb{E}[e^{tX}]$ (meilleure borne exponentielle)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "probabilites_sur_un_univers_fini__ex_056",
+      "title": "Inégalité d'Etemadi",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+        "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+        "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales",
+        "probabilites_sur_un_univers_fini__theorem_outils_creation_variables_independantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalités",
+        "variables indépendantes",
+        "maximum",
+        "Etemadi"
+      ],
+      "statement_latex": "Soient $X_{1},...,X_{n}$ des variables aléatoires indépendantes. On pose $S_{k}=X_{1}+...+X_{k}$ pour tous $k\\in[[1,n]]$ et $x\\ge0$, puis $A_{k,x}=\\{|S_{k}|\\ge x\\}\\cap\\bigcap_{1\\le i<k}\\{|S_{i}|<x\\}$ et enfin $A_{x}=\\{\\max_{1\\le k\\le n}|S_{k}|\\ge x\\}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Exprimer $A_{x}$ en fonction de $A_{1,x},...,A_{n,x}$ pour tout $x\\ge0$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_loi_conjointe_marginales",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes",
+            "probabilites_sur_un_univers_fini__theorem_somme_variables_binomiales"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $A_{k,x}$ est l'événement « le premier dépassement du seuil $x$ par les sommes partielles en valeur absolue se produit exactement à l'indice $k$ »."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'événement $A_{x}$ signifie qu'il y a un dépassement à un certain moment parmi les $n$ étapes. Écrire cela comme une union (qui s'avère disjointe) des premiers instants de dépassement $A_{k,x}$."
+            }
+          ],
+          "solution_latex": "Inégalité d'Etemadi: pour variables i.i.d. avec $\\mathbb{E}[|X|] < \\infty$, la limite $\\lim_{n \\to \\infty} (X_1 + \\cdots + X_n)/n = \\mathbb{E}[X]$ p.s. sans hypothèse de variance.\\par Preuve: par tronçation et application de Borel-Cantelli."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $x\\ge0$. \\par a) Montrer que pour tout $k\\in[[1,n]]$ : \\par $A_{k,3x}\\cap\\{|S_{n}|<x\\}\\subset A_{k,3x}\\cap\\{|S_{n}-S_{k}|\\ge2x\\}$. \\par b) Montrer que $A_{k,3x}$ et $\\{|S_{n}-S_{k}|\\ge2x\\}$ sont indépendants pour tout $k\\in[[1,n]]$. \\par c) En déduire que : \\par $P(A_{3x})\\le P(|S_{n}|\\ge x)+\\max_{1\\le k\\le n}P(|S_{n}-S_{k}|\\ge2x)$. \\par d) En déduire l'inégalité d'Etemadi : \\par $P(\\max_{1\\le k\\le n}|S_{k}|\\ge3x)\\le3\\max_{1\\le k\\le n}P(|S_{k}|\\ge x)$.",
+          "knowledge_nodes_tested": [
+            "probabilites_sur_un_univers_fini__definition_evenements_independants",
+            "probabilites_sur_un_univers_fini__theorem_existence_variables_independantes",
+            "probabilites_sur_un_univers_fini__definition_variables_aleatoires_independantes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "2) b) De quelles variables parmi $X_{1},...,X_{n}$ chaque événement dépend-il ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour a), utiliser l'inégalité triangulaire sous la forme $|S_{k}| \\le |S_{n}| + |S_{k}-S_{n}|$. Sur l'événement $A_{k,3x}$, on sait que $|S_{k}| \\ge 3x$. Pour c), partir de $A_{3x} = \\bigcup A_{k,3x}$, découper selon que $|S_n| \\ge x$ ou non, et majorer avec les probabilités en utilisant l'indépendance trouvée en b)."
+            }
+          ],
+          "solution_latex": "Corollaire: la limite existe presque sûrement et dans $L^1$ sous des hypothèses faibles (comparé à CLT qui demande variance finie)."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

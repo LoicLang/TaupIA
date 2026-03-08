@@ -1,0 +1,386 @@
+{
+  "chapter_official_id": "derivabilite_et_convexite",
+  "chapter_name": "Dérivabilité et convexité",
+  "source_document": "Cours - Derivabilite et convexite.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "derivabilite_et_convexite__definition_lipschitzianite",
+      "type": "definition",
+      "title": "Définition : Lipschitzianité",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $K \\geq 0$. On dit que $f$ est $K$-lipschitzienne sur $E$ si : $\\forall x, y \\in E, \\quad |f(x) - f(y)| \\leq K |x - y|$.\\par\\par On dit en outre que $f$ est contractante si le réel $K$ peut être choisi strictement inférieur à 1.\\par\\par La fonction $f$ est $K$-lipschitzienne sur $E$ si $\\left|\\frac{f(x) - f(y)}{x - y}\\right| \\leq K$ pour tous $x, y \\in E$ distincts, i.e. si les pentes des cordes de son graphe sont majorées par $K$ en valeur absolue. Plus généralement, dire que $f$ est lipschitzienne revient à dire que les pentes des cordes de son graphe sont bornées.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_valeur_absolue_lipschitz",
+      "type": "example",
+      "title": "Exemple : La fonction valeur absolue est 1-lipschitzienne",
+      "content_latex": "La fonction $x \\longmapsto |x|$ est 1-lipschitzienne sur $\\mathbb{R}$ d'après l'inégalité triangulaire généralisée $\\big||x| - |y|\\big| \\leq |x - y|$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_1_sur_x_lipschitz",
+      "type": "example",
+      "title": "Exemple : La fonction $x \\longmapsto \\frac{1}{x}$",
+      "content_latex": "La fonction $x \\longmapsto \\frac{1}{x}$ est $\\frac{1}{\\varepsilon^2}$-lipschitzienne sur $[\\varepsilon, +\\infty[$ pour tout $\\varepsilon > 0$, mais elle n'est pas lipschitzienne sur $\\mathbb{R}_+^*$.\\par\\par En revanche : $\\frac{f(x) - f(y)}{x - y} = \\frac{1}{x} - \\frac{1}{y}$ avec $x$ et $y$ décrivant $\\mathbb{R}_+^*$ avec $x = y$, donc $f$ n'est pas lipschitzienne sur $\\mathbb{R}_+^*$.",
+      "proof_latex": "Pour tous $\\varepsilon > 0$ et $x, y \\geq \\varepsilon$ : $|f(x) - f(y)| = \\left|\\frac{1}{x} - \\frac{1}{y}\\right| = \\frac{|x - y|}{|xy|} \\leq \\frac{|x - y|}{\\varepsilon^2}$, donc l'ensemble des réels $\\frac{f(x) - f(y)}{x - y}$ n'est pas borné."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_lipschitz_implique_continue",
+      "type": "theorem",
+      "title": "Théorème : Lipschitzienne implique continue",
+      "content_latex": "Toute fonction lipschitzienne est continue.\\par\\par Vous noterez en passant que la lipschitzianité est une propriété globale des fonctions, contrairement à la continuité qui est locale. La lipschitzianité est directement définie sur une partie de $\\mathbb{R}$, il n'aurait pas grand sens de la définir en un point.",
+      "proof_latex": "Soit $f : E \\longrightarrow \\mathbb{C}$ une fonction $K$-lipschitzienne pour un certain $K \\geq 0$. Pour tous $a, x \\in E$ : $|f(x) - f(a)| \\leq K |x - a| \\xrightarrow[x \\to a]{} 0$, donc $f(x) \\xrightarrow[x \\to a]{} f(a)$ par encadrement, i.e. $f$ est continue en $a$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_distance_ensemble",
+      "type": "example",
+      "title": "Exemple : Fonction distance à un ensemble",
+      "content_latex": "Pour toute partie non vide $A$ de $\\mathbb{R}$, la fonction $x \\longmapsto d(x, A) = \\inf_{a \\in A} |x - a|$ est 1-lipschitzienne sur $\\mathbb{R}$, donc continue.",
+      "proof_latex": "Pour tous $x, y \\in \\mathbb{R}$ : $|d(x, A) - d(y, A)| \\leq |x - y|$ comme nous l'avons déjà vu. Bref, la fonction $x \\longmapsto d(x, A)$ est continue sur $\\mathbb{R}$."
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_derivabilite",
+      "type": "definition",
+      "title": "Définition : Dérivabilité en un point ou sur une partie de $\\mathbb{R}$, tangente",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$.\\par\\par \\textbf{Dérivabilité :} On dit que $f$ est dérivable en $a$ si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$.\\par\\par On dit que $f$ est dérivable sur $E$ si elle l'est en tout point de $E$.\\par\\par \\textbf{Tangente :} Si $f$ est dérivable en $a$, la droite d'équation $y = f(a) + f'(a)(x - a)$ est appelée la tangente de $f$ en $a$. Et si $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\pm\\infty$, la droite d'équation $x = a$ est appelée la tangente de $f$ en $a$.\\par\\par Si $f$ est dérivable en $a$ et si $x$ est proche de $a$, alors $\\frac{f(x) - f(a)}{x - a} \\approx f'(a)$, donc $f(x) \\approx f(a) + f'(a)(x - a)$. À défaut d'être rigoureux, c'est convaincant. La tangente de $f$ en $a$ est ainsi la droite la plus proche du graphe de $f$ au voisinage de $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_xn_derivable",
+      "type": "example",
+      "title": "Exemple : La fonction $x \\longmapsto x^n$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$, la fonction $x \\longmapsto x^n$ est dérivable sur $\\mathbb{R}$ de dérivée $x \\longmapsto nx^{n-1}$.",
+      "proof_latex": "Pour tout $a \\in \\mathbb{R}$ : $\\frac{x^n - a^n}{x - a} = \\sum_{k=0}^{n-1} a^k x^{n-k-1} \\xrightarrow[x \\to a]{} \\sum_{k=0}^{n-1} a^k a^{n-k-1} = na^{n-1}$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_valeur_absolue_non_derivable",
+      "type": "example",
+      "title": "Exemple : La fonction valeur absolue n'est pas dérivable en 0",
+      "content_latex": "La fonction valeur absolue $|\\cdot|$ n'est pas dérivable en 0.",
+      "proof_latex": "Pour tout $x \\in \\mathbb{R}^*$ : $\\frac{|x| - |0|}{x - 0} = \\begin{cases} 1 & \\text{si } x > 0 \\\\ -1 & \\text{si } x < 0 \\end{cases}$ de limite en 0 car $\\frac{|x| - |0|}{x - 0} \\xrightarrow[x \\to 0^+]{} 1$ et $\\frac{|x| - |0|}{x - 0} \\xrightarrow[x \\to 0^-]{} -1$, donc la fonction $x \\longmapsto \\frac{|x| - |0|}{x - 0}$ n'a pas de limite en 0."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_derivable_implique_continue",
+      "type": "theorem",
+      "title": "Théorème : Dérivable implique continue",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$. Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.\\par\\par \\textbf{Attention !} La réciproque est totalement fausse, pensez à la fonction valeur absolue en 0. C'est contre-intuitif, mais il existe même des fonctions qui sont continues sur $\\mathbb{R}$ tout entier mais dérivables en aucun point.",
+      "proof_latex": "Si $f$ est dérivable en $a$ : $f(x) = \\frac{f(x) - f(a)}{x - a}(x - a) + f(a) \\xrightarrow[x \\to a]{} f'(a) \\cdot 0 + f(a) = f(a)$, donc $f$ est continue en $a$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_derivabilite_parties_reelles_imaginaires",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la dérivabilité par les parties réelle et imaginaire",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$.\\par\\par $f$ est dérivable en $a$ si et seulement si $\\text{Re}(f)$ et $\\text{Im}(f)$ le sont.\\par\\par Le cas échéant : $f'(a) = \\text{Re}(f)'(a) + i\\,\\text{Im}(f)'(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_derivabilite_gauche_droite",
+      "type": "definition",
+      "title": "Définition-théorème : Dérivabilité à gauche/à droite en un point",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{C}$ une fonction et $a \\in E$ un point au voisinage duquel $f$ est définie à gauche et à droite.\\par\\par \\textbf{Définition :} On dit que $f$ est dérivable à gauche en $a$ si $f|_{E \\cap ]-\\infty, a]}$ est dérivable en $a$, autrement dit si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie à gauche en $a$, notée $f'_g(a)$ le cas échéant.\\par\\par On définit la dérivabilité à droite en $a$ de façon analogue et on note $f'_d(a)$ le nombre dérivé à droite le cas échéant.\\par\\par \\textbf{Caractérisation de la dérivabilité à l'aide des dérivabilités à gauche/à droite :} $f$ est dérivable en $a$ si et seulement si $f$ est dérivable à gauche et à droite en $a$ avec de plus $f'_g(a) = f'_d(a)$.",
+      "proof_latex": "$f$ est dérivable en $a$ $\\Longleftrightarrow$ $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie en $a$ $\\Longleftrightarrow$ $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ possède une limite finie à gauche et à droite en $a$ et ces limites sont égales $\\Longleftrightarrow$ $f$ est dérivable à gauche et à droite en $a$ et $f'_g(a) = f'_d(a)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_fonction_morceaux_derivable",
+      "type": "example",
+      "title": "Exemple : Fonction définie par morceaux dérivable en 0",
+      "content_latex": "La fonction $f : x \\longmapsto \\begin{cases} \\ln(1 + x) & \\text{si } x \\geq 0 \\\\ \\sin x & \\text{si } x < 0 \\end{cases}$ est dérivable en 0 car $f'_g(0) = f'_d(0) = 1$, donc $f'(0) = 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__warning_non_derivable_gauche_droite",
+      "type": "warning",
+      "title": "Attention : Fonction ni dérivable à gauche ni dérivable à droite",
+      "content_latex": "Une fonction peut n'être ni dérivable à gauche ni dérivable à droite en un point. C'est le cas de la fonction $f : x \\longmapsto x \\sin\\frac{1}{x}$ prolongée par 0 en 0 car la fonction $x \\longmapsto \\frac{f(x) - f(0)}{x - 0} = \\sin\\frac{1}{x}$ n'a pas de limite en 0, ni à gauche ni à droite.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__warning_minimum_sans_monotonie",
+      "type": "warning",
+      "title": "Attention : Minimum sans être décroissante à gauche et croissante à droite",
+      "content_latex": "Une fonction peut avoir un minimum en un point sans être décroissante à gauche et croissante à droite au voisinage de ce point. C'est le cas de la fonction $x \\longmapsto x^2 + 2x^2 \\sin^2\\frac{1}{x}$ prolongée par 0 en 0.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__warning_fprime_positif_sans_croissance",
+      "type": "warning",
+      "title": "Attention : On peut avoir $f'(a) > 0$ sans que $f$ soit strictement croissante au voisinage de $a$",
+      "content_latex": "C'est le cas de la fonction $f : x \\longmapsto x^2 \\sin\\frac{1}{x} + \\frac{x}{2}$ prolongée par 0 en 0. Il est clair que $f$ est dérivable sur $\\mathbb{R}^*$ et en revenant au taux d'accroissement de $f$, on montre aisément que $f'(0) = \\frac{1}{2} > 0$. Pourtant, $f'$ change de signe régulièrement au voisinage de 0, donc $f$ change de sens de variation régulièrement au voisinage de 0 car pour tout $x \\in \\mathbb{R}^*$ : $f'(x) = 2x \\sin\\frac{1}{x} - \\cos\\frac{1}{x} + \\frac{1}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_operations_derivabilite",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur la dérivabilité",
+      "content_latex": "(i) \\textbf{Combinaison linéaire, produit, quotient :} Pour toutes fonctions $f, g \\in \\mathcal{D}(E, \\mathbb{C})$ et $\\lambda, \\mu \\in \\mathbb{C}$, les fonctions $\\lambda f + \\mu g$ et $fg$ sont dérivables sur $E$, ainsi que $\\frac{f}{g}$ si $g$ ne s'annule pas. En outre : $(\\lambda f + \\mu g)' = \\lambda f' + \\mu g'$, $(fg)' = f'g + fg'$ et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$.\\par\\par (ii) \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{D}(E, \\mathbb{R})$ et $g \\in \\mathcal{D}(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est dérivable sur $E$ et : $(g \\circ f)' = f' \\times g' \\circ f$.\\par\\par (iii) \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{D}(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est dérivable sur $J$ et $(f^{-1})' = \\frac{1}{f' \\circ f^{-1}}$.\\par\\par \\textbf{Attention !} Pour la dérivabilité de $f^{-1}$, l'hypothèse de non-annulation de $f'$ est cruciale !",
+      "proof_latex": "(i) Fixons $a \\in E$. La dérivabilité de $g$ en $a$ implique sa continuité, donc $g(x) \\xrightarrow[x \\to a]{} g(a)$.\\par Tout d'abord : $\\frac{(\\lambda f + \\mu g)(x) - (\\lambda f + \\mu g)(a)}{x - a} = \\lambda \\frac{f(x) - f(a)}{x - a} + \\mu \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} \\lambda f'(a) + \\mu g'(a)$.\\par Ensuite : $\\frac{(fg)(x) - (fg)(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times g(x) + f(a) \\times \\frac{g(x) - g(a)}{x - a} \\xrightarrow[x \\to a]{} f'(a)g(a) + f(a)g'(a)$.\\par Enfin, si $g(a) \\neq 0$ : $\\frac{\\frac{1}{g(x)} - \\frac{1}{g(a)}}{x - a} = \\frac{1}{g(x)g(a)} \\times \\frac{g(a) - g(x)}{x - a} \\xrightarrow[x \\to a]{} -\\frac{g'(a)}{g(a)^2}$.\\par\\par (ii) Fixons $a \\in E$. Pour tout $y \\in E$, posons $\\tau(y) = \\begin{cases} \\frac{g(y) - g(f(a))}{y - f(a)} & \\text{si } y \\neq f(a) \\\\ g'(f(a)) & \\text{si } y = f(a) \\end{cases}$. Par dérivabilité de $g$ en $f(a)$ : $\\tau(y) \\xrightarrow[y \\to f(a)]{} g'(f(a))$, et pour tout $x \\in E$ : $\\tau(f(x))(f(x) - f(a)) = g \\circ f(x) - g \\circ f(a)$, donc $\\frac{g \\circ f(x) - g \\circ f(a)}{x - a} = \\frac{f(x) - f(a)}{x - a} \\times \\tau(f(x)) \\xrightarrow[x \\to a]{} f'(a)g'(f(a))$.\\par\\par (iii) Fixons $b \\in J$. Par continuité de $f$ en $f^{-1}(b)$, $f^{-1}$ est continue en $b$, donc $f^{-1}(y) \\xrightarrow[y \\to b]{} f^{-1}(b)$. Ensuite : $\\frac{f^{-1}(y) - f^{-1}(b)}{y - b} = \\frac{f^{-1}(y) - f^{-1}(b)}{f(f^{-1}(y)) - f(f^{-1}(b))} \\xrightarrow[y \\to b]{} \\frac{1}{f'(f^{-1}(b))}$ car $f'$ ne s'annule pas en $f^{-1}(b)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_racine_arcsin",
+      "type": "example",
+      "title": "Exemple : La fonction $x \\longmapsto \\sqrt{x^3 \\arcsin x}$",
+      "content_latex": "La fonction $x \\longmapsto \\sqrt{x^3 \\arcsin x}$ est dérivable sur $]-1, 1[$.\\par\\par Ce raisonnement ne nous apprend rien sur la fonction $x \\longmapsto \\sqrt{x^3 \\arcsin x}$ en 0 car nos théorèmes d'opérations sur la dérivabilité nous parlent de dérivabilité mais pas de NON-dérivabilité. De fait, la fonction $x \\longmapsto \\sqrt{x^3 \\arcsin x}$ est quand même dérivable en 0 car : $\\frac{\\sqrt{x^3 \\arcsin x} - 0}{x - 0} = \\sqrt{x^4} \\times \\sqrt{\\frac{\\arcsin x}{x}} = |x| \\sqrt{\\frac{\\arcsin x}{x}} \\xrightarrow[x \\to 0]{} 0 \\times 1 = 0$, donc d'après le théorème de la limite de la dérivée, $f$ est dérivable en 0 et $f'(0) = 0$.\\par\\par On pourrait montrer en revanche que $x \\longmapsto \\sqrt{x^3 \\arcsin x}$ n'est dérivable ni en $-1$ ni en $1$.",
+      "proof_latex": "La fonction $x \\longmapsto x^3 \\arcsin x$ est dérivable sur $]-1, 1[$ par produit. Positive sur $[0, 1]$ et nulle seulement en 0, cette fonction est donc dérivable sur $]-1, 1[ \\setminus \\{0\\}$ à valeurs dans $\\mathbb{R}_+^*$. La fonction racine carrée étant dérivable sur $\\mathbb{R}_+^*$ SEULEMENT, $x \\longmapsto \\sqrt{x^3 \\arcsin x}$ est dérivable sur $]-1, 1[ \\setminus \\{0\\}$ par composition."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_operations_derivees_successives",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les dérivées successives",
+      "content_latex": "Soit $k \\in \\mathbb{N} \\cup \\{\\infty\\}$.\\par\\par \\textbf{Combinaison linéaire, produit, quotient :} $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par combinaison linéaire et produit, ainsi que par quotient tant que le dénominateur ne s'annule pas.\\par\\par En outre, pour toutes fonctions $f, g \\in \\mathcal{C}^k(E, \\mathbb{C})$ : $(fg)^{(k)} = \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p)}$ (formule de Leibniz).\\par\\par \\textbf{Composition :} Pour toutes fonctions $f \\in \\mathcal{C}^k(E, \\mathbb{R})$ et $g \\in \\mathcal{C}^k(F, \\mathbb{C})$, si $f(E) \\subset F$, alors $g \\circ f$ est de classe $\\mathcal{C}^k$ sur $E$.\\par\\par \\textbf{Réciproque :} Soit $I$ un intervalle. Pour toute fonction $f \\in \\mathcal{C}^k(I, \\mathbb{R})$ bijective de $I$ sur $J = f(I)$, SI $f'$ NE S'ANNULE PAS SUR $I$, alors $f^{-1}$ est de classe $\\mathcal{C}^k$ sur $J$.\\par\\par On peut remplacer dans chacune de ces assertions la classe $\\mathcal{C}^k$ par une hypothèse de dérivabilité $k$ fois.",
+      "proof_latex": "On raisonne par récurrence sur $k$ avec des initialisations toutes triviales car être de classe $\\mathcal{C}^0$, c'est être continue. Le cas des combinaisons linéaires tombe sous le sens.\\par\\par \\textbf{Produit (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par produit et que la formule de Leibniz y est vraie pour les dérivées $k$èmes. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $fg$ aussi et $(fg)' = f'g + fg'$. Or $f'g$ et $fg'$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $(fg)'$ aussi par addition. Conclusion : $fg$ est de classe $\\mathcal{C}^{k+1}$. Ensuite : $(fg)^{(k+1)} = (f'g)^{(k)} + (fg')^{(k)} \\stackrel{\\text{HDR}}{=} \\sum_{p=0}^{k} \\binom{k}{p} f^{(p+1)} g^{(k-p)} + \\sum_{p=0}^{k} \\binom{k}{p} f^{(p)} g^{(k-p+1)} = \\sum_{p=0}^{k+1} \\binom{k+1}{p} f^{(p)} g^{(k+1-p)}$ par Pascal.\\par\\par \\textbf{Quotient (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $\\mathcal{C}^k(E, \\mathbb{C})$ est stable par quotient tant que le dénominateur ne s'annule pas. Soient $f, g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. On suppose que $g$ ne s'annule pas sur $E$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $\\frac{f}{g}$ aussi et $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$. Or $f'g - fg'$ et $g^2$ sont de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $\\frac{f}{g}$ aussi par quotient. Conclusion : $\\frac{f}{g}$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Composition (hérédité) :} Soit $k \\in \\mathbb{N}$. On suppose que $g \\circ f \\in \\mathcal{C}^k(E, \\mathbb{C})$ pour toutes fonctions $f \\in \\mathcal{C}^k(D, E)$ et $g \\in \\mathcal{C}^k(E, \\mathbb{C})$. Soient $f \\in \\mathcal{C}^{k+1}(D, E)$ et $g \\in \\mathcal{C}^{k+1}(E, \\mathbb{C})$. Les fonctions $f$ et $g$ sont dérivables car $k+1 \\geq 1$, donc $g \\circ f$ aussi et $(g \\circ f)' = f' \\times g' \\circ f$. Or $g'$ est de classe $\\mathcal{C}^k$ par hypothèse de récurrence, donc $g' \\circ f$ aussi par composition, puis $(g \\circ f)'$ par produit. Conclusion : $g \\circ f$ est de classe $\\mathcal{C}^{k+1}$.\\par\\par \\textbf{Réciproque :} Imiter les preuves précédentes."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_x2_sin_1_sur_x",
+      "type": "example",
+      "title": "Exemple : La fonction $x \\longmapsto x^2 \\sin\\frac{1}{x}$ prolongée par 0 en 0",
+      "content_latex": "La fonction $f : x \\longmapsto x^2 \\sin\\frac{1}{x}$ prolongée par 0 en 0 est dérivable sur tout $\\mathbb{R}$, mais de classe $\\mathcal{C}^1$ seulement sur $\\mathbb{R}^*$.",
+      "proof_latex": "Pour commencer, $f$ est de classe $\\mathcal{C}^1$ sur $\\mathbb{R}^*$ et $\\frac{f(x) - f(0)}{x - 0} = x \\sin\\frac{1}{x} \\xrightarrow[x \\to 0]{} 0$ car la fonction $x \\longmapsto \\sin\\frac{1}{x}$ est bornée, donc $f$ est dérivable en 0. Cela dit, pour tout $x \\in \\mathbb{R}^*$ : $f'(x) = 2x \\sin\\frac{1}{x} - \\cos\\frac{1}{x}$ et $x \\sin\\frac{1}{x} \\xrightarrow[x \\to 0]{} 0$ alors que $x \\longmapsto \\cos\\frac{1}{x}$ n'a pas de limite en 0, donc $f'$ n'a pas non plus de limite en 0, donc $f'$ n'est pas continue en 0."
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_extremum_local_point_critique",
+      "type": "definition",
+      "title": "Définition : Extremum local, point critique",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{R}$ une fonction et $a \\in E$.\\par\\par \\textbf{Extremum local :} On dit que $f$ possède un maximum (resp. minimum) local en $a$ si $f$ est majorée (resp. minorée) par $f(a)$ au voisinage de $a$.\\par\\par \\textbf{Point critique :} On dit que $a$ est un point critique de $f$ si $f$ est dérivable en $a$ avec $f'(a) = 0$.\\par\\par Un maximum local n'est pas forcément un maximum de la fonction sur tout son domaine de définition.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_condition_extremum_local",
+      "type": "theorem",
+      "title": "Théorème : Condition nécessaire d'existence d'un extremum local en un point intérieur",
+      "content_latex": "Soient $f : E \\longrightarrow \\mathbb{R}$ une fonction et $a \\in E$ --- il est très important que $a$ soit intérieur à $E$. Si $f$ est dérivable en $a$ et possède un extremum local en $a$, $a$ est un point critique de $f$.\\par\\par \\textbf{Réciproque fausse :} Tout point critique n'est pas forcément le signe d'un extremum local.",
+      "proof_latex": "Étudions le cas d'un maximum local en $a$. Pour commencer, $a \\in \\overset{\\circ}{E}$ donc $]a - \\varepsilon, a + \\varepsilon[ \\subset E$ pour un certain $\\varepsilon > 0$. Ensuite, $f$ possède un maximum local en $a$, donc $f(x) \\leq f(a)$ pour tout $x \\in ]a - \\varepsilon, a + \\varepsilon[$ --- avec le même $\\varepsilon$ quitte à le diminuer. Par conséquent : $\\forall x \\in ]a - \\varepsilon, a[, \\quad \\frac{f(x) - f(a)}{x - a} \\geq 0$ et $\\forall x \\in ]a, a + \\varepsilon[, \\quad \\frac{f(x) - f(a)}{x - a} \\leq 0$.\\par\\par Cela dit, $f$ est dérivable en $a$, donc $f'(a) \\geq 0$ par passage à la limite dans l'inégalité de gauche et $f'(a) \\leq 0$ pour la même raison dans l'inégalité de droite. Conclusion : $f'(a) = 0$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_rolle",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Rolle",
+      "content_latex": "Soit $f : [a, b] \\longrightarrow \\mathbb{R}$ une fonction continue sur $[a, b]$ et dérivable sur $]a, b[$ pour laquelle $f(a) = f(b)$. Il existe un réel $c \\in ]a, b[$ pour lequel $f'(c) = 0$.\\par\\par Chaque hypothèse du théorème a son importance.",
+      "proof_latex": "Continue sur le segment $[a, b]$, $f$ y est bornée et possède un minimum $m$ et un maximum $M$ d'après le théorème des bornes atteintes.\\par\\par Si $f(a) = f(b) = M$, alors comme $f$ atteint ses bornes, $f(c) = M$ pour un certain $c \\in ]a, b[$. Par hypothèse, $c$ n'est alors pas une borne de $[a, b]$, donc $f'(c) = 0$ d'après le théorème précédent.\\par\\par Si $f(a) = f(b) = m$, même raisonnement.\\par\\par Pour finir, si $f(a) = f(b) = m = M$, alors $f$ est constante de valeur $M = m$ sur tout $[a, b]$ par définition de $m$ et $M$, donc $f'$ est nulle sur $[a, b]$ tout entier !"
+    },
+    {
+      "id": "derivabilite_et_convexite__example_polynome_racine_01",
+      "type": "example",
+      "title": "Exemple : Racine d'un polynôme dans $]0, 1[$",
+      "content_latex": "Pour tous $\\alpha, \\beta, \\gamma \\in \\mathbb{R}$, le polynôme $P = 4\\alpha X^3 + 3\\beta X^2 + 2\\gamma X - (\\alpha + \\beta + \\gamma)$ possède une racine dans $]0, 1[$.",
+      "proof_latex": "Fixons $\\alpha, \\beta, \\gamma \\in \\mathbb{R}$.\\par\\par On a bien sûr envie d'utiliser le TVI. Hélas : $P(0) = -(\\alpha + \\beta + \\gamma)$ et $P(1) = 3\\alpha + 2\\beta + \\gamma$ et le signe de ces deux nombres n'est pas du tout clair.\\par\\par Changeons de point de vue. Le polynôme $Q = \\alpha X^4 + \\beta X^3 + \\gamma X^2 - (\\alpha + \\beta + \\gamma)X$ est une primitive de $P$ et $Q(0) = Q(1) = 0$, donc d'après le théorème de Rolle, $P = Q'$ s'annule au moins une fois entre 0 et 1.\\par\\par Bref, nous connaissons maintenant deux théorèmes d'existence d'un antécédent, le TVI et le théorème de Rolle, dans un cas avec $f$ et dans l'autre avec $f'$."
+    },
+    {
+      "id": "derivabilite_et_convexite__warning_rolle_complexe",
+      "type": "warning",
+      "title": "Attention : Le théorème de Rolle est faux pour les fonctions complexes",
+      "content_latex": "Par exemple, la fonction $t \\longmapsto e^{it}$ est continue sur $[0, 2\\pi]$, dérivable sur $]0, 2\\pi[$, et $e^{i0} = e^{2i\\pi} = 1$, mais sa dérivée $t \\longmapsto i e^{it}$ ne s'annule pas.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_accroissements_finis",
+      "type": "theorem",
+      "title": "Théorème : Théorème des accroissements finis",
+      "content_latex": "Soit $f : [a, b] \\longrightarrow \\mathbb{R}$ continue sur $[a, b]$ et dérivable sur $]a, b[$. Il existe un réel $c \\in ]a, b[$ pour lequel $f'(c) = \\frac{f(b) - f(a)}{b - a}$, ou encore $f(b) - f(a) = f'(c)(b - a)$.\\par\\par Le théorème des accroissements finis généralise le théorème de Rolle. La morale de l'histoire ? Si j'ai des informations sur $f'$, j'en ai aussi sur les accroissements $f$. Typiquement, toute majoration/minoration de $f'$ peut être convertie en une majoration/minoration sur $f$.",
+      "proof_latex": "Notons $d$ la fonction affine $x \\longmapsto \\frac{f(b) - f(a)}{b - a}(x - a) + f(a)$ et $\\phi$ la fonction $f - d$. La fonction $\\phi$ est continue sur $[a, b]$, dérivable sur $]a, b[$ et $\\phi(a) = \\phi(b) = 0$, donc $\\phi'(c) = 0$ pour un certain $c \\in ]a, b[$ d'après le théorème de Rolle, ou encore $\\frac{f(b) - f(a)}{b - a} = f'(c)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_f3_c_egal_0",
+      "type": "example",
+      "title": "Exemple : $f^{(3)}(c) = 0$",
+      "content_latex": "Soit $f \\in \\mathcal{C}^3([a, b], \\mathbb{R})$. On suppose que $f(a) = f'(a) = f(b) = f'(b) = 0$. Alors pour un certain $c \\in ]a, b[$ : $f^{(3)}(c) = 0$.",
+      "proof_latex": "D'abord $f$ est continue sur $[a, b]$ et dérivable sur $]a, b[$ avec $f(a) = f(b) = 0$, donc $f'(u) = 0$ pour un certain $u \\in ]a, b[$ d'après le théorème de Rolle.\\par\\par Ensuite, $f'$ est continue sur $[a, u]$ et $[u, b]$ et dérivable sur $]a, u[$ et $]u, b[$ avec $f'(a) = f'(u) = f'(b) = 0$, donc $f''(v) = f''(w) = 0$ pour certains $v \\in ]a, u[$ et $w \\in ]u, b[$ d'après le théorème de Rolle.\\par\\par Enfin, $f''$ est continue sur $[v, w]$ et dérivable sur $]v, w[$ avec $f''(v) = f''(w)$, donc $f^{(3)}(c) = 0$ pour un certain $c \\in ]v, w[ \\subset ]a, b[$ d'après le théorème de Rolle."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_f_sannule_kplus1",
+      "type": "example",
+      "title": "Exemple : Zéros de $f$ et de ses dérivées successives",
+      "content_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{C}^k(I, \\mathbb{R})$. Si $f$ s'annule en au moins $k + 1$ points distincts, alors $f^{(k)}$ s'annule en au moins un point. Ce résultat est un grand classique, étudiez-le bien !",
+      "proof_latex": "Montrons proprement par récurrence que $f^{(i)}$ s'annule en au moins $k - i + 1$ points distincts pour tout $i \\in \\{0, k\\}$. Pour $i = k$, c'est le résultat souhaité.\\par\\par \\textbf{Initialisation :} L'assertion pour $i = 0$ n'est autre que l'hypothèse du théorème.\\par\\par \\textbf{Hérédité :} Soit $i \\in \\{0, k - 1\\}$. Faisons l'hypothèse que $f^{(i)}$ s'annule en au moins $k - i + 1$ rangés dans l'ordre $x_1 < \\ldots < x_{k-i+1}$. Pour tout $j \\in \\{1, k - i\\}$, $f^{(i)}$ est continue sur $[x_j, x_{j+1}]$, dérivable sur $]x_j, x_{j+1}[$ et $f^{(i)}(x_j) = f^{(i)}(x_{j+1}) = 0$. Le théorème de Rolle affirme donc l'existence d'un zéro $x'_j$ de $f^{(i+1)}$ compris strictement entre $x_j$ et $x_{j+1}$. Nous voilà donc à la tête de $k - (i + 1) + 1$ zéros de $f^{(i+1)}$, lesquels sont bien distincts car $x'_1 < x_2 < x'_2 < x_3 < \\ldots < x'_{k-i} < x_{k-i+1}$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_inegalite_accroissements_finis",
+      "type": "theorem",
+      "title": "Théorème : Inégalité des accroissements finis",
+      "content_latex": "Soient $I$ un intervalle et $f \\in \\mathcal{D}(I, \\mathbb{C})$. Si $f'$ est bornée sur $I$, alors $f$ est $\\|f'\\|_\\infty$-lipschitzienne sur $I$.\\par\\par L'inégalité des accroissements finis est plus robuste que le théorème de Rolle et le théorème des accroissements finis car elle est énoncée pour des fonctions complexes.",
+      "proof_latex": "Soient $x, y \\in I$ deux réels pour lesquels $x < y$.\\par\\par \\textbf{Cas où $f$ est réelle :} Comme $f$ est continue sur $[x, y]$ et dérivable sur $]x, y[$, alors $\\frac{f(x) - f(y)}{x - y} = f'(c)$ pour un certain $c \\in ]x, y[$ d'après le théorème des accroissements finis, et donc : $\\left|\\frac{f(x) - f(y)}{x - y}\\right| = |f'(c)| \\leq \\|f'\\|_\\infty$.\\par\\par \\textbf{Cas général :} Pour majorer le nombre complexe $f(x) - f(y)$ en module, ramenons-nous au cas précédent. En notant $\\theta$ un réel pour lequel $e^{-i\\theta}(f(x) - f(y))$ est réel et $\\phi$ la fonction $\\text{Re}(e^{-i\\theta}f)$ : $|f(x) - f(y)| = e^{-i\\theta}(f(x) - f(y)) = \\phi(x) - \\phi(y)$. Or $\\phi$ est dérivable sur $I$ et $|\\phi'| = |\\text{Re}(e^{-i\\theta}f')| \\leq |e^{-i\\theta}f'| = |f'| = |f'|$, donc d'après le cas réel : $\\frac{|f(x) - f(y)|}{|x - y|} = \\frac{|\\phi(x) - \\phi(y)|}{|x - y|} \\leq \\|\\phi'\\|_\\infty \\leq \\|f'\\|_\\infty$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_sinus_lipschitzien",
+      "type": "example",
+      "title": "Exemple : La fonction sinus est 1-lipschitzienne",
+      "content_latex": "Pour tout $x \\in \\mathbb{R}$ : $|\\sin x| \\leq |x|$.",
+      "proof_latex": "La fonction sinus est dérivable sur $\\mathbb{R}$ et $|\\sin'| = |\\cos| \\leq 1$, donc sinus est 1-lipschitzienne d'après l'inégalité des accroissements finis, donc pour tout $x \\in \\mathbb{R}$ : $|\\sin x - \\sin 0| \\leq |x - 0|$, i.e. $|\\sin x| \\leq |x|$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_fonctions_constantes",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions constantes dérivables",
+      "content_latex": "Soient $I$ un INTERVALLE et $f \\in \\mathcal{D}(I, \\mathbb{C})$. $f$ est constante sur $I$ si et seulement si $f'$ est nulle sur $I$.",
+      "proof_latex": "Une preuve du cas réel suffit via la caractérisation de la dérivabilité à partir des parties réelle et imaginaire. Soit donc $f \\in \\mathcal{D}(I, \\mathbb{R})$.\\par\\par Si $f$ est constante sur $I$, alors pour tout $a \\in I$ : $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} 0$, donc $f'(a) = 0$.\\par\\par Réciproquement, supposons $f'$ nulle sur $I$ et donnons-nous deux réels $x, y \\in I$ pour lesquels $x < y$. Comme $f$ est continue sur $[x, y]$ et dérivable sur $]x, y[$, $\\frac{f(y) - f(x)}{y - x} = f'(c) = 0$ pour un certain $c \\in ]x, y[$ d'après le théorème des accroissements finis. Ainsi, $f(x) = f(y)$ donc $f$ est constante."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_fonctions_monotones",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions monotones dérivables",
+      "content_latex": "Soient $I$ un INTERVALLE et $f \\in \\mathcal{D}(I, \\mathbb{R})$.\\par\\par (i) $f$ est croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$.\\par\\par (ii) $f$ est strictement croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$ et n'est identiquement nulle sur aucun intervalle $[a, b]$ avec $a < b$.\\par\\par En particulier, si $f'$ est strictement positive sur $I$, alors $f$ est strictement croissante sur $I$.\\par\\par \\textbf{Attention !} Mine de rien, il est indispensable que $I$ soit un INTERVALLE.",
+      "proof_latex": "(i) Remplacez simplement les inégalités par des égalités dans la preuve du théorème précédent.\\par\\par (ii) Supposons d'abord $f$ strictement croissante sur $I$. D'après (i), $f'$ est positive sur $I$. Ensuite, si $f'$ est identiquement nulle sur un intervalle $[a, b]$ avec $a \\leq b$, alors $f$ y est constante donc $f(a) = f(b)$, donc $a = b$ par stricte monotonie.\\par\\par Réciproquement, supposons que $f'$ est positive sur $I$ et qu'elle n'est identiquement nulle sur aucun intervalle $[a, b]$ avec $a < b$. D'après (i), $f$ est croissante. Soient $x, y \\in I$ deux réels pour lesquels $x < y$. Aussitôt, $f(x) \\leq f(y)$ par croissance. Et si $f(x) = f(y)$, la croissance de $f$ montre que $f$ est constante sur $[x, y]$, donc que $f'$ y est identiquement nulle, ce qui est faux. Forcément, $f(x) < f(y)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_point_fixe_attractif_repulsif",
+      "type": "definition",
+      "title": "Définition-théorème : Point fixe attractif/répulsif",
+      "content_latex": "Soient $I$ un intervalle, $f \\in \\mathcal{C}^1(I, \\mathbb{R})$ et $\\ell \\in I$ un point fixe de $f$. On suppose $I$ stable par $f$ et on note $(u_n(x))_{n \\in \\mathbb{N}}$ la suite définie par $u_0(x) = x$ et $u_{n+1}(x) = f(u_n(x))$ pour tout $n \\in \\mathbb{N}$ pour tout $x \\in I$.\\par\\par (i) \\textbf{Point fixe attractif :} On dit que $\\ell$ est attractif (pour $f$) si $|f'(\\ell)| < 1$. Le cas échéant, il existe un réel $\\alpha > 0$ pour lequel $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ est stable par $f$ et $u_n(x) \\xrightarrow[n \\to +\\infty]{} \\ell$ pour toute valeur initiale $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$.\\par\\par (ii) \\textbf{Point fixe répulsif :} On dit que $\\ell$ est répulsif (pour $f$) si $|f'(\\ell)| > 1$. Le cas échéant, il existe un réel $\\alpha > 0$ pour lequel pour tout $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$, soit $(u_n(x))_{n \\in \\mathbb{N}}$ ne converge pas vers $\\ell$, soit $(u_n(x))_{n \\in \\mathbb{N}}$ est stationnaire de valeur $\\ell$.\\par\\par On ne peut rien dire de général si $|f'(\\ell)| = 1$.\\par\\par En résumé, si $\\ell$ est attractif, toute suite dont la valeur initiale est assez proche de $\\ell$ est piégée autour de $\\ell$ et irrémédiablement aspirée vers lui. Nous montrerons plus tard que si $f'(\\ell) = 0$, alors pour tout $x \\in ]\\ell - \\alpha, \\ell + \\alpha[$, $u_n(x) - \\ell \\sim_{n \\to +\\infty} \\lambda f'(\\ell)^n$ pour un certain $\\lambda \\in \\mathbb{R}$ qui dépend de $x$. Au contraire, si $\\ell$ est répulsif, aucune suite dont la valeur initiale est assez proche de $\\ell$ ne peut converger vers $\\ell$, sauf à être carrément stationnaire.\\par\\par Qu'il soit attractif ou répulsif, $\\ell$ n'exerce qu'une action locale sur les points qui l'entourent et son rayon d'action dépend de la fonction $f$. Au-delà, $\\ell$ n'a plus d'influence.",
+      "proof_latex": "(i) Supposons $\\ell$ attractif. Continue en $\\ell$, $f'$ est donc majorée par $K = \\frac{|f'(\\ell)|}{2} + 1 < 1$ au voisinage de $\\ell$, disons sur $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ pour un certain $\\alpha > 0$. Ainsi, $f$ est $K$-lipschitzienne sur $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ d'après l'inégalité des accroissements finis.\\par\\par Pour tout $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ : $|f(x) - \\ell| = |f(x) - f(\\ell)| \\leq K|x - \\ell| \\leq K\\alpha < \\alpha$ et $f(x) \\in I$ par stabilité de $I$ par $f$, donc $f(x) \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$. En d'autres termes, $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ est stable par $f$.\\par\\par Fixons enfin $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$. La suite $(u_n(x))_{n \\in \\mathbb{N}}$ est à valeurs dans $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ par stabilité, donc $|u_{n+1} - \\ell| = |f(u_n) - f(\\ell)| \\leq K|u_n - \\ell|$ pour tout $n \\in \\mathbb{N}$ par $K$-lipschitzianité, puis $|u_n - \\ell| \\leq K^n |u_0 - \\ell|$ par récurrence, et enfin $u_n \\xrightarrow[n \\to +\\infty]{} \\ell$ par encadrement.\\par\\par (ii) Supposons $\\ell$ répulsif. Continue en $\\ell$, $f'$ est donc minorée par $K = \\frac{|f'(\\ell)|}{2} + 1 > 1$ au voisinage de $\\ell$, disons sur $I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ pour un certain $\\alpha > 0$. D'après le théorème des accroissements finis, pour tout $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$ distinct de $\\ell$, $f(x) - \\ell = f(x) - f(\\ell) = f'(c)(x - \\ell)$ pour un certain $c$ compris strictement entre $x$ et $\\ell$, donc $\\frac{|f(x) - \\ell|}{|x - \\ell|} = |f'(c)| \\geq K > 1$ et $|f(x) - \\ell| > |x - \\ell|$.\\par\\par À présent, soit $x \\in I \\cap ]\\ell - \\alpha, \\ell + \\alpha[$. Faisons l'hypothèse que $(u_n(x))_{n \\in \\mathbb{N}}$ converge vers $\\ell$. Dans ce cas, $u_n \\in ]\\ell - \\alpha, \\ell + \\alpha[$ à partir d'un certain rang $N$, donc si $u_n \\neq \\ell$ pour tout $n \\geq N$, alors la suite $(|u_n - \\ell|)_{n \\geq N}$ est positive et strictement croissante, mais cela contredit le fait qu'elle converge vers 0. Conclusion : $u_{N'} = \\ell$ pour un certain $N' \\geq N$, alors $u_n = \\ell$ pour tout $n \\geq N'$, autrement dit $(u_n)_{n \\in \\mathbb{N}}$ est stationnaire."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_racine_x3_3x_1",
+      "type": "example",
+      "title": "Exemple : Approximation de la racine de $X^3 + 3X - 1$",
+      "content_latex": "Le polynôme $X^3 + 3X - 1$ possède une unique racine réelle, égale à $0,32218$ à $10^{-5}$ près.\\par\\par Le TVI strictement monotone montre assez vite que la fonction $x \\longmapsto x^3 + 3x - 1$ est bijective de $\\mathbb{R}$ sur $\\mathbb{R}$. Le polynôme $P = X^3 + 3X - 1$ possède donc une et une seule racine réelle $\\rho$. Plus précisément, $\\rho \\in [0, 1]$ car $P(0) = -1 \\leq 0$ et $P(1) = 3 \\geq 0$, et comme : $P(\\rho) = 0 \\Longleftrightarrow \\rho^3 + 3\\rho - 1 = 0 \\Longleftrightarrow \\rho = \\frac{1}{\\rho^2 + 3}$, le réel $\\rho$ est aussi le seul point fixe de la fonction $f : x \\longmapsto \\frac{1}{x^2 + 3}$ sur $[0, 1]$. En outre, $[0, 1]$ est stable par $f$.\\par\\par Nous pouvons ainsi noter $(u_n)_{n \\in \\mathbb{N}}$ la suite définie par $u_0 = 0$ et $u_{n+1} = f(u_n)$ pour tout $n \\in \\mathbb{N}$. Avec un peu de chance, $(u_n)_{n \\in \\mathbb{N}}$ converge vers $\\rho$, mais cela dépend de l'amplitude des variations de $f$. Majorons donc $|f'|$ pour pouvoir utiliser l'inégalité des accroissements finis. Pour tout $x \\in [0, 1]$ : $f'(x) = -\\frac{2x}{(x^2 + 3)^2}$ et $f''(x) = \\frac{6(x^2 - 1)}{(x^2 + 3)^3} \\leq 0$, donc $f'$ est décroissante sur $[0, 1]$, donc pour tout $x \\in [0, 1]$ : $|f'(x)| = -f'(x) \\leq -f'(1) = \\frac{1}{8} < 1$. Ainsi, $f$ est contractante sur $[0, 1]$, $\\frac{1}{8}$-lipschitzienne en l'occurrence. En particulier, $|f'(\\rho)| \\leq \\frac{1}{8} < 1$ donc $\\rho$ est attractif.\\par\\par Finalement, $|u_{n+1} - \\rho| = |f(u_n) - f(\\rho)| \\leq \\frac{1}{8}|u_n - \\rho|$ pour tout $n \\in \\mathbb{N}$, donc $|u_n - \\rho| \\leq \\frac{1}{8^n}|u_0 - \\rho| \\leq \\frac{1}{8^n}$ par récurrence et il en découle que $u_n \\xrightarrow[n \\to +\\infty]{} \\rho$ par encadrement. Nous pouvons ainsi utiliser $(u_n)_{n \\in \\mathbb{N}}$ pour calculer une valeur approchée de $\\rho$ à $10^{-5}$ près, mais combien de termes devons-nous calculer ? Pour tout $n \\in \\mathbb{N}$ : $\\frac{1}{8^n} \\leq 10^{-5} \\Longleftrightarrow 8^n \\geq 100\\,000$, et cette inégalité est vraie à partir de $n = 6$. On obtient donc une valeur approchée de $\\rho$ à $10^{-5}$ près en calculant $u_6$ : $u_6 \\approx 0,32218$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__warning_confusion_limites",
+      "type": "warning",
+      "title": "Attention : Confusion entre $\\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a}$ et $\\lim_{x \\to a} f'(x)$",
+      "content_latex": "Les limites $\\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a}$ et $\\lim_{x \\to a} f'(x)$ sont conceptuellement très différentes. La première est liée à la dérivabilité de $f$ et la deuxième à la continuité de $f'$, mais l'expérience montre que vous confondez souvent deux gestes :\\par\\par Prolonger $f'$ par continuité en $a$ $\\neq$ Montrer que $f$ est dérivable en $a$.\\par\\par Par exemple, la fonction $1_{\\mathbb{R}_+}$ est dérivable sur $\\mathbb{R}^*$ et sa dérivée $1_{\\mathbb{R}_+}'$ est nulle sur $\\mathbb{R}^*$, donc prolongeable par continuité en 0. Faut-il en déduire que $1_{\\mathbb{R}_+}$ est dérivable en 0 ? Certainement pas, elle n'est même pas continue en 0. Cet exemple illustre l'importance de la continuité en $a$ des deux prochains théorèmes.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_limite_derivee",
+      "type": "theorem",
+      "title": "Théorème : Théorème de la limite de la dérivée",
+      "content_latex": "Soient $I$ un intervalle, $a \\in I$, $\\ell \\in \\mathbb{R}$ et $f : I \\longrightarrow \\mathbb{R}$ une fonction dérivable sur $I \\setminus \\{a\\}$ et continue en $a$. Si $f'(x) \\xrightarrow[x \\to a]{} \\ell$, alors $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\ell$.\\par\\par La précision $x \\neq a$ en indice signifie qu'on s'intéresse à la limite en $a$ de la restriction $f'|_{I \\setminus \\{a\\}}$.",
+      "proof_latex": "Pour tout $x \\in I \\cap ]a, +\\infty[$, $f$ est continue sur $[a, x]$ et dérivable sur $]a, x[$, donc d'après le théorème des accroissements finis, $\\frac{f(x) - f(a)}{x - a} = f'(c_x)$ pour un certain $c_x \\in ]a, x[$ --- idem si $x \\in I \\cap ]-\\infty, a[$.\\par\\par Nous héritons ainsi d'une fonction $c : I \\setminus \\{a\\} \\longrightarrow I \\setminus \\{a\\}$ pour laquelle $|c_x - a| \\leq |x - a|$ pour tout $x \\in I \\setminus \\{a\\}$. En particulier, $c_x \\xrightarrow[x \\to a]{} a$ par encadrement, donc $\\frac{f(x) - f(a)}{x - a} = f'(c_x) \\xrightarrow[x \\to a]{} \\ell$ par composition."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_limite_derivee_C1",
+      "type": "theorem",
+      "title": "Théorème : Version $\\mathcal{C}^1$ du théorème de la limite de la dérivée",
+      "content_latex": "Soient $I$ un intervalle, $a \\in I$ et $f : I \\longrightarrow \\mathbb{R}$ une fonction de classe $\\mathcal{C}^1$ sur $I \\setminus \\{a\\}$ et continue en $a$. Si $f'|_{I \\setminus \\{a\\}}$ possède une limite finie en $a$, alors $f$ est de classe $\\mathcal{C}^1$ sur $I$ tout entier.",
+      "proof_latex": "En notant $\\ell$ la limite finie de l'hypothèse, $\\frac{f(x) - f(a)}{x - a} \\xrightarrow[x \\to a]{} \\ell$ d'après le théorème de la limite de la dérivée, donc $f$ est dérivable en $a$ et $f'(a) = \\ell$. Il en découle en retour que $f'(x) \\xrightarrow[x \\to a]{} \\ell = f'(a)$, donc $f'$ est continue en $a$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_xalpha_sin_1_sur_x_C1",
+      "type": "example",
+      "title": "Exemple : La fonction $x \\longmapsto x^\\alpha \\sin\\frac{1}{x}$ prolongée par 0 en 0",
+      "content_latex": "Pour tout $\\alpha > 2$, la fonction $f : x \\longmapsto x^\\alpha \\sin\\frac{1}{x}$ prolongée par 0 en 0 est de classe $\\mathcal{C}^1$ sur $\\mathbb{R}_+$ tout entier.",
+      "proof_latex": "Pour commencer, $f$ est de classe $\\mathcal{C}^1$ sur $\\mathbb{R}_+^*$ et $f(x) \\xrightarrow[x \\to 0^+]{} 0 = f(0)$ car la fonction $x \\longmapsto \\sin\\frac{1}{x}$ est bornée, donc $f$ est continue sur $\\mathbb{R}_+$ tout entier.\\par\\par Ensuite : $f'(x) = \\alpha x^{\\alpha - 1} \\sin\\frac{1}{x} - x^{\\alpha - 2} \\cos\\frac{1}{x} \\xrightarrow[x \\to 0^+]{} 0$ car $\\alpha > 2$, donc d'après le théorème de la limite de la dérivée, $f$ est dérivable en 0 et $f'$ y est continue."
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_fonction_convexe",
+      "type": "definition",
+      "title": "Définition : Fonction convexe/concave",
+      "content_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par \\textbf{Fonction convexe :} On dit que $f$ est convexe si son graphe est situé en-dessous de toutes ses cordes, i.e. si : $\\forall x, y \\in I, \\quad \\forall \\lambda \\in [0, 1], \\quad f((1 - \\lambda)x + \\lambda y) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$.\\par\\par \\textbf{Fonction concave :} On dit que $f$ est concave si son graphe est situé au-dessus de toutes ses cordes, i.e. si : $\\forall x, y \\in I, \\quad \\forall \\lambda \\in [0, 1], \\quad f((1 - \\lambda)x + \\lambda y) \\geq (1 - \\lambda)f(x) + \\lambda f(y)$.\\par\\par Il est équivalent de dire que $-f$ est convexe.\\par\\par Fonction convexe, perpétuel virage à gauche. Fonction concave, perpétuel virage à droite.\\par\\par Nous n'énoncerons et ne démontrerons ci-après que des théorèmes sur les fonctions convexes, mais le cas des fonctions concaves s'en déduit par multiplication par $-1$. Remplacez simplement dans chaque résultat convexe le plus petit par le plus grand, le positif par le négatif, la croissance par la décroissance et le dessus par le dessous.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_valeur_absolue_convexe",
+      "type": "example",
+      "title": "Exemple : La fonction valeur absolue est convexe",
+      "content_latex": "La fonction valeur absolue est convexe sur $\\mathbb{R}$ car pour tous $x, y \\in \\mathbb{R}$ et $\\lambda \\in [0, 1]$, d'après l'inégalité triangulaire : $|(1 - \\lambda)x + \\lambda y| \\leq |(1 - \\lambda)x| + |\\lambda y| = (1 - \\lambda)|x| + \\lambda|y|$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_position_graphe_secantes",
+      "type": "theorem",
+      "title": "Théorème : Position du graphe d'une fonction convexe par rapport à ses sécantes",
+      "content_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $x, y \\in I$ avec $x < y$. Le graphe de $f$ est situé sous sa sécante sur $[x, y]$ et au-dessus à l'extérieur de $[x, y]$.",
+      "proof_latex": "Montrons que pour tout $t \\in I \\cap [y, +\\infty[$ : $\\frac{f(t) - f(y)}{t - y} \\geq \\frac{f(y) - f(x)}{y - x}$, i.e. que $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$. On travaillerait de même à gauche de $x$. Fixons $t \\in I \\cap [y, +\\infty[$.\\par\\par Or $x < y \\leq t$, donc le réel $\\lambda = \\frac{y - x}{t - x}$ appartient à $[0, 1]$, et il se trouve que $(1 - \\lambda)x + \\lambda t = x + \\frac{y - x}{t - x}(t - x) = y$. On conclut par convexité de $f$ : $f(y) = f((1 - \\lambda)x + \\lambda t) \\leq (1 - \\lambda)f(x) + \\lambda f(t) = \\frac{t - y}{t - x}f(x) + \\frac{y - x}{t - x}f(t)$, donc $(t - x)f(y) \\leq (t - y)f(x) + (y - x)f(t)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_comportement_infini_convexe",
+      "type": "example",
+      "title": "Exemple : Comportement à l'infini d'une fonction convexe",
+      "content_latex": "Soient $f : \\mathbb{R} \\longrightarrow \\mathbb{R}$ une fonction convexe et $a, b \\in \\mathbb{R}$ avec $a < b$. Si $f(a) < f(b)$, alors $f(x) \\xrightarrow[x \\to +\\infty]{} +\\infty$, et si $f(a) > f(b)$, alors $f(x) \\xrightarrow[x \\to -\\infty]{} +\\infty$.",
+      "proof_latex": "Le graphe de $f$ est au-dessus de sa sécante à l'extérieur de $[a, b]$, donc pour tout $t < a$ ou $t > b$ : $f(t) \\geq \\frac{f(b) - f(a)}{b - a}(t - a) + f(a)$. Le résultat en découle par minoration en distinguant bien le cas $f(a) < f(b)$ où l'on fait tendre $t$ vers $+\\infty$ du cas $f(a) > f(b)$ où on le fait tendre vers $-\\infty$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_caracterisation_convexite_pentes",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la convexité par les pentes des sécantes, inégalité des pentes",
+      "content_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction.\\par\\par (i) \\textbf{Caractérisation de la convexité par les pentes des sécantes :} $f$ est convexe sur $I$ si et seulement si la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$.\\par\\par (ii) \\textbf{Inégalité des pentes :} Si $f$ est convexe sur $I$, alors pour tous $a, b, c \\in I$ pour lesquels $a < b < c$ : $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$.\\par\\par Bref, les pentes des sécantes croissent en cas de convexité !",
+      "proof_latex": "(i) Supposons d'abord $f$ convexe sur $I$. Fixons $a \\in I$ et montrons que la fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$. Soient $x, y \\in I \\setminus \\{a\\}$ deux réels pour lesquels $x < y$. Nous allons distinguer deux cas et les traiter chacun en comparant le graphe de $f$ à sa sécante passant par $(a, f(a))$ et $(x, f(x))$.\\par\\par --- Si $y > a$, $y$ est situé à l'extérieur du segment $[a, x]$ ou $[x, a]$, donc $f(y) \\geq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a > 0$.\\par\\par --- Si $y < a$, $y$ appartient au segment $[a, x]$ ou $[x, a]$, donc $f(y) \\leq \\frac{f(x) - f(a)}{x - a}(y - a) + f(a)$, ou encore $\\frac{f(y) - f(a)}{y - a} \\geq \\frac{f(x) - f(a)}{x - a}$ puisque $y - a < 0$.\\par\\par C'est l'inégalité souhaitée dans les deux cas.\\par\\par Réciproquement, supposons $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ croissante sur $I \\setminus \\{a\\}$ pour tout $a \\in I$ et montrons que $f$ est convexe. Fixons $x, y \\in I$ et $\\lambda \\in [0, 1]$. Pour montrer que $f((1 - \\lambda)x + \\lambda y) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$, on peut supposer sans perte de généralité que $\\lambda \\in ]0, 1[$ et $x \\neq y$, et même $x < y$ quitte à remplacer $\\lambda$ par $1 - \\lambda$. Posons maintenant $a = (1 - \\lambda)x + \\lambda y$, de sorte que $x < a < y$. La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ étant croissante par hypothèse : $(y - a)(f(x) - f(a)) \\geq (x - a)(f(y) - f(a))$ car $x - a < 0$ et $y - a > 0$, donc sachant que $y - x = y - a + a - x > 0$ : $f(a) \\leq \\frac{y - a}{y - x}f(x) + \\frac{a - x}{y - x}f(y)$, or cette inégalité s'écrit aussi $f(a) \\leq (1 - \\lambda)f(x) + \\lambda f(y)$ par définition de $a$ et c'est le résultat voulu.\\par\\par (ii) La fonction $t \\longmapsto \\frac{f(t) - f(a)}{t - a}$ est croissante sur $I \\setminus \\{a\\}$ d'après (i), donc $\\frac{f(b) - f(a)}{b - a} \\leq \\frac{f(c) - f(a)}{c - a}$. De même, la fonction $t \\longmapsto \\frac{f(t) - f(c)}{t - c}$ est croissante sur $I \\setminus \\{c\\}$, donc $\\frac{f(c) - f(a)}{c - a} \\leq \\frac{f(c) - f(b)}{c - b}$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_convexe_croissante_demi_intervalle",
+      "type": "example",
+      "title": "Exemple : Fonction convexe croissante sur un demi-intervalle",
+      "content_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe et $a, b \\in I$ deux réels pour lesquels $a < b$ et $f(a) \\leq f(b)$. Alors $f$ est croissante sur $I \\cap [b, +\\infty[$. Ce résultat complète bien sûr notre dernier exemple.",
+      "proof_latex": "Soient $x, y \\in I \\cap [b, +\\infty[$ deux réels pour lesquels $x < y$. Pour montrer que $f(x) \\leq f(y)$, une simple figure nous suggère d'appliquer deux fois l'inégalité des pentes : $\\frac{f(y) - f(x)}{y - x} \\geq \\frac{f(b) - f(a)}{b - a} \\geq 0$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_caracterisation_convexes_derivables",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions convexes dérivables",
+      "content_latex": "Soit $f \\in \\mathcal{D}(I, \\mathbb{R})$. Les assertions suivantes sont équivalentes :\\par\\par (i) $f$ est convexe sur $I$.\\par\\par (ii) $f'$ est croissante sur $I$ --- ou bien $f'' \\geq 0$ si $f$ est deux fois dérivable sur $I$.\\par\\par (iii) Le graphe de $f$ est situé au-dessus de toutes ses tangentes.",
+      "proof_latex": "(i) $\\Rightarrow$ (ii) Soient $x, y \\in I$ deux réels pour lesquels $x < y$. Pour tout $t \\in ]x, y[$ : $\\frac{f(t) - f(x)}{t - x} \\leq \\frac{f(y) - f(x)}{y - x} \\leq \\frac{f(t) - f(y)}{t - y}$ par convexité de $f$ d'après l'inégalité des pentes. Faisons tendre $t$ vers $x$ à droite, puis indépendamment vers $y$ à gauche : $f'(x) \\leq \\frac{f(y) - f(x)}{y - x} \\leq f'(y)$. Comme voulu, $f'$ est croissante sur $I$.\\par\\par (ii) $\\Rightarrow$ (iii) Fixons $a \\in I$ et montrons que le graphe de $f$ est situé au-dessus de sa tangente en $a$. Notons pour cela $\\phi$ la fonction $t \\longmapsto f(t) - f'(a)(t - a) - f(a)$. Cette fonction est dérivable sur $I$ et $\\phi'(x) = f'(x) - f'(a)$ pour tout $x \\in I$. Par croissance de $f'$, $\\phi'$ est négative à gauche de $a$ et positive à droite. Ainsi, $\\phi$ est décroissante à gauche de $a$ et croissante à droite, donc positive sur $I$ tout entier puisque $\\phi(a) = 0$.\\par\\par (iii) $\\Rightarrow$ (i) Montrons que $f$ est convexe sur $I$. Soient $x, y \\in I$ et $\\lambda \\in [0, 1]$. Posons $a = (1 - \\lambda)x + \\lambda y$. Pour tout $t \\in I$ : $f(t) \\geq f'(a)(t - a) + f(a)$, donc : $(1 - \\lambda)f(x) + \\lambda f(y) \\geq (1 - \\lambda)(f'(a)(x - a) + f(a)) + \\lambda(f'(a)(y - a) + f(a)) = f'(a)((1 - \\lambda)x + \\lambda y - a) + f(a) = f((1 - \\lambda)x + \\lambda y)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_logarithme_concave",
+      "type": "example",
+      "title": "Exemple : La fonction logarithme est concave",
+      "content_latex": "La fonction logarithme est concave sur $\\mathbb{R}_+^*$ car sa dérivée seconde $x \\longmapsto -\\frac{1}{x^2}$ est négative, donc pour tous $x, y > 0$ et $\\lambda = \\frac{1}{2}$ dans la définition de la concavité : $\\ln\\frac{x + y}{2} \\geq \\frac{\\ln x + \\ln y}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_inegalites_convexite",
+      "type": "example",
+      "title": "Exemple : Inégalités classiques de convexité",
+      "content_latex": "De nombreuses inégalités de convexité découlent de la définition ou des résultats qui précèdent. Rappelons-en trois qu'il faut connaître et comprendre graphiquement. À l'exception de la minoration du sinus, ces inégalités illustrent toutes l'idée que le graphe d'une fonction convexe (resp. concave) est au-dessus (resp. en dessous) de ses tangentes. La minoration du sinus exprime quant à elle l'idée que la corde du sinus joignant les points d'abscisses 0 et $\\frac{\\pi}{2}$ a pour équation $y = \\frac{2x}{\\pi}$.\\par\\par $\\forall x \\in \\mathbb{R}, \\quad e^x \\geq 1 + x$.\\par\\par $\\forall x > 0, \\quad \\ln x \\leq x - 1$.\\par\\par $\\forall x \\in ]0, \\frac{\\pi}{2}[, \\quad \\frac{2x}{\\pi} \\leq \\sin x \\leq x$.\\par\\par $\\forall x > -1, \\quad \\ln(1 + x) \\leq x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_sqrt_x_inegalite",
+      "type": "example",
+      "title": "Exemple : $\\sqrt{x} \\leq \\frac{x + 1}{2}$",
+      "content_latex": "Pour tout $x > 0$ : $\\sqrt{x} \\leq \\frac{x + 1}{2}$.",
+      "proof_latex": "La fonction $x \\longmapsto \\sqrt{x}$ est concave sur $\\mathbb{R}_+^*$ car sa dérivée $x \\longmapsto \\frac{1}{2\\sqrt{x}}$ est décroissante. Son graphe est situé sous sa tangente en 1, d'équation $y = \\frac{x + 1}{2}$."
+    },
+    {
+      "id": "derivabilite_et_convexite__remark_convexite_stricte",
+      "type": "remark",
+      "title": "Remarque : Convexité stricte",
+      "content_latex": "On dit qu'une fonction $f : I \\longrightarrow \\mathbb{R}$ est strictement convexe sur $I$ si pour tous $x, y \\in I$ distincts et pour tout $\\lambda \\in ]0, 1[$ : $f((1 - \\lambda)x + \\lambda y) < (1 - \\lambda)f(x) + \\lambda f(y)$.\\par\\par L'intuition géométrique est la même qu'en cas de convexité simple à ceci près qu'une fonction strictement convexe ne peut pas être affine sur un intervalle $[a, b]$ avec $a < b$. Son graphe est toujours strictement au-dessus de ses cordes.\\par\\par Les résultats précédents s'étendent bien au cadre de la convexité stricte. L'inégalité des pentes devient simplement stricte et une fonction $f : I \\longrightarrow \\mathbb{R}$ est strictement convexe si et seulement si pour tout $a \\in I$, la fonction $x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est strictement croissante sur $I \\setminus \\{a\\}$. Enfin, une fonction dérivable $f \\in \\mathcal{D}(I, \\mathbb{R})$ est strictement convexe si et seulement si sa dérivée $f'$ est strictement croissante, si et seulement si pour tout $a \\in I$, son graphe est situé au-dessus de sa tangente en $a$ avec $(a, f(a))$ pour seul point de contact. Par exemple, la fonction exponentielle est strictement convexe sur $\\mathbb{R}$ car sa dérivée est strictement croissante, donc dans l'inégalité de convexité $e^x \\geq 1 + x$, l'égalité n'est atteinte que pour $x = 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__definition_point_inflexion",
+      "type": "definition",
+      "title": "Définition-théorème : Point d'inflexion",
+      "content_latex": "Soient $f : I \\longrightarrow \\mathbb{R}$ une fonction et $a \\in I$. On dit que $f$ possède un point d'inflexion en $a$ si $f$ est convexe au voisinage de $a$ à gauche et concave au voisinage de $a$ à droite --- ou l'inverse.\\par\\par Si $f$ est deux fois dérivable sur $I$, $f$ possède un point d'inflexion en $a$ si et seulement si $f''$ s'annule en $a$ et est positive au voisinage de $a$ à gauche et négative au voisinage de $a$ à droite --- ou l'inverse.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__example_point_inflexion_polynome",
+      "type": "example",
+      "title": "Exemple : Point d'inflexion d'un polynôme de degré 3",
+      "content_latex": "Soient $a \\in \\mathbb{R}^*$ et $b, c, d \\in \\mathbb{R}$. La fonction $x \\longmapsto ax^3 + bx^2 + cx + d$ possède un et un seul point d'inflexion, à savoir en $-\\frac{b}{3a}$, car sa dérivée seconde $x \\longmapsto 6ax + 2b$ s'annule en changeant de signe en $-\\frac{b}{3a}$ et ne le fait nulle part ailleurs.",
+      "proof_latex": null
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_convexe_implique_continue",
+      "type": "theorem",
+      "title": "Théorème : Convexe implique continue",
+      "content_latex": "Pour une fois, l'intervalle $I$ est supposé ouvert. Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction. Si $f$ est convexe sur $I$, alors $f$ est continue sur $I$.\\par\\par \\textbf{Attention !} Il est essentiel que l'intervalle $I$ soit ouvert. La fonction smiley ci-contre est convexe mais pas continue aux bornes. Vous noterez en passant qu'une fonction convexe n'est pas forcément dérivable sur son ensemble de définition, pensez à la fonction valeur absolue !",
+      "proof_latex": "L'intervalle $I$ étant ouvert, nous pouvons nous donner un élément $b \\in I$ pour lequel $a < b$. Fixons $a \\in I$ et contentons-nous de montrer que $f$ est continue à gauche en $a$. Par convexité de $f$, la fonction $\\phi : x \\longmapsto \\frac{f(x) - f(a)}{x - a}$ est croissante sur $I \\setminus \\{a\\}$, donc croissante sur $I \\cap ]-\\infty, a[$ et majorée par $\\phi(b)$. Elle possède ainsi une limite finie à gauche en $a$ d'après d'après le théorème de la limite monotone. Il en découle que : $f(x) = \\frac{f(x) - f(a)}{x - a}(x - a) + f(a) \\xrightarrow[x \\to a^-]{} f(a)$, i.e. que $f$ est continue à gauche en $a$."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_inegalite_jensen",
+      "type": "theorem",
+      "title": "Théorème : Inégalité de Jensen",
+      "content_latex": "Soit $f : I \\longrightarrow \\mathbb{R}$ une fonction convexe. Pour tous $x_1, \\ldots, x_n \\in I$ et $\\lambda_1, \\ldots, \\lambda_n \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_n = 1$ : $f\\left(\\sum_{k=1}^{n} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n} \\lambda_k f(x_k)$.",
+      "proof_latex": "Par récurrence sur $n$. Pour $n = 2$, le résultat est exactement la définition de la convexité.\\par\\par \\textbf{Initialisation :} Rien à démontrer pour $n = 1$.\\par\\par \\textbf{Hérédité :} Soit $n \\in \\mathbb{N}^*$. Faisons l'hypothèse que pour tous $x_1, \\ldots, x_n \\in I$ et $\\lambda_1, \\ldots, \\lambda_n \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_n = 1$ : $f\\left(\\sum_{k=1}^{n} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n} \\lambda_k f(x_k)$.\\par\\par Fixons $x_1, \\ldots, x_{n+1} \\in I$ et $\\lambda_1, \\ldots, \\lambda_{n+1} \\in [0, 1]$ pour lesquels $\\lambda_1 + \\ldots + \\lambda_{n+1} = 1$. Si $\\lambda_{n+1} = 0$, l'inégalité à prouver au rang $n + 1$ découle trivialement de l'hypothèse de récurrence. Supposons donc $\\lambda_{n+1} > 0$ et remplaçons la moyenne coefficientée des $n + 1$ réels $x_1, \\ldots, x_{n+1}$ par une moyenne coefficientée de $n$ réels auxquels nous pourrons appliquer l'hypothèse de récurrence.\\par\\par Posons pour cela $\\lambda'_n = \\lambda_n + \\lambda_{n+1} \\in [0, 1]$ et $x'_n = \\frac{\\lambda_n}{\\lambda'_n}x_n + \\frac{\\lambda_{n+1}}{\\lambda'_n}x_{n+1} \\in I$. Sachant que $\\lambda_1 + \\ldots + \\lambda_{n-1} + \\lambda'_n = 1$, appliquons l'hypothèse de récurrence aux $n$ réels $x_1, \\ldots, x_{n-1}, x'_n$ et aux $n$ coefficients $\\lambda_1, \\ldots, \\lambda_{n-1}, \\lambda'_n$ : $f\\left(\\sum_{k=1}^{n+1} \\lambda_k x_k\\right) = f(\\lambda_1 x_1 + \\ldots + \\lambda_{n-1} x_{n-1} + \\lambda'_n x'_n) \\leq \\lambda_1 f(x_1) + \\ldots + \\lambda_{n-1} f(x_{n-1}) + \\lambda'_n f(x'_n) \\stackrel{\\text{HDR}}{\\leq} \\lambda_1 f(x_1) + \\ldots + \\lambda_{n-1} f(x_{n-1}) + \\lambda'_n\\left(\\frac{\\lambda_n}{\\lambda'_n}f(x_n) + \\frac{\\lambda_{n+1}}{\\lambda'_n}f(x_{n+1})\\right) = \\sum_{k=1}^{n+1} \\lambda_k f(x_k)$, donc comme voulu : $f\\left(\\sum_{k=1}^{n+1} \\lambda_k x_k\\right) \\leq \\sum_{k=1}^{n+1} \\lambda_k f(x_k)$."
+    },
+    {
+      "id": "derivabilite_et_convexite__example_inegalite_arithmetico_geometrique",
+      "type": "example",
+      "title": "Exemple : Inégalité arithmético-géométrique",
+      "content_latex": "Pour tous $x_1, \\ldots, x_n > 0$ : $\\frac{n}{\\sum_{k=1}^{n} \\frac{1}{x_k}} \\leq \\sqrt[n]{\\prod_{k=1}^{n} x_k} \\leq \\frac{1}{n}\\sum_{k=1}^{n} x_k$.\\par\\par L'inégalité de droite s'appelle l'inégalité arithmético-géométrique.",
+      "proof_latex": "Comme $\\frac{1}{n} + \\ldots + \\frac{1}{n} = 1$, l'inégalité de Jensen appliquée à la fonction concave $x \\longmapsto \\ln x$ s'écrit : $\\ln\\left(\\frac{1}{n}\\sum_{k=1}^{n} x_k\\right) \\geq \\sum_{k=1}^{n} \\frac{1}{n}\\ln x_k = \\ln\\sqrt[n]{\\prod_{k=1}^{n} x_k}$, puis $\\frac{1}{n}\\sum_{k=1}^{n} x_k \\geq \\sqrt[n]{\\prod_{k=1}^{n} x_k}$ par croissance de l'exponentielle. Pour l'inégalité de gauche, remplacer $x_k$ par $\\frac{1}{x_k}$ pour tout $k \\in \\{1, n\\}$ dans l'inégalité de droite."
+    },
+    {
+      "id": "derivabilite_et_convexite__theorem_inegalites_holder_minkowski",
+      "type": "theorem",
+      "title": "Théorème : Inégalités de Hölder et Minkowski",
+      "content_latex": "(i) \\textbf{Norme $p$ d'un vecteur de $\\mathbb{R}^n$ :} Soit $p > 1$. Pour tout $X \\in \\mathbb{R}^n$, on appelle norme $p$ de $X$ le réel positif $\\|X\\|_p = \\left(\\sum_{k=1}^{n} |x_k|^p\\right)^{\\frac{1}{p}}$. Pour tous $X \\in \\mathbb{R}^n$ et $\\lambda \\in \\mathbb{R}$ : $\\|\\lambda X\\|_p = |\\lambda| \\cdot \\|X\\|_p$ et $\\|X\\|_p = 0 \\Longleftrightarrow X = 0_{\\mathbb{R}^n}$.\\par\\par (ii) \\textbf{Inégalité de Hölder :} Soient $p, q > 1$ deux réels pour lesquels $\\frac{1}{p} + \\frac{1}{q} = 1$. Pour tous $X, Y \\in \\mathbb{R}^n$ : $\\left|\\sum_{k=1}^{n} x_k y_k\\right| \\leq \\|X\\|_p \\cdot \\|Y\\|_q$.\\par\\par (iii) \\textbf{Inégalité de Minkowski :} Soit $p > 1$. Pour tous $X, Y \\in \\mathbb{R}^n$ : $\\|X + Y\\|_p \\leq \\|X\\|_p + \\|Y\\|_p$.\\par\\par La norme 2 n'est jamais qu'une généralisation à $n$ réels du concept de norme que vous calculez en géométrie du plan et de l'espace à partir des coordonnées dans une base orthonormale.\\par\\par L'inégalité de Minkowski n'est finalement qu'une autre manière de nommer l'inégalité triangulaire dans le contexte des normes $p$. L'inégalité de Hölder est plus mystérieuse au premier abord, mais vous la connaissez dans le cas où $p = q = 2$, c'est juste l'inégalité de Cauchy-Schwarz !",
+      "proof_latex": "(i) Pour tous $X \\in \\mathbb{R}^n$ et $\\lambda \\in \\mathbb{R}$ : $\\|\\lambda X\\|_p = \\left(\\sum_{k=1}^{n} |\\lambda x_k|^p\\right)^{\\frac{1}{p}} = \\left(\\sum_{k=1}^{n} |\\lambda|^p |x_k|^p\\right)^{\\frac{1}{p}} = |\\lambda| \\cdot \\|X\\|_p$.\\par\\par (ii) Montrons d'abord que $xy \\leq \\frac{x^p}{p} + \\frac{y^q}{q}$ pour tous $x, y \\geq 0$. Il nous suffit de le montrer pour $x, y > 0$. Or par concavité de la fonction logarithme appliquée aux réels $x^p$ et $y^q$, sachant que $\\frac{1}{p} + \\frac{1}{q} = 1$ : $\\ln\\left(\\frac{x^p}{p} + \\frac{y^q}{q}\\right) \\geq \\frac{1}{p}\\ln(x^p) + \\frac{1}{q}\\ln(y^q) = \\ln(xy)$, et on conclut par croissance de l'exponentielle.\\par\\par Montrons maintenant l'inégalité de Hölder. Fixons $X, Y \\in \\mathbb{R}^n$.\\par\\par --- Supposons dans un premier temps $X$ et $Y$ unitaires au sens où $\\|X\\|_p = \\|Y\\|_q = 1$, donc $\\sum_{k=1}^{n} |x_k|^p = \\sum_{k=1}^{n} |y_k|^q = 1$. Pour tout $k \\in \\{1, n\\}$ : $|x_k y_k| \\leq \\frac{|x_k|^p}{p} + \\frac{|y_k|^q}{q}$, donc $\\sum_{k=1}^{n} |x_k y_k| \\leq \\sum_{k=1}^{n} \\frac{|x_k|^p}{p} + \\sum_{k=1}^{n} \\frac{|y_k|^q}{q} = \\frac{1}{p} + \\frac{1}{q} = 1$.\\par\\par --- Si $\\|X\\|_p = 0$, alors $\\sum_{k=1}^{n} |x_k|^p = 0$, donc $x_k = 0$ pour tout $k \\in \\{1, n\\}$ car on somme des réels positifs et l'inégalité de Hölder est triviale dans ce cas. Même chose si $\\|Y\\|_q = 0$.\\par\\par --- Enfin, si $\\|X\\|_p > 0$ et $\\|Y\\|_q > 0$, on se ramène au cas unitaire grâce à (i) car $\\left\\|\\frac{X}{\\|X\\|_p}\\right\\|_p = 1$ et $\\left\\|\\frac{Y}{\\|Y\\|_q}\\right\\|_q = 1$, donc $\\sum_{k=1}^{n} \\left|\\frac{x_k}{\\|X\\|_p} \\cdot \\frac{y_k}{\\|Y\\|_q}\\right| \\leq 1$ et c'est fini.\\par\\par (iii) Pour commencer, $\\frac{1}{p} + \\frac{1}{q} = 1$ donc $(p - 1)q = p$. Ensuite, pour tous $X, Y \\in \\mathbb{R}^n$ : $\\sum_{k=1}^{n} |x_k + y_k|^p = \\sum_{k=1}^{n} |x_k + y_k| \\cdot |x_k + y_k|^{p-1} \\leq \\sum_{k=1}^{n} |x_k| \\cdot |x_k + y_k|^{p-1} + \\sum_{k=1}^{n} |y_k| \\cdot |x_k + y_k|^{p-1} \\stackrel{\\text{Hölder}}{\\leq} \\|X\\|_p \\cdot \\left(\\sum_{k=1}^{n} |x_k + y_k|^{(p-1)q}\\right)^{\\frac{1}{q}} + \\|Y\\|_p \\cdot \\left(\\sum_{k=1}^{n} |x_k + y_k|^{(p-1)q}\\right)^{\\frac{1}{q}} = \\|X\\|_p \\cdot \\|X + Y\\|_p^{\\frac{p}{q}} + \\|Y\\|_p \\cdot \\|X + Y\\|_p^{\\frac{p}{q}}$.\\par\\par Pour finir, l'inégalité de Minkowski est triviale si $\\|X + Y\\|_p = 0$. Dans le cas contraire, on divise par $\\|X + Y\\|_p^{\\frac{p}{q}}$ : $\\|X + Y\\|_p^{p - \\frac{p}{q}} = \\|X + Y\\|_p \\leq \\|X\\|_p + \\|Y\\|_p$."
+    }
+  ],
+  "exercises": []
+}

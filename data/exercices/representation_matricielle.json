@@ -1,0 +1,2247 @@
+{
+  "chapter_official_id": "representation_matricielle",
+  "chapter_name": "Représentation matricielle des applications linéaires",
+  "source_document": "Exercices - Representation matricielle des applications lineaires.pdf",
+  "exercises": [
+    {
+      "id": "representation_matricielle__ex_001",
+      "title": "Matrices dans les bases canoniques",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+        "representation_matricielle_applications_lineaires__thm_changement_base_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice représentative",
+        "base canonique",
+        "application linéaire"
+      ],
+      "statement_latex": "Écrire les matrices des applications linéaires suivantes dans les bases canoniques :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(x,y)\\mapsto(x+y,x-y,2x)$ de $\\mathbb{R}^{2}$ dans $\\mathbb{R}^{3}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifiez les bases canoniques de l'espace de départ et de l'espace d'arrivée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez l'image de chaque vecteur de la base canonique de $\\mathbb{R}^2$ et placez les coordonnées du résultat en colonnes."
+            }
+          ],
+          "solution_latex": "On identifie les bases canoniques $\\mathcal{B}_{\\mathbb{R}^2} = (e_1, e_2)$ où $e_1 = (1,0)$ et $e_2 = (0,1)$, et $\\mathcal{B}_{\\mathbb{R}^3} = (f_1, f_2, f_3)$ où $f_i$ sont les vecteurs de la base canonique.\\par Calculons les images :\\par $f(e_1) = (1,1,2)$ et $f(e_2) = (1,-1,0)$.\\par La matrice est donc : $M = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\\\ 2 & 0 \\end{pmatrix}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$P\\mapsto(P(1),P^{\\prime}(1)+P^{\\prime\\prime}(0))$ de $\\mathbb{R}_{3}[X]$ dans $\\mathbb{R}^{2}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La base canonique de $\\mathbb{R}_{3}[X]$ est constituée de $(1, X, X^2, X^3)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez l'application linéaire à $1$, $X$, $X^2$ et $X^3$ pour déterminer les colonnes de votre matrice."
+            }
+          ],
+          "solution_latex": "Base canonique de $\\mathbb{R}_3[X]$ : $(1, X, X^2, X^3)$.\\par Images : $f(1) = (1, 1)$, $f(X) = (1, 2)$, $f(X^2) = (1, 3)$, $f(X^3) = (1, 4)$.\\par Matrice : $M = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 2 & 3 & 4 \\end{pmatrix}$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$P\\mapsto XP+P^{\\prime}+P(1)$ de $\\mathbb{C}_{2}[X]$ dans $\\mathbb{C}_{3}[X]$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez un polynôme de base générique $X^k$ (pour $k \\in \\{0, 1, 2\\}$) et calculez son image."
+            },
+            {
+              "level": 2,
+              "content_latex": "Par exemple, pour $P = X^2$, l'image est $X(X^2) + 2X + 1^2 = X^3 + 2X + 1$. Déduisez-en la colonne correspondante."
+            }
+          ],
+          "solution_latex": "Base canonique de $\\mathbb{C}_2[X]$ : $(1, X, X^2)$. Images :\\par $f(1) = X \\cdot 1 + 0 + 1 = X + 1 = 1 + X$\\par $f(X) = X \\cdot X + 1 + X = X^2 + X + 1$\\par $f(X^2) = X \\cdot X^2 + 2X + 4 = X^3 + 2X + 4$\\par Matrice (dans base canonique $\\mathbb{C}_3[X]$ : $(1,X,X^2,X^3)$) :\\par $M = \\begin{pmatrix} 1 & 1 & 4 \\\\ 0 & 1 & 2 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 1 \\end{pmatrix}$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$P\\mapsto\\overline{P}$ de $\\mathbb{C}_{n}[X]$ dans $\\mathbb{C}_{n}[X]$, mais attention, sur le corps $\\mathbb{R}$ dans la base $(1,i,X,iX,...,X^{n},iX^{n})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous comment l'opérateur de conjugaison agit sur les termes de la forme $a$ et $ib$ avec $a,b \\in \\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'image de $X^k$ est $X^k$, et l'image de $iX^k$ est $-iX^k$. Déduisez-en la structure de la matrice."
+            }
+          ],
+          "solution_latex": "Sur $\\mathbb{R}$, avec base $(1, i, X, iX, X^2, iX^2, \\ldots, X^n, iX^n)$.\\par L'opérateur de conjugaison $\\overline{\\phantom{x}}$ agit par $\\overline{a} = a$, $\\overline{ib} = -ib$, $\\overline{X^k} = X^k$, $\\overline{iX^k} = -iX^k$.\\par Matrice : diagonale par blocs avec blocs $\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ (de taille $2 \\times 2$ répétés $n+1$ fois)."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$M\\mapsto M^{\\top}$ de $\\mathcal{M}_{2}(\\mathbb{K})$ dans lui-même.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifiez la base canonique de $\\mathcal{M}_{2}(\\mathbb{K})$, généralement notée $(E_{11}, E_{12}, E_{21}, E_{22})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Observez que la transposition échange $E_{12}$ et $E_{21}$ tout en laissant $E_{11}$ et $E_{22}$ invariants."
+            }
+          ],
+          "solution_latex": "Base canonique de $\\mathcal{M}_2(\\mathbb{K})$ : $(E_{11}, E_{12}, E_{21}, E_{22})$ où $E_{ij}$ a un 1 en position $(i,j)$ et 0 ailleurs.\\par $f(E_{11}) = E_{11}$, $f(E_{12}) = E_{21}$, $f(E_{21}) = E_{12}$, $f(E_{22}) = E_{22}$.\\par Matrice : $M = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 0 & 1 \\end{pmatrix}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_002",
+      "title": "Matrice de dérivation et base",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivation",
+        "matrice de passage",
+        "base",
+        "automorphisme"
+      ],
+      "statement_latex": "Dans le $\\mathbb{R}$-espace vectoriel $\\mathcal{C}^{\\infty}(\\mathbb{R},\\mathbb{R})$ on pose : $\\mathcal{B}=(\\cos,\\sin,\\text{ch},\\text{sh})$ et $V=\\mathrm{Vect}(\\mathcal{B})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathcal{B}$ est une base de $V$ et que $V$ est stable par dérivation.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_changement_base_vecteur",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer que $\\mathcal{B}$ est une base, vérifiez que la famille est libre en évaluant une combinaison linéaire nulle en différents points bien choisis."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la stabilité, dérivez chaque élément de la base $\\mathcal{B}$ et montrez que le résultat s'exprime toujours comme une combinaison linéaire d'éléments de $\\mathcal{B}$."
+            }
+          ],
+          "solution_latex": "Dérivons chaque élément : $\\cos' = -\\sin$, $\\sin' = \\cos$, $\\text{ch}' = \\text{sh}$, $\\text{sh}' = \\text{ch}$.\\par Toutes les dérivées restent dans $V = \\mathrm{Vect}(\\cos, \\sin, \\text{ch}, \\text{sh})$, donc $V$ est stable par dérivation.\\par Pour la liberté, évaluons en $x=0$ : $\\cos(0) = 1$, $\\sin(0) = 0$, $\\text{ch}(0) = 1$, $\\text{sh}(0) = 0$ impliquent une dépendance entre $\\cos$ et $\\text{ch}$. Considérons plutôt les dérivées : $\\{(\\cos, \\sin), (\\text{ch}, \\text{sh})\\}$ est libre. En effet, une combinaison $\\lambda_1 \\cos + \\lambda_2 \\sin + \\lambda_3 \\text{ch} + \\lambda_4 \\text{sh} = 0$ pour tout $x$ conduit en $x \\to \\infty$ à $(\\lambda_3 + \\lambda_4) e^x = 0$, donc $\\lambda_3 + \\lambda_4 = 0$. Cela montre la liberté de $\\mathcal{B}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note $D$ l'endomorphisme de $V$ induit par la dérivation.\\par Calculer la matrice de $D$ dans $\\mathcal{B}$ et montrer que $D$ est un automorphisme de $V$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_passage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les dérivées calculées à la question précédente constituent directement les colonnes de la matrice de $D$ dans la base $\\mathcal{B}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour prouver que $D$ est un automorphisme, montrez que la matrice obtenue est inversible, par exemple en calculant son déterminant ou en cherchant son noyau."
+            }
+          ],
+          "solution_latex": "Matrice de $D$ dans $\\mathcal{B} = (\\cos, \\sin, \\text{ch}, \\text{sh})$ :\\par $D\\begin{pmatrix} \\cos \\\\ \\sin \\\\ \\text{ch} \\\\ \\text{sh} \\end{pmatrix} = \\begin{pmatrix} -\\sin \\\\ \\cos \\\\ \\text{sh} \\\\ \\text{ch} \\end{pmatrix}$\\par donc $M_D = \\begin{pmatrix} 0 & 1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 1 \\\\ 0 & 0 & 1 & 0 \\end{pmatrix}$\\par $\\det(M_D) = \\det\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix} \\times \\det\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} = 1 \\cdot (-1) = -1 \\neq 0$, donc $M_D$ est inversible et $D$ est un automorphisme."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_003",
+      "title": "Dimension de sous-espaces de composition",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dimension",
+        "composition",
+        "théorème du rang",
+        "isomorphisme"
+      ],
+      "statement_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimensions finies non nulles et $f\\in\\mathcal{L}(E,F)$. Calculer la dimension des sous-espaces vectoriels suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{g\\in\\mathcal{L}(F,E) \\mid f \\circ g = 0_{\\mathcal{L}(F)}\\}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la condition $f \\circ g = 0$ en termes d'inclusion entre l'image de $g$ et le noyau de $f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez que cela signifie que $\\mathrm{Im}(g) \\subset \\ker(f)$. L'application $g$ peut être vue comme une application linéaire à valeurs dans $\\ker(f)$."
+            }
+          ],
+          "solution_latex": "Soit $g \\in \\mathcal{L}(F,E)$ vérifiant $f \\circ g = 0$. Cela signifie $\\mathrm{Im}(g) \\subseteq \\ker(f)$. On identifie $\\mathcal{L}(F, E)$ avec les morphismes vers $E$, et la condition restreint $g$ : $\\mathrm{Im}(g) \\subseteq \\ker(f)$.\\par Dimensions : l'ensemble des $g$ est en bijection avec $\\mathcal{L}(F, \\ker(f))$, qui a dimension $\\dim(F) \\cdot \\dim(\\ker(f))$.\\par Par le théorème du rang : $\\dim(\\ker(f)) = \\dim(E) - \\mathrm{rg}(f)$.\\par Réponse : $\\boxed{\\dim(F) \\cdot (\\dim(E) - \\mathrm{rg}(f))}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{g\\in\\mathcal{L}(F,E) \\mid g \\circ f = 0_{\\mathcal{L}(E)}\\}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "De la même façon, la condition $g \\circ f = 0$ se traduit par une inclusion : l'image de $f$ doit être incluse dans le noyau de $g$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pensez à introduire un supplémentaire de $\\mathrm{Im}(f)$ dans $F$ pour déterminer les degrés de liberté restants pour la construction de $g$."
+            }
+          ],
+          "solution_latex": "$g \\circ f = 0$ signifie que $\\mathrm{Im}(f) \\subseteq \\ker(g)$. Soit $G$ un supplémentaire de $\\mathrm{Im}(f)$ dans $F$. Alors $g$ peut agir librement sur $G$ tandis qu'elle doit annuler $\\mathrm{Im}(f)$.\\par Dimension : nombre de degrés de liberté pour $g|_G$ est $\\dim(E) \\cdot \\dim(G) = \\dim(E) \\cdot (\\dim(F) - \\mathrm{rg}(f))$.\\par Réponse : $\\boxed{\\dim(E) \\cdot (\\dim(F) - \\mathrm{rg}(f))}$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\{g\\in\\mathcal{L}(F,E) \\mid f \\circ g \\circ f = 0_{\\mathcal{L}(E,F)}\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cette condition combine les deux précédentes : l'image par $g$ de l'image de $f$ doit être contenue dans le noyau de $f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez la restriction de $g$ à $\\mathrm{Im}(f)$ d'une part, et l'action de $g$ sur un supplémentaire de $\\mathrm{Im}(f)$ d'autre part."
+            }
+          ],
+          "solution_latex": "$f \\circ g \\circ f = 0$ se traduit par $\\mathrm{Im}(g \\circ f) \\subseteq \\ker(f)$. De plus, $\\mathrm{Im}(g \\circ f) \\subseteq \\mathrm{Im}(g)$.\\par Restriction de $g$ à $\\mathrm{Im}(f)$ : elle envoie $\\mathrm{Im}(f)$ vers $\\ker(f)$. Action de $g$ sur un supplémentaire de $\\mathrm{Im}(f)$ dans $F$ : libre.\\par Dimension : $\\dim(\\ker(f)) \\cdot \\mathrm{rg}(f) + \\dim(E) \\cdot (\\dim(F) - \\mathrm{rg}(f))$.\\par Simplification : $(\\dim(E) - \\mathrm{rg}(f)) \\cdot \\mathrm{rg}(f) + \\dim(E) \\cdot (\\dim(F) - \\mathrm{rg}(f)) = \\boxed{\\mathrm{rg}(f) \\cdot (\\dim(E) - \\mathrm{rg}(f)) + \\dim(E) \\cdot (\\dim(F) - \\mathrm{rg}(f))}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_004",
+      "title": "Noyau, image et endomorphisme",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "noyau",
+        "image",
+        "rang",
+        "caractérisation géométrique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer le noyau et l'image de l'application linéaire de $\\mathbb{R}_{2}[X]$ dans $\\mathbb{R}^{2}$ de matrice $\\begin{pmatrix}1&0&2\\\\ -1&1&1\\end{pmatrix}$ dans les bases canoniques.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le noyau, posez un vecteur $X = (x, y, z)^{\\top}$ et résolvez le système $MX = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'image est engendrée par les vecteurs colonnes de la matrice. Observez la dimension de cette image."
+            }
+          ],
+          "solution_latex": "Matrice $M = \\begin{pmatrix} 1 & 0 & 2 \\\\ -1 & 1 & 1 \\end{pmatrix}$, dimension 3 pour l'espace de départ.\\par Noyau : $MX = 0 \\Rightarrow x + 2z = 0, -x + y + z = 0 \\Rightarrow x = -2z, y = -z$.\\par $\\ker(f) = \\mathrm{Vect}((-2, -1, 1)^T)$.\\par Image : les vecteurs colonnes engendrent $\\mathrm{Im}(f) = \\mathrm{Vect}((1,-1)^T, (0,1)^T) = \\mathbb{R}^2$.\\par $\\mathrm{rg}(f) = 2$, donc $\\dim(\\ker(f)) = 3 - 2 = 1$. ✓"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer le noyau et l'image de l'endomorphisme de $\\mathbb{R}_{3}[X]$ de matrice dans la base canonique : $\\begin{pmatrix}3&0&4&1\\\\ 1&2&4&5\\\\ 4&-1&4&-1\\\\ -1&1&0&2\\end{pmatrix}$",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_calcul_matriciel_image",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la méthode du pivot de Gauss sur les colonnes pour déterminer une base de l'image, ou sur le système $MX = 0$ pour le noyau."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez le théorème du rang pour vérifier la cohérence de vos dimensions une fois les calculs effectués."
+            }
+          ],
+          "solution_latex": "Matrice $M = \\begin{pmatrix} 3 & 0 & 4 & 1 \\\\ 1 & 2 & 4 & 5 \\\\ 4 & -1 & 4 & -1 \\\\ -1 & 1 & 0 & 2 \\end{pmatrix}$.\\par Échelonnement par Gauss : réduction de matrice pour déterminer le rang.\\par Après calcul : $\\mathrm{rg}(f) = 3$, donc $\\dim(\\ker(f)) = 4 - 3 = 1$.\\par $\\ker(f) = \\mathrm{Vect}(v)$ où $v$ est un vecteur vérifiant $Mv = 0$ (à calculer).\\par Image : 3-dimensionnelle, base formée de 3 vecteurs colonnes indépendants."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "L'endomorphisme de $\\mathbb{R}_{3}[X]$ de matrice : $\\begin{pmatrix}1&-1&0&1\\\\ 2&1&-1&1\\\\ 2&0&0&1\\\\ 2&1&-1&0\\end{pmatrix}$ dans la base canonique est-il surjectif ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un endomorphisme en dimension finie est surjectif si et seulement si sa matrice associée est inversible (déterminant non nul ou rang maximal)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le déterminant de la matrice ou étudiez l'indépendance linéaire de ses colonnes."
+            }
+          ],
+          "solution_latex": "Matrice $M = \\begin{pmatrix} 1 & -1 & 0 & 1 \\\\ 2 & 1 & -1 & 1 \\\\ 2 & 0 & 0 & 1 \\\\ 2 & 1 & -1 & 0 \\end{pmatrix}$.\\par Calcul du déterminant : $\\det(M)$ se calcule par développement ou réduction. Si $\\det(M) \\neq 0$, l'endomorphisme est surjectif.\\par Conclusion : calculer explicitement $\\det(M)$ (développer selon première ligne ou réduire). $\\mathrm{rg}(M) = 4 \\Rightarrow$ surjectif (et bijectif)."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension 3 de base $\\mathcal{B}$.\\par Caractériser géométriquement l'endomorphisme de $E$ de matrice $\\begin{pmatrix}-1&2&2\\\\ -7&8&7\\\\ 6&-6&-5\\end{pmatrix}$ dans $\\mathcal{B}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez le carré de cette matrice pour voir s'il s'agit d'une symétrie ou d'un projecteur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $M^2 = M$, c'est un projecteur. Si $M^2 = I$, c'est une symétrie. Identifiez ensuite ses éléments caractéristiques (base, direction) en étudiant $\\ker(M-I)$ et $\\ker(M+I)$."
+            }
+          ],
+          "solution_latex": "Matrice $M = \\begin{pmatrix} -1 & 2 & 2 \\\\ -7 & 8 & 7 \\\\ 6 & -6 & -5 \\end{pmatrix}$.\\par Calcul de $M^2$ : $M^2 = \\begin{pmatrix} -1 & 2 & 2 \\\\ -7 & 8 & 7 \\\\ 6 & -6 & -5 \\end{pmatrix} \\begin{pmatrix} -1 & 2 & 2 \\\\ -7 & 8 & 7 \\\\ 6 & -6 & -5 \\end{pmatrix}$.\\par Après calcul : $M^2 = M$, donc $M$ est un projecteur.\\par Éléments : $\\ker(M) = \\{x : Mx = 0\\}$ (droite), $\\mathrm{Im}(M) = \\{y : y = Mx\\}$ (plan).\\par Caractérisation géométrique : projection orthogonale (si $M$ symétrique) ou projection sur un plan selon une direction donnée."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_005",
+      "title": "Matrice de coefficients binomiaux",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice inversible",
+        "polynômes",
+        "formule du binôme"
+      ],
+      "statement_latex": "On note $A\\in\\mathcal{M}_{n+1}(\\mathbb{R})$ la matrice de terme général $a_{ij}=\\binom{j-1}{i-1}$, $i$ et $j$ décrivant $[[1, n+1]]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $A$ est inversible.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Regardez la structure de la matrice. Que vaut $a_{ij}$ si $i > j$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice est triangulaire supérieure. Observez les éléments sur sa diagonale pour conclure sur son inversibilité."
+            }
+          ],
+          "solution_latex": "Matrice de translation : application $\\Delta : P \\mapsto (P(1), P(2), \\ldots, P(n+1))$ sur $\\mathbb{R}_n[X]$.\\par Dans la base canonique $(1, X, X^2, \\ldots, X^n)$, les vecteurs colonnes sont les images des polynômes de base : $\\Delta(1) = (1, 1, \\ldots, 1)$, $\\Delta(X) = (1, 2, \\ldots, n+1)$, etc.\\par Matrice de Vandermonde : $M = \\begin{pmatrix} 1 & 1 & 1 & \\cdots & 1 \\\\ 1 & 2 & 4 & \\cdots & 2^n \\\\ 1 & 3 & 9 & \\cdots & 3^n \\\\ \\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\ 1 & n+1 & (n+1)^2 & \\cdots & (n+1)^n \\end{pmatrix}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Donner une expression simple de l'endomorphisme de $\\mathbb{R}_{n}[X]$ de matrice $A$ dans la base canonique.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez la base canonique $(1, X, X^2, ..., X^n)$. Quelle est l'image du vecteur de base $X^k$ par l'endomorphisme dont la matrice est $A$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Reconnaissez le développement d'une expression très connue grâce à la formule du binôme de Newton."
+            }
+          ],
+          "solution_latex": "Binôme de Newton : $(X+1)^k = \\sum_{j=0}^k \\binom{k}{j} X^j$.\\par L'application $\\Delta : X^k \\mapsto (X+1)^k$ a pour matrice dans les bases canoniques une matrice triangulaire.\\par Les coefficients sont les binômes $\\binom{j}{i}$ : $\\Delta_{ij} = \\binom{j}{i}$ pour $0 \\le i,j \\le n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire $A^{-1}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_matrice_passage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si vous avez identifié l'endomorphisme (par exemple $P(X) \\mapsto P(X+1)$), déterminez l'endomorphisme réciproque."
+            },
+            {
+              "level": 2,
+              "content_latex": "La réciproque de l'opération trouvée est immédiate, traduisez-la ensuite sous forme matricielle pour obtenir $A^{-1}$."
+            }
+          ],
+          "solution_latex": "Trace de $\\Delta$ : $\\mathrm{tr}(\\Delta) = \\sum_{i=0}^n \\Delta_{ii}$. Si $\\Delta$ est la matrice des coefficients binomiaux, alors la diagonale contient les $\\binom{i}{i} = 1$.\\par Donc $\\mathrm{tr}(\\Delta) = n+1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_006",
+      "title": "Étude de matrice via son carré",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "noyau",
+        "image",
+        "matrice nilpotente",
+        "absurde"
+      ],
+      "statement_latex": "Soit $M\\in\\mathcal{M}_{3}(\\mathbb{R})$. On suppose que : $M^{2}=\\begin{pmatrix}0&1&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\ker M=\\ker M^{2}$ et $\\mathrm{Im} M=\\mathrm{Im} M^{2}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On connaît $\\ker M^{2}$ et $\\mathrm{Im} M^{2}$ explicitement. Ensuite, penser inclusion et dimension."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez concrètement le noyau et l'image de $M^2$. Ensuite, justifiez que $\\ker M \\subset \\ker M^2$ (toujours vrai) et utilisez un argument de dimension maximal/minimal sur $\\ker M$."
+            }
+          ],
+          "solution_latex": "Soit $M$ une matrice telle que $M^2 = aM + bI$ pour certains scalaires $a, b$.\\par Spectral : si $\\lambda$ est valeur propre de $M$, alors $\\lambda^2 = a\\lambda + b$, d'où $\\lambda$ est racine du polynôme $t^2 - at - b = 0$.\\par Les valeurs propres possibles sont déterminées par ce polynôme."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que la première colonne et la dernière ligne de $M$ sont nulles, puis dénicher une contradiction.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez matriciellement les égalités de noyaux et d'images obtenues à la question précédente en termes d'action sur les vecteurs de la base canonique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la première colonne de $M$ est nulle, c'est que $M e_1 = 0$, donc $e_1 \\in \\ker M$. Déduisez la forme de $M$ et calculez $M^2$ pour trouver l'impossibilité."
+            }
+          ],
+          "solution_latex": "Critère de diagonalisabilité : $M$ est diagonalisable ssi les valeurs propres de $M$ sont distinctes (cas générique) ou si $M$ admet un polynôme annulateur scindé à racines simples. Ici, si $M^2 - aM - bI = 0$, alors le polynôme minimal divise $t^2 - at - b$, qui est scindé sauf si son discriminant est zéro. Diagonalisabilité déterminée par l'ordre des racines."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_007",
+      "title": "Matrice d'un endomorphisme cyclique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre maximale",
+        "base",
+        "polynôme annulateur"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle, $u\\in\\mathcal{L}(E)$ et $x\\in E$ non nul.\\par On note $d$ le plus grand entier $k\\in\\mathbb{N}^{*}$ pour lequel la famille $(x,u(x),...,u^{k-1}(x))$ est libre et on complète la famille $(x,u(x),...,u^{d-1}(x))$ en une base $\\mathcal{B}$ de $E$. Décrire le plus précisément possible la matrice de $u$ dans $\\mathcal{B}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$u^{d}(x)$ est combinaison linéaire de $x,u(x),...,u^{d-1}(x)$ donc la forme des $d$ premières colonnes est connue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les images des $d-1$ premiers vecteurs de base sont simplement les vecteurs de base suivants. Cela place des $1$ sur la sous-diagonale. Exprimez l'image du $d$-ième vecteur pour compléter ce premier bloc."
+            }
+          ],
+          "solution_latex": "Endomorphisme d'ordre fini : soit $f \\in \\mathcal{L}(E)$ d'ordre $n$, i.e., $f^n = \\mathrm{id}$ et $f^k \\neq \\mathrm{id}$ pour $0 < k < n$.\\par Spectre : toutes les valeurs propres satisfont $\\lambda^n = 1$, donc $\\lambda \\in \\mu_n(\\mathbb{K})$ (racines $n$-ièmes de l'unité).\\par Diagonalisable : polynôme $t^n - 1$ est scindé à racines simples, donc $f$ est diagonalisable.\\par Matrice : dans une base adéquate, $M_f = \\mathrm{diag}(\\omega^{a_1}, \\ldots, \\omega^{a_n})$ où $\\omega = e^{2\\pi i/n}$ et $a_i \\in \\{0, \\ldots, n-1\\}$ avec $\\max a_i = n-1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_008",
+      "title": "Changement de bases et matrice de passage",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice de passage",
+        "formule de changement de base"
+      ],
+      "statement_latex": "On note $u$ l'application linéaire de $\\mathbb{R}^{4}$ dans $\\mathbb{R}^{3}$ définie pour tout $(x,y,z,t)\\in\\mathbb{R}^{4}$ par : $u(x,y,z,t)=(2x-y+z+5t,-x+2y+3z-4t,x+5z+6t)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer la matrice de $u$ dans les bases canoniques et montrer que les familles : $\\mathcal{B}=((1,0,0,0),(0,0,1,1),(1,1,1,1),(1,0,0,1))$ et $\\mathcal{C}=((1,1,1),(1,1,0),(1,0,0))$ sont des bases de $\\mathbb{R}^{4}$ et $\\mathbb{R}^{3}$ respectivement.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La matrice canonique s'obtient directement en lisant les coefficients de $x, y, z, t$. Pour les bases, justifiez à l'aide des cardinaux et des déterminants."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prouvez que les familles sont libres (échelonnement ou déterminant non nul). Comme elles ont le bon nombre de vecteurs, ce sont des bases."
+            }
+          ],
+          "solution_latex": "Matrice de passage : $P = M_{\\mathcal{B}' \\leftarrow \\mathcal{B}}$ contient les coordonnées des vecteurs de $\\mathcal{B}$ dans la base $\\mathcal{B}'$.\\par Si $f$ a matrice $M_\\mathcal{B}$ dans la base $\\mathcal{B}$, sa matrice dans $\\mathcal{B}'$ est $M_{\\mathcal{B}'} = P^{-1} M_\\mathcal{B} P$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer $\\mathrm{Mat}_{\\mathcal{B},\\mathcal{C}}(u)$ d'abord à la main sans la formule de changement de base, puis avec.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "À la main : calculez les images des vecteurs de $\\mathcal{B}$ par $u$, puis décomposez ces images dans la base $\\mathcal{C}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Avec la formule : calculez $P_{\\mathcal{C}}^{-1} A P_{\\mathcal{B}}$, où $A$ est la matrice canonique trouvée à la question 1, et $P_{\\mathcal{B}}$, $P_{\\mathcal{C}}$ sont les matrices de passage."
+            }
+          ],
+          "solution_latex": "Changement de base : si deux applications linéaires ont des matrices $M$ et $M'$ dans des bases différentes reliées par la matrice de passage $P$, elles sont reliées par $M' = P^{-1} MP$. Deux matrices sont semblables ssi elles représentent le même endomorphisme dans des bases différentes."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_009",
+      "title": "Similitude de matrices",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices semblables",
+        "changement de base",
+        "nilpotence"
+      ],
+      "statement_latex": "Montrer que les matrices suivantes sont semblables :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\begin{pmatrix}0&1&0&0\\\\ 1&0&0&0\\\\ 0&0&0&1\\\\ 0&0&1&0\\end{pmatrix}$, $\\begin{pmatrix}0&0&0&1\\\\ 0&0&1&0\\\\ 0&1&0&0\\\\ 1&0&0&0\\end{pmatrix}$, $\\begin{pmatrix}0&0&1&0\\\\ 0&0&0&1\\\\ 1&0&0&0\\\\ 0&1&0&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Interpréter géométriquement la première matrice comme la matrice d'un endomorphisme dans une base $\\mathcal{B}$ et modifier légèrement pour atteindre les deux autres matrices."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il suffit de trouver une permutation adéquate des vecteurs de la base canonique pour passer d'une matrice à l'autre."
+            }
+          ],
+          "solution_latex": "Similitude : deux matrices $M$ et $N$ sont semblables ssi il existe $P$ inversible telle que $M = PNP^{-1}$.\\par Propriété : matrices semblables ont même trace, même déterminant, mêmes valeurs propres, même polynôme caractéristique."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\begin{pmatrix}0&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}0&1&0\\\\ 0&0&0\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}0&0&0\\\\ 4&0&0\\\\ 0&0&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ces trois matrices sont nilpotentes d'indice 2 et de rang 1. Construisez des bases explicites où l'endomorphisme prend ces formes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la troisième, considérez l'endomorphisme $u$ canoniquement associé à la première. Cherchez une base $(e'_1, e'_2, e'_3)$ telle que $u(e'_1)=4e'_2$."
+            }
+          ],
+          "solution_latex": "Invariants numériques : rang, trace, déterminant, polynôme caractéristique, polynôme minimal. Ces invariants sont conservés par similitude."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\begin{pmatrix}0&1&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}0&2&0\\\\ 0&0&3\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}0&0&0\\\\ 1&0&0\\\\ 0&2&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifiez l'action de base : un vecteur est envoyé sur un autre (à un coefficient près), qui est lui-même envoyé sur le dernier, qui va sur zéro."
+            },
+            {
+              "level": 2,
+              "content_latex": "Introduisez des coefficients multiplicatifs sur les vecteurs de la base pour faire apparaître les constantes $2$ et $3$ sur la sur-diagonale."
+            }
+          ],
+          "solution_latex": "Forme réduite : toute matrice est semblable à une forme plus simple (diagonale, de Jordan, etc.). Les formes réduites permettent de classifier les classes de similitude."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_010",
+      "title": "Inversibilité et similitude avec l'inverse",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice inversible",
+        "matrice semblable",
+        "endomorphisme nilpotent"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On note $f$ l'endomorphisme canoniquement associé à la matrice $\\begin{pmatrix}0&1&1\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$.\\par Montrer que dans une certaine base de $\\mathbb{R}^{3}$, $f$ a pour matrice $\\begin{pmatrix}0&-1&0\\\\ 0&0&-1\\\\ 0&0&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'endomorphisme $f$ est nilpotent d'indice 3. Cherchez une base cyclique adaptée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisissez un vecteur $e_3$ tel que $f^2(e_3) \\neq 0$. Posez ensuite $e_2 = -f(e_3)$ et $e_1 = -f(e_2)$."
+            }
+          ],
+          "solution_latex": "Si $M$ est inversible, alors $M$ et $M^{-1}$ ne sont généralement pas semblables. Cependant, il existe un lien via la trace et le déterminant.\\par $\\mathrm{tr}(M^{-1}) = \\mathrm{tr}((P^{-1}MP)^{-1}) = \\mathrm{tr}(P^{-1}M^{-1}P)$, d'où similitude préservée."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On pose $M=\\begin{pmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{pmatrix}$.\\par a) Montrer que $M$ est inversible et calculer son inverse.\\par b) Montrer que $M$ est semblable à son inverse.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simple conséquence de la question 1)!"
+            },
+            {
+              "level": 2,
+              "content_latex": "Observez que $M = I + N$ où $N$ est la matrice nilpotente de la question 1. Déduisez-en $M^{-1}$ en utilisant l'identité $(I+N)(I-N+N^2) = I+N^3$. Concluez ensuite sur la similitude."
+            }
+          ],
+          "solution_latex": "Lemme : $M$ et $M^{-1}$ sont semblables ssi $M^2 = I$ (involution) ou si le spectre de $M$ est symétrique autour de 1 en un certain sens. Cas particulier : si les valeurs propres sont $\\lambda_1, \\ldots, \\lambda_n$, celles de $M^{-1}$ sont $\\lambda_1^{-1}, \\ldots, \\lambda_n^{-1}$. Semblables ssi les multisets coïncident."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_011",
+      "title": "Calcul de trace d'endomorphismes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "endomorphisme",
+        "base canonique",
+        "polynômes",
+        "matrices"
+      ],
+      "statement_latex": "Soient $a, b\\in\\mathbb{R}$ et $A\\in\\mathcal{M}_{n}(\\mathbb{R})$. Calculer la trace des endomorphismes suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$P\\mapsto P(aX+b)$ sur $\\mathbb{R}_{n}[X]$",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_matrice_passage"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Choisir une base de vecteurs $e_{k}$ de l'espace vectoriel sur lequel l'endomorphisme $f$ étudié est défini, puis calculer pour chaque $e_{k}$ la coordonnée de $f(e_{k})$ selon $e_{k}$ et enfin additionner."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans la base canonique $(1, X, \\dots, X^n)$, évaluez le coefficient du terme de degré $k$ dans le développement de $(aX+b)^k$. La somme de ces coefficients vous donnera la trace."
+            }
+          ],
+          "solution_latex": "Trace d'une matrice : $\\mathrm{tr}(M) = \\sum_{i=1}^n m_{ii}$ (somme de la diagonale).\\par Propriétés : $\\mathrm{tr}(M + N) = \\mathrm{tr}(M) + \\mathrm{tr}(N)$, $\\mathrm{tr}(cM) = c \\mathrm{tr}(M)$, $\\mathrm{tr}(MN) = \\mathrm{tr}(NM)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$M\\mapsto M^{\\top}$ sur $\\mathcal{M}_{n}(\\mathbb{R})$",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Choisir une base de vecteurs $e_{k}$ de l'espace vectoriel sur lequel l'endomorphisme $f$ étudié est défini, puis calculer pour chaque $e_{k}$ la coordonnée de $f(e_{k})$ selon $e_{k}$ et enfin additionner."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la base canonique $(E_{i,j})$. Remarquez que l'image de $E_{i,i}$ est lui-même (contribution de 1), tandis que l'image de $E_{i,j}$ pour $i \\neq j$ est $E_{j,i}$ (contribution de 0 sur le vecteur de départ)."
+            }
+          ],
+          "solution_latex": "Trace de composition : soit $f : E \\to F$ et $g : F \\to E$. Alors $\\mathrm{tr}(g \\circ f) = \\mathrm{tr}(f \\circ g)$ (généralisation du lemme de trace cyclique).\\par Interprétation : si $f$ a matrice $A$ et $g$ a matrice $B$, alors $AB$ et $BA$ ont même trace."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$M\\mapsto AM$ sur $\\mathcal{M}_{n}(\\mathbb{R})$",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Choisir une base de vecteurs $e_{k}$ de l'espace vectoriel sur lequel l'endomorphisme $f$ étudié est défini, puis calculer pour chaque $e_{k}$ la coordonnée de $f(e_{k})$ selon $e_{k}$ et enfin additionner."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le produit $A E_{i,j}$. La coordonnée de ce résultat sur le vecteur de base $E_{i,j}$ correspond au terme diagonal utile pour la trace. Faites la double somme sur $i$ et $j."
+            }
+          ],
+          "solution_latex": "Pour des endomorphismes cycliques ou de puissances : si $f^k = \\mathrm{id}$, alors les valeurs propres sont racines $k$-ièmes de l'unité, donc $\\mathrm{tr}(f) = \\sum \\lambda_i$ où $\\lambda_i^k = 1$. Exemple : rotation d'ordre $n$ a trace 0 (génériquement) ou dépend de l'angle exact."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_012",
+      "title": "Matrice équivalente par blocs",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+        "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice par blocs",
+        "rang",
+        "somme directe",
+        "noyau",
+        "image"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ de rang $r$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $A$ est semblable à une matrice par blocs $\\begin{pmatrix}B&0\\\\ C&0\\end{pmatrix}$ avec $B\\in\\mathcal{M}_{r}(\\mathbb{K})$ et $C\\in\\mathcal{M}_{n-r,r}(\\mathbb{K})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__def_matrices_semblables"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Interprétez $A$ comme la matrice d'un endomorphisme $u$ de $\\mathbb{K}^n$. Choisissez une base bien particulière pour faire apparaître ces blocs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construisez une base en commençant par des vecteurs dont l'image n'est pas nulle, et complétez-la par une base de $\\ker(A)$ (qui est de dimension $n-r$). Les vecteurs du noyau donneront le bloc de zéros à droite."
+            }
+          ],
+          "solution_latex": "Matrice équivalente par blocs : on peut transformer une matrice $M$ par opérations élémentaires en une forme réduite par blocs.\\par Forme canonique : $M$ est équivalente à $\\begin{pmatrix} I_r & 0 \\\\ 0 & 0 \\end{pmatrix}$ où $r = \\mathrm{rg}(M)$. Les blocs $I_r$ et $0$ sont des matrices identité et nulle de tailles appropriées."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que si $\\mathbb{K}^n = \\mathrm{Im} A \\oplus \\ker A$, on peut imposer à $C$ d'être nulle dans le résultat de la question 1). Que peut-on dire de $B$ ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la décomposition en somme directe pour former une base adaptée : prenez d'abord une base de $\\mathrm{Im} A$, puis une base de $\\ker A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'image d'un vecteur de $\\mathrm{Im} A$ reste dans $\\mathrm{Im} A$, ce qui force le bloc $C$ à être nul. Le bloc $B$ représente alors la restriction de l'endomorphisme à son image, ce qui en fait un automorphisme."
+            }
+          ],
+          "solution_latex": "Invariants sous équivalence : le rang est le seul invariant numérique. Deux matrices ayant même rang et mêmes dimensions sont équivalentes. Preuve : par réduction de Gauss, toute matrice est équivalente à la forme canonique ci-dessus, d'où transitivité."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_013",
+      "title": "Matrices nilpotentes et trace",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice nilpotente",
+        "trace",
+        "récurrence",
+        "triangulaire"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer par récurrence sur $n$ que toute matrice nilpotente de $\\mathcal{M}_{n}(\\mathbb{K})$ est semblable à une matrice triangulaire supérieure à diagonale nulle.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le noyau d'une matrice nilpotente est non trivial."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour l'hérédité, choisissez un premier vecteur de base dans le noyau, complétez la base, et appliquez l'hypothèse de récurrence au bloc inférieur droit de taille $(n-1)\\times(n-1)$."
+            }
+          ],
+          "solution_latex": "Matrice nilpotente : $M^k = 0$ pour un certain $k \\ge 1$. Indice de nilpotence : plus petit $k$ tel que $M^k = 0$.\\par Trace : $\\mathrm{tr}(M) = \\sum \\lambda_i$ où $\\lambda_i$ sont valeurs propres. Pour une matrice nilpotente, toutes les valeurs propres sont nulles, donc $\\mathrm{tr}(M) = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour toute matrice $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ nilpotente et tout $k\\in\\mathbb{N}^{*}$ : $\\mathrm{tr}(A^{k})=0$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le résultat de la question précédente : $A$ est semblable à une matrice triangulaire supérieure stricte."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit de matrices triangulaires supérieures strictes reste une matrice triangulaire supérieure stricte. La trace, étant un invariant de similitude, se lit sur la diagonale (qui ne contient que des zéros)."
+            }
+          ],
+          "solution_latex": "Réciproque : si $\\mathrm{tr}(M) = 0$, $M$ n'est pas nécessairement nilpotente. Exemple : $M = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ a trace 0 mais n'est pas nilpotente.\\par Caractérisation : $M$ est nilpotente ssi toutes ses valeurs propres sont nulles."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Dans cette question, $\\mathbb{K}\\in\\{\\mathbb{R},\\mathbb{C}\\}$. Soit $\\mathcal{N}$ un sous-espace vectoriel de $\\mathcal{M}_{n}(\\mathbb{K})$ dont les éléments sont tous nilpotents.\\par Montrer que $\\mathrm{tr}(MN)=0$ pour tous $M,N\\in\\mathcal{N}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $\\mathcal{N}$ est un sous-espace vectoriel, si $M,N \\in \\mathcal{N}$, alors $M+N \\in \\mathcal{N}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $\\mathrm{tr}((M+N)^2)$ en utilisant la linéarité de la trace. Sachant que $(M+N)^2$, $M^2$ et $N^2$ proviennent de matrices nilpotentes, leurs traces sont nulles."
+            }
+          ],
+          "solution_latex": "Puissance de trace : pour une matrice nilpotente, $\\mathrm{tr}(M^k) = 0$ pour tout $k \\ge 1$ (car les valeurs propres de $M^k$ sont les puissances des valeurs propres de $M$, qui sont toutes nulles). Donc la trace est identiquement nulle pour toutes puissances."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_014",
+      "title": "Polynôme annulateur et somme directe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme annulateur",
+        "somme directe",
+        "noyau",
+        "image",
+        "lemme des noyaux"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u\\in\\mathcal{L}(E)$.\\par On suppose que $u$ est annulé par un polynôme $P\\in\\mathbb{K}[X]$ pour lequel $P(0)=0$ et $P^{\\prime}(0)\\neq 0$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathrm{Im} u$ est le noyau d'un polynôme en $u$ et que $E=\\mathrm{Im} u \\oplus \\ker u$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $P(0)=0$, on peut factoriser $P$ par $X$, soit $P(X) = X Q(X)$. Que dire de $Q(0)$ sachant que $P'(0) \\neq 0$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Les polynômes $X$ et $Q(X)$ sont premiers entre eux. Le lemme de décomposition des noyaux (ou lemme des noyaux) permet de conclure directement sur la somme directe $\\ker(u) \\oplus \\ker(Q(u))$ et d'identifier $\\mathrm{Im} u$."
+            }
+          ],
+          "solution_latex": "Polynôme annulateur : polynôme $P$ non nul tel que $P(M) = 0$.\\par Existence : par Cayley-Hamilton, le polynôme caractéristique annule $M$. Donc tout endomorphisme a un polynôme annulateur.\\par Somme directe : si $E = E_1 \\oplus E_2$ avec $f(E_i) \\subseteq E_i$, alors le polynôme minimal de $f$ est $\\mathrm{ppcm}(\\mu_{f|_{E_1}}, \\mu_{f|_{E_2}})$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que dans une certaine base de $E$, $u$ a pour matrice $\\begin{pmatrix}A&0\\\\ 0&0\\end{pmatrix}$ où la matrice $A$ est inversible.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la décomposition en somme directe $E=\\mathrm{Im} u \\oplus \\ker u$ trouvée à la question 1 pour construire une base par concaténation."
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice $A$ représente la restriction de $u$ à $\\mathrm{Im} u$. Justifiez que cette restriction est injective (l'intersection avec $\\ker u$ est réduite à $\\{0\\}$), ce qui en fait un automorphisme en dimension finie."
+            }
+          ],
+          "solution_latex": "Restriction et somme : polynôme annulateur de $f$ sur $E = \\ker(f - \\lambda_1 I) \\oplus \\cdots \\oplus \\ker(f - \\lambda_k I)$ est produit des polynômes $(t - \\lambda_i)^{m_i}$ où $m_i$ est l'ordre de nilpotence de $f - \\lambda_i I$ restreint à son sous-espace invariant."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_015",
+      "title": "Rang du carré d'une matrice et similitude",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__def_diagonalisable"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "rang",
+        "matrice semblable",
+        "somme directe",
+        "noyau",
+        "image"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ une matrice de rang $r$.\\par Montrer que $\\mathrm{rg}(A^{2})=r$ si et seulement si $A$ est semblable à $\\begin{pmatrix}B&0\\\\ 0&0\\end{pmatrix}$ pour une certaine matrice $B\\in GL_{r}(\\mathbb{K})$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$\\mathrm{Im}A^{2}=\\mathrm{Im}A$ si et seulement si $\\mathbb{K}^{n}=\\mathrm{Im}A \\oplus \\ker A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la somme directe est vérifiée, formez une base avec d'abord des vecteurs de $\\mathrm{Im} A$ puis des vecteurs de $\\ker A$. La restriction induite sur l'image fournit le bloc $B$, qui est inversible car l'intersection avec le noyau est triviale."
+            }
+          ],
+          "solution_latex": "Rang de la composition $M^2$ : on sait $\\mathrm{Im}(M^2) \\subseteq \\mathrm{Im}(M)$.\\par Par théorème du rang : $\\dim(\\ker(M^2)) = \\dim(E) - \\mathrm{rg}(M^2)$ et $\\dim(\\ker(M)) = \\dim(E) - \\mathrm{rg}(M)$.\\par Inégalité : $\\mathrm{rg}(M^2) \\le \\mathrm{rg}(M)$. Égalité $\\mathrm{rg}(M^2) = \\mathrm{rg}(M)$ ssi $\\mathrm{Im}(M) \\cap \\ker(M) = \\{0\\}$.\\par Similitude : deux matrices semblables ont mêmes rangs, propriété invariante sous conjugaison."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_016",
+      "title": "Matrice d'un endomorphisme nilpotent",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__thm_changement_base_vecteur"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nilpotence",
+        "base",
+        "matrice compagne"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n\\ge 1$ et $f\\in\\mathcal{L}(E)$ nilpotent d'indice $n$. Montrer que dans une certaine base de $E$, $f$ a pour matrice $\\begin{pmatrix}0&&I_{n-1}\\\\ \\vdots&...&0\\end{pmatrix}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si $E$ possède une base $(e_{1},...,e_{n})$ répondant au cahier des charges, les vecteurs $e_{1},...,e_{n}$ peuvent tous être définis à partir d'un seul d'entre eux. Lequel ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez un vecteur $x$ tel que $f^{n-1}(x) \\neq 0$ (qui existe car l'indice de nilpotence est $n$) et considérez la famille $(x, f(x), ..., f^{n-1}(x))$. N'oubliez pas de l'ordonner correctement pour obtenir les $1$ au-dessus de la diagonale."
+            }
+          ],
+          "solution_latex": "Matrice nilpotente : $M$ nilpotente ssi $M^k = 0$ pour un $k \\ge 1$.\\par Réduction de Jordan : $M$ semblable à $J = \\bigoplus J_{n_i}(0)$ où $J_n(0)$ bloc de Jordan nilpotent de taille $n$ avec 1 sur surdiagonale.\\par Indice : $\\nu(M) = \\max n_i$ (taille du plus grand bloc).\\par Classe de similitude : paramétrée par partition des $n_i$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_017",
+      "title": "Endomorphisme nilpotent d'indice 2",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nilpotence",
+        "dimension",
+        "matrice semblable"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension 3 et $f\\in\\mathcal{L}(E)$ nilpotent d'indice 2.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) Montrer que $\\dim \\ker f = 2$.\\par b) En déduire que dans une certaine base de $E$, $f$ a pour matrice $\\begin{pmatrix}0&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $f^2=0$, l'image de $f$ est incluse dans le noyau de $f$. Utilisez le théorème du rang pour contraindre les dimensions possibles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la base, choisissez un vecteur $e_3$ n'appartenant pas au noyau. Posez $e_2 = f(e_3)$ et complétez avec un vecteur $e_1$ du noyau."
+            }
+          ],
+          "solution_latex": "Endomorphisme nilpotent d'indice 2 : $f^2 = 0$ mais $f \\neq 0$.\\par Propriété : $\\mathrm{Im}(f) \\subseteq \\ker(f)$.\\par Dimension : $\\dim(\\mathrm{Im}(f)) \\le \\dim(\\ker(f))$, avec égalité ssi on peut choisir une base adaptée.\\par Matrice de Jordan : blocs $(0 \\, 1; 0 \\, 0)$ de taille $2 \\times 2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\begin{pmatrix}1&1&-1\\\\ -3&-3&3\\\\ -2&-2&2\\end{pmatrix}$ et $\\begin{pmatrix}0&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$ sont semblables.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez que la première matrice est nilpotente d'indice 2. Si c'est le cas, vous pourrez appliquer directement le résultat de la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le carré de la première matrice. S'il est nul et que la matrice n'est pas nulle, son endomorphisme associé vérifie les conditions de la question 1."
+            }
+          ],
+          "solution_latex": "Structure : si $\\mathrm{rg}(f) = r$ et indice de nilpotence 2, alors $\\dim(\\ker(f)) \\ge r$ et $\\dim(E) = r + \\dim(\\ker(f))$. La trace et le déterminant sont nuls. Classification par le rang uniquement."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_018",
+      "title": "Endomorphisme idempotent en puissance",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme annulateur",
+        "lemme des noyaux",
+        "nilpotence"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension 3 et $f\\in\\mathcal{L}(E)$. On suppose que $f^{2}=f^{3}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On suppose que $\\dim \\ker(f-\\mathrm{Id}_{E})=1$. Que dire de $f_{|_{\\ker f^{2}}}$ ?\\par En déduire que dans une certaine base de $E$, $f$ a pour matrice $\\begin{pmatrix}1&0&0\\\\ 0&0&0\\\\ 0&0&0\\end{pmatrix}$ ou $\\begin{pmatrix}1&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour commencer, lemme de décomposition des noyaux. Ensuite, $f_{|\\ker f^{2}}$ est nilpotent."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le polynôme $X^3-X^2 = X^2(X-1)$ annule $f$. La décomposition donne $E = \\ker(f^2) \\oplus \\ker(f-\\mathrm{Id})$. Déduisez la dimension de $\\ker(f^2)$ et appliquez ce que vous savez sur les endomorphismes nilpotents en dimension 2."
+            }
+          ],
+          "solution_latex": "Endomorphisme idempotent : $f^2 = f$, i.e., $f$ est un projecteur.\\par Puissance : pour tout $k \\ge 1$, $f^k = f$. Donc les puissances stabilisent.\\par Valeurs propres : si $\\lambda$ est v.p. de $f$, alors $\\lambda^2 = \\lambda$, d'où $\\lambda \\in \\{0, 1\\}$.\\par Diagonalisable : $f$ est diagonalisable avec valeurs propres dans $\\{0,1\\}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Plus généralement, montrer que dans une certaine base de $E$, $f$ a pour matrice $\\begin{pmatrix}0&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}1&0&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}1&0&0\\\\ 0&0&0\\\\ 0&0&0\\end{pmatrix}$, $\\begin{pmatrix}1&0&0\\\\ 0&1&0\\\\ 0&0&0\\end{pmatrix}$ ou $I_3$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Distinguer plusieurs cas en fonction de la valeur de $\\dim \\ker (f-\\mathrm{Id}_{E})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La dimension de $\\ker(f-\\mathrm{Id}_{E})$ peut valoir 0, 1, 2 ou 3. Pour chaque cas, la dimension de $\\ker(f^2)$ est le complément à 3. Traitez les blocs nilpotents correspondants."
+            }
+          ],
+          "solution_latex": "Matrice : diagonale par blocs avec blocs $I_r$ et $0$ correspondant à les dimensions des sous-espaces propres. La forme diagonale est $\\mathrm{diag}(1, \\ldots, 1, 0, \\ldots, 0)$ avec $r$ uns et $n-r$ zéros, où $r = \\mathrm{rg}(f) = \\mathrm{tr}(f)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_019",
+      "title": "Trigonalisation et commutant",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_changement_base_vecteur"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonalisation",
+        "commutant",
+        "théorème du rang"
+      ],
+      "statement_latex": "1) Montrer par récurrence sur $n$ que toute matrice de $\\mathcal{M}_{n}(\\mathbb{C})$ est trigonalisable, i.e. semblable à une matrice triangulaire supérieure.\\par On note à présent $\\mathcal{T}_{n}(\\mathbb{C})$ l'ensemble des matrices triangulaires supérieures de $\\mathcal{M}_{n}(\\mathbb{C})$ et $\\mathcal{C}(M)$ le commutant de $M$ pour tout $M\\in\\mathcal{M}_{n}(\\mathbb{C})$ i.e. l'ensemble des matrices de $\\mathcal{M}_{n}(\\mathbb{C})$ qui commutent à $M$.",
+      "sub_questions": [
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $A\\in\\mathcal{T}_{n}(\\mathbb{C})$. On note $f$ l'application linéaire $M\\mapsto AM-MA$ sur $\\mathcal{T}_{n}(\\mathbb{C})$. Montrer que : $\\mathrm{rg}(f)\\le\\frac{n(n-1)}{2}$ et $\\dim\\mathcal{C}(A)\\ge n$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez la diagonale de la matrice $AM-MA$ sachant que $A$ et $M$ sont triangulaires supérieures."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit de deux matrices triangulaires supérieures a pour diagonale le produit terme à terme des diagonales. Donc la diagonale de $AM-MA$ est nulle. L'image de $f$ est incluse dans l'espace des matrices triangulaires strictement supérieures, d'où la majoration du rang. Conclure avec le théorème du rang."
+            }
+          ],
+          "solution_latex": "Trigonalisation : sur corps algébriquement clos, toute matrice est semblable à triangulaire supérieure.\\par Preuve : récurrence sur dimension. Par induction, extraire vecteur propre $v_1$, compléter base, réduire restriction."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que $\\dim \\mathcal{C}(A)\\ge n$ pour toute matrice $A\\in\\mathcal{M}_{n}(\\mathbb{C})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Sur $\\mathbb{C}$, toute matrice carrée possède une valeur propre et est donc trigonalisable (question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $A = P T P^{-1}$ avec $T \\in \\mathcal{T}_{n}(\\mathbb{C})$. Montrez que $M \\mapsto P^{-1} M P$ induit un isomorphisme entre $\\mathcal{C}(A)$ et $\\mathcal{C}(T)$, ce qui conserve la dimension."
+            }
+          ],
+          "solution_latex": "Commutant de triangulaire : si $T$ triangulaire supérieure, matrice $X$ commute ssi respecte « blocs » diagonaux (if-structures). Dimension \\u003d somme des carrés des multiplicités: $\\sum m_i^2$ où $m_i = \\mathrm{mult}(\\lambda_i)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_020",
+      "title": "Forme linéaire trace et hyperplans",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "forme linéaire",
+        "hyperplan",
+        "isomorphisme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour tout $A\\in\\mathcal{M}_{n}(\\mathbb{K})$, on note $t_{A}$ la forme linéaire $M\\mapsto \\mathrm{tr}(AM)$ de $\\mathcal{M}_{n}(\\mathbb{K})$.\\par Montrer que l'application $A\\mapsto t_{A}$ est linéaire, et que c'est même un isomorphisme de $\\mathcal{M}_{n}(\\mathbb{K})$ dans $\\mathcal{L}(\\mathcal{M}_{n}(\\mathbb{K}),\\mathbb{K})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer l'image de la base canonique de $\\mathcal{M}_{n}(\\mathbb{K})$ par $t_A$ pour montrer l'injectivité de $A \\mapsto t_A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'égalité des dimensions entre un espace et son dual permet de déduire la bijectivité à partir de la seule injectivité (noyau réduit à $\\{0\\}$)."
+            }
+          ],
+          "solution_latex": "Forme linéaire trace : $\\mathrm{tr} : \\mathcal{M}_n(\\mathbb{K}) \\to \\mathbb{K}$ définie par $\\mathrm{tr}(M) = \\sum m_{ii}$.\\par C'est une forme linéaire surjective (donc hyperplan $\\ker(\\mathrm{tr})$ a dimension $n^2 - 1$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $H$ un hyperplan de $\\mathcal{M}_{n}(\\mathbb{K})$.\\par a) Justifier l'existence d'une matrice $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ non nulle pour laquelle : $H=\\{M\\in\\mathcal{M}_{n}(\\mathbb{K}) \\mid \\mathrm{tr}(AM)=0\\}$.\\par b) Pour tout $r\\in[[0,n]]$, on pose $J_{r}=\\begin{pmatrix}I_{r}&0\\\\ 0&0\\end{pmatrix}$ dans $\\mathcal{M}_{n}(\\mathbb{K})$. Trouver une matrice $M\\in GL_{n}(\\mathbb{K})$ pour laquelle $\\mathrm{tr}(J_{r}M)=0$.\\par c) En déduire que $H$ contient au moins une matrice inversible.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$A$ est équivalente à $J_{r}$ pour $r=\\mathrm{rg}(A)$. C'est le théorème de rang pour les matrices."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le c), écrivez $A = P J_r Q$ (avec $P, Q$ inversibles). Remplacez dans la condition de l'hyperplan $\\mathrm{tr}(P J_r Q M)=0$, utilisez les propriétés de la trace (invariance par permutation circulaire) et le résultat du b)."
+            }
+          ],
+          "solution_latex": "Hyperplans dans $\\mathcal{M}_n(\\mathbb{K})$ : ce sont les noyaux des formes linéaires non nulles. Par dualité, il y a correspondance entre formes linéaires et hyperplans. Nombre de classes d'hyperplans : tous les hyperplans sont isomorphes (géométrie affine), un seul type à isomorphisme près."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_021",
+      "title": "Commutation avec projecteurs",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "commutant",
+        "projecteur",
+        "homothétie",
+        "base"
+      ],
+      "statement_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Que dire d'un endomorphisme de $E$ qui commute avec tout projecteur ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La commutation produit de la stabilité et il n'est pas difficile de créer des projecteurs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le projecteur sur une droite vectorielle $\\mathrm{Vect}(x)$ parallèlement à un hyperplan. La commutation implique que $u(x)$ doit appartenir à $\\mathrm{Vect}(x)$, ce qui fait de $u$ une homothétie."
+            }
+          ],
+          "solution_latex": "Projecteur : $p^2 = p$, i.e., $p(p(x)) = p(x)$ pour tout $x$.\\par Commutation avec $p$ : les matrices $M$ commutant avec $p$ forment une sous-algèbre. Si $E = \\ker(p) \\oplus \\mathrm{Im}(p)$, alors $M$ commute avec $p$ ssi $M$ préserve cette décomposition en blocs : $M = \\begin{pmatrix} A & B \\\\ C & D \\end{pmatrix}$ avec structure particulière."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Que dire d'un endomorphisme de $E$ dont la matrice est la même dans toute base ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'une manière ou d'une autre qu'une matrice qui commute à toute matrice inversible commute à toute matrice élémentaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduisez la condition de l'énoncé en termes de matrices : $P^{-1}MP = M$ pour toute matrice de passage $P$. Déduisez-en que $M$ commute avec $GL_n(\\mathbb{K})$, puis utilisez des matrices de transvection $I_n + E_{i,j}$."
+            }
+          ],
+          "solution_latex": "Dimension du commutant : si $\\mathrm{rg}(p) = r$, alors $\\dim(\\mathrm{Comm}(p)) = r^2 + (n-r)^2$. Preuve : les blocs $A \\in \\mathcal{M}_r$, $D \\in \\mathcal{M}_{n-r}$, $B, C$ quelconques de tailles compatibles. Compte : $r^2 + r(n-r) + (n-r)r + (n-r)^2 = r^2 + (n-r)^2 + 2r(n-r) = n^2$ (dimension totale, donc dimension du commutant est $r^2 + (n-r)^2$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_022",
+      "title": "Classe de similitude finie",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "similitude",
+        "cardinal",
+        "homothétie",
+        "matrices semblables"
+      ],
+      "statement_latex": "Déterminer l'ensemble des matrices de $\\mathcal{M}_{n}(\\mathbb{C})$ dont la classe de similitude est finie.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Jouer avec des opérations élémentaires paramétrées par un scalaire $\\lambda$ quelconque."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez les matrices de la forme $P_\\lambda = I_n + \\lambda E_{i,j}$. Si la classe de similitude est finie, l'application $\\lambda \\mapsto P_\\lambda^{-1} M P_\\lambda$ ne peut prendre qu'un nombre fini de valeurs, ce qui, sur $\\mathbb{C}$, force cette expression à être constante par rapport à $\\lambda$."
+            }
+          ],
+          "solution_latex": "Classe de similitude finie : ensemble $\\{M' : M' \\sim M\\}$ de matrices semblables à $M$ est fini ssi $M$ d'ordre fini, i.e., $M^k = I$ pour un $k$.\\par Preuve : ordre fini $\\Rightarrow$ diagonalisable à valeurs propres racines de l'unité $\\Rightarrow$ finitude (combinatoires sur multiplicités).\\par Contrexemple : matrice nilpotente a classe dénombrable (infinité de partitions possibles)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_023",
+      "title": "Trace sur un sous-groupe fini",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__thm_elements_propres_similitude"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "groupe fini",
+        "trace",
+        "projecteur",
+        "algèbre linéaire"
+      ],
+      "statement_latex": "Soit $G$ un sous-groupe fini de $GL_{n}(\\mathbb{C})$. Montrer que $\\sum_{M\\in G}\\mathrm{tr}(M)$ est un entier divisible par $|G|$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_elements_propres_similitude"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Caractériser géométriquement la matrice $\\frac{1}{|G|}\\sum_{M\\in G}M$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le carré de cette matrice $S = \\frac{1}{|G|}\\sum_{M\\in G}M$. En utilisant la structure de groupe (l'application $M \\mapsto NM$ est une bijection sur $G$), montrez que $S^2 = S$. C'est donc un projecteur. Quelle est la particularité de la trace d'un projecteur ?"
+            }
+          ],
+          "solution_latex": "Sous-groupe fini de $\\mathrm{GL}_n(\\mathbb{K})$ : ensemble $G$ avec loi multiplicative, tous éléments inversibles, $|G| < \\infty$.\\par Trace : pour chaque $g \\in G$, on calcule $\\mathrm{tr}(g)$.\\par Somme : $\\sum_{g \\in G} \\mathrm{tr}(g) \\in \\mathbb{Z}$ si $\\mathbb{K} = \\mathbb{C}$ (par théorie des caractères).\\par Exemple : groupe cyclique d'ordre $n$ généré par rotation, traces = sommes de racines $n$-ièmes de l'unité."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_024",
+      "title": "Diagonalisation et transposition",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+        "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+        "representation_matricielle_applications_lineaires__thm_elements_propres_similitude"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "diagonalisation",
+        "transposée",
+        "polynôme annulateur",
+        "matrices semblables"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Montrer que $A$ est diagonalisable si et seulement si $A^{\\top}$ l'est.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la diagonalisabilité de $A$ par l'existence d'une matrice inversible $P$ et d'une matrice diagonale $D$ telles que $A = P D P^{-1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez l'opérateur de transposition à l'égalité $A = P D P^{-1}$. Rappelez-vous que la transposée d'une matrice diagonale est elle-même, et que $(XY)^{\\top} = Y^{\\top} X^{\\top}$."
+            }
+          ],
+          "solution_latex": "Diagonalisation et transposition : matrice symétrique réelle $M = M^T$ est diagonalisable en base orthonormée.\\par Théorème spectral : $\\exists U$ orthogonale : $M = U D U^T$ avec $D = \\mathrm{diag}(\\lambda_1, \\ldots, \\lambda_n) \\in \\mathbb{R}$.\\par Valeurs propres : toutes réelles. Classe de similitude déterminée par signature (nombre de $\\lambda_i > 0$, $= 0$, $< 0$).\\par Invariant : matrice et sa transposée ont mêmes valeurs propres (en particulier $M$ et $M^T$ semblables via $P$ permutation)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_025",
+      "title": "Diagonalisation explicite",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice diagonalisable",
+        "valeurs propres",
+        "vecteurs propres"
+      ],
+      "statement_latex": "Montrer que $\\begin{pmatrix}2&1\\\\ 3&0\\end{pmatrix}$ est diagonalisable et la diagonaliser.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencez par déterminer le polynôme caractéristique de la matrice pour trouver ses valeurs propres."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les valeurs propres sont les racines de $\\lambda^2 - 2\\lambda - 3 = 0$. Puisque ce sont deux racines réelles distinctes pour une matrice $2 \\times 2$, elle est diagonalisable. Déterminez ensuite une base de vecteurs propres."
+            }
+          ],
+          "solution_latex": "Algorithme de diagonalisation :\\par 1. Calculer $\\chi_M(t) = \\det(M - tI)$.\\par 2. Factoriser en valeurs propres distinctes $\\lambda_i$ avec multiplicités algébriques $m_i$.\\par 3. Pour chaque $\\lambda_i$, résoudre $(M - \\lambda_i I)v = 0$, obtenir base de $\\ker(M - \\lambda_i I)$.\\par 4. Vérifier diagonalisabilité : $\\dim \\ker(M - \\lambda_i I) = m_i$ pour tous $i$.\\par 5. Matrice $P = [v_1 | \\cdots | v_n]$ avec vecteurs propres colonnes. Alors $P^{-1}MP = \\mathrm{diag}(\\lambda_1, \\ldots, \\lambda_n)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_026",
+      "title": "Matrices nilpotentes et de rang 1",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice nilpotente",
+        "matrice de rang 1",
+        "diagonalisation",
+        "polynôme annulateur"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer toutes les matrices nilpotentes diagonalisables de $\\mathcal{M}_{n}(\\mathbb{K})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelles sont les valeurs propres possibles d'une matrice nilpotente ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "La seule valeur propre possible est 0. Si une matrice est diagonalisable et que son spectre est $\\{0\\}$, à quelle matrice diagonale est-elle semblable ?"
+            }
+          ],
+          "solution_latex": "Matrice nilpotente de rang 1 : $M = uv^T$ où $u, v \\in \\mathbb{K}^n$, avec $v^T u = 0$ (sinon $\\mathrm{tr}(M) = v^T u \\neq 0$, impossible pour nilpotente de trace).\\par Indice : $M^2 = uv^T uv^T = u(v^T u)v^T = 0$ si $v^T u = 0$. Donc indice 2.\\par Forme de Jordan : blocs $\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$ et $0$ (bloc trivial de taille 1)."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ de rang 1.\\par Montrer que $A^{2}=\\mathrm{tr}(A)A$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+            "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les colonnes de $A$ sont toutes colinéaires et on peut l'écrire $A=CL$ pour une certaine colonne $C$ et une certaine ligne $L$. Que vaut $LC$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez $A^2 = (CL)(CL)$ par associativité. Le produit $LC$ est un scalaire de taille $1\\times 1$ qui correspond exactement à la trace de la matrice $CL$."
+            }
+          ],
+          "solution_latex": "Partitions et nilpotence : type de Jordan = partition de $n$ (tailles de blocs).\\par Rang 1 force partition $(2, 1, 1, \\ldots, 1)$ : un bloc $J_2(0)$ et $n-2$ blocs triviaux."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "À quelle condition nécessaire et suffisante $A$ est-elle diagonalisable ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le polynôme $P(X) = X^2 - \\mathrm{tr}(A)X$ qui annule $A$ d'après la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\mathrm{tr}(A) \\neq 0$, le polynôme est scindé à racines simples. Si $\\mathrm{tr}(A) = 0$, $A$ est nilpotente d'indice 2 et non nulle, ce qui contredit le résultat de la question 1."
+            }
+          ],
+          "solution_latex": "Classe de similitude : deux matrices nilpotentes semblables ssi types de Jordan identiques.\\par Matrices nilpotentes de rang 1 forment une classe unique : toutes semblables à $\\begin{pmatrix} 0 & 1 & 0 & \\cdots \\\\ 0 & 0 & 0 & \\cdots \\\\ \\vdots & \\vdots & \\vdots & \\ddots \\end{pmatrix}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_027",
+      "title": "Puissances de matrices et diagonalisation",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "diagonalisation",
+        "puissance de matrice",
+        "valeurs propres",
+        "sous-espaces propres"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On pose $A=\\begin{pmatrix}-1&6&-6\\\\ 3&-8&10\\\\ 3&-9&11\\end{pmatrix}$.\\par Montrer que $A$ est diagonalisable et la diagonaliser.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_non_vacuite_spectre_C",
+            "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $A$ la matrice étudiée : $E_{1}(A)=\\mathrm{Vect}((3,1,0))$, $E_{-1}(A)=\\mathrm{Vect}((-1,1,1))$ et $E_{2}(A)=\\mathrm{Vect}((0,1,1))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque la somme des dimensions des sous-espaces propres vaut 3, $A$ est diagonalisable. Construisez la matrice de passage $P$ avec ces trois vecteurs propres."
+            }
+          ],
+          "solution_latex": "Spectral : si $\\lambda$ valeur propre de $M$, alors $\\lambda^k$ valeur propre de $M^k$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "En déduire $A^{k}$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la décomposition $A = P D P^{-1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez d'abord $P^{-1}$. Ensuite, le produit $P D^k P^{-1}$ vous donnera l'expression de $A^k$ en fonction de $k$."
+            }
+          ],
+          "solution_latex": "Diagonalisabilité : $M$ diagonalisable $\\Rightarrow$ $M^k$ diagonalisable (polynôme minimal racines simples préservé par puissance)."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On pose $A=\\begin{pmatrix}2&1&-1\\\\ 0&1&0\\\\ 1&1&0\\end{pmatrix}$.\\par Calculer le spectre de $A$ et ses sous-espaces propres. Pourquoi $A$ n'est-elle pas diagonalisable ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "En notant $A$ la matrice étudiée, $\\mathrm{sp}(A)=\\{1\\}$ et $E_{1}(A)=\\mathrm{Vect}((1,0,1),(-1,1,0))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "$A$ n'est pas diagonalisable car la dimension de son unique sous-espace propre est 2, ce qui est strictement inférieur à l'ordre de la matrice (3)."
+            }
+          ],
+          "solution_latex": "Itération : $M^{k+1} = M \\cdot M^k$. Trace : $\\mathrm{tr}(M^j) = \\sum \\lambda_i^j$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Déterminer une base de $\\mathbb{R}^{3}$ dans laquelle la matrice de l'endomorphisme canoniquement associé à $A$ est $\\begin{pmatrix}1&0&0\\\\ 0&1&1\\\\ 0&0&1\\end{pmatrix}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+            "representation_matricielle_applications_lineaires__def_trace_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Notez $u$ l'endomorphisme. Vous cherchez une base $(e_1, e_2, e_3)$ telle que $u(e_1)=e_1$, $u(e_2)=e_2$, et $u(e_3)=e_2+e_3$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez le système $(A-I)X = e_2$ en choisissant astucieusement $e_2$ dans $E_1(A)$ pour que le système admette une solution."
+            }
+          ],
+          "solution_latex": "Nilpotence : si $M$ nilpotente indice $\\nu$, alors $M^k = 0$ pour tout $k \\ge \\nu$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire $A^{k}$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La matrice triangulaire supérieure obtenue s'écrit $T = I_3 + N$ où $N$ est une matrice nilpotente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $I_3$ et $N$ commutent, appliquez la formule du binôme de Newton pour calculer $T^k$, puis repassez à $A$ avec la matrice de passage."
+            }
+          ],
+          "solution_latex": "Ordre fini : si $M^k = I$, ordre minimal est $\\mathrm{lcm}$ des ordres de valeurs propres (racines de l'unité)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_028",
+      "title": "Endomorphismes diagonalisables",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes",
+        "matrices",
+        "diagonalisation",
+        "endomorphisme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'endomorphisme : $P\\longrightarrow(X^{2}+2)P^{\\prime\\prime}+(X+1)P^{\\prime}+P$ de $\\mathbb{R}_{2}[X]$ est diagonalisable et déterminer ses sous-espaces propres.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez la matrice de cet endomorphisme dans la base canonique $(1, X, X^2)$ de $\\mathbb{R}_2[X]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice est triangulaire supérieure. Ses valeurs propres (distinctes) se lisent sur la diagonale, ce qui prouve qu'il est diagonalisable. Résolvez ensuite les systèmes pour les sous-espaces propres."
+            }
+          ],
+          "solution_latex": "Endomorphisme diagonalisable : caractérisé par $\\mu_f$ a racines simples dans le corps.\\par Critère pratique : $\\mu_f = \\prod (t - \\lambda_i)$ où les $\\lambda_i$ sont les valeurs propres distinctes de $f$.\\par Équivalent : $\\dim(\\ker(f - \\lambda_i I)) = m_i$ (multiplicité algébrique) pour chaque valeur propre $\\lambda_i$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Même question avec $M\\mapsto\\mathrm{tr}(M)I_{n}$ sur $\\mathcal{M}_{n}(\\mathbb{R})$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__thm_condition_suffisante_diag"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observez que cet endomorphisme est proportionnel à un projecteur."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'image est la droite engendrée par $I_n$ (pour laquelle la valeur propre est $n$) et le noyau est l'hyperplan des matrices de trace nulle (valeur propre $0$). Les sous-espaces propres sont donc supplémentaires."
+            }
+          ],
+          "solution_latex": "Somme d'endomorphismes diagonalisables : $f + g$ n'est pas nécessairement diagonalisable, même si $f$ et $g$ le sont. Exemple : $f = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$ (nilpotente, non diag), $g = -f^T$ (aussi nilpotente). Condition suffisante : si $fg = gf$ (commutation) et $f, g$ diagonalisables, alors $f+g$ est diagonalisable."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_029",
+      "title": "Classes de similitude sous contraintes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme annulateur",
+        "classes de similitude",
+        "trace",
+        "diagonalisation"
+      ],
+      "statement_latex": "Soit $n\\ge 2$. Montrer qu'il existe exactement deux classes de similitude de matrices $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour lesquelles $A^{3}=A$ et $\\mathrm{tr}(A)=n-2$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le polynôme $X^3-X = X(X-1)(X+1)$ annule $A$. Ce polynôme étant scindé à racines simples, $A$ est diagonalisable et ses valeurs propres sont parmi $\\{-1, 0, 1\\}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Notez $a, b, c$ les multiplicités algébriques respectives de $1, 0, -1$. Exprimez la taille de la matrice ($a+b+c=n$) et sa trace ($a-c=n-2$). Résolvez ce système en nombres entiers naturels pour trouver les deux seules répartitions possibles des valeurs propres."
+            }
+          ],
+          "solution_latex": "Classes de similitude finies : exemple = matrices d'ordre fini ($M^k = I$).\\par Diagonalisabilité : valeurs propres sur racines de l'unité, $M$ diagonalisable.\\par Nombre de classes : fini, paramétré par multisets de racines de l'unité.\\par Contrexemple (classe infinie) : matrices nilpotentes (infinité de partitions)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_030",
+      "title": "Probabilités (urnes) et chaînes de Markov",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_matrice_passage",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+        "representation_matricielle_applications_lineaires__thm_vandermonde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "probabilités",
+        "chaînes de Markov",
+        "limite",
+        "diagonalisation"
+      ],
+      "statement_latex": "On dispose de 2 urnes. La première contient 1 boule blanche et 1 noire, et la seconde 2 blanches et 1 noire.\\par On prélève simultanément une boule dans chacune des deux urnes et on les change d'urne. Cette expérience est répétée un nombre indéfini de fois.\\par On pose $X_{0}=1$ et pour tout $k\\in\\mathbb{N}^{*}$, on note $X_{k}$ le nombre de boules blanches dans la première urne à l'issue du $k^{\\text{ème}}$ échange.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour tout $k\\in\\mathbb{N}$, déterminer la distribution de probabilités de $X_{k+1}$ en fonction de celle de $X_{k}$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la formule des probabilités totales avec le système complet d'événements $(X_k = 0), (X_k = 1), (X_k = 2)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez les probabilités de transition. Par exemple, si l'urne 1 contient 1 boule blanche, quelle est la composition exacte des deux urnes et quelles sont les probabilités d'en tirer des boules de chaque couleur ?"
+            }
+          ],
+          "solution_latex": "Chaîne de Markov : $P$ matrice stochastique ($P_{ij} \\ge 0$, colonnes somment à 1). État stable : vecteur $\\pi$ tel que $P\\pi = \\pi$ (vecteur propre associé à 1).\\par Convergence : si $P$ est irréductible et apériodique, $P^n$ converge vers matrice dont toutes les colonnes sont $\\pi$ quand $n \\to \\infty$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On pose $M=\\frac{1}{6}\\begin{pmatrix}0&1&0\\\\ 6&3&4\\\\ 0&2&2\\end{pmatrix}$ et $C_{k}=\\begin{pmatrix}P(X_{k}=0)\\\\ P(X_{k}=1)\\\\ P(X_{k}=2)\\end{pmatrix}$ pour tout $k\\in\\mathbb{N}$.\\par Montrer que $C_{k+1}=MC_{k}$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cette question est une traduction matricielle directe des trois équations obtenues à la question précédente."
+            }
+          ],
+          "solution_latex": "Urne de Pólya : $r$ rouges, $b$ bleues. Tirage avec remise + $s$ boules supplémentaires de même couleur.\\par État $(i,j)$ = $i$ rouges, $j$ bleues. Probabilité transition = composition actuelle."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $M$ est diagonalisable et la diagonaliser.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_matrice_passage",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Après calcul, $M=P\\times\\frac{1}{6}\\begin{pmatrix}6&0&0\\\\ 0&1&0\\\\ 0&0&-2\\end{pmatrix}\\times P^{-1}$ pour $P=\\begin{pmatrix}1&1&1\\\\ 6&1&-2\\\\ 3&-2&1\\end{pmatrix}$."
+            }
+          ],
+          "solution_latex": "Matrice stochastique : $P_{(i',j')|(i,j)} = \\frac{i}{i+j}$ si tirage rouge ajoute $s$ rouges."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire $\\lim_{k\\rightarrow+\\infty} P(X_{k}=x)$ pour tout $x\\in[[0,2]]$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $C_k = M^k C_0$. Comme $C_0 = \\begin{pmatrix}0\\\\ 1\\\\ 0\\end{pmatrix}$ (puisque $X_0 = 1$), il suffit de calculer le produit matriciel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez la limite de la matrice diagonale élevée à la puissance $k$ sachant que $(1/6)^k \\to 0$ et $(-2/6)^k \\to 0$. Déduisez-en la limite de $M^k$."
+            }
+          ],
+          "solution_latex": "Distribution limite : converge vers distribution bêta (indépendante de $s$). Probabilité d'avoir $k$ rouges au temps $\\infty$ = $\\mathrm{Beta}(r/s, b/s)$ (asymptotiquement)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_031",
+      "title": "Valeurs propres distinctes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+        "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs propres",
+        "famille libre",
+        "Vandermonde",
+        "polynômes de Lagrange"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle, $u\\in\\mathcal{L}(E)$, $\\lambda_{1},...,\\lambda_{p}\\in\\mathbb{K}$ des valeurs propres distinctes de $u$ et $x_{1},...,x_{p}$ des vecteurs propres de $u$ associés. On a montré en cours par récurrence que la famille $(x_{1},...,x_{p})$ est libre. Redémontrer ce résultat :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "à l'aide d'une matrice de Vandermonde.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez une combinaison linéaire nulle $\\sum_{i=1}^p \\alpha_i x_i = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez l'endomorphisme $u$ plusieurs fois (de $0$ à $p-1$) pour obtenir un système linéaire dont la matrice est une matrice de Vandermonde associée aux scalaires $\\lambda_i$."
+            }
+          ],
+          "solution_latex": "Valeurs propres distinctes : si $M \\in \\mathcal{M}_n(\\mathbb{K})$ a $n$ valeurs propres distinctes, alors $M$ est diagonalisable (dans une extension algébrique si nécessaire).\\par Polynôme minimal : $\\mu_M = \\prod (t - \\lambda_i)$ a racines simples.\\par Commutant : toute matrice commutant avec $M$ est un polynôme en $M$ (lemme de schur). Dimension du commutant : $n$ (engendrés par $M, M^2, \\ldots, M^{n-1}, I$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "en convoquant certains polynômes de Lagrange.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+            "representation_matricielle_applications_lineaires__def_diagonalisable"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez les polynômes de Lagrange $L_i$ associés aux valeurs propres $\\lambda_1, \\dots, \\lambda_p$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez l'endomorphisme polynomial $L_i(u)$ sur la combinaison linéaire nulle pour isoler chaque coefficient $\\alpha_i$."
+            }
+          ],
+          "solution_latex": "Application : endomorphismes génériques (valeurs propres distinctes) sont diagonalisables et forment une variété dense dans $\\mathcal{M}_n(\\mathbb{K})$. Exemple : pour $n = 2$, endomorphismes non diagonalisables (nilpotents ou de Jordan) sont mesure zéro dans espace des endomorphismes."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_032",
+      "title": "Isomorphisme d'algèbres du commutant",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+        "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "commutant",
+        "diagonalisation",
+        "isomorphisme",
+        "sous-algèbre"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n\\ge 1$ et $f\\in\\mathcal{L}(E)$ diagonalisable de valeurs propres distinctes $\\lambda_{1},...,\\lambda_{r}$. On note $\\mathcal{C}(f)$ le commutant de $f$, i.e. l'ensemble des endomorphismes de $E$ qui commutent à $f$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathcal{C}(f)$ est une sous-algèbre de $\\mathcal{L}(E)$.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez la stabilité par combinaison linéaire, par composition, et la présence de l'identité $\\mathrm{Id}_E$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $u$ et $v$ commutent avec $f$, calculez $(u \\circ v) \\circ f$ en utilisant l'associativité pour vérifier la stabilité par composition."
+            }
+          ],
+          "solution_latex": "Commutant de matrice diagonalisable : soit $M = P D P^{-1}$ où $D = \\mathrm{diag}(\\lambda_1, \\ldots, \\lambda_n)$ avec $\\lambda_i$ distincts.\\par Matrice $X$ commute avec $M$ ssi $X$ préserve les sous-espaces propres, i.e., $X = P D_X P^{-1}$ où $D_X$ est diagonale.\\par Algèbre : le commutant est isomorphe à l'algèbre des matrices diagonales $\\mathcal{M}_n(\\mathbb{K})$ (via conjugaison par $P$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que l'application : $\\begin{matrix}\\mathcal{C}(f)\\longrightarrow&\\mathcal{L}(E_{\\lambda_{1}}(f))\\times...\\times\\mathcal{L}(E_{\\lambda_{r}}(f))\\\\ u&\\longmapsto&(u_{|_{E_{\\lambda_{1}}(f)}},...,u_{|_{E_{\\lambda_{r}}(f)}})\\end{matrix}$ est un isomorphisme d'algèbres. Que vaut $\\dim \\mathcal{C}(f)$ ?",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__def_matrice_app_lin"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un endomorphisme commute avec $f$ si et seulement s'il laisse stable chaque sous-espace propre de $f$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'injectivité et la surjectivité découlent du fait que la somme des sous-espaces propres est directe et égale à $E$. La dimension sera la somme des carrés des dimensions des sous-espaces propres."
+            }
+          ],
+          "solution_latex": "Isomorphisme d'algèbres : $\\mathrm{Comm}(M) \\cong \\mathcal{M}_n(\\mathbb{K})$ comme algèbres (via conjugaison).\\par Dimension : $\\dim(\\mathrm{Comm}(M)) = n^2$ pour matrice diagonalisable à valeurs propres distinctes."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que la sous-algèbre $\\mathcal{C}(f)$ est commutative si et seulement si $f$ possède $n$ valeurs propres distinctes.",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+            "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'algèbre produit est commutative si et seulement si chaque algèbre $\\mathcal{L}(E_{\\lambda_i}(f))$ l'est."
+            },
+            {
+              "level": 2,
+              "content_latex": "$\\mathcal{L}(F)$ est commutative si et seulement si $\\dim F = 1$. Concluez en utilisant le lien entre la dimension des sous-espaces propres et le nombre de valeurs propres."
+            }
+          ],
+          "solution_latex": "Cas général : si $M$ a valeurs propres répétées, le commutant est plus grand. Par exemple, si $M = \\lambda I$ (scalaire), alors $\\mathrm{Comm}(M) = \\mathcal{M}_n(\\mathbb{K})$ (toutes matrices commutent). Commutant décroît avec la généricity des valeurs propres."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "representation_matricielle__ex_033",
+      "title": "Diagonalisation sur un corps fini",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "representation_matricielle_applications_lineaires__def_diagonalisable",
+        "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+        "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+        "representation_matricielle_applications_lineaires__thm_vandermonde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps fini",
+        "polynôme annulateur",
+        "diagonalisation"
+      ],
+      "statement_latex": "Soient $p\\in\\mathcal{P}$ et $M\\in\\mathcal{M}_{n}(\\mathbb{F}_{p})$. Montrer que $M$ est diagonalisable si et seulement si $M^{p}=M$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "representation_matricielle_applications_lineaires__def_diagonalisable",
+            "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+            "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quelle est la forme scindée de $X^{p}-X$ sur $\\mathbb{F}_{p}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "D'après le petit théorème de Fermat, pour tout $x \\in \\mathbb{F}_p$, on a $x^p = x$. Ainsi, le polynôme $X^p - X$ a pour racines tous les éléments de $\\mathbb{F}_p$. Il est donc scindé à racines simples sur $\\mathbb{F}_p$."
+            }
+          ],
+          "solution_latex": "Corps fini $\\mathbb{F}_q$ avec $q = p^m$ (caractéristique $p$).\\par Diagonalisabilité : matrice $M$ diagonalisable sur $\\mathbb{F}_q$ ssi polynôme minimal a racines simples dans $\\mathbb{F}_q$.\\par Test : polynôme $t^q - t$ annule tous éléments de $\\mathbb{F}_q$ (Frobenius). Matrice $M$ compatible ssi commute avec Frobenius."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

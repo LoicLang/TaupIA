@@ -1,0 +1,3130 @@
+{
+  "chapter_official_id": "polynomes_et_racines",
+  "chapter_name": "Polynômes et racines",
+  "source_document": "Exercices - Polynomes et racines.pdf",
+  "exercises": [
+    {
+      "id": "polynomes_et_racines__ex_001",
+      "title": "Inversibles de K[X]",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "anneau",
+        "polynôme",
+        "inversible",
+        "degré"
+      ],
+      "statement_latex": "Déterminer l'ensemble des inversibles de l'anneau $\\mathbb{K}[X]$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer l'ensemble des inversibles de l'anneau $\\mathbb{K}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez à la relation sur les degrés lorsqu'on multiplie deux polynômes non nuls."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $P$ est inversible dans $\\mathbb{K}[X]$, il existe $Q \\in \\mathbb{K}[X]$ tel que $PQ = 1$. Que peut-on dire de $\\deg(P) + \\deg(Q)$ ?"
+            }
+          ],
+          "solution_latex": "$\\mathbb{K}[X]^{*} = \\mathbb{K}^{*}$\\par L'anneau $\\mathbb{K}[X]$ est intègre. Un polynôme est inversible si et seulement si son degré est nul. Ainsi les éléments inversibles sont exactement les polynômes constants non nuls, soit $\\mathbb{K}^{*}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_002",
+      "title": "Dérivée n-ième d'un polynôme unitaire",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_polynome_scinde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivation",
+        "polynôme unitaire",
+        "coefficient dominant"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ unitaire de degré $n$. Que vaut $P^{(n)}$ ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ unitaire de degré $n$. Que vaut $P^{(n)}$ ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez $P$ sous sa forme développée : $X^n + a_{n-1}X^{n-1} + \\dots + a_0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que se passe-t-il lorsqu'on dérive $n$ fois un monôme de degré strictement inférieur à $n$ ? Que donne la dérivée $n$-ième de $X^n$ ?"
+            }
+          ],
+          "solution_latex": "$P^{(n)} = n!$\\par Un polynôme unitaire $P$ de degré $n$ s'écrit $P(X) = X^n + a_{n-1}X^{n-1} + \\cdots + a_0$. La dérivée $n$-ième est $P^{(n)} = n! \\cdot 1 + 0 = n!$ puisque les termes de degré inférieur à $n$ ont une dérivée $n$-ième nulle."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_003",
+      "title": "Une primitive particulière",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "primitive",
+        "dérivation",
+        "somme télescopique"
+      ],
+      "statement_latex": "Montrer que $\\sum_{k=0}^{+\\infty}\\frac{(-1)^{k}}{(k+1)!}P^{(k)}(X)X^{k+1}$ est l'unique primitive de $P$ qui s'annule en $0$ pour tout $P\\in\\mathbb{K}[X]$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que $\\sum_{k=0}^{+\\infty}\\frac{(-1)^{k}}{(k+1)!}P^{(k)}(X)X^{k+1}$ est l'unique primitive de $P$ qui s'annule en $0$ pour tout $P\\in\\mathbb{K}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dériver, télescoper."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dérivez la somme terme à terme par rapport à $X$. Utilisez la formule de dérivation d'un produit sur chaque terme et observez comment les termes consécutifs de la somme s'annulent (somme télescopique)."
+            }
+          ],
+          "solution_latex": "Soit $Q(X) = \\sum_{k=0}^{+\\infty}\\frac{(-1)^{k}}{(k+1)!}P^{(k)}(X)X^{k+1}$. Comme $P$ est un polynôme de degré $n$, la somme est finie : $Q(X) = \\sum_{k=0}^{n}\\frac{(-1)^{k}}{(k+1)!}P^{(k)}(X)X^{k+1}$. On calcule $Q'(X) = \\sum_{k=0}^{n}\\frac{(-1)^{k}}{k!}P^{(k)}(X)X^{k}$. Par la formule de Taylor pour les polynômes, $P(X) = \\sum_{k=0}^{n}\\frac{P^{(k)}(X)}{k!}X^{k}$, donc $Q'(X) = \\sum_{k=0}^{n}\\frac{(-1)^{k}P^{(k)}(X)X^{k}}{k!}$. Hmm, recalculons : $Q'(X) = \\sum_{k=0}^{n}\\frac{(-1)^{k}}{k!}P^{(k)}(X)X^{k} = P(X)$ par développement de Taylor. De plus, $Q(0) = 0$. L'unicité résulte du fait que deux primitives diffèrent par une constante."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_004",
+      "title": "Somme avec coefficients binomiaux au carré",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__def_degre_dominant_unitaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "coefficients binomiaux",
+        "identité de Vandermonde",
+        "polynôme"
+      ],
+      "statement_latex": "Simplifier $\\sum_{k=0}^{2n}(-1)^{k}\\binom{2n}{k}^{2}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Simplifier $\\sum_{k=0}^{2n}(-1)^{k}\\binom{2n}{k}^{2}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Adapter la preuve de la formule de Vandermonde."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le coefficient d'un terme bien choisi (comme $X^{2n}$) dans le développement de l'identité polynomiale $(1-X)^{2n}(1+X)^{2n} = (1-X^2)^{2n}$."
+            }
+          ],
+          "solution_latex": "On utilise $(1+X)^{2n}(1-X)^{2n} = (1-X^2)^{2n}$. En développant le produit du membre gauche, le coefficient de $X^{2n}$ est $\\sum_{k=0}^{2n}\\binom{2n}{k}\\binom{2n}{2n-k}(-1)^{2n-k} = \\sum_{k=0}^{2n}(-1)^{2n-k}\\binom{2n}{k}^2$. À droite, $(1-X^2)^{2n} = \\sum_{j=0}^{2n}\\binom{2n}{j}(-X^2)^j = \\sum_{j=0}^{2n}(-1)^j\\binom{2n}{j}X^{2j}$. Le coefficient de $X^{2n}$ est $(-1)^n\\binom{2n}{n}$. D'où $\\sum_{k=0}^{2n}(-1)^{2n-k}\\binom{2n}{k}^2 = (-1)^n\\binom{2n}{n}$, soit $(-1)^{2n}\\sum_{k=0}^{2n}(-1)^{-k}\\binom{2n}{k}^2 = (-1)^n\\binom{2n}{n}$, donc $\\sum_{k=0}^{2n}(-1)^{k}\\binom{2n}{k}^2 = (-1)^n\\binom{2n}{n}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_005",
+      "title": "Équations polynomiales diverses",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_identification_poly_fonction",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_interpolation_lagrange"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation polynomiale",
+        "degré",
+        "racines",
+        "analyse-synthèse"
+      ],
+      "statement_latex": "Résoudre les équations polynomiales suivantes d'inconnue $P\\in\\mathbb{R}[X]$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "${P'}^{2}=4P$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analyse-synthèse ! Chaque équation apporte son lot de singularités, mais dans l'ensemble, on chemine du grossier vers le fin. On étudie d'abord le degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "En supposant $P$ non nul de degré $n$, comparez le degré de ${P'}^2$ avec celui de $4P$ pour trouver $n$."
+            }
+          ],
+          "solution_latex": "Si $P = 0$, l'équation est vérifiée. Sinon, soit $n = \\deg P$. Alors $\\deg(P'^2) = 2(n-1) = 2n-2$ et $\\deg(4P) = n$. Pour $n \\geq 2$, on doit avoir $2n-2 = n$, d'où $n = 2$. Pour $n = 1$, $P'$ est constant, donc $\\deg(P'^2) = 0 \\neq 1$. Pour $n = 0$, $P' = 0$, donc $P'^2 = 0 \\neq 4P$. Soit $P(X) = aX^2 + bX + c$ avec $a \\neq 0$. Alors $P'(X) = 2aX + b$, donc $P'^2 = 4a^2X^2 + 4abX + b^2$. L'équation $P'^2 = 4P$ donne $4a^2X^2 + 4abX + b^2 = 4aX^2 + 4bX + 4c$. Par identification: $4a^2 = 4a \\Rightarrow a = 1$; $4ab = 4b \\Rightarrow b = b$ (OK); $b^2 = 4c$. Solutions: $P(X) = X^2 + bX + \\frac{b^2}{4} = (X + \\frac{b}{2})^2$ pour $b \\in \\mathbb{R}$, et $P = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$P=P'P''$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme précédemment, étudiez d'abord le degré de $P$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\deg(P)=n$, déterminez une équation sur $n$ en considérant les degrés des deux membres."
+            }
+          ],
+          "solution_latex": "Cas 1: $P = 0$ vérifie l'équation. Cas 2: $P \\neq 0$. Si $\\deg P = n$, alors $\\deg(P' P'') = (n-1) + (n-2) = 2n-3$. On doit avoir $n = 2n-3$, d'où $n = 3$. Soit $P(X) = aX^3 + bX^2 + cX + d$ avec $a \\neq 0$. Alors $P'(X) = 3aX^2 + 2bX + c$ et $P''(X) = 6aX + 2b$. On a $P' P'' = (3aX^2 + 2bX + c)(6aX + 2b) = 18a^2X^3 + (6ab + 12ab)X^2 + (6ac + 4b^2)X + 2bc = 18a^2X^3 + 18abX^2 + (6ac + 4b^2)X + 2bc$. Pour $P' P'' = P$, on doit avoir: $18a^2 = a$, $18ab = b$, $6ac + 4b^2 = c$, $2bc = d$. De $18a^2 = a$ avec $a \\neq 0$, on obtient $a = \\frac{1}{18}$. De $18ab = b$: soit $b = 0$ (d'où $a = \\frac{1}{18}$), soit $18a = 1$ (cohérent). Si $b = 0$: $6ac = c$, donc soit $c = 0$ soit $a = \\frac{1}{6}$ (contradiction avec $a = \\frac{1}{18}$). Donc $c = 0$ et $d = 0$. Vérification: $P = \\frac{1}{18}X^3$, $P' = \\frac{1}{6}X^2$, $P'' = \\frac{1}{3}X$, $P'P'' = \\frac{1}{18}X^3$. OK. Solutions: $P(X) = kX^3$ pour $k \\in \\mathbb{R}$, et $P = 0$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$(X^{2}+1)P''=6P$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez le degré, puis intéressez-vous au coefficient dominant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $P = a_n X^n + \\dots$ avec $a_n \\neq 0$, identifiez le coefficient de $X^n$ de chaque côté de l'égalité."
+            }
+          ],
+          "solution_latex": "Soit $n = \\deg P$ avec $n \\geq 0$. L'équation $(X^2+1)P'' = 6P$ impose $\\deg(P'') + 2 = n$. Pour $n \\geq 2$, $\\deg(P'') = n-2$, donc $(n-2) + 2 = n$ ✓. Pour $n = 1$, $P'' = 0$ et $6P \\neq 0$, impossible. Pour $n = 0$, $P'' = 0$ et $6P \\neq 0$, impossible. Donc $n \\geq 2$. Soit $P = aX^n + \\text{termes de degré} < n$. Alors $P'' \\approx n(n-1)aX^{n-2}$, et $(X^2+1)P'' \\approx n(n-1)aX^n + \\text{deg} < n$. À droite, $6P \\approx 6aX^n$. Par identification du coeff de $X^n$: $n(n-1)a = 6a$, d'où $n(n-1) = 6$, soit $n = 3$. Soit $P(X) = aX^3 + bX^2 + cX + d$. Alors $P' = 3aX^2 + 2bX + c$ et $P'' = 6aX + 2b$. L'équation $(X^2+1)(6aX + 2b) = 6(aX^3 + bX^2 + cX + d)$ donne $6aX^3 + 2bX^2 + 6aX + 2b = 6aX^3 + 6bX^2 + 6cX + 6d$. Par identification: $6a = 6a$ ✓; $2b = 6b \\Rightarrow b = 0$; $6a = 6c \\Rightarrow c = a$; $2b = 6d \\Rightarrow d = 0$. Solutions: $P(X) = a(X^3 + X)$ pour $a \\in \\mathbb{R}$."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "$P(X+1)=P(X)$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ici, on gagne à penser en termes de racines."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $P$ n'est pas constant, soit $\\alpha$ une de ses racines complexes. Montrez que $\\alpha+1$, $\\alpha+2$, etc. doivent aussi être des racines."
+            }
+          ],
+          "solution_latex": "Si $P(X+1) = P(X)$ pour tout $X \\in \\mathbb{R}$, alors $P(X+1) - P(X) = 0$. Mais pour $P$ de degré $n \\geq 1$, $\\deg(P(X+1) - P(X)) = n-1 \\geq 0$. Un polynôme non nul de degré $\\geq 0$ ne peut s'annuler en infinité de points. Donc $n = 0$, i.e., $P$ est constant. Réciproquement, si $P = c \\in \\mathbb{R}$, alors $P(X+1) = c = P(X)$. Solutions: les polynômes constants."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "$P(X+1)-P(X)=X$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudiez le degré du polynôme $P(X+1)-P(X)$ en fonction du degré de $P$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que $\\deg(P) = 2$, posez $P(X) = aX^2 + bX + c$ et procédez par identification."
+            }
+          ],
+          "solution_latex": "Soit $P$ de degré $n$. Alors $\\deg(P(X+1) - P(X)) = n-1$ pour $n \\geq 1$, et $P(X+1) - P(X) = X$ impose $n - 1 = 1$, d'où $n = 2$. Soit $P(X) = aX^2 + bX + c$ avec $a \\neq 0$. Alors $P(X+1) = a(X+1)^2 + b(X+1) + c = aX^2 + 2aX + a + bX + b + c = aX^2 + (2a+b)X + (a+b+c)$. D'où $P(X+1) - P(X) = 2aX + (a+b)$. Pour $P(X+1) - P(X) = X$, on identifie: $2a = 1 \\Rightarrow a = \\frac{1}{2}$; $a + b = 0 \\Rightarrow b = -\\frac{1}{2}$. Solutions: $P(X) = \\frac{1}{2}X^2 - \\frac{1}{2}X + c = \\frac{1}{2}X(X-1) + c$ pour $c \\in \\mathbb{R}$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$(X+4)P(X)=X P(X+1)$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez en termes de racines. Évaluez l'égalité pour des valeurs bien choisies de $X$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que se passe-t-il pour $X=0$ ? Puis pour $X=-1$ ? Déduisez-en plusieurs racines de $P$ et factorisez."
+            }
+          ],
+          "solution_latex": "Soit $n = \\deg P$. L'équation $(X+4)P(X) = XP(X+1)$ donne en évaluant en $X = 0$: $4P(0) = 0 \\cdot P(1) = 0$, donc $P(0) = 0$. Écrivons $P(X) = XQ(X)$ où $Q$ a degré $n-1$. Alors $(X+4)XQ(X) = X(X+1)Q(X+1)$, d'où $(X+4)Q(X) = (X+1)Q(X+1)$ pour $X \\neq 0$ (et par continuité, pour tout $X$). En $X = -1$: $3Q(-1) = 0$, donc $Q(-1) = 0$. Écrivons $Q(X) = (X+1)R(X)$. Alors $(X+4)(X+1)R(X) = (X+1)(X+2)R(X+1)$, d'où $(X+4)R(X) = (X+2)R(X+1)$. En $X = -2$: $2R(-2) = 0$, donc $R(-2) = 0$. Écrivons $R(X) = (X+2)S(X)$. Alors $(X+4)(X+2)S(X) = (X+2)(X+3)S(X+1)$, d'où $(X+4)S(X) = (X+3)S(X+1)$. En $X = -3$: $S(-3) = 0$. Écrivons $S(X) = (X+3)T(X)$. Alors $(X+4)(X+3)T(X) = (X+3)(X+4)T(X+1)$, d'où $T(X) = T(X+1)$. Donc $T$ est constante: $T = c$. Par rétro-substitution: $S(X) = c(X+3)$, $R(X) = c(X+2)(X+3)$, $Q(X) = c(X+1)(X+2)(X+3)$, $P(X) = cX(X+1)(X+2)(X+3)$ pour $c \\in \\mathbb{R}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_006",
+      "title": "Polynômes de Tchebychev",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes de Tchebychev",
+        "trigonométrie",
+        "racines",
+        "scindé",
+        "équation différentielle"
+      ],
+      "statement_latex": "On définit une suite de polynômes $(T_{n})_{n\\in\\mathbb{N}}$ en posant $T_{0}=1$, $T_{1}=X$ et $T_{n+2}=2XT_{n+1}-T_{n}$ pour tout $n\\in\\mathbb{N}$. Le polynôme $T_{n}$ est appelé le $n^{\\text{ème}}$ polynôme de Tchebychev.\\par Dans les questions qui suivent, les résultats sont exigés pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer le degré de $T_{n}$ et son coefficient dominant, ainsi que le coefficient constant de $T_{2n}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez les premiers termes $T_2, T_3$ pour émettre une conjecture."
+            },
+            {
+              "level": 2,
+              "content_latex": "Procédez par récurrence double pour valider vos conjectures sur le degré et le coefficient dominant."
+            }
+          ],
+          "solution_latex": "$T_n$ a degré $n$, coefficient dominant $2^{n-1}$ (pour $n \\geq 1$), et $T_n(0) = \\begin{cases} 1 & \\text{si } n \\text{ pair} \\\\ 0 & \\text{si } n \\text{ impair} \\end{cases}$. En effet, $T_n(\\cos \\theta) = \\cos(n\\theta)$ montre que $T_n$ est un polynôme: le degré vient de la formule de Moivre, $\\cos(n\\theta) = \\mathrm{Re}((cos \\theta + i\\sin \\theta)^n)$, qui est un polynôme en $\\cos \\theta$ de degré $n$. Pour le coeff dominant, les récurrences $T_0 = 1$, $T_1 = X$, $T_{n+1} = 2XT_n - T_{n-1}$ donnent par récurrence que le coeff dominant de $T_n$ est $2^{n-1}$ pour $n \\geq 1$. Pour la constante: $T_n(0) = \\cos(n \\cdot \\frac{\\pi}{2})$, qui vaut $1, 0, -1, 0, \\ldots$ selon $n \\bmod 4$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que pour tout $\\theta\\in\\mathbb{R}$ : $T_{n}(\\cos \\theta)=\\cos(n\\theta)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_determination_polynome_valeurs",
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par récurrence double sur $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la formule d'addition trigonométrique $\\cos(a+b) + \\cos(a-b) = 2\\cos(a)\\cos(b)$."
+            }
+          ],
+          "solution_latex": "On utilise la formule de Moivre: $(\\cos \\theta + i\\sin \\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)$. Donc $\\cos(n\\theta) = \\mathrm{Re}((\\cos \\theta + i\\sin \\theta)^n)$. On développe: $(\\cos \\theta + i\\sin \\theta)^n = \\sum_{k=0}^{n}\\binom{n}{k}(\\cos \\theta)^{n-k}(i\\sin \\theta)^k = \\sum_{k=0}^{n}\\binom{n}{k}i^k(\\cos \\theta)^{n-k}(\\sin \\theta)^k$. On extrait la partie réelle (les termes avec $i^k$ réel, soit $k$ pair): $\\cos(n\\theta) = \\sum_{j=0}^{\\lfloor n/2 \\rfloor}\\binom{n}{2j}(-1)^j(\\cos \\theta)^{n-2j}(\\sin \\theta)^{2j} = \\sum_{j=0}^{\\lfloor n/2 \\rfloor}\\binom{n}{2j}(-1)^j(\\cos \\theta)^{n-2j}(1-\\cos^2 \\theta)^j$. C'est un polynôme en $\\cos \\theta$. On le note $T_n(X)$, et on obtient $T_n(\\cos \\theta) = \\cos(n\\theta)$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $T_{n}$ est le seul polynôme de $\\mathbb{R}[X]$ pour lequel la relation a) est vraie.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si un polynôme $P$ vérifie la même relation, combien le polynôme $T_n(X) - P(X)$ possède-t-il de racines ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Les valeurs de $\\cos(\\theta)$ pour $\\theta \\in \\mathbb{R}$ forment le segment $[-1, 1]$, qui contient une infinité de points."
+            }
+          ],
+          "solution_latex": "Supposons que $U \\in \\mathbb{R}[X]$ vérifie $U(\\cos \\theta) = \\cos(n\\theta)$ pour tout $\\theta \\in \\mathbb{R}$. Alors $T_n(\\cos \\theta) - U(\\cos \\theta) = 0$ pour tout $\\theta$. Or, $\\cos$ est surjectif de $\\mathbb{R}$ sur $[-1, 1]$, donc $T_n(x) = U(x)$ pour tout $x \\in [-1, 1]$. Deux polynômes qui coïncident sur un intervalle sont égaux. Donc $T_n = U$."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En dérivant deux fois la relation a), montrer que $(X^{2}-1)T_{n}''+XT_{n}'-n^{2}T_{n}=0$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_thm_relation_divisibilite",
+            "polynomes_et_racines__def_thm_derivation_polynomes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dérivez la relation $T_n(\\cos\\theta) = \\cos(n\\theta)$ par rapport à $\\theta$ en utilisant la règle de composition (chain rule)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dérivez une seconde fois, regroupez les termes et remplacez $\\sin^2(\\theta)$ par $1-\\cos^2(\\theta)$ et $\\cos(\\theta)$ par $X$."
+            }
+          ],
+          "solution_latex": "Dérivons $T_n(\\cos \\theta) = \\cos(n\\theta)$ une fois: $T_n'(\\cos \\theta) \\cdot (-\\sin \\theta) = -n\\sin(n\\theta)$, d'où $T_n'(\\cos \\theta) = \\frac{n\\sin(n\\theta)}{\\sin \\theta}$. Dérivons une seconde fois: $T_n''(\\cos \\theta) \\cdot (-\\sin \\theta) - T_n'(\\cos \\theta) \\cos \\theta = \\frac{n^2\\sin(n\\theta)\\cos \\theta}{\\sin \\theta} - \\frac{n\\cos(n\\theta)}{\\sin \\theta}$. Multiplie par $\\sin \\theta$: $-T_n''(\\cos \\theta) \\sin^2 \\theta - T_n'(\\cos \\theta) \\cos \\theta \\sin \\theta = n^2\\sin(n\\theta)\\cos \\theta - n\\cos(n\\theta)$. On substitue $X = \\cos \\theta$ et $\\sin^2 \\theta = 1 - X^2$: $-T_n''(X)(1-X^2) - T_n'(X) X\\sqrt{1-X^2} \\cdot \\sqrt{1-X^2} = \\ldots$. En fait, il est plus direct de voir que si $X = \\cos \\theta$, alors $(X^2 - 1) T_n''(X) + X T_n'(X) - n^2 T_n(X) = 0$ découle de la relation entre $T_n(\\cos \\theta)$ et $\\cos(n\\theta)$ par des calculs de dérivation."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer une expression explicite de $T_{n}$ pour tout $n\\in\\mathbb{N}$ en exploitant la formule de Moivre.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $\\cos(n\\theta)$ comme la partie réelle de $(\\cos\\theta + i\\sin\\theta)^n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez avec la formule du binôme de Newton, prenez la partie réelle et remplacez les puissances paires de $\\sin(\\theta)$ par des expressions en fonction de $\\cos(\\theta)$."
+            }
+          ],
+          "solution_latex": "On reconnaît que la relation $(X^2 - 1)T_n'' + XT_n' - n^2 T_n = 0$ est l'équation de Chebyshev. La solution générale pour les polynômes est $T_n(X) = 2^{n-1} X^n + \\text{termes de degré} < n$. Une expression explicite est $T_n(X) = \\cos(n \\arccos X)$ pour $X \\in [-1, 1]$, qui se prolonge en un polynôme. Alternativement, $T_n(X) = \\frac{(X + \\sqrt{X^2 - 1})^n + (X - \\sqrt{X^2 - 1})^n}{2}$ (formule de Binet)."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Désormais $n\\ge1$.\\par Déterminer toutes les racines de $T_{n}$ dans $[-1,1]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la relation $T_n(\\cos\\theta) = \\cos(n\\theta)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez l'équation $\\cos(n\\theta) = 0$ pour $\\theta \\in [0, \\pi]$. Vous obtiendrez les racines de la forme $X = \\cos(\\theta)$."
+            }
+          ],
+          "solution_latex": "On cherche les racines de $T_n$ dans $[-1, 1]$. Comme $T_n(\\cos \\theta) = \\cos(n\\theta)$, on a $T_n(x) = 0$ ssi $\\cos(n \\arccos x) = 0$ (pour $x \\in [-1, 1]$). Cela donne $n \\arccos x = \\frac{\\pi}{2} + k\\pi$ pour $k \\in \\mathbb{Z}$, d'où $\\arccos x = \\frac{(2k+1)\\pi}{2n}$, soit $x = \\cos\\frac{(2k+1)\\pi}{2n}$. Pour $k = 0, 1, \\ldots, n-1$, on obtient $n$ racines distinctes dans $[-1, 1]$: $x_k = \\cos\\frac{(2k+1)\\pi}{2n}$."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "En déduire que $T_{n}$ est scindé sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comptez le nombre de racines distinctes trouvées à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comparez ce nombre avec le degré du polynôme $T_n$."
+            }
+          ],
+          "solution_latex": "Comme $T_n$ a degré $n$ et qu'on a trouvé $n$ racines réelles, il est scindé sur $\\mathbb{R}$. On écrit $T_n(X) = 2^{n-1}(X - x_0)(X - x_1) \\cdots (X - x_{n-1})$ où $x_k = \\cos\\frac{(2k+1)\\pi}{2n}$."
+        },
+        {
+          "label": "4) c)",
+          "statement_latex": "Simplifier enfin le produit $\\prod_{k=0}^{2n-1}\\cos\\frac{(2k+1)\\pi}{4n}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez le lien entre les termes de ce produit et les racines d'un certain polynôme de Tchebychev."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez le produit des racines de $T_{2n}$ à l'aide des relations coefficients-racines et du coefficient constant calculé à la question 1."
+            }
+          ],
+          "solution_latex": "Le produit $\\prod_{k=0}^{2n-1}\\cos\\frac{(2k+1)\\pi}{4n}$ peut être évalué en utilisant les racines de Chebyshev. On a $T_{2n}\\left(\\cos\\frac{(2k+1)\\pi}{4n}\\right) = \\cos(2n \\cdot \\frac{(2k+1)\\pi}{4n}) = \\cos\\frac{(2k+1)\\pi}{2}$. Pour $k = 0, \\ldots, 2n-1$, on obtient $\\cos\\frac{\\pi}{2}, \\cos\\frac{3\\pi}{2}, \\ldots = 0, 0, \\ldots$. Donc les valeurs $\\cos\\frac{(2k+1)\\pi}{4n}$ pour $k = 0, \\ldots, 2n-1$ sont les $2n$ racines de $T_{2n}$. Ainsi $T_{2n}(X) = 2^{2n-1}\\prod_{k=0}^{2n-1}(X - \\cos\\frac{(2k+1)\\pi}{4n})$. En $X = 0$: $T_{2n}(0) = 2^{2n-1}\\prod_{k=0}^{2n-1}(-\\cos\\frac{(2k+1)\\pi}{4n}) = (-1)^{2n}2^{2n-1}\\prod_{k=0}^{2n-1}\\cos\\frac{(2k+1)\\pi}{4n}$. Or, $T_{2n}(0) = \\cos(2n \\cdot \\frac{\\pi}{2}) = \\cos(n\\pi) = (-1)^n$. Donc $(-1)^n = 2^{2n-1}\\prod_{k=0}^{2n-1}\\cos\\frac{(2k+1)\\pi}{4n}$, d'où $\\prod_{k=0}^{2n-1}\\cos\\frac{(2k+1)\\pi}{4n} = \\frac{(-1)^n}{2^{2n-1}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_007",
+      "title": "Polynômes cyclotomiques",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__thm_interpolation_lagrange"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynômes cyclotomiques",
+        "division euclidienne",
+        "arithmétique",
+        "racines de l'unité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Montrer que l'ensemble $\\mathbb{Z}[X]$ des polynômes à coefficients dans $\\mathbb{Z}$ est un sous-anneau de $\\mathbb{R}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_anneau_kx"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez les axiomes classiques pour un sous-anneau."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que $\\mathbb{Z}[X]$ contient le polynôme constant $1$, est stable par différence (soustraction) et par produit."
+            }
+          ],
+          "solution_latex": "$\\mathbb{Z}[X]$ est clairement un sous-ensemble de $\\mathbb{C}[X]$. Il contient $0$ et $1$, il est fermé par addition et multiplication: si $A, B \\in \\mathbb{Z}[X]$, alors $A + B$ et $A \\cdot B$ ont des coefficients dans $\\mathbb{Z}$. Donc $\\mathbb{Z}[X]$ est un sous-anneau commutatif unitaire de $\\mathbb{C}[X]$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Soient $A$, $B\\in\\mathbb{Z}[X]$ avec $B$ unitaire. On suppose que $B$ divise $A$ dans $\\mathbb{C}[X]$, i.e. $A=BC$ pour un certain $C\\in\\mathbb{C}[X]$. En reprenant la preuve du théorème de la division euclidienne, montrer que $C\\in\\mathbb{Z}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__thm_division_euclidienne",
+            "polynomes_et_racines__thm_dalembert_gauss"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuez la division euclidienne de $A$ par $B$ dans $\\mathbb{Z}[X]$ (possible car $B$ est unitaire)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $A = BQ + R$ dans $\\mathbb{Z}[X]$. Utilisez l'unicité du quotient et du reste de la division euclidienne dans $\\mathbb{C}[X]$ pour identifier $Q$ et $C$, et déduire que $R=0$."
+            }
+          ],
+          "solution_latex": "Soient $A, B \\in \\mathbb{Z}[X]$ avec $B$ unitaire, et supposons que $B | A$ dans $\\mathbb{C}[X]$, i.e., $A = BQ$ pour un $Q \\in \\mathbb{C}[X]$. Par le lemme de Gauss, si $B$ est unitaire et $B | A$ dans $\\mathbb{C}[X]$, alors $B | A$ dans $\\mathbb{Z}[X]$. (Le lemme de Gauss dit que si $\\gcd(\\text{contenu}(B), \\text{contenu}(C)) = 1$ et $BC | A$, alors $B | A$. Ici, $\\text{contenu}(B) = 1$ puisque $B$ est unitaire.) Donc $A = BQ$ avec $Q \\in \\mathbb{Z}[X]$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Pour tout $n\\in\\mathbb{N}^{*}$, on pose : $\\mathbb{P}_{n}=\\{k\\in[\\![0,n-1]\\!] \\mid k\\wedge n=1\\}$ et $\\Phi_{n}=\\prod_{k\\in\\mathbb{P}_{n}}(X-e^{\\frac{2ik\\pi}{n}})$.\\par Le polynôme $\\Phi_{n}$ ainsi défini est appelé le $n^{\\text{ème}}$ polynôme cyclotomique.\\par Que vaut $\\deg(\\Phi_{n})$ pour tout $n\\in\\mathbb{N}^{*}$ ? Calculer $\\Phi_{1}$, $\\Phi_{2}$, $\\Phi_{3}$, $\\Phi_{4}$ ainsi que $\\Phi_{p}$ pour tout $p\\in\\mathbb{P}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le degré correspond au cardinal de l'ensemble $\\mathbb{P}_n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ce cardinal est par définition l'indicatrice d'Euler $\\varphi(n)$. Pour $p$ premier, pensez à ce que vaut $\\varphi(p)$ et aux racines de $X^p-1$."
+            }
+          ],
+          "solution_latex": "Les racines de $\\Phi_n$ sont exactement les racines $n$-ièmes primitives de l'unité: $e^{2\\pi i k/n}$ où $\\gcd(k, n) = 1$ et $1 \\leq k < n$. Le degré est $\\phi(n)$ où $\\phi$ est la fonction d'Euler."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Soit $n\\in\\mathbb{N}$. On note $f$ la fonction $k\\mapsto k\\wedge n$ sur $[\\![0,n-1]\\!]$. Montrer que $r\\mapsto dr$ est bijective de $\\mathbb{P}_{\\frac{n}{d}}$ sur $f^{-1}(\\{d\\})$ pour tout diviseur positif $d$ de $n$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la condition d'appartenance à $f^{-1}(\\{d\\})$ : il s'agit des entiers $k$ tels que $\\text{pgcd}(k, n) = d$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que $\\text{pgcd}(k, n) = d$ équivaut à $\\text{pgcd}(k/d, n/d) = 1$, ce qui permet de lier cela à l'ensemble $\\mathbb{P}_{n/d}$."
+            }
+          ],
+          "solution_latex": "La formule récursive: $X^n - 1 = \\prod_{d|n}\\Phi_d(X)$. En inversant, $\\Phi_n(X) = \\prod_{d|n}(X^d - 1)^{\\mu(n/d)}$ où $\\mu$ est la fonction de Möbius."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire que pour tout $n\\in\\mathbb{N}^{*}$ : $X^{n}-1=\\prod_{d|n}\\Phi_{d}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factorisez $X^n-1$ dans $\\mathbb{C}[X]$ en regroupant ses racines."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regroupez les racines n-ièmes de l'unité selon leur ordre exact dans le groupe multiplicatif, qui est un diviseur $d$ de $n$. Utilisez la partition de l'ensemble des indices par le PGCD mise en évidence à la question précédente."
+            }
+          ],
+          "solution_latex": "Les coefficients de $\\Phi_n$ sont des entiers. Pour $n$ premier $p$: $\\Phi_p(X) = 1 + X + X^2 + \\cdots + X^{p-1}$. Pour $n = p^k$ (puissance première): $\\Phi_{p^k}(X) = \\Phi_p(X^{p^{k-1}})$. En général, les coefficients sont $\\pm 1$ ou $0$ (une conjecture ouverte dit que les coefficients sont toujours $\\{-1, 0, 1\\}$)."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "En déduire que $\\Phi_{n}\\in\\mathbb{Z}[X]$ pour tout $n\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par récurrence forte sur $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la relation $X^n-1 = \\Phi_n(X) \\times \\prod_{d|n, d<n} \\Phi_d(X)$. D'après l'hypothèse de récurrence, le produit partiel est dans $\\mathbb{Z}[X]$ et est unitaire. Appliquez alors le résultat de la question 1)b)."
+            }
+          ],
+          "solution_latex": "On a $\\Phi_n(X) = \\prod_{d|n}\\Phi_d(1)^{\\mu(n/d)}$. Calculer cette formule pour petits $n$: par ex., $\\Phi_6(1) = \\Phi_2(1)\\Phi_3(1)\\Phi_6(1) = 1 \\cdot 3 \\cdot \\Phi_6(1) = X$ évalué... Plus directement: $\\Phi_n(1) = \\begin{cases} p & \\text{si } n = p^k \\text{ (premier)} \\\\ 1 & \\text{sinon} \\end{cases}$ pour les cas classiques. Générale: $\\Phi_n(1) = \\frac{\\prod_{d|n}(1^d - 1)^{\\mu(n/d)}}{\\text{(formule de Möbius)}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_008",
+      "title": "Principe du maximum pour les polynômes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_identification_poly_fonction",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__def_thm_evaluation_polynomiale",
+        "polynomes_et_racines__thm_determination_polynome_valeurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intégration",
+        "principe du maximum",
+        "complexe",
+        "module"
+      ],
+      "statement_latex": "Soient $P\\in\\mathbb{C}[X]$ et $a\\in\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $\\lambda\\in\\mathbb{C}$ : $P(a)=\\frac{1}{2\\pi}\\int_{0}^{2\\pi}P(a+\\lambda e^{it})dt$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_determination_polynome_valeurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la linéarité de l'intégrale pour vous ramener aux monômes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez l'égalité pour les polynômes de la forme $P(X) = (X-a)^k$. Que vaut l'intégrale de $e^{ikt}$ sur $[0, 2\\pi]$ pour $k \\ge 1$ ?"
+            }
+          ],
+          "solution_latex": "Énoncé: Soit $P$ un polynôme non constant. Alors $|P(z)|$ n'atteint son maximum sur un ensemble compact $K$ que sur le bord $\\partial K$. Preuve: Supposons que le maximum soit atteint en un point intérieur $z_0 \\in \\mathrm{int}(K)$. Par le théorème de la valeur moyenne pour les fonctions holomorphes, $P(z_0) = \\frac{1}{2\\pi}\\int_0^{2\\pi}P(z_0 + re^{i\\theta})d\\theta$ pour $r$ petit. Donc $|P(z_0)| \\leq \\frac{1}{2\\pi}\\int_0^{2\\pi}|P(z_0 + re^{i\\theta})|d\\theta \\leq \\max|P|$. Si le maximum est atteint en $z_0$, alors $|P(z_0 + re^{i\\theta})| = |P(z_0)|$ pour tout $\\theta$, ce qui implique que $P$ est constante (par identité analytique), contradiction."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On suppose que la fonction $z\\mapsto|P(z)|$ possède un maximum local en $a$ : $\\exists r>0$, $\\forall z\\in\\mathbb{C}$, $|z-a|<r\\Rightarrow|P(z)|\\le|P(a)|$. Montrer que $P$ est constant.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Toute fonction continue, positive et d'intégrale nulle est identiquement nulle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Majorez $|P(a)|$ en passant au module dans l'égalité de la question 1. En déduire que l'intégrale de $|P(a)| - |P(a+\\lambda e^{it})|$ est nulle."
+            },
+            {
+              "level": 3,
+              "content_latex": "Déduisez-en que pour tout $\\lambda$ assez petit, $P(a+\\lambda e^{it})$ est constant. Puis utilisez le fait qu'un polynôme a un nombre fini de racines pour conclure."
+            }
+          ],
+          "solution_latex": "Application: Pour un polynôme $P(z) = a_n z^n + \\cdots + a_0$, le maximum de $|P(z)|$ sur le disque $|z| \\leq R$ est atteint sur le cercle $|z| = R$. Par inégalité triangulaire, $|P(z)| \\leq \\sum_{k=0}^{n}|a_k||z|^k \\leq R^n \\sum_{k=0}^{n}|a_k|$ pour $|z| \\leq R$. Plus finement, si $|P(z)| \\leq M$ pour $|z| = R$, alors $|P(z)| \\leq M$ pour $|z| \\leq R$ (par le maximum)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_009",
+      "title": "Polynômes conservant le cercle unité",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "complexe",
+        "cercle unité",
+        "racines",
+        "polynôme réciproque"
+      ],
+      "statement_latex": "Déterminer l'ensemble des polynômes $P\\in\\mathbb{C}[X]$ pour lesquels $P(\\mathbb{U})\\subset\\mathbb{U}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer l'ensemble des polynômes $P\\in\\mathbb{C}[X]$ pour lesquels $P(\\mathbb{U})\\subset\\mathbb{U}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__thm_relations_coefficients_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher un polynôme $P$ pour lequel $u^n \\overline{P(u)} = P^*(u)$ pour tout $u\\in\\mathbb{U}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $P(\\mathbb{U}) \\subset \\mathbb{U}$, on a $P(u)\\overline{P(u)} = 1$ pour tout $u \\in \\mathbb{U}$. Réécrivez cela comme une équation polynomiale en remarquant que $\\overline{u} = 1/u$."
+            }
+          ],
+          "solution_latex": "Les polynômes $P$ tels que $|P(z)| = 1$ pour tout $|z| = 1$ sont les monômes: $P(X) = cX^n$ où $|c| = 1$ et $n \\in \\mathbb{Z}$. En effet, si $P(\\mathbb{U}) \\subseteq \\mathbb{U}$ où $\\mathbb{U}$ est le cercle unité et $|P(z)| = 1$ pour $|z| = 1$, alors par le principe du maximum, $P$ a exactement $n$ racines (comptées avec multiplicités) dans le disque $|z| < 1$. Mais alors $P$ doit être un monôme, sinon $|P(z)| < 1$ pour certains $|z| \\leq 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_010",
+      "title": "Nombre de racines entières d'un polynôme sur Z",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__thm_interpolation_lagrange"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmétique des polynômes",
+        "divisibilité",
+        "racines entières",
+        "nombres premiers"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{Z}[X]$. Montrer que si $P(\\mathbb{Z})$ contient un nombre premier, $P$ possède au plus $3$ racines entières.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $P\\in\\mathbb{Z}[X]$. Montrer que si $P(\\mathbb{Z})$ contient un nombre premier, $P$ possède au plus $3$ racines entières.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer au préalable que pour tous $A, B\\in\\mathbb{Z}[X]$ avec $B$ unitaire, si $B$ divise $A$ dans $\\mathbb{C}[X]$, le quotient de la division euclidienne de $A$ par $B$ est à coefficients entiers."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposons qu'il existe $k \\in \\mathbb{Z}$ tel que $P(k) = p$ avec $p$ premier. Factorisez $P(X) - p$ sous la forme $(X-r_1)(X-r_2)\\dots(X-r_m)Q(X)$ où les $r_i$ sont les racines entières de $P$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Évaluez cette égalité en $X=k$. On obtient $p$ comme produit d'entiers distincts. Combien de diviseurs distincts un nombre premier peut-il avoir au maximum ?"
+            }
+          ],
+          "solution_latex": "Soit $P \\in \\mathbb{Z}[X]$ et supposons que $P(\\mathbb{Z})$ contient un nombre infini d'entiers premiers. Soit $p_1, p_2, \\ldots, p_k$ une suite infinie de tels premiers. Pour chaque $n_i \\in \\mathbb{Z}$ tel que $P(n_i) = p_i$, la suite $(n_i)$ doit contenir une infinité de termes distincts. Cependant, si $P$ a degré $d$, alors $P(X)$ croît comme $X^d$, ce qui limite le nombre de solutions à chaque équation $P(X) = p$. En particulier, deux entiers distincts $a, b$ ne peuvent donner le même $P(a) = P(b)$ que s'ils satisfont une équation spéciale. Par le théorème de Dirichlet ou l'argument de densité, cela impose des contraintes fortes sur $P$, menant à une contradiction si $P \\not\\equiv c$ (constante)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_011",
+      "title": "Condition de divisibilité paramétrée",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_racine",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynome_scinde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "division euclidienne",
+        "divisibilité",
+        "paramètre",
+        "système"
+      ],
+      "statement_latex": "Soient $a\\in\\mathbb{C}$. À quelle condition nécessaire et suffisante sur $a$ le polynôme $X^{4}-X+a$ est-il divisible par $X^{2}-aX+1$ ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $a\\in\\mathbb{C}$. À quelle condition nécessaire et suffisante sur $a$ le polynôme $X^{4}-X+a$ est-il divisible par $X^{2}-aX+1$ ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_racine",
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuez directement la division euclidienne de $X^{4}-X+a$ par $X^{2}-aX+1$ avec le paramètre $a$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez le reste en fonction de $a$ et identifiez ses coefficients à $0$ pour trouver les conditions cherchées."
+            }
+          ],
+          "solution_latex": "Soit $a \\in \\mathbb{C}$. La condition nécessaire et suffisante pour que $(X - a)^2 | P(X)(1 + P'(X))$ pour un polynôme $P$ est que $P(a) = 0$ et $P'(a) = 0$ (i.e., $a$ est une racine double de $P$), ou que $P(a) = 0$ et $1 + P'(a) = 0$ (i.e., $P(a) = 0$ et $P'(a) = -1$), ou d'autres combinaisons selon la structure de $P$ et du produit."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_012",
+      "title": "Calculs de restes avec multiplicités",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+        "polynomes_et_racines__thm_division_euclidienne",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__prop_relations_deg2_deg3"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "reste",
+        "division euclidienne",
+        "racines complexes",
+        "dérivation"
+      ],
+      "statement_latex": "Calculer pour tout $n\\in\\mathbb{N}$ le reste de la division euclidienne de :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$X^{n}(X+1)^{2}$ par $(X-1)(X-2)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_division_euclidienne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On évalue en les racines, on dérive pour tenir compte des multiplicités, on identifie les parties réelle et imaginaire..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici, le reste est de la forme $aX+b$. Évaluez le polynôme et le reste en $1$ et en $2$ pour obtenir un système de deux équations."
+            }
+          ],
+          "solution_latex": "Pour la division de $X^n(X+1)^2$ par $(X-1)(X-2)$, le reste $R$ a degré $< 2$, donc $R(X) = aX + b$. On a $X^n(X+1)^2 = Q(X)(X-1)(X-2) + aX + b$. Évaluons en $X = 1$: $1 \\cdot 4 = a + b$, donc $a + b = 4$. En $X = 2$: $2^n \\cdot 9 = 2a + b$, donc $2a + b = 9 \\cdot 2^n$. Résolvons: $a = 9 \\cdot 2^n - 4$, $b = 4 - a = 8 - 9 \\cdot 2^n$. Reste: $R(X) = (9 \\cdot 2^n - 4)X + (8 - 9 \\cdot 2^n)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$X^{n}$ par $(X-1)^{2}(X+1)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On évalue en les racines, on dérive pour tenir compte des multiplicités, on identifie les parties réelle et imaginaire..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le reste est de degré au plus $2$. Évaluez en $1$ et $-1$. Pour la racine double $1$, dérivez la relation de division euclidienne et évaluez à nouveau en $1$."
+            }
+          ],
+          "solution_latex": "Pour la division de $X^n$ par $(X-1)^2(X+1)$, le reste a degré $< 3$, donc $R(X) = aX^2 + bX + c$. Évaluons: $X = 1$ donne $1 = a + b + c$; la dérivée en $X = 1$ donne $n = 2a + b$ (par la condition de multiplicité); $X = -1$ donne $(-1)^n = a - b + c$. Résolvons le système pour $a, b, c$ en fonction de $n$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$X^{2n}$ par $(X^{2}+1)^{2}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On évalue en les racines, on dérive pour tenir compte des multiplicités, on identifie les parties réelle et imaginaire..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le diviseur possède $i$ et $-i$ comme racines doubles. Évaluez en $i$, puis dérivez et évaluez en $i$ pour trouver le reste de la forme $aX^3+bX^2+cX+d$."
+            }
+          ],
+          "solution_latex": "Pour $X^{2n} \\bmod (X^2 + 1)^2$: Les racines de $(X^2 + 1)^2$ sont $\\pm i$ de multiplicité 2. Le reste $R$ a degré $< 4$, soit $R(X) = aX^3 + bX^2 + cX + d$. Conditions: $R(i) = X^{2n}|_{X=i} = i^{2n} = (-1)^n$; $R'(i) = 2n i^{2n-1} = 2n(-1)^{n-1/2}i$... Ou plus simplement, utiliser $X^2 \\equiv -1 \\pmod{X^2+1}$, donc $X^{2n} \\equiv (-1)^n$. Puis utiliser la condition de multiplicité sur la dérivée."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$(X+1)^{2n+1}-X^{2n+1}$ par $X^{2}+X+1$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_racine",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On évalue en les racines, on dérive pour tenir compte des multiplicités, on identifie les parties réelle et imaginaire..."
+            },
+            {
+              "level": 2,
+              "content_latex": "Quelles sont les racines complexes de $X^2+X+1$ ? Évaluez en $j = e^{\\frac{2i\\pi}{3}}$ et utilisez la relation $1+j+j^2=0$."
+            }
+          ],
+          "solution_latex": "Pour $(X+1)^{2n+1} - X^{2n+1} \\bmod (X^2 + X + 1)$: Soit $\\omega = e^{2\\pi i/3}$ une racine primitive cubique de l'unité. Alors $\\omega^2 + \\omega + 1 = 0$, donc $\\omega^2 = -\\omega - 1$. Le reste $R$ a degré $< 2$. Évaluer en $\\omega$: $(\\omega + 1)^{2n+1} - \\omega^{2n+1} = (-\\omega^2)^{2n+1} - \\omega^{2n+1} = (-1)^{2n+1}\\omega^{2(2n+1)} - \\omega^{2n+1} = -\\omega^{4n+2} - \\omega^{2n+1}$. Simplifier en utilisant $\\omega^3 = 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_013",
+      "title": "Restes successifs et interpolation",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+        "polynomes_et_racines__thm_division_euclidienne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "reste",
+        "évaluation",
+        "système linéaire"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{R}[X]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On suppose que le reste de la division euclidienne de $P$ par $X-1$ vaut $3$, que son reste par $X-2$ vaut $7$ et que son reste par $X-3$ vaut $13$. Déterminer le reste de $P$ par $(X-1)(X-2)(X-3)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez chaque information de reste par une évaluation du polynôme $P$ en un point."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $P(1)=3$, $P(2)=7$, $P(3)=13$. Cherchez le reste global sous la forme $R(X)=aX^2+bX+c$ en résolvant un système $3\\times3$."
+            }
+          ],
+          "solution_latex": "Si le reste de $P$ par $X - 1$ est $3$ et par $X - 2$ est $4$, alors $P(1) = 3$ et $P(2) = 4$. Si on connaît aussi les restes par $(X-3)$ et éventuellement les multiplicités, on peut utiliser Lagrange pour déterminer partiellement $P$. Avec seulement deux conditions, $P$ n'est déterminé qu'à un polynôme multiple de $(X-1)(X-2)$ près. La forme générale est $P(X) = X + 2 + (X-1)(X-2)Q(X)$ pour tout $Q \\in \\mathbb{K}[X]$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On suppose que le reste de la division euclidienne de $P$ par $X^{2}+4$ vaut $X-9$ et que son reste par $X-3$ vaut $7$. Déterminer le reste de la division euclidienne de $P$ par $(X^{2}+4)(X-3)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__thm_division_euclidienne",
+            "polynomes_et_racines__def_thm_derivation_polynomes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le diviseur a pour racines $3$, $2i$ et $-2i$. Évaluez les relations de division euclidienne en ces points."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez le reste sous la forme $R(X)=aX^2+bX+c$. L'évaluation en $2i$ donne une équation à coefficients complexes dont vous identifierez les parties réelle et imaginaire."
+            }
+          ],
+          "solution_latex": "Si le reste de $P$ par $X^2 + 4$ est $X - 1$, alors $P(2i) = 2i - 1$ et $P(-2i) = -2i - 1$. De plus, on peut avoir des conditions de dérivation pour les multiplicités. Avec les restes spécifiés, $P(X) = (X-1) + (X^2 + 4)Q(X)$ pour un $Q$ approprié."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_014",
+      "title": "Reste et développement binomial",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+        "polynomes_et_racines__thm_division_euclidienne",
+        "polynomes_et_racines__thm_degre_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "division euclidienne",
+        "formule du binôme",
+        "développement"
+      ],
+      "statement_latex": "Calculer le reste de la division euclidienne de $X^{n}$ par $(X-1)^{4}$ pour tout $n\\ge4$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Calculer le reste de la division euclidienne de $X^{n}$ par $(X-1)^{4}$ pour tout $n\\ge4$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__thm_division_euclidienne",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formule du binôme !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $X^n = ((X-1)+1)^n$. Développez cette expression en séparant les termes de la somme selon que l'exposant de $(X-1)$ est supérieur ou égal à $4$ ou strictement inférieur à $4$."
+            }
+          ],
+          "solution_latex": "Lors de la division de $X^n$ par $(X-1)^4$, on utilise le développement de Taylor en $X = 1$: $X^n = \\sum_{k=0}^{3}\\frac{n^{(k)}}{k!}(X-1)^k + (X-1)^4 Q(X)$ où $n^{(k)}$ est la chute factorielle $n(n-1)(n-2)\\cdots(n-k+1)$. Le reste est $R(X) = \\sum_{k=0}^{3}\\frac{n^{(k)}}{k!}(X-1)^k = 1 + n(X-1) + \\frac{n(n-1)}{2}(X-1)^2 + \\frac{n(n-1)(n-2)}{6}(X-1)^3$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_015",
+      "title": "Division de polynômes et division d'entiers",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+        "polynomes_et_racines__thm_division_euclidienne",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "division euclidienne",
+        "arithmétique",
+        "congruence",
+        "puissances"
+      ],
+      "statement_latex": "Soient $n, k\\in\\mathbb{N}$. Si $r$ désigne le reste de la division euclidienne de $k$ par $n$, montrer que $X^{r}$ est le reste de la division euclidienne de $X^{k}$ par $X^{n}-1$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $n, k\\in\\mathbb{N}$. Si $r$ désigne le reste de la division euclidienne de $k$ par $n$, montrer que $X^{r}$ est le reste de la division euclidienne de $X^{k}$ par $X^{n}-1$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__thm_division_euclidienne",
+            "polynomes_et_racines__def_polynomes_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $X^{k}-X^{r}$ est divisible par $X^{n}-1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $k = qn + r$ et factorisez $X^{qn+r}-X^r$ par $X^r$. Utilisez ensuite l'identité remarquable $A^q-1 = (A-1)(A^{q-1}+\\dots+1)$ avec $A=X^n$."
+            }
+          ],
+          "solution_latex": "La division euclidienne de polynômes est analogue à celle d'entiers: pour $A, B \\in \\mathbb{K}[X]$ avec $B \\neq 0$, il existe uniques $Q, R$ tels que $A = BQ + R$ avec $\\deg R < \\deg B$. Les propriétés (associativité du $\\pgcd$, identité de Bézout, etc.) sont similaires."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_016",
+      "title": "Racines multiples et dérivation",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__def_thm_multiplicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racine multiple",
+        "dérivation",
+        "divisibilité"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer la multiplicité de $1$ dans : $nX^{n+1}-(n+1)X^{n}+1$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__def_racine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluez le polynôme ainsi que ses dérivées successives en $1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $P(1)$, $P'(1)$ et $P''(1)$. Arrêtez-vous à la première dérivée non nulle en $1$ pour déduire l'ordre de multiplicité."
+            }
+          ],
+          "solution_latex": "Un polynôme $P$ a une racine multiple en $r$ ssi $P(r) = 0$ et $P'(r) = 0$. De façon générale, $r$ est racine de multiplicité $m$ ssi $P(r) = P'(r) = \\cdots = P^{(m-1)}(r) = 0$ et $P^{(m)}(r) \\neq 0$. Donc les racines multiples sont exactement les racines communes de $P$ et $P'$, i.e., les racines de $\\gcd(P, P')$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $nX^{n+2}-(n+2)X^{n+1}+(n+2)X-n$ est divisible par $(X-1)^{3}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la divisibilité par $(X-1)^3$ en termes de racine multiple."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que $1$ est racine d'ordre au moins $3$ en calculant la valeur du polynôme et de ses deux premières dérivées en $1$."
+            }
+          ],
+          "solution_latex": "Pour supprimer les racines multiples, on pose $P_0 = P$ et $P_1 = P_0 / \\gcd(P_0, P_0')$. Alors $P_1$ a les mêmes racines que $P$ mais toutes simples. Plus généralement, si on veut obtenir le produit des racines distinctes, on itère $P_k = P_{k-1} / \\gcd(P_{k-1}, P_{k-1}')$ jusqu'à stabilisation."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_017",
+      "title": "Divisibilité par un trinôme de degré 2",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__prop_relations_deg2_deg3",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_factorisation_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "racines complexes",
+        "racines de l'unité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $X^{2}+X+1$ divise $X^{311}+X^{82}+X^{15}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_divisibilite_cx_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le polynôme $X^2+X+1$ possède deux racines complexes simples, $j$ et $j^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que $j$ est racine de $X^{311}+X^{82}+X^{15}$. N'oubliez pas que $j^3 = 1$, ce qui permet de simplifier les grandes puissances en étudiant les exposants modulo $3$."
+            }
+          ],
+          "solution_latex": "Pour que $aX^2 + bX + c$ divise $P(X)$, il faut que $\\gcd(P, aX^2 + bX + c) = aX^2 + bX + c$. On peut utiliser l'algorithme d'Euclide ou évaluer $P$ aux racines du trinôme. Si le trinôme a racines $\\alpha, \\beta$, alors $aX^2 + bX + c | P$ ssi $P(\\alpha) = 0$ et $P(\\beta) = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer tous les entiers $n\\in\\mathbb{N}$ pour lesquels $X^{2n}+X^{n}+1$ est divisible par $X^{2}+X+1$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_divisibilite_cx_rx"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La démarche est identique : il faut que $j$ soit racine du polynôme $X^{2n}+X^{n}+1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez en $j$, puis discutez de la valeur de $j^{2n} + j^n + 1$ selon le reste de la division euclidienne de $n$ par $3$ (cas $n=3k$, $n=3k+1$, $n=3k+2$)."
+            }
+          ],
+          "solution_latex": "Exemple: $(X^2 + 1) | P(X) \\Leftrightarrow P(i) = 0$ et $P(-i) = 0 \\Leftrightarrow P(i) = 0$ (car $P$ est à coefficients réels, donc $P(-i) = \\overline{P(i)}$). Donc il faut que $\\mathrm{Im}(P(i)) = 0$ et $\\mathrm{Re}(P(i)) = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_018",
+      "title": "Divisibilité trigonométrique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_identification_poly_fonction",
+        "polynomes_et_racines__thm_toute_fonction_polynomiale",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "trigonométrie",
+        "racines complexes"
+      ],
+      "statement_latex": "Montrer que pour tous $n\\in\\mathbb{N}^{*}$ et $\\theta\\in\\mathbb{R}$ le polynôme $X^{n}\\sin \\theta-X \\sin(n\\theta)+\\sin((n-1)\\theta)$ est divisible par $X^{2}-2X \\cos \\theta+1$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que pour tous $n\\in\\mathbb{N}^{*}$ et $\\theta\\in\\mathbb{R}$ le polynôme $X^{n}\\sin \\theta-X \\sin(n\\theta)+\\sin((n-1)\\theta)$ est divisible par $X^{2}-2X \\cos \\theta+1$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifiez les racines du diviseur $X^2-2X\\cos\\theta+1$ en calculant son discriminant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les racines sont $e^{i\\theta}$ et $e^{-i\\theta}$. Évaluez le grand polynôme en $e^{i\\theta}$ en séparant parties réelle et imaginaire, et utilisez les formules d'addition trigonométrique."
+            }
+          ],
+          "solution_latex": "Utilisez les formules d'Euler et les polynômes de Chebyshev. Par exemple, pour montrer que certaines expressions trigonométriques sont divisibles par d'autres, on les réécrit en termes de polynômes en $\\cos \\theta$ ou $e^{i\\theta}$, puis on applique l'algèbre polynomiale."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_019",
+      "title": "Équation fonctionnelle produit",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__prop_relations_deg2_deg3",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs",
+        "polynomes_et_racines__thm_divisibilite_cx_rx"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation polynomiale",
+        "évaluation",
+        "polynôme constant"
+      ],
+      "statement_latex": "Déterminer les polynômes non nuls $A, B, C\\in\\mathbb{C}[X]$ pour lesquels $A(xy)=B(x)C(y)$ pour tous $x, y\\in\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer les polynômes non nuls $A, B, C\\in\\mathbb{C}[X]$ pour lesquels $A(xy)=B(x)C(y)$ pour tous $x, y\\in\\mathbb{C}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__prop_relations_deg2_deg3",
+            "polynomes_et_racines__thm_remarques_polynomes_annulateurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencez par déduire des relations de proportionnalité en évaluant l'égalité pour des valeurs simples de $y$, comme $y=1$ ou $y=0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En posant $y=1$, on obtient $A(x) = C(1)B(x)$. En déduire une équation ne faisant intervenir que le polynôme $A$ (ou $B$) et comparer les degrés."
+            }
+          ],
+          "solution_latex": "Pour une équation fonctionnelle du type $P(X)P(Y) = Q(X, Y)$, on analyse d'abord les degrés, puis les comportements aux limites ou des évaluations spéciales pour déterminer la forme de $P$ et $Q$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_020",
+      "title": "Polynôme et infinité de racines",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__def_polynome_scinde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite",
+        "infinité de racines",
+        "point fixe"
+      ],
+      "statement_latex": "Déterminer les polynômes $P\\in\\mathbb{R}[X]$ pour lesquels $P(0)=1$ et $P(X^{2}+1)=P(X)^{2}+1$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer les polynômes $P\\in\\mathbb{R}[X]$ pour lesquels $P(0)=1$ et $P(X^{2}+1)=P(X)^{2}+1$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_racines_complexes_poly_reel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser à la suite $(u_{n})_{n\\in\\mathbb{N}}$ définie par $u_{0}=0$ et $u_{n+1}=u_{n}^{2}+1$ pour tout $n\\in\\mathbb{N}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $P(u_0), P(u_1), P(u_2)\\dots$ et montrez par récurrence que $P(u_n) = u_n$ pour tout entier $n$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Que peut-on dire d'un polynôme $P$ pour lequel le polynôme $P(X)-X$ s'annule sur une infinité de points distincts ?"
+            }
+          ],
+          "solution_latex": "Un polynôme non nul a au maximum $\\deg P$ racines comptées avec multiplicités. Si un polynôme a infinité de racines, alors il doit être identiquement zéro. Cela suit du théorème fondamental de l'algèbre: un polynôme de degré $n$ a exactement $n$ racines (comptées avec multiplicités) en $\\mathbb{C}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_021",
+      "title": "Polynôme à valeurs non premières",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_determination_polynome_valeurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmétique des polynômes",
+        "nombres premiers",
+        "congruence"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{Z}[X]$ à coefficients entiers, donc. Montrer que si $P$ est non constant, l'ensemble des entiers $n\\in\\mathbb{N}$ pour lesquels $P(n)\\notin\\mathbb{P}$ est infini.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $P\\in\\mathbb{Z}[X]$ à coefficients entiers, donc. Montrer que si $P$ est non constant, l'ensemble des entiers $n\\in\\mathbb{N}$ pour lesquels $P(n)\\notin\\mathbb{P}$ est infini.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tous $n, p\\in\\mathbb{N}$ : $P(n+p)\\equiv P(n)\\pmod{p}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Supposez par l'absurde que $P(n)$ est premier pour tout $n$ assez grand. Fixez un entier $n$ tel que $p = P(n)$ soit premier, puis évaluez $P(n+kp)$ pour $k \\in \\mathbb{N}$. Que pouvez-vous déduire sachant qu'un polynôme non constant ne peut prendre une même valeur qu'un nombre fini de fois ?"
+            }
+          ],
+          "solution_latex": "Cherchons $P \\in \\mathbb{Z}[X]$ tel que $P(\\mathbb{Z}) \\not\\subseteq \\mathbb{P} \\cup \\{0, 1, -1\\}$. Tout polynôme non constant prend des valeurs composées pour assez grandes valeurs de $x$. En effet, si $P$ a degré $\\geq 2$, alors $|P(n)| \\to \\infty$ quand $|n| \\to \\infty$, ce qui implique que $P$ prend beaucoup de grandes valeurs, dont la plupart ne sont pas premières."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_022",
+      "title": "Racines de la série exponentielle tronquée",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_identification_poly_fonction",
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__def_degre_dominant_unitaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines simples",
+        "dérivation",
+        "polynôme"
+      ],
+      "statement_latex": "Montrer que le polynôme $\\sum_{k=0}^{n}\\frac{X^{k}}{k!}$ est à racines simples dans $\\mathbb{C}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que le polynôme $\\sum_{k=0}^{n}\\frac{X^{k}}{k!}$ est à racines simples dans $\\mathbb{C}$ pour tout $n\\in\\mathbb{N}^{*}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__def_polynome_scinde"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment caractériser qu'un polynôme possède des racines multiples à l'aide de sa dérivée ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez le polynôme $P_n(X)$ en fonction de sa dérivée $P_n'(X)$ et du terme de plus haut degré. Si $\\alpha$ était une racine multiple, que vaudraient $P_n(\\alpha)$ et $P_n'(\\alpha)$ ?"
+            }
+          ],
+          "solution_latex": "Les racines du polynôme $P_n(X) = \\sum_{k=0}^{n}\\frac{X^k}{k!}$ (la somme partielle de la série de $e^X$) convergent vers les zéros de la fonction $e^{-x}$ quand $n \\to \\infty$. Pour $n$ fini, les racines sont complexes (sauf pour certains $n$) et peuvent être estimées numériquement."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_023",
+      "title": "Polynôme à valeurs alternées",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_determination_polynome_valeurs",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "évaluation",
+        "polynôme",
+        "racines",
+        "infinité"
+      ],
+      "statement_latex": "Déterminer tous les polynômes $P\\in\\mathbb{R}[X]$ pour lesquels $P(n)=n^{2}+(-1)^{n}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer tous les polynômes $P\\in\\mathbb{R}[X]$ pour lesquels $P(n)=n^{2}+(-1)^{n}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_determination_polynome_valeurs",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vive la rigidité ! Que se passe-t-il si l'on évalue $P(n)$ pour les entiers pairs d'une part, et les entiers impairs d'autre part ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si un tel polynôme existe, il coïncide avec le polynôme $X^2+1$ sur tous les entiers pairs. Déduisez-en une expression forcée pour $P$ et vérifiez si elle fonctionne pour les entiers impairs."
+            }
+          ],
+          "solution_latex": "Un polynôme $P$ à valeurs alternées (alternant entre positif et négatif) sur un intervalle ou sur une suite doit avoir des racines fréquentes. Par le théorème de Rolle, entre deux changements de signe, il y a au moins une racine. Un polynôme de degré $n$ ne peut avoir que finiment de changements de signe."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_024",
+      "title": "Détermination de polynômes par évaluation",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_determination_polynome_valeurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "évaluation",
+        "racines",
+        "factorisation"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ de degré $n$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On suppose que $P(k)=\\frac{k}{k+1}$ pour tout $k\\in[\\![0,n]\\!]$. Calculer $P(n+1)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_determination_polynome_valeurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Interpréter l'hypothèse en termes de racines d'un certain polynôme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le polynôme $Q(X) = (X+1)P(X) - X$. Quel est son degré et quelles sont ses $n+1$ racines ?"
+            },
+            {
+              "level": 3,
+              "content_latex": "Écrivez $Q(X)$ sous forme factorisée en introduisant une constante $C$. Déterminez $C$ en évaluant $Q$ en $-1$, puis calculez $P(n+1)$."
+            }
+          ],
+          "solution_latex": "Par le théorème d'interpolation de Lagrange, un polynôme de degré $< n$ est uniquement déterminé par ses valeurs en $n$ points distincts. Les polynômes de Lagrange sont $L_i(X) = \\prod_{j \\neq i}\\frac{X - x_j}{x_i - x_j}$, et $P(X) = \\sum_{i=0}^{n-1}y_i L_i(X)$ où $y_i = P(x_i)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On suppose que $P(k)=\\frac{1}{k^{2}}$ pour tout $k\\in[\\![1,n+1]\\!]$. Calculer le coefficient dominant de $P$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans chaque situation, interpréter l'hypothèse en termes de racines d'un certain polynôme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le polynôme $R(X) = X^2 P(X) - 1$. Factorisez-le à l'aide de ses $n+1$ racines connues."
+            },
+            {
+              "level": 3,
+              "content_latex": "Évaluez $R(X)$ en $0$ pour trouver la constante de proportionnalité, ce qui vous donnera accès au coefficient dominant de $R$, et donc de $P$."
+            }
+          ],
+          "solution_latex": "Si on connaît $P(x_i)$ pour $i = 0, \\ldots, n$ et on veut déterminer $P$ de degré $\\leq n$, alors $P$ est unique. On peut utiliser: (i) les polynômes de Lagrange; (ii) les différences divisées (formule de Newton); (iii) résoudre le système linéaire $\\begin{pmatrix} 1 & x_0 & x_0^2 & \\cdots \\\\ 1 & x_1 & x_1^2 & \\cdots \\\\ \\vdots \\end{pmatrix}\\begin{pmatrix} a_0 \\\\ a_1 \\\\ \\vdots \\end{pmatrix} = \\begin{pmatrix} y_0 \\\\ y_1 \\\\ \\vdots \\end{pmatrix}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_025",
+      "title": "Signe des dérivées et racines",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs",
+        "polynomes_et_racines__thm_interpolation_lagrange"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "formule de Taylor",
+        "racines",
+        "dérivation"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $P\\in\\mathbb{R}[X]$ de degré $n\\in\\mathbb{N}^{*}$ et $a\\in\\mathbb{R}$. On suppose $P(a)>0$ et $P^{(k)}(a)\\ge0$ pour tout $k\\in[\\![1,n]\\!]$. Montrer que $P$ n'a pas de racine dans $[a,+\\infty[$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formule de Taylor polynomiale !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez le développement de Taylor de $P$ en $a$. Si $x \\ge a$, quel est le signe de chaque terme de la somme ?"
+            }
+          ],
+          "solution_latex": "Par l'analyse des racines et du signe de $P$ et ses dérivées, on utilise le théorème de Rolle et la continuité. Si $P$ a $n$ racines distinctes, alors $P'$ a au moins $n-1$ racines réelles (par Rolle). Le signe de $P'$ détermine la monotonie de $P$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer tous les polynômes $P\\in\\mathbb{R}_{3}[X]$ pour lesquels $P(2)=2$, $P'(2)=0$ et $P''(2)=4$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_remarques_polynomes_annulateurs",
+            "polynomes_et_racines__thm_divisibilite_cx_rx"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La formule de Taylor polynomiale en $a=2$ permet d'écrire directement la forme générale du polynôme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez les valeurs connues dans l'expression de $P(X) = \\sum_{k=0}^3 \\frac{P^{(k)}(2)}{k!} (X-2)^k$. Que reste-t-il comme inconnue ?"
+            }
+          ],
+          "solution_latex": "Pour $P \\in \\mathbb{R}_3[X]$ avec $P(2) = 2$, $P'(2) = 0$, $P''(2) = 4$: Écrivons $P(X) = a(X-2)^3 + b(X-2)^2 + c(X-2) + d$. Alors $P(2) = d = 2$; $P'(X) = 3a(X-2)^2 + 2b(X-2) + c$, donc $P'(2) = c = 0$; $P''(X) = 6a(X-2) + 2b$, donc $P''(2) = 2b = 4$, d'où $b = 2$. Ainsi $P(X) = a(X-2)^3 + 2(X-2)^2 + 2$ pour $a \\in \\mathbb{R}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_026",
+      "title": "Nombre de points d'intersection",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_divisibilite_cx_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "intersection",
+        "racines",
+        "degré",
+        "polynôme"
+      ],
+      "statement_latex": "Soient $P\\in\\mathbb{R}[X]$ non constant et $\\lambda\\in\\mathbb{R}$. Que peut-on dire du nombre de points d'intersection de la courbe d'équation $y=P(x)$ et de la droite d'équation $y=\\lambda$ ?",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $P\\in\\mathbb{R}[X]$ non constant et $\\lambda\\in\\mathbb{R}$. Que peut-on dire du nombre de points d'intersection de la courbe d'équation $y=P(x)$ et de la droite d'équation $y=\\lambda$ ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_racines_complexes_poly_reel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez le problème géométrique en un problème algébrique sur les polynômes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les abscisses des points d'intersection sont exactement les racines réelles du polynôme $Q(X) = P(X) - \\lambda$. Que savez-vous sur le nombre maximal de racines d'un polynôme non nul de degré $n$ ?"
+            }
+          ],
+          "solution_latex": "Soit $P$ non constant et $\\lambda \\in \\mathbb{R}$. Le nombre de points d'intersection du graphe de $P$ avec la droite $y = \\lambda$ est le nombre de racines de $P(X) - \\lambda = 0$. Ce nombre est au maximum $\\deg P$, par le théorème fondamental de l'algèbre. Il peut être $0$ si $\\lambda$ est hors de l'image de $P$ sur $\\mathbb{R}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_027",
+      "title": "Fonctions non polynomiales",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_identification_poly_fonction",
+        "polynomes_et_racines__thm_toute_fonction_polynomiale",
+        "polynomes_et_racines__def_thm_evaluation_polynomiale",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "fonction non polynomiale",
+        "racines",
+        "dérivation",
+        "périodicité"
+      ],
+      "statement_latex": "Pourquoi n'existe-t-il pas de polynôme $P\\in\\mathbb{R}[X]$ satisfaisant les assertions suivantes ? On tâchera de proposer plusieurs arguments dans chaque cas.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\forall x\\in\\mathbb{R}$, $P(x)=\\lfloor x\\rfloor$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui fait qu'une fonction n'est pas polynomiale ? Dresser une liste de propriétés des fonctions étudiées que les fonctions polynomiales n'ont pas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pensez par exemple à la continuité d'une fonction polynomiale sur $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "La fonction $\\lfloor x \\rfloor$ n'est pas polynomiale. En effet, un polynôme est continue et $\\lfloor x \\rfloor$ est discontinue en tout entier. Donc $\\lfloor x \\rfloor$ n'est pas une fonction polynomiale."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\forall x\\ge0$, $P(x)=\\sqrt{x}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui fait qu'une fonction n'est pas polynomiale ? Dresser une liste de propriétés des fonctions étudiées que les fonctions polynomiales n'ont pas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez la dérivabilité en $0$, ou bien élevez l'égalité au carré pour obtenir $P(X)^2 = X$ et étudiez les degrés."
+            }
+          ],
+          "solution_latex": "La fonction $\\sqrt{x}$ pour $x \\geq 0$ n'est pas polynomiale. Un polynôme est indéfiniment dérivable, mais $\\sqrt{x}$ n'est pas dérivable en $x = 0$. Donc $\\sqrt{x}$ n'est pas une fonction polynomiale."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\forall x\\in\\mathbb{R}$, $P(x)=\\sin x$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui fait qu'une fonction n'est pas polynomiale ? Dresser une liste de propriétés des fonctions étudiées que les fonctions polynomiales n'ont pas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Combien de racines possède la fonction sinus sur $\\mathbb{R}$ ? Un polynôme non nul peut-il avoir autant de racines ?"
+            }
+          ],
+          "solution_latex": "La fonction $\\sin x$ sur $\\mathbb{R}$ n'est pas polynomiale. Un polynôme a une croissance polynomiale (au moins linéaire en valeur absolue si non constant), mais $\\sin x$ reste bornée. De plus, un polynôme a au plus finiment de racines, tandis que $\\sin x$ en a infinité. Donc $\\sin x$ n'est pas une fonction polynomiale."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\forall x\\in[0,2\\pi[$, $P(x)=\\sin x$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui fait qu'une fonction n'est pas polynomiale ? Dresser une liste de propriétés des fonctions étudiées que les fonctions polynomiales n'ont pas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Deux polynômes qui coïncident sur un intervalle contenant une infinité de points sont nécessairement égaux partout. Appliquez cet argument au polynôme dérivé."
+            }
+          ],
+          "solution_latex": "La fonction $\\sin x$ sur $[0, 2\\pi[$ : bien que bornée, la restriction de toute fonction polynomiale à un intervalle borné est une fonction polynomiale (si elle provient d'un polynôme). Cependant, $\\sin x$ sur cet intervalle n'est pas une restriction de polynôme car un polynôme qui coïncide avec $\\sin x$ sur $[0, 2\\pi[$ devrait avoir infinité de dérivations nulles à l'ordre infini (contradiction). Donc pas polynomial."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\forall x\\in\\mathbb{R}$, $P(x)=e^{x}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_identification_poly_fonction",
+            "polynomes_et_racines__thm_toute_fonction_polynomiale",
+            "polynomes_et_racines__def_thm_evaluation_polynomiale"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Qu'est-ce qui fait qu'une fonction n'est pas polynomiale ? Dresser une liste de propriétés des fonctions étudiées que les fonctions polynomiales n'ont pas."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pensez aux limites en $+\\infty$ et $-\\infty$ d'un polynôme (croissances comparées), ou dérivez l'équation pour comparer $P'$ et $P$."
+            }
+          ],
+          "solution_latex": "La fonction $e^x$ sur $\\mathbb{R}$ n'est pas polynomiale. Elle croît plus vite que tout polynôme: pour tout $N$, il existe $x_0$ tel que $e^{x_0} > x_0^N$. De plus, $e^x$ a infinité de dérivations non nulles, contrairement aux polynômes. Donc $e^x$ n'est pas une fonction polynomiale."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_028",
+      "title": "Calcul de formes scindées",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme scindé",
+        "racines complexes",
+        "factorisation"
+      ],
+      "statement_latex": "Calculer la forme scindée sur $\\mathbb{C}$ des polynômes suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$X^{4}-16$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il s'agit de trouver les quatre racines quatrièmes de $16$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez de manière répétée l'identité remarquable $A^2-B^2 = (A-B)(A+B)$."
+            }
+          ],
+          "solution_latex": "$X^4 - 16 = (X^2 - 4)(X^2 + 4) = (X-2)(X+2)(X^2 + 4) = (X-2)(X+2)(X - 2i)(X + 2i)$. En $\\mathbb{R}[X]$: $X^4 - 16 = (X-2)(X+2)(X^2 + 4)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$X^{3}-i$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez les trois racines cubiques du nombre complexe $i$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $i$ sous forme exponentielle ($e^{i\\pi/2}$) et utilisez la formule donnant les racines $n$-ièmes d'un complexe."
+            }
+          ],
+          "solution_latex": "$X^3 - i = (X - \\omega_0)(X - \\omega_1)(X - \\omega_2)$ où $\\omega_k$ sont les trois racines cubiques de $i = e^{i\\pi/2}$, soit $\\omega_k = e^{i(\\pi/6 + 2\\pi k/3)}$ pour $k = 0, 1, 2$. Explicitement: $\\omega_0 = e^{i\\pi/6} = \\frac{\\sqrt{3}}{2} + \\frac{i}{2}$, $\\omega_1 = e^{i5\\pi/6} = -\\frac{\\sqrt{3}}{2} + \\frac{i}{2}$, $\\omega_2 = e^{i3\\pi/2} = -i$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$X^{n}+1 \\ (n\\in\\mathbb{N}^{*})$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il faut résoudre l'équation $z^n = -1$ dans $\\mathbb{C}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Mettez $-1$ sous forme exponentielle ($e^{i\\pi}$) et déduisez-en les $n$ racines complexes."
+            }
+          ],
+          "solution_latex": "$X^n + 1 = \\prod_{k=0}^{n-1}(X - e^{i(2k+1)\\pi/n})$. Les racines sont les racines $n$-ièmes de $-1$, soit $e^{i(2k+1)\\pi/n}$ pour $k = 0, 1, \\ldots, n-1$. En $\\mathbb{R}[X]$ (si $n \\geq 2$): les facteurs irréductibles sont des produits de racines complexes conjuguées."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_029",
+      "title": "Divisibilité de P(X^n)",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_racine",
+        "polynomes_et_racines__thm_divisibilite_cx_rx",
+        "polynomes_et_racines__thm_divisibilite_cx_racines",
+        "polynomes_et_racines__def_thm_relation_divisibilite",
+        "polynomes_et_racines__def_thm_multiplicite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "racines de l'unité",
+        "racines multiples"
+      ],
+      "statement_latex": "Soient $P\\in\\mathbb{C}[X]$ et $n\\in\\mathbb{N}^{*}$. Montrer que si $P(X^{n})$ est divisible par $X-1$, il l'est aussi par $X^{n}-1$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $P\\in\\mathbb{C}[X]$ et $n\\in\\mathbb{N}^{*}$. Montrer que si $P(X^{n})$ est divisible par $X-1$, il l'est aussi par $X^{n}-1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la divisibilité de $P(X^n)$ par $X-1$ en termes d'évaluation (racine)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez en $1$ pour obtenir que $P(1) = 0$. Considérez ensuite une racine $n$-ième de l'unité $\\omega$ (qui est une racine de $X^n-1$) et évaluez $P(X^n)$ en $\\omega$."
+            }
+          ],
+          "solution_latex": "Soit $P \\in \\mathbb{K}[X]$ et $n \\in \\mathbb{N}^*$. Si $d | P$ dans $\\mathbb{K}[X]$, alors quelles conditions sur $d$ impliquent que $d | P(X^n)$? Généralement, si $d$ divise $P$, alors $d(X^n)$ ou une certaine transformation de $d$ divise $P(X^n)$. Par exemple, si $P(X) = (X - a)Q(X)$, alors $P(X^n) = (X^n - a)Q(X^n)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_030",
+      "title": "Factorisation de $a^n - b^n$",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_factorisation_racines",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__prop_relations_deg2_deg3"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorisation",
+        "racines de l'unité",
+        "polynômes"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $a^{n}-b^{n}=\\prod_{k=0}^{n-1}\\left(a-e^{\\frac{2ik\\pi}{n}}b\\right)$ pour tous $a, b\\in\\mathbb{C}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On n'est pas très loin de $X^{n}-1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $b=0$, l'égalité est triviale. Si $b \\neq 0$, mettez $b^n$ en facteur à gauche et exploitez la factorisation classique de $(a/b)^n - 1$."
+            }
+          ],
+          "solution_latex": "Pour tout $a, b$ avec $a \\neq b$ et $n \\in \\mathbb{N}^*$: $a^n - b^n = (a - b)(a^{n-1} + a^{n-2}b + \\cdots + ab^{n-2} + b^{n-1})$. Plus généralement, en utilisant les racines $n$-ièmes: $a^n - b^n = (a - b)\\prod_{k=1}^{n-1}(a - \\zeta^k b)$ où $\\zeta = e^{2\\pi i/n}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $A^{n}-B^{n}=\\prod_{k=0}^{n-1}\\left(A-e^{\\frac{2ik\\pi}{n}}B\\right)$ pour tous $A, B\\in\\mathbb{C}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le résultat de la question précédente en l'appliquant pour chaque point d'évaluation."
+            },
+            {
+              "level": 2,
+              "content_latex": "Deux polynômes qui prennent les mêmes valeurs sur une infinité de points (tout $\\mathbb{C}$) sont nécessairement égaux. Fixez un complexe $z$ et posez $a=A(z)$, $b=B(z)$."
+            }
+          ],
+          "solution_latex": "Si $n = 2m$ est pair: $a^n - b^n = (a^2)^m - (b^2)^m = (a^2 - b^2)(a^{2(m-1)} + a^{2(m-2)}b^2 + \\cdots + b^{2(m-1)}) = (a - b)(a + b) \\cdot (\\text{quotient})$. Si $n = 2m + 1$ est impair: $a^n + b^n = (a + b)(a^{n-1} - a^{n-2}b + \\cdots + b^{n-1})$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_031",
+      "title": "Produits trigonométriques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "produit",
+        "racines de l'unité",
+        "angle moitié"
+      ],
+      "statement_latex": "Soient $n\\ge2$ et $\\theta\\in\\mathbb{R}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Simplifier $\\prod_{k=1}^{n-1}(1-e^{\\frac{2ik\\pi}{n}})$, puis en déduire que : $\\prod_{k=1}^{n-1}\\sin\\frac{k\\pi}{n}=\\frac{n}{2^{n-1}}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour le premier produit, on n'est pas très loin de $X^{n}-1$. Pour le deuxième, angle moitié !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez le polynôme $\\frac{X^n-1}{X-1} = \\sum_{k=0}^{n-1} X^k$ en $X=1$. Pour la déduction, factorisez $e^{\\frac{ik\\pi}{n}}$ dans chaque terme $1-e^{\\frac{2ik\\pi}{n}}$ pour faire apparaître un sinus, et passez au module."
+            }
+          ],
+          "solution_latex": "Calculer $\\prod_{k=1}^{n-1}\\sin\\frac{k\\pi}{n}$: Utiliser les racines de $U_{n-1}(X)$ (polynôme de Chebyshev de 2e espèce). On a $U_{n-1}(\\cos \\theta) = \\frac{\\sin(n\\theta)}{\\sin \\theta}$, dont les zéros sont $\\cos\\frac{k\\pi}{n}$ pour $k = 1, \\ldots, n-1$. Par analyse du coefficient dominant et évaluation, $\\prod_{k=1}^{n-1}\\sin\\frac{k\\pi}{n} = \\frac{n}{2^{n-1}}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Écrire les racines du polynôme $(X+1)^{n}-e^{2in\\theta}$ sous la forme $2u\\sin\\varphi$ avec $u\\in\\mathbb{U}$, $\\varphi\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez l'équation $(X+1)^n = e^{2in\\theta}$ en passant aux racines $n$-ièmes."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $X+1 = e^{2i\\theta} e^{\\frac{2ik\\pi}{n}}$. Isolez $X$ et utilisez la technique de l'arc moitié sur l'expression $e^{i(2\\theta + \\frac{2k\\pi}{n})} - 1$."
+            }
+          ],
+          "solution_latex": "Calculer $\\prod_{k=1}^{n}\\cos\\frac{k\\pi}{2n+1}$: Utiliser la relation avec les racines $2n+1$-ièmes de l'unité. On a $\\prod_{k=1}^{n}\\cos\\frac{k\\pi}{2n+1} = \\frac{1}{2^n}$ (formule classique)."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire $\\prod_{k=0}^{n-1}\\sin\\left(\\theta+\\frac{k\\pi}{n}\\right)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Produit des racines."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez le produit des racines du polynôme $(X+1)^n - e^{2in\\theta}$ à l'aide de son coefficient constant, et identifiez avec le produit des formes trigonométriques trouvées en 2)a)."
+            }
+          ],
+          "solution_latex": "Calculer $\\prod_{k=0}^{n-1}\\sin\\frac{(2k+1)\\pi}{4n}$: Cette expression intervient dans l'analyse des polynômes de Chebyshev aux points spéciaux. Le résultat est $\\frac{\\sqrt{2}}{2^n}$ (à vérifier par récurrence ou analyse des racines)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_032",
+      "title": "Caractérisation des polynômes scindés sur R",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__thm_interpolation_lagrange"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme scindé",
+        "racines complexes",
+        "inégalité",
+        "module"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ non constant unitaire. Montrer que $P$ est scindé sur $\\mathbb{R}$ si et seulement si $|P(z)|\\ge|\\mathrm{Im}(z)|^{\\deg(P)}$ pour tout $z\\in\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ non constant unitaire. Montrer que $P$ est scindé sur $\\mathbb{R}$ si et seulement si $|P(z)|\\ge|\\mathrm{Im}(z)|^{\\deg(P)}$ pour tout $z\\in\\mathbb{C}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $z\\in\\mathbb{C}$ : $|\\mathrm{Im}(z)|\\le|z|$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour le sens direct, écrivez $P$ sous forme factorisée $\\prod (X-x_k)$ avec $x_k \\in \\mathbb{R}$. Évaluez en $z$ et minorez $|z-x_k|$ par $|\\mathrm{Im}(z-x_k)|$."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour la réciproque, raisonnez par contraposée : si $P$ possède une racine complexe non réelle $\\alpha$, que vaut $P(\\alpha)$ ? Concluez avec l'inégalité supposée vraie."
+            }
+          ],
+          "solution_latex": "Un polynôme $P$ de degré $n$ est scindé sur $\\mathbb{R}$ ssi il s'écrit $P(X) = a(X - r_1) \\cdots (X - r_n)$ où $a \\neq 0$ et $r_1, \\ldots, r_n \\in \\mathbb{R}$. Équivalemment: (i) $P$ a $n$ racines réelles (comptées avec multiplicités); (ii) $P$ et toutes ses dérivées successives jusqu'à l'ordre $n-1$ satisfont certaines inégalités (Sturm); (iii) le nombre de variations de signe de la suite de Sturm de $P$ égale le nombre de racines positives."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_033",
+      "title": "Équation P(X²)=P(X)P(X-1)",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__prop_relations_deg2_deg3",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs",
+        "polynomes_et_racines__thm_factorisation_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation polynomiale",
+        "racines",
+        "ensemble stable",
+        "module"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $P\\in\\mathbb{R}[X]$ non nul. On suppose que : $P(X^{2})=P(X)P(X-1)$ et on note $\\mathcal{R}$ l'ensemble des racines de $P$ dans $\\mathbb{C}$.\\par Montrer que $\\mathcal{R}$ est stable par $z\\mapsto z^{2}$ et en déduire que $\\mathcal{R}\\subset\\mathbb{U}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__prop_relations_deg2_deg3",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__thm_relations_coefficients_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluez l'équation fonctionnelle en une racine $\\alpha \\in \\mathcal{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $P(\\alpha)=0$, on a $P(\\alpha^2)=0$, donc $\\alpha^2 \\in \\mathcal{R}$. Puisque $\\mathcal{R}$ est fini et stable par l'application $z \\mapsto z^2$, les modules des éléments de $\\mathcal{R}$ ne peuvent valoir que $0$ ou $1$."
+            }
+          ],
+          "solution_latex": "Chercher les degrés: Si $\\deg P = d$, alors $\\deg(P(X^2)) = 2d$ et $\\deg(P(X)P(X-1)) = 2d$. Donc les degrés sont égaux, ✓."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que $1+\\mathcal{R}\\subset\\mathbb{U}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez une autre relation de stabilité en utilisant le facteur $P(X-1)$ de l'équation."
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez l'équation en $\\alpha+1$ où $\\alpha \\in \\mathcal{R}$. On a $P((\\alpha+1)^2) = P(\\alpha+1)P(\\alpha) = 0$. Donc $(\\alpha+1)^2 \\in \\mathcal{R}$. Concluez avec la question précédente."
+            }
+          ],
+          "solution_latex": "Analyse des termes dominants: Soit $P(X) = c X^d + \\text{termes inf.}$. Alors $P(X^2) = c X^{2d} + \\ldots$ et $P(X)P(X-1) = c \\cdot c X^d(X-1)^d = c^2 X^d(X^d - \\ldots) = c^2 X^{2d} + \\ldots$. Donc $c = c^2$, d'où $c = 1$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "En déduire $\\mathcal{R}$, puis $P$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Trouvez les complexes $z$ qui vérifient à la fois $|z|=1$ et $|z+1|=1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Graphiquement (ou algébriquement), les seules solutions sont $j$ et $j^2$. Donc $\\mathcal{R} \\subset \\{j, j^2\\}$. Puisque $P \\in \\mathbb{R}[X]$, $j$ et $j^2$ ont la même multiplicité. Déduisez la forme de $P$."
+            }
+          ],
+          "solution_latex": "Cas particuliers: $P = 0$ vérifie. $P = 1$ vérifie: $1 = 1 \\cdot 1$. $P(X) = X$ donne $X^2 = X(X-1) = X^2 - X$, faux. Les solutions non évidentes doivent être cherchées par essai ou théorie spéciale."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer tous les polynômes $P\\in\\mathbb{R}[X]$ pour lesquels $P(X^{2})=P(X)P(X-1)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_remarques_polynomes_annulateurs",
+            "polynomes_et_racines__def_thm_polynome_annulateur"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites la synthèse en testant les polynômes trouvés à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les solutions potentielles sont de la forme $P(X) = (X^2+X+1)^n$. Vérifiez si ces polynômes satisfont bien l'équation initiale."
+            }
+          ],
+          "solution_latex": "Solutions complètes: Les seules solutions sont $P = 0$ et $P = 1$ (fonctions constantes). Pour voir cela, supposer $P$ non constant et analyser les zéros. Si $P(a) = 0$ pour un $a$, alors $P(a^2) = P(a)P(a-1) = 0$, d'où $P(a^2) = 0$. Par itération, $P(a^{2^n}) = 0$ pour tout $n$. Mais cela implique infinité de zéros (à moins que $a^{2^n}$ se répète), ce qui contredit que $P$ est polynomial (sauf si $P = 0$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_034",
+      "title": "Divisibilité par (X-1)(X^pq-1)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_divisibilite_cx_rx",
+        "polynomes_et_racines__thm_divisibilite_cx_racines",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__def_racine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "divisibilité",
+        "racines de l'unité",
+        "arithmétique",
+        "premiers entre eux"
+      ],
+      "statement_latex": "Soient $p\\ge2$ et $q\\ge2$ premiers entre eux. Montrer qu'alors $(X^{p}-1)(X^{q}-1)$ divise $(X-1)(X^{pq}-1)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $p\\ge2$ et $q\\ge2$ premiers entre eux. Montrer qu'alors $(X^{p}-1)(X^{q}-1)$ divise $(X-1)(X^{pq}-1)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_divisibilite_cx_rx",
+            "polynomes_et_racines__thm_divisibilite_cx_racines",
+            "polynomes_et_racines__def_polynomes_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factorisez chaque terme à l'aide des polynômes cyclotomiques ou passez par les racines."
+            },
+            {
+              "level": 2,
+              "content_latex": "Quelles sont les racines de $(X^p-1)(X^q-1)$ ? Les racines $p$-ièmes et $q$-ièmes de l'unité. Montrez que si une racine est commune à $X^p-1$ et $X^q-1$, alors c'est forcément $1$ puisque $p$ et $q$ sont premiers entre eux."
+            },
+            {
+              "level": 3,
+              "content_latex": "Vérifiez que toutes les racines de $(X^p-1)(X^q-1)$, avec leur multiplicité (racines simples sauf $1$ qui est double), sont bien racines de $(X-1)(X^{pq}-1)$."
+            }
+          ],
+          "solution_latex": "Soit $p, q$ des entiers. On cherche à montrer que $(X-1)$ divise $P(X^p) - P(X)$ ou une expression similaire. En effet, en $X = 1$: $P(1^p) - P(1) = P(1) - P(1) = 0$. Pour les autres racines, si $X^p = 1$ (i.e., $X$ est une racine $p$-ième de l'unité), alors $P(X^p) = P(1)$. Les conditions de divisibilité par des polynômes plus généraux découlent de l'analyse des racines communes."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_035",
+      "title": "Relations coefficients-racines (degré 3)",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__def_racine",
+        "polynomes_et_racines__prop_relations_deg2_deg3"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relations coefficients-racines",
+        "sommes de Newton",
+        "polynôme de degré 3"
+      ],
+      "statement_latex": "Soient $p,q\\in\\mathbb{C}$. On pose $P=X^{3}+pX+q$ et on note $x, y$ et $z$ les trois racines complexes de $P$ comptées avec multiplicité.\\par Simplifier en fonction de $p$ et $q$ les quantités suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x^{2}+y^{2}+z^{2}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez $(x+y+z)^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez les relations de Viète : la somme des racines est nulle car le coefficient en $X^2$ est $0$, et la somme des doubles produits vaut $p$."
+            }
+          ],
+          "solution_latex": "Soit $P(X) = aX^3 + bX^2 + cX + d$ de racines $r, s, t$. Formules de Viète: $r + s + t = -\\frac{b}{a}$; $rs + rt + st = \\frac{c}{a}$; $rst = -\\frac{d}{a}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x^{3}+y^{3}+z^{3}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le fait que $x, y$ et $z$ sont racines du polynôme $P$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $x^3+px+q=0$, donc $x^3 = -px-q$. Sommez cette relation pour les trois racines."
+            }
+          ],
+          "solution_latex": "Sommes de puissances: $p_k = r^k + s^k + t^k$. Récurrence: $p_k + \\frac{b}{a}p_{k-1} + \\frac{c}{a}p_{k-2} + \\frac{d}{a}p_{k-3} = 0$ pour $k \\geq 3$. Donc $p_k = -\\frac{b}{a}p_{k-1} - \\frac{c}{a}p_{k-2} - \\frac{d}{a}p_{k-3}$ pour $k \\geq 3$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Et si $x, y$ et $z$ sont non nuls :\\par $\\frac{1}{x}+\\frac{1}{y}+\\frac{1}{z}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__def_racine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettez au même dénominateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le numérateur sera $xy+yz+zx$ et le dénominateur $xyz$. Remplacez par les coefficients $p$ et $-q$ d'après les relations coefficients-racines."
+            }
+          ],
+          "solution_latex": "Discriminant: $\\Delta = (r - s)^2(r - t)^2(s - t)^2 = -4b^3d + b^2c^2 + 18abcd - 4ac^3 - 27a^2d^2$. Signe: $\\Delta > 0$ ssi trois racines réelles distinctes; $\\Delta = 0$ ssi racine multiple; $\\Delta < 0$ ssi une réelle, deux complexes conjuguées."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Et si $x, y$ et $z$ sont non nuls :\\par $\\frac{1}{x^{2}}+\\frac{1}{y^{2}}+\\frac{1}{z^{2}}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Élevez la quantité $\\left(\\frac{1}{x}+\\frac{1}{y}+\\frac{1}{z}\\right)$ au carré."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez et exprimez les doubles produits restants $\\frac{1}{xy} + \\frac{1}{yz} + \\frac{1}{zx}$ en mettant au même dénominateur."
+            }
+          ],
+          "solution_latex": "Identité: $r^3 + s^3 + t^3 - 3rst = (r + s + t)(r^2 + s^2 + t^2 - rs - rt - st) = (r+s+t)((r+s+t)^2 - 3(rs+rt+st))$. Donc $r^3 + s^3 + t^3 = -\\frac{b^3}{a^3} + 3\\frac{bc}{a^2} - \\frac{3d}{a}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_036",
+      "title": "Discriminant d'un polynôme de degré 3",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__prop_relations_deg2_deg3",
+        "polynomes_et_racines__def_polynome_scinde"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relations coefficients-racines",
+        "racine multiple",
+        "dérivation",
+        "discriminant"
+      ],
+      "statement_latex": "Soient $p,q\\in\\mathbb{C}$. On pose $P=X^{3}+pX+q$ et on note $x, y$ et $z$ les trois racines complexes de $P$ comptées avec multiplicité.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $P'(x)P'(y)P'(z)=4p^{3}+27q^{2}$ au moyen des relations coefficients-racines.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3",
+            "polynomes_et_racines__thm_racines_complexes_poly_reel"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $P'(X)$ puis substituez $x, y$ et $z$ dans l'expression."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $P'(X) = 3X^2+p$. Dans le produit $(3x^2+p)(3y^2+p)(3z^2+p)$, utilisez le fait que $x^3 = -px-q$ pour abaisser les degrés, ou développez et utilisez les fonctions symétriques élémentaires."
+            }
+          ],
+          "solution_latex": "Le discriminant de $P(X) = aX^3 + bX^2 + cX + d$ est $\\Delta = 18abcd - 4b^3d + b^2c^2 - 4ac^3 - 27a^2d^2$. Interprétation: $\\Delta > 0 \\Rightarrow$ trois racines réelles distinctes; $\\Delta = 0 \\Rightarrow$ au moins une racine répétée; $\\Delta < 0 \\Rightarrow$ une racine réelle et deux complexes conjuguées."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "À quelle condition nécessaire et suffisante sur $p$ et $q$ le polynôme $P$ possède-t-il une racine multiple ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__def_racine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites le lien avec la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Un polynôme possède une racine multiple si et seulement s'il partage au moins une racine avec sa dérivée. Que peut-on alors dire du produit $P'(x)P'(y)P'(z)$ ?"
+            }
+          ],
+          "solution_latex": "Calcul pour $P(X) = X^3 + pX + q$ (forme réduite): $\\Delta = -4p^3 - 27q^2$. Donc les trois racines réelles distinctes existent ssi $-4p^3 - 27q^2 > 0$, i.e., $4p^3 + 27q^2 < 0$, ce qui impose $p < 0$ (car $p^3 < 0$). Le problème de Cardan: une racine est donnée par $r = \\sqrt[3]{-\\frac{q}{2} + \\sqrt{\\frac{q^2}{4} + \\frac{p^3}{27}}} + \\sqrt[3]{-\\frac{q}{2} - \\sqrt{\\frac{q^2}{4} + \\frac{p^3}{27}}}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_037",
+      "title": "Résolution de systèmes symétriques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_racines_complexes_poly_reel",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système non linéaire",
+        "polynôme symétrique",
+        "relations coefficients-racines"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On note $(\\star)$ le système $\\begin{cases} x+y+z=1 \\\\ x^{2}+y^{2}+z^{2}=19 \\\\ \\frac{1}{x}+\\frac{1}{y}+\\frac{1}{z}=1 \\end{cases}$ d'inconnue $(x,y,z)\\in(\\mathbb{C}^{*})^{3}$. Soit $(x,y,z)\\in(\\mathbb{C}^{*})^{3}$. On pose $P=(X-x)(X-y)(X-z)$.\\par Si $(x,y,z)$ est solution de $(\\star)$, déterminer $P$ explicitement.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez les coefficients de $P$ en fonction des fonctions symétriques élémentaires $\\sigma_1, \\sigma_2, \\sigma_3$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Déduisez des équations du système les valeurs de la somme $x+y+z$, de la somme des doubles produits $xy+yz+zx$ et du produit $xyz$."
+            }
+          ],
+          "solution_latex": "Système symétrique: chercher $r, s$ tels que $r + s = A$ et $rs = B$ (pour certains $A, B$ donnés). Solution: $r, s$ sont racines de $X^2 - AX + B = 0$, d'où $r, s = \\frac{A \\pm \\sqrt{A^2 - 4B}}{2}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Résoudre $(\\star)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les solutions du système sont exactement les racines du polynôme $P$ trouvé à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une racine évidente du polynôme (parmi les petits entiers), puis factorisez-le pour trouver les deux autres racines."
+            }
+          ],
+          "solution_latex": "Système à trois variables: chercher $r, s, t$ tels que $r + s + t = e_1$, $rs + rt + st = e_2$, $rst = e_3$. Solution: $r, s, t$ sont racines de $X^3 - e_1 X^2 + e_2 X - e_3 = 0$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Résoudre le système suivant dans $\\mathbb{C}^{3}$ : $\\begin{cases} x+y+z=0 \\\\ x^{2}+y^{2}+z^{2}=6 \\\\ xyz=-2 \\end{cases}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formez le polynôme $P$ dont $x, y, z$ sont les racines, de la même manière qu'à la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez la somme des doubles produits à l'aide de l'identité $(x+y+z)^2 = x^2+y^2+z^2 + 2(xy+yz+zx)$."
+            }
+          ],
+          "solution_latex": "Systèmes plus généraux: utiliser les polynômes symétriques élémentaires. Tout polynôme symétrique en $r, s, t$ se réécrit comme polynôme en $e_1, e_2, e_3$. Cela réduit le nombre de variables et simplifie la résolution."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Résoudre le système suivant dans $\\mathbb{C}^{3}$ : $\\begin{cases} x+y+z=0 \\\\ x^{2}+y^{2}+z^{2}=0 \\\\ x^{3}+y^{3}+z^{3}=3 \\end{cases}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__thm_factorisation_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminez à nouveau les trois fonctions symétriques élémentaires pour former le polynôme associé."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour relier la somme des cubes au produit $xyz$, utilisez l'identité de factorisation de $x^3+y^3+z^3 - 3xyz$ ou exprimez cette somme de cubes en fonction des sommes de Newton."
+            }
+          ],
+          "solution_latex": "Exemple: résoudre $r^2 + s^2 + t^2 = B$ sachant $r + s + t = A$ et $rst = C$. On a $r^2 + s^2 + t^2 = (r+s+t)^2 - 2(rs+rt+st) = A^2 - 2e_2$, donc $B = A^2 - 2e_2$, d'où $e_2 = \\frac{A^2 - B}{2}$. Ainsi, $r, s, t$ sont racines de $X^3 - AX^2 + \\frac{A^2-B}{2}X - C = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_038",
+      "title": "Moyenne des racines et dérivation",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__prop_relations_deg2_deg3",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "relations coefficients-racines",
+        "dérivation",
+        "moyenne",
+        "isobarycentre"
+      ],
+      "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ de degré au moins 2. Montrer que la moyenne des racines de $P'$ comptées avec multiplicité est la même que la moyenne des racines de $P$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soit $P\\in\\mathbb{C}[X]$ de degré au moins 2. Montrer que la moyenne des racines de $P'$ comptées avec multiplicité est la même que la moyenne des racines de $P$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_relations_coefficients_racines",
+            "polynomes_et_racines__prop_relations_deg2_deg3",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez la moyenne des racines de $P$ à l'aide des coefficients de $P$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Soit $P(X) = a_n X^n + a_{n-1} X^{n-1} + \\dots$ avec $a_n \\neq 0$. Que vaut la somme de ses racines ? Calculez ensuite $P'(X)$, identifiez ses deux termes de plus haut degré, et déduisez-en la somme des racines de $P'$."
+            }
+          ],
+          "solution_latex": "Soit $P$ de degré $n$ ayant racines $r_1, \\ldots, r_n$ (comptées avec multiplicités). La moyenne des racines est $\\frac{1}{n}\\sum_{i=1}^{n}r_i = -\\frac{a_{n-1}}{na_n}$ où $a_n$ et $a_{n-1}$ sont les coefficients de $X^n$ et $X^{n-1}$ respectivement. La dérivée $P'$ a pour racines (partiellement) les points critiques de $P$. Par Rolle, entre deux racines consécutives de $P$, il existe une racine de $P'$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_039",
+      "title": "Polynôme annulateur et inversion",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_thm_polynome_annulateur",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice",
+        "polynôme annulateur",
+        "inversibilité"
+      ],
+      "statement_latex": "Montrer que la matrice $[n]$ est inversible pour $n\\ge2$ et calculer son inverse en exhibant d'abord un polynôme annulateur.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que la matrice $[n]$ est inversible pour $n\\ge2$ et calculer son inverse en exhibant d'abord un polynôme annulateur.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_thm_polynome_annulateur",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_degre_dominant_unitaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez le carré de la matrice et cherchez à l'exprimer comme combinaison linéaire de la matrice elle-même et de la matrice identité."
+            },
+            {
+              "level": 2,
+              "content_latex": "À partir d'une équation de la forme $M^2 + \\alpha M + \\beta I = 0$, factorisez $M$ pour obtenir une expression du type $M(AM+BI) = I$, ce qui prouvera l'inversibilité."
+            }
+          ],
+          "solution_latex": "Soit $A$ une matrice carrée et $P$ son polynôme minimal: $P(A) = 0$ et $P$ divise tout polynôme $Q$ avec $Q(A) = 0$. Si $P(X) = X^2 + \\alpha X + \\beta$ par exemple, alors $A^2 + \\alpha A + \\beta I = 0$, d'où $A(A + \\alpha I) = -\\beta I$, donc $A^{-1} = -\\frac{1}{\\beta}(A + \\alpha I)$ (si $\\beta \\neq 0$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_040",
+      "title": "Calcul de puissances matricielles",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_thm_polynome_annulateur",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__def_polynome_indeterminee"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice",
+        "puissance",
+        "polynôme annulateur",
+        "division euclidienne"
+      ],
+      "statement_latex": "Calculer les puissances des matrices suivantes en exhibant d'abord pour chacune un polynôme annulateur :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\begin{pmatrix} 2 & -2 & 1 \\\\ 2 & -3 & 2 \\\\ -1 & 2 & 0 \\end{pmatrix}$ (degré 2).",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_thm_polynome_annulateur",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez le carré de la matrice $A$ et trouvez un polynôme de degré 2 qui l'annule."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuez ensuite la division euclidienne de $X^k$ par ce polynôme annulateur pour exprimer $A^k$ en fonction de $A$ et de l'identité."
+            }
+          ],
+          "solution_latex": "Soit $A$ une matrice carrée d'ordre $n$. Le polynôme minimal $m_A$ est le polynôme unitaire de degré minimal tel que $m_A(A) = 0$. On a $\\deg(m_A) \\leq n$. Tout polynôme $P$ satisfait $P(A) = Q(A) \\cdot m_A(A) + R(A)$ où $\\deg(R) < \\deg(m_A)$, donc $P(A) = R(A)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\begin{pmatrix} 0 & 1 & -1 \\\\ -3 & 4 & -3 \\\\ -1 & 1 & 0 \\end{pmatrix}$ (degré 2).",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez exactement la même méthode : commencez par calculer le carré de cette matrice pour trouver sa relation d'annulation."
+            }
+          ],
+          "solution_latex": "Pour calculer $A^k$ où $A$ a polynôme minimal $m_A(X) = X^d + c_{d-1}X^{d-1} + \\cdots + c_0$: On a $A^d = -c_{d-1}A^{d-1} - \\cdots - c_0 I$. Ainsi, $A^k$ pour tout $k$ s'écrit comme combinaison linéaire de $I, A, A^2, \\ldots, A^{d-1}$. Cela réduit drastiquement le calcul."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$ (degré 3).",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez $A^2$ puis $A^3$ pour identifier une relation d'annulation de degré 3 liant $A^3, A^2, A$ et $I$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La division euclidienne de $X^k$ par le polynôme annulateur de degré 3 donnera un reste de la forme $aX^2+bX+c$. Évaluez sur les racines du polynôme annulateur pour trouver $a, b$ et $c$."
+            }
+          ],
+          "solution_latex": "Exemple: Soit $A = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$ (rotation de $90°$). Alors $A^2 = -I$, d'où $A^4 = I$. Ainsi, $A^n = A^{n \\bmod 4}$. Pour un calcul rapide, on utilise l'exponentiation rapide combinée à la réduction modulaire par $m_A$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_041",
+      "title": "Somme des polynômes de Lagrange",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__thm_remarques_polynomes_annulateurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "interpolation de Lagrange",
+        "unicité",
+        "polynôme constant",
+        "degré"
+      ],
+      "statement_latex": "Soient $n\\ge2,x_{1},...,x_{n}\\in\\mathbb{K}$ distincts et $L_{1},...,L_{n}$ les polynômes de Lagrange associés. Simplifier les polynômes $L_{1}+...+L_{n}$ et $x_{1}L_{1}+...+x_{n}L_{n}$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Soient $n\\ge2,x_{1},...,x_{n}\\in\\mathbb{K}$ distincts et $L_{1},...,L_{n}$ les polynômes de Lagrange associés. Simplifier les polynômes $L_{1}+...+L_{n}$ et $x_{1}L_{1}+...+x_{n}L_{n}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter l'unicité du polynôme d'interpolation de Lagrange de degré minimal."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez les polynômes $P(X) = 1$ et $Q(X) = X$. Que vaut leur interpolation de Lagrange aux points $x_i$ ?"
+            }
+          ],
+          "solution_latex": "La somme $\\sum_{i=0}^{n}L_i(X) = 1$ où $L_i$ sont les polynômes de Lagrange pour les nœuds $x_0, \\ldots, x_n$. Cela suit du fait que la constante $1$ se réécrit comme $\\sum_{i=0}^{n}1 \\cdot L_i(X)$, et en utilisant la propriété $L_i(x_j) = \\delta_{ij}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_042",
+      "title": "Lagrange sur les entiers",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_degre_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "interpolation de Lagrange",
+        "factorielle",
+        "coefficients binomiaux",
+        "somme"
+      ],
+      "statement_latex": "On note $L_{0},...,L_{n}$ les polynômes de Lagrange de $0,...,n$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Pour tout $k\\in[\\![0,n]\\!]$, exprimer le coefficient dominant de $L_{k}$ au moyen de factorielles.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenez à la définition du polynôme de Lagrange $L_k(X) = \\prod_{j \\neq k} \\frac{X - j}{k - j}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le coefficient dominant est l'inverse du produit $\\prod_{j \\neq k} (k - j)$. Séparez les facteurs positifs ($j < k$) et les facteurs négatifs ($j > k$)."
+            }
+          ],
+          "solution_latex": "Polynomial de Lagrange pour points entiers $(x_0, y_0), \\ldots, (x_n, y_n)$ est $L(X) = \\sum_{i=0}^{n}y_i \\prod_{j \\neq i}\\frac{X - x_j}{x_i - x_j}$. Si tous $x_i, y_i \\in \\mathbb{Z}$, alors $L$ a coefficients rationnels. Les dénominateurs divisent $\\prod_{i < j}(x_i - x_j)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Exprimer de deux manières différentes l'unique polynôme $P\\in\\mathbb{R}[X]$ de degré au plus $n$ pour lequel $P(k)=k^{n}$ pour tout $k\\in[\\![0,n]\\!]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Quand on connaît $n+1$ valeurs d'un polynôme de degré $n$, on le connaît complètement."
+            },
+            {
+              "level": 2,
+              "content_latex": "La première manière est évidente par identification directe avec un monôme usuel. La seconde consiste à utiliser l'expression de Lagrange générale en fonction des $L_k$."
+            }
+          ],
+          "solution_latex": "Pour que $L \\in \\mathbb{Z}[X]$, il faut que chaque terme $y_i \\prod_{j \\neq i}\\frac{X - x_j}{x_i - x_j}$ soit un polynôme à coefficients entiers. C'est automatique si on choisit les $y_i$ convenablement en fonction des $x_i$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire $\\sum_{k=0}^{n}\\binom{n}{k}(-1)^{n-k}k^{n}$",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_degre_somme_produit",
+            "polynomes_et_racines__def_polynomes_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifiez les coefficients dominants des deux expressions du polynôme $P$ trouvées à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez le coefficient dominant de $L_k$ par l'expression avec factorielles trouvée à la question 1, multipliez par $n!$ et factorisez pour faire apparaître le coefficient binomial."
+            }
+          ],
+          "solution_latex": "Exemple: points $(0, 0), (1, 1), (2, 4)$ donnent $L(X) = 0 \\cdot \\ldots + 1 \\cdot \\frac{X(X-2)}{1 \\cdot (-1)} + 4 \\cdot \\frac{X(X-1)}{2 \\cdot 1} = -X(X-2) + 2X(X-1) = -X^2 + 2X + 2X^2 - 2X = X^2$. Donc $L(X) = X^2 \\in \\mathbb{Z}[X]$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_043",
+      "title": "Intégration numérique exacte",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__thm_interpolation_lagrange",
+        "polynomes_et_racines__thm_degre_somme_produit",
+        "polynomes_et_racines__thm_divisibilite_cx_rx"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "interpolation de Lagrange",
+        "intégration",
+        "combinaison linéaire"
+      ],
+      "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$, il existe des réels $\\lambda_{0},...,\\lambda_{n}$ pour lesquels pour tout $P\\in\\mathbb{R}_{n}[X]$ : \\par $\\int_{0}^{1}P(t)dt=\\sum_{k=0}^{n}\\lambda_{k}P\\left(\\frac{k}{n}\\right)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$, il existe des réels $\\lambda_{0},...,\\lambda_{n}$ pour lesquels pour tout $P\\in\\mathbb{R}_{n}[X]$ : \\par $\\int_{0}^{1}P(t)dt=\\sum_{k=0}^{n}\\lambda_{k}P\\left(\\frac{k}{n}\\right)$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tout polynôme de $\\mathbb{R}_{n}[X]$ est combinaison linéaire des polynômes de Lagrange des réels $\\frac{k}{n}$, $k$ décrivant $[\\![0, n]\\!]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $P(X) = \\sum_{k=0}^n P\\left(\\frac{k}{n}\\right) L_k(X)$. Intégrez cette relation entre 0 et 1 et utilisez la linéarité de l'intégrale. Qui jouera le rôle des $\\lambda_k$ ?"
+            }
+          ],
+          "solution_latex": "On cherche une formule de quadrature $\\int_a^b P(x)dx = \\sum_{i=0}^{n}w_i P(x_i)$ exacte pour tous les polynômes de degré $\\leq m$. Par Lagrange, en choisissant $n+1$ nœuds $x_0, \\ldots, x_n$ et les poids $w_i$ appropriément, on peut rendre la formule exacte pour les polynômes de degré $\\leq n$. Pour les formules de Gauss, on obtient exactitude pour les polynômes de degré $\\leq 2n+1$ en choisissant intelligemment les nœuds."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_044",
+      "title": "Corps d'appartenance des coefficients",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__def_thm_polynome_annulateur",
+        "polynomes_et_racines__def_racine"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps",
+        "coefficients",
+        "interpolation de Lagrange",
+        "conjugué"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer l'ensemble des polynômes $P\\in\\mathbb{C}[X]$ pour lesquels $P(\\mathbb{R})\\subset\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_indeterminee",
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez le polynôme conjugué $\\overline{P}(X)$. Si $P(\\mathbb{R})\\subset\\mathbb{R}$, que vaut $P(x) - \\overline{P}(x)$ pour un réel $x$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le polynôme $P - \\overline{P}$ s'annule sur tout $\\mathbb{R}$, qui est infini. Il est donc nul, ce qui force les coefficients de $P$ à être réels."
+            }
+          ],
+          "solution_latex": "Un polynôme $P \\in \\mathbb{K}[X]$ où $\\\\mathbb{K}$ est un corps peut être vu comme élément de $\\\\mathbb{L}[X]$ pour une extension $\\\\mathbb{L} \\\\supseteq \\\\mathbb{K}$. Les propriétés peuvent changer: par exemple, l'irréductibilité de $P$ sur $\\\\mathbb{K}$ n'implique pas celle sur $\\\\mathbb{L}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $\\mathbb{K}$ un sous-corps de $\\mathbb{C}$. Déterminer l'ensemble des polynômes $P\\in\\mathbb{C}[X]$ pour lesquels $P(\\mathbb{K})\\subset\\mathbb{K}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_racine",
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__def_thm_polynome_annulateur"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un sous-corps de $\\mathbb{C}$ contient $\\mathbb{Q}$, il possède donc une infinité d'éléments."
+            },
+            {
+              "level": 2,
+              "content_latex": "Choisissez $n+1$ points distincts dans $\\mathbb{K}$, où $n$ est le degré de $P$. Écrivez l'interpolation de Lagrange de $P$ en ces points : les évaluations sont dans $\\mathbb{K}$, les polynômes de Lagrange $L_k$ sont à coefficients dans $\\mathbb{K}$. Concluez."
+            }
+          ],
+          "solution_latex": "Exemple: $P(X) = X^2 + 1$ est irréductible sur $\\\\mathbb{R}$ mais se factorise sur $\\\\mathbb{C}$ comme $(X - i)(X + i)$. Plus généralement, si $\\\\mathbb{L} = \\\\mathbb{K}(\\\\alpha)$ pour une racine $\\\\alpha$ de $P$, alors $P$ se factorise en au moins deux polynômes dans $\\\\mathbb{L}[X]$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_045",
+      "title": "Arithmétique polynomiale dans F_p[X]",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_degre_dominant_unitaire",
+        "polynomes_et_racines__thm_relations_coefficients_racines",
+        "polynomes_et_racines__thm_degre_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps finis",
+        "caractéristique",
+        "endomorphisme",
+        "petit théorème de Fermat"
+      ],
+      "statement_latex": "Soit $p\\in\\mathbb{P}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $A, B\\in\\mathbb{F}_{p}[X]$ : \\par $(A+B)^{p}=A^{p}+B^{p}$ et $A(X)^{p}=A(X^{p})$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_division_euclidienne_x_lambda",
+            "polynomes_et_racines__thm_division_euclidienne",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $p$ divise $\\binom{p}{k}$ pour tout $k\\in[\\![1,p-1]\\!]$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $(A+B)^p$ avec la formule du binôme et utilisez la divisibilité pour annuler les termes intermédiaires dans $\\mathbb{F}_p$. Pour $A(X)^p$, itérez sur les monômes du polynôme."
+            }
+          ],
+          "solution_latex": "L'anneau $\\\\mathbb{F}_p[X]$ des polynômes à coefficients dans le corps fini $\\\\mathbb{F}_p$ est un domaine euclidien. La division euclidienne fonctionne comme dans $\\\\mathbb{K}[X]$ pour tout corps $\\\\mathbb{K}$: pour $A, B \\\\in \\\\mathbb{F}_p[X]$ avec $B \\\\neq 0$, il existe uniques $Q, R$ tels que $A = BQ + R$ avec $\\\\deg(R) < \\\\deg(B)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tous $P,Q\\in\\mathbb{F}_{p}[X]$, les fonctions polynomiales $\\tilde{P}$, $\\tilde{Q}$ coïncident sur $\\mathbb{F}_{p}$ si et seulement si $P-Q$ est divisible par $X^{p}-X$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le polynôme $X^{p}-X$ est remarquablement scindé sur $\\mathbb{F}_{p}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le petit théorème de Fermat nous dit que tout élément de $\\mathbb{F}_p$ annule $X^p-X$. Ainsi, si $\\tilde{P}$ et $\\tilde{Q}$ coïncident, le polynôme $P-Q$ s'annule sur toutes les $p$ racines de $X^p-X$, qui sont simples."
+            }
+          ],
+          "solution_latex": "Le $\\\\gcd$ dans $\\\\mathbb{F}_p[X]$ existe et se calcule par l'algorithme d'Euclide. L'identité de Bézout aussi: il existe $U, V \\\\in \\\\mathbb{F}_p[X]$ tels que $\\\\gcd(A, B) = AU + BV$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $P\\in\\mathbb{F}_{p}[X]$. À quelle condition nécessaire et suffisante est-il vrai que $\\deg(P')=\\deg(P)-1$ ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__thm_interpolation_lagrange",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $k\\in\\mathbb{N}$ : $(X^{kp})'=\\overline{0}$"
+            },
+            {
+              "level": 2,
+              "content_latex": "La dérivée de $a_n X^n$ est $n a_n X^{n-1}$. Dans le corps $\\mathbb{F}_p$, le coefficient $n a_n$ est non nul si et seulement si $n$ n'est pas un multiple de $p$ (puisque $a_n \\neq 0$)."
+            }
+          ],
+          "solution_latex": "Factorisation: tout polynôme $P \\\\in \\\\mathbb{F}_p[X]$ non nul se factorise de façon unique en polynômes irréductibles (domaine factoriel). Le nombre de polynômes irréductibles de degré $d$ dans $\\\\mathbb{F}_p[X]$ est $\\\\frac{1}{d}\\\\sum_{k|d}\\\\mu(d/k)p^k$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Tout polynôme de $\\mathbb{F}_{p}[X]$ possède-t-il une primitive ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__thm_racines_complexes_poly_reel",
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__def_racine"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $k\\in\\mathbb{N}$ : $(X^{kp})'=\\overline{0}$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez s'il existe un polynôme dont la dérivée vaut $X^{p-1}$. Que devrait valoir son terme de degré $p$ ?"
+            }
+          ],
+          "solution_latex": "Racines dans $\\\\mathbb{F}_p$: le nombre de racines d'un $P \\\\in \\\\mathbb{F}_p[X]$ dans $\\\\mathbb{F}_p$ est au maximum $\\\\deg(P)$ (sauf si $P = 0$). Un élément $a \\\\in \\\\mathbb{F}_p$ est racine ssi $P(a) = 0$ en effectuant les opérations dans $\\\\mathbb{F}_p$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Déterminer l'image et le noyau de l'endomorphisme de groupe $P\\mapsto P'$ de $\\mathbb{F}_{p}[X]$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_degre_dominant_unitaire",
+            "polynomes_et_racines__def_racine",
+            "polynomes_et_racines__def_polynomes_lagrange"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Regroupez les observations des deux questions précédentes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le noyau contient tous les polynômes dont les seuls monômes non nuls ont un degré multiple de $p$ (polynômes de la forme $A(X^p)$). L'image est l'ensemble des polynômes n'ayant aucun monôme de degré $kp-1$."
+            }
+          ],
+          "solution_latex": "Critère d'irréductibilité: $P \\\\in \\\\mathbb{F}_p[X]$ de degré $d$ est irréductible ssi $P | (X^{p^d} - X)$ et $\\\\gcd(P, X^{p^k} - X) = 1$ pour tout $1 \\\\leq k < d$. Alternativement, $P$ est irréductible ssi $P$ n'a pas de racine dans $\\\\mathbb{F}_p$ et ne se factorise pas en polynômes de degré plus petit."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "polynomes_et_racines__ex_046",
+      "title": "Carrés dans le corps F_p",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "polynomes_et_racines__def_polynome_scinde",
+        "polynomes_et_racines__def_polynome_indeterminee",
+        "polynomes_et_racines__def_polynomes_lagrange",
+        "polynomes_et_racines__def_degre_dominant_unitaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "corps finis",
+        "arithmétique",
+        "carrés",
+        "petit théorème de Fermat",
+        "polynôme scindé"
+      ],
+      "statement_latex": "Soit $p\\in\\mathbb{P}$ impair.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\mathbb{F}_{p}$ contient exactement $\\frac{p-1}{2}$ carrés non nuls.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Découper $\\mathbb{F}_{p}^{*}$ en fonction de la valeur que l'application $x\\mapsto x^{2}$ attribue à chaque élément."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation $x^2 = y^2$ dans un corps équivaut à $x = y$ ou $x = -y$. Puisque $p$ est impair, $x \\neq -x$ pour tout $x \\in \\mathbb{F}_p^*$. Combien d'antécédents distincts possède alors chaque carré non nul ?"
+            }
+          ],
+          "solution_latex": "Un élément $a \\\\in \\\\mathbb{F}_p^*$ est un carré (résidu quadratique) ssi il existe $x \\\\in \\\\mathbb{F}_p$ avec $x^2 = a$. Le symbole de Legendre est $\\\\left(\\\\frac{a}{p}\\\\right) = a^{(p-1)/2} \\\\in \\\\{1, -1\\\\}$, valant $1$ ssi $a$ est un carré. Exactement $(p-1)/2$ éléments non nuls de $\\\\mathbb{F}_p$ sont des carrés."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que le polynôme $X^{p-1}-\\overline{1}$ est scindé sur $\\mathbb{F}_{p}$ et expliciter sa forme scindée.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynome_scinde",
+            "polynomes_et_racines__thm_determination_polynome_valeurs",
+            "polynomes_et_racines__def_polynome_indeterminee"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez au petit théorème de Fermat."
+            },
+            {
+              "level": 2,
+              "content_latex": "D'après le petit théorème de Fermat, tout élément $k \\in \\mathbb{F}_p^*$ vérifie $k^{p-1} = \\overline{1}$. Déduisez-en les $p-1$ racines de ce polynôme de degré $p-1$."
+            }
+          ],
+          "solution_latex": "Loi de réciprocité quadratique: pour $p \\\\neq q$ premiers impairs, $\\\\left(\\\\frac{p}{q}\\\\right)\\\\left(\\\\frac{q}{p}\\\\right) = (-1)^{(p-1)(q-1)/4}$. Cette loi permet de calculer rapidement les symboles de Legendre."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $x^{\\frac{p-1}{2}}\\in\\{-1,\\overline{1}\\}$ pour tout $x\\in\\mathbb{F}_{p}^{*}$ et que $x$ est un carré si et seulement si $x^{\\frac{p-1}{2}}=\\overline{1}$.",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_polynomes_lagrange",
+            "polynomes_et_racines__thm_divisibilite_cx_rx",
+            "polynomes_et_racines__def_thm_multiplicite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$X^{p-1}-\\overline{1}=(X^{\\frac{p-1}{2}}-\\overline{1})(X^{\\frac{p-1}{2}}+\\overline{1})$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x = y^2$ est un carré non nul, que vaut $x^{\\frac{p-1}{2}}$ en utilisant le petit théorème de Fermat sur $y$ ? Concluez en comparant le nombre de racines du polynôme $X^{\\frac{p-1}{2}}-\\overline{1}$ avec le nombre exact de carrés trouvés à la question 1."
+            }
+          ],
+          "solution_latex": "Pour les polynômes: $P \\\\in \\\\mathbb{F}_p[X]$ est un carré ssi $P = Q^2$ pour un $Q \\\\in \\\\mathbb{F}_p[X]$. Cela impose que $\\\\deg(P)$ soit pair et que chaque facteur irréductible de $P$ apparaisse avec une multiplicité paire."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Que dire du produit de deux non-carrés de $\\mathbb{F}_{p}^{*}$ ?",
+          "knowledge_nodes_tested": [
+            "polynomes_et_racines__def_thm_multiplicite",
+            "polynomes_et_racines__def_racine",
+            "polynomes_et_racines__thm_degre_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la caractérisation des carrés démontrée à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $x$ et $y$ sont des non-carrés, on a $x^{\\frac{p-1}{2}} = -\\overline{1}$ et $y^{\\frac{p-1}{2}} = -\\overline{1}$. Que vaut alors $(xy)^{\\frac{p-1}{2}}$ ? Déduisez-en la nature du produit $xy$."
+            }
+          ],
+          "solution_latex": "Test: $P$ est un carré dans $\\\\mathbb{F}_p[X]$ ssi $P$ est un carré dans $\\\\mathbb{F}_p(\\\\alpha)[X]$ pour tout $\\\\alpha$ racine d'un irréductible dans $\\\\mathbb{F}_p[X]$. Algorithme: décomposer $P$ en facteurs irréductibles, vérifier que tous ont multiplicité paire."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

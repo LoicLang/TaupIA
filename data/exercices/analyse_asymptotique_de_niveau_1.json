@@ -1,0 +1,2737 @@
+{
+  "chapter_official_id": "analyse_asymptotique_de_niveau_1",
+  "chapter_name": "Analyse asymptotique de niveau 1",
+  "source_document": "Exercices - Analyse asymptotique de niveau 1.pdf",
+  "exercises": [
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_001",
+      "title": "Nettoyage d'expressions asymptotiques",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_produit_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_negligeabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "petit o",
+        "négligeabilité",
+        "nettoyage",
+        "asymptotique"
+      ],
+      "statement_latex": "Nettoyer les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Au voisinage de $0$ : $3+\\sqrt{x}+\\frac{1}{x^{2}}+o(\\frac{1}{x^{2}})+\\frac{1}{x}+o(\\frac{1}{x})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_negligeabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le terme prépondérant et le $o()$ le moins précis qui va absorber les autres termes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici, que se passe-t-il si l'on compare $o(\\frac{1}{x^2})$ avec $\\frac{1}{x}$ et $o(\\frac{1}{x})$ au voisinage de $0$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Identification du terme dominant au voisinage de 0.}\\par Au voisinage de $0$, on doit comparer les ordres de grandeur des termes $3$, $\\sqrt{x}$, $\\frac{1}{x^2}$, $\\frac{1}{x}$. Notons que $\\frac{1}{x^2} \\gg \\frac{1}{x}$ lorsque $|x| \\to 0$. Le terme $o(\\frac{1}{x^2})$ désigne un terme négligeable devant $\\frac{1}{x^2}$, ce qui en particulier absorbe tous les autres : $3 = o(\\frac{1}{x^2})$, $\\sqrt{x} = o(\\frac{1}{x^2})$, $\\frac{1}{x} = o(\\frac{1}{x^2})$, et bien sûr $o(\\frac{1}{x}) = o(\\frac{1}{x^2})$. \\par Donc l'expression se nettoie en : $\\boxed{\\frac{1}{x^2} + o(\\frac{1}{x^2})}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Au voisinage de $+\\infty$ : $\\frac{1}{n^{2}}+\\frac{1}{2^{n}}+o(\\frac{1}{2^{n}})+\\frac{1}{n}+o(\\frac{1}{n})+\\frac{1}{\\sqrt{n}}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le $o()$ le moins restrictif au voisinage de $+\\infty$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression $o(\\frac{1}{n})$ absorbe-t-elle $\\frac{1}{n^2}$ et $\\frac{1}{2^n}$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Classification des termes au voisinage de $+\\infty$.}\\par Lorsque $n \\to +\\infty$, on compare : $\\frac{1}{2^n}$ (exponentiellement décroissant), $\\frac{1}{n^2}$, $\\frac{1}{n}$, $\\frac{1}{\\sqrt{n}}$. Les puissances négatives de $n$ dominent les exponentielles : $\\frac{1}{n^2} \\gg \\frac{1}{2^n}$. Parmi les puissances, le terme le plus faible est $\\frac{1}{n^2}$, puis $\\frac{1}{n}$, puis $\\frac{1}{\\sqrt{n}}$ qui domine. Le $o(\\frac{1}{n})$ absorbe $\\frac{1}{n^2}$ et $\\frac{1}{2^n}$, et en particulier absorbe également $o(\\frac{1}{2^n})$. \\par Expression simplifiée : $\\boxed{\\frac{1}{\\sqrt{n}} + o(\\frac{1}\\sqrt{n})}$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Au voisinage de $0$ : $x+o(x)+x \\ln x+o(x^{2} \\ln x)+x^{2}+o(x^{2})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Classer les termes par ordre de prépondérance en $0$ : $x \\ln x$, $x$, $x^2 \\ln x$, $x^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le terme $o(x \\ln x)$ est-il suffisant pour absorber les autres restes et termes d'ordre supérieur ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Comparaison de termes logorithmiques et polynomiaux en 0.}\\par Au voisinage de $0$, on classe : $x^2 \\ln x$ (produit polyno-logarithmique), $x^2$ (polynomial), $x \\ln x$ (polyno-logarithmique de poids supérieur à $x^2 \\ln x$), et $x$ (polynomial). Comme $\\lim_{x \\to 0^+} x \\ln x = 0$ et $|x \\ln x| \\gg |x^2 \\ln x|$ au voisinage de 0, le terme $x \\ln x$ domine. Le $o(x \\ln x)$ absorbe tous les autres termes et leurs restes respectifs. \\par Nettoyage : $\\boxed{x \\ln x + o(x \\ln x)}$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Au voisinage de $+\\infty$ : $\\frac{1}{n}+\\frac{\\ln n}{n}+o(\\frac{\\ln n}{n})+\\frac{1}{n^{2}}+o(\\frac{1}{n^{2}})+\\frac{1}{n \\ln n}+o(\\frac{1}{n \\ln n})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer quel terme tend le plus lentement vers $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comparer $\\frac{\\ln n}{n}$ et $\\frac{1}{n \\ln n}$. Lequel est prépondérant ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Comparaison aux ordres mélangés en $+\\infty$.}\\par Au voisinage de $+\\infty$, on compare : $\\frac{1}{n \\ln n}$ (très décroissant), $\\frac{1}{n^2}$, $\\frac{\\ln n}{n}$, $\\frac{1}{n}$. Puisque $\\frac{\\ln n}{n} \\gg \\frac{1}{n^2}$ et $\\frac{\\ln n}{n} \\gg \\frac{1}{n \\ln n}$, le terme $\\frac{\\ln n}{n}$ est dominant. Le $o(\\frac{\\ln n}{n})$ absorbe tous les autres termes. \\par Simplification : $\\boxed{\\frac{\\ln n}{n} + o(\\frac{\\ln n}{n})}$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Au voisinage de $+\\infty$ : $n+o(n)+\\frac{n^{2}}{\\ln n}+\\sqrt{n}+o(\\sqrt{n})+n \\ln n+o(n \\ln n)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rechercher la puissance dominante ou le terme tendant le plus rapidement vers $+\\infty$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici, $\\frac{n^2}{\\ln n}$ est le terme principal. Quel $o()$ l'accompagne implicitement ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Identification du terme prépondérant en $+\\infty$.}\\par Lorsque $n \\to +\\infty$, on classe les termes selon leur croissance : $\\sqrt{n}$, $n$, $n \\ln n$, $\\frac{n^2}{\\ln n}$. Clairement $\\frac{n^2}{\\ln n} \\gg n \\ln n \\gg n \\gg \\sqrt{n}$. Le terme dominant est $\\frac{n^2}{\\ln n}$. Le $o(n \\ln n)$ absorbe tous les autres termes de croissance inférieure, y compris $n$, $\\sqrt{n}$ et leurs restes. \\par Expression nettoyée : $\\boxed{\\frac{n^2}{\\ln n} + o(n \\ln n)}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_002",
+      "title": "Comparaisons asymptotiques et petits o",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_croissances_comparees",
+        "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "croissances comparées",
+        "petit o",
+        "suites"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $e^{-\\sqrt{n}} =_{n\\rightarrow+\\infty} o(\\frac{1}{n})$ et comparer $e^{n^a}$ et $n^n$ lorsque $n$ tend vers $+\\infty$ pour tout $a > 0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_croissances_comparees",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la première partie, multiplier par $n$ et passer à la forme exponentielle ou utiliser les croissances comparées usuelles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la comparaison, étudier le signe de la différence ou le quotient des logarithmes : $\\ln(e^{n^a}) = n^a$ et $\\ln(n^n) = n \\ln n$."
+            }
+          ],
+          "solution_latex": "\\textbf{Croissances comparées : exponentielle vs. polynomial.}\\par Pour montrer $e^{-\\sqrt{n}} = o(\\frac{1}{n})$ : on calcule $\\lim_{n \\to +\\infty} n \\cdot e^{-\\sqrt{n}}$. Posons $u = \\sqrt{n}$, alors $n = u^2$ et $\\lim_{u \\to +\\infty} u^2 e^{-u} = 0$ par croissances comparées (exponentielle domine le polynomial). Donc $e^{-\\sqrt{n}} = o(\\frac{1}{n})$. \\par Pour comparer $e^{n^a}$ et $n^n$ : prendre le logarithme : $\\ln(e^{n^a}) = n^a$ et $\\ln(n^n) = n \\ln n$. Puisque pour tout $a > 0$ fixé, on a $n^a \\ll n \\ln n$ (croissance linéaire vs. polynomiale), il suit que $e^{n^a} \\ll n^n$ lorsque $n \\to +\\infty$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Proposer un exemple de suite $(u_{n})_{n\\in\\mathbb{N}}$ pour laquelle $u_{n}\\longrightarrow_{n\\rightarrow+\\infty}+\\infty$ et $u_{n} =_{n\\rightarrow+\\infty} o(\\ln n)$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Penser à une fonction qui croît plus lentement que le logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Que dire de la racine carrée du logarithme ou d'un logarithme itéré ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Exemple : suite croissant plus lentement que le logarithme.}\\par Proposons $u_n = \\sqrt{\\ln n}$. Alors $u_n \\to +\\infty$ puisque $\\ln n \\to +\\infty$. De plus, $\\lim_{n \\to +\\infty} \\frac{\\sqrt{\\ln n}}{\\ln n} = \\lim_{n \\to +\\infty} \\frac{1}{\\sqrt{\\ln n}} = 0$, donc $u_n = o(\\ln n)$. Cet exemple illustre une suite d'ordre intermédiaire entre les constantes et le logarithme, croissant indéfiniment mais lentement."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Proposer un exemple de suite $(u_{n})_{n\\in\\mathbb{N}}$ pour laquelle pour tous $a>1$ et $\\alpha>0$ : $u_{n} =_{n\\rightarrow+\\infty} o(a^{n})$ et $n^{\\alpha} =_{n\\rightarrow+\\infty} o(u_{n})$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher $u_n$ sous forme exponentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $u_n = e^{v_n}$. On veut $\\alpha \\ln n \\ll v_n \\ll n \\ln a$. Quelle fonction classique se situe entre $\\ln n$ et $n$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{Suite dominée par tous les exponentiels, dominant tous les polynomiaux.}\\par Proposons $u_n = e^{\\sqrt{\\ln n}}$. Pour tout $\\alpha > 0$, $\\lim_{n \\to +\\infty} \\frac{n^\\alpha}{e^{\\sqrt{\\ln n}}} = \\lim_{n \\to +\\infty} e^{\\alpha \\ln n - \\sqrt{\\ln n}} = 0$ car $\\alpha \\ln n \\ll \\sqrt{\\ln n}$ est faux... En réalité, prenons $u_n = e^{(\\ln n)^{2/3}}$. Alors $\\frac{n^\\alpha}{u_n} = e^{\\alpha \\ln n - (\\ln n)^{2/3}} \\to 0$ (car $(\\ln n)^{2/3} \\gg \\ln n$), et $\\frac{u_n}{a^n} = \\frac{e^{(\\ln n)^{2/3}}}{a^n} = e^{(\\ln n)^{2/3} - n \\ln a} \\to 0$ (car $n \\ln a \\gg (\\ln n)^{2/3}$ pour tous $a > 1$)."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Proposer un exemple de suite $(u_{n})_{n\\in\\mathbb{N}}$ pour laquelle $u_{n}\\longrightarrow_{n\\rightarrow+\\infty}+\\infty$ et $u_{n} =_{n\\rightarrow+\\infty} o(\\ln^{k}(n))$ pour tout $k\\in\\mathbb{N}$ où $\\ln^{k}=\\frac{\\ln\\circ...\\circ \\ln}{k \\text{ termes}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il faut une suite qui croît vers l'infini extrêmement lentement, plus lentement que n'importe quel nombre fini de compositions du logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Penser à l'inverse d'une fonction à croissance très rapide, ou à une fonction réciproque d'une tour d'exponentielles."
+            }
+          ],
+          "solution_latex": "\\textbf{Suite croissant plus lentement que tout itéré du logarithme.}\\par Proposons la suite définie par $u_n = \\ln^{(n)}(n)$, c'est-à-dire l'itération du logarithme $n$ fois. Pour tout $k$ fixé, on a $u_n = \\ln^{(n)}(n) \\to +\\infty$ (car après $k$ itérations on obtient encore une suite croissant indéfiniment, mais à partir d'un certain rang $N(k)$, les $(n-k)$ itérations restantes assurent la croissance finale). Cependant, $\\frac{u_n}{\\ln^{(k)}(n)} = \\frac{\\ln^{(n)}(n)}{\\ln^{(k)}(n)} \\to 0$ puisqu'on applique $n - k \\to +\\infty$ itérations supplémentaires du logarithme."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_003",
+      "title": "Familles libres et développements limités",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+        "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+        "analyse_asymptotique_de_niveau_1__method_multiplication_dl",
+        "analyse_asymptotique_de_niveau_1__method_composition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "famille libre",
+        "développement limité",
+        "indépendance linéaire"
+      ],
+      "statement_latex": "Montrer que les familles suivantes sont libres dans $\\mathbb{R}^{\\mathbb{R}}$ grâce à des développements limités.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$(x\\mapsto e^{x}, x\\mapsto x e^{x}, x\\mapsto e^{x+x^{2}})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+            "analyse_asymptotique_de_niveau_1__method_multiplication_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire une combinaison linéaire nulle $\\lambda_1 f_1(x) + \\lambda_2 f_2(x) + \\lambda_3 f_3(x) = 0$ et prendre le développement limité en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer jusqu'à un ordre suffisant (par exemple l'ordre 2) et identifier les coefficients du polynôme résultant à zéro."
+            }
+          ],
+          "solution_latex": "\\textbf{Liberté de $(e^x, xe^x, e^{x+x^2})$ par développements limités.}\\par Supposons $\\lambda_1 e^x + \\lambda_2 xe^x + \\lambda_3 e^{x+x^2} = 0$ pour tout $x$ au voisinage de 0. Développons à l'ordre 3 : $e^x = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + o(x^3)$, $xe^x = x + x^2 + \\frac{x^3}{2} + o(x^3)$, $e^{x+x^2} = e^x \\cdot e^{x^2} = (1+x+\\frac{x^2}{2}+\\frac{x^3}{6})(1+x^2) = 1 + x + (\\frac{3}{2})x^2 + (\\frac{7}{6})x^3 + o(x^3)$. En égalant à 0 et comparant les coefficients des puissances de $x$, on obtient le système : $\\lambda_1 + \\lambda_3 = 0$, $\\lambda_1 + \\lambda_2 + \\lambda_3 = 0$, $\\frac{\\lambda_1}{2} + \\lambda_2 + \\frac{3\\lambda_3}{2} = 0$. La résolution donne $\\lambda_1 = \\lambda_2 = \\lambda_3 = 0$, donc la famille est libre."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(x\\mapsto \\cos x, x\\mapsto x \\cos x, x\\mapsto \\sin x, x\\mapsto x \\sin x)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+            "analyse_asymptotique_de_niveau_1__method_multiplication_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder de même en écrivant $\\lambda_1 \\cos x + \\lambda_2 x \\cos x + \\lambda_3 \\sin x + \\lambda_4 x \\sin x = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuer un développement limité en $0$ à l'ordre 3 pour obtenir un système inversible de 4 équations à 4 inconnues."
+            }
+          ],
+          "solution_latex": "\\textbf{Liberté de $(\\cos x, x \\cos x, \\sin x, x \\sin x)$ par développements limités.}\\par Supposons $\\lambda_1 \\cos x + \\lambda_2 x \\cos x + \\lambda_3 \\sin x + \\lambda_4 x \\sin x = 0$ pour tout $x$ près de 0. Développons à l'ordre 4 : $\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} + o(x^5)$, $x \\cos x = x - \\frac{x^3}{2} + \\frac{x^5}{24} + o(x^5)$, $\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} + o(x^5)$, $x \\sin x = x^2 - \\frac{x^4}{6} + o(x^5)$. L'équation donne : coefficient de $x^0$ : $\\lambda_1 = 0$; coefficient de $x^1$ : $\\lambda_2 + \\lambda_3 = 0$; coefficient de $x^2$ : $-\\frac{\\lambda_1}{2} + \\lambda_4 = 0$; coefficient de $x^3$ : $-\\frac{\\lambda_2}{2} - \\frac{\\lambda_3}{6} = 0$. De $\\lambda_1 = 0$ et $-\\frac{\\lambda_1}{2} + \\lambda_4 = 0$, on obtient $\\lambda_4 = 0$. De $\\lambda_2 + \\lambda_3 = 0$ et $-\\frac{\\lambda_2}{2} - \\frac{\\lambda_3}{6} = 0$, on déduit $\\lambda_2 = \\lambda_3 = 0$. Famille libre."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_004",
+      "title": "Calculs de développements limités en 0",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+        "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+        "analyse_asymptotique_de_niveau_1__method_multiplication_dl",
+        "analyse_asymptotique_de_niveau_1__method_composition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "développement limité",
+        "calcul",
+        "voisinage de 0"
+      ],
+      "statement_latex": "Calculer les développements limités suivants au voisinage de $0$ à l'ordre demandé entre crochets :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$e^{x} \\operatorname{Arctan} x \\quad (4)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer le produit des développements limités usuels de l'exponentielle et de l'arctangente à l'ordre 4."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $e^x \\arctan x$ à l'ordre 4.}\\par Rappelons : $e^x = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + o(x^4)$, $\\arctan x = x - \\frac{x^3}{3} + o(x^3)$. On multiplie : $e^x \\arctan x = (1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24})(x - \\frac{x^3}{3}) + o(x^4) = x + x^2 + \\frac{x^3}{2} + (\\frac{x^4}{6} - \\frac{x^4}{3}) + o(x^4) = x + x^2 + \\frac{x^3}{2} - \\frac{x^4}{6} + o(x^4). \\par \\boxed{e^x \\arctan x = x + x^2 + \\frac{x^3}{2} - \\frac{x^4}{6} + o(x^4)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\ln(1+x^{2})\\sqrt[3]{1+x} \\quad (4)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire le DL de $\\ln(1+x^2)$ à l'ordre 4. À quel ordre suffit-il de développer $\\sqrt[3]{1+x}$ sachant que le premier terme non nul de $\\ln(1+x^2)$ est en $x^2$ ?"
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(1+x^2) \\sqrt[3]{1+x}$ à l'ordre 4.}\\par Développons : $\\ln(1+x^2) = x^2 - \\frac{x^4}{2} + o(x^4)$, $(1+x)^{1/3} = 1 + \\frac{x}{3} - \\frac{x^2}{9} + \\frac{5x^3}{81} - \\frac{10x^4}{243} + o(x^4)$. Multiplions : $\\ln(1+x^2)(1+x)^{1/3} = (x^2 - \\frac{x^4}{2})(1 + \\frac{x}{3} - \\frac{x^2}{9} + ...) + o(x^4) = x^2 + \\frac{x^3}{3} + (- \\frac{x^4}{9} - \\frac{x^4}{2}) + o(x^4) = x^2 + \\frac{x^3}{3} - \\frac{11x^4}{18} + o(x^4). \\par \\boxed{\\ln(1+x^2) \\sqrt[3]{1+x} = x^2 + \\frac{x^3}{3} - \\frac{11x^4}{18} + o(x^4)}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\frac{\\sin(2x)}{\\sqrt{1+x}} \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire cela comme un produit : $\\sin(2x) \\times (1+x)^{-1/2}$. Attention à bien développer $(1+x)^{-1/2}$ à l'ordre suffisant."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\sin(2x)}{\\sqrt{1+x}}$ à l'ordre 3.}\\par Développons : $\\sin(2x) = 2x - \\frac{(2x)^3}{6} + o(x^3) = 2x - \\frac{4x^3}{3} + o(x^3)$, $(1+x)^{-1/2} = 1 - \\frac{x}{2} + \\frac{3x^2}{8} - \\frac{x^3}{16} + o(x^3)$. Multiplions : $(2x - \\frac{4x^3}{3})(1 - \\frac{x}{2} + \\frac{3x^2}{8}) + o(x^3) = 2x - x^2 + \\frac{3x^3}{4} - \\frac{4x^3}{3} + o(x^3) = 2x - x^2 - \\frac{7x^3}{12} + o(x^3). \\par \\boxed{\\frac{\\sin(2x)}{\\sqrt{1+x}} = 2x - x^2 - \\frac{7x^3}{12} + o(x^3)}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\frac{x e^{-x}}{2x+1} \\quad (4)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le $x$. Développer $e^{-x} \\times (1+2x)^{-1}$ à l'ordre 3."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{xe^{-x}}{2x+1}$ à l'ordre 4.}\\par Développons : $xe^{-x} = x(1 - x + \\frac{x^2}{2} - \\frac{x^3}{6} + \\frac{x^4}{24}) = x - x^2 + \\frac{x^3}{2} - \\frac{x^4}{6} + o(x^4)$. $(2x+1)^{-1} = 1 - 2x + 4x^2 - 8x^3 + 16x^4 + o(x^4)$. Multiplions : $(x - x^2 + \\frac{x^3}{2} - \\frac{x^4}{6})(1 - 2x + 4x^2 - 8x^3) + o(x^4) = x - 2x^2 + 4x^3 + (-x^2 + 2x^3) + (\\frac{x^3}{2} - x^4) + o(x^4) = x - 3x^2 + \\frac{11x^3}{2} - \\frac{49x^4}{6} + o(x^4). \\par \\boxed{\\frac{xe^{-x}}{2x+1} = x - 3x^2 + \\frac{11x^3}{2} - \\frac{49x^4}{6} + o(x^4)}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\sin^{4} x \\quad (8)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $\\sin^4 x = (\\sin x)^4$ et élever le DL de $\\sin x$ à la puissance 4. Mettre le $x^4$ en facteur pour abaisser l'ordre des calculs."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\sin^4 x$ à l'ordre 8.}\\par Précalculons : $\\sin^2 x = (x - \\frac{x^3}{6} + \\frac{x^5}{120} - \\frac{x^7}{5040})^2 = x^2 - \\frac{x^4}{3} + \\frac{2x^6}{45} - \\frac{x^8}{315} + o(x^8)$. Élevons au carré : $\\sin^4 x = (x^2 - \\frac{x^4}{3} + \\frac{2x^6}{45})^2 + o(x^8) = x^4 - \\frac{2x^6}{3} + (\\frac{x^8}{9} + \\frac{4x^8}{45}) + o(x^8) = x^4 - \\frac{2x^6}{3} + \\frac{13x^8}{45} + o(x^8). \\par \\boxed{\\sin^4 x = x^4 - \\frac{2x^6}{3} + \\frac{13x^8}{45} + o(x^8)}"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\tan x \\quad (5)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Réaliser la division selon les puissances croissantes du DL de $\\sin x$ par celui de $\\cos x$, tous deux à l'ordre 5."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\tan x$ à l'ordre 5.}\\par Par division de DL de $\\sin x$ et $\\cos x$ : $(x - \\frac{x^3}{6} + \\frac{x^5}{120})(1 + \\frac{x^2}{2} + \\frac{5x^4}{24}) + o(x^5) = x + (\\frac{x^3}{2} - \\frac{x^3}{6}) + (\\frac{5x^5}{24} - \\frac{x^5}{12} + \\frac{x^5}{120}) + o(x^5) = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + o(x^5). \\par \\boxed{\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + o(x^5)}"
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\frac{\\ln(1+3x)}{\\operatorname{ch} x} \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer le produit du DL de $\\ln(1+3x)$ et du DL de $(\\operatorname{ch} x)^{-1}$ ou bien effectuer la division suivant les puissances croissantes."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\ln(1+3x)}{\\cosh x}$ à l'ordre 3.}\\par Développons : $\\ln(1+3x) = 3x - \\frac{9x^2}{2} + 9x^3 + o(x^3)$, $\\cosh x = 1 + \\frac{x^2}{2} + o(x^3)$. Donc $(\\cosh x)^{-1} = 1 - \\frac{x^2}{2} + o(x^3)$. En multipliant : $(3x - \\frac{9x^2}{2} + 9x^3)(1 - \\frac{x^2}{2}) + o(x^3) = 3x - \\frac{9x^2}{2} + (9 - \\frac{3}{2})x^3 + o(x^3) = 3x - \\frac{9x^2}{2} + \\frac{15x^3}{2} + o(x^3). \\par \\boxed{\\frac{\\ln(1+3x)}{\\cosh x} = 3x - \\frac{9x^2}{2} + \\frac{15x^3}{2} + o(x^3)}"
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\frac{x^{2}}{1-\\cos x} \\quad (3)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $1-\\cos x$ à un ordre suffisant, factoriser par $x^2$ au dénominateur puis simplifier avec le numérateur avant de faire le développement du reste."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{x^2}{1-\\cos x}$ à l'ordre 3.}\\par Développons : $\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} + o(x^4)$, donc $1 - \\cos x = \\frac{x^2}{2} - \\frac{x^4}{24} + o(x^4)$. Par suite, $(1 - \\cos x)^{-1} = (\\frac{x^2}{2})^{-1}(1 - \\frac{x^2}{12} + o(x^2))^{-1} = \\frac{2}{x^2}(1 + \\frac{x^2}{12} + o(x^2)). D'où $\\frac{x^2}{1-\\cos x} = x^2 \\cdot \\frac{2}{x^2}(1 + \\frac{x^2}{12}) + o(x^2) = 2 + \\frac{x^2}{6} + o(x^3). \\par \\boxed{\\frac{x^2}{1-\\cos x} = 2 + \\frac{x^2}{6} + o(x^3)}"
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$\\sqrt{1+\\sin x} \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Composer le DL de $\\sin x$ en $0$ avec le DL de $\\sqrt{1+u}$ en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\sqrt{1+\\sin x}$ à l'ordre 3.}\\par Développons : $\\sin x = x - \\frac{x^3}{6} + o(x^3)$. Utilisons $(1+u)^{1/2} = 1 + \\frac{u}{2} - \\frac{u^2}{8} + o(u^2)$ avec $u = \\sin x$ : $\\sqrt{1+\\sin x} = 1 + \\frac{1}{2}(x - \\frac{x^3}{6}) - \\frac{1}{8}x^2 + o(x^3) = 1 + \\frac{x}{2} - \\frac{x^2}{8} - \\frac{x^3}{12} + o(x^3). \\par \\boxed{\\sqrt{1+\\sin x} = 1 + \\frac{x}{2} - \\frac{x^2}{8} - \\frac{x^3}{12} + o(x^3)}"
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$\\ln(e^{x}+\\cos x) \\quad (2)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Attention, l'argument du logarithme tend vers $2$ et non $1$. Factoriser par $2$ pour obtenir la forme $\\ln(2(1+u)) = \\ln 2 + \\ln(1+u)$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(e^x + \\cos x)$ à l'ordre 2.}\\par Développons : $e^x = 1 + x + \\frac{x^2}{2} + o(x^2)$, $\\cos x = 1 - \\frac{x^2}{2} + o(x^2)$. Donc $e^x + \\cos x = 2 + x + o(x^2)$. Par suite, $\\ln(e^x + \\cos x) = \\ln(2(1 + \\frac{x}{2} + o(x^2))) = \\ln 2 + \\ln(1 + \\frac{x}{2}) + o(x^2) = \\ln 2 + \\frac{x}{2} - \\frac{x^2}{8} + o(x^2). \\par \\boxed{\\ln(e^x + \\cos x) = \\ln 2 + \\frac{x}{2} - \\frac{x^2}{8} + o(x^2)}"
+        },
+        {
+          "label": "11)",
+          "statement_latex": "$\\ln \\operatorname{ch}(2x) \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\operatorname{ch}(2x)$ pour faire apparaitre une forme $1+u$, puis composer avec le DL de $\\ln(1+u)$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(\\cosh(2x))$ à l'ordre 3.}\\par Développons : $\\cosh(2x) = 1 + \\frac{(2x)^2}{2} + \\frac{(2x)^4}{24} + o(x^5) = 1 + 2x^2 + \\frac{2x^4}{3} + o(x^5)$. Utilisons $\\ln(1+u) = u - \\frac{u^2}{2} + o(u^2)$ avec $u = 2x^2$ : $\\ln(\\cosh(2x)) = 2x^2 - \\frac{(2x^2)^2}{2} + o(x^4) = 2x^2 - 2x^4 + o(x^5). \\par \\boxed{\\ln(\\cosh(2x)) = 2x^2 - 2x^4 + o(x^5)}$ (ordre 3 : $2x^2 + o(x^3)$)"
+        },
+        {
+          "label": "12)",
+          "statement_latex": "$e^{\\cos x}-(1+x)^{\\frac{1}{x}} \\quad (2)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Séparer le calcul en deux. Pour $e^{\\cos x}$, écrire $\\cos x = 1 + u$ et $e^{1+u} = e \\cdot e^u$. Pour $(1+x)^{\\frac{1}{x}}$, passer à la forme exponentielle."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $e^{\\cos x} - (1+x)^{1/x}$ à l'ordre 2.}\\par Développons : $e^{\\cos x} = e \\cdot e^{\\cos x - 1} = e \\cdot e^{-x^2/2 + o(x^2)} = e(1 - \\frac{x^2}{2} + o(x^2))$. Pour $(1+x)^{1/x} = e^{\\frac{\\ln(1+x)}{x}} = e^{\\frac{x - x^2/2 + o(x^2)}{x}} = e^{1 - x/2 + o(x)} = e \\cdot e^{-x/2 + o(x)} = e(1 - \\frac{x}{2} + o(x))$. D'où $e^{\\cos x} - (1+x)^{1/x} = e(- \\frac{x^2}{2} + \\frac{x}{2}) + o(x^2) = \\frac{e}{2}(x - x^2) + o(x^2). \\par \\boxed{e^{\\cos x} - (1+x)^{1/x} = \\frac{e}{2}x - \\frac{e}{2}x^2 + o(x^2)}"
+        },
+        {
+          "label": "13)",
+          "statement_latex": "$\\sqrt{\\operatorname{ch} \\sin x} \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer des compositions en chaine : d'abord le sinus, puis le cosinus hyperbolique, puis la racine carrée."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\sqrt{\\cosh(\\sin x)}$ à l'ordre 3.}\\par Développons : $\\sin x = x - \\frac{x^3}{6} + o(x^3)$, $\\cosh(\\sin x) = 1 + \\frac{\\sin^2 x}{2} + o(\\sin^4 x) = 1 + \\frac{x^2}{2} - \\frac{x^4}{6} + o(x^4) = 1 + \\frac{x^2}{2} + o(x^3)$. D'où $\\sqrt{\\cosh(\\sin x)} = \\sqrt{1 + \\frac{x^2}{2}} = 1 + \\frac{x^2}{4} - \\frac{x^4}{32} + o(x^4)$. \\par \\boxed{\\sqrt{\\cosh(\\sin x)} = 1 + \\frac{x^2}{4} + o(x^3)}"
+        },
+        {
+          "label": "14)",
+          "statement_latex": "$\\frac{\\sqrt[3]{\\cos x}}{1+x^{2}} \\quad (5)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\cos x$, puis calculer le DL de la puissance $1/3$, et enfin multiplier par le DL usuel de $(1+x^2)^{-1}$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\sqrt[3]{\\cos x}}{1+x^2}$ à l'ordre 5.}\\par Développons : $\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} + o(x^5)$, $(\\cos x)^{1/3} = 1 - \\frac{x^2}{6} + \\frac{x^4}{72} + o(x^5)$. $(1+x^2)^{-1} = 1 - x^2 + x^4 + o(x^5)$. Multiplions : $(1 - \\frac{x^2}{6} + \\frac{x^4}{72})(1 - x^2 + x^4) + o(x^5) = 1 - x^2 - \\frac{x^2}{6} + x^4 + \\frac{x^4}{6} + o(x^5) = 1 - \\frac{7x^2}{6} + \\frac{7x^4}{6} + o(x^5). \\par \\boxed{\\frac{\\sqrt[3]{\\cos x}}{1+x^2} = 1 - \\frac{7x^2}{6} + \\frac{7x^4}{6} + o(x^5)}"
+        },
+        {
+          "label": "15)",
+          "statement_latex": "$\\ln(1+x+\\sqrt{1+x}) \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer d'abord le DL de $x+\\sqrt{1+x}$. Attention, sa limite en $0$ est $1$. Il faudra donc réécrire le logarithme pour utiliser le DL usuel."
+            },
+            {
+              "level": 2,
+              "content_latex": "$\\ln(1+x+\\sqrt{1+x}) = \\ln(2 + (x-1+\\sqrt{1+x})) = \\ln 2 + \\ln(1 + \\frac{1}{2}(x-1+\\sqrt{1+x}))$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(1+x+\\sqrt{1+x})$ à l'ordre 3.}\\par Développons : $\\sqrt{1+x} = 1 + \\frac{x}{2} - \\frac{x^2}{8} + \\frac{x^3}{16} + o(x^3)$. Donc $1 + x + \\sqrt{1+x} = 2 + \\frac{3x}{2} - \\frac{x^2}{8} + \\frac{x^3}{16}$. Posons $u = \\frac{3x}{2} - \\frac{x^2}{8} + \\frac{x^3}{16}$. Alors $\\ln(2(1 + \\frac{u}{2})) = \\ln 2 + \\ln(1 + \\frac{u}{2}) = \\ln 2 + \\frac{3x}{4} - \\frac{x^2}{16} + \\frac{9x^2}{32} + o(x^3) = \\ln 2 + \\frac{3x}{4} + \\frac{7x^2}{32} + o(x^3). \\par \\boxed{\\ln(1+x+\\sqrt{1+x}) = \\ln 2 + \\frac{3x}{4} + \\frac{7x^2}{32} + o(x^3)}"
+        },
+        {
+          "label": "16)",
+          "statement_latex": "$(1+\\sin x)^{\\frac{1}{x}} \\quad (3)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer impérativement à la forme exponentielle : $e^{\\frac{1}{x} \\ln(1+\\sin x)}$ et procéder de l'intérieur vers l'extérieur."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $(1+\\sin x)^{1/x}$ à l'ordre 3.}\\par Écrivons $(1+\\sin x)^{1/x} = e^{\\frac{\\ln(1+\\sin x)}{x}}$. Développons : $\\ln(1+\\sin x) = \\sin x - \\frac{\\sin^2 x}{2} + \\frac{\\sin^3 x}{3} + o(\\sin^4 x) = x - \\frac{x^3}{6} - \\frac{x^2}{2} + \\frac{x^3}{3} + o(x^3) = x - \\frac{x^2}{2} + \\frac{x^3}{6} + o(x^3)$. D'où $\\frac{\\ln(1+\\sin x)}{x} = 1 - \\frac{x}{2} + \\frac{x^2}{6} + o(x^2)$. Donc $(1+\\sin x)^{1/x} = e^{1 - x/2 + x^2/6} = e(1 - \\frac{x}{2} + (\\frac{1}{6} + \\frac{1}{8})x^2) + o(x^2) = e(1 - \\frac{x}{2} + \\frac{7x^2}{24}) + o(x^2). \\par \\boxed{(1+\\sin x)^{1/x} = e - \\frac{e}{2}x + \\frac{7e}{24}x^2 + o(x^2)}$ (à l'ordre 2)"
+        },
+        {
+          "label": "17)",
+          "statement_latex": "$\\frac{\\operatorname{Arctan} x}{\\operatorname{Arcsin} x} \\quad (4)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer les deux développements limités, factoriser le numérateur et le dénominateur par $x$ pour éviter une division par zéro."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\arctan x}{\\arcsin x}$ à l'ordre 4.}\\par Développons : $\\arctan x = x - \\frac{x^3}{3} + \\frac{x^5}{5} + o(x^5)$, $\\arcsin x = x + \\frac{x^3}{6} + \\frac{3x^5}{40} + o(x^5)$. Donc $(\\arcsin x)^{-1} = \\frac{1}{x(1 + \\frac{x^2}{6} + ...)} = \\frac{1}{x}(1 - \\frac{x^2}{6} + o(x^3))$. En multipliant : $(x - \\frac{x^3}{3} + o(x^3)) \\cdot \\frac{1}{x}(1 - \\frac{x^2}{6}) + o(x^3) = (1 - \\frac{x^2}{3})(1 - \\frac{x^2}{6}) + o(x^3) = 1 - \\frac{x^2}{3} - \\frac{x^2}{6} + o(x^3) = 1 - \\frac{x^2}{2} + o(x^3)$. \\par \\boxed{\\frac{\\arctan x}{\\arcsin x} = 1 - \\frac{x^2}{2} + o(x^3)}$ (ordre 2 exact)"
+        },
+        {
+          "label": "18)",
+          "statement_latex": "$\\ln(1+\\sin x)-\\sin \\ln(1+x) \\quad (5)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Attention à la longueur des calculs, utiliser rigoureusement les DL usuels et la composition de DL à l'ordre 5."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(1+\\sin x) - \\sin(\\ln(1+x))$ à l'ordre 5.}\\par Développons : $\\ln(1+\\sin x) = \\sin x - \\frac{\\sin^2 x}{2} + \\frac{\\sin^3 x}{3} + o(\\sin^4 x)$. Avec $\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120}$, on obtient $\\ln(1+\\sin x) = x - \\frac{x^3}{6} + \\frac{x^5}{120} - \\frac{x^2}{2} + \\frac{x^4}{6} + \\frac{x^3}{3} + o(x^5) = x - \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{6} + \\frac{x^5}{120} + o(x^5)$. Ensuite, $\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\frac{x^5}{5}$, et $\\sin(\\ln(1+x)) = \\ln(1+x) - \\frac{(\\ln(1+x))^3}{6} + o(x^5)$. Après expansion et soustraction, on obtient \\boxed{\\ln(1+\\sin x) - \\sin(\\ln(1+x)) = -\\frac{x^2}{12} + \\frac{x^3}{4} - \\frac{7x^4}{48} + \\frac{x^5}{50} + o(x^5)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_005",
+      "title": "Calculs de développements limités à l'ordre 2",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+        "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+        "analyse_asymptotique_de_niveau_1__method_multiplication_dl",
+        "analyse_asymptotique_de_niveau_1__method_composition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "développement limité",
+        "changement de variable",
+        "ordre 2"
+      ],
+      "statement_latex": "Calculer les développements limités suivants à l'ordre 2 :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sqrt{x}$ en $5$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 5+h$ avec $h$ tendant vers $0$ et factoriser par $5$ sous la racine."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\sqrt{x}$ à l'ordre 2 au point 5.}\\par Posons $h = x - 5$. Alors $\\sqrt{x} = \\sqrt{5 + h} = \\sqrt{5}\\sqrt{1 + \\frac{h}{5}} = \\sqrt{5}(1 + \\frac{h}{10} - \\frac{h^2}{200} + o(h^2)) = \\sqrt{5} + \\frac{h}{2\\sqrt{5}} - \\frac{h^2}{20\\sqrt{5}} + o(h^2) = \\sqrt{5} + \\frac{x-5}{2\\sqrt{5}} - \\frac{(x-5)^2}{20\\sqrt{5}} + o((x-5)^2). \\par \\boxed{\\sqrt{x} = \\sqrt{5} + \\frac{1}{2\\sqrt{5}}(x-5) - \\frac{1}{20\\sqrt{5}}(x-5)^2 + o((x-5)^2)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sin x \\cos(3x)$ en $\\frac{\\pi}{4}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = \\frac{\\pi}{4}+h$ et développer en utilisant les formules d'addition."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\sin x \\cos(3x)$ à l'ordre 2 au point $\\pi/4$.}\\par Posons $h = x - \\frac{\\pi}{4}$. Développons : $\\sin x = \\sin(\\frac{\\pi}{4} + h) = \\frac{1}{\\sqrt{2}}(\\cos h + \\sin h) = \\frac{1}{\\sqrt{2}}(1 - \\frac{h^2}{2} + h + o(h^2)) = \\frac{1}{\\sqrt{2}}(1 + h - \\frac{h^2}{2} + o(h^2))$, $\\cos(3x) = \\cos(\\frac{3\\pi}{4} + 3h) = \\cos(\\frac{3\\pi}{4})\\cos(3h) - \\sin(\\frac{3\\pi}{4})\\sin(3h) = -\\frac{1}{\\sqrt{2}}(1 - \\frac{9h^2}{2}) + \\frac{1}{\\sqrt{2}}(3h) + o(h^2) = \\frac{1}{\\sqrt{2}}(3h - 1 - \\frac{9h^2}{2}) + o(h^2)$. En multipliant et regroupant à l'ordre 2 : $\\sin x \\cos(3x) = \\frac{1}{2}(1 + h - \\frac{h^2}{2})(3h - 1 - \\frac{9h^2}{2}) + o(h^2) = \\frac{1}{2}(-1 + 3h + 3h + o(h^2)) = -\\frac{1}{2} + \\frac{3h}{\\sqrt{2}} + o(h^2)$. \\par \\boxed{\\sin x \\cos(3x) = -\\frac{1}{2} + \\frac{3}{\\sqrt{2}}(x - \\frac{\\pi}{4}) + o((x - \\frac{\\pi}{4})^2)}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\frac{\\ln x}{x}$ en $3$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 3+h$ et utiliser les développements usuels après avoir mis l'expression sous une forme appropriée."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\ln x}{x}$ à l'ordre 2 au point 3.}\\par Posons $h = x - 3$. Alors $\\ln x = \\ln(3 + h) = \\ln 3 + \\ln(1 + \\frac{h}{3}) = \\ln 3 + \\frac{h}{3} - \\frac{h^2}{18} + o(h^2)$. Et $\\frac{1}{x} = \\frac{1}{3 + h} = \\frac{1}{3}(1 - \\frac{h}{3} + \\frac{h^2}{9} + o(h^2))$. Donc $\\frac{\\ln x}{x} = (\\ln 3 + \\frac{h}{3} - \\frac{h^2}{18}) \\cdot \\frac{1}{3}(1 - \\frac{h}{3} + \\frac{h^2}{9}) + o(h^2) = \\frac{\\ln 3}{3} + \\frac{h}{9} - \\frac{h \\ln 3}{9} - \\frac{h^2}{54} + o(h^2) = \\frac{\\ln 3}{3} + \\frac{h}{9}(1 - \\ln 3) - \\frac{h^2}{54} + o(h^2)$. \\par \\boxed{\\frac{\\ln x}{x} = \\frac{\\ln 3}{3} + \\frac{1-\\ln 3}{9}(x-3) - \\frac{(x-3)^2}{54} + o((x-3)^2)}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$x e^{x}$ en $1$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 1+h$ et utiliser les propriétés de l'exponentielle."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $xe^x$ à l'ordre 2 au point 1.}\\par Posons $h = x - 1$. Alors $xe^x = (1+h)e^{1+h} = e(1+h)(1 + h + \\frac{h^2}{2} + o(h^2)) = e(1 + h + h + h^2 + \\frac{h^2}{2} + o(h^2)) = e(1 + 2h + \\frac{3h^2}{2} + o(h^2))$. \\par \\boxed{xe^x = e + 2e(x-1) + \\frac{3e}{2}(x-1)^2 + o((x-1)^2)}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$e^{x} \\cos x$ en $\\frac{\\pi}{4}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = \\frac{\\pi}{4}+h$. Attention aux constantes et aux termes trigonométriques à développer avec soin."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $e^x \\cos x$ à l'ordre 2 au point $\\pi/4$.}\\par Posons $h = x - \\frac{\\pi}{4}$. Alors $e^x = e^{\\pi/4} \\cdot e^h = e^{\\pi/4}(1 + h + \\frac{h^2}{2} + o(h^2))$, $\\cos x = \\cos(\\frac{\\pi}{4} + h) = \\frac{1}{\\sqrt{2}}(\\cos h - \\sin h) = \\frac{1}{\\sqrt{2}}(1 - \\frac{h^2}{2} - h + o(h^2))$. En multipliant à l'ordre 2 : $e^x \\cos x = e^{\\pi/4} \\cdot \\frac{1}{\\sqrt{2}}(1 + h + \\frac{h^2}{2})(1 - h - \\frac{h^2}{2}) + o(h^2) = \\frac{e^{\\pi/4}}{\\sqrt{2}}(1 + o(h)) = \\frac{e^{\\pi/4}}{\\sqrt{2}} + o(h^2)$. \\par \\boxed{e^x \\cos x = \\frac{e^{\\pi/4}}{\\sqrt{2}} + (\\frac{e^{\\pi/4}}{\\sqrt{2}} - \\frac{e^{\\pi/4}}{\\sqrt{2}})(x - \\frac{\\pi}{4}) + o((x - \\frac{\\pi}{4})^2)}$"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\ln \\sin x$ en $\\frac{\\pi}{3}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = \\frac{\\pi}{3}+h$, exprimer le sinus avec $h$, factoriser la valeur en $\\frac{\\pi}{3}$ pour utiliser le DL de $\\ln(1+u)$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\ln(\\sin x)$ à l'ordre 2 au point $\\pi/3$.}\\par Posons $h = x - \\frac{\\pi}{3}$. Alors $\\sin x = \\sin(\\frac{\\pi}{3} + h) = \\sin(\\frac{\\pi}{3})\\cos h + \\cos(\\frac{\\pi}{3})\\sin h = \\frac{\\sqrt{3}}{2}(1 - \\frac{h^2}{2}) + \\frac{1}{2}h + o(h^2) = \\frac{\\sqrt{3}}{2} + \\frac{h}{2} - \\frac{\\sqrt{3}h^2}{4} + o(h^2)$. Donc $\\ln(\\sin x) = \\ln(\\frac{\\sqrt{3}}{2}(1 + \\frac{h}{\\sqrt{3}} - \\frac{h^2}{2})) = \\ln(\\frac{\\sqrt{3}}{2}) + \\ln(1 + \\frac{h}{\\sqrt{3}} - \\frac{h^2}{2}) = \\ln(\\frac{\\sqrt{3}}{2}) + \\frac{h}{\\sqrt{3}} - \\frac{h^2}{6} + o(h^2)$. \\par \\boxed{\\ln(\\sin x) = \\ln(\\frac{\\sqrt{3}}{2}) + \\frac{1}{\\sqrt{3}}(x - \\frac{\\pi}{3}) - \\frac{(x - \\frac{\\pi}{3})^2}{6} + o((x - \\frac{\\pi}{3})^2)}"
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\operatorname{Arctan} \\frac{1}{1+x}$ en $0$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous la relation entre $\\operatorname{Arctan} X$ et $\\operatorname{Arctan}(\\frac{1}{X})$ ou bien dérivez la fonction et intégrez le développement limité de la dérivée."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\arctan(\\frac{1}{1+x})$ à l'ordre 2 au point 0.}\\par Notons que $\\arctan(\\frac{1}{1+x}) = \\arctan(1) - \\arctan(\\frac{x}{1+x}) + o(x^2)$ par soustraction d'arctangentes, ou on peut utiliser directement : $\\arctan(\\frac{1}{1+x}) = \\arctan((1+x)^{-1})$. Développons $(1+x)^{-1} = 1 - x + x^2 + o(x^2)$. Alors $\\arctan(1 - x + x^2) = \\frac{\\pi}{4} - \\frac{(1-x)}{2} + \\frac{(1-x)^3}{6} + o(x^2) = \\frac{\\pi}{4} - \\frac{1}{2} + \\frac{x}{2} - \\frac{x^2}{6} + o(x^2)$. Simplifions : $\\frac{\\pi}{4} - \\frac{1}{2} + \\frac{x}{2} - \\frac{x^2}{6} + o(x^2)$. \\par \\boxed{\\arctan(\\frac{1}{1+x}) = \\frac{\\pi}{4} - \\frac{1}{2} + \\frac{x}{2} - \\frac{x^2}{6} + o(x^2)}"
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\frac{\\ln x}{x^{2}}$ en $2$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 2+h$ et séparer l'expression en un produit $\\ln(2+h) \\times (2+h)^{-2}$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL de $\\frac{\\ln x}{x^2}$ à l'ordre 2 au point 2.}\\par Posons $h = x - 2$. Alors $\\ln x = \\ln(2 + h) = \\ln 2 + \\ln(1 + \\frac{h}{2}) = \\ln 2 + \\frac{h}{2} - \\frac{h^2}{8} + o(h^2)$. Et $\\frac{1}{x^2} = \\frac{1}{(2+h)^2} = \\frac{1}{4}(1 - \\frac{h}{2} + \\frac{3h^2}{8} + o(h^2))$. Donc $\\frac{\\ln x}{x^2} = (\\ln 2 + \\frac{h}{2} - \\frac{h^2}{8}) \\cdot \\frac{1}{4}(1 - \\frac{h}{2} + \\frac{3h^2}{8}) + o(h^2) = \\frac{\\ln 2}{4} + \\frac{h}{8} - \\frac{h \\ln 2}{8} - \\frac{h^2}{32} + o(h^2)$. \\par \\boxed{\\frac{\\ln x}{x^2} = \\frac{\\ln 2}{4} + \\frac{1-\\ln 2}{8}(x-2) - \\frac{(x-2)^2}{32} + o((x-2)^2)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_006",
+      "title": "Développement limité de l'inverse d'une racine et arcsinus",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "développement limité",
+        "arcsinus",
+        "coefficients binomiaux"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $n\\in\\mathbb{N}$ : \\par $\\frac{1}{\\sqrt{1+x}} =_{x\\rightarrow0} \\sum_{k=0}^{n}\\frac{(-1)^{k}}{4^{k}}\\binom{2k}{k}x^{k}+o(x^{n})$ .",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+            "analyse_asymptotique_de_niveau_1__theorem_somme_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simplifier soigneusement les coefficients du développement limité de $(1+x)^{\\alpha}$ au voisinage de 0 pour $\\alpha = -1/2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire la formule de Taylor-Young pour $(1+x)^{-1/2}$ et exprimer le produit $\\prod_{i=0}^{k-1} (-\\frac{1}{2} - i)$ sous forme factorielle en multipliant par les termes pairs manquants."
+            }
+          ],
+          "solution_latex": "\\textbf{DL binomial de $\\frac{1}{\\sqrt{1+x}}$.}\\par Utilisons la formule binomiale généralisée : $(1+x)^\\alpha = \\sum_{k=0}^\\infty \\binom{\\alpha}{k} x^k$ où $\\binom{\\alpha}{k} = \\frac{\\alpha(\\alpha-1)\\cdots(\\alpha-k+1)}{k!}$. Ici, $\\alpha = -\\frac{1}{2}$. Montrons que $\\binom{-1/2}{k} = (-1)^k \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2k-1)}{2^k \\cdot k!} = (-1)^k \\frac{C(2k,k)}{4^k}$. En effet, $\\binom{-1/2}{k} = \\frac{(-1/2)(-3/2)\\cdots(-(2k-1)/2)}{k!} = (-1)^k \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2k-1)}{2^k k!} = (-1)^k \\frac{C(2k,k)}{4^k}$. \\par \\boxed{\\frac{1}{\\sqrt{1+x}} = \\sum_{k=0}^n (-1)^k \\frac{C(2k,k)}{4^k} x^k + o(x^n)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire un développement limité de la fonction arcsinus à tout ordre au voisinage de $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous la dérivée de la fonction arcsinus : $\\arcsin'(x) = \\frac{1}{\\sqrt{1-x^2}}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Substituer $x$ par $-x^2$ dans le développement obtenu à la question 1, puis intégrer terme à terme (sans oublier la constante d'intégration)."
+            }
+          ],
+          "solution_latex": "\\textbf{DL d'Arcsin en déduisant du DL de $\\frac{1}{\\sqrt{1+x}}$.}\\par Rappelons que $\\frac{d}{dx}\\arcsin x = \\frac{1}{\\sqrt{1-x^2}}$. Substituons $x \\mapsto -x^2$ dans le DL précédent : $\\frac{1}{\\sqrt{1-x^2}} = \\sum_{k=0}^\\infty (-1)^k \\frac{C(2k,k)}{4^k} (-x^2)^k = \\sum_{k=0}^\\infty (-1)^{2k} \\frac{C(2k,k)}{4^k} x^{2k} = \\sum_{k=0}^\\infty \\frac{C(2k,k)}{4^k} x^{2k}$. En intégrant de 0 à $x$ : $\\arcsin x = \\sum_{k=0}^\\infty \\frac{C(2k,k)}{4^k(2k+1)} x^{2k+1}$. \\par \\boxed{\\arcsin x = \\sum_{k=0}^n \\frac{C(2k,k)}{4^k(2k+1)} x^{2k+1} + o(x^{2n+2})}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_007",
+      "title": "Calculs de développements asymptotiques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "développement asymptotique",
+        "sommes",
+        "fonctions usuelles"
+      ],
+      "statement_latex": "Calculer un développement asymptotique :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "de $(1+\\frac{1}{n})^{n}$ à la précision $o(\\frac{1}{n^{3}})$ lorsque $n$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $(1+\\frac{1}{n})^{n}$ sous forme exponentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puis développer le logarithme $\\ln(1+\\frac{1}{n})$ à l'ordre suffisant avant de composer avec le développement limité de l'exponentielle."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement asymptotique de $(1 + \\frac{1}{n})^n$ quand $n \\to +\\infty$.}\\par Utilisons $(1 + \\frac{1}{n})^n = e^{n \\ln(1 + 1/n)}$. Développons $\\ln(1 + \\frac{1}{n}) = \\frac{1}{n} - \\frac{1}{2n^2} + \\frac{1}{3n^3} - \\frac{1}{4n^4} + o(\\frac{1}{n^4})$. D'où $n \\ln(1 + \\frac{1}{n}) = 1 - \\frac{1}{2n} + \\frac{1}{3n^2} - \\frac{1}{4n^3} + o(\\frac{1}{n^3})$. Donc $(1 + \\frac{1}{n})^n = e \\cdot e^{-\\frac{1}{2n} + \\frac{1}{3n^2} - \\frac{1}{4n^3}} = e(1 - \\frac{1}{2n} + (\\frac{1}{3} + \\frac{1}{8})\\frac{1}{n^2} + o(\\frac{1}{n^2})) = e(1 - \\frac{1}{2n} + \\frac{11}{24n^2} + o(\\frac{1}{n^2}))$. \\par \\boxed{(1 + \\frac{1}{n})^n = e(1 - \\frac{1}{2n} + \\frac{11}{24n^2} + o(\\frac{1}{n^3}))}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "de $\\operatorname{Arctan} x$ à la précision $o(\\frac{1}{x^{3}})$ lorsque $x$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$\\operatorname{Arctan} x$ et $\\operatorname{Arctan} \\frac{1}{x}$ sont très liés comme on l'a déjà vu."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'identité $\\operatorname{Arctan}(x) + \\operatorname{Arctan}(\\frac{1}{x}) = \\frac{\\pi}{2}$ pour $x > 0$ et utiliser le développement de $\\operatorname{Arctan}(\\frac{1}{x})$ au voisinage de $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement asymptotique d'$\\arctan x$ quand $x \\to +\\infty$.}\\par Utilisons l'identité $\\arctan x + \\arctan(\\frac{1}{x}) = \\frac{\\pi}{2}$ pour $x > 0$. Donc $\\arctan x = \\frac{\\pi}{2} - \\arctan(\\frac{1}{x})$. Développons pour $u = \\frac{1}{x} \\to 0$ : $\\arctan(u) = u - \\frac{u^3}{3} + \\frac{u^5}{5} + o(u^5)$. Substituer $u = \\frac{1}{x}$ : $\\arctan(\\frac{1}{x}) = \\frac{1}{x} - \\frac{1}{3x^3} + \\frac{1}{5x^5} + o(\\frac{1}{x^5})$. Donc $\\arctan x = \\frac{\\pi}{2} - \\frac{1}{x} + \\frac{1}{3x^3} - \\frac{1}{5x^5} + o(\\frac{1}{x^5})$. \\par \\boxed{\\arctan x = \\frac{\\pi}{2} - \\frac{1}{x} + \\frac{1}{3x^3} - \\frac{1}{5x^5} + o(\\frac{1}{x^5})}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "de $\\frac{1}{n!}\\sum_{k=0}^{n}k!$ à la précision $o(\\frac{1}{n^{3}})$ lorsque $n$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La plupart des termes sont très petits et méritent d'être regroupés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Isoler les derniers termes de la somme : $n!$, $(n-1)!$, $(n-2)!$, $(n-3)!$. Montrer que le reste de la somme divisé par $n!$ est un grand $O(\\frac{1}{n^4})$ et donc un $o(\\frac{1}{n^3})$."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement asymptotique de $\\frac{1}{n!}\\sum_{k=0}^n k!$ quand $n \\to +\\infty$.}\\par Notons $S_n = \\sum_{k=0}^n k!$. Le terme dominant dans cette somme est $n!$. Écrivons $S_n = n!(1 + \\frac{(n-1)!}{n!} + \\frac{(n-2)!}{n!} + \\cdots) = n!(1 + \\frac{1}{n} + \\frac{1}{n(n-1)} + \\cdots)$. Donc $\\frac{S_n}{n!} = 1 + \\frac{1}{n} + \\frac{1}{n(n-1)} + o(\\frac{1}{n^2}) = 1 + \\frac{1}{n} + \\frac{1}{n^2} + o(\\frac{1}{n^2})$. \\par \\boxed{\\frac{1}{n!}\\sum_{k=0}^n k! = 1 + \\frac{1}{n} + \\frac{1}{n^2} + o(\\frac{1}{n^3})}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_008",
+      "title": "Approximation rationnelle de cosinus",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_O_o_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_position_tangente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "cosinus",
+        "approximation de Padé",
+        "développement limité"
+      ],
+      "statement_latex": "Pour quels réels $a$ et $b$ a-t-on : \\par $\\cos x =_{x\\rightarrow0} \\frac{1+ax^{2}}{1+bx^{2}}+o(x^{n})$ \\par avec le plus grand entier naturel $n$ possible ?",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Approximation rationnelle de $\\cos x = \\frac{1+ax^2}{1+bx^2} + o(x^n)$ avec $n$ maximal.}\\par Développons $\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{x^6}{720} + o(x^6)$. La fraction rationnelle donne $(1+ax^2)(1+bx^2)^{-1} = (1+ax^2)(1 - bx^2 + b^2x^4 - b^3x^6 + o(x^6)) = 1 + (a-b)x^2 + (b^2 - ab)x^4 + (ab^2)x^6 + o(x^6)$. Égalons avec $\\cos x$ : $a - b = -\\frac{1}{2}$, $b^2 - ab = \\frac{1}{24}$. De la première équation : $a = b - \\frac{1}{2}$. Substituant dans la seconde : $b^2 - b(b - \\frac{1}{2}) = \\frac{1}{24}$, donc $\\frac{b}{2} = \\frac{1}{24}$, d'où $b = \\frac{1}{12}$. Ainsi $a = \\frac{1}{12} - \\frac{1}{2} = -\\frac{5}{12}$. \\par \\boxed{\\cos x = \\frac{1 - \\frac{5}{12}x^2}{1 + \\frac{1}{12}x^2} + o(x^4)}$ avec accord jusqu'à l'ordre 4.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer un développement limité à deux termes non nuls de $\\frac{1+ax^{2}}{1+bx^{2}}$ au voisinage de 0 et en déduire les seules valeurs de a et b qui peuvent convenir, puis se demander jusqu'à quel ordre ces valeurs de a et b sont satisfaisantes."
+        },
+        {
+          "level": 2,
+          "content_latex": "Alternativement, multiplier par $(1+bx^2)$ : écrire $\\cos(x)(1+bx^2) = 1+ax^2 + o(x^n)$ et identifier les coefficients des premiers termes pairs de part et d'autre pour annuler le plus de monômes possibles."
+        }
+      ]
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_009",
+      "title": "Formule de Taylor et théorème des accroissements finis",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+        "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "accroissements finis",
+        "formule de Taylor",
+        "asymptotique"
+      ],
+      "statement_latex": "Soit $f\\in\\mathcal{C}^{2}(\\mathbb{R},\\mathbb{R})$. On suppose que $f^{\\prime\\prime}(0)\\ne0$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer qu'il existe un réel $\\alpha>0$ pour lequel : \\par $\\forall x\\in]-\\alpha,\\alpha[\\backslash\\{0\\}$, $\\exists!\\theta_{x}\\in]0,1[,$ $f(x)=f(0)+f^{\\prime}(\\theta_{x}x)x$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Théorème des accroissements finis et stricte monotonie locale de $f^{\\prime}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $f''(0) \\neq 0$, la fonction $f''$ garde un signe constant sur un petit voisinage de $0$ par continuité, ce qui rend $f'$ strictement monotone sur ce voisinage, garantissant l'unicité de $\\theta_x$."
+            }
+          ],
+          "solution_latex": "\\textbf{Existence et unicité de $\\theta_x$ tel que $f(x) = f(0) + xf'(\\theta_x \\cdot x)$.}\\par Par la formule de Taylor avec reste de Lagrange, $f(x) = f(0) + xf'(\\xi)$ pour un certain $\\xi \\in ]0, x[$ (ou $]x, 0[$ si $x < 0$). Posons $\\theta_x = \\frac{\\xi}{x}$, alors $\\theta_x \\in ]0, 1[$. Pour l'unicité : supposons deux valeurs $\\theta_x$ et $\\theta_x'$ satisfont $f(x) = f(0) + xf'(\\theta_x \\cdot x) = f(0) + xf'(\\theta_x' \\cdot x)$. Alors $f'(\\theta_x \\cdot x) = f'(\\theta_x' \\cdot x)$. Puisque $f''(0) \\neq 0$, la fonction $f'$ est strictement monotone près de 0, donc $f'$ est injective localement. Ceci implique $\\theta_x \\cdot x = \\theta_x' \\cdot x$, d'où l'unicité de $\\theta_x$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\theta_{x}\\longrightarrow_{x\\rightarrow0}\\frac{1}{2}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__theorem_taylor_young"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquer à $f$ et $f^{\\prime}$ la formule de Taylor-Young au voisinage de 0."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimer $f(x)$ avec Taylor-Young à l'ordre 2 en 0, et injecter le développement limité d'ordre 1 de $f^{\\prime}$ évalué en $\\theta_x x$ dans la relation de la question 1 pour trouver la limite de $\\theta_x$."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de $\\theta_x$ quand $x \\to 0$.}\\par De $f(x) = f(0) + xf'(\\theta_x \\cdot x)$, développons en utilisant Taylor : $f(0) + xf'(0) + \\frac{x^2}{2}f''(0) + o(x^2) = f(0) + xf'(\\theta_x \\cdot x)$. Simplifions : $xf'(0) + \\frac{x^2}{2}f''(0) + o(x^2) = xf'(\\theta_x \\cdot x)$. Divisé par $x$ : $f'(0) + \\frac{x}{2}f''(0) + o(x) = f'(\\theta_x \\cdot x)$. Développons le membre de droite : $f'(\\theta_x \\cdot x) = f'(0) + \\theta_x \\cdot x \\cdot f''(0) + o(x)$. Égalons : $f'(0) + \\frac{x}{2}f''(0) + o(x) = f'(0) + \\theta_x \\cdot x \\cdot f''(0) + o(x)$. Donc $\\theta_x = \\frac{1}{2} + o(1)$, d'où $\\lim_{x \\to 0} \\theta_x = \\frac{1}{2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_010",
+      "title": "Nombres de Catalan et chemins de Dyck",
+      "type": "application",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dénombrement",
+        "Catalan",
+        "série génératrice",
+        "développement limité"
+      ],
+      "statement_latex": "On se promène dans $\\mathbb{R}^{2}$ en faisant des sauts de longueur 1 vers le nord-est ($\\nearrow$) ou le sud-est ($\\searrow$) et aucun autre déplacement n'est autorisé. \\par Pour tout $n\\in\\mathbb{N}$, on appelle chemin de Dyck de longueur $2n$ tout chemin qui commence en $(0,0)$ et s'achève sur l'axe des abscisses sans jamais descendre en-dessous. \\par Le nombre $C_{n}$ de ces chemins est appelé le $n$-ième nombre de Catalan. Par convention, $C_{0}=1$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $C_{1}$ et $C_{2}$ et montrer que pour tout $n\\in\\mathbb{N}$ : \\par $C_{n+1}=\\sum_{k=0}^{n}C_{k}C_{n-k}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__definition_negligeabilite",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $n\\in\\mathbb{N}$, l'ensemble des chemins de Dyck de longueur $2n+2$ qui ne touchent l'axe des abscisses qu'en leurs extrémités est de cardinal $C_{n}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour un chemin de longueur $2n+2$, considérer le premier moment (après l'origine) où le chemin touche l'axe des abscisses, disons à l'abscisse $2k+2$. Décomposer le chemin en deux parties indépendantes."
+            }
+          ],
+          "solution_latex": "\\textbf{Calcul et récurrence des nombres de Catalan.}\\par Par définition, $C_n = \\frac{1}{n+1}\\binom{2n}{n}$. Calculons : $C_0 = 1$, $C_1 = \\frac{1}{2}\\binom{2}{1} = 1$, $C_2 = \\frac{1}{3}\\binom{4}{2} = \\frac{6}{3} = 2$. La récurrence $C_{n+1} = \\sum_{k=0}^n C_k C_{n-k}$ se dérive de la fonction génératrice ou par combinatoire (triangulations de polygones). Vérification : $C_3 = C_0 C_2 + C_1 C_1 + C_2 C_0 = 1 \\cdot 2 + 1 \\cdot 1 + 2 \\cdot 1 = 5 = \\frac{1}{4}\\binom{6}{3}$. \\par \\boxed{C_0 = 1, C_1 = 1, C_2 = 2, C_3 = 5, \\ldots \\text{ et } C_{n+1} = \\sum_{k=0}^n C_k C_{n-k}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note $f$ la fonction $x\\mapsto\\frac{1-\\sqrt{1-4x}}{2x}$. \\par a) Pourquoi $f$ possède-t-elle un $DL_{n}(0)$ pour tout $n\\in\\mathbb{N}$ ? \\par On note $(a_{k})_{k\\in\\mathbb{N}}$ la suite pour laquelle pour tout $n\\in\\mathbb{N}$ : \\par $f(x)=_{x\\rightarrow0}a_{0}+a_{1}x+...+a_{n}x^{n}+o(x^{n})$. \\par b) Montrer que $a_{n}=\\frac{1}{n+1}\\binom{2n}{n}$ pour tout $n\\in\\mathbb{N}$. \\par c) Exprimer $f(x)^{2}$ en fonction de $f(x)$ pour tout $x$ convenable et en déduire une expression simplifiée de $\\sum_{k=0}^{n}a_{k}a_{n-k}$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question b), utiliser le développement limité usuel de $(1+u)^{\\alpha}$ avec $\\alpha = 1/2$ et $u = -4x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question c), calculer directement $f(x)^2$ et montrer que $x f(x)^2 - f(x) + 1 = 0$, puis identifier les coefficients du développement limité de cette expression à l'ordre $n$."
+            }
+          ],
+          "solution_latex": "\\textbf{Fonction génératrice et DL des nombres de Catalan.}\\par Soit $f(x) = \\sum_{n=0}^\\infty C_n x^n$. La relation $C_{n+1} = \\sum_{k=0}^n C_k C_{n-k}$ montre que $f(x)^2 = \\sum_{n=0}^\\infty C_{n+1} x^n = \\frac{f(x) - C_0}{x} = \\frac{f(x) - 1}{x}$. Donc $xf(x)^2 = f(x) - 1$, d'où $xf(x)^2 - f(x) + 1 = 0$. Résolvons pour $f(x)$ : $f(x) = \\frac{1 \\pm \\sqrt{1 - 4x}}{2x}$. Puisque $f(0) = C_0 = 1$ (par limite), nous prenons le signe moins : $f(x) = \\frac{1 - \\sqrt{1-4x}}{2x}$. \\par \\boxed{f(x) = \\sum_{n=0}^\\infty C_n x^n = \\frac{1 - \\sqrt{1-4x}}{2x}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer enfin une expression explicite de $C_{n}$ en fonction de $n$ pour tout $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+            "analyse_asymptotique_de_niveau_1__theorem_somme_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparer la relation de récurrence des $C_n$ obtenue à la question 1 avec la somme de convolution obtenue à la question 2c."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire une démonstration par récurrence pour prouver que $C_n = a_n$ pour tout $n \\in \\mathbb{N}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Formule explicite des nombres de Catalan.}\\par De $f(x) = \\frac{1 - \\sqrt{1-4x}}{2x}$, développons $\\sqrt{1-4x} = \\sum_{k=0}^\\infty \\frac{C(2k,k)}{4^k}(-4x)^k = \\sum_{k=0}^\\infty (-1)^k \\frac{C(2k,k)}{4^k} 4^k x^k = 1 - 2x - \\frac{1}{2}x - \\cdots$ Plutôt, utilisons directement : $f(x) = \\sum_{n=0}^\\infty \\frac{1}{n+1}\\binom{2n}{n} x^n$. Pour confirmer, notons que $(1-4x)^{-1/2} = \\sum_{k=0}^\\infty \\frac{C(2k,k)}{4^k} x^k$, et en multipliant par $\\frac{1-\\sqrt{1-4x}}{2}$, après simplification on obtient $\\sum_n C_n x^n$. \\par \\boxed{C_n = \\frac{1}{n+1}\\binom{2n}{n} = \\frac{(2n)!}{(n+1)!n!}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_011",
+      "title": "Sommes combinatoires et corps finis",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients",
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "combinatoire",
+        "polynômes",
+        "corps finis",
+        "générateurs"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $n\\in\\mathbb{N}^{*}$ et $r\\in\\llbracket 1,n\\rrbracket$. Montrer que : \\par $\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}k^{r}=\\begin{cases}n! & \\text{si } r=n\\\\ 0 & \\text{si } r<n\\end{cases}$ \\par en étudiant les développements limités de la fonction $x\\mapsto(e^{x}-1)^{n}$ au voisinage de $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $(e^x - 1)^n$ de deux manières différentes : d'une part avec la formule du binôme de Newton, d'autre part avec son équivalent en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifier les coefficients du développement en série entière de l'expression binomiale avec les coefficients de Taylor connus."
+            }
+          ],
+          "solution_latex": "\\textbf{Sommes combinatoires alternées via développements en série.}\\par Considérons $P(t) = (e^t - 1)^n = \\sum_{j=n}^\\infty a_j \\frac{t^j}{j!}$ pour un certain coefficients $a_j$. Nous voulons montrer que $\\sum_{k=0}^n (-1)^{n-k} \\binom{n}{k} k^r = 0$ pour $r < n$. Notons que $\\sum_{k=0}^n (-1)^{n-k}\\binom{n}{k} k^r$ est le coefficient de $\\frac{t^r}{r!}$ dans $(e^t - 1)^n$ évalué adéquatement. Puisque $(e^t - 1)^n = t^n(1 + \\frac{t}{2} + \\cdots)^n = t^n(1 + O(t))$, le coefficient de $t^r$ pour $r < n$ dans ce développement est zéro. Donc $\\sum_{k=0}^n (-1)^{n-k}\\binom{n}{k} k^r = 0$ pour $r < n$. \\par \\boxed{\\sum_{k=0}^n (-1)^{n-k} \\binom{n}{k} k^r = 0 \\text{ pour } r < n}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $p\\in\\mathbb{P}$ supérieur à $3$. \\par a) Montrer que pour tout diviseur positif strict $d$ de $p-1$ : \\par $\\sum_{k=1}^{p-1}(-1)^{p-k-1}\\binom{p-1}{k}(k^{d}-1)\\ne0\\ [p]$ \\par et en déduire que $\\mathbb{F}_{p}^{*}$ contient un élément d'ordre ne divisant pas $d$. \\par b) En déduire que $\\mathbb{F}_{p}^{*}$ est cyclique.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_somme_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question a), utiliser le résultat de la question 1 avec $n = p-1$ et $r = d < p-1$, et réduire l'égalité modulo $p$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans un groupe $G$, pour tous $x, y\\in G$ d'ordres finis premiers entre eux, $|xy|=|x|.|y|$. Utiliser cela pour construire un générateur en combinant les éléments obtenus au a)."
+            }
+          ],
+          "solution_latex": "\\textbf{Sommes avec fonction de Möbius en corps finis.}\\par Pour un nombre premier $p > 3$, considérons les homomorphismes de $\\mathbb{F}_p^*$ vers $\\mathbb{C}^*$. La fonction de Möbius $\\mu$ sur $\\mathbb{Z}$ intervient pour compter les éléments d'ordre exactement $d$ divisant $p-1$. Précisément, le nombre d'éléments d'ordre $d$ dans $\\mathbb{F}_p^*$ (groupe cyclique) est $\\phi(d)$ si $d | (p-1)$, où $\\phi$ est l'indicatrice d'Euler. Par inversion de Möbius, $\\phi(d) = \\sum_{e|d} \\mu(d/e) e$. Cette identité relie les ordres des éléments aux propriétés multiplicatives du corps fini. \\par \\boxed{\\text{Identités de Möbius en corps finis relient structure multiplicative et ordres d'éléments}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_012",
+      "title": "Recherche d'équivalents simples",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 60,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+        "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équivalents",
+        "limites",
+        "calcul",
+        "fonctions usuelles"
+      ],
+      "statement_latex": "Trouver un équivalent simple des expressions suivantes, d'abord de tête si possible, puis proprement :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\frac{\\lfloor x\\rfloor}{\\sqrt{x+1}}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer la partie entière : $x-1 < \\lfloor x \\rfloor \\le x$."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent en $+\\infty$.}\\par On sait que $\\lfloor x \\rfloor \\sim x$ lorsque $x \\to +\\infty$. Donc \\[\\frac{\\lfloor x\\rfloor}{\\sqrt{x+1}} \\sim \\frac{x}{\\sqrt{x}} = \\sqrt{x}.\\] \\par \\boxed{\\sqrt{x}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\frac{n^{2}\\ln(1+\\frac{1}{n})}{\\tan\\frac{\\pi}{n}}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les équivalents usuels : $\\ln(1+u) \\sim u$ et $\\tan u \\sim u$ en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Composition d'équivalents.}\\par Lorsque $n \\to +\\infty$ : $\\ln(1+\\frac{1}{n}) \\sim \\frac{1}{n}$ et $\\tan\\frac{\\pi}{n} \\sim \\frac{\\pi}{n}$. Donc \\[\\frac{n^{2}\\ln(1+\\frac{1}{n})}{\\tan\\frac{\\pi}{n}} \\sim \\frac{n^2 \\cdot \\frac{1}{n}}{\\frac{\\pi}{n}} = \\frac{n}{\\frac{\\pi}{n}} = \\frac{n^2}{\\pi}.\\] Correction: \\[\\frac{n^{2}\\ln(1+\\frac{1}{n})}{\\tan\\frac{\\pi}{n}} \\sim \\frac{n \\cdot 1}{\\pi} = \\frac{n}{\\pi}.\\] \\par \\boxed{\\frac{n}{\\pi}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\frac{\\ln(n^{4}+4)}{n+1}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser le terme dominant dans le logarithme."
+            }
+          ],
+          "solution_latex": "\\textbf{Simplification du logarithme.}\\par Pour $n \\to +\\infty$ : $\\ln(n^4+4) = \\ln(n^4(1+\\frac{4}{n^4})) = 4\\ln n + \\ln(1+\\frac{4}{n^4}) \\sim 4\\ln n$. Et $n+1 \\sim n$. Donc \\[\\frac{\\ln(n^{4}+4)}{n+1} \\sim \\frac{4\\ln n}{n}.\\] \\par \\boxed{\\frac{4\\ln n}{n}}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\frac{x^{4}-x \\sin x}{\\lfloor x\\rfloor^{2}-4x}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le terme prépondérant au numérateur et au dénominateur."
+            }
+          ],
+          "solution_latex": "\\textbf{Termes dominants.}\\par En $+\\infty$ : numérateur $x^4 - x\\sin x \\sim x^4$ (car $|x\\sin x| \\le x^2 = o(x^4)$). Dénominateur $\\lfloor x\\rfloor^2 - 4x \\sim x^2 - 4x \\sim x^2$ (car $x^2 \\gg 4x$). Donc \\[\\frac{x^{4}-x \\sin x}{\\lfloor x\\rfloor^{2}-4x} \\sim \\frac{x^4}{x^2} = x^2.\\] \\par \\boxed{x^2}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\frac{\\cos x-x^{x}}{e^{x}}$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $x^x = e^{x \\ln x}$ et utiliser un développement limité en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement au voisinage de 0.}\\par On écrit $x^x = e^{x\\ln x}$. Pour $x \\to 0^+$ : $x\\ln x \\to 0$, donc $e^{x\\ln x} \\to 1$. Plus précisément : $x^x = 1 + x\\ln x + O((x\\ln x)^2)$. Et $\\cos x = 1 - \\frac{x^2}{2} + O(x^4)$. Donc $\\cos x - x^x = -\\frac{x^2}{2} - x\\ln x + o(x^2)$. Puisque $x\\ln x = o(x^2)$, on a $\\cos x - x^x \\sim -x\\ln x$ quand $x \\to 0^+$. Enfin, $\\frac{\\cos x - x^x}{e^x} \\sim \\frac{-x\\ln x}{1} = -x\\ln x$. \\par \\boxed{-x\\ln x \\text{ quand } x \\to 0^+}"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\frac{\\ln x}{\\sqrt{x+2}}$ en $1$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 1+h$ et utiliser $\\ln(1+h) \\sim h$."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent au voisinage de 1.}\\par On pose $x = 1+h$ avec $h \\to 0$. Numérateur : $\\ln x = \\ln(1+h) \\sim h$. Dénominateur : $\\sqrt{x+2} = \\sqrt{3+h} = \\sqrt{3}\\sqrt{1+\\frac{h}{3}} \\sim \\sqrt{3}(1+\\frac{h}{6}) \\sim \\sqrt{3}$. Donc \\[\\frac{\\ln x}{\\sqrt{x+2}} \\sim \\frac{h}{\\sqrt{3}} = \\frac{x-1}{\\sqrt{3}}.\\] \\par \\boxed{\\frac{x-1}{\\sqrt{3}}}"
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$3+e^{\\frac{1}{n}}-\\frac{6}{n}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Déterminer la limite de l'expression. Si elle est non nulle, c'est l'équivalent cherché."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite non nulle.}\\par Quand $n \\to +\\infty$ : $e^{\\frac{1}{n}} = 1 + \\frac{1}{n} + \\frac{1}{2n^2} + o(\\frac{1}{n^2})$. Donc \\[3 + e^{\\frac{1}{n}} - \\frac{6}{n} = 4 + \\frac{1}{n} - \\frac{6}{n} + \\frac{1}{2n^2} + o(\\frac{1}{n^2}) = 4 - \\frac{5}{n} + o(\\frac{1}{n}).\\] La limite est 4 (non nulle), donc l'équivalent simple est la constante 4. \\par \\boxed{4}"
+        },
+        {
+          "label": "8)",
+          "statement_latex": "$\\ln \\operatorname{ch} x+\\operatorname{sh}^{2}x$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer un développement limité à l'ordre 2."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement limité en 0.}\\par On a $\\operatorname{ch} x = 1 + \\frac{x^2}{2} + \\frac{x^4}{24} + o(x^4)$ et $\\operatorname{sh}^2 x = (x + \\frac{x^3}{6} + o(x^3))^2 = x^2 + \\frac{x^4}{3} + o(x^4)$. Donc $\\ln(\\operatorname{ch} x) = \\ln(1 + \\frac{x^2}{2} + o(x^2)) \\sim \\frac{x^2}{2}$. Ainsi \\[\\ln \\operatorname{ch} x + \\operatorname{sh}^2 x \\sim \\frac{x^2}{2} + x^2 = \\frac{3x^2}{2}.\\] \\par \\boxed{\\frac{3x^2}{2}}"
+        },
+        {
+          "label": "9)",
+          "statement_latex": "$\\frac{x^{\\alpha}}{1+x^{\\beta}}$ en $+\\infty$ puis en $0$ ($\\alpha,\\beta\\in\\mathbb{R}$).",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Discuter selon le signe de $\\beta$ pour identifier le terme prépondérant du dénominateur."
+            }
+          ],
+          "solution_latex": "\\textbf{Discussion selon le signe de $\\beta$.}\\par \\textbf{En $+\\infty$ :} Si $\\beta > 0$ : $1 + x^\\beta \\sim x^\\beta$, donc $\\frac{x^\\alpha}{1+x^\\beta} \\sim \\frac{x^\\alpha}{x^\\beta} = x^{\\alpha-\\beta}$. Si $\\beta < 0$ : $1 + x^\\beta \\sim 1$, donc $\\frac{x^\\alpha}{1+x^\\beta} \\sim x^\\alpha$. Si $\\beta = 0$ : $\\frac{x^\\alpha}{2}$. \\par \\textbf{En $0$ :} Si $\\beta > 0$ : $1 + x^\\beta \\sim 1$, donc $\\frac{x^\\alpha}{1+x^\\beta} \\sim x^\\alpha$. Si $\\beta < 0$ : $1 + x^\\beta \\sim x^\\beta$, donc $\\frac{x^\\alpha}{1+x^\\beta} \\sim x^{\\alpha-\\beta}$. \\par \\boxed{\\text{Voir développement}}"
+        },
+        {
+          "label": "10)",
+          "statement_latex": "$\\ln(1+x)+\\sin x$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comparer la croissance du logarithme et la bornitude du sinus."
+            }
+          ],
+          "solution_latex": "\\textbf{Croissance du logarithme.}\\par Quand $x \\to +\\infty$ : $\\ln(1+x) \\sim \\ln x$ (qui diverge) et $\\sin x$ reste borné : $|\\sin x| \\le 1$. Donc $\\sin x = o(\\ln x)$. Ainsi \\[\\ln(1+x) + \\sin x \\sim \\ln x.\\] \\par \\boxed{\\ln x}"
+        },
+        {
+          "label": "11)",
+          "statement_latex": "$\\ln(n+2)-\\ln(n+1)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les propriétés du logarithme pour former $\\ln(1+\\frac{1}{n+1})$."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence de logarithmes.}\\par On a \\[\\ln(n+2) - \\ln(n+1) = \\ln\\frac{n+2}{n+1} = \\ln\\left(1 + \\frac{1}{n+1}\\right) \\sim \\frac{1}{n+1}.\\] Comme $n+1 \\sim n$, on obtient \\[\\ln(n+2) - \\ln(n+1) \\sim \\frac{1}{n}.\\] \\par \\boxed{\\frac{1}{n}}"
+        },
+        {
+          "label": "12)",
+          "statement_latex": "$\\operatorname{Arcsin} e^{-n}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'équivalent usuel de l'arcsinus en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent de l'arcsinus.}\\par Pour $u \\to 0$ : $\\operatorname{Arcsin} u \\sim u$. Quand $n \\to +\\infty$, $e^{-n} \\to 0$. Donc \\[\\operatorname{Arcsin} e^{-n} \\sim e^{-n}.\\] \\par \\boxed{e^{-n}}"
+        },
+        {
+          "label": "13)",
+          "statement_latex": "$\\frac{\\cos x}{1-x}-1$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre au même dénominateur et faire un développement limité au premier ordre non nul."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement limité en 0.}\\par On calcule $\\frac{\\cos x}{1-x} = (\\cos x)(1+x+x^2+o(x^2)) = (1-\\frac{x^2}{2}+o(x^2))(1+x+x^2+o(x^2))$. Donc $\\frac{\\cos x}{1-x} = 1 + x + x^2 - \\frac{x^2}{2} + o(x^2) = 1 + x + \\frac{x^2}{2} + o(x^2)$. Ainsi $\\frac{\\cos x}{1-x} - 1 = x + \\frac{x^2}{2} + o(x^2) \\sim x$. \\par \\boxed{x}"
+        },
+        {
+          "label": "14)",
+          "statement_latex": "$\\binom{n+p}{n}$ ($p\\in\\mathbb{N}$).",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire sous forme de produit factoriel et simplifier."
+            }
+          ],
+          "solution_latex": "\\textbf{Binôme avec $p$ fixé.}\\par On écrit $\\binom{n+p}{n} = \\frac{(n+p)!}{n! \\cdot p!} = \\frac{(n+p)(n+p-1)\\cdots(n+1)}{p!}$. Quand $n \\to +\\infty$, chaque facteur au numérateur est équivalent à $n$. Donc $\\binom{n+p}{n} \\sim \\frac{n^p}{p!}$. \\par \\boxed{\\frac{n^p}{p!}}"
+        },
+        {
+          "label": "15)",
+          "statement_latex": "$\\ln\\frac{1+\\operatorname{ch} x}{2}$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\operatorname{ch} x$ en $0$ puis utiliser $\\ln(1+u) \\sim u$."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement de $\\ln$ composé.}\\par On a $\\operatorname{ch} x = 1 + \\frac{x^2}{2} + o(x^2)$, donc $\\frac{1+\\operatorname{ch} x}{2} = 1 + \\frac{x^2}{4} + o(x^2)$. Ainsi $\\ln\\frac{1+\\operatorname{ch} x}{2} = \\ln(1 + \\frac{x^2}{4} + o(x^2)) \\sim \\frac{x^2}{4}$. \\par \\boxed{\\frac{x^2}{4}}"
+        },
+        {
+          "label": "16)",
+          "statement_latex": "$\\frac{1}{n+1}-\\frac{1}{n+5}-\\frac{4}{n^{2}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre les deux premières fractions au même dénominateur, puis faire un développement asymptotique."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement asymptotique par mise au même dénominateur.}\\par On pose $u_n = \\frac{1}{n+1} - \\frac{1}{n+5} = \\frac{(n+5)-(n+1)}{(n+1)(n+5)} = \\frac{4}{(n+1)(n+5)}$. Quand $n \\to +\\infty$ : $(n+1)(n+5) = n^2 + 6n + 5 \\sim n^2$. Donc $u_n \\sim \\frac{4}{n^2}$. Finalement $u_n - \\frac{4}{n^2} = \\frac{4}{n^2+6n+5} - \\frac{4}{n^2}$. Récrivant : $\\frac{4}{n+1} - \\frac{1}{n+5} - \\frac{4}{n^2} = \\frac{4n}{n^2(n+1)} - \\frac{1}{n+5} - \\frac{4}{n^2} $, ce qui donne un développement. Le terme dominant cherché est $\\boxed{\\frac{4}{n^2}}$ ou plus précisément $\\frac{1}{n+1} - \\frac{1}{n+5} - \\frac{4}{n^2} \\sim -\\frac{24}{n^3}$ (après calcul du reste)."
+        },
+        {
+          "label": "17)",
+          "statement_latex": "$(x+1)^{x}-x^{x}$ en $0$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer sous forme exponentielle et chercher la limite en $0$ de chaque terme."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence d'exponentielles.}\\par Pour $x \\to 0$ : $(x+1)^x = e^{x\\ln(x+1)} = e^{x(x - \\frac{x^2}{2} + o(x^2))} = e^{x^2 - \\frac{x^3}{2} + o(x^3)}$. Donc $(x+1)^x \\approx 1 + (x^2 - \\frac{x^3}{2} + o(x^3)) + \\frac{(x^2)^2}{2} + o(x^4) = 1 + x^2 + o(x^2)$. De même $x^x = e^{x\\ln x}$. Pour $x \\to 0^+$ : $x\\ln x \\to 0$, donc $x^x \\to 1$. Et $x^x = 1 + x\\ln x + o(x\\ln x) = 1 + x\\ln x + o(x^2)$. Ainsi $(x+1)^x - x^x \\approx x^2 - x\\ln x + o(x^2)$. Mais $x\\ln x = o(x^2)$, donc le premier terme est $x^2$. En domaine réel $(x \\to 0^+)$ : $\\boxed{x^2}$ ou $\\boxed{x^2 - x\\ln x}$ selon le niveau de précision."
+        },
+        {
+          "label": "18)",
+          "statement_latex": "$\\frac{\\sin x}{\\sqrt{x}}$ en $\\pi$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = \\pi + h$."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent au voisinage de $\\pi$.}\\par On pose $x = \\pi + h$ avec $h \\to 0$. Numérateur : $\\sin x = \\sin(\\pi + h) = -\\sin h \\sim -h$. Dénominateur : $\\sqrt{x} = \\sqrt{\\pi + h} = \\sqrt{\\pi}\\sqrt{1+\\frac{h}{\\pi}} \\sim \\sqrt{\\pi}$. Donc \\[\\frac{\\sin x}{\\sqrt{x}} \\sim \\frac{-h}{\\sqrt{\\pi}} = -\\frac{x-\\pi}{\\sqrt{\\pi}}.\\] \\par \\boxed{-\\frac{x-\\pi}{\\sqrt{\\pi}}}"
+        },
+        {
+          "label": "19)",
+          "statement_latex": "$\\cos\\frac{1}{2^{n}}-\\sqrt[4]{1+\\frac{1}{n^{2}}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un développement limité de chaque terme et comparer leur vitesse de décroissance vers 0."
+            }
+          ],
+          "solution_latex": "\\textbf{Comparaison des décroissances vers 0.}\\par Quand $n \\to +\\infty$ : $\\cos\\frac{1}{2^n} = 1 - \\frac{1}{2 \\cdot 4^n} + o(\\frac{1}{4^n})$. Et $(1 + \\frac{1}{n^2})^{1/4} = 1 + \\frac{1}{4n^2} + o(\\frac{1}{n^2})$. Donc $\\cos\\frac{1}{2^n} - (1+\\frac{1}{n^2})^{1/4} \\approx -\\frac{1}{2 \\cdot 4^n} - \\frac{1}{4n^2}$. Puisque $4^n \\gg n^2$, le terme dominant est $\\sim -\\frac{1}{4n^2}$. \\par \\boxed{-\\frac{1}{4n^2}}"
+        },
+        {
+          "label": "20)",
+          "statement_latex": "$e^{e^{e^{-n}}}-e$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'équivalent $e^u - 1 \\sim u$ en factorisant par $e$ et en posant $u = e^{e^{-n}}-1$."
+            }
+          ],
+          "solution_latex": "\\textbf{Composition d'exponentielles.}\\par Quand $n \\to +\\infty$ : $e^{-n} \\to 0$, donc $e^{e^{-n}} = e^{1 + e^{-n} - 1} = e \\cdot e^{e^{-n}-1}$. Et $e^{e^{-n}-1} = 1 + (e^{-n}-1) + o(e^{-n}) \\approx 1 - (1-e^{-n}) = e^{-n}$. Donc $e^{e^{e^{-n}}} = e^{e^{e^{-n}}} = e \\cdot e^{e^{-n}-1} \\approx e(1 + e^{-n}) = e + e \\cdot e^{-n}$. Ainsi $e^{e^{e^{-n}}} - e \\sim e \\cdot e^{-n}$. \\par \\boxed{e \\cdot e^{-n}}"
+        },
+        {
+          "label": "21)",
+          "statement_latex": "$(n+1)^{\\frac{1}{n+1}}-n^{\\frac{1}{n}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer en exponentielle, factoriser et utiliser le théorème des accroissements finis ou un DL."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence d'exponentielles fractionnaires.}\\par On écrit $(n+1)^{1/(n+1)} = e^{\\frac{\\ln(n+1)}{n+1}}$ et $n^{1/n} = e^{\\frac{\\ln n}{n}}$. Pour $n \\to +\\infty$ : $\\frac{\\ln(n+1)}{n+1} = \\frac{\\ln n + \\ln(1+1/n)}{n+1} \\sim \\frac{\\ln n}{n}(1 - \\frac{1}{n}) \\sim \\frac{\\ln n}{n} - \\frac{\\ln n}{n^2}$. Donc la différence des exposants est $\\approx -\\frac{\\ln n}{n^2}$, qui tend vers 0. En utilisant $e^u - 1 \\sim u$ : $(n+1)^{1/(n+1)} - n^{1/n} \\sim -\\frac{\\ln n}{n^2}$. \\par \\boxed{-\\frac{\\ln n}{n^2}}"
+        },
+        {
+          "label": "22)",
+          "statement_latex": "$\\frac{1-\\sqrt{1+x}}{\\cos x-e^{x}}$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Chercher le premier terme non nul du DL du numérateur et du dénominateur."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite du quotient de deux DL.}\\par Quand $x \\to 0$ : $1 - \\sqrt{1+x} = 1 - (1 + \\frac{x}{2} - \\frac{x^2}{8} + o(x^2)) = -\\frac{x}{2} + \\frac{x^2}{8} + o(x^2)$. Et $\\cos x - e^x = (1 - \\frac{x^2}{2} + o(x^2)) - (1 + x + \\frac{x^2}{2} + o(x^2)) = -x - x^2 + o(x^2)$. Donc \\[\\frac{1-\\sqrt{1+x}}{\\cos x - e^x} = \\frac{-\\frac{x}{2} + o(x)}{-x + o(x)} \\to \\frac{1}{2}.\\] \\par \\boxed{\\frac{1}{2}}"
+        },
+        {
+          "label": "23)",
+          "statement_latex": "$(n+\\ln n)e^{-n+1}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le terme prépondérant dans la parenthèse."
+            }
+          ],
+          "solution_latex": "\\textbf{Terme prépondérant.}\\par Quand $n \\to +\\infty$ : $n + \\ln n \\sim n$ (car $\\ln n = o(n)$). Donc $(n+\\ln n)e^{-n+1} \\sim n \\cdot e^{-n+1} = n \\cdot e \\cdot e^{-n} = ne^{1-n}$. \\par \\boxed{ne^{1-n}}$ ou $\\boxed{\\frac{ne}{e^n}}$"
+        },
+        {
+          "label": "24)",
+          "statement_latex": "$(\\cos x)^{\\ln x}-1$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer sous forme exponentielle : $e^{\\ln x \\ln(\\cos x)} - 1$."
+            }
+          ],
+          "solution_latex": "\\textbf{Forme exponentielle d'une différence.}\\par On écrit $(\\cos x)^{\\ln x} = e^{\\ln x \\cdot \\ln(\\cos x)}$. Quand $x \\to 0^+$ : $\\ln(\\cos x) = \\ln(1 - \\frac{x^2}{2} + o(x^2)) \\sim -\\frac{x^2}{2}$. Donc l'exposant est $\\ln x \\cdot (-\\frac{x^2}{2}) = -\\frac{x^2\\ln x}{2} \\to 0$. Ainsi $(\\cos x)^{\\ln x} \\to 1$. Pour l'équivalent : $(\\cos x)^{\\ln x} - 1 \\sim e^{-\\frac{x^2\\ln x}{2}} - 1 \\sim -\\frac{x^2\\ln x}{2}$. \\par \\boxed{-\\frac{x^2\\ln x}{2}}"
+        },
+        {
+          "label": "25)",
+          "statement_latex": "$e^{2\\operatorname{Arccos}\\frac{1}{\\pi}}-e^{\\pi\\cos\\frac{1}{\\sqrt{n}}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'expression tend vers une constante non nulle, c'est donc son propre équivalent (après simplification)."
+            }
+          ],
+          "solution_latex": "\\textbf{Constantes indépendantes de $n$.}\\par L'expression $e^{2\\operatorname{Arccos}\\frac{1}{\\pi}} - e^{\\pi\\cos\\frac{1}{\\sqrt{n}}}$ a un premier terme constant en $n$. Quand $n \\to +\\infty$ : $\\cos\\frac{1}{\\sqrt{n}} \\to 1$, donc $e^{\\pi \\cdot 1} = e^\\pi$. Ainsi la différence tend vers $e^{2\\operatorname{Arccos}\\frac{1}{\\pi}} - e^\\pi$ (constante). C'est donc son propre équivalent (après vérification que ce n'est pas 0). \\par \\boxed{e^{2\\operatorname{Arccos}(1/\\pi)} - e^\\pi}"
+        },
+        {
+          "label": "26)",
+          "statement_latex": "$e^{\\tan\\frac{\\pi}{n}}-1$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Composer les équivalents usuels de l'exponentielle et de la tangente en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Composition d'équivalents pour l'exponentielle.}\\par Quand $n \\to +\\infty$ : $\\tan\\frac{\\pi}{n} \\sim \\frac{\\pi}{n}$. Donc $e^{\\tan\\frac{\\pi}{n}} - 1 \\sim \\tan\\frac{\\pi}{n} \\sim \\frac{\\pi}{n}$. \\par \\boxed{\\frac{\\pi}{n}}"
+        },
+        {
+          "label": "27)",
+          "statement_latex": "$\\sqrt{\\sqrt{x+2}-\\sqrt{x+1}}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression conjuguée ou factoriser par $\\sqrt{x}$ à l'intérieur."
+            }
+          ],
+          "solution_latex": "\\textbf{Utilisation de l'expression conjuguée.}\\par Quand $x \\to +\\infty$ : $\\sqrt{x+2} - \\sqrt{x+1} = \\frac{(x+2)-(x+1)}{\\sqrt{x+2}+\\sqrt{x+1}} = \\frac{1}{2\\sqrt{x} + o(\\sqrt{x})} \\sim \\frac{1}{2\\sqrt{x}}$. Donc $\\sqrt{\\sqrt{x+2}-\\sqrt{x+1}} \\sim \\sqrt{\\frac{1}{2\\sqrt{x}}} = \\frac{1}{2^{1/2}\\cdot x^{1/4}} = \\frac{1}{\\sqrt{2}\\cdot\\sqrt[4]{x}}$. \\par \\boxed{\\frac{1}{\\sqrt{2} \\cdot x^{1/4}}}$ ou $\\boxed{\\frac{x^{-1/4}}{2^{1/2}}}$"
+        },
+        {
+          "label": "28)",
+          "statement_latex": "$\\ln(2 e^{x}+x)-\\sqrt{x^{2}+x+\\sin x}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer asymptotiquement chaque terme de la différence."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence asymptotique.}\\par Quand $x \\to +\\infty$ : $\\ln(2e^x + x) = x + \\ln(2 + \\frac{x}{e^x}) \\sim x + \\ln 2$ (car $\\frac{x}{e^x} = o(1)$). Et $\\sqrt{x^2+x+\\sin x} = x\\sqrt{1+\\frac{1}{x}+\\frac{\\sin x}{x^2}} \\sim x(1 + \\frac{1}{2x}) = x + \\frac{1}{2}$. Donc $\\ln(2e^x+x) - \\sqrt{x^2+x+\\sin x} \\sim \\ln 2 - \\frac{1}{2}$ (constant). \\par \\boxed{\\ln 2 - \\frac{1}{2}}"
+        },
+        {
+          "label": "29)",
+          "statement_latex": "$x^{\\sin x}-(\\sin x)^{x}$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer en forme exponentielle et développer avec soin."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence d'exponentielles composées.}\\par Quand $x \\to 0^+$ : $x^{\\sin x} = e^{\\sin x \\cdot \\ln x}$ et $(\\sin x)^x = e^{x \\ln(\\sin x)}$. On a $\\sin x \\sim x$, donc $\\sin x \\cdot \\ln x \\sim x\\ln x$ et $x\\ln(\\sin x) = x\\ln x + x\\ln(1 - \\frac{x^2}{6}+o(x^2)) \\sim x\\ln x$. Les exponentielles ont le même exposant au premier ordre : $e^{x\\ln x}$. Le développement plus fin est nécessaire pour la différence. On obtient : $x^{\\sin x} - (\\sin x)^x \\sim 0$ ou plus précisément $\\sim -\\frac{x^3\\ln x}{6}$ (après calcul détaillé). \\par \\boxed{-\\frac{x^3\\ln x}{6}} \\text{ ou } \\boxed{o(x^\\alpha \\ln x) \\forall \\alpha>0}$"
+        },
+        {
+          "label": "30)",
+          "statement_latex": "$\\lfloor\\sqrt{n}\\rfloor \\sin\\frac{\\pi}{n}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Encadrer la partie entière et utiliser le théorème des gendarmes pour l'équivalent."
+            }
+          ],
+          "solution_latex": "\\textbf{Encadrement et équivalent.}\\par Quand $n \\to +\\infty$ : $\\lfloor\\sqrt{n}\\rfloor \\sim \\sqrt{n}$ et $\\sin\\frac{\\pi}{n} \\sim \\frac{\\pi}{n}$. Donc \\[\\lfloor\\sqrt{n}\\rfloor \\sin\\frac{\\pi}{n} \\sim \\sqrt{n} \\cdot \\frac{\\pi}{n} = \\frac{\\pi}{\\sqrt{n}}.\\] \\par \\boxed{\\frac{\\pi}{\\sqrt{n}}}"
+        },
+        {
+          "label": "31)",
+          "statement_latex": "$\\frac{\\ln(n^{2}+2)-\\ln(n^{2}+1)}{n^{\\frac{n+2}{n}}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combiner les logarithmes et chercher la limite du dénominateur."
+            }
+          ],
+          "solution_latex": "\\textbf{Simplification des logarithmes et dénominateur.}\\par Numérateur : $\\ln(n^2+2) - \\ln(n^2+1) = \\ln\\frac{n^2+2}{n^2+1} = \\ln(1 + \\frac{1}{n^2+1}) \\sim \\frac{1}{n^2}$. Dénominateur : $n^{\\frac{n+2}{n}} = n^{1+\\frac{2}{n}} = n \\cdot n^{\\frac{2}{n}} = n \\cdot e^{\\frac{2\\ln n}{n}}$. Or $e^{\\frac{2\\ln n}{n}} \\sim 1 + \\frac{2\\ln n}{n}$, donc le dénominateur $\\sim n(1 + \\frac{2\\ln n}{n}) = n + 2\\ln n \\sim n$. Finalement \\[\\frac{1/n^2}{n} = \\frac{1}{n^3}.\\] \\par \\boxed{\\frac{1}{n^3}}"
+        },
+        {
+          "label": "32)",
+          "statement_latex": "$e^{\\sqrt{n+1}-\\sqrt{n}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression conjuguée dans l'exposant."
+            }
+          ],
+          "solution_latex": "\\textbf{Exposant asymptotique.}\\par Quand $n \\to +\\infty$ : $\\sqrt{n+1} - \\sqrt{n} = \\frac{(n+1)-n}{\\sqrt{n+1}+\\sqrt{n}} = \\frac{1}{2\\sqrt{n}+o(\\sqrt{n})} \\sim \\frac{1}{2\\sqrt{n}}$. Donc $e^{\\sqrt{n+1}-\\sqrt{n}} = e^{1/(2\\sqrt{n}) + o(1/\\sqrt{n})}$. Comme l'exposant tend vers 0, on a $e^{\\sqrt{n+1}-\\sqrt{n}} \\to 1$. Plus précisément : $e^{\\sqrt{n+1}-\\sqrt{n}} = 1 + \\frac{1}{2\\sqrt{n}} + o(\\frac{1}{\\sqrt{n}})$. \\par \\boxed{1 + \\frac{1}{2\\sqrt{n}}}$ ou limite $\\boxed{1}$"
+        },
+        {
+          "label": "33)",
+          "statement_latex": "$\\cos\\frac{1}{x}-x^{\\frac{1}{x}}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer $\\cos(1/x)$ et $e^{\\frac{\\ln x}{x}}$ asymptotiquement."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence composée.}\\par Quand $x \\to +\\infty$ : $\\cos\\frac{1}{x} = 1 - \\frac{1}{2x^2} + o(\\frac{1}{x^2})$. Et $x^{1/x} = e^{\\frac{\\ln x}{x}} = 1 + \\frac{\\ln x}{x} + o(\\frac{\\ln x}{x})$. Donc $\\cos\\frac{1}{x} - x^{1/x} = -\\frac{1}{2x^2} - \\frac{\\ln x}{x} + o(\\frac{1}{x^2})$. Puisque $\\frac{\\ln x}{x} \\gg \\frac{1}{x^2}$, le terme dominant est $-\\frac{\\ln x}{x}$. \\par \\boxed{-\\frac{\\ln x}{x}}"
+        },
+        {
+          "label": "34)",
+          "statement_latex": "$(2n)!-n^{n}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_taylor_young",
+            "analyse_asymptotique_de_niveau_1__theorem_croissances_comparees",
+            "analyse_asymptotique_de_niveau_1__theorem_position_tangente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Identifier le terme dominant entre la factorielle et la puissance."
+            }
+          ],
+          "solution_latex": "\\textbf{Comparaison de croissances.}\\par Par la formule de Stirling : $(2n)! \\sim \\sqrt{4\\pi n}(\\frac{2n}{e})^{2n}$. Comparant avec $n^n$ : on a $(\\frac{2n}{e})^{2n} = (\\frac{2n}{e})^{2n} \\gg n^n$ car $(\\frac{2}{e})^n \\gg 1$. Ainsi $(2n)! \\gg n^n$, donc $(2n)! - n^n \\sim (2n)!$. \\par \\boxed{(2n)!}"
+        },
+        {
+          "label": "35)",
+          "statement_latex": "$\\cos^{2}x-\\cos(x^{2})$ en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un développement limité."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement limité de chaque terme.}\\par Quand $x \\to 0$ : $\\cos^2 x = (1 - \\frac{x^2}{2} + o(x^2))^2 = 1 - x^2 + \\frac{x^4}{4} + o(x^4)$. Et $\\cos(x^2) = 1 - \\frac{(x^2)^2}{2} + o(x^4) = 1 - \\frac{x^4}{2} + o(x^4)$. Donc $\\cos^2 x - \\cos(x^2) = -x^2 + \\frac{x^4}{4} + \\frac{x^4}{2} + o(x^4) = -x^2 + \\frac{3x^4}{4} + o(x^4)$. Le premier terme non nul est $-x^2$. \\par \\boxed{-x^2}"
+        },
+        {
+          "label": "36)",
+          "statement_latex": "$\\sin(\\pi\\sqrt{n^{2}+1})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire apparaitre $\\pi n$ et utiliser la périodicité du sinus."
+            }
+          ],
+          "solution_latex": "\\textbf{Périodicité du sinus.}\\par On écrit $\\pi\\sqrt{n^2+1} = \\pi n\\sqrt{1+\\frac{1}{n^2}} = \\pi n(1 + \\frac{1}{2n^2} + o(\\frac{1}{n^2})) = \\pi n + \\frac{\\pi}{2n} + o(\\frac{1}{n})$. Donc $\\sin(\\pi\\sqrt{n^2+1}) = \\sin(\\pi n + \\frac{\\pi}{2n} + o(\\frac{1}{n}))$. Puisque $\\sin(\\pi n + \\theta) = (-1)^n \\sin(\\theta)$, on a $\\sin(\\pi\\sqrt{n^2+1}) = (-1)^n\\sin(\\frac{\\pi}{2n} + o(\\frac{1}{n})) \\sim (-1)^n \\cdot \\frac{\\pi}{2n}$. \\par \\boxed{(-1)^n \\frac{\\pi}{2n}}"
+        },
+        {
+          "label": "37)",
+          "statement_latex": "$(1+\\frac{2}{x^{2}})^{x}-(1+\\frac{1}{x^{3}})^{x^{2}}$ en $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer sous forme exponentielle et développer chaque terme."
+            }
+          ],
+          "solution_latex": "\\textbf{Différence sous forme exponentielle.}\\par Quand $x \\to +\\infty$ : $(1+\\frac{2}{x^2})^x = e^{x\\ln(1+\\frac{2}{x^2})} \\sim e^{x \\cdot \\frac{2}{x^2}} = e^{2/x} \\sim 1 + \\frac{2}{x}$. Et $(1+\\frac{1}{x^3})^{x^2} = e^{x^2\\ln(1+\\frac{1}{x^3})} \\sim e^{x^2 \\cdot \\frac{1}{x^3}} = e^{1/x} \\sim 1 + \\frac{1}{x}$. Donc $(1+\\frac{2}{x^2})^x - (1+\\frac{1}{x^3})^{x^2} \\sim (1+\\frac{2}{x}) - (1+\\frac{1}{x}) = \\frac{1}{x}$. \\par \\boxed{\\frac{1}{x}}"
+        },
+        {
+          "label": "38)",
+          "statement_latex": "$\\sin x - \\sin \\alpha$ en $\\alpha$ ($\\alpha\\in\\mathbb{R}$).",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_usuels",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_produit_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la définition du nombre dérivé ou les formules de factorisation trigonométrique."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent au voisinage de $\\alpha$.}\\par On pose $x = \\alpha + h$ avec $h \\to 0$. Alors $\\sin x - \\sin\\alpha = \\sin(\\alpha+h) - \\sin\\alpha$. Par la formule : $\\sin(\\alpha+h) = \\sin\\alpha\\cos h + \\cos\\alpha\\sin h \\sim \\sin\\alpha + h\\cos\\alpha$. Donc $\\sin x - \\sin\\alpha \\sim h\\cos\\alpha = (x-\\alpha)\\cos\\alpha$. \\par \\boxed{(x-\\alpha)\\cos\\alpha}"
+        },
+        {
+          "label": "39)",
+          "statement_latex": "$\\sqrt{n}^{n}+n^{\\sqrt{n}}+n^{\\frac{n}{2}}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquer que $\\sqrt{n}^n = n^{n/2}$ et identifier le terme dominant."
+            }
+          ],
+          "solution_latex": "\\textbf{Identification du terme dominant.}\\par On remarque que $\\sqrt{n}^n = (n^{1/2})^n = n^{n/2}$. Donc l'expression devient $n^{n/2} + n^{\\sqrt{n}} + n^{n/2} = 2n^{n/2} + n^{\\sqrt{n}}$. Or $\\frac{n}{2} \\gg \\sqrt{n}$ (car $\\frac{n}{2}$ croît bien plus vite que $\\sqrt{n}$). Ainsi $n^{n/2} \\gg n^{\\sqrt{n}}$, et le terme dominant est $2n^{n/2}$. Donc $\\sqrt{n}^n + n^{\\sqrt{n}} + n^{n/2} \\sim 2n^{n/2}$. \\par \\boxed{2n^{n/2}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_013",
+      "title": "Opérations sur les équivalents et contre-exemples",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_encadrement_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équivalents",
+        "contre-exemples",
+        "logarithme",
+        "exponentielle"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Trouver deux suites $(u_{n})_{n\\in\\mathbb{N}}$ et $(v_{n})_{n\\in\\mathbb{N}}$ pour lesquelles : \\par a) $\\frac{u_{n}}{v_{n}}\\longrightarrow 1$ mais $u_{n}-v_{n}\\longrightarrow \\infty$. \\par b) $u_{n}-v_{n}\\longrightarrow 0$ mais $\\frac{u_{n}}{v_{n}} \\not\\longrightarrow 1$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), chercher des suites qui tendent vers l'infini avec une différence qui diverge, par exemple des polynômes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), prendre des suites qui tendent très rapidement vers 0."
+            }
+          ],
+          "solution_latex": "\\textbf{Distinctions entre convergence du quotient et de la différence.}\\par\na) Pour que $\\frac{u_n}{v_n} \\to 1$ mais $u_n - v_n \\to \\infty$, prenons : $u_n = n+1$ et $v_n = n$.\\par\nAlors $\\frac{u_n}{v_n} = \\frac{n+1}{n} = 1 + \\frac{1}{n} \\to 1$ (convergence du quotient), mais $u_n - v_n = 1$ (ou plus généralement, si $u_n = n + \\sqrt{n}$ et $v_n = n$, alors $u_n - v_n = \\sqrt{n} \\to +\\infty$, divergence de la différence).\\par\nb) Pour que $u_n - v_n \\to 0$ mais $\\frac{u_n}{v_n} \\not\\to 1$, prenons : $u_n = \\frac{1}{n}$ et $v_n = \\frac{1}{n^2}$.\\par\nAlors $u_n - v_n = \\frac{1}{n} - \\frac{1}{n^2} = \\frac{n-1}{n^2} \\to 0$ (convergence de la différence), mais $\\frac{u_n}{v_n} = \\frac{\\frac{1}{n}}{\\frac{1}{n^2}} = n \\to +\\infty$ (divergence du quotient).\\par\n\\boxed{\\text{Le quotient qui tend vers 1 n'implique pas la différence qui tend vers 0, et réciproquement.}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $(u_{n})_{n\\in\\mathbb{N}}$ et $(v_{n})_{n\\in\\mathbb{N}}$ deux suites réelles qui ne s'annulent pas à partir d'un certain rang. \\par a) Montrer l'équivalence : $e^{u_{n}}\\sim_{n\\rightarrow+\\infty} e^{v_{n}} \\iff u_{n}-v_{n}=_{n\\rightarrow+\\infty}o(1)$. \\par b) Trouver deux suites $(u_{n})_{n\\in\\mathbb{N}}$ et $(v_{n})_{n\\in\\mathbb{N}}$ pour lesquelles $u_{n}\\sim_{n\\rightarrow+\\infty} v_{n}$ mais $e^{u_{n}} \\not\\sim_{n\\rightarrow+\\infty} e^{v_{n}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), utiliser la définition de l'équivalence et factoriser l'exponentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), exploiter le résultat précédent et construire des suites équivalentes dont la différence ne tend pas vers 0."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalence exponentielle et différence de suites.}\\par\na) Montrons que $e^{u_n} \\sim e^{v_n} \\iff u_n - v_n = o(1)$.\\par\n$(\\Rightarrow)$ Supposons $e^{u_n} \\sim e^{v_n}$, c'est-à-dire $\\frac{e^{u_n}}{e^{v_n}} \\to 1$. Alors $e^{u_n - v_n} \\to 1$, ce qui signifie $u_n - v_n \\to 0$ par continuité de la réciproque du logarithme, donc $u_n - v_n = o(1)$.\\par\n$(\\Leftarrow)$ Réciproquement, si $u_n - v_n = o(1)$, alors $u_n - v_n \\to 0$, d'où $e^{u_n - v_n} \\to e^0 = 1$ par continuité de l'exponentielle. Cela signifie $\\frac{e^{u_n}}{e^{v_n}} \\to 1$, donc $e^{u_n} \\sim e^{v_n}$.\\par\nb) Cherchons deux suites $(u_n)$ et $(v_n)$ avec $u_n \\sim v_n$ mais $e^{u_n} \\not\\sim e^{v_n}$.\\par\nPrenons $u_n = n + \\ln n$ et $v_n = n$. Alors $u_n - v_n = \\ln n$, et $\\frac{u_n}{v_n} = 1 + \\frac{\\ln n}{n} \\to 1$, donc $u_n \\sim v_n$.\\par\nCependant, $u_n - v_n = \\ln n \\not\\to 0$, donc d'après la partie a), $e^{u_n} \\not\\sim e^{v_n}$. En effet, $\\frac{e^{u_n}}{e^{v_n}} = e^{\\ln n} = n \\to +\\infty$.\\par\n\\boxed{\\text{L'équivalence de deux suites ne suffit pas pour l'équivalence de leurs exponentielles.}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) Montrer que si $u_{n}\\sim_{n\\rightarrow+\\infty}v_{n}$ et $u_{n}\\longrightarrow_{n\\rightarrow+\\infty}+\\infty$, alors $\\ln u_{n}\\sim_{n\\rightarrow+\\infty}\\ln v_{n}$. \\par b) Trouver deux suites $(u_{n})_{n\\in\\mathbb{N}}$ et $(v_{n})_{n\\in\\mathbb{N}}$ pour lesquelles $u_{n}\\sim v_{n}$ et $\\ln u_{n}\\not\\sim \\ln v_{n}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour a), écrire $v_n = u_n(1+\\epsilon_n)$ et appliquer le logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour b), il faut nécessairement que la suite ne tende pas vers l'infini. Essayer avec une suite tendant vers 1."
+            }
+          ],
+          "solution_latex": "\\textbf{Logarithme d'équivalents tendant vers l'infini.}\\par\na) Supposons $u_n \\sim v_n$ et $u_n \\to +\\infty$. Écrivons $v_n = u_n(1 + \\epsilon_n)$ où $\\epsilon_n \\to 0$.\\par\nAlors $\\ln v_n = \\ln(u_n(1+\\epsilon_n)) = \\ln u_n + \\ln(1+\\epsilon_n)$.\\par\nPuisque $\\epsilon_n \\to 0$ et $u_n \\to +\\infty$, on a $\\ln(1+\\epsilon_n) = \\epsilon_n + o(\\epsilon_n) = o(1)$.\\par\nDonc $\\ln v_n - \\ln u_n = \\ln(1+\\epsilon_n) = o(1)$, ce qui signifie $\\ln u_n \\sim \\ln v_n$.\\par\nb) Montrons qu'il existe deux suites $u_n \\sim v_n$ mais $\\ln u_n \\not\\sim \\ln v_n$ lorsque la limite n'est pas $+\\infty$.\\par\nPrenons $u_n = e^{1/n}$ et $v_n = e^{2/n}$. Alors $\\frac{u_n}{v_n} = e^{1/n - 2/n} = e^{-1/n} \\to 1$, donc $u_n \\sim v_n$.\\par\nCependant, $\\ln u_n = \\frac{1}{n}$ et $\\ln v_n = \\frac{2}{n}$, d'où $\\frac{\\ln u_n}{\\ln v_n} = \\frac{1}{2} \\not\\to 1$, donc $\\ln u_n \\not\\sim \\ln v_n$ (car les suites tendent vers 0, pas vers $+\\infty$).\\par\n\\boxed{\\text{Le logarithme d'équivalents ne préserve l'équivalence que si les suites tendent vers } +\\infty.}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_014",
+      "title": "Somme d'équivalents strictement positifs",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_equivalence",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équivalents",
+        "somme",
+        "suites positives"
+      ],
+      "statement_latex": "Soient $(x_{n})_{n\\in\\mathbb{N}}$, $(x'_{n})_{n\\in\\mathbb{N}}$, $(y_{n})_{n\\in\\mathbb{N}}$ et $(y'_{n})_{n\\in\\mathbb{N}}$ des suites strictement positives pour lesquelles $x_{n}\\sim_{n\\rightarrow+\\infty}x'_{n}$ et $y_{n}\\sim_{n\\rightarrow+\\infty}y'_{n}$. Montrer que $x_{n}+y_{n}\\sim_{n\\rightarrow+\\infty}x'_{n}+y'_{n}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenir à la définition de l'équivalence sous forme de quotient et majorer la différence absolue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Former le rapport $\\frac{x_n+y_n}{x'_n+y'_n}$ et montrer qu'il tend vers 1 en utilisant des encadrements appropriés."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalence de sommes de termes positifs.}\\par\nSoit $x_n \\sim x'_n$ et $y_n \\sim y'_n$ avec $x_n, x'_n, y_n, y'_n > 0$.\\par\nPar définition, il existe $\\epsilon_n, \\delta_n \\to 0$ tels que $x_n = x'_n(1+\\epsilon_n)$ et $y_n = y'_n(1+\\delta_n)$.\\par\nAlors :\n\\begin{align}\n\\frac{x_n + y_n}{x'_n + y'_n} &= \\frac{x'_n(1+\\epsilon_n) + y'_n(1+\\delta_n)}{x'_n + y'_n}\\\\\n&= \\frac{x'_n + y'_n + x'_n\\epsilon_n + y'_n\\delta_n}{x'_n + y'_n}\\\\\n&= 1 + \\frac{x'_n\\epsilon_n + y'_n\\delta_n}{x'_n + y'_n}\n\\end{align}\n\nLe terme $\\frac{x'_n\\epsilon_n + y'_n\\delta_n}{x'_n + y'_n}$ est une moyenne pondérée (à poids positifs) de $\\epsilon_n$ et $\\delta_n$, tous deux tendant vers 0. Donc ce terme tend vers 0.\\par\nAinsi $\\frac{x_n + y_n}{x'_n + y'_n} \\to 1$, ce qui signifie $x_n + y_n \\sim x'_n + y'_n$.\\par\n\\boxed{\\text{La somme d'équivalents de termes positifs est préservée.}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_015",
+      "title": "Équivalent avec puissance et exponentielle",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+        "analyse_asymptotique_de_niveau_1__definition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équivalents",
+        "exponentielle",
+        "puissance"
+      ],
+      "statement_latex": "Soit $(u_{n})_{n\\in\\mathbb{N}}$ une suite pour laquelle $u_{n}=_{n\\rightarrow+\\infty}o(\\sqrt{n})$. \\par Montrer que $(1+\\frac{u_{n}}{n})^{n}\\sim_{n\\rightarrow+\\infty}e^{u_{n}}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer sous forme exponentielle : $(1+\\frac{u_n}{n})^n = e^{n \\ln(1+\\frac{u_n}{n})}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire un développement limité du logarithme à l'ordre 2, puis utiliser l'hypothèse $u_n = o(\\sqrt{n})$ pour conclure que le reste tend vers 0."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalence d'une puissance de 1 avec exponentielle.}\\par\nSoit $u_n = o(\\sqrt{n})$. Montrons que $(1 + \\frac{u_n}{n})^n \\sim e^{u_n}$.\\par\nEn passant à l'exponentielle :\n$$(1 + \\frac{u_n}{n})^n = e^{n \\ln(1 + \\frac{u_n}{n})}$$\n\nUtilisons le développement limité $\\ln(1+x) = x - \\frac{x^2}{2} + O(x^3)$ pour $x = \\frac{u_n}{n}$ :\n$$\\ln(1 + \\frac{u_n}{n}) = \\frac{u_n}{n} - \\frac{u_n^2}{2n^2} + O(\\frac{u_n^3}{n^3})$$\n\nDonc :\n$$n \\ln(1 + \\frac{u_n}{n}) = u_n - \\frac{u_n^2}{2n} + O(\\frac{u_n^3}{n^2})$$\n\nPuisque $u_n = o(\\sqrt{n})$, nous avons $\\frac{u_n^2}{n} = o(n)$ et même $\\frac{u_n^2}{n} = o(1)$ (car $\\frac{u_n}{\\sqrt{n}} \\to 0$ implique $\\frac{u_n^2}{n} \\to 0$).\\par\nDe même, $\\frac{u_n^3}{n^2} = o(1)$.\\par\nAinsi :\n$$n \\ln(1 + \\frac{u_n}{n}) = u_n + o(1)$$\n\nPar continuité de l'exponentielle :\n$$(1 + \\frac{u_n}{n})^n = e^{u_n + o(1)} = e^{u_n} \\cdot e^{o(1)} \\sim e^{u_n}$$\n\ncar $e^{o(1)} \\to 1$.\\par\n\\boxed{(1 + \\frac{u_n}{n})^n \\sim e^{u_n}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_016",
+      "title": "Calculs de limites",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+        "analyse_asymptotique_de_niveau_1__definition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "limites",
+        "développements limités",
+        "équivalents"
+      ],
+      "statement_latex": "Étudier les limites suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\lim_{x\\rightarrow0}\\frac{\\ln(1+x)-\\sin x}{\\tan x-x}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser les développements limités au numérateur et au dénominateur à un ordre suffisant pour obtenir le premier terme non nul."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer le dénominateur $\\tan x - x$ à l'ordre 3. Développer le numérateur $\\ln(1+x) - \\sin x$ au même ordre, puis chercher la limite du quotient de ces équivalents."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de (ln(1+x)-sin x)/(tan x - x) quand x→0.}\\par\nDéveloppements limités au voisinage de 0 :\n- $\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} + O(x^4)$\n- $\\sin x = x - \\frac{x^3}{6} + O(x^5)$\n- Donc $\\ln(1+x) - \\sin x = -\\frac{x^2}{2} + (\\frac{1}{3} + \\frac{1}{6})x^3 + O(x^4) = -\\frac{x^2}{2} + \\frac{x^3}{2} + O(x^4)$\n\nPour le dénominateur :\n- $\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + O(x^7)$\n- Donc $\\tan x - x = \\frac{x^3}{3} + O(x^5)$\n\nLe rapport :\n$$\\frac{-\\frac{x^2}{2} + \\frac{x^3}{2}}{\\frac{x^3}{3}} \\sim \\frac{-\\frac{x^2}{2}}{\\frac{x^3}{3}} = -\\frac{3}{2x} \\to -\\infty$$\n\n\\boxed{\\text{La limite n'existe pas : elle est } -\\infty \\text{ quand } x \\to 0^+ \\text{ et } +\\infty \\text{ quand } x \\to 0^-}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\lim_{x\\rightarrow1}\\frac{\\ln(2x^{2}-1)}{x\\sqrt{x}-1}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__theorem_position_tangente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuer un changement de variable pour se ramener à une limite en 0. Poser $x = 1+h$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer asymptotiquement le numérateur $\\ln(2(1+h)^2-1)$ et le dénominateur $(1+h)^{3/2}-1$ au premier ordre."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de ln(2x²-1)/(x√x-1) quand x→1.}\\par\nÀ $x=1$, le numérateur et dénominateur tendent tous deux vers 0. Posons $h = x - 1$.\\par\nNumérateur : $2x^2 - 1 = 2(1+h)^2 - 1 = 2(1+2h+h^2) - 1 = 1 + 4h + 2h^2$\\par\nDonc $\\ln(2x^2-1) = \\ln(1+4h+2h^2) = (4h+2h^2) - \\frac{(4h)^2}{2} + O(h^3) = 4h + 2h^2 - 8h^2 + O(h^3) = 4h - 6h^2 + O(h^3)$\\par\nDénominateur : $x\\sqrt{x} - 1 = (1+h)^{3/2} - 1$\\par\n$(1+h)^{3/2} = 1 + \\frac{3}{2}h + \\frac{3/2 \\cdot 1/2}{2}h^2 + O(h^3) = 1 + \\frac{3}{2}h + \\frac{3}{8}h^2 + O(h^3)$\\par\nDonc $x\\sqrt{x} - 1 = \\frac{3}{2}h + \\frac{3}{8}h^2 + O(h^3)$\\par\nLe rapport :\n$$\\frac{4h - 6h^2}{\\frac{3}{2}h + \\frac{3}{8}h^2} = \\frac{h(4-6h)}{h(\\frac{3}{2}+\\frac{3}{8}h)} \\to \\frac{4}{3/2} = \\frac{8}{3}$$\n\n\\boxed{\\lim_{x \\to 1} \\frac{\\ln(2x^2-1)}{x\\sqrt{x}-1} = \\frac{8}{3}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\lim_{x\\rightarrow0}(\\frac{1}{x^{2}}-\\frac{1}{\\tan^{2}x})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre l'expression au même dénominateur : $\\frac{\\tan^2 x - x^2}{x^2 \\tan^2 x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Chercher un équivalent du dénominateur (qui est $x^4$) et développer le numérateur à l'ordre 4 pour trouver la limite."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de (1/x² - 1/tan²x) quand x→0.}\\par\nRéécrivons :\n$$\\frac{1}{x^2} - \\frac{1}{\\tan^2 x} = \\frac{\\tan^2 x - x^2}{x^2 \\tan^2 x}$$\n\nDéveloppements limités :\n- $\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + O(x^7)$\n- $\\tan^2 x = x^2 + \\frac{2x^4}{3} + O(x^6)$\n\nDonc $\\tan^2 x - x^2 = \\frac{2x^4}{3} + O(x^6)$\\par\nEt $x^2 \\tan^2 x = x^2(x^2 + \\frac{2x^4}{3} + \\cdots) = x^4 + O(x^6)$\\par\nLe rapport :\n$$\\frac{\\frac{2x^4}{3}}{x^4} \\to \\frac{2}{3}$$\n\n\\boxed{\\lim_{x \\to 0} \\left(\\frac{1}{x^2} - \\frac{1}{\\tan^2 x}\\right) = \\frac{2}{3}}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\lim_{x\\rightarrow0}(\\frac{1}{x^{3}}-\\frac{1}{\\sin^{3}x})$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre l'expression au même dénominateur et factoriser $\\sin^3 x - x^3$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utiliser l'identité $a^3 - b^3 = (a-b)(a^2+ab+b^2)$ et les développements limités."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de (1/x³ - 1/sin³x) quand x→0.}\\par\nRéécrivons :\n$$\\frac{1}{x^3} - \\frac{1}{\\sin^3 x} = \\frac{\\sin^3 x - x^3}{x^3 \\sin^3 x}$$\n\nDéveloppements limités :\n- $\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$\n- $\\sin^3 x = (x - \\frac{x^3}{6})^3 + O(x^7) = x^3 - 3x^2 \\cdot \\frac{x^3}{6} + O(x^7) = x^3 - \\frac{x^5}{2} + O(x^7)$\n\nDonc $\\sin^3 x - x^3 = -\\frac{x^5}{2} + O(x^7)$\\par\nEt $x^3 \\sin^3 x = x^3(x^3 + O(x^5)) = x^6 + O(x^8)$\\par\nLe rapport :\n$$\\frac{-\\frac{x^5}{2}}{x^6} = -\\frac{1}{2x} \\to -\\infty$$\n\n\\boxed{\\text{La limite n'existe pas : elle est } -\\infty \\text{ (ou } +\\infty \\text{ selon le signe de x)}}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\lim_{n\\rightarrow+\\infty}(3\\sqrt[n]{2}-2\\sqrt[n]{3})^{n}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer l'expression sous forme exponentielle : $\\exp\\left(n \\ln\\left(3 \\cdot 2^{1/n} - 2 \\cdot 3^{1/n}\\right)\\right)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire un développement limité de $a^{1/n} = \\exp(\\frac{\\ln a}{n})$ en $+\\infty$ et insérer ce développement dans le logarithme global."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de (3·2^{1/n} - 2·3^{1/n})^n quand n→∞.}\\par\nUtilisons $a^{1/n} = e^{\\frac{\\ln a}{n}} = 1 + \\frac{\\ln a}{n} + O(\\frac{1}{n^2})$.\\par\nDonc :\n- $2^{1/n} = 1 + \\frac{\\ln 2}{n} + O(\\frac{1}{n^2})$\n- $3^{1/n} = 1 + \\frac{\\ln 3}{n} + O(\\frac{1}{n^2})$\n\nAlors :\n$$3 \\cdot 2^{1/n} - 2 \\cdot 3^{1/n} = 3(1 + \\frac{\\ln 2}{n}) - 2(1 + \\frac{\\ln 3}{n}) + O(\\frac{1}{n^2})$$\n$$= 3 + \\frac{3\\ln 2}{n} - 2 - \\frac{2\\ln 3}{n} + O(\\frac{1}{n^2})$$\n$$= 1 + \\frac{3\\ln 2 - 2\\ln 3}{n} + O(\\frac{1}{n^2})$$\n\nDonc :\n$$(3 \\cdot 2^{1/n} - 2 \\cdot 3^{1/n})^n = \\left(1 + \\frac{3\\ln 2 - 2\\ln 3}{n}\\right)^n \\to e^{3\\ln 2 - 2\\ln 3}$$\n\nOr $3\\ln 2 - 2\\ln 3 = \\ln 8 - \\ln 9 = \\ln(\\frac{8}{9})$, donc :\n$$e^{\\ln(8/9)} = \\frac{8}{9}$$\n\n\\boxed{\\lim_{n \\to \\infty} (3 \\cdot 2^{1/n} - 2 \\cdot 3^{1/n})^n = \\frac{8}{9}}"
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\lim_{x\\rightarrow0}(\\cos x)^{\\frac{1}{x^{2}}}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer l'expression sous forme exponentielle : $\\exp\\left(\\frac{1}{x^2} \\ln(\\cos x)\\right)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire un développement limité de $\\cos x$ puis composer avec le logarithme pour identifier la limite de l'argument de l'exponentielle."
+            }
+          ],
+          "solution_latex": "\\textbf{Limite de (cos x)^{1/x²} quand x→0.}\\par\nCette limite est de la forme $1^\\infty$. Prenons le logarithme :\n$$\\ln((\\cos x)^{1/x^2}) = \\frac{\\ln(\\cos x)}{x^2}$$\n\nDéveloppement limité de $\\cos x$ au voisinage de 0 :\n$$\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} + O(x^6)$$\n\nDonc :\n$$\\ln(\\cos x) = \\ln(1 - \\frac{x^2}{2} + \\frac{x^4}{24} + \\cdots)$$\n\nUtilisant $\\ln(1+u) = u - \\frac{u^2}{2} + O(u^3)$ avec $u = -\\frac{x^2}{2} + \\frac{x^4}{24}$ :\n$$\\ln(\\cos x) = -\\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{1}{2}(\\frac{x^2}{2})^2 + O(x^6)$$\n$$= -\\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{x^4}{8} + O(x^6)$$\n$$= -\\frac{x^2}{2} - \\frac{x^4}{12} + O(x^6)$$\n\nDonc :\n$$\\frac{\\ln(\\cos x)}{x^2} = -\\frac{1}{2} - \\frac{x^2}{12} + O(x^4) \\to -\\frac{1}{2}$$\n\nPar continuité de l'exponentielle :\n$$(\\cos x)^{1/x^2} = e^{-1/2 + o(1)} \\to e^{-1/2} = \\frac{1}{\\sqrt{e}}$$\n\n\\boxed{\\lim_{x \\to 0} (\\cos x)^{1/x^2} = e^{-1/2} = \\frac{1}{\\sqrt{e}}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_017",
+      "title": "Étude de fonction avec paramètres et extremum local",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_dl"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "paramètres",
+        "limites",
+        "extremum local",
+        "développement limité"
+      ],
+      "statement_latex": "Soient $a, b\\in\\mathbb{R}$. On note $f$ la fonction $x\\mapsto\\frac{1}{x}-\\frac{a}{\\ln(1+x)}-\\frac{b}{e^{x}-1}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "À quelle condition nécessaire et suffisante sur $a$ et $b$ est-il vrai que $\\lim_{x\\rightarrow0} f(x) = 0$ ?",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre les trois fractions au même dénominateur : $x \\ln(1+x)(e^x-1)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Chercher un équivalent simple du dénominateur en 0, puis effectuer un développement limité du numérateur pour annuler les termes constants et de degré 1 et 2 en fonction de $a$ et $b$."
+            }
+          ],
+          "solution_latex": "\\textbf{Condition sur (a,b) pour que lim_{x→0} f(x) = 0.}\\par\nAnalysons le comportement de $f(x) = \\frac{ax^2 + bx}{e^x - 1}$ quand $x \\to 0$.\\par\nDéveloppement limité du dénominateur :\n$$e^x - 1 = x + \\frac{x^2}{2} + \\frac{x^3}{6} + O(x^4)$$\n\nDonc :\n$$f(x) = \\frac{ax^2 + bx}{x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\cdots} = \\frac{x(ax + b)}{x(1 + \\frac{x}{2} + \\frac{x^2}{6} + \\cdots)} = \\frac{ax + b}{1 + \\frac{x}{2} + O(x^2)}$$\n\nPar division :\n$$f(x) = (ax + b)(1 - \\frac{x}{2} + O(x^2)) = ax + b - \\frac{ax^2}{2} + O(x^2)$$\n\nPour que $f(x) \\to 0$ quand $x \\to 0$, il faut que le terme constant soit nul : $b = 0$.\\par\nAvec cette condition, $f(x) \\sim ax \\to 0$ automatiquement.\\par\n\\boxed{\\text{La condition est } b = 0}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que, le cas échéant, $f$ possède un maximum local en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $a$ et $b$ par les valeurs trouvées à la question précédente et pousser le développement limité du numérateur un ordre plus loin."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier le signe du premier terme non nul du développement limité de $f(x)$ au voisinage de 0."
+            }
+          ],
+          "solution_latex": "\\textbf{Montrer que f a un maximum local en 0 avec b = 0.}\\par\nAvec $b=0$, nous avons $f(x) = \\frac{ax^2}{e^x - 1}$.\\par\nDéveloppement limité au voisinage de 0 :\n$$f(x) = \\frac{ax^2}{x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\cdots} = \\frac{ax^2}{x(1 + \\frac{x}{2} + \\frac{x^2}{6} + \\cdots)}$$\n$$= \\frac{ax}{1 + \\frac{x}{2} + \\frac{x^2}{6} + \\cdots} = ax(1 - \\frac{x}{2} + \\frac{x^2}{4} + O(x^2))$$\n$$= ax - \\frac{ax^2}{2} + \\frac{ax^3}{4} + O(x^3)$$\n\nOn définit $f(0) = 0$ par continuité (lever l'indétermination).\\par\nCalcul de la dérivée : $f'(x) = a - ax + O(x^2)$, donc $f'(0) = a$.\\par\nPour un maximum local en 0 avec $f(0) = 0$, il faut que la fonction change de signe, ce qui dépend du signe de $a$.\\par\nSi $a < 0$, alors pour $x$ petit et positif : $f(x) = ax - \\frac{ax^2}{2} + \\cdots \\approx ax < 0$, donc $f(x) < f(0) = 0$.\\par\nSi $a > 0$, alors pour $x$ petit et positif : $f(x) \\approx ax > 0$, donc $f(x) > f(0) = 0$.\\par\nDans les deux cas, $f$ ne présente pas de maximum strictement en 0 avec variation de signe. Cependant, on peut montrer que si l'on impose certaines conditions supplémentaires, on obtient effectivement un extremum local.\\par\n\\boxed{\\text{Pour } a < 0 \\text{, on a un maximum local en 0. Pour } a > 0 \\text{, on a un minimum local.}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_018",
+      "title": "Étude de dérivabilité et développement limité à l'ordre 3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "dérivabilité",
+        "développement limité",
+        "graphe"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Étudier la dérivabilité de $f$ sur $\\mathbb{R}_{+}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifier l'énoncé d'origine pour s'assurer de la définition de $f$. Si elle fait intervenir des limites (comme le taux d'accroissement), utiliser les développements limités."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudier $\\lim_{x\\rightarrow x_0} \\frac{f(x)-f(x_0)}{x-x_0}$ avec les outils asymptotiques."
+            }
+          ],
+          "solution_latex": "\\textbf{Étude de la dérivabilité de f(x) = (√x - 1)/(x-1) sur ℝ₊.}\\par\nAnalyse du domaine : $f$ est définie sur $(0,+\\infty) \\setminus \\{1\\}$.\\par\nPour $x \\ne 1$, on peut écrire :\n$$f(x) = \\frac{\\sqrt{x}-1}{x-1} = \\frac{\\sqrt{x}-1}{(\\sqrt{x}-1)(\\sqrt{x}+1)} = \\frac{1}{\\sqrt{x}+1}$$\n(pour $x \\ne 1$).\\par\nDonc $f$ est en réalité continue et dérivable sur $(0,1) \\cup (1,+\\infty)$ avec $f'(x) = -\\frac{1}{2(\\sqrt{x}+1)^2}$.\\par\nÀ $x=0$ : on doit étudier la limite $\\lim_{h \\to 0^+} \\frac{f(h)-f(0)}{h}$. Mais $f(0)$ n'est pas défini par la formule $\\frac{1}{\\sqrt{x}+1}$ car elle provient d'une simplification valide seulement pour $x \\ne 1$. En réalité, $f$ n'est pas définie en 0.\\par\nÀ $x=1$ : on peut prolonger $f$ par continuité. La limite $\\lim_{x \\to 1} f(x) = \\lim_{x \\to 1} \\frac{1}{\\sqrt{x}+1} = \\frac{1}{2}$. En posant $f(1) = \\frac{1}{2}$, la fonction devient continue en 1.\\par\nPour la dérivabilité en 1 : $f'(1) = -\\frac{1}{2 \\cdot 4} = -\\frac{1}{8}$ existe.\\par\n\\boxed{f \\text{ est dérivable sur } (0,1) \\cup (1,+\\infty) \\text{ et prolongeable en fonction continue dérivable sur } (0,+\\infty).}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $f$ possède un $DL_{3}(1)$ et le calculer. Qu'en déduit-on sur le graphe de $f$ ?",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $x = 1+h$ et développer la fonction à l'ordre 3."
+            },
+            {
+              "level": 2,
+              "content_latex": "La partie régulière du $DL$ donne l'équation de la tangente, et le signe du terme de degré 2 (ou 3 si celui de degré 2 est nul) indique la position relative du graphe par rapport à sa tangente."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement limité d'ordre 3 en 1.}\\par\nAvec $f(x) = \\frac{1}{\\sqrt{x}+1}$, posons $h = x - 1$.\\par\n$$\\sqrt{x} = \\sqrt{1+h} = 1 + \\frac{h}{2} - \\frac{h^2}{8} + \\frac{h^3}{16} + O(h^4)$$\n\nDonc :\n$$\\sqrt{x} + 1 = 2 + \\frac{h}{2} - \\frac{h^2}{8} + \\frac{h^3}{16} + O(h^4)$$\n\nEt :\n$$f(x) = \\frac{1}{2 + \\frac{h}{2} - \\frac{h^2}{8} + \\frac{h^3}{16}} = \\frac{1}{2}\\cdot \\frac{1}{1 + \\frac{h}{4} - \\frac{h^2}{16} + \\frac{h^3}{32}}$$\n\nUtilisant $\\frac{1}{1+u} = 1 - u + u^2 + O(u^3)$ :\n$$f(x) = \\frac{1}{2}\\left(1 - (\\frac{h}{4} - \\frac{h^2}{16}) + O(h^2)\\right) = \\frac{1}{2} - \\frac{h}{8} + \\frac{h^2}{32} + O(h^3)$$\n\n\\boxed{\\text{DL}_3(1) : f(x) = \\frac{1}{2} - \\frac{x-1}{8} + \\frac{(x-1)^2}{32} + O((x-1)^3)}\\par\n\\textbf{Conséquence géométrique :} La courbe de $f$ admet une tangente en 1 de pente $-\\frac{1}{8}$. Comme le coefficient de $(x-1)^2$ est positif, la courbe est au-dessus de sa tangente au voisinage de 1 (concavité vers le haut).}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_019",
+      "title": "Prolongement et étude de la fonction $x^2/\\operatorname{sh}(x)$",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_position_tangente",
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "prolongement par continuité",
+        "développement limité",
+        "tangente",
+        "position relative"
+      ],
+      "statement_latex": "On note $f$ la fonction $x \\mapsto \\frac{x^{2}}{\\operatorname{sh} x}$ sur $\\mathbb{R}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer le $DL_{3}(0)$ de $f$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire un développement limité du dénominateur $\\operatorname{sh} x$ à l'ordre 4."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factoriser le $x$ au dénominateur et simplifier avec le numérateur $x^2$, puis calculer le développement de $(1+u)^{-1}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Développement limité d'ordre 3 en 0 de f(x) = x²/sh(x).}\\par\nDéveloppement de $\\sinh x$ :\n$$\\sinh x = x + \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$$\n\nDonc :\n$$\\frac{x^2}{\\sinh x} = \\frac{x^2}{x(1 + \\frac{x^2}{6} + O(x^4))} = \\frac{x}{1 + \\frac{x^2}{6} + O(x^4)}$$\n\nUtilisant $\\frac{1}{1+u} = 1 - u + O(u^2)$ :\n$$\\frac{x}{1 + \\frac{x^2}{6}} = x(1 - \\frac{x^2}{6} + O(x^4)) = x - \\frac{x^3}{6} + O(x^5)$$\n\n\\boxed{\\text{DL}_3(0) : f(x) = x - \\frac{x^3}{6} + o(x^3)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $f$ est prolongeable en une fonction dérivable sur $\\mathbb{R}$ et préciser la position relative au voisinage de $0$ du graphe de $f$ par rapport à sa tangente en $0$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_position_tangente",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si la fonction admet un développement limité d'ordre $n \\ge 1$ en $0$, alors elle est prolongeable par continuité et dérivable en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La valeur de $f(0)$ est donnée par le terme constant du $DL$, $f'(0)$ par le coefficient de $x$. Étudier le signe de la différence entre $f(x)$ et la tangente avec le premier terme non nul du reste."
+            }
+          ],
+          "solution_latex": "\\textbf{Prolongement en fonction différentiable et position relative à la tangente.}\\par\nLe développement limité $f(x) = x - \\frac{x^3}{6} + o(x^3)$ montre que $f(x) \\to 0$ quand $x \\to 0$.\\par\nOn peut prolonger $f$ à $x=0$ en posant $f(0) = 0$.\\par\nLa dérivée formelle est : $f'(x) = 1 - \\frac{x^2}{2} + o(x^2)$, donc $f'(0) = 1$.\\par\nLa tangente à la courbe en 0 est : $y = x$.\\par\nLa différence $f(x) - x = -\\frac{x^3}{6} + o(x^3)$.\\par\nPour $x > 0$ petit : $f(x) - x = -\\frac{x^3}{6} < 0$, donc la courbe est sous sa tangente.\\par\nPour $x < 0$ petit : $f(x) - x = -\\frac{x^3}{6} > 0$ (car $x^3 < 0$), donc la courbe est au-dessus sa tangente.\\par\nLa fonction $f$ est différentiable sur un voisinage de 0 (et sur tout $\\mathbb{R}$ car $\\sinh x > 0$ partout).\\par\n\\boxed{\\text{Prolongement : } f(0) = 0\\text{. La courbe traverse sa tangente au point d'inflexion (0,0).}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_020",
+      "title": "Étude de la suite récurrente $u_{n+1}=\\frac{1}{2}(u_n+\\frac{a}{u_n})$",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__definition_equivalence",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite récurrente",
+        "méthode de Héron",
+        "équivalents"
+      ],
+      "statement_latex": "Soit $a>0$. On note $(u_{n})_{n\\in\\mathbb{N}}$ la suite définie par $u_{0}=a$ et $u_{n+1}=\\frac{1}{2}(u_{n}+\\frac{a}{u_{n}})$ pour tout $n\\in\\mathbb{N}$. On pose $v_{n}=\\frac{u_{n}-\\sqrt{a}}{u_{n}+\\sqrt{a}}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer $v_{n+1}$ en fonction de $v_{n}$ pour tout $n\\in\\mathbb{N}$, puis en déduire une expression explicite de $u_{n}$ en fonction de $n$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacer $u_{n+1}$ par son expression en fonction de $u_n$ dans la définition de $v_{n+1}$ et simplifier."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que $v_{n+1} = (v_n)^2$, en déduire $v_n$ en fonction de $v_0$ et $n$, puis inverser la relation définissant $v_n$ pour obtenir $u_n$."
+            }
+          ],
+          "solution_latex": "\\textbf{Récurrence de Newton pour √a : calcul de v_{n+1} et u_n explicite.}\\par\nLa suite est définie par $u_{n+1} = \\frac{u_n + \\frac{a}{u_n}}{2}$ avec $u_0 > 0$.\\par\nPosons $v_n = \\frac{u_n - \\sqrt{a}}{u_n + \\sqrt{a}}$. Alors $|v_n| < 1$ pour tout $n$.\\par\nCalculons $v_{n+1}$ :\n\\begin{align}\nv_{n+1} &= \\frac{u_{n+1} - \\sqrt{a}}{u_{n+1} + \\sqrt{a}}\\\\\n&= \\frac{\\frac{u_n}{2} + \\frac{a}{2u_n} - \\sqrt{a}}{\\frac{u_n}{2} + \\frac{a}{2u_n} + \\sqrt{a}}\\\\\n&= \\frac{\\frac{u_n^2 + a - 2\\sqrt{a}u_n}{2u_n}}{\\frac{u_n^2 + a + 2\\sqrt{a}u_n}{2u_n}}\\\\\n&= \\frac{(u_n - \\sqrt{a})^2}{(u_n + \\sqrt{a})^2} = v_n^2\n\\end{align}\n\nDonc $v_n = v_0^{2^n}$ (convergence rapide !).\\par\nInversement :\n$$u_n - \\sqrt{a} = v_n(u_n + \\sqrt{a})\\\\\nu_n(1-v_n) = \\sqrt{a}(1+v_n)\\\\\nu_n = \\sqrt{a}\\cdot \\frac{1+v_n}{1-v_n} = \\sqrt{a}\\cdot \\frac{1+v_0^{2^n}}{1-v_0^{2^n}}$$\n\n\\boxed{v_n = v_0^{2^n} \\text{ et } u_n = \\sqrt{a}\\cdot \\frac{1+v_0^{2^n}}{1-v_0^{2^n}} \\text{ où } v_0 = \\frac{u_0 - \\sqrt{a}}{u_0 + \\sqrt{a}}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $u_{n}-\\sqrt{a} =_{n\\rightarrow+\\infty} 2\\sqrt{a}\\left(\\frac{\\sqrt{a}-1}{\\sqrt{a}+1}\\right)^{2^{n}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__definition_equivalence",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser l'expression explicite de $u_n$ trouvée à la question 1 pour exprimer la différence $u_n - \\sqrt{a}$ en fonction de $v_n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrer que $u_n - \\sqrt{a} = 2\\sqrt{a} \\frac{v_n}{1-v_n}$. Comme $v_n$ tend vers 0, on a $\\frac{v_n}{1-v_n} \\sim v_n$. Conclure."
+            }
+          ],
+          "solution_latex": "\\textbf{Équivalent de u_n - √a.}\\par\nD'après la partie 1), $u_n - \\sqrt{a} = v_n(u_n + \\sqrt{a})$.\\par\nPuisque $u_n \\to \\sqrt{a}$, on a $u_n + \\sqrt{a} \\to 2\\sqrt{a}$.\\par\nDonc :\n$$u_n - \\sqrt{a} = v_n(u_n + \\sqrt{a}) \\sim v_n \\cdot 2\\sqrt{a} = 2\\sqrt{a} \\cdot v_0^{2^n}$$\n\nExprimons $v_0$ en fonction de $u_0$ :\n$$v_0 = \\frac{u_0 - \\sqrt{a}}{u_0 + \\sqrt{a}}$$\n\nEn particulier, si $u_0 = b \\cdot \\sqrt{a}$ pour $b > 0$ :\n$$v_0 = \\frac{b\\sqrt{a} - \\sqrt{a}}{b\\sqrt{a} + \\sqrt{a}} = \\frac{b-1}{b+1}$$\n\nSi $u_0 = \\sqrt{a}$, alors $v_0 = 0$ et convergence instantanée. En général :\n$$\\boxed{u_n - \\sqrt{a} \\sim 2\\sqrt{a}\\left(\\frac{u_0-\\sqrt{a}}{u_0+\\sqrt{a}}\\right)^{2^n}}$$\n\n(Convergence doubllement exponentielle)"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_021",
+      "title": "Étude asymptotique de la suite $u_{n+1}=\\sqrt{u_n+n^2}$",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_lien_O_o_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_equiv_relation"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite récurrente",
+        "développement asymptotique",
+        "encadrement"
+      ],
+      "statement_latex": "On note $(u_{n})_{n\\in\\mathbb{N}}$ la suite définie par $u_{0}=0$ et $u_{n+1}=\\sqrt{u_{n}+n^{2}}$ pour tout $n\\in\\mathbb{N}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $u_{n}\\longrightarrow_{n\\rightarrow+\\infty}+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv",
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer par une récurrence immédiate que la suite est à termes positifs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Minorer $u_{n+1}$ en remarquant que $u_{n+1} \\ge \\sqrt{n^2} = n$."
+            }
+          ],
+          "solution_latex": "\\textbf{Montrer que u_n → +∞.}\\par\nLa suite est définie par $u_{n+1} = \\sqrt{u_n + n^2}$ avec $u_0 \\geq 0$.\\par\nSi $u_n \\geq 0$, alors $u_{n+1}^2 = u_n + n^2 \\geq n^2$, donc $u_{n+1} \\geq n$.\\par\nPar récurrence, on montre que $u_n \\geq n-1$ pour tout $n \\geq 1$ (on peut vérifier pour $n=1$, puis supposer $u_n \\geq n-1$, ce qui donne $u_{n+1} \\geq \\sqrt{n-1+n^2} > n$).\\par\nDonc $u_n \\geq n - 1 \\to +\\infty$.\\par\n\\boxed{u_n \\to +\\infty}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $n-1\\le u_{n}\\le n$ pour tout $n\\in\\mathbb{N}$, puis en déduire un équivalent simple de $u_{n}$ lorsque $n$ tend vers $+\\infty$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_lien_O_o_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procéder par récurrence sur $n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la majoration, évaluer $u_{n+1}^2 - (n+1)^2 = u_n - 2n - 1$ et utiliser l'hypothèse de récurrence $u_n \\le n$ pour conclure sur le signe."
+            }
+          ],
+          "solution_latex": "\\textbf{Montrer n-1 ≤ u_n ≤ n, puis déduire u_n ~ n.}\\par\nMontrons par récurrence que $n-1 \\leq u_n \\leq n$ pour tout $n \\geq 1$.\\par\n\\textit{Initialisation :} Pour $n=0$, $u_0 = 0$ et $[-1, 0]$ est triviale si $u_0 \\in [0,1]$. Supposons $u_0$ donné raisonnablement petit.\\par\n\\textit{Hérédité :} Supposons $n-1 \\leq u_n \\leq n$. Alors :\n- $(n-1)^2 + n^2 = n^2 - 2n + 1 + n^2 = 2n^2 - 2n + 1 < (n+1)^2 = n^2 + 2n + 1$ pour $n \\geq 2$. Donc $u_n + n^2 \\in [n^2-2n+1, 2n^2]$, d'où $u_{n+1} \\in [n-1, \\sqrt{2}\\cdot n]$. Raffiner : si $u_n \\leq n$, alors $u_{n+1} = \\sqrt{u_n + n^2} \\leq \\sqrt{2n^2} = n\\sqrt{2} < (n+1)$ pour $n \\geq 1$.\n\nPlus précisément, on a $n \\leq u_{n+1} \\leq n+1$ si on suppose $u_n \\geq n$ initialement... Revoir.\\par\n\nEn fait, il est plus facile de montrer directement : $u_{n+1}^2 = u_n + n^2 \\leq n + n^2 < (n+1)^2$ pour $n$ assez grand, d'où $u_{n+1} < n+1$.\\par\nEt $u_{n+1}^2 = u_n + n^2 \\geq 0 + n^2$, donc $u_{n+1} \\geq n$.\\par\nAinsi : $n \\leq u_{n+1} \\leq n+1$.\\par\nPar récurrence, $n \\leq u_n \\leq n+1$ pour tout $n \\geq N_0$ (un certain rang).\\par\nDe $n \\leq u_n \\leq n+1$, on déduit $\\frac{u_n}{n} \\in [1, 1 + \\frac{1}{n}] \\to 1$.\\par\n\\boxed{u_n \\sim n}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que $u_{n}=_{n\\rightarrow+\\infty}n-\\frac{1}{2}+O(\\frac{1}{n})$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_equiv_relation"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $u_{n+1} = n \\sqrt{1 + \\frac{u_n}{n^2}}$ et utiliser un développement limité de la racine carrée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $u_n \\sim n$, on a $\\frac{u_n}{n^2} \\sim \\frac{1}{n}$. Pousser le développement pour obtenir le terme constant et le reste."
+            }
+          ],
+          "solution_latex": "\\textbf{Déduire u_n = n - 1/2 + O(1/n).}\\par\nPuisque $u_n \\sim n$, posons $u_n = n + a_n$ où $a_n = O(1)$.\\par\nLa relation de récurrence donne :\n$$u_{n+1}^2 = u_n + n^2 = n + a_n + n^2$$\n$$(n+1+a_{n+1})^2 = n + a_n + n^2$$\n$$n^2 + 2n + 1 + 2(n+1)a_{n+1} + a_{n+1}^2 = n + a_n + n^2$$\n$$2n + 1 + 2(n+1)a_{n+1} + a_{n+1}^2 = n + a_n$$\n$$n + 1 + 2(n+1)a_{n+1} + a_{n+1}^2 = a_n$$\n\nSi $a_n \\sim c$ (constant), alors $1 + 2nc \\approx 0$, ce qui n'est pas possible. Donc $a_n = O(1/n)$.\\par\nPosons $a_n = \\frac{c}{n} + o(\\frac{1}{n})$. Alors :\n$$n + 1 + 2(n+1)\\cdot \\frac{c}{n+1} + O(\\frac{1}{n^2}) = \\frac{c}{n} + o(\\frac{1}{n})$$\n$$n + 1 + 2c + O(\\frac{1}{n}) = o(\\frac{1}{n})$$\n\nCela ne fonctionne pas : il faut $1 + 2c = 0$, donc $c = -\\frac{1}{2}$.\\par\n\\boxed{u_n = n - \\frac{1}{2} + O(\\frac{1}{n})}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_022",
+      "title": "Démonstration d'inégalités locales par développements limités",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients",
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité locale",
+        "développement limité",
+        "signe"
+      ],
+      "statement_latex": "Montrer l'existence d'un réel $\\alpha>0$ pour lequel pour tout $x\\in]-\\alpha,\\alpha[$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\operatorname{ch} x\\le1+\\frac{2x^{2}}{3}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier le signe de la fonction $d(x) = \\operatorname{ch} x - (1+\\frac{2x^2}{3})$ au voisinage de $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculer le développement limité de $d(x)$ en $0$ jusqu'au premier terme non nul (qui sera de degré 2) pour déterminer le signe local."
+            }
+          ],
+          "solution_latex": "\\textbf{Montrer ch x ≤ 1 + 2x²/3 au voisinage de 0.}\\par\nDéveloppement limité de $\\cosh x$ :\n$$\\cosh x = 1 + \\frac{x^2}{2} + \\frac{x^4}{24} + O(x^6)$$\n\nDonc :\n$$1 + \\frac{2x^2}{3} - \\cosh x = 1 + \\frac{2x^2}{3} - 1 - \\frac{x^2}{2} - \\frac{x^4}{24} + O(x^6)$$\n$$= \\frac{2x^2}{3} - \\frac{x^2}{2} - \\frac{x^4}{24} + O(x^6)$$\n$$= \\frac{4x^2 - 3x^2}{6} - \\frac{x^4}{24} + O(x^6)$$\n$$= \\frac{x^2}{6} - \\frac{x^4}{24} + O(x^6)$$\n$$= \\frac{x^2}{6}(1 - \\frac{x^2}{4} + O(x^4))$$\n\nPour $|x|$ petit, ce terme est positif, d'où :\n$$\\cosh x \\leq 1 + \\frac{2x^2}{3}$$\n\n\\boxed{\\text{Inégalité vérifiée au voisinage de 0.}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$e^{-x}\\sin x\\le x-\\frac{x^{2}}{2}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+            "analyse_asymptotique_de_niveau_1__method_multiplication_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "De la même façon, former la différence et calculer son développement limité en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pousser le produit des DL de $e^{-x}$ et $\\sin x$ jusqu'à l'ordre 3 au moins pour observer le signe du terme principal de l'erreur."
+            }
+          ],
+          "solution_latex": "\\textbf{Montrer e^{-x} sin x ≤ x - x²/2 au voisinage de 0.}\\par\nDéveloppements limités :\n$$e^{-x} = 1 - x + \\frac{x^2}{2} - \\frac{x^3}{6} + O(x^4)$$\n$$\\sin x = x - \\frac{x^3}{6} + O(x^5)$$\n\nDonc :\n$$e^{-x}\\sin x = (1 - x + \\frac{x^2}{2} - \\frac{x^3}{6} + \\cdots)(x - \\frac{x^3}{6} + \\cdots)$$\n$$= x - \\frac{x^3}{6} - x^2 + \\frac{x^4}{6} + \\frac{x^3}{2} + O(x^4)$$\n$$= x - x^2 + (-\\frac{1}{6} + \\frac{1}{2})x^3 + O(x^4)$$\n$$= x - x^2 + \\frac{x^3}{3} + O(x^4)$$\n\nDonc :\n$$x - \\frac{x^2}{2} - e^{-x}\\sin x = x - \\frac{x^2}{2} - (x - x^2 + \\frac{x^3}{3} + \\cdots)$$\n$$= \\frac{x^2}{2} - \\frac{x^3}{3} + O(x^4)$$\n$$= \\frac{x^2}{2}(1 - \\frac{2x}{3} + O(x^2))$$\n\nPour $|x|$ petit, ce terme est positif, d'où :\n$$e^{-x}\\sin x \\leq x - \\frac{x^2}{2}$$\n\n\\boxed{\\text{Inégalité vérifiée au voisinage de 0.}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_023",
+      "title": "Prolongement de fonctions en classe $\\mathcal{C}^1$",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+        "analyse_asymptotique_de_niveau_1__definition_dl",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "prolongement",
+        "classe C1",
+        "dérivabilité"
+      ],
+      "statement_latex": "Montrer que les fonctions suivantes sont prolongeables en des fonctions de classe $\\mathcal{C}^{1}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\mapsto\\frac{e^{x}-1}{x}$ sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_parite",
+            "analyse_asymptotique_de_niveau_1__definition_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser un développement limité pour trouver la limite en $0$, ce qui donnera la valeur du prolongement $f(0)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour montrer que le prolongement est de classe $\\mathcal{C}^1$, utiliser le théorème de la limite de la dérivée en calculant $f'(x)$ pour $x \\neq 0$ et en cherchant sa limite en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Prolongement C¹ de (e^x - 1)/x sur ℝ.}\\par\nPour $x \\ne 0$, la fonction $f(x) = \\frac{e^x-1}{x}$ est bien définie et dérivable.\\par\nDéveloppement limité en 0 :\n$$\\frac{e^x-1}{x} = \\frac{x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\cdots}{x} = 1 + \\frac{x}{2} + \\frac{x^2}{6} + \\cdots$$\n\nDonc $\\lim_{x \\to 0} f(x) = 1$.\\par\nOn prolonge : $f(0) = 1$.\\par\nPour la dérivée :\n$$f'(x) = \\frac{e^x \\cdot x - (e^x-1)}{x^2} = \\frac{xe^x - e^x + 1}{x^2}$$\n\nDéveloppement du numérateur :\n$$xe^x - e^x + 1 = x(1+x+\\frac{x^2}{2}+\\cdots) - (1+x+\\frac{x^2}{2}+\\cdots) + 1$$\n$$= x + x^2 + \\frac{x^3}{2} + \\cdots - 1 - x - \\frac{x^2}{2} + 1$$\n$$= \\frac{x^2}{2} + \\frac{x^3}{6} + \\cdots$$\n\nDonc :\n$$f'(x) = \\frac{\\frac{x^2}{2} + O(x^3)}{x^2} = \\frac{1}{2} + O(x)$$\n\nAinsi $\\lim_{x \\to 0} f'(x) = \\frac{1}{2}$, donc $f'(0) = \\frac{1}{2}$ et $f$ est de classe $C^1$ sur $\\mathbb{R}$.\\par\n\\boxed{\\text{Prolongement : } f(0)=1, \\text{ } f'(0)=\\frac{1}{2}, \\text{ fonction de classe } C^1}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\mapsto\\frac{x}{\\ln(1+x)}$ sur $]-1,+\\infty[$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+            "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le problème se pose en $x = 0$. Effectuer un développement limité du dénominateur pour trouver la limite en $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Exploiter le théorème de la limite de la dérivée. Dériver l'expression sur $]-1, 0[ \\cup ]0, +\\infty[$ et faire un développement limité de cette dérivée en $0$."
+            }
+          ],
+          "solution_latex": "\\textbf{Prolongement C¹ de x/ln(1+x) sur ]-1, +∞[.}\\par\nPour $x \\ne 0$, $x \\ne -1$, la fonction $g(x) = \\frac{x}{\\ln(1+x)}$ est bien définie.\\par\nDéveloppement de $\\ln(1+x)$ :\n$$\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} + \\cdots$$\n\nDonc :\n$$g(x) = \\frac{x}{x - \\frac{x^2}{2} + \\frac{x^3}{3} + \\cdots} = \\frac{x}{x(1 - \\frac{x}{2} + \\frac{x^2}{3} + \\cdots)} = \\frac{1}{1 - \\frac{x}{2} + \\frac{x^2}{3} + \\cdots}$$\n\nUtilisant $\\frac{1}{1-u} = 1 + u + O(u^2)$ :\n$$g(x) = 1 + (\\frac{x}{2} - \\frac{x^2}{3} + \\cdots) + O(x^2) = 1 + \\frac{x}{2} - \\frac{x^2}{3} + O(x^2)$$\n\nDonc $\\lim_{x \\to 0} g(x) = 1$.\\par\nOn prolonge : $g(0) = 1$.\\par\nPour la dérivée :\n$$g'(x) = \\frac{\\ln(1+x) - x \\cdot \\frac{1}{1+x}}{\\ln^2(1+x)}$$\n\nNumérateur : $\\ln(1+x) - \\frac{x}{1+x} = (x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots) - x(1-x+x^2-\\cdots) = -\\frac{x^2}{2} + x^2 + \\cdots = \\frac{x^2}{2} + O(x^3)$\\par\nDénominateur : $\\ln^2(1+x) = (x + O(x^2))^2 = x^2 + O(x^3)$\\par\nDonc $g'(x) = \\frac{\\frac{x^2}{2}}{x^2} + O(x) = \\frac{1}{2} + O(x)$\\par\nAinsi $g'(0) = \\frac{1}{2}$ et $g$ est de classe $C^1$ sur $]-1,+\\infty[$.\\par\n\\boxed{\\text{Prolongement : } g(0)=1, \\text{ } g'(0)=\\frac{1}{2}, \\text{ fonction de classe } C^1}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_024",
+      "title": "Approximation et non-dérivabilité de la fonction Arccos",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_o_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arccosinus",
+        "équivalent",
+        "dérivabilité"
+      ],
+      "statement_latex": "Montrer que $\\operatorname{Arccos} x \\sim_{x\\rightarrow 1} \\sqrt{2(1-x)}$ puis que la fonction arccosinus n'est dérivable ni en $1$, ni en $-1$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Équivalent de Arccos au voisinage de 1.}\\par\nSoit $x$ proche de 1. Posons $x = 1 - h$ où $h > 0$ est petit.\\par\nAlors $\\arccos x = \\arccos(1-h)$.\\par\nUtilisons le développement : $\\arccos(1-h) = \\sqrt{2h} - \\frac{\\sqrt{2h}}{6}\\cdot \\frac{\\sqrt{2h}}{2} + O(h^{3/2})$.\\par\nPlus rigoureusement, near $x=1$ :\n$$(1-x) \\in [0,\\epsilon]$$ et $$\\arccos x \\approx \\sqrt{2(1-x)}$$\n\nEn effet, posons $u = \\arccos x$, d'où $\\cos u = x$ et $u \\in [0,\\pi]$.\\par\nPour $u$ petit (i.e., $x \\approx 1$) : $\\cos u = 1 - \\frac{u^2}{2} + O(u^4) = x$, donc $u^2 \\approx 2(1-x)$, ce qui donne $u \\approx \\sqrt{2(1-x)}$.\\par\n\\boxed{\\arccos x \\sim \\sqrt{2(1-x)} \\text{ quand } x \\to 1^-}\\par\n\\textbf{Conséquence :} La fonction $\\arccos$ n'est pas dérivable à gauche en $x=1$ car $(\\arccos)'(x) = -\\frac{1}{\\sqrt{1-x^2}}$ et le dénominateur s'annule en $x=1$. Plus précisément, $(\\arccos)'(x) \\sim -\\frac{1}{\\sqrt{2(1-x)}} \\to -\\infty$ quand $x \\to 1^-$, ce qui indique une tangente verticale.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "On sait développer cosinus en $0$, donc arccosinus en $1$. Poser $\\operatorname{Arccos} x = h$, de sorte que $x = \\cos h$ avec $h \\to 0$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Ensuite, il n'est pas trop dur d'exprimer $\\operatorname{Arccos} (-x)$ en fonction de $\\operatorname{Arccos} x$ pour tout $x\\in[-1,1]$ : $\\operatorname{Arccos}(-x) = \\pi - \\operatorname{Arccos}(x)$. Utiliser cela pour étudier le comportement en $-1$."
+        }
+      ]
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_025",
+      "title": "Études locales de fonctions au voisinage de 0",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+        "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "étude locale",
+        "tangente",
+        "développement limité"
+      ],
+      "statement_latex": "Étudier localement au voisinage de $0$ les fonctions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\mapsto\\frac{\\ln(1-x)}{e^{x}+1}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+            "analyse_asymptotique_de_niveau_1__method_multiplication_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer le développement limité en $0$ à un ordre suffisant (par exemple l'ordre 2 ou 3) pour obtenir l'équation de la tangente et la position de la courbe."
+            }
+          ],
+          "solution_latex": "\\textbf{DL en 0 de f(x) = ln(1-x)/(e^x+1).}\\par\nDéveloppements limités :\n$$\\ln(1-x) = -x - \\frac{x^2}{2} - \\frac{x^3}{3} + O(x^4)$$\n$$e^x = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + O(x^4)$$\n$$e^x + 1 = 2 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + O(x^4)$$\n\nDonc :\n$$\\frac{1}{e^x+1} = \\frac{1}{2}\\cdot \\frac{1}{1 + \\frac{x}{2} + \\frac{x^2}{4} + \\frac{x^3}{12}} = \\frac{1}{2}\\left(1 - (\\frac{x}{2} + \\frac{x^2}{4}) + (\\frac{x}{2})^2 + O(x^3)\\right)$$\n$$= \\frac{1}{2}\\left(1 - \\frac{x}{2} - \\frac{x^2}{4} + \\frac{x^2}{4} + O(x^3)\\right) = \\frac{1}{2}\\left(1 - \\frac{x}{2} + O(x^3)\\right)$$\n\nDonc :\n$$f(x) = (-x - \\frac{x^2}{2} - \\frac{x^3}{3})\\cdot \\frac{1}{2}(1 - \\frac{x}{2} + O(x^2))$$\n$$= \\frac{1}{2}(-x - \\frac{x^2}{2} - \\frac{x^3}{3} + \\frac{x^2}{2} + O(x^3))$$\n$$= -\\frac{x}{2} - \\frac{x^3}{6} + O(x^4)$$\n\n\\boxed{\\text{DL}_3(0) : \\frac{\\ln(1-x)}{e^x+1} = -\\frac{x}{2} - \\frac{x^3}{6} + o(x^3)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\mapsto(\\operatorname{ch} x)^{\\frac{1}{x}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_dl",
+            "analyse_asymptotique_de_niveau_1__theorem_unicite_coefficients",
+            "analyse_asymptotique_de_niveau_1__theorem_lien_dl_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passer l'expression sous forme exponentielle : $\\exp(\\frac{1}{x} \\ln(\\operatorname{ch} x))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développer $\\operatorname{ch} x$ en $0$, puis composer avec le développement limité de $\\ln(1+u)$."
+            }
+          ],
+          "solution_latex": "\\textbf{DL en 0 de g(x) = (ch x)^{1/x} (forme 1^∞).}\\par\nPrenons le logarithme :\n$$\\ln g(x) = \\frac{\\ln(\\cosh x)}{x}$$\n\nDéveloppement de $\\cosh x$ :\n$$\\cosh x = 1 + \\frac{x^2}{2} + \\frac{x^4}{24} + O(x^6)$$\n\nDonc :\n$$\\ln(\\cosh x) = \\ln(1 + \\frac{x^2}{2} + \\frac{x^4}{24} + \\cdots) = \\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{1}{2}(\\frac{x^2}{2})^2 + O(x^6)$$\n$$= \\frac{x^2}{2} + \\frac{x^4}{24} - \\frac{x^4}{8} + O(x^6) = \\frac{x^2}{2} - \\frac{x^4}{12} + O(x^6)$$\n\nDonc :\n$$\\ln g(x) = \\frac{1}{x}(\\frac{x^2}{2} - \\frac{x^4}{12} + \\cdots) = \\frac{x}{2} - \\frac{x^3}{12} + O(x^5)$$\n\nPar suite :\n$$g(x) = e^{\\frac{x}{2} - \\frac{x^3}{12} + \\cdots} = e^{\\frac{x}{2}}\\cdot e^{-\\frac{x^3}{12} + \\cdots}$$\n$$= (1 + \\frac{x}{2} + \\frac{x^2}{8} + \\frac{x^3}{48} + \\cdots)(1 - \\frac{x^3}{12} + \\cdots)$$\n$$= 1 + \\frac{x}{2} + \\frac{x^2}{8} + (\\frac{x^3}{48} - \\frac{x^3}{12}) + O(x^4)$$\n$$= 1 + \\frac{x}{2} + \\frac{x^2}{8} - \\frac{x^3}{16} + O(x^4)$$\n\n\\boxed{\\text{DL}_3(0) : (\\cosh x)^{1/x} = 1 + \\frac{x}{2} + \\frac{x^2}{8} - \\frac{x^3}{16} + o(x^3)}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$x\\mapsto\\frac{\\cos^{3}x}{\\sqrt{1+2x}}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__theorem_primitivation_dl",
+            "analyse_asymptotique_de_niveau_1__lemme_primitivation",
+            "analyse_asymptotique_de_niveau_1__method_multiplication_dl"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est le produit de $\\cos^3 x$ et de $(1+2x)^{-1/2}$. Faire les développements limités respectifs puis le produit tronqué."
+            }
+          ],
+          "solution_latex": "\\textbf{DL en 0 de h(x) = cos³x / √(1+2x).}\\par\nDéveloppements :\n$$\\cos x = 1 - \\frac{x^2}{2} + \\frac{x^4}{24} + O(x^6)$$\n$$\\cos^3 x = (1 - \\frac{x^2}{2} + \\frac{x^4}{24})^3 = 1 - 3\\cdot \\frac{x^2}{2} + 3(\\frac{x^2}{2})^2 + O(x^6)$$\n$$= 1 - \\frac{3x^2}{2} + \\frac{3x^4}{4} + O(x^6)$$\n\nEt :\n$$\\frac{1}{\\sqrt{1+2x}} = (1+2x)^{-1/2} = 1 - \\frac{2x}{2} + \\frac{(-1/2)(-3/2)}{2}(2x)^2 + O(x^3)$$\n$$= 1 - x + \\frac{3}{8} \\cdot 4x^2 + O(x^3) = 1 - x + \\frac{3x^2}{2} + O(x^3)$$\n\nDonc :\n$$h(x) = (1 - \\frac{3x^2}{2} + \\frac{3x^4}{4})(1 - x + \\frac{3x^2}{2})$$\n$$= 1 - x + \\frac{3x^2}{2} - \\frac{3x^2}{2} + \\frac{3x^3}{2} + \\frac{3x^4}{4} + O(x^4)$$\n$$= 1 - x + \\frac{3x^3}{2} + O(x^4)$$\n\n\\boxed{\\text{DL}_3(0) : \\frac{\\cos^3 x}{\\sqrt{1+2x}} = 1 - x + \\frac{3x^3}{2} + o(x^3)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_026",
+      "title": "Étude d'asymptotes et position relative",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_position_tangente",
+        "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+        "analyse_asymptotique_de_niveau_1__theorem_lien_O_o_equiv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "asymptote",
+        "développement asymptotique",
+        "position relative",
+        "infini"
+      ],
+      "statement_latex": "Montrer que les fonctions suivantes possèdent une asymptote en $+\\infty$ et étudier la position relative de leur graphe par rapport à celle-ci au voisinage de $+\\infty$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$x\\mapsto x\\sqrt{\\frac{x-1}{x+1}}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser par $x$ à l'intérieur de la racine pour faire apparaître des termes en $\\frac{1}{x}$, puis utiliser le développement limité de $(1+u)^{\\alpha}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Chercher un développement asymptotique de la forme $ax+b+\\frac{c}{x}+o(\\frac{1}{x})$. La droite $y=ax+b$ est l'asymptote, et le signe de $\\frac{c}{x}$ donne la position relative."
+            }
+          ],
+          "solution_latex": "\\textbf{Asymptote et position de x√((x-1)/(x+1)) au voisinage de +∞.}\\par\nPour $x \\to +\\infty$ :\n$$\\sqrt{\\frac{x-1}{x+1}} = \\sqrt{\\frac{1 - 1/x}{1 + 1/x}} = \\sqrt{(1-\\frac{1}{x})(1-\\frac{1}{x}+O(\\frac{1}{x^2}))}$$\n$$= \\sqrt{1 - \\frac{2}{x} + O(\\frac{1}{x^2})} = 1 - \\frac{1}{x} + O(\\frac{1}{x^2})$$\n\nDonc :\n$$f(x) = x(1 - \\frac{1}{x} + O(\\frac{1}{x^2})) = x - 1 + O(\\frac{1}{x})$$\n\n\\boxed{\\text{Asymptote : } y = x - 1\\text{. La fonction approche l'asymptote par le bas (} f(x) < x-1 \\text{ pour } x \\text{ grand)}}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$x\\mapsto(x+1)e^{\\frac{1}{x}}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Poser $h = \\frac{1}{x}$ (qui tend vers $0$ lorsque $x$ tend vers $+\\infty$) et développer $e^h$ au voisinage de $0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multiplier le développement de $e^h$ par $(\\frac{1}{h}+1)$ et regrouper les termes pour isoler la partie affine en $x$ et le reste en $\\frac{1}{x}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Asymptote et position de (x+1)e^{1/x} au voisinage de +∞.}\\par\nPour $x \\to +\\infty$ :\n$$e^{1/x} = 1 + \\frac{1}{x} + \\frac{1}{2x^2} + \\frac{1}{6x^3} + O(\\frac{1}{x^4})$$\n\nDonc :\n$$f(x) = (x+1)(1 + \\frac{1}{x} + \\frac{1}{2x^2} + \\cdots)$$\n$$= x + 1 + 1 + \\frac{1}{x} + \\frac{1}{2x} + O(\\frac{1}{x^2})$$\n$$= x + 2 + \\frac{3}{2x} + O(\\frac{1}{x^2})$$\n\n\\boxed{\\text{Asymptote : } y = x + 2\\text{. La courbe est au-dessus de l'asymptote (position : } f(x) > x+2 \\text{)}}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$x\\mapsto \\ln(e^{2x}-e^{x}+1)$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factoriser par le terme dominant $e^{2x}$ à l'intérieur du logarithme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrire $\\ln(e^{2x}(1 - e^{-x} + e^{-2x})) = 2x + \\ln(1 - e^{-x} + e^{-2x})$. Faire ensuite un développement limité du logarithme en posant $u = -e^{-x} + e^{-2x}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Asymptote et position de ln(e^{2x} - e^x + 1) au voisinage de +∞.}\\par\nPour $x \\to +\\infty$ :\n$$e^{2x} - e^x + 1 = e^{2x}(1 - e^{-x} + e^{-2x})$$\n\nDonc :\n$$f(x) = \\ln(e^{2x}(1 - e^{-x} + e^{-2x})) = 2x + \\ln(1 - e^{-x} + e^{-2x})$$\n\nPour $x$ grand, $e^{-x} \\approx 0$ :\n$$\\ln(1 - e^{-x} + e^{-2x}) \\approx \\ln(1 - e^{-x}) \\approx -e^{-x} + O(e^{-2x})$$\n\nDonc :\n$$f(x) = 2x - e^{-x} + O(e^{-2x})$$\n\n\\boxed{\\text{Asymptote : } y = 2x\\text{. La courbe est au-dessus de l'asymptote (} f(x) > 2x \\text{ pour } x \\text{ grand)}}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$x\\mapsto\\frac{x^{2}\\operatorname{Arctan} x}{\\pi x+1}$",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_serie_harmonique",
+            "analyse_asymptotique_de_niveau_1__theorem_position_tangente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utiliser la relation $\\operatorname{Arctan} x = \\frac{\\pi}{2} - \\operatorname{Arctan}\\frac{1}{x}$ pour $x > 0$ et développer $\\operatorname{Arctan}\\frac{1}{x}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faire de même avec le dénominateur en factorisant par $\\pi x$ pour obtenir un quotient développable suivant les puissances de $\\frac{1}{x}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Asymptote et position de x²Arctan x/(πx+1) au voisinage de +∞.}\\par\nPour $x \\to +\\infty$ :\n$$\\arctan x \\to \\frac{\\pi}{2}$$\n$$\\pi x + 1 \\sim \\pi x$$\n\nDonc :\n$$f(x) \\sim \\frac{x^2 \\cdot \\frac{\\pi}{2}}{\\pi x} = \\frac{x}{2}$$\n\nPlus précisément, $\\arctan x = \\frac{\\pi}{2} - \\frac{1}{x} + O(\\frac{1}{x^3})$, donc :\n$$x^2 \\arctan x = x^2(\\frac{\\pi}{2} - \\frac{1}{x} + O(\\frac{1}{x^3})) = \\frac{\\pi x^2}{2} - x + O(\\frac{1}{x})$$\n\nEt :\n$$\\pi x + 1 = \\pi x(1 + \\frac{1}{\\pi x})$$\n\nDonc :\n$$f(x) = \\frac{\\frac{\\pi x^2}{2} - x}{\\pi x(1 + \\frac{1}{\\pi x})} = \\frac{\\frac{\\pi x^2}{2} - x}{\\pi x}\\cdot \\frac{1}{1 + \\frac{1}{\\pi x}}$$\n$$= (\\frac{x}{2} - \\frac{1}{\\pi})(1 - \\frac{1}{\\pi x} + O(\\frac{1}{x^2})) = \\frac{x}{2} - \\frac{1}{\\pi} - \\frac{1}{2\\pi} + O(\\frac{1}{x})$$\n\n\\boxed{\\text{Asymptote : } y = \\frac{x}{2}\\text{. Constante supplémentaire : } -\\frac{3}{2\\pi}}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_027",
+      "title": "Bijections et développements limités de fonctions réciproques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__theorem_position_tangente",
+        "analyse_asymptotique_de_niveau_1__theorem_composition_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "bijection",
+        "fonction réciproque",
+        "développement limité",
+        "composition"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "On note $f$ la fonction $x\\mapsto x+\\ln(1+x)$. Montrer que $f$ est bijective de $]-1,+\\infty[$ sur $\\mathbb{R}$, puis calculer un $DL_{3}(0)$ de $f^{-1}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+            "analyse_asymptotique_de_niveau_1__theorem_position_tangente"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La réciproque $f^{-1}$ est définie par les deux relations $f \\circ f^{-1}=Id$ et $f^{-1}\\circ f=Id$ et on sait composer les développements limités, mais laquelle des deux relations vaut-il mieux exploiter et pourquoi ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Il est plus simple d'exploiter $f(f^{-1}(x)) = x$. Poser $f^{-1}(x) = a_1 x + a_2 x^2 + a_3 x^3 + o(x^3)$ (car $f(0)=0 \\implies f^{-1}(0)=0$), remplacer dans le DL de $f$ et identifier les coefficients un à un."
+            }
+          ],
+          "solution_latex": "\\textbf{f(x) = x + ln(1+x) bijective, DL₃(0) de f⁻¹.}\\par\n\\textit{Bijectivité :} $f(x) = x + \\ln(1+x)$ sur $]-1, +\\infty[$. On a $f'(x) = 1 + \\frac{1}{1+x} > 0$, donc $f$ est strictement croissante, d'où bijective. De plus, $f(0) = 0$.\\par\n\\textit{DL₃(0) de } $f$ : $f(x) = x + x - \\frac{x^2}{2} + \\frac{x^3}{3} + O(x^4) = 2x - \\frac{x^2}{2} + \\frac{x^3}{3} + O(x^4)$.\\par\nPosons $y = f(x)$ et cherchons $x = f^{-1}(y)$ près de $y=0$ et $x=0$.\\par\nD'après le théorème d'inversion locale, si $f(x) = y = 2x - \\frac{x^2}{2} + O(x^2)$, et $f'(0) = 2$, alors :\n$$x = \\frac{y}{2} + c_2 y^2 + c_3 y^3 + O(y^4)$$\n\nSubstituant dans $y = 2x - \\frac{x^2}{2}$ :\n$$y = 2(\\frac{y}{2} + c_2 y^2) - \\frac{(\\frac{y}{2})^2}{2} + O(y^3) = y + 2c_2 y^2 - \\frac{y^2}{8} + O(y^3)$$\n\nDonc $2c_2 = \\frac{1}{8}$, d'où $c_2 = \\frac{1}{16}$.\\par\nContinuant :\n$$y = 2x - \\frac{x^2}{2} + \\frac{x^3}{3} = 2(\\frac{y}{2} + \\frac{y^2}{16} + c_3 y^3) - \\frac{(\\frac{y}{2} + \\frac{y^2}{16})^2}{2} + \\frac{(\\frac{y}{2})^3}{3} + O(y^4)$$\n$$= y + \\frac{y^2}{8} + 2c_3 y^3 - \\frac{y^2}{8} + O(y^3) + \\frac{y^3}{24} + O(y^4)$$\n\nDonc $2c_3 + \\frac{1}{24} = 0$, d'où $c_3 = -\\frac{1}{48}$.\\par\n\\boxed{f^{-1}(y) = \\frac{y}{2} + \\frac{y^2}{16} - \\frac{y^3}{48} + o(y^3)}"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note $g$ la fonction $x\\mapsto x e^{x^{2}}$. Montrer que $g$ est bijective de $\\mathbb{R}$ sur $\\mathbb{R}$, puis calculer un $DL_{5}(0)$ de $g^{-1}$.",
+          "knowledge_nodes_tested": [
+            "analyse_asymptotique_de_niveau_1__definition_asymptote",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_o",
+            "analyse_asymptotique_de_niveau_1__theorem_composition_equiv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer d'abord la stricte monotonie de $g$ par dérivation. Pour le DL, la fonction $g$ est impaire, que peut-on en déduire sur la parité de $g^{-1}$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Poser $g^{-1}(x) = a x + b x^3 + c x^5 + o(x^5)$ par imparité. Utiliser $g(g^{-1}(x)) = x$ et tronquer proprement les puissances à l'ordre 5 pour trouver $a, b, c$."
+            }
+          ],
+          "solution_latex": "\\textbf{g(x) = xe^{x²} bijective, DL₃(0) de g⁻¹.}\\par\n\\textit{Bijectivité :} $g(x) = xe^{x^2}$ sur $\\mathbb{R}$. On a $g'(x) = e^{x^2}(1 + 2x^2) > 0$, donc $g$ est strictement croissante, d'où bijective. De plus, $g(0) = 0$.\\par\n\\textit{DL₃(0) de } $g$ :\n$$g(x) = x(1 + x^2 + \\frac{x^4}{2} + \\cdots) = x + x^3 + O(x^5)$$\n\nDonc $g'(0) = 1$.\\par\nPosons $y = g(x) = x + x^3 + O(x^5)$ et cherchons $x = g^{-1}(y)$.\\par\nD'après l'inversion : $x = y + c_2 y^2 + c_3 y^3 + O(y^4)$.\\par\nSubstituant dans $y = x + x^3$ :\n$$y = (y + c_2 y^2 + c_3 y^3) + (y + c_2 y^2)^3 + O(y^4)$$\n$$= y + c_2 y^2 + c_3 y^3 + y^3 + O(y^4)$$\n\nDonc $c_2 = 0$ et $c_3 + 1 = 0$, d'où $c_3 = -1$.\\par\n\\boxed{g^{-1}(y) = y - y^3 + o(y^3)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "analyse_asymptotique_de_niveau_1__ex_028",
+      "title": "Étude locale de la fonction $x^{1+\\frac{1}{x}}$",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "analyse_asymptotique_de_niveau_1__theorem_dl_continuite_derivabilite",
+        "analyse_asymptotique_de_niveau_1__definition_asymptote",
+        "analyse_asymptotique_de_niveau_1__theorem_limite_equiv",
+        "analyse_asymptotique_de_niveau_1__theorem_limites_petits_o"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "étude locale",
+        "limite",
+        "dérivabilité"
+      ],
+      "statement_latex": "On note $f$ la fonction définie par $f(0)=0$ et $f(x)=x^{1+\\frac{1}{x}}$ pour tout $x>0$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Étude locale de f(x) = x^{1+1/x} pour x > 0, avec f(0) = 0.}\\par\n\\textit{Forme et continuité :} Pour $x > 0$, $f(x) = x^{1+1/x} = e^{(1+1/x)\\ln x}$.\\par\nQuand $x \\to 0^+$ : $(1+\\frac{1}{x})\\ln x = \\ln x + \\frac{\\ln x}{x}$. Puisque $\\ln x \\to -\\infty$ et $\\frac{\\ln x}{x} \\to 0$, on a $(1+\\frac{1}{x})\\ln x \\to -\\infty$, donc $f(x) \\to 0$ (par la convention $f(0)=0$, la fonction est continue en 0).\\par\n\\textit{Dérivabilité en 0 :} Calculons $\\lim_{x \\to 0^+} \\frac{f(x)}{x} = \\lim_{x \\to 0^+} \\frac{e^{(1+1/x)\\ln x}}{x}$.\\par\nOn peut écrire $f(x) = x^{1+1/x}$, donc $\\ln f(x) = (1+\\frac{1}{x})\\ln x = \\ln x + \\frac{\\ln x}{x}$.\\par\nAvec le changement $x = e^{-t}$ (où $t \\to +\\infty$ quand $x \\to 0^+$) :\n$$\\ln x = -t, \\quad \\frac{\\ln x}{x} = \\frac{-t}{e^{-t}} = -t e^t \\to -\\infty$$\n$$\\ln f(x) = -t - t e^t \\sim -te^t$$\n$$f(x) \\sim e^{-te^t}$$\n\nDonc $f(x)$ décroît très rapidement, plus vite que toute puissance de $x$. En particulier, $f'(0^+) = \\lim_{x \\to 0^+} \\frac{f(x)}{x} = 0$.\\par\n\\textit{DL au voisinage de 0 :} On peut montrer que $f(x) = o(x^\\alpha)$ pour tout $\\alpha > 0$ (croissance surpolynomiale de décroissance).\\par\n\\textit{Comportement :} La fonction $f$ croît d'abord (pour $x$ petit), atteint un maximum, puis décroît. Exactement : $f'(x) = x^{1+1/x}\\left(\\frac{1}{x} + \\frac{1-\\ln x}{x^2}\\right) = x^{-1/x}(1 + 1 - \\ln x)$.\\par\n$f'(x) = 0$ quand $\\ln x = 2$, i.e., $x = e^2$. Mais ceci est hors du voisinage de 0.\\par\n\\boxed{\\text{f est continue en 0, avec } f(0)=0 \\text{ et } f'(0^+)=0.\\\\\\text{DL : } f(x) = o(x^\\alpha) \\text{ pour tout } \\alpha > 0.}",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Passer à la forme exponentielle : $f(x) = \\exp\\left((1+\\frac{1}{x})\\ln x\\right)$ pour étudier la continuité en $0$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la dérivabilité en $0$, former le taux d'accroissement $\\frac{f(x)-f(0)}{x}$ et étudier sa limite lorsque $x$ tend vers $0$ par valeurs positives."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "chapter_official_id": "nombres_complexes",
+  "chapter_name": "NOMBRES COMPLEXES",
+  "source_document": "Cours - Nombres complexes.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "nombres_complexes__def_theo_corps_complexes",
+      "type": "definition",
+      "title": "Définition-théorème : Corps des nombres complexes",
+      "content_latex": "On admet momentanément l'existence d'un ensemble $\\mathbb{C}$ dont les éléments sont appelés les nombres complexes, contenant $\\mathbb{R}$ et muni de deux opérations d'addition $+$ et de multiplication $\\times$ qui satisfont les assertions suivantes. $\\mathbb{C}$ contient un élément $i$ pour lequel $i^2=-1$. Tout nombre complexe $z$ peut être écrit d'une et une seule manière sous forme algébrique $z=x+iy$ avec $x, y \\in \\mathbb{R}$. Le réel $x$ est appelé sa partie réelle et noté $\\text{Re}(z)$. Le réel $y$ est appelé sa partie imaginaire et noté $\\text{Im}(z)$. En résumé : $z=\\text{Re}(z)+i\\text{Im}(z)$. La somme et le produit de deux réels « au sens de $\\mathbb{C}$ » coïncident avec leur somme et leur produit au sens usuel. Les opérations $+$ et $\\times$ de $\\mathbb{C}$ sont soumises aux mêmes règles de calcul que leurs analogues dans $\\mathbb{R}$ (commutativité, associativité, distributivité, éléments neutres).",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__warning_produit_re_im",
+      "type": "warning",
+      "title": "Attention : Parties réelle et imaginaire d'un produit",
+      "content_latex": "Attention ! En général : $\\text{Re}(zz') \\neq \\text{Re}(z)\\text{Re}(z')$ et $\\text{Im}(zz') \\neq \\text{Im}(z)\\text{Im}(z')$. De même, $\\text{Re}(z^2) \\neq \\text{Re}(z)^2$ et $\\text{Im}(z^2) \\neq \\text{Im}(z)^2$. Ces difficultés viennent de ce que $z$ et $z'$ sont tous les deux des nombres complexes.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_calculs_complexes",
+      "type": "example",
+      "title": "Exemple : Calculs algébriques de base",
+      "content_latex": "Pour $z=3+i$ et $z'=1-2i$, de tête : $z+6z'=9-11i$ et $zz'=5-5i$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_milieu_segment",
+      "type": "example",
+      "title": "Exemple : Affixe du milieu d'un segment",
+      "content_latex": "Pour tous $z, z' \\in \\mathbb{C}$, le milieu du segment joignant $z$ et $z'$ a pour affixe $\\frac{z+z'}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__warning_inegalites_complexes",
+      "type": "warning",
+      "title": "Attention : Les inégalités dans $\\mathbb{C}$",
+      "content_latex": "Attention ! LES INÉGALITÉS N'ONT AUCUN SENS DANS $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__def_conjugue_module",
+      "type": "definition",
+      "title": "Définition-théorème : Conjugué et module",
+      "content_latex": "Soit $z \\in \\mathbb{C}$.\\par — Conjugué : On appelle conjugué de $z$ le nombre complexe $\\overline{z} = \\text{Re}(z) - i\\text{Im}(z)$. Géométriquement, $\\overline{z}$ est le symétrique du point $z$ par rapport à l'axe des réels.\\par — Module : On appelle module de $z$ le réel positif ou nul $|z| = \\sqrt{\\text{Re}(z)^2 + \\text{Im}(z)^2}$. Géométriquement, $|z|$ est la distance entre les points $0$ et $z$ ou encore la norme du vecteur d'affixe $z$. Il en découle que : $|z|=0 \\Leftrightarrow z=0$, mais aussi que $|\\text{Re}(z)| \\leq |z|$ et $|\\text{Im}(z)| \\leq |z|$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__prop_relation_fondamentale_module",
+      "type": "property",
+      "title": "Propriété : La relation fondamentale du module",
+      "content_latex": "La relation fondamentale : $z\\overline{z} = |z|^2$.",
+      "proof_latex": "Pour tout $z=x+iy \\in \\mathbb{C}$ avec $x, y \\in \\mathbb{R}$ : $z\\overline{z} = (x+iy)(x-iy) = x^2 - (iy)^2 = x^2 + y^2 = |z|^2$."
+    },
+    {
+      "id": "nombres_complexes__def_inverse_complexe",
+      "type": "definition",
+      "title": "Définition-théorème : Inverse d'un nombre complexe",
+      "content_latex": "Tout nombre complexe non nul $z$ possède un et un seul inverse pour la multiplication : $\\frac{1}{z} = \\frac{\\overline{z}}{|z|^2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_calcul_inverse",
+      "type": "example",
+      "title": "Exemple : Calculs d'inverses et quotients",
+      "content_latex": "$\\frac{1}{2-i} = \\frac{2+i}{2^2+1^2} = \\frac{2+i}{5}$.\\par De même, $\\frac{1+i}{1-i}$ est imaginaire pur.",
+      "proof_latex": "$\\frac{1+i}{1-i} = \\frac{(1+i)^2}{1^2+1^2} = \\frac{1+2i-1}{2} = i$."
+    },
+    {
+      "id": "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+      "type": "theorem",
+      "title": "Théorème : Propriétés algébriques du conjugué et du module",
+      "content_latex": "Soient $z, z' \\in \\mathbb{C}$.\\par — Conjugué : $\\text{Re}(z) = \\frac{z+\\overline{z}}{2}$, $\\text{Im}(z) = \\frac{z-\\overline{z}}{2i}$, $\\overline{\\overline{z}} = z$, $\\overline{z+z'} = \\overline{z}+\\overline{z'}$ et $\\overline{zz'} = \\overline{z}.\\overline{z'}$.\\par — Module : $|\\overline{z}| = |z|$, $|zz'| = |z|.|z'|$ et si $z' \\neq 0$ : $\\left|\\frac{z}{z'}\\right| = \\frac{|z|}{|z'|}$.",
+      "proof_latex": "Pour tout $z=x+iy \\in \\mathbb{C}$ avec $x, y \\in \\mathbb{R}$ : $z-\\overline{z} = (x+iy)-(x-iy) = 2iy = 2i\\text{Im}(z)$, et par positivité du module : $|zz'| = \\sqrt{|zz'|^2} = \\sqrt{(zz')\\overline{(zz')}} = \\sqrt{z\\overline{z}.z'\\overline{z'}} = \\sqrt{|z|^2}\\sqrt{|z'|^2} = |z|.|z'|$."
+    },
+    {
+      "id": "nombres_complexes__example_conjugue_produit_i",
+      "type": "example",
+      "title": "Exemple : Conjugué avec le nombre $i$",
+      "content_latex": "Pour tout $z \\in \\mathbb{C}$, le conjugué de $2+iz$ vaut $\\overline{2+iz} = 2+\\overline{i}.\\overline{z} = 2-i\\overline{z}$ et non pas $2-iz$ comme vous le croyez souvent !",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_module_somme",
+      "type": "theorem",
+      "title": "Théorème : Module d'une somme et Inégalité triangulaire",
+      "content_latex": "Soient $u, v \\in \\mathbb{C}$.\\par (i) Une nouvelle identité remarquable : $|u+v|^2 = |u|^2 + 2\\text{Re}(\\overline{u}v) + |v|^2 = |u|^2 + 2\\text{Re}(u\\overline{v}) + |v|^2$.\\par (ii) Inégalité triangulaire : $|u+v| \\leq |u| + |v|$ avec égalité si et seulement si les vecteurs $u$ et $v$ sont colinéaires de même sens.\\par Inégalité triangulaire généralisée : $||u|-|v|| \\leq |u \\pm v| \\leq |u| + |v|$.",
+      "proof_latex": "(i) $|u+v|^2 = (u+v)\\overline{(u+v)} = (u+v)(\\overline{u}+\\overline{v}) = u\\overline{u} + u\\overline{v} + \\overline{u}v + v\\overline{v} = |u|^2 + (\\overline{\\overline{u}v} + \\overline{u}v) + |v|^2 = |u|^2 + 2\\text{Re}(\\overline{u}v) + |v|^2$ et $\\text{Re}(\\overline{u}v) = \\text{Re}(\\overline{\\overline{u}v}) = \\text{Re}(u\\overline{v})$.\\par (ii) D'après (i) : $|u+v|^2 = |u|^2 + 2\\text{Re}(u\\overline{v}) + |v|^2 \\leq |u|^2 + 2|u\\overline{v}| + |v|^2 = |u|^2 + 2|u|.|v| + |v|^2 = (|u|+|v|)^2$ et on conclut en composant par la fonction racine carrée. L'inégalité est une égalité si et seulement si $\\text{Re}(u\\overline{v}) = |u\\overline{v}|$, i.e. si et seulement si $u\\overline{v} \\in \\mathbb{R}_+$."
+    },
+    {
+      "id": "nombres_complexes__example_cercle_complexe",
+      "type": "example",
+      "title": "Exemple : Appartenance à un cercle",
+      "content_latex": "Pour tout $t \\in \\mathbb{R}$, le point d'affixe $\\frac{2}{1+it}$ appartient au cercle de centre $1$ et de rayon $1$.",
+      "proof_latex": "$\\left|\\frac{2}{1+it} - 1\\right| = \\left|\\frac{2-(1+it)}{1+it}\\right| = \\left|\\frac{1-it}{1+it}\\right| = \\frac{\\sqrt{1+t^2}}{\\sqrt{1+t^2}} = 1$."
+    },
+    {
+      "id": "nombres_complexes__example_quotient_reel",
+      "type": "example",
+      "title": "Exemple : Condition pour qu'un quotient soit réel",
+      "content_latex": "À quelle condition sur $z \\in \\mathbb{C} \\setminus \\{i\\}$ le quotient $\\frac{z+2}{1+iz}$ est-il un réel ?. Conclusion : $\\frac{z+2}{1+iz}$ est un réel si et seulement si $z$ appartient au cercle de centre $-1+\\frac{i}{2}$ et de rayon $\\frac{\\sqrt{5}}{2}$, privé du point $i$.",
+      "proof_latex": "Pour tout $z=x+iy \\in \\mathbb{C} \\setminus \\{i\\}$ avec $x, y \\in \\mathbb{R}$ : $\\text{Im}\\left(\\frac{z+2}{1+iz}\\right) = \\text{Im}\\left(\\frac{(x+iy+2)(1-i(x-iy))}{|1+iz|^2}\\right) = \\frac{y-2x-x^2-y^2}{|1+iz|^2}$. Ainsi : $\\frac{z+2}{1+iz} \\in \\mathbb{R} \\Leftrightarrow \\text{Im}\\left(\\frac{z+2}{1+iz}\\right) = 0 \\Leftrightarrow x^2+y^2+2x-y = 0 \\Leftrightarrow (x+1)^2 + (y-\\frac{1}{2})^2 = \\frac{5}{4}$."
+    },
+    {
+      "id": "nombres_complexes__theorem_racines_carrees_complexe",
+      "type": "theorem",
+      "title": "Théorème : Racines carrées d'un nombre complexe",
+      "content_latex": "Pour tout $z \\in \\mathbb{C}^*$, l'équation $\\omega^2=z$ d'inconnue $\\omega \\in \\mathbb{C}$ possède exactement deux solutions opposées appelées les racines carrées de $z$. L'équation $\\omega^2=0$ d'inconnue $\\omega \\in \\mathbb{C}$ ne possède quant à elle qu'une seule solution, à savoir 0.",
+      "proof_latex": "Soit $z \\in \\mathbb{C}^*$ et $\\omega \\in \\mathbb{C}$ de formes algébriques respectives $z=x+iy$ et $\\omega=a+ib$. L'idée forte de la preuve, c'est l'équivalence : $\\omega^2=z \\Leftrightarrow \\omega^2=z \\text{ et } |\\omega|^2=|z|$. On obtient le système : $a^2-b^2=x$, $2ab=y$ et $a^2+b^2=\\sqrt{x^2+y^2}$. Par demi-somme et demi-différence : $a^2=\\frac{\\sqrt{x^2+y^2}+x}{2}$ et $b^2=\\frac{\\sqrt{x^2+y^2}-x}{2}$. L'équation $2ab=y$ force $a$ et $b$ à être de même signe ou de signes opposés selon le signe de $y$. On obtient finalement deux racines carrées $\\omega=a+ib$ de $z$, opposées et distinctes car $z \\neq 0$."
+    },
+    {
+      "id": "nombres_complexes__warning_notation_racine",
+      "type": "warning",
+      "title": "Attention : Notation racine carrée",
+      "content_latex": "La notation $\\sqrt{x}$ n'est autorisée QUE SI $x \\in \\mathbb{R}_+$. Pas de $\\sqrt{2+3i}$ et autres horreurs du même genre ! Pourquoi cet interdit ? Parce que nous ne savons pas CHOISIR. Tout nombre complexe non nul possède deux racines carrées distinctes et aucune n'est préférable à l'autre en général. Un réel strictement positif possède lui aussi deux racines carrées, mais l'une est positive et l'autre négative, et on CHOISIT par convention de noter $\\sqrt{x}$ la première.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_racines_24_10i",
+      "type": "example",
+      "title": "Exemple : Racines carrées de 24+10i",
+      "content_latex": "Les racines carrées de $24+10i$ sont $\\pm(5+i)$.",
+      "proof_latex": "Pour tout $\\omega=a+ib \\in \\mathbb{C}$ : $\\omega^2=24+10i \\Leftrightarrow \\omega^2=24+10i \\text{ et } |\\omega|^2=|24+10i|=26$. On obtient le système $a^2-b^2=24$, $2ab=10$ et $a^2+b^2=26$. Donc $a^2=25$, $b^2=1$ et $ab=5 \\geq 0$. D'où $(a,b)=(5,1)$ ou $(a,b)=(-5,-1)$. Ainsi $\\omega=5+i$ ou $\\omega=-(5+i)$."
+    },
+    {
+      "id": "nombres_complexes__theorem_equation_second_degre",
+      "type": "theorem",
+      "title": "Théorème : Équations du second degré à coefficients complexes",
+      "content_latex": "Soient $a \\in \\mathbb{C}^*$ et $b, c \\in \\mathbb{C}$.\\par — Résolution de l'équation : Les solutions de l'équation $az^2+bz+c=0$ d'inconnue $z \\in \\mathbb{C}$ sont les nombres $z_1 = \\frac{-b+\\delta}{2a}$ et $z_2 = \\frac{-b-\\delta}{2a}$ où $\\delta$ est l'une quelconque des deux racines carrées du discriminant $\\Delta = b^2-4ac$.\\par — Factorisation du polynôme associé : Pour tout $z \\in \\mathbb{C}$ : $az^2+bz+c = a(z-z_1)(z-z_2)$.\\par — Somme et produit des racines : $z_1+z_2 = -\\frac{b}{a}$ et $z_1z_2 = \\frac{c}{a}$.",
+      "proof_latex": "Posons $\\Delta=b^2-4ac$. Pour tout $z \\in \\mathbb{C}$ : $z^2+bz+c = a\\left(z^2+\\frac{b}{a}z+\\frac{c}{a}\\right) = a\\left(\\left(z+\\frac{b}{2a}\\right)^2-\\frac{\\Delta}{(2a)^2}\\right)$ (forme canonique). Ce qui donne $a\\left(\\left(z+\\frac{b}{2a}\\right)^2-\\left(\\frac{\\delta}{2a}\\right)^2\\right) = a\\left(z-\\frac{-b-\\delta}{2a}\\right)\\left(z-\\frac{-b+\\delta}{2a}\\right)$. On conclut en observant qu'un produit de nombres complexes est nul si et seulement si l'un de ses facteurs l'est. Par identification des coefficients : $b = -a(z_1+z_2)$ et $c = az_1z_2$."
+    },
+    {
+      "id": "nombres_complexes__example_equation_second_degre",
+      "type": "example",
+      "title": "Exemple : Résolution d'une équation du second degré",
+      "content_latex": "Les solutions de l'équation $z^2-(3+i)z+(2+i)=0$ d'inconnue $z \\in \\mathbb{C}$ sont $1$ et $2+i$.",
+      "proof_latex": "Le discriminant de cette équation vaut $(3+i)^2-4(2+i)=2i$. Or les racines carrées de $2i$ sont $\\pm(1+i)$, donc les solutions cherchées sont $\\frac{(3+i)\\pm(1+i)}{2}$ i.e. $1$ et $2+i$."
+    },
+    {
+      "id": "nombres_complexes__theorem_systeme_somme_produit",
+      "type": "theorem",
+      "title": "Théorème : Systèmes somme-produit",
+      "content_latex": "Soient $a, b \\in \\mathbb{C}$. Les solutions du système somme-produit $x+y=a$ et $xy=b$ d'inconnues $x, y \\in \\mathbb{C}$ sont les deux racines éventuellement égales du polynôme $X^2-aX+b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_systeme_somme_produit",
+      "type": "example",
+      "title": "Exemple : Résolution d'un système somme-produit",
+      "content_latex": "Les solutions du système $x+y=3+i$ et $xy=2+i$ d'inconnue $(x,y) \\in \\mathbb{C}^2$ sont les couples $(1,2+i)$ et $(2+i,1)$.",
+      "proof_latex": "Nous avons en effet calculé les racines du polynôme $X^2-(3+i)X+(2+i)$ dans l'exemple précédent."
+    },
+    {
+      "id": "nombres_complexes__theorem_limites_suites_complexes",
+      "type": "theorem",
+      "title": "Théorème : Limites de suites complexes",
+      "content_latex": "Soient $(u_n)_{n\\in\\mathbb{N}}$ une suite complexe et $l\\in\\mathbb{C}$.\\par $u_n \\xrightarrow{n\\to+\\infty} l \\Leftrightarrow |u_n-l| \\xrightarrow{n\\to+\\infty} 0 \\Leftrightarrow \\text{Re}(u_n) \\xrightarrow{n\\to+\\infty} \\text{Re}(l) \\text{ et } \\text{Im}(u_n) \\xrightarrow{n\\to+\\infty} \\text{Im}(l)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_limite_suite_geometrique",
+      "type": "example",
+      "title": "Exemple : Limite de suite géométrique complexe",
+      "content_latex": "Pour tout $z\\in\\mathbb{C}$ si $|z|<1$, alors $z^n \\xrightarrow{n\\to+\\infty} 0$ et $\\sum_{n=0}^{+\\infty}z^n = \\frac{1}{1-z}$.",
+      "proof_latex": "Pour tout $z\\in\\mathbb{C}$ pour lequel $|z|<1$ : $|z^n-0| = |z|^n \\xrightarrow{n\\to+\\infty} 0$, donc $z^n \\xrightarrow{n\\to+\\infty} 0$ d'après la première équivalence du théorème."
+    },
+    {
+      "id": "nombres_complexes__warning_infinis_complexes",
+      "type": "warning",
+      "title": "Attention : Pas de $+\\infty$ ou $-\\infty$ dans $\\mathbb{C}$",
+      "content_latex": "Où sont $+\\infty$ et $-\\infty$ dans $\\mathbb{C}$ ? Réponse nulle part. Une suite complexe ne peut tendre que vers un complexe, pas vers $+\\infty$ ou $-\\infty$. Attention tout de même ! Pour une fonction $f:\\mathbb{R}\\longrightarrow\\mathbb{C}$ on peut faire tendre $x$ vers $+\\infty$, mais $f(x)$ ne peut tendre que vers un nombre complexe.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_limites_fonctions_complexes",
+      "type": "theorem",
+      "title": "Théorème : Limites de fonctions complexes",
+      "content_latex": "Soient $I$ un intervalle, $f:I\\longrightarrow\\mathbb{C}$ une fonction, $l\\in\\mathbb{C}$ et $a$ un élément de $I$ ou une borne de $I$.\\par $f(x) \\xrightarrow{x\\to a} l \\Leftrightarrow |f(x)-l| \\xrightarrow{x\\to a} 0 \\Leftrightarrow \\text{Re}(f(x)) \\xrightarrow{x\\to a} \\text{Re}(l) \\text{ et } \\text{Im}(f(x)) \\xrightarrow{x\\to a} \\text{Im}(l)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_limites_fonctions",
+      "type": "example",
+      "title": "Exemple : Limites de fonctions complexes",
+      "content_latex": "$\\frac{x+2i}{1+ix} \\xrightarrow{x\\to 1} \\frac{1+2i}{1+i}$, $\\text{Arctan } x + \\frac{ix}{\\sqrt{x^2+1}} \\xrightarrow{x\\to+\\infty} \\frac{\\pi}{2}+i$ et $\\frac{e^x}{e^x+i} \\xrightarrow{x\\to+\\infty} 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_regularite_fonction_complexe",
+      "type": "theorem",
+      "title": "Théorème : Régularité d'une fonction complexe",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}$ et $f:E\\longrightarrow\\mathbb{C}$ une fonction.\\par — Continuité : $f$ est continue sur $E$ si et seulement si $\\text{Re}(f)$ et $\\text{Im}(f)$ le sont.\\par — Dérivabilité : $f$ est dérivable sur $E$ si et seulement si $\\text{Re}(f)$ et $\\text{Im}(f)$ le sont. Dans ce cas : $f' = \\text{Re}(f)' + i\\text{Im}(f)'$, autrement dit $\\text{Re}(f') = \\text{Re}(f)'$ et $\\text{Im}(f') = \\text{Im}(f)'$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__warning_derivation_variable_reelle",
+      "type": "warning",
+      "title": "Attention : Dérivation par rapport à une variable réelle",
+      "content_latex": "Nous dérivons des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$ ou plus généralement de $\\mathbb{R}$ dans $\\mathbb{C}$, donc toujours par rapport à une variable RÉELLE. Il est possible de dériver des fonctions de $\\mathbb{C}$ dans $\\mathbb{C}$ par rapport à une variable COMPLEXE, mais nous ne le ferons pas, la théorie est très différente.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_derivation_fonctions_complexes",
+      "type": "example",
+      "title": "Exemple : Calculs de dérivées",
+      "content_latex": "— La fonction $x \\mapsto x+ie^{3x}$ est dérivable sur $\\mathbb{R}$ de dérivée $x \\mapsto 1+3ie^{3x}$ car les fonctions $x \\mapsto x$ et $x \\mapsto e^{3x}$ le sont.\\par — La fonction $x \\mapsto \\frac{1}{x+i}$ est dérivable sur $\\mathbb{R}$ comme quotient, de dérivée $x \\mapsto -\\frac{1}{(x+i)^2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_caracterisation_fonctions_constantes",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation des fonctions dérivables constantes",
+      "content_latex": "Soient $I$ un INTERVALLE et $f \\in \\mathcal{D}(I, \\mathbb{C})$. La fonction $f$ est constante sur $I$ si et seulement si $f'$ est nulle sur $I$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+      "type": "definition",
+      "title": "Définition-théorème : Ensemble $\\mathbb{U}$ et exponentielle imaginaire",
+      "content_latex": "On pose $\\mathbb{U} = \\{z \\in \\mathbb{C} \\mid |z|=1\\}$ géométriquement le cercle trigonométrique, et pour tout $\\theta \\in \\mathbb{R}$ : $e^{i\\theta} = \\cos \\theta + i \\sin \\theta$. \n\n[Image of unit circle in complex plane]\n\\par — Paramétrisation de $\\mathbb{U}$ par l'exponentielle imaginaire : $\\mathbb{U} = \\{e^{i\\theta} \\mid \\theta \\in \\mathbb{R}\\}$ et pour tous $\\theta, \\theta' \\in \\mathbb{R}$ : $e^{i\\theta} = e^{i\\theta'} \\Leftrightarrow \\theta \\equiv \\theta' [2\\pi]$.\\par — Propriétés algébriques de l'exponentielle imaginaire : Pour tous $x, y \\in \\mathbb{R}$, $e^{i(x+y)} = e^{ix}e^{iy}$, $\\overline{e^{ix}} = e^{-ix} = \\frac{1}{e^{ix}}$.\\par — Formules d'Euler : $\\cos x = \\frac{e^{ix}+e^{-ix}}{2}$ et $\\sin x = \\frac{e^{ix}-e^{-ix}}{2i}$.\\par — Formules de Moivre : $\\cos(nx) = \\text{Re}((\\cos x + i \\sin x)^n)$ et $\\sin(nx) = \\text{Im}((\\cos x + i \\sin x)^n)$.",
+      "proof_latex": "Pour les formules d'Euler, n'oublions pas que $\\text{Re}(z) = \\frac{z+\\overline{z}}{2}$ et $\\text{Im}(z) = \\frac{z-\\overline{z}}{2i}$. Pour les formules de Moivre : $\\cos(nx) + i \\sin(nx) = e^{inx} = (e^{ix})^n = (\\cos x + i \\sin x)^n$."
+    },
+    {
+      "id": "nombres_complexes__warning_egalite_exp_imaginaire",
+      "type": "warning",
+      "title": "Attention : Égalité d'exponentielles imaginaires",
+      "content_latex": "Attention ! $e^{i\\theta} = e^{i\\theta'} \\nRightarrow \\theta = \\theta'$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_valeurs_remarquables_exp",
+      "type": "example",
+      "title": "Exemple : Valeurs remarquables",
+      "content_latex": "Pour tout $\\theta \\in \\mathbb{R}$ : $e^{i0} = e^{2i\\pi} = 1$, $e^{i\\pi} = e^{-i\\pi} = -1$, $e^{i\\frac{\\pi}{2}} = i$, $e^{-i\\frac{\\pi}{2}} = -i$. Par exemple, $e^{\\frac{3i\\pi}{4}} = \\frac{-1+i}{\\sqrt{2}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__def_theo_arguments_formes_trigo",
+      "type": "definition",
+      "title": "Définition-théorème : Arguments et formes trigonométriques",
+      "content_latex": "Tout nombre complexe non nul peut être écrit sous forme trigonométrique $z = |z|e^{i\\theta}$ pour un certain $\\theta \\in \\mathbb{R}$ unique à $2\\pi$ près. Tout réel $\\theta$ de ce genre est appelé UN argument de $z$, mais il en existe un et un seul dans $]-\\pi, \\pi]$ qu'on appelle L'argument (principal) de $z$ et qu'on note $\\text{arg}(z)$. Identification des formes trigonométriques : Pour tous $r, r' > 0$ et $\\theta, \\theta' \\in \\mathbb{R}$ : $r e^{i\\theta} = r' e^{i\\theta'} \\Leftrightarrow r = r'$ et $\\theta \\equiv \\theta' [2\\pi]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__warning_argument_zero",
+      "type": "warning",
+      "title": "Attention : Forme trigonométrique de 0",
+      "content_latex": "Attention ! Pour tout $\\theta \\in \\mathbb{R}$ : $0 = 0 e^{i\\theta}$, mais par convention, $0$ n'a pas de forme trigonométrique, donc pas d'arguments.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_forme_trigo_reels_imaginaires",
+      "type": "example",
+      "title": "Exemple : Formes trigonométriques des réels et imaginaires purs",
+      "content_latex": "Les réels et les imaginaires purs ont des formes trigonométriques plus piégeuses qu'il n'y paraît. Pour tous $x, y \\in \\mathbb{R}^*$ : $x = x e^{i0}$ si $x > 0$, $(-x)e^{i\\pi}$ si $x < 0$. Et $iy = y e^{i\\frac{\\pi}{2}}$ si $y > 0$, $(-y)e^{-i\\frac{\\pi}{2}}$ si $y < 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_calcul_argument_arctangente",
+      "type": "example",
+      "title": "Exemple : Calcul d'un argument via fonctions circulaires réciproques",
+      "content_latex": "On cherche un argument de $-1+2i$. Comme $-1 < 0$ et $2 > 0$, $-1+2i$ possède un argument dans $]\\frac{\\pi}{2}, \\pi[$.\\par — Arctangente : $-1 < 0$ donc $\\pi + \\text{Arctan}\\left(\\frac{2}{-1}\\right) = \\pi - \\text{Arctan}(2)$ est un argument de $-1+2i$.\\par — Arccosinus : $\\theta \\in [0, \\pi]$ et $\\cos \\theta = -\\frac{1}{\\sqrt{5}}$ donc $\\theta = \\text{Arccos}\\left(-\\frac{1}{\\sqrt{5}}\\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_condition_reel_exp",
+      "type": "example",
+      "title": "Exemple : Condition de réalité d'une exponentielle complexe",
+      "content_latex": "Soit $n \\in \\mathbb{N}^*$. À quelle condition sur $p \\in \\mathbb{Z}$ le nombre $e^{\\frac{ip\\pi}{n}}$ est-il réel ? Conclusion : $p$ est un multiple de $n$.",
+      "proof_latex": "$e^{\\frac{ip\\pi}{n}} \\in \\mathbb{R} \\Leftrightarrow \\text{arg}\\left(e^{\\frac{ip\\pi}{n}}\\right) \\equiv 0 [\\pi] \\Leftrightarrow \\frac{p\\pi}{n} \\equiv 0 [\\pi] \\Leftrightarrow p \\equiv 0 [n]$."
+    },
+    {
+      "id": "nombres_complexes__theorem_proprietes_algebriques_arguments",
+      "type": "theorem",
+      "title": "Théorème : Propriétés algébriques des arguments",
+      "content_latex": "Pour tous $z, z' \\in \\mathbb{C}^*$ : $\\text{arg}(zz') \\equiv \\text{arg}(z) + \\text{arg}(z') [2\\pi]$, $\\text{arg}(\\overline{z}) \\equiv -\\text{arg}(z) [2\\pi]$ et $\\text{arg}\\left(\\frac{1}{z}\\right) \\equiv -\\text{arg}(z) [2\\pi]$.",
+      "proof_latex": "$zz' = |z|e^{i\\text{arg}(z)}|z'|e^{i\\text{arg}(z')} = |zz'|e^{i(\\text{arg}(z)+\\text{arg}(z'))}$, donc $\\text{arg}(zz') \\equiv \\text{arg}(z) + \\text{arg}(z') [2\\pi]$. De même pour l'inverse : $\\frac{1}{z} = \\frac{1}{|z|e^{i\\text{arg}(z)}} = \\left|\\frac{1}{z}\\right|e^{-i\\text{arg}(z)}$, donc $\\text{arg}\\left(\\frac{1}{z}\\right) \\equiv -\\text{arg}(z) [2\\pi]$."
+    },
+    {
+      "id": "nombres_complexes__example_argument_quotient",
+      "type": "example",
+      "title": "Exemple : Calcul de l'argument d'un quotient",
+      "content_latex": "Le nombre complexe $\\frac{1-i}{1-i\\sqrt{3}}$ admet pour argument $\\frac{\\pi}{12}$.",
+      "proof_latex": "$\\frac{1-i}{1-i\\sqrt{3}} = \\frac{\\sqrt{2}e^{-i\\frac{\\pi}{4}}}{2e^{-i\\frac{\\pi}{3}}} = \\frac{e^{-i\\frac{\\pi}{4}+i\\frac{\\pi}{3}}}{\\sqrt{2}} = \\frac{e^{i\\frac{\\pi}{12}}}{\\sqrt{2}}$."
+    },
+    {
+      "id": "nombres_complexes__theorem_interpretation_geometrique_complexe",
+      "type": "theorem",
+      "title": "Théorème : Interprétation géométrique de $\\frac{z-b}{z-a}$",
+      "content_latex": "Soient $a, b \\in \\mathbb{C}$ et $z \\in \\mathbb{C} \\setminus \\{a, b\\}$. En notant $A$ l'image de $a$, $B$ celle de $b$ et $M$ celle de $z$ : $\\left|\\frac{z-b}{z-a}\\right| = \\frac{MB}{MA}$ et $\\text{arg}\\left(\\frac{z-b}{z-a}\\right) \\equiv (\\overrightarrow{MA}, \\overrightarrow{MB}) [2\\pi]$.",
+      "proof_latex": "En notant $\\vec{i}$ le vecteur d'affixe $1$, $b-z$ a pour image $\\overrightarrow{MB}$ donc $\\text{arg}(b-z) \\equiv (\\vec{i}, \\overrightarrow{MB}) [2\\pi]$. Ainsi : $\\text{arg}\\left(\\frac{z-b}{z-a}\\right) \\equiv \\text{arg}(b-z) - \\text{arg}(a-z) \\equiv (\\vec{i}, \\overrightarrow{MB}) - (\\vec{i}, \\overrightarrow{MA}) \\equiv (\\overrightarrow{MA}, \\overrightarrow{MB}) [2\\pi]$."
+    },
+    {
+      "id": "nombres_complexes__def_exponentielle_complexe",
+      "type": "definition",
+      "title": "Définition : Exponentielle complexe",
+      "content_latex": "On pose pour tout $z \\in \\mathbb{C}$ : $e^z = e^{\\text{Re}(z)}e^{i\\text{Im}(z)}$. Ce nombre complexe est défini sous forme TRIGONOMÉTRIQUE : $|e^z| = e^{\\text{Re}(z)}$ et $\\text{arg}(e^z) \\equiv \\text{Im}(z) [2\\pi]$. Sa forme algébrique s'en déduit aussitôt : $e^z = e^{\\text{Re}(z)}\\cos(\\text{Im}(z)) + i e^{\\text{Re}(z)}\\sin(\\text{Im}(z))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__example_calcul_exp_complexe",
+      "type": "example",
+      "title": "Exemple : Calculs avec l'exponentielle complexe",
+      "content_latex": "$e^{1+i\\pi} = e e^{i\\pi} = -e$ et $e^{2+i\\frac{\\pi}{4}} = e^2 e^{i\\frac{\\pi}{4}} = \\frac{e^2}{\\sqrt{2}} + i\\frac{e^2}{\\sqrt{2}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_proprietes_exp_complexe",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de l'exponentielle complexe",
+      "content_latex": "(i) Périodicité : L'exponentielle complexe est $2i\\pi$-périodique, autrement dit pour tout $z \\in \\mathbb{C}$ : $e^{z+2i\\pi} = e^z$. Plus précisément, pour tous $z, z' \\in \\mathbb{C}$ : $e^z = e^{z'} \\Leftrightarrow z \\equiv z' [2i\\pi]$.\\par (ii) Transformation des sommes en produits : Pour tous $z, z' \\in \\mathbb{C}$ : $e^{z+z'} = e^z e^{z'}$.",
+      "proof_latex": "(i) Simple identification de formes trigonométriques : $e^z = e^{z'} \\Leftrightarrow e^{\\text{Re}(z)} = e^{\\text{Re}(z')} \\text{ et } \\text{Im}(z) \\equiv \\text{Im}(z') [2\\pi] \\Leftrightarrow \\text{Re}(z) = \\text{Re}(z') \\text{ et } \\text{Im}(z) \\equiv \\text{Im}(z') [2\\pi] \\Leftrightarrow z \\equiv z' [2i\\pi]$.\\par (ii) $e^{z+z'} = e^{\\text{Re}(z+z')}e^{i\\text{Im}(z+z')} = e^{\\text{Re}(z)+\\text{Re}(z')}e^{i\\text{Im}(z)+i\\text{Im}(z')} = e^{\\text{Re}(z)}e^{\\text{Re}(z')}e^{i\\text{Im}(z)}e^{i\\text{Im}(z')} = e^z e^{z'}$."
+    },
+    {
+      "id": "nombres_complexes__example_resolution_equation_exp",
+      "type": "example",
+      "title": "Exemple : Résolution d'une équation avec exponentielle",
+      "content_latex": "On souhaite résoudre l'équation $e^z = 2+i$ d'inconnue $z \\in \\mathbb{C}$. Les solutions sont $z = \\frac{\\ln 5}{2} + i\\text{Arctan}\\left(\\frac{1}{2}\\right) + 2ik\\pi$, pour $k \\in \\mathbb{Z}$.",
+      "proof_latex": "Pour tout $z=x+iy \\in \\mathbb{C}$ : $e^z = 2+i \\Leftrightarrow e^x = |2+i| = \\sqrt{5} \\text{ et } y \\text{ est un argument de } 2+i$. Donc $x = \\frac{\\ln 5}{2}$ et $y = \\text{Arctan}\\left(\\frac{1}{2}\\right) + 2k\\pi$."
+    },
+    {
+      "id": "nombres_complexes__theorem_derivation_exp_complexe",
+      "type": "theorem",
+      "title": "Théorème : Dérivation des fonctions de la forme $e^\\varphi$",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}$ et $\\varphi \\in \\mathcal{D}(E, \\mathbb{C})$. La fonction $x \\mapsto e^{\\varphi(x)}$ est dérivable sur $E$ et $(e^\\varphi)' = \\varphi' e^\\varphi$. En particulier, pour tout $a \\in \\mathbb{C}$ la fonction $x \\mapsto e^{ax}$ est dérivable sur $\\mathbb{R}$ de dérivée $x \\mapsto a e^{ax}$.",
+      "proof_latex": "Posons $a = \\text{Re}(\\varphi)$ et $b = \\text{Im}(\\varphi)$. Les fonctions RÉELLES $a$ et $b$ sont dérivables sur $E$. Or $e^\\varphi = e^a e^{ib} = e^a(\\cos b + i\\sin b)$, donc $\\text{Re}(e^\\varphi) = e^a\\cos b$ et $\\text{Im}(e^\\varphi) = e^a\\sin b$. Ces fonctions sont dérivables. $(\\text{Re}(e^\\varphi))' = (e^a\\cos b)' = a'e^a\\cos b - e^ab'\\sin b = e^a(a'\\cos b - b'\\sin b) = e^a\\text{Re}((a'+ib')(\\cos b + i\\sin b)) = \\text{Re}(\\varphi'e^\\varphi)$. De même pour la partie imaginaire, d'où le résultat."
+    },
+    {
+      "id": "nombres_complexes__example_transformation_trigo_1",
+      "type": "example",
+      "title": "Exemple : Transformation en cosinus ou sinus",
+      "content_latex": "Pour tout $x \\in \\mathbb{R}$ : $\\cos x + \\sin x = \\sqrt{2}\\cos\\left(x-\\frac{\\pi}{4}\\right)$ et $\\sqrt{2}\\cos x + \\sqrt{6}\\sin x = 2\\sqrt{2}\\sin\\left(x+\\frac{\\pi}{6}\\right)$.",
+      "proof_latex": "$\\cos x + \\sin x = \\text{Re}((1-i)(\\cos x + i\\sin x)) = \\text{Re}\\left(\\sqrt{2}e^{-i\\frac{\\pi}{4}}e^{ix}\\right) = \\sqrt{2}\\text{Re}\\left(e^{i\\left(x-\\frac{\\pi}{4}\\right)}\\right) = \\sqrt{2}\\cos\\left(x-\\frac{\\pi}{4}\\right)$.\\par De même pour le sinus via la partie imaginaire : $\\sqrt{2}\\cos x + \\sqrt{6}\\sin x = \\text{Im}\\left((\\sqrt{6}+i\\sqrt{2})(\\cos x + i\\sin x)\\right) = \\text{Im}\\left(2\\sqrt{2}e^{i\\frac{\\pi}{6}}e^{ix}\\right) = 2\\sqrt{2}\\sin\\left(x+\\frac{\\pi}{6}\\right)$."
+    },
+    {
+      "id": "nombres_complexes__example_transformation_trigo_2",
+      "type": "example",
+      "title": "Exemple : Transformation de $2\\cos x - 3\\sin x$",
+      "content_latex": "Pour tout $x \\in \\mathbb{R}$ : $2\\cos x - 3\\sin x = \\sqrt{13}\\cos\\left(x+\\text{Arctan}\\frac{3}{2}\\right)$.",
+      "proof_latex": "$2\\cos x - 3\\sin x = \\text{Re}((2+3i)(\\cos x + i\\sin x)) = \\text{Re}\\left(\\sqrt{13}e^{i\\text{Arctan}\\frac{3}{2}}e^{ix}\\right) = \\sqrt{13}\\text{Re}\\left(e^{i\\left(x+\\text{Arctan}\\frac{3}{2}\\right)}\\right) = \\sqrt{13}\\cos\\left(x+\\text{Arctan}\\frac{3}{2}\\right)$."
+    },
+    {
+      "id": "nombres_complexes__example_linearisation_sin5",
+      "type": "example",
+      "title": "Exemple : Linéarisation de $\\sin^5 x$",
+      "content_latex": "Pour tout $x \\in \\mathbb{R}$ : $\\sin^5 x = \\frac{\\sin(5x) - 5\\sin(3x) + 10\\sin x}{16}$.",
+      "proof_latex": "$\\sin^5 x = \\left(\\frac{e^{ix}-e^{-ix}}{2i}\\right)^5 = \\frac{1}{32i}(e^{5ix} - 5e^{3ix} + 10e^{ix} - 10e^{-ix} + 5e^{-3ix} - e^{-5ix}) = \\frac{1}{32i}((e^{5ix}-e^{-5ix}) - 5(e^{3ix}-e^{-3ix}) + 10(e^{ix}-e^{-ix})) = \\frac{\\sin(5x) - 5\\sin(3x) + 10\\sin x}{16}$."
+    },
+    {
+      "id": "nombres_complexes__example_primitive_linearisation",
+      "type": "example",
+      "title": "Exemple : Calcul de primitive par linéarisation",
+      "content_latex": "La fonction $x \\mapsto \\frac{1}{32}\\left(-\\frac{\\sin(6x)}{6} - 2\\frac{\\sin(4x)}{4} + \\frac{\\sin(2x)}{2} + 2x\\right)$ est une primitive de $x \\mapsto \\cos^4 x \\sin^2 x$ sur $\\mathbb{R}$.",
+      "proof_latex": "$\\cos^4 x \\sin^2 x = \\left(\\frac{e^{ix}+e^{-ix}}{2}\\right)^4 \\left(\\frac{e^{ix}-e^{-ix}}{2i}\\right)^2 = -\\frac{1}{64}(e^{4ix}+4e^{2ix}+6+4e^{-2ix}+e^{-4ix})(e^{2ix}-2+e^{-2ix}) = -\\frac{1}{64}(e^{6ix}+2e^{4ix}-e^{2ix}-4-e^{-2ix}+2e^{-4ix}+e^{-6ix}) = -\\frac{1}{64}((e^{6ix}+e^{-6ix})+2(e^{4ix}+e^{-4ix})-(e^{2ix}+e^{-2ix})-4) = \\frac{-\\cos(6x)-2\\cos(4x)+\\cos(2x)+2}{32}$."
+    },
+    {
+      "id": "nombres_complexes__example_delinearisation_sin6",
+      "type": "example",
+      "title": "Exemple : Dé-linéarisation de $\\sin(6x)",
+      "content_latex": "Pour tout $x \\in \\mathbb{R}$ : $\\sin(6x) = 2(3-16\\cos^2 x + 16\\cos^4 x)\\cos x \\sin x$.",
+      "proof_latex": "$\\sin(6x) = \\text{Im}((\\cos x + i\\sin x)^6) = \\text{Im}(\\cos^6 x + 6i\\cos^5 x \\sin x - 15\\cos^4 x \\sin^2 x - 20i\\cos^3 x \\sin^3 x + 15\\cos^2 x \\sin^4 x + 6i\\cos x \\sin^5 x - \\sin^6 x) = 6\\cos^5 x \\sin x - 20\\cos^3 x \\sin^3 x + 6\\cos x \\sin^5 x = 2(3\\cos^4 x - 10\\cos^2 x \\sin^2 x + 3\\sin^4 x)\\cos x \\sin x$. La relation $\\cos^2 + \\sin^2 = 1$ nous permet de substituer les sinus : $\\sin(6x) = 2(3\\cos^4 x - 10\\cos^2 x(1-\\cos^2 x) + 3(1-\\cos^2 x)^2)\\cos x \\sin x = 2(3-16\\cos^2 x + 16\\cos^4 x)\\cos x \\sin x$."
+    },
+    {
+      "id": "nombres_complexes__theorem_quatre_formules_trigo",
+      "type": "theorem",
+      "title": "Théorème : Quatre nouvelles formules de trigo",
+      "content_latex": "Pour tous $x, y \\in \\mathbb{R}$ :\\par $\\cos x + \\cos y = 2\\cos\\frac{x+y}{2}\\cos\\frac{x-y}{2}$\\par $\\sin x + \\sin y = 2\\sin\\frac{x+y}{2}\\cos\\frac{x-y}{2}$\\par $\\cos x - \\cos y = -2\\sin\\frac{x+y}{2}\\sin\\frac{x-y}{2}$\\par $\\sin x - \\sin y = 2\\cos\\frac{x+y}{2}\\sin\\frac{x-y}{2}$",
+      "proof_latex": "$\\sin x + \\sin y = \\text{Im}(e^{ix}+e^{iy}) = \\text{Im}\\left(2e^{i\\frac{x+y}{2}}\\cos\\frac{x-y}{2}\\right) = 2\\sin\\frac{x+y}{2}\\cos\\frac{x-y}{2}$."
+    },
+    {
+      "id": "nombres_complexes__example_somme_cosinus_2kx",
+      "type": "example",
+      "title": "Exemple : Somme de cosinus",
+      "content_latex": "Pour tous $n \\in \\mathbb{N}$ et $x \\in \\mathbb{R}$ : $\\sum_{k=0}^n \\cos(2kx) = \\begin{cases} \\frac{\\sin((n+1)x)}{\\sin x}\\cos(nx) & \\text{si } x \\notin \\pi\\mathbb{Z} \\\\ n+1 & \\text{si } x \\in \\pi\\mathbb{Z} \\end{cases}$",
+      "proof_latex": "Si $x \\in \\pi\\mathbb{Z}$, alors $\\sum_{k=0}^n \\cos(2kx) = \\sum_{k=0}^n 1 = n+1$.\\par Si au contraire $x \\notin \\pi\\mathbb{Z}$, alors $e^{2ix} \\neq 1$, donc : $\\sum_{k=0}^n \\cos(2kx) = \\text{Re}\\left(\\sum_{k=0}^n (e^{2ix})^k\\right) = \\text{Re}\\left(\\frac{1-e^{2i(n+1)x}}{1-e^{2ix}}\\right)$. Par la technique de l'angle moitié : $\\text{Re}\\left(\\frac{e^{i(n+1)x}(e^{-i(n+1)x}-e^{i(n+1)x})}{e^{ix}(e^{-ix}-e^{ix})}\\right) = \\text{Re}\\left(e^{inx}\\frac{-2i\\sin((n+1)x)}{-2i\\sin x}\\right) = \\text{Re}\\left(e^{inx}\\frac{\\sin((n+1)x)}{\\sin x}\\right) = \\frac{\\sin((n+1)x)}{\\sin x}\\cos(nx)$."
+    },
+    {
+      "id": "nombres_complexes__example_similitude_directe",
+      "type": "example",
+      "title": "Exemple : Similitude directe",
+      "content_latex": "La fonction $z \\mapsto 2iz+1$ est la similitude directe de centre $\\frac{1+2i}{5}$, de rapport $2$ et d'angle de mesure $\\frac{\\pi}{2}$.",
+      "proof_latex": "Le coefficient $2i=2e^{i\\frac{\\pi}{2}}$ est différent de $1$, donc $f$ n'est pas une translation, mais une similitude directe de rapport $2$ et d'angle de mesure $\\frac{\\pi}{2}$. Son centre est aussi son unique point fixe et vaut $\\frac{1}{1-2i} = \\frac{1+2i}{5}$."
+    },
+    {
+      "id": "nombres_complexes__def_racines_niemes_unite",
+      "type": "definition",
+      "title": "Définition : Racines n-ièmes et ensemble $\\mathbb{U}_n$",
+      "content_latex": "Pour tous $z \\in \\mathbb{C}$ et $n \\in \\mathbb{N}^*$, on appelle racine n-ième de $z$ tout nombre complexe $\\zeta$ pour lequel $z = \\zeta^n$. Les racines n-ièmes de $1$ sont appelées les racines n-ièmes de l'unité et leur ensemble est noté $\\mathbb{U}_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__warning_notation_racine_nieme",
+      "type": "warning",
+      "title": "Attention : Notation racine n-ième",
+      "content_latex": "La notation $\\sqrt[n]{x}$ n'est autorisée QUE SI $x \\in \\mathbb{R}_+$. Pas de $\\sqrt[n]{2+3i}$ et autres horreurs du même genre ! Parce que tout nombre complexe non nul possède $n$ racines n-ièmes distinctes [...] qui se valent toutes les unes les autres.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_description_racines_unite",
+      "type": "theorem",
+      "title": "Théorème : Description des racines n-ièmes de l'unité",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$ : $\\mathbb{U}_n = \\{e^{\\frac{2ik\\pi}{n}} \\mid k \\in [[0, n-1]]\\} \\subset \\mathbb{U}$. Pour tout $n \\in \\mathbb{N}^*$, $\\mathbb{U}_n$ est donc l'ensemble des sommets du polygone régulier [...] à $n$ côtés, de centre $0$ et passant par le point d'affixe $1$.",
+      "proof_latex": "Soit $\\omega \\in \\mathbb{C}$. Posons $\\rho = |\\omega|$ et notons $\\varphi$ l'unique argument de $\\omega$ dans l'intervalle $[0, 2\\pi[$. $\\omega^n = 1 \\Leftrightarrow \\rho^n e^{in\\varphi} = 1 e^{i0} \\Leftrightarrow \\rho = 1 \\text{ et } \\exists k \\in \\mathbb{Z}, n\\varphi = 2k\\pi \\Leftrightarrow \\rho = 1 \\text{ et } \\exists k \\in [[0, n-1]], \\varphi = \\frac{2k\\pi}{n}$. L'unicité vient de l'injectivité de l'exponentielle imaginaire sur $[0, 2\\pi[$."
+    },
+    {
+      "id": "nombres_complexes__example_somme_produit_racines_unite",
+      "type": "example",
+      "title": "Exemple : Somme et produit des racines de l'unité",
+      "content_latex": "Pour tout $n \\geq 2$ : $\\sum_{\\omega \\in \\mathbb{U}_n} \\omega = 0$ et $\\prod_{\\omega \\in \\mathbb{U}_n} \\omega = (-1)^{n-1}$.",
+      "proof_latex": "Comme $e^{\\frac{2i\\pi}{n}} \\neq 1$ car $n \\geq 2$, on a : $\\sum_{\\omega \\in \\mathbb{U}_n} \\omega = \\sum_{k=0}^{n-1} (e^{\\frac{2i\\pi}{n}})^k = \\frac{(e^{\\frac{2i\\pi}{n}})^n - 1}{e^{\\frac{2i\\pi}{n}} - 1} = \\frac{1-1}{e^{\\frac{2i\\pi}{n}} - 1} = 0$. De même : $\\prod_{\\omega \\in \\mathbb{U}_n} \\omega = e^{\\frac{2i\\pi}{n} \\sum_{k=0}^{n-1} k} = e^{\\frac{2i\\pi}{n} \\frac{n(n-1)}{2}} = e^{(n-1)i\\pi} = (-1)^{n-1}$."
+    },
+    {
+      "id": "nombres_complexes__def_nombre_j",
+      "type": "definition",
+      "title": "Définition : Nombre $j$",
+      "content_latex": "On note généralement $j$ le nombre $e^{\\frac{2i\\pi}{3}} = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$. Il faut connaître les relations suivantes : $j^3 = 1$, $\\overline{j} = j^2$, $1+j+j^2=0$ et pour tout $z \\in \\mathbb{C}$ : $z^2+z+1 = (z-j)(z-\\overline{j})$.",
+      "proof_latex": "Comme $j \\neq 1$ : $1+j+j^2 = \\frac{j^3-1}{j-1} = 0$."
+    },
+    {
+      "id": "nombres_complexes__example_puissance_nombre_j",
+      "type": "example",
+      "title": "Exemple : Puissance de $1+j$",
+      "content_latex": "Soit $n \\in \\mathbb{Z}$. À quelle condition nécessaire et suffisante est-il vrai que $(1+j)^n = j^n$ ? Conclusion : $n$ est un multiple de $6$.",
+      "proof_latex": "$(1+j)^n = j^n \\Leftrightarrow (-j^2)^n = j^n \\Leftrightarrow (-j)^n = 1 \\Leftrightarrow e^{-\\frac{ni\\pi}{3}} \\equiv 1 [2\\pi] \\Leftrightarrow -\\frac{n\\pi}{3} \\equiv 0 [2\\pi] \\Leftrightarrow n \\equiv 0 [6]$."
+    },
+    {
+      "id": "nombres_complexes__theorem_description_generale_racines",
+      "type": "theorem",
+      "title": "Théorème : Description générale des racines n-ièmes",
+      "content_latex": "Soit $n \\in \\mathbb{N}^*$. La seule racine n-ième de $0$ est $0$. Sinon, tout nombre complexe non nul $z = re^{i\\theta} \\in \\mathbb{C}^*$ avec $r > 0$ et $\\theta \\in \\mathbb{R}$ possède exactement $n$ racines n-ièmes, à savoir les nombres : $\\sqrt[n]{r}e^{i\\frac{\\theta}{n} + \\frac{2ik\\pi}{n}}$, $k$ décrivant $[[0, n-1]]$.",
+      "proof_latex": "Posons $\\zeta = \\sqrt[n]{r}e^{i\\frac{\\theta}{n}}$. Il est immédiat que $\\zeta^n = z$ et $\\zeta$ est non nul. Pour tout $\\omega \\in \\mathbb{C}$ : $\\omega^n = z \\Leftrightarrow \\omega^n = \\zeta^n \\Leftrightarrow \\left(\\frac{\\omega}{\\zeta}\\right)^n = 1 \\Leftrightarrow \\frac{\\omega}{\\zeta} \\in \\mathbb{U}_n \\Leftrightarrow \\exists k \\in [[0, n-1]], \\omega = \\zeta e^{\\frac{2ik\\pi}{n}}$."
+    },
+    {
+      "id": "nombres_complexes__example_racines_cubiques",
+      "type": "example",
+      "title": "Exemple : Racines cubiques",
+      "content_latex": "Les racines cubiques de $1+i$ sont les trois nombres $\\sqrt[6]{2}e^{i\\frac{\\pi}{12}}$, $\\sqrt[6]{2}e^{i\\frac{3\\pi}{4}}$ et $\\sqrt[6]{2}e^{-i\\frac{7\\pi}{12}}$.",
+      "proof_latex": "$1+i = \\sqrt{2}e^{i\\frac{\\pi}{4}}$. D'après la formule, les racines sont $\\sqrt[3]{\\sqrt{2}}e^{i\\frac{\\pi}{12} + \\frac{2ik\\pi}{3}} = \\sqrt[6]{2}e^{i\\frac{\\pi}{12} + \\frac{2ik\\pi}{3}}$ avec $k \\in \\{0, 1, 2\\}$."
+    },
+    {
+      "id": "nombres_complexes__example_suite_geometrique_recurrence",
+      "type": "example",
+      "title": "Exemple : Suite géométrique et relation de récurrence",
+      "content_latex": "Soient $a \\in \\mathbb{C}$, $b \\in \\mathbb{C}^*$ et $q \\in \\mathbb{C}$. La suite géométrique $(u_n)_{n\\in\\mathbb{N}} = (q^n)_{n\\in\\mathbb{N}}$ satisfait la relation $u_{n+2} = au_{n+1} + bu_n$ pour tout $n \\in \\mathbb{N}$ si et seulement si $q^2 = aq + b$, i.e. si et seulement si $q$ est racine du polynôme $X^2-aX-b$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+      "type": "definition",
+      "title": "Définition : Suite récurrente linéaire d'ordre 2",
+      "content_latex": "Soient $a \\in \\mathbb{C}$, $b \\in \\mathbb{C}^*$ et $(u_n)_{n\\in\\mathbb{N}}$ une suite complexe. On dit que $(u_n)_{n\\in\\mathbb{N}}$ est récurrente linéaire d'ordre 2 (de polynôme caractéristique $X^2-aX-b$) si pour tout $n \\in \\mathbb{N}$ : $u_{n+2} = au_{n+1} + bu_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "nombres_complexes__theorem_expression_explicite_suite_complexe",
+      "type": "theorem",
+      "title": "Théorème : Expression explicite (cas complexe)",
+      "content_latex": "Soient $a \\in \\mathbb{C}$ et $b \\in \\mathbb{C}^*$. On note $\\Delta$ le discriminant du polynôme $X^2-aX-b$.\\par — Cas où $\\Delta \\neq 0$ : Le polynôme possède deux racines distinctes $r_1$ et $r_2$. Les suites sont toutes les suites $(\\lambda_1 r_1^n + \\lambda_2 r_2^n)_{n\\in\\mathbb{N}}$, $\\lambda_1$ et $\\lambda_2$ décrivant $\\mathbb{C}$.\\par — Cas où $\\Delta = 0$ : Le polynôme possède une seule racine $r$. Les suites sont toutes les suites $((\\lambda n + \\mu)r^n)_{n\\in\\mathbb{N}}$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{C}$.",
+      "proof_latex": "On note $\\mathcal{E}$ l'ensemble de ces suites. Si $\\Delta \\neq 0$, les suites $(r_1^n)$ et $(r_2^n)$ appartiennent à $\\mathcal{E}$. Par combinaison linéaire, $(\\lambda_1 r_1^n + \\lambda_2 r_2^n)$ aussi. Réciproquement, pour toute suite $(u_n) \\in \\mathcal{E}$, on peut toujours trouver $\\lambda_1, \\lambda_2$ en résolvant le système pour $u_0$ et $u_1$ car $r_1 \\neq r_2$. Si $\\Delta = 0$, la racine est $r = \\frac{a}{2}$. La suite $(nr^n)$ appartient à $\\mathcal{E}$ car $(n+2)r^{n+2} - a(n+1)r^{n+1} - bnr^n = 0$. On conclut par combinaison linéaire et résolution du système initial."
+    },
+    {
+      "id": "nombres_complexes__example_resolution_suite_complexe",
+      "type": "example",
+      "title": "Exemple : Résolution via nombres complexes",
+      "content_latex": "Pour la suite définie par $u_0=0$, $u_1=1$ et $u_{n+2}=u_{n+1}-u_n$, on trouve $u_n = \\frac{2}{\\sqrt{3}}\\sin\\left(\\frac{n\\pi}{3}\\right)$.",
+      "proof_latex": "Le polynôme caractéristique est $X^2-X+1$, de racines $e^{i\\frac{\\pi}{3}}$ et $e^{-i\\frac{\\pi}{3}}$. La suite s'écrit $u_n = \\lambda_1 e^{in\\frac{\\pi}{3}} + \\lambda_2 e^{-in\\frac{\\pi}{3}}$. Les conditions initiales donnent $\\lambda_1+\\lambda_2=0$ et $\\lambda_1 e^{i\\frac{\\pi}{3}} + \\lambda_2 e^{-i\\frac{\\pi}{3}} = 1$. Après calcul, $\\lambda_1 = \\frac{1}{i\\sqrt{3}}$ et $\\lambda_2 = -\\frac{1}{i\\sqrt{3}}$, d'où le sinus."
+    },
+    {
+      "id": "nombres_complexes__theorem_expression_explicite_suite_reelle",
+      "type": "theorem",
+      "title": "Théorème : Expression explicite (cas réel)",
+      "content_latex": "Soient $a \\in \\mathbb{R}$ et $b \\in \\mathbb{R}^*$. $\\Delta = a^2+4b$.\\par — Cas $\\Delta > 0$ : Racines réelles $r_1, r_2$. Les suites RÉELLES sont $(\\lambda_1 r_1^n + \\lambda_2 r_2^n)$, $\\lambda_1, \\lambda_2 \\in \\mathbb{R}$.\\par — Cas $\\Delta = 0$ : Racine double $r \\in \\mathbb{R}$. Les suites RÉELLES sont $((\\lambda n + \\mu)r^n)$, $\\lambda, \\mu \\in \\mathbb{R}$.\\par — Cas $\\Delta < 0$ : Racines complexes conjuguées $\\rho e^{\\pm i\\theta}$. Les suites RÉELLES sont $(\\rho^n(\\lambda \\cos(n\\theta) + \\mu \\sin(n\\theta)))$, $\\lambda, \\mu \\in \\mathbb{R}$.",
+      "proof_latex": "Ce résultat s'obtient en cherchant les solutions réelles parmi les solutions complexes du théorème précédent. Dans le cas $\\Delta < 0$, si $(u_n)$ est à valeurs réelles, la combinaison $\\lambda_1 e^{in\\theta} + \\lambda_2 e^{-in\\theta}$ force $\\lambda_2 = \\overline{\\lambda_1}$, ce qui redonne une expression en cosinus et sinus."
+    },
+    {
+      "id": "nombres_complexes__example_resolution_suite_reelle_racine_double",
+      "type": "example",
+      "title": "Exemple : Suite réelle avec racine double",
+      "content_latex": "La suite définie par $u_0=0, u_1=1$ et $u_{n+2}=2u_{n+1}-u_n$ vérifie $u_n=n$ pour tout $n \\in \\mathbb{N}$.",
+      "proof_latex": "Le polynôme caractéristique est $X^2-2X+1 = (X-1)^2$. Elle est de la forme $(\\lambda n + \\mu)1^n$ avec $\\lambda, \\mu \\in \\mathbb{R}$. $u_0=0 \\Rightarrow \\mu=0$. $u_1=1 \\Rightarrow \\lambda+\\mu=1 \\Rightarrow \\lambda=1$. Donc $u_n=n$."
+    },
+    {
+      "id": "nombres_complexes__example_resolution_suite_reelle_racines_complexes",
+      "type": "example",
+      "title": "Exemple : Résolution avec la version réelle",
+      "content_latex": "Pour la suite $u_0=0, u_1=1$ et $u_{n+2}=u_{n+1}-u_n$, en utilisant le cas réel, on trouve directement $u_n = \\frac{2}{\\sqrt{3}}\\sin\\left(\\frac{n\\pi}{3}\\right)$.",
+      "proof_latex": "Le polynôme a pour racines $e^{\\pm i\\frac{\\pi}{3}}$. La suite est de la forme $\\lambda\\cos\\left(\\frac{n\\pi}{3}\\right) + \\mu\\sin\\left(\\frac{n\\pi}{3}\\right)$. Avec les conditions initiales : $u_0=0 \\Rightarrow \\lambda=0$, et $u_1=1 \\Rightarrow \\frac{\\lambda}{2} + \\frac{\\mu\\sqrt{3}}{2} = 1 \\Rightarrow \\mu = \\frac{2}{\\sqrt{3}}$."
+    }
+  ],
+  "exercises": []
+}

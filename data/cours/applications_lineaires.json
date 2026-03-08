@@ -1,0 +1,820 @@
+{
+  "chapter_official_id": "applications_lineaires",
+  "chapter_name": "Applications linéaires",
+  "source_document": "Cours - Applications lineaires.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "applications_lineaires__intro_contexte",
+      "type": "remark",
+      "title": "Introduction : Contexte du chapitre",
+      "content_latex": "Dans ce chapitre, $\\mathbb{K}$ est un corps quelconque — sauf dans le paragraphe sur les symétries — mais en pratique, nous travaillerons essentiellement avec les corps $\\mathbb{R}$ et $\\mathbb{C}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_application_lineaire",
+      "type": "definition",
+      "title": "Définition : Application linéaire",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels. On appelle application linéaire de $E$ dans $F$ toute application $f : E \\longrightarrow F$ qui préserve les combinaisons linéaires :\\par $\\forall x, y \\in E, \\forall \\lambda, \\mu \\in \\mathbb{K}, \\quad f(\\lambda x + \\mu y) = \\lambda f(x) + \\mu f(y)$.\\par L'ensemble des applications linéaires de $E$ dans $F$ est noté $\\mathcal{L}(E, F)$.\\par Si $E = F$, on dit plutôt que $f$ est un endomorphisme (linéaire) de $E$. L'ensemble des endomorphismes (linéaires) de $E$ est noté $\\mathcal{L}(E)$.\\par Si $F = \\mathbb{K}$, on dit plutôt que $f$ est une forme linéaire de $E$.\\par Quand on parle d'endomorphisme d'un espace vectoriel sans autre précision, il est toujours sous-entendu qu'il s'agit d'un endomorphisme linéaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__propriete_image_zero",
+      "type": "property",
+      "title": "Propriété : Image du vecteur nul",
+      "content_latex": "Toute application linéaire $f \\in \\mathcal{L}(E, F)$ est un morphisme de groupes additifs, donc : $f(0_E) = 0_F$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__remark_restriction_lineaire",
+      "type": "remark",
+      "title": "Remarque : Restriction d'une application linéaire",
+      "content_latex": "Si $A$ est un sous-espace vectoriel de $E$, l'application restreinte $f_{|A}$ est elle aussi linéaire. En effet, s'il est vrai que $f(\\lambda x + \\mu y) = \\lambda f(x) + \\mu f(y)$ pour tous $x, y \\in E$ et $\\lambda, \\mu \\in \\mathbb{K}$, c'est a fortiori vrai pour tous $x, y \\in A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__propriete_critere_linearite",
+      "type": "property",
+      "title": "Propriété : Critère simplifié de linéarité",
+      "content_latex": "Pour vérifier que $f$ est linéaire, il est suffisant de vérifier que $f(\\lambda x + y) = \\lambda f(x) + f(y)$ pour tous $x, y \\in E$ et pour $\\lambda \\in \\mathbb{K}$ — un seul scalaire, donc. Dans ce cas, en effet : $f(\\lambda x) = f(\\lambda x + 0_E) = \\lambda f(x) + f(0_E) = \\lambda f(x) + 0_F = \\lambda f(x)$ pour tous $x \\in E$ et $\\lambda \\in \\mathbb{K}$, donc $f(\\lambda x + \\mu y) = f(\\lambda x) + f(\\mu y) = \\lambda f(x) + \\mu f(y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_morphisme_algebres",
+      "type": "definition",
+      "title": "Définition : Morphisme d'algèbres",
+      "content_latex": "Soient $A$ et $B$ deux $\\mathbb{K}$-algèbres. On appelle morphisme d'algèbres de $A$ dans $B$ toute application $f : A \\longrightarrow B$ qui est à la fois un morphisme d'anneaux et linéaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_homothetie",
+      "type": "definition",
+      "title": "Définition : Homothétie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $\\lambda \\in \\mathbb{K}$. L'application $\\lambda \\text{Id}_E$ est un endomorphisme de $E$ appelé l'homothétie de $E$ de rapport $\\lambda$. En particulier, $\\text{Id}_E \\in \\mathcal{L}(E)$.",
+      "proof_latex": "Pour tous $x, y \\in E$ et $\\alpha \\in \\mathbb{K}$ : $(\\lambda \\text{Id}_E)(\\alpha x + y) = \\lambda(\\alpha x + y) = \\alpha(\\lambda \\text{Id}_E)(x) + (\\lambda \\text{Id}_E)(y)$."
+    },
+    {
+      "id": "applications_lineaires__example_endomorphismes_dimension_1",
+      "type": "example",
+      "title": "Exemple : Endomorphismes en dimension 1",
+      "content_latex": "Pour tout $\\mathbb{K}$-espace vectoriel $E$ de dimension 1, $\\mathcal{L}(E)$ est l'ensemble des homothéties $\\lambda \\text{Id}_E$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, les endomorphismes du $\\mathbb{R}$-espace vectoriel $\\mathbb{R}$ sont exactement les fonctions qu'on appelait linéaires au lycée !",
+      "proof_latex": "Fixons $e \\in E$ non nul. Par hypothèse, $E = \\text{Vect}(e)$. En particulier, $f(e) = \\lambda e$ pour un certain $\\lambda \\in \\mathbb{K}$. À présent, soit $f \\in \\mathcal{L}(E)$. Pour tout $x \\in E$, $x = \\alpha e$ pour un certain $\\alpha \\in \\mathbb{K}$, donc $f(x) = \\alpha f(e) = \\lambda \\alpha e = \\lambda x$, ce qui montre bien que $f = \\lambda \\text{Id}_E$."
+    },
+    {
+      "id": "applications_lineaires__example_application_r2_r3",
+      "type": "example",
+      "title": "Exemple : Application linéaire de $\\mathbb{R}^2$ dans $\\mathbb{R}^3$",
+      "content_latex": "L'application $(x, y) \\longmapsto (x, x + y, x - 2y)$ est linéaire de $\\mathbb{R}^2$ dans $\\mathbb{R}^3$.",
+      "proof_latex": "Pour tous $(x, y), (x', y') \\in \\mathbb{R}^2$ et $\\lambda \\in \\mathbb{R}$ :\\par $f(\\lambda(x, y) + (x', y')) = f(\\lambda x + x', \\lambda y + y') = (\\lambda x + x', (\\lambda x + x') + (\\lambda y + y'), (\\lambda x + x') - 2(\\lambda y + 2y'))$\\par $= \\lambda(x, x + y, x - 2y) + (x', x' + y', x' - 2y') = \\lambda f(x, y) + f(x', y')$."
+    },
+    {
+      "id": "applications_lineaires__example_applications_polynomes",
+      "type": "example",
+      "title": "Exemple : Applications linéaires sur $\\mathbb{K}[X]$",
+      "content_latex": "• Pour tout $x \\in \\mathbb{K}$, l'application $P \\longmapsto P(x)$ d'évaluation en $x$ est un morphisme d'algèbres de $\\mathbb{K}[X]$ dans $\\mathbb{K}$. En tant qu'application linéaire, on peut aussi dire que $P \\longmapsto P(x)$ est une FORME linéaire de $\\mathbb{K}[X]$.\\par Plus généralement, pour toute $\\mathbb{K}$-algèbre $A$ et tout $a \\in A$, l'application $P \\longmapsto P(a)$ d'évaluation en $a$ est un morphisme d'algèbres de $\\mathbb{K}[X]$ dans $A$.\\par En particulier, pour tout $Q \\in \\mathbb{K}[X]$, l'application $P \\longmapsto P \\circ Q$ de composition À DROITE par $Q$ est un endomorphisme de $\\mathbb{K}[X]$. Au cas où vous ne l'auriez pas remarqué, $P \\circ Q$ n'est jamais que l'évaluation du polynôme $P$ en $Q$ dans la $\\mathbb{K}$-algèbre $\\mathbb{K}[X]$.\\par • Pour tout $A \\in \\mathbb{K}[X]$, l'application $P \\longmapsto AP$ de multiplication par $A$ est un endomorphisme de $\\mathbb{K}[X]$.\\par • L'application $P \\longmapsto P'$ de dérivation est un endomorphisme de $\\mathbb{K}[X]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_applications_fonctions",
+      "type": "example",
+      "title": "Exemple : Applications linéaires sur des espaces de fonctions",
+      "content_latex": "• Pour tout intervalle $I$, l'application $f \\longmapsto f'$ est linéaire de $\\mathcal{D}(I, \\mathbb{R})$ dans $\\mathbb{R}^I$ ou de $\\mathcal{C}^1(I, \\mathbb{R})$ dans $\\mathcal{C}(I, \\mathbb{R})$. Comme elle envoie $\\mathcal{C}^\\infty(I, \\mathbb{R})$ dans lui-même, c'est également un endomorphisme de $\\mathcal{C}^\\infty(I, \\mathbb{R})$.\\par • L'application $f \\longmapsto \\int_0^1 f$ est une forme linéaire de $\\mathcal{C}([0, 1], \\mathbb{R})$.\\par • L'application $u \\longmapsto \\lim_{n \\to +\\infty} u_n$ est une forme linéaire du $\\mathbb{R}$-espace vectoriel des suites réelles convergentes.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_applications_non_lineaires",
+      "type": "example",
+      "title": "Exemple : Applications NON linéaires",
+      "content_latex": "• L'application $(x, y) \\overset{\\phi}{\\longmapsto} x + y + 1$ n'est pas linéaire de $\\mathbb{R}^2$ dans $\\mathbb{R}$ car $\\phi(0, 0) = 1 \\neq 0$.\\par • L'application $(x, y) \\overset{\\psi}{\\longmapsto} x^2 + y^2$ n'est pas linéaire de $\\mathbb{R}^2$ dans $\\mathbb{R}$ car $\\psi(2(1, 1)) = \\psi(2, 2) = 8 \\neq 4 = 2\\psi(1, 1)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_application_canonique",
+      "type": "theorem",
+      "title": "Définition-théorème : Application linéaire canoniquement associée à une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$. L'application $X \\longmapsto AX$ est linéaire de $\\mathbb{K}^p$ dans $\\mathbb{K}^n$ et appelée l'application linéaire canoniquement associée à $A$. Je la noterai souvent $\\overset{\\text{b}}{A}$ dans ce cours, mais cette notation est tout à fait personnelle.\\par L'application $X \\longmapsto AX$ est définie de $\\mathbb{K}^p$ dans $\\mathbb{K}^n$ et non l'inverse pour une simple raison de compatibilité des formats.\\par Pour tous $A \\in \\mathcal{M}_{p,q}(\\mathbb{K})$ et $B \\in \\mathcal{M}_{q,r}(\\mathbb{K})$ : $\\overset{\\text{b}}{AB} = \\overset{\\text{b}}{A} \\circ \\overset{\\text{b}}{B}$ car pour tout $X \\in \\mathbb{K}^r$ : $\\overset{\\text{b}}{AB}(X) = (AB)X = A(BX) = \\overset{\\text{b}}{A}(BX) = \\overset{\\text{b}}{A} \\circ \\overset{\\text{b}}{B}(X)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_application_canonique",
+      "type": "example",
+      "title": "Exemple : Application linéaire canoniquement associée",
+      "content_latex": "L'application linéaire canoniquement associée à $\\begin{pmatrix} 0 & 1 & 2 \\ 3 & 4 & 5 \\end{pmatrix}$ est l'application $(x, y, z) \\longmapsto (y + 2z, 3x + 4y + 5z)$ de $\\mathbb{R}^3$ dans $\\mathbb{R}^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_formes_coordonnees",
+      "type": "theorem",
+      "title": "Définition-théorème : Formes coordonnées relativement à une base",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel. On suppose que $E$ possède une base $\\mathcal{B} = (e_i)_{i \\in I}$. Pour tout $i \\in I$, l'application qui associe à tout vecteur de $E$ sa coordonnée dans $\\mathcal{B}$ selon $e_i$ est une forme linéaire de $E$ appelée la $i^{\\text{ème}}$ forme coordonnée de $E$ (dans $\\mathcal{B}$). Pour tout $x \\in E$ : $x = \\sum_{i \\in I} e_i^\\star(x) e_i$.",
+      "proof_latex": "Soient $x, y \\in E$ de coordonnées respectives $(x_i)_{i \\in I}$, $(y_i)_{i \\in I}$ dans $\\mathcal{B}$ et $\\lambda \\in \\mathbb{K}$. Le vecteur $\\lambda x + y$ admet $(\\lambda x_i + y_i)_{i \\in I}$ pour coordonnées dans $\\mathcal{B}$ car : $\\lambda x + y = \\lambda \\sum_{i \\in I} x_i e_i + \\sum_{i \\in I} y_i e_i = \\sum_{i \\in I} (\\lambda x_i + y_i) e_i$. En particulier, pour tout $i \\in I$, la coordonnée selon $e_i$ de $\\lambda x + y$ est $\\lambda x_i + y_i$. C'est la linéarité souhaitée !"
+    },
+    {
+      "id": "applications_lineaires__example_formes_coordonnees",
+      "type": "example",
+      "title": "Exemple : Formes coordonnées",
+      "content_latex": "• Les formes coordonnées de $\\mathbb{R}^n$ pour sa base canonique sont, dans cet ordre, les applications $(x_1, \\ldots, x_n) \\longmapsto x_1$, $(x_1, \\ldots, x_n) \\longmapsto x_2$, \\ldots, $(x_1, \\ldots, x_n) \\longmapsto x_n$.\\par • Les formes coordonnées de $\\mathbb{R}_n[X]$ pour sa base canonique sont, dans cet ordre, les applications $P \\longmapsto a_0$, $P \\longmapsto a_1$, \\ldots, $P \\longmapsto a_n$ si on note $a_0, \\ldots, a_n$ les coefficients de $P$ : $P = a_n X^n + \\ldots + a_1 X + a_0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_isomorphisme",
+      "type": "definition",
+      "title": "Définition : Isomorphisme, espaces vectoriels isomorphes",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels.\\par • Isomorphisme linéaire : On appelle isomorphisme (linéaire) de $E$ sur $F$ toute application linéaire bijective de $E$ sur $F$.\\par Si $E = F$, on parle plutôt d'automorphisme (linéaire) de $E$. L'ensemble des automorphismes de $E$ est noté $\text{GL}(E)$ et appelé le groupe linéaire de $E$.\\par • Espaces vectoriels isomorphes : On dit que $F$ est isomorphe à $E$ (en tant qu'espace vectoriel) s'il existe un isomorphisme (linéaire) de $E$ sur $F$.\\par Le fait que deux espaces vectoriels soient isomorphes signifie qu'à défaut d'être identiques au sens propre, ils le sont d'un point de vue vectoriel. Tout isomorphisme entre eux est comme un dictionnaire parfait pour passer de l'un à l'autre. Toute propriété vectorielle — i.e. que l'on peut exprimer en termes de combinaisons linéaires — de l'un des espaces a son analogue dans l'autre espace. Nous verrons bientôt que les isomorphismes préservent la dimension.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_isomorphisme_r3_poly",
+      "type": "example",
+      "title": "Exemple : Isomorphisme entre $\\mathbb{R}^3$ et $\\mathbb{R}_2[X]$",
+      "content_latex": "L'application linéaire $(a, b, c) \\overset{\\phi}{\\longmapsto} a + bX + cX^2$ est par exemple un isomorphisme de $\\mathbb{R}^3$ dans $\\mathbb{R}_2[X]$ en en faisant une sorte de copie parfaite de $\\mathbb{R}^3$. La coplanarité des vecteurs $(0, 1, 0)$, $(0, 0, 1)$ et $(0, \\frac{1}{2}, \\frac{1}{2})$ dans $\\mathbb{R}^3$ se traduit dans $\\mathbb{R}_2[X]$ par celle des vecteurs $X$, $X^2$ et $X + \\frac{X^2}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_isomorphisme_surprenant",
+      "type": "example",
+      "title": "Exemple : Isomorphisme surprenant",
+      "content_latex": "L'application $f \\overset{S}{\\longmapsto} (f', f(0))$ est un isomorphisme de $\\mathcal{C}^1(\\mathbb{R}, \\mathbb{R})$ sur $\\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\times \\mathbb{R}$. Cet isomorphisme est un peu surprenant car $\\mathcal{C}^1(\\mathbb{R}, \\mathbb{R})$ est à la fois beaucoup plus petit que $\\mathcal{C}(\\mathbb{R}, \\mathbb{R})$ et isomorphe à $\\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\times \\mathbb{R}$, donc plus gros que $\\mathcal{C}(\\mathbb{R}, \\mathbb{R})$ !",
+      "proof_latex": "L'application $S$ est linéaire car pour tous $f, g \\in \\mathcal{C}^1(\\mathbb{R}, \\mathbb{R})$ et $\\lambda \\in \\mathbb{R}$ : $S(\\lambda f + g) = ((\\lambda f + g)', (\\lambda f + g)(0)) = (\\lambda f' + g', \\lambda f(0) + g(0)) = \\lambda(f', f(0)) + (g', g(0)) = \\lambda S(f) + S(g)$.\\par Ensuite, il n'est pas dur de comprendre que l'application $T$ qui associe à tout couple $(g, a) \\in \\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\times \\mathbb{R}$ la fonction $x \\longmapsto a + \\int_0^x g(t) \\, dt$ de classe $\\mathcal{C}^1$ admet $S$ pour réciproque."
+    },
+    {
+      "id": "applications_lineaires__theoreme_composition_applications",
+      "type": "theorem",
+      "title": "Théorème : Composition d'applications linéaires, réciproque d'un isomorphisme",
+      "content_latex": "Soient $E$, $F$ et $G$ trois $\\mathbb{K}$-espaces vectoriels.\\par (i) Composition : Pour tous $f \\in \\mathcal{L}(E, F)$ et $g \\in \\mathcal{L}(F, G)$ : $g \\circ f \\in \\mathcal{L}(E, G)$.\\par En particulier, si $f$ est un isomorphisme de $E$ sur $F$ et $g$ un isomorphisme de $F$ sur $G$, $g \\circ f$ est un isomorphisme de $E$ sur $G$.\\par (ii) Réciproque : Pour tout isomorphisme $f$ de $E$ sur $F$, $f^{-1}$ est un isomorphisme de $F$ sur $E$.\\par En particulier, la relation d'isomorphisme entre espaces vectoriels est une relation d'équivalence — pour la réflexivité, $\text{Id}_E$ est un automorphisme de $E$ pour tout $\\mathbb{K}$-espace vectoriel $E$.",
+      "proof_latex": "(i) Soient $f \\in \\mathcal{L}(E, F)$ et $g \\in \\mathcal{L}(F, G)$. Pour tous $x, y \\in E$ et $\\lambda \\in \\mathbb{K}$ : $(g \\circ f)(\\lambda x + y) = g(f(\\lambda x + y)) = g(\\lambda f(x) + f(y)) = \\lambda g(f(x)) + g(f(y)) = \\lambda(g \\circ f)(x) + (g \\circ f)(y)$.\\par (ii) Nous savons déjà que $f^{-1}$ est bijective de $F$ sur $E$, mais est-elle linéaire ? Pour tous $y, y' \\in F$ et $\\lambda \\in \\mathbb{K}$ : $f^{-1}(\\lambda y + y') = f^{-1}(\\lambda f(f^{-1}(y)) + f(f^{-1}(y'))) = f^{-1}(f(\\lambda f^{-1}(y) + f^{-1}(y'))) = \\lambda f^{-1}(y) + f^{-1}(y')$."
+    },
+    {
+      "id": "applications_lineaires__example_composition_lineaire",
+      "type": "example",
+      "title": "Exemple : Composition d'applications linéaires",
+      "content_latex": "L'application $f \\longmapsto \\int_0^1 f(t^2) \\, dt$ est linéaire de $\\mathcal{C}([0, 1], \\mathbb{R})$ dans $\\mathbb{R}$.",
+      "proof_latex": "Les applications $f \\overset{\\alpha}{\\longmapsto} f \\circ (t \\longmapsto t^2)$ et $f \\overset{\\beta}{\\longmapsto} \\int_0^1 f(x) \\, dx$ sont linéaires, donc $\beta \\circ \\alpha$ aussi."
+    },
+    {
+      "id": "applications_lineaires__theoreme_inversibilite_matrice",
+      "type": "theorem",
+      "title": "Théorème : Traduction de l'inversibilité en termes d'application linéaire canoniquement associée",
+      "content_latex": "Une matrice $A \\in \\mathcal{M}_n(\\mathbb{K})$ est inversible si et seulement si l'application linéaire $\\overset{\\text{b}}{A}$ canoniquement associée à $A$ est un automorphisme de $\\mathbb{K}^n$. Dans ce cas, $\\overset{\\text{b}}{A^{-1}} = \\overset{\\text{b}}{A}^{-1}$.",
+      "proof_latex": "D'après la caractérisation de l'inversibilité en termes de systèmes linéaires : $A$ est inversible $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, Y = AX$ $\\Leftrightarrow \\forall Y \\in \\mathbb{K}^n, \\exists! X \\in \\mathbb{K}^n, Y = \\overset{\\text{b}}{A}(X)$ $\\Leftrightarrow \\overset{\\text{b}}{A}$ est un automorphisme de $\\mathbb{K}^n$.\\par Dans ce cas, $\\overset{\\text{b}}{A} \\circ \\overset{\\text{b}}{A^{-1}} = \\overset{\\text{b}}{AA^{-1}} = \\overset{\\text{b}}{I_n} = \\text{Id}_{\\mathbb{K}^n}$ et de même $\\overset{\\text{b}}{A^{-1}} \\circ \\overset{\\text{b}}{A} = \\text{Id}_{\\mathbb{K}^n}$, donc $\\overset{\\text{b}}{A}^{-1} = \\overset{\\text{b}}{A^{-1}}$."
+    },
+    {
+      "id": "applications_lineaires__example_automorphisme_r2",
+      "type": "example",
+      "title": "Exemple : Automorphisme de $\\mathbb{R}^2$",
+      "content_latex": "L'application $(x, y) \\longmapsto (3x + y, 5x + 2y)$ est un automorphisme de $\\mathbb{R}^2$. Sa réciproque est l'application $(x, y) \\longmapsto (2x - y, -5x + 3y)$ car $\begin{pmatrix} 3 & 1 \\ 5 & 2 \\end{pmatrix}$ est inversible d'inverse $\begin{pmatrix} 2 & -1 \\ -5 & 3 \\end{pmatrix}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_combinaisons_lineaires",
+      "type": "theorem",
+      "title": "Théorème : Combinaisons linéaires d'applications linéaires",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels. L'ensemble $\\mathcal{L}(E, F)$ est un sous-espace vectoriel de $F^E$, donc un $\\mathbb{K}$-espace vectoriel. En d'autres termes, toute combinaison linéaire d'applications linéaires de $E$ dans $F$ est une application linéaire de $E$ dans $F$.",
+      "proof_latex": "Pour commencer, $\\mathcal{L}(E, F) \\subset F^E$ et l'application nulle $x \\longmapsto 0_F$ est linéaire de $E$ dans $F$. Pour la stabilité par combinaison linéaire, soient $f, g \\in \\mathcal{L}(E, F)$ et $\\lambda \\in \\mathbb{K}$. Montrons que $\\lambda f + g \\in \\mathcal{L}(E, F)$, i.e. que $\\lambda f + g$ est linéaire. Pour tous $x, y \\in E$ et $\u0007lpha \\in \\mathbb{K}$ : $(\\lambda f + g)(\\alpha x + y) = \\lambda f(\\alpha x + y) + g(\\alpha x + y) = \\lambda(\\alpha f(x) + f(y)) + (\\alpha g(x) + g(y)) = \\alpha(\\lambda f(x) + g(x)) + (\\lambda f(y) + g(y)) = \\alpha(\\lambda f + g)(x) + (\\lambda f + g)(y)$."
+    },
+    {
+      "id": "applications_lineaires__example_combinaison_lineaire",
+      "type": "example",
+      "title": "Exemple : Combinaison linéaire d'endomorphismes",
+      "content_latex": "L'application $P \\longmapsto P(X^2) + 2P'(1)$ est un endomorphisme de $\\mathbb{K}[X]$.",
+      "proof_latex": "L'application $P \\overset{f}{\\longmapsto} P(X^2)$ est linéaire. Ensuite, $P \\overset{d}{\\longmapsto} P'$ et $P \\overset{e}{\\longmapsto} P(1)$ sont linéaires, donc $e \\circ d = (P \\longmapsto P'(1))$ aussi. Comme voulu, $f + 2(e \\circ d)$ est linéaire par combinaison linéaire."
+    },
+    {
+      "id": "applications_lineaires__remark_distributivite",
+      "type": "remark",
+      "title": "Remarque : Distributivité de la composition",
+      "content_latex": "Observons à présent que pour tous $f, f' \\in \\mathcal{L}(E, F)$ et $g, g' \\in \\mathcal{L}(F, G)$ : $g \\circ (f + f') = (g \\circ f) + (g \\circ f')$ et $(g + g') \\circ f = (g \\circ f) + (g' \\circ f)$.\\par Attention cependant ! La relation $(g + g') \\circ f = (g \\circ f) + (g' \\circ f)$ est vraie en toute généralité sans linéarité alors que la relation $g \\circ (f + f') = (g \\circ f) + (g \\circ f')$ requiert à tout prix la linéarité de $g$. Faites l'effort de vous en convaincre.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_algebre_LE",
+      "type": "theorem",
+      "title": "Théorème : Algèbre $\\mathcal{L}(E)$",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel.\\par • Le quadruplet $(\\mathcal{L}(E), +, \\cdot, \\circ)$ est une $\\mathbb{K}$-algèbre d'élément neutre multiplicatif $1_{\\mathcal{L}(E)} = \\text{Id}_E$, non commutative en général.\\par • $\\text{GL}(E)$ est le groupe des inversibles de l'anneau $\\mathcal{L}(E)$ : $\\mathcal{U}(\\mathcal{L}(E)) = \\text{GL}(E)$.\\par On omet souvent de noter le symbole $\\circ$ de composition en notant $gf$ à la place de $g \\circ f$ pour tous $f, g \\in \\mathcal{L}(E)$.\\par La loi produit de $\\mathcal{L}(E)$ est la composition. Pour tous $f \\in \\mathcal{L}(E)$ et $n \\in \\mathbb{N}$, $f^n$ désigne donc $\\text{Id}_E$ si $n = 0$ et $f \\circ \\ldots \\circ f$ ($n$ termes) si $n \\geq 1$. On définit ensuite les polynômes en $f$ de la même manière qu'on a défini les polynômes en $A$ pour une matrice carrée $A$. L'ensemble des polynômes en $f$ est noté $\\mathbb{K}[f]$.\\par Comme dans tout anneau, deux formules importantes sont vraies dans $\\mathcal{L}(E)$ : $(f + g)^n = \\sum_{k=0}^n \\binom{n}{k} f^k g^{n-k}$ (formule du binôme) et $f^n - g^n = (f - g)\\sum_{k=0}^{n-1} f^k g^{n-k-1}$ pour tous $f, g \\in \\mathcal{L}(E)$ QUI COMMUTENT. Il est essentiel que $f$ et $g$ commutent. Pour montrer que $(f + g)(f - g) = f^2 - g^2$ par exemple, il faut pouvoir simplifier $fg$ avec $gf$.",
+      "proof_latex": "Pour commencer, $\\mathcal{L}(E)$ est un $\\mathbb{K}$-espace vectoriel comme on vient de le voir. Ensuite, la composition est une loi interne sur $\\mathcal{L}(E)$ car $\\mathcal{L}(E)$ est stable par composition. Cette loi est associative et admet $\\text{Id}_E$, qui est linéaire, pour élément neutre. Pour finir, la composition est distributive sur l'addition comme on l'a observé juste avant et $(\\lambda \\cdot g) \\circ f = g \\circ (\\lambda \\cdot f) = \\lambda \\cdot (g \\circ f)$ pour tous $f, g \\in \\mathcal{L}(E)$ et $\\lambda \\in \\mathbb{K}$."
+    },
+    {
+      "id": "applications_lineaires__example_non_commutativite",
+      "type": "example",
+      "title": "Exemple : Non commutativité de $\\mathcal{L}(\\mathbb{K}[X])$",
+      "content_latex": "Les endomorphismes $P \\overset{D}{\\longmapsto} P'$ et $P \\overset{M}{\\longmapsto} XP$ de $\\mathbb{K}[X]$ ne commutent pas, donc l'anneau $\\mathcal{L}(\\mathbb{K}[X])$ n'est pas commutatif. Par exemple, $D \\circ M(X) = 2X$ alors que $M \\circ D(X) = X$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_endomorphisme_nilpotent",
+      "type": "definition",
+      "title": "Définition : Endomorphisme nilpotent",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel et $f \\in \\mathcal{L}(E)$. On dit que $f$ est nilpotent si $f^p = 0_{\\mathcal{L}(E)}$ pour un certain $p \\in \\mathbb{N}^*$. Le plus petit entier $p$ pour laquelle cette relation est vraie est appelé l'indice de nilpotence de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_derivation_nilpotente",
+      "type": "example",
+      "title": "Exemple : Dérivation nilpotente sur $\\mathbb{K}_n[X]$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$, l'endomorphisme $P \\overset{D}{\\longmapsto} P'$ de $\\mathbb{K}_n[X]$ est nilpotent d'indice $n + 1$.",
+      "proof_latex": "Pour tout $P \\in \\mathbb{K}_n[X]$ : $P^{(n+1)} = 0$, donc $D^{n+1} = 0_{\\mathcal{L}(\\mathbb{K}_n[X])}$, donc $D$ est nilpotent d'indice au plus $n + 1$. L'égalité $(X^n)^{(n)} = n!$ montre cependant que $D^n \\neq 0_{\\mathcal{L}(\\mathbb{K}_n[X])}$, donc $D$ est d'indice $n + 1$ (exactement)."
+    },
+    {
+      "id": "applications_lineaires__theoreme_image_sev",
+      "type": "theorem",
+      "title": "Théorème : Image d'un sous-espace vectoriel par une application linéaire",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$. Pour tout sous-espace vectoriel $A$ de $E$, l'image $f(A)$ de $A$ par $f$ est un sous-espace vectoriel de $F$.\\par En particulier, l'image $\\text{Im} f = f(E)$ est un sous-espace vectoriel de $F$ et $f$ est surjective de $E$ sur $F$ si et seulement si $\\text{Im} f = F$.",
+      "proof_latex": "Pour commencer, $f(A) \\subset F$ et $0_F = f(0_E) \\in f(A)$ car $0_E \\in A$. Ensuite, pour la stabilité par combinaison linéaire, soient $y, y' \\in f(A)$ et $\\lambda \\in \\mathbb{K}$, disons $y = f(a)$ et $y' = f(a')$ pour certains $a, a' \\in A$. Par linéarité de $f$, $\\lambda y + y' = \\lambda f(a) + f(a') = f(\\lambda a + a')$ avec $\\lambda a + a' \\in A$ car $A$ est un sous-espace vectoriel de $E$, donc $\\lambda y + y' \\in f(A)$."
+    },
+    {
+      "id": "applications_lineaires__example_image_plan",
+      "type": "example",
+      "title": "Exemple : Image d'un endomorphisme de $\\mathbb{R}^3$",
+      "content_latex": "L'image de l'endomorphisme $(x, y, z) \\overset{g}{\\longmapsto} (x + 2y + z, 2x + y - z, x + 2y + z)$ de $\\mathbb{R}^3$ est le plan d'équation $z = x$.",
+      "proof_latex": "Pour tout $(x, y, z) \\in \\mathbb{R}^3$ : $(x, y, z) \\in \\text{Im} g \\Leftrightarrow \\exists (a, b, c) \\in \\mathbb{R}^3, (x, y, z) = g(a, b, c)$ $\\Leftrightarrow \\exists (a, b, c) \\in \\mathbb{R}^3, \\begin{cases} a + 2b + c = x \\ 2a + b - c = y \\ a + 2b + c = z \\end{cases}$ $\\Leftrightarrow \\exists (a, b, c) \\in \\mathbb{R}^3, \\begin{cases} a + 2b + c = x \\ 3b + 3c = 2x - y \\ 0 = z - x \\end{cases}$ (après opérations élémentaires) $\\Leftrightarrow z = x$.\\par La dernière équivalence dans laquelle le système disparaît n'est pas un tour de passe-passe à reproduire bêtement. Le système final possède une solution — existence — si et seulement si $z = x$. Il est clair qu'il n'a pas de solution si $z \\neq x$, et on en obtient si $z = x$ en utilisant $c$ comme paramètre."
+    },
+    {
+      "id": "applications_lineaires__theoreme_image_vect",
+      "type": "theorem",
+      "title": "Théorème : Image d'un Vect par une application linéaire",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$. Pour toute partie $X$ de $E$ : $f(\\text{Vect}(X)) = \\text{Vect}(f(X))$.\\par En particulier, si $E$ possède une base $(e_i)_{i \\in I}$ : $\\text{Im} f = \\text{Vect}(f(e_i))_{i \\in I}$.",
+      "proof_latex": "$f(\\text{Vect}(X))$ est un sous-espace vectoriel de $F$ contenant $f(X)$, donc $\\text{Vect}(f(X)) \\subset f(\\text{Vect}(X))$.\\par Inversement, pour tout $y \\in f(\\text{Vect}(X))$, $y = f(\\lambda_1 x_1 + \\ldots + \\lambda_n x_n)$ pour certains $x_1, \\ldots, x_n \\in X$ et $\\lambda_1, \\ldots, \\lambda_n \\in \\mathbb{K}$, donc $y = \\lambda_1 f(x_1) + \\ldots + \\lambda_n f(x_n) \\in \\text{Vect}(f(X))$ par linéarité de $f$.\\par Enfin, si $E$ possède une base $(e_i)_{i \\in I}$ : $\\text{Im} f = f(E) = f(\\text{Vect}(e_i)_{i \\in I}) = \\text{Vect}(f(e_i))_{i \\in I}$."
+    },
+    {
+      "id": "applications_lineaires__example_base_image",
+      "type": "example",
+      "title": "Exemple : Base de l'image",
+      "content_latex": "On note $f$ l'application linéaire $(x, y) \\longmapsto (2x + y, 3x + 5y, y)$ de $\\mathbb{R}^2$ dans $\\mathbb{R}^3$. Alors $(2, 3, 0), (1, 5, 1)$ est une base de $\\text{Im} f$.",
+      "proof_latex": "La famille $(1, 0), (0, 1)$ est une base de $\\mathbb{R}^2$, donc $f(1, 0), f(0, 1) = (2, 3, 0), (1, 5, 1)$ engendre $\\text{Im} f$ et cette famille est évidemment libre."
+    },
+    {
+      "id": "applications_lineaires__example_image_derivee",
+      "type": "example",
+      "title": "Exemple : Image de la dérivation polynomiale",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, l'image de la dérivation $D$ des polynômes sur $\\mathbb{K}_n[X]$ est $\\mathbb{K}_{n-1}[X]$.",
+      "proof_latex": "Comme $(1, X, \\ldots, X^n)$ est une base de $\\mathbb{K}_n[X]$ : $\\text{Im} D = \\text{Vect}(D(1), D(X), \\ldots, D(X^n)) = \\text{Vect}(0, 1, 2X, \\ldots, nX^{n-1}) = \\text{Vect}(1, X, \\ldots, X^{n-1}) = \\mathbb{K}_{n-1}[X]$."
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_image_matrice",
+      "type": "theorem",
+      "title": "Définition-théorème : Image d'une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ de colonnes $C_1, \\ldots, C_p$. On appelle image de $A$ et on note $\\text{Im} A$ l'image de son application linéaire canoniquement associée $X \\longmapsto AX$ de $\\mathbb{K}^p$ dans $\\mathbb{K}^n$.\\par L'image de $A$ se calcule aisément à partir des COLONNES de $A$ : $\\text{Im} A = \\text{Vect}(C_1, \\ldots, C_p)$.",
+      "proof_latex": "En notant $(E_1, \\ldots, E_n)$ la base canonique de $\\mathbb{K}^n$ : $\\text{Im} \\overset{\\text{b}}{A} = \\text{Vect}(\\overset{\\text{b}}{A}(E_1), \\ldots, \\overset{\\text{b}}{A}(E_n)) = \\text{Vect}(AE_1, \\ldots, AE_n) = \\text{Vect}(C_1, \\ldots, C_n)$."
+    },
+    {
+      "id": "applications_lineaires__remark_calcul_image",
+      "type": "remark",
+      "title": "Remarque : Calcul de l'image d'une matrice",
+      "content_latex": "Les Vect tolèrent très bien qu'on y permute les vecteurs et qu'on y remplace un vecteur $x$ par une combinaison linéaire des autres à condition de ne pas faire disparaître $x$ complètement. Pour ces raisons, l'image d'une matrice peut être calculée rapidement par des opérations élémentaires sur les COLONNES.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_calcul_image_matrice",
+      "type": "example",
+      "title": "Exemple : Calcul de l'image d'une matrice",
+      "content_latex": "$\\text{Im} \\begin{pmatrix} 1 & 1 & 2 & 0 \\ 2 & 1 & 4 & 1 \\ 1 & -1 & 2 & 1 \\end{pmatrix} = \\text{Im} \\begin{pmatrix} 1 & 0 & 0 & 0 \\ 2 & -1 & 0 & 1 \\ 1 & -2 & 0 & 1 \\end{pmatrix}$ (après opérations sur colonnes) $= \\text{Vect}((1, 2, 1), (0, 1, 1))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_image_reciproque_noyau",
+      "type": "theorem",
+      "title": "Théorème : Image réciproque d'un sous-espace vectoriel par une application linéaire et noyau",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$. Pour tout sous-espace vectoriel $B$ de $F$, l'image réciproque $f^{-1}(B)$ de $B$ par $f$ est un sous-espace vectoriel de $E$.\\par En particulier, le noyau $\\text{Ker} f = f^{-1}({0_F}) = \\{x \\in E \\mid f(x) = 0_F\\}$ de $f$ est un sous-espace vectoriel de $E$ et $f$ est injective sur $E$ si et seulement si $\\text{Ker} f = \\{0_E\\}$.\\par Le noyau de $f$ n'est jamais que l'ensemble des solutions de l'équation linéaire homogène $f(x) = 0_F$ d'inconnue $x \\in E$. On peut dire aussi que $\\text{Ker} f$ est l'ensemble des éléments de $E$ qui ne comptent pas aux yeux de $f$, qu'elle ne voit pas, car pour tous $x \\in E$ et $k \\in \\text{Ker} f$ : $f(x + k) = f(x)$.",
+      "proof_latex": "Pour commencer, $f^{-1}(B) \\subset E$ et $0_E \\in f^{-1}(B)$ car $f(0_E) = 0_F \\in B$. Ensuite, pour la stabilité par combinaison linéaire, soient $x, x' \\in f^{-1}(B)$ et $\\lambda \\in \\mathbb{K}$. Ainsi $f(x) \\in B$ et $f(x') \\in B$, donc $\\lambda f(x) + f(x') \\in B$ puisque $B$ est un sous-espace vectoriel de $F$. Or $f(\\lambda x + x') = \\lambda f(x) + f(x')$ par linéarité de $f$, donc $f(\\lambda x + x') \\in B$, i.e. $\\lambda x + x' \\in f^{-1}(B)$."
+    },
+    {
+      "id": "applications_lineaires__example_noyau_derivation",
+      "type": "example",
+      "title": "Exemple : Noyau de la dérivation polynomiale",
+      "content_latex": "La dérivation polynomiale $P \\longmapsto P'$ sur $\\mathbb{K}[X]$ a pour noyau $\\mathbb{K}_0[X]$ (les polynômes constants).",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_noyau_application",
+      "type": "example",
+      "title": "Exemple : Noyau d'une application linéaire de $\\mathbb{R}^3$ dans $\\mathbb{R}^2$",
+      "content_latex": "Notons $f$ l'application linéaire $(x, y, z) \\longmapsto (2x + y - z, x - y)$ de $\\mathbb{R}^3$ dans $\\mathbb{R}^2$. Alors $\\text{Ker} f = \\text{Vect}((1, 1, 3))$.",
+      "proof_latex": "Pour tout $(x, y, z) \\in \\mathbb{R}^3$ : $(x, y, z) \\in \\text{Ker} f \\Leftrightarrow f(x, y, z) = (0, 0) \\Leftrightarrow \\begin{cases} 2x + y - z = 0 \\ x - y = 0 \\end{cases} \\Leftrightarrow \\begin{cases} y = x \\ z = 3x \\end{cases}$, donc $\\text{Ker} f = \\{(x, x, 3x) \\mid x \\in \\mathbb{R}\\} = \\text{Vect}((1, 1, 3))$."
+    },
+    {
+      "id": "applications_lineaires__example_endomorphisme_injectif",
+      "type": "example",
+      "title": "Exemple : Endomorphisme injectif de $\\mathcal{M}_2(\\mathbb{R})$",
+      "content_latex": "On pose $A = \\begin{pmatrix} 1 & 2 \\ 2 & 1 \\end{pmatrix}$. L'endomorphisme $M \\overset{\\phi}{\\longmapsto} AM - \\text{tr}(M)A$ de $\\mathcal{M}_2(\\mathbb{R})$ est injectif.",
+      "proof_latex": "L'inclusion $\\text{Ker} \\phi \\subset \\{0\\}$ suffira. Pour tout $M = \\begin{pmatrix} a & b \\ c & d \\end{pmatrix} \\in \\text{Ker} \\phi$ : $\\phi(M) = \\begin{pmatrix} 2b - d & b - 2d \\ c - 2a & 2c - a \\end{pmatrix} = 0$, donc $2b - d = b - 2d = c - 2a = 2c - a = 0$, donc $a = b = c = d = 0$ après calcul, autrement dit $M = 0$."
+    },
+    {
+      "id": "applications_lineaires__example_restriction_injective",
+      "type": "example",
+      "title": "Exemple : Restriction injective",
+      "content_latex": "L'endomorphisme $f \\overset{S}{\\longmapsto} f \\times \\sin$ de $\\mathbb{R}^\\mathbb{R}$ n'est pas injectif, mais sa restriction $S_{|\\mathcal{C}(\\mathbb{R}, \\mathbb{R})}$ l'est.",
+      "proof_latex": "• Le noyau $\\text{Ker} S$ de $S$ est l'ensemble des fonctions $f$ pour lesquelles $f(x) \\sin x = 0$ pour tout $x \\in \\mathbb{R}$, i.e. l'ensemble des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$ qui sont nulles sur $\\mathbb{R} \\setminus \\pi\\mathbb{Z}$ — et qui prennent des valeurs quelconques sur $\\pi\\mathbb{Z}$. En particulier, $\\text{Ker} S \\neq \\{0_{\\mathbb{R}^\\mathbb{R}}\\}$, donc $S$ n'est pas injective.\\par • Ensuite : $\\text{Ker} S_{|\\mathcal{C}(\\mathbb{R}, \\mathbb{R})} = \\{f \\in \\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\mid S(f) = 0_{\\mathbb{R}^\\mathbb{R}}\\} = \\mathcal{C}(\\mathbb{R}, \\mathbb{R}) \\cap \\text{Ker} S$. Or dans $\\text{Ker} S$, seule la fonction nulle est continue, donc $\\text{Ker} S_{|\\mathcal{C}(\\mathbb{R}, \\mathbb{R})} = \\{0_{\\mathbb{R}^\\mathbb{R}}\\}$, ce qui montre bien que $S_{|\\mathcal{C}(\\mathbb{R}, \\mathbb{R})}$ est injective."
+    },
+    {
+      "id": "applications_lineaires__remark_noyau_restriction",
+      "type": "remark",
+      "title": "Remarque : Noyau et image d'une restriction",
+      "content_latex": "Que faut-il en retenir ? Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels, $f \\in \\mathcal{L}(E, F)$ et $A$ un sous-espace vectoriel de $E$.\\par $\\text{Ker} f_{|A} = A \\cap \\text{Ker} f$,\\par mais par contre ATTENTION : $\\text{Im} f_{|A} = f(A) \\neq A \\cap \\text{Im} f$,\\par ne serait-ce que parce que $\\text{Im} f \\subset F$ alors que $A \\subset E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_solutions_equation_lineaire",
+      "type": "theorem",
+      "title": "Théorème : Solutions d'une équation linéaire",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels, $f \\in \\mathcal{L}(E, F)$ et $y_0 \\in F$.\\par — Si $y_0 \\notin \\text{Im} f$, l'équation $f(x) = y_0$ d'inconnue $x \\in E$ n'a pas de solution.\\par — Si $y_0 \\in \\text{Im} f$, alors en notant $x_0$ un antécédent de $y_0$ par $f$ : $\\{x \\in E \\mid f(x) = y_0\\} = x_0 + \\text{Ker} f$.\\par En particulier, l'ensemble des solutions de l'équation $f(x) = y_0$ d'inconnue $x \\in E$ est un sous-espace affine de $E$ de direction $\\text{Ker} f$.\\par En résumé : Solution générale de l'équation complète = Solution particulière + Solution générale de l'équation homogène.",
+      "proof_latex": "Dans le cas où $y_0 \\in \\text{Im} f$, $y_0 = f(x_0)$ pour un certain $x_0 \\in E$, donc pour tout $x \\in E$ : $y_0 = f(x) \\Leftrightarrow f(x_0) = f(x) \\Leftrightarrow f(x - x_0) = 0_F \\Leftrightarrow x - x_0 \\in \\text{Ker} f \\Leftrightarrow x \\in x_0 + \\text{Ker} f$."
+    },
+    {
+      "id": "applications_lineaires__example_suite_recurrente",
+      "type": "example",
+      "title": "Exemple : Suite récurrente linéaire",
+      "content_latex": "On note $(u_n)_{n \\in \\mathbb{N}}$ la suite définie par $u_0 = 1$, $u_1 = 0$ et $u_{n+2} = u_{n+1} + 2u_n - 4$ pour tout $n \\in \\mathbb{N}$. Pour tout $n \\in \\mathbb{N}$ : $u_n = 2 - 2^n$.",
+      "proof_latex": "L'application $(x_n)_{n \\in \\mathbb{N}} \\overset{T}{\\longmapsto} (x_{n+2} - x_{n+1} - 2x_n)_{n \\in \\mathbb{N}}$ est linéaire de $\\mathbb{R}^\\mathbb{N}$ dans $\\mathbb{R}^\\mathbb{N}$, donc $(u_n)_{n \\in \\mathbb{N}}$ est solution de l'équation linéaire $T((x_n)_{n \\in \\mathbb{N}}) = (-4)_{n \\in \\mathbb{N}}$ d'inconnue $(x_n)_{n \\in \\mathbb{N}} \\in \\mathbb{R}^\\mathbb{N}$. Or les solutions de l'équation homogène associée sont les suites récurrentes linéaires de polynôme caractéristique $X^2 - X - 2 = (X + 1)(X - 2)$, i.e. les suites $(2^n \\lambda + (-1)^n \\mu)_{n \\in \\mathbb{N}}$, $\\lambda$ et $\\mu$ décrivant $\\mathbb{R}$, mais d'autre part, il est facile de vérifier que la suite constante $(2)_{n \\in \\mathbb{N}}$ est solution de l'équation complète. La suite $(u_n)_{n \\in \\mathbb{N}}$ étudiée est ainsi de la forme $(2^n \\lambda + (-1)^n \\mu + 2)_{n \\in \\mathbb{N}}$ pour certains $\\lambda, \\mu \\in \\mathbb{R}$. Les égalités $u_0 = 1$ et $u_1 = 0$ montrent enfin que $\\lambda = -1$ et $\\mu = 0$."
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_noyau_matrice",
+      "type": "theorem",
+      "title": "Définition-théorème : Noyau d'une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$. On appelle noyau de $A$ et on note $\\text{Ker} A$ le noyau de son application linéaire canoniquement associée $X \\longmapsto AX$ de $\\mathbb{K}^p$ dans $\\mathbb{K}^n$.\\par Les LIGNES de $A$ décrivent les équations du système linéaire homogène dont $\\text{Ker} A$ est l'ensemble des solutions. Calculer $\\text{Ker} A$ revient à résoudre un système linéaire et cela se fait naturellement par des opérations élémentaires sur les équations. Matriciellement, il est cela dit équivalent d'effectuer les mêmes opérations sur les LIGNES de $A$ et on peut préférer procéder ainsi à condition de bien comprendre ce que les calculs désincarnés cachent.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_calcul_noyau",
+      "type": "example",
+      "title": "Exemple : Calcul du noyau d'une matrice",
+      "content_latex": "$\\text{Ker} \\begin{pmatrix} 2 & 1 & 1 & 0 \\ 1 & 2 & 0 & 1 \\ 1 & -1 & 1 & -1 \\end{pmatrix} = \\{(x, y, -x - 2y, -x + y) \\mid x, y \\in \\mathbb{R}\\} = \\text{Vect}((1, 0, -1, -1), (0, 1, -2, 1))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__remark_lecture_noyau",
+      "type": "remark",
+      "title": "Remarque : Lecture du noyau sur les coefficients",
+      "content_latex": "Observons pour finir que le noyau d'une matrice se lit parfois bien sur ses coefficients. Notons $A$ la matrice $\\begin{pmatrix} 1 & 1 & 2 & 1 \\ 2 & 1 & 3 & -6 \\ 1 & -2 & 1 & -2 \\ 2 & -4 & 2 & -4 \\end{pmatrix}$ et $C_1, C_2, C_3, C_4$ ses colonnes.\\par — Tout d'abord, $C_3 = C_1 + C_2$ donc $C_1 + C_2 - C_3 = 0$, donc $(1, 1, -1, 0) \\in \\text{Ker} A$ car $A \\begin{pmatrix} 1 \\ 1 \\ -1 \\ 0 \\end{pmatrix} = \\begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\end{pmatrix}$.\\par — De même, $C_1 + C_2 + C_3 + C_4 = 0$ donc $(1, 1, 1, 1) \\in \\text{Ker} A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_base",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation d'une application linéaire par l'image d'une base",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels. On suppose que $E$ possède une base $(e_i)_{i \\in I}$. Pour toute famille $(y_i)_{i \\in I}$ de vecteurs de $F$, il existe une et une seule application linéaire $u$ de $E$ dans $F$ pour laquelle $u(e_i) = y_i$ pour tout $i \\in I$.\\par En résumé, pour connaître/définir une application linéaire complètement, il suffit de connaître/définir les valeurs qu'elle prend sur une base de l'espace de départ. Un exercice peut ainsi commencer de la façon suivante : « Soient $E$ un $\\mathbb{R}$-espace vectoriel de dimension 2 de base $(e_1, e_2)$. On note $f$ l'unique endomorphisme de $E$ défini par $f(e_1) = e_2$ et $f(e_2) = e_1 + e_2$. »",
+      "proof_latex": "Pour tout $j \\in I$, notons $e_j^\\star$ la forme coordonnée de $E$ selon $e_j$ dans la base $(e_i)_{i \\in I}$ — c'est-à-dire l'application qui, à tout vecteur de $E$, associe sa coordonnée selon $e_j$ dans la base $(e_i)_{i \\in I}$. Nous avons déjà vu que les formes coordonnées sont des formes linéaires de $E$.\\par Soit $(y_i)_{i \\in I}$ une famille de vecteurs de $F$.\\par • Analyse : Soit $u \\in \\mathcal{L}(E, F)$. Si $u(e_i) = y_i$ pour tout $i \\in I$, alors pour tout $x \\in E$ : $u(x) = u(\\sum_{i \\in I} e_i^\\star(x) e_i) = \\sum_{i \\in I} e_i^\\star(x) u(e_i) = \\sum_{i \\in I} e_i^\\star(x) y_i$.\\par • Synthèse : Notons $u$ l'application $x \\longmapsto \\sum_{i \\in I} e_i^\\star(x) y_i$ de $E$ dans $F$. Cette application est linéaire car les formes coordonnées le sont. Pour tous $x, x' \\in E$ et $\\lambda \\in \\mathbb{K}$ : $u(\\lambda x + x') = \\sum_{i \\in I} e_i^\\star(\\lambda x + x') y_i = \\sum_{i \\in I} (\\lambda e_i^\\star(x) + e_i^\\star(x')) y_i = \\lambda \\sum_{i \\in I} e_i^\\star(x) y_i + \\sum_{i \\in I} e_i^\\star(x') y_i = \\lambda u(x) + u(x')$.\\par Enfin, pour tout $j \\in I$ : $u(e_j) = \\sum_{i \\in I} e_i^\\star(e_j) y_i = \\sum_{i \\in I} \\delta_{ij} y_i = y_j$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_somme_directe",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation d'une application linéaire par ses restrictions sur une somme directe",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels, $E_1, \\ldots, E_p$ des sous-espaces vectoriels de $E$ pour lesquels $E = E_1 \\oplus \\ldots \\oplus E_p$ et $u_1 \\in \\mathcal{L}(E_1, F)$, \\ldots, $u_p \\in \\mathcal{L}(E_p, F)$. Il existe une et une seule application linéaire $u \\in \\mathcal{L}(E, F)$ pour laquelle $u_{|E_i} = u_i$ pour tout $i \\in \\{1, \\ldots, p\\}$.\\par En résumé, tout élément de $\\mathcal{L}(E, F)$ est une sorte de concaténation/recollement d'éléments de $\\mathcal{L}(E_1, F), \\ldots, \\mathcal{L}(E_p, F)$.",
+      "proof_latex": "Par hypothèse, tout vecteur de $E$ est la somme d'une et une seule manière d'un vecteur de $E_1$, \\ldots et d'un vecteur de $E_p$.\\par • Analyse : Soit $u \\in \\mathcal{L}(E, F)$. Supposons que $u_{|E_i} = u_i$ pour tout $i \\in \\{1, \\ldots, p\\}$. Pour tout $x = x_1 + \\ldots + x_p \\in E$ avec $x_1 \\in E_1, \\ldots, x_p \\in E_p$ : $u(x) = u(x_1 + \\ldots + x_p) = u(x_1) + \\ldots + u(x_p) = u_1(x_1) + \\ldots + u_p(x_p)$. Cette expression qui ne dépend que de $u_1, \\ldots, u_p$ et $x$ montre l'unicité cherchée.\\par • Synthèse : Pour tout $x = x_1 + \\ldots + x_p \\in E$ avec $x_1 \\in E_1, \\ldots, x_p \\in E_p$, posons $u(x) = u_1(x_1) + \\ldots + u_p(x_p)$. On définit ainsi une application de $E$ dans $F$.\\par — Soit $i \\in \\{1, \\ldots, p\\}$. Montrons que $u_{|E_i} = u_i$. Pour tout $x_i \\in E_i$ : $u(x_i) = u(0_E + \\ldots + 0_E + x_i + 0_E + \\ldots + 0_E) = u_1(0_E) + \\ldots + u_{i-1}(0_E) + u_i(x_i) + u_{i+1}(0_E) + \\ldots + u_p(0_E) = u_i(x_i)$.\\par — Pour la linéarité de $u$, soient $\\lambda \\in \\mathbb{K}$ et $x = x_1 + \\ldots + x_p$, $y = y_1 + \\ldots + y_p \\in E$ avec $x_i, y_i \\in E_i$ pour tout $i \\in \\{1, \\ldots, p\\}$. Aussitôt, $\\lambda x + y = (\\lambda x_1 + y_1) + \\ldots + (\\lambda x_p + y_p)$ avec $\\lambda x_i + y_i \\in E_i$ pour tout $i \\in \\{1, \\ldots, p\\}$, donc : $u(\\lambda x + y) = u_1(\\lambda x_1 + y_1) + \\ldots + u_p(\\lambda x_p + y_p) = (\\lambda u_1(x_1) + u_1(y_1)) + \\ldots + (\\lambda u_p(x_p) + u_p(y_p)) = \\lambda(u_1(x_1) + \\ldots + u_p(x_p)) + (u_1(y_1) + \\ldots + u_p(y_p)) = \\lambda u(x) + u(y)$."
+    },
+    {
+      "id": "applications_lineaires__example_recollement",
+      "type": "example",
+      "title": "Exemple : Recollement d'applications linéaires",
+      "content_latex": "C'est bien connu, $\\mathbb{R}_4[X] = \\mathbb{R}_3[X] \\oplus \\text{Vect}(X^4)$. D'après le théorème précédent, il existe donc une et une seule application linéaire $\\phi$ de $\\mathbb{R}_4[X]$ dans $\\mathbb{R}_2[X]$ pour laquelle pour tout $P \\in \\mathbb{R}_3[X]$, $\\phi(P) = P'$ et $\\phi(X^4) = X$. Cette application est obtenue à partir de l'application linéaire $P \\longmapsto P'$ de $\\mathbb{R}_3[X]$ dans $\\mathbb{R}_2[X]$ et de l'unique application linéaire qui envoie $X^4$ sur $X$ de $\\text{Vect}(X^4)$ dans $\\text{Vect}(X)$.\\par Concrètement, pour tout $P = aX^4 + bX^3 + cX^2 + dX + e \\in \\mathbb{R}_4[X]$ : $\\phi(P) = aX + (3bX^2 + 2cX + d) = 3bX^2 + (a + 2c)X + d$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_injectivite_surjectivite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de l'injectivité/surjectivité d'une application linéaire par l'image d'une base",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$. On suppose que $E$ possède une base $(e_i)_{i \\in I}$.\\par (i) $f$ est surjective de $E$ sur $F$ si et seulement si $(f(e_i))_{i \\in I}$ engendre $F$.\\par (ii) $f$ est injective sur $E$ si et seulement si $(f(e_i))_{i \\in I}$ est libre.\\par (iii) $f$ est un isomorphisme de $E$ sur $F$ si et seulement si $(f(e_i))_{i \\in I}$ est une base de $F$.",
+      "proof_latex": "(i) $\\text{Im} f = \\text{Vect}(f(e_i))_{i \\in I}$, donc $\\text{Im} f = F$ si et seulement si $(f(e_i))_{i \\in I}$ engendre $F$.\\par (ii) Supposons $f$ injective et montrons que $(f(e_i))_{i \\in I}$ est libre. Soit $(\\lambda_i)_{i \\in I} \\in \\mathbb{K}^{(I)}$ une famille presque nulle. Si $\\sum_{i \\in I} \\lambda_i f(e_i) = 0_F$, alors $f(\\sum_{i \\in I} \\lambda_i e_i) = 0_F$ par linéarité, i.e. $\\sum_{i \\in I} \\lambda_i e_i \\in \\text{Ker} f$, donc $\\sum_{i \\in I} \\lambda_i e_i = 0_E$ par injectivité de $f$, et enfin $\\lambda_i = 0$ pour tout $i \\in I$ par liberté de $(e_i)_{i \\in I}$.\\par Réciproquement, supposons $(f(e_i))_{i \\in I}$ libre et montrons que $f$ est injective. Soient $x \\in \\text{Ker} f$ de coordonnées $(x_i)_{i \\in I}$ dans $(e_i)_{i \\in I}$. Ainsi : $0_F = f(x) = f(\\sum_{i \\in I} x_i e_i) = \\sum_{i \\in I} x_i f(e_i)$, donc $x_i = 0$ pour tout $i \\in I$ par liberté de $(f(e_i))_{i \\in I}$. A fortiori, $x = 0_E$."
+    },
+    {
+      "id": "applications_lineaires__example_lagrange",
+      "type": "example",
+      "title": "Exemple : Isomorphisme de Lagrange",
+      "content_latex": "Pour tous $x_1, \\ldots, x_n \\in \\mathbb{K}$ distincts, l'application $P \\longmapsto (P(x_1), \\ldots, P(x_n))$ est un isomorphisme de $\\mathbb{K}_{n-1}[X]$ sur $\\mathbb{K}^n$.",
+      "proof_latex": "Linéaire, cette application transforme la base $(L_1, \\ldots, L_n)$ des polynômes de Lagrange de $x_1, \\ldots, x_n$ en une base de $\\mathbb{K}^n$, à savoir la base canonique de $\\mathbb{K}^n$ car $L_i(x_j) = \\delta_{ij}$ pour tous $i, j \\in \\{1, \\ldots, n\\}$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_isomorphisme_dimension",
+      "type": "theorem",
+      "title": "Théorème : Effet d'un isomorphisme sur la dimension",
+      "content_latex": "(i) Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels. Si $E$ est de dimension finie et si $F$ est isomorphe à $E$, alors $F$ est de dimension finie et $\\dim E = \\dim F$.\\par (ii) Réciproquement, deux $\\mathbb{K}$-espaces vectoriels de MÊMES dimensions finies sont isomorphes. En particulier, tout $\\mathbb{K}$-espace vectoriel de dimension finie $n$ est isomorphe à $\\mathbb{K}^n$.",
+      "proof_latex": "(i) Par hypothèse, on peut se donner un isomorphisme $f$ de $E$ sur $F$ et une base finie $\\mathcal{B}$ de $E$. Comme voulu, $f(\\mathcal{B})$ est une base de $F$ d'après le théorème précédent.\\par (ii) Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de même dimension finie $n$. Nous allons montrer que $E$ est isomorphe à $\\mathbb{K}^n$, $F$ le sera aussi par symétrie et $E$ et $F$ seront alors isomorphes tout court.\\par Tout simplement, donnons-nous une base $(e_1, \\ldots, e_n)$ de $E$. Comme nous l'avons vu au début de ce paragraphe, l'application $(x_1, \\ldots, x_n) \\longmapsto x_1 e_1 + \\ldots + x_n e_n$ est un isomorphisme de $\\mathbb{K}^n$ sur $E$."
+    },
+    {
+      "id": "applications_lineaires__remark_pratique_dimension",
+      "type": "remark",
+      "title": "Remarque : Calcul pratique de la dimension",
+      "content_latex": "En pratique, ce résultat signifie que pour calculer la dimension d'un espace vectoriel, au lieu d'en exhiber une base, on peut montrer qu'il est isomorphe à un espace vectoriel de dimension connue.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_matrices_diagonales_blocs",
+      "type": "example",
+      "title": "Exemple : Dimension des matrices diagonales par blocs",
+      "content_latex": "L'ensemble $\\mathcal{D}$ des matrices diagonales par blocs de la forme $\\begin{pmatrix} A & 0 \\ 0 & B \\end{pmatrix}$, $(A, B)$ décrivant $\\mathcal{M}_n(\\mathbb{K})^2$, est un sous-espace vectoriel de dimension $2n^2$ de $\\mathcal{M}_{2n}(\\mathbb{K})$.",
+      "proof_latex": "L'application $(A, B) \\overset{f}{\\longmapsto} \\begin{pmatrix} A & 0 \\ 0 & B \\end{pmatrix}$ est clairement linéaire et injective sur $\\mathcal{M}_n(\\mathbb{K})^2$ et elle admet $\\mathcal{D}$ pour image. Il en découle à la fois que $\\mathcal{D}$ est un sous-espace vectoriel de $\\mathcal{M}_{2n}(\\mathbb{K})$ et que $f$ est un isomorphisme de $\\mathcal{M}_n(\\mathbb{K})^2$ sur $\\mathcal{D}$. En particulier, $\\dim \\mathcal{D} = \\dim \\mathcal{M}_n(\\mathbb{K})^2 = 2 \\dim \\mathcal{M}_n(\\mathbb{K}) = 2n^2$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_dimension_LEF",
+      "type": "theorem",
+      "title": "Théorème : Dimension d'un espace vectoriel d'applications linéaires",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimension finie. Alors $\\mathcal{L}(E, F)$ est de dimension finie et : $\\dim \\mathcal{L}(E, F) = \\dim E \\times \\dim F$.\\par En outre, pour toutes bases $(e_1, \\ldots, e_p)$ de $E$ et $(f_1, \\ldots, f_n)$ de $F$, la famille $(e_i^\\star f_j)_{1 \\leq i \\leq p, 1 \\leq j \\leq n}$ est une base de $\\mathcal{L}(E, F)$.",
+      "proof_latex": "L'application $u \\overset{\\phi}{\\longmapsto} (u(e_1), \\ldots, u(e_p))$ est clairement linéaire de $\\mathcal{L}(E, F)$ dans $F^p$ et elle est bijective d'après la caractérisation d'une application linéaire par l'image d'une base : $\\forall (f_1, \\ldots, f_p) \\in F^p, \\exists! u \\in \\mathcal{L}(E, F), \\phi(u) = (f_1, \\ldots, f_p)$.\\par Ainsi, $\\phi$ est un isomorphisme de $\\mathcal{L}(E, F)$ sur $F^p$, or $F^p$ est de dimension finie car $F$ l'est, donc $\\mathcal{L}(E, F)$ est lui aussi de dimension finie par isomorphisme et $\\dim \\mathcal{L}(E, F) = \\dim F^p = p \\times \\dim F = \\dim E \\times \\dim F$.\\par Pour trouver une base de $\\mathcal{L}(E, F)$, intéressons-nous maintenant à la base suivante de $F^p$, que $\\phi^{-1}$ va transformer en une base de $\\mathcal{L}(E, F)$. Pour tous $i \\in \\{1, \\ldots, n\\}$ et $j \\in \\{1, \\ldots, p\\}$, $\\phi^{-1}(\\ldots, 0_F, f_j, 0_F, \\ldots)$ (position $i$) est l'unique application linéaire de $E$ dans $F$ qui envoie $e_1, \\ldots, e_{i-1}, e_{i+1}, \\ldots, e_p$ sur $0_E$ et $e_i$ sur $f_j$, mais il se trouve que l'application linéaire $x \\longmapsto e_i^\\star(x) f_j$ fait la même chose, donc $\\phi^{-1}(\\ldots, 0_F, f_j, 0_F, \\ldots) = e_i^\\star f_j$."
+    },
+    {
+      "id": "applications_lineaires__definition_rang",
+      "type": "definition",
+      "title": "Définition : Application linéaire de rang fini, rang",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels pas nécessairement de dimension finie et $f \\in \\mathcal{L}(E, F)$. On dit que $f$ est de rang fini si $\\text{Im} f$ est de dimension finie. Le cas échéant, l'entier $\\dim \\text{Im} f$ est appelé le rang de $f$ et noté $\\text{rg}(f)$.\\par Les notions de rang d'une famille de vecteurs et de rang d'une application linéaire ne sont pas sans rapport. Dans le cas où $E$ est de dimension finie et de base $\\mathcal{B}$ : $\\text{rg}(f) = \\dim \\text{Im} f = \\dim \\text{Vect}(f(\\mathcal{B})) = \\text{rg}(f(\\mathcal{B}))$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_inegalites_rang",
+      "type": "theorem",
+      "title": "Théorème : Inégalités sur le rang et cas d'égalité",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$.\\par (i) Si $F$ est de dimension finie, $f$ est de rang fini et $\\text{rg}(f) \\leq \\dim F$, avec égalité si et seulement si $f$ est surjective.\\par (ii) Si $E$ est de dimension finie, $f$ est de rang fini et $\\text{rg}(f) \\leq \\dim E$, avec égalité si et seulement si $f$ est injective.\\par En général, une application ne peut que « contracter » son ensemble de définition, donc si $E$ et $F$ sont de dimension finie : $\\text{rg}(f) \\leq \\dim E$ et $\\text{rg}(f) \\leq \\dim F$.\\par $f$ est injective si et seulement si $\\text{rg}(f) = \\dim E$.\\par $f$ est surjective si et seulement si $\\text{rg}(f) = \\dim F$.",
+      "proof_latex": "(i) Inclus dans $F$, $\\text{Im} f$ est de dimension finie et $\\text{rg}(f) = \\dim \\text{Im} f \\leq \\dim F$, avec égalité si et seulement si $\\text{Im} f = F$, i.e. si et seulement si $f$ est surjective.\\par (ii) Donnons-nous une base $(e_1, \\ldots, e_n)$ de $E$. Alors $\\text{Im} f = \\text{Vect}(f(e_1), \\ldots, f(e_n))$, donc $\\text{Im} f$ est de dimension finie et $\\text{rg}(f) = \\dim \\text{Im} f \\leq n = \\dim E$, avec égalité si et seulement si $(f(e_1), \\ldots, f(e_n))$ est libre, i.e. si et seulement si $f$ est injective."
+    },
+    {
+      "id": "applications_lineaires__theoreme_memes_dimensions",
+      "type": "theorem",
+      "title": "Théorème : Applications linéaires entre espaces vectoriels de mêmes dimensions finies",
+      "content_latex": "(i) Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels de dimensions finies ÉGALES et $f \\in \\mathcal{L}(E, F)$.\\par $f$ est bijective $\\Leftrightarrow f$ est injective $\\Leftrightarrow f$ est surjective.\\par (ii) Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $f \\in \\mathcal{L}(E)$.\\par $f \\in \\text{GL}(E) \\Leftrightarrow f$ est inversible à gauche dans $\\mathcal{L}(E)$ i.e. : $\\exists g \\in \\mathcal{L}(E), g \\circ f = \\text{Id}_E$ $\\Leftrightarrow f$ est inversible à droite dans $\\mathcal{L}(E)$ i.e. : $\\exists g \\in \\mathcal{L}(E), f \\circ g = \\text{Id}_E$.\\par L'assertion (i) est la version applications linéaires de la caractérisation des bases en dimension finie selon laquelle une famille de $n$ vecteurs en dimension $n \\neq 0$ est une base si et seulement si elle est libre ou génératrice. Cette fois, on ne dit pas que bijectif = surjectif = injectif en toute généralité, mais que c'est vrai pour les applications linéaires dont les espaces de départ et d'arrivée ont MÊME DIMENSION FINIE.\\par L'assertion (ii) est quant à elle la version endomorphismes du résultat sur les matrices carrées selon lequel pour tous $A, B \\in \\mathcal{M}_n(\\mathbb{K})$, $AB = I_n$ si et seulement si $A$ et $B$ sont inversibles.",
+      "proof_latex": "(i) $f$ est injective si et seulement si $\\text{rg}(f) = \\dim E$, i.e. par hypothèse si et seulement si $\\text{rg}(f) = \\dim F$, i.e. si et seulement si $f$ est surjective.\\par (ii) Si $f \\circ g = \\text{Id}_E$ pour un certain $g \\in \\mathcal{L}(E)$, nous savons que $f$ est surjective, et si $g \\circ f = \\text{Id}_E$, que $f$ est injective. Le résultat découle donc de l'assertion (i)."
+    },
+    {
+      "id": "applications_lineaires__example_automorphisme_r3_bis",
+      "type": "example",
+      "title": "Exemple : Automorphisme de $\\mathbb{R}^3$ (deux preuves)",
+      "content_latex": "L'application $(x, y, z) \\overset{\\phi}{\\longmapsto} (x + y, -x + y, z)$ est un automorphisme de $\\mathbb{R}^3$.",
+      "proof_latex": "• Preuve n°1 : ENDOmorphisme EN DIMENSION FINIE, $\\phi$ sera bijective si nous montrons simplement qu'elle est injective. Or pour tout $(x, y, z) \\in \\text{Ker} \\phi$ : $\\phi(x, y, z) = (x + y, -x + y, z) = (0, 0, 0)$, donc rapidement $x = y = z = 0$. Comme voulu, $\\text{Ker} \\phi = \\{(0, 0, 0)\\}$.\\par • Preuve n°2 : $\\phi$ n'est jamais que l'application linéaire canoniquement associée à la matrice $\\begin{pmatrix} 1 & 1 & 0 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \\end{pmatrix}$ inversible car la famille de ses colonnes est clairement libre."
+    },
+    {
+      "id": "applications_lineaires__example_automorphisme_polynomes",
+      "type": "example",
+      "title": "Exemple : Automorphisme de $\\mathbb{K}_n[X]$",
+      "content_latex": "L'application $P \\overset{\\psi}{\\longmapsto} XP' + P(0)$ est un automorphisme de $\\mathbb{K}_n[X]$ pour tout $n \\in \\mathbb{N}$.",
+      "proof_latex": "Fixons $n \\in \\mathbb{N}$. L'application $\\psi$ est bien à valeurs dans $\\mathbb{K}_n[X]$ car pour tout $P \\in \\mathbb{K}_n[X]$ : $\\deg(XP' + P(0)) \\leq \\max(\\deg(XP'), \\deg(P(0))) \\leq \\max(1 + \\deg(P'), \\deg(P(0))) \\leq \\deg(P) \\leq n$.\\par Comme $\\psi$ est un ENDOmorphisme EN DIMENSION FINIE, $\\psi$ sera bijective si nous montrons simplement qu'elle est injective. Soit $P \\in \\text{Ker} \\psi$. Aussitôt, $XP' = -P(0)$ donc $1 + \\deg(P') \\leq 0$, ce qui n'est possible que si $P$ est constant. En retour, $\\psi(P) = P(0) = 0$ donc $P = 0$. Comme voulu, $\\text{Ker} \\psi = \\{0\\}$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_forme_geometrique",
+      "type": "theorem",
+      "title": "Théorème : Forme géométrique du théorème du rang",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels pas nécessairement de dimension finie et $f \\in \\mathcal{L}(E, F)$.\\par Si $\\text{Ker} f$ possède un supplémentaire $I$ dans $E$, $f_{|I}$ est un isomorphisme de $I$ sur $\\text{Im} f$.\\par Dans l'égalité $E = I \\oplus \\text{Ker} f$, $\\text{Ker} f$ est l'ensemble des éléments de $E$ que $f$ ne voit pas, donc $f$ ne voit passer que $I$, et comme $I$ ne touche $\\text{Ker} f$ que du bout de son zéro, $f$ est injective sur $I$, donc envoie bijectivement $I$ sur $\\text{Im} f$.\\par De manière moins imagée, $(f_{|I})^{-1}$ est l'application qui associe à tout élément de $\\text{Im} f$ son unique antécédent dans $I$.",
+      "proof_latex": "Par restriction, $f_{|I}$ est linéaire de $I$ dans $\\text{Im} f$.\\par • Injectivité : $\\text{Ker} f_{|I} = I \\cap \\text{Ker} f = \\{0_E\\}$ car $I$ et $\\text{Ker} f$ sont en somme directe.\\par • Surjectivité : Soit $y \\in \\text{Im} f$. Alors $y = f(x)$ pour un certain $x \\in E$ et $x = i + k$ pour certains $i \\in I$ et $k \\in \\text{Ker} f$ car $E = I + \\text{Ker} f$, donc $y = f(x) = f(i) + f(k) = f(i) + 0_F = f_{|I}(i)$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_du_rang",
+      "type": "theorem",
+      "title": "Théorème : Théorème du rang",
+      "content_latex": "Soient $E$ et $F$ deux $\\mathbb{K}$-espaces vectoriels et $f \\in \\mathcal{L}(E, F)$.\\par Si $E$ est de dimension finie : $\\dim E = \\dim \\text{Ker} f + \\text{rg}(f)$.\\par Morale de l'histoire : Si je connais le noyau, je connais un peu l'image — et vice versa.\\par Plus précisément, le théorème du rang est une loi de conservation de la dimension au départ au même titre qu'il existe une loi de conservation de l'énergie en mécanique newtonienne pour un système isolé.\\par L'hypothèse selon laquelle $E$ est de dimension finie garantit que $\\text{Ker} f$ et $\\text{Im} f$ le sont aussi.",
+      "proof_latex": "Comme $E$ est de dimension finie, $\\text{Ker} f$ possède un supplémentaire $I$ dans $E$. Ensuite, $f_{|I}$ est un isomorphisme de $I$ sur $\\text{Im} f$ d'après la forme géométrique du théorème du rang, donc $\\dim I = \\dim \\text{Im} f$, et enfin $\\text{rg}(f) = \\dim \\text{Im} f = \\dim I = \\dim E - \\dim \\text{Ker} f$ par supplémentarité de $I$ et $\\text{Ker} f$ dans $E$."
+    },
+    {
+      "id": "applications_lineaires__example_noyau_image_matrice",
+      "type": "example",
+      "title": "Exemple : Noyau et image d'une matrice",
+      "content_latex": "On pose $A = \\begin{pmatrix} 1 & 2 & -1 \\ 2 & -1 & 8 \\ 1 & 1 & 1 \\end{pmatrix}$. Alors $\\text{Ker} A = \\text{Vect}((3, -2, -1))$ et $\\text{Im} A = \\text{Vect}((1, 2, 1), (2, -1, 1))$.",
+      "proof_latex": "• Noyau : $\\text{Ker} A = \\text{Ker} \\begin{pmatrix} 1 & 2 & -1 \\ 0 & -5 & 10 \\ 0 & -1 & 2 \\end{pmatrix} = \\text{Ker} \\begin{pmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 0 \\end{pmatrix} = \\{(x, y, z) \\in \\mathbb{R}^3 \\mid x + 3z = 0 \\text{ et } y - 2z = 0\\} = \\{(-3z, 2z, z) \\mid z \\in \\mathbb{R}\\} = \\text{Vect}((3, -2, -1))$.\\par • Image : $\\text{Im} A = \\text{Vect}((1, 2, 1), (2, -1, 1), (-1, 8, 1))$, et par ailleurs, $\\dim \\text{Im} A = 3 - \\dim \\text{Ker} A = 2$ d'après le théorème du rang. La famille $((1, 2, 1), (2, -1, 1))$ étant libre, elle constitue ainsi une base de $\\text{Im} A$."
+    },
+    {
+      "id": "applications_lineaires__remark_theoreme_rang_restriction",
+      "type": "remark",
+      "title": "Remarque : Théorème du rang sur une restriction",
+      "content_latex": "Étant donné $f \\in \\mathcal{L}(E, F)$, il arrive régulièrement qu'on applique le théorème du rang non pas sur $E$ tout entier, mais sur un sous-espace vectoriel plus petit $A$. La formule s'écrit alors : $\\dim A = \\dim \\text{Ker} f_{|A} + \\dim \\text{Im} f_{|A} = \\dim(A \\cap \\text{Ker} f) + \\dim f(A)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_inegalite_noyaux",
+      "type": "example",
+      "title": "Exemple : Inégalité sur les dimensions de noyaux itérés",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $f \\in \\mathcal{L}(E)$. Pour tous $i, j \\in \\mathbb{N}$ : $\\dim \\text{Ker} f^{i+j} \\leq \\dim \\text{Ker} f^i + \\dim \\text{Ker} f^j$.",
+      "proof_latex": "Le résultat nous suggère d'appliquer le théorème du rang à $f^i$ sur l'espace de départ $\\text{Ker} f^{i+j}$, donc à $(f^i)_{|\\text{Ker} f^{i+j}}$. Observons en amont que $\\text{Ker}(f^i)_{|\\text{Ker} f^{i+j}} = \\text{Ker} f^{i+j} \\cap \\text{Ker} f^i = \\text{Ker} f^i$ car pour tout $x \\in \\text{Ker} f^i$ : $f^{i+j}(x) = f^j(f^i(x)) = f^j(0_E) = 0_E$, donc $\\text{Ker} f^i \\subset \\text{Ker} f^{i+j}$. Observons aussi que pour tout $y \\in \\text{Im}(f^i)_{|\\text{Ker} f^{i+j}}$, $y = f^i(x)$ pour un certain $x \\in \\text{Ker} f^{i+j}$, donc $f^j(y) = f^{i+j}(x) = 0_E$, i.e. $y \\in \\text{Ker} f^j$. Bref, $\\text{Im}(f^i)_{|\\text{Ker} f^{i+j}} \\subset \\text{Ker} f^j$.\\par Finalement : $\\dim \\text{Ker} f^{i+j} = \\dim \\text{Ker}(f^i)_{|\\text{Ker} f^{i+j}} + \\dim \\text{Im}(f^i)_{|\\text{Ker} f^{i+j}} \\leq \\dim \\text{Ker} f^i + \\dim \\text{Ker} f^j$."
+    },
+    {
+      "id": "applications_lineaires__definition_rang_matrice",
+      "type": "definition",
+      "title": "Définition : Rang d'une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$.\\par (i) Définition : Le rang de l'application linéaire canoniquement associée à $A$ est égal au rang de la famille des colonnes de $A$. On appelle rang de $A$, noté $\\text{rg}(A)$, la valeur commune de ces deux rangs.\\par En particulier : $\\text{rg}(A) \\leq \\min\\{n, p\\}$.\\par (ii) Lien avec l'inversibilité : Si $A$ est carrée de taille $n$, $A$ est inversible si et seulement si $\\text{rg}(A) = n$.",
+      "proof_latex": "Notons $C_1, \\ldots, C_p$ les colonnes de $A$. Pour (i), nous savons déjà que $\\text{Im} \\overset{\\text{b}}{A} = \\text{Vect}(C_1, \\ldots, C_p)$, et pour (ii) avec $p = n$, que $A$ est inversible si et seulement si $(C_1, \\ldots, C_n)$ est libre, i.e. si et seulement si $\\text{rg}(C_1, \\ldots, C_n) = n$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_rang_famille_matrice",
+      "type": "theorem",
+      "title": "Théorème : Rang d'une famille de vecteurs, rang d'une matrice associée",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie, $\\mathcal{B}$ une base de $E$ et $\\mathcal{X}$ une famille finie de vecteurs de $E$. Alors $\\text{rg}(\\mathcal{X}) = \\text{rg}(\\text{Mat}_{\\mathcal{B}}(\\mathcal{X}))$.",
+      "proof_latex": "Introduisons les vecteurs de $\\mathcal{B}$ et $\\mathcal{X}$ : $\\mathcal{B} = (e_1, \\ldots, e_n)$ et $\\mathcal{X} = (x_1, \\ldots, x_p)$, ainsi que les colonnes $C_1, \\ldots, C_p$ de $\\text{Mat}_{\\mathcal{B}}(\\mathcal{X})$ et $\\phi$ l'isomorphisme $(\\lambda_1, \\ldots, \\lambda_n) \\longmapsto \\lambda_1 e_1 + \\ldots + \\lambda_n e_n$ de $\\mathbb{K}^n$ sur $E$.\\par Pour tout $j \\in \\{1, \\ldots, p\\}$ : $\\phi(C_j) = x_j$, donc $\\phi_{|\\text{Vect}(C_1, \\ldots, C_p)}$ est un isomorphisme de $\\text{Vect}(C_1, \\ldots, C_p)$ sur $\\text{Vect}(\\mathcal{X})$, donc $\\text{rg}(\\mathcal{X}) = \\dim \\text{Vect}(\\mathcal{X}) = \\dim \\text{Vect}(C_1, \\ldots, C_p) = \\text{rg}(C_1, \\ldots, C_p) = \\text{rg}(\\text{Mat}_{\\mathcal{B}}(\\mathcal{X}))$."
+    },
+    {
+      "id": "applications_lineaires__remark_algorithme_rang",
+      "type": "remark",
+      "title": "Remarque : Algorithme de calcul du rang",
+      "content_latex": "Le gros problème de la définition qui précède, c'est qu'elle ne nous donne pas d'algorithme de calcul du rang d'une matrice. Le résultat qui suit, en apparence éloigné du sujet, va nous en fournir un.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_rang_composee",
+      "type": "theorem",
+      "title": "Théorème : Rang d'une composée",
+      "content_latex": "Soient $E, F, E', F'$ des $\\mathbb{K}$-espaces vectoriels de dimension finie et $f \\in \\mathcal{L}(E, F)$.\\par (i) Pour tout $\\phi \\in \\mathcal{L}(E', E)$ : $\\text{rg}(f \\circ \\phi) \\leq \\text{rg}(f)$ avec égalité si $\\phi$ est un isomorphisme.\\par (ii) Pour tout $\\psi \\in \\mathcal{L}(F, F')$ : $\\text{rg}(\\psi \\circ f) \\leq \\text{rg}(f)$ avec égalité si $\\psi$ est un isomorphisme.",
+      "proof_latex": "(i) $\\text{Im}(f \\circ \\phi) = \\{f \\circ \\phi(x) \\mid x \\in E'\\} = \\{f(y) \\mid y \\in \\text{Im} \\phi\\} \\subset \\{f(y) \\mid y \\in E\\} = \\text{Im} f$, donc $\\text{rg}(f \\circ \\phi) \\leq \\text{rg}(f)$. Et si de plus $\\phi$ est un isomorphisme, alors $\\text{Im} \\phi = E$, donc $\\text{Im}(f \\circ \\phi) = \\text{Im} f$, donc $\\text{rg}(f \\circ \\phi) = \\text{rg}(f)$.\\par (ii) $\\text{Im}(\\psi \\circ f) = \\{\\psi \\circ f(x) \\mid x \\in E\\} = \\{\\psi(y) \\mid y \\in \\text{Im} f\\} = \\psi(\\text{Im} f)$, donc : $\\text{rg}(\\psi \\circ f) = \\text{rg} \\psi_{|\\text{Im} f} \\leq \\dim \\text{Im} f = \\text{rg}(f)$.\\par Et si de plus $\\psi$ est un isomorphisme, alors $\\psi$ est injective, donc $\\psi_{|\\text{Im} f}$ est un isomorphisme de $\\text{Im} f$ sur son image $\\psi(\\text{Im} f) = \\text{Im}(\\psi \\circ f)$, donc $\\text{rg}(\\psi \\circ f) = \\text{rg}(f)$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_operations_elementaires",
+      "type": "theorem",
+      "title": "Théorème : Les opérations élémentaires préservent le rang",
+      "content_latex": "Toute opération élémentaire sur les lignes ou les colonnes d'une matrice en préserve le rang.",
+      "proof_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$. Nous avons déjà vu que toute opération élémentaire sur les lignes de $A$ peut être obtenue par multiplication à gauche par une certaine matrice inversible. Soit donc $P \\in \\text{GL}_n(\\mathbb{K})$. Parce que $P$ est inversible, son application linéaire canoniquement associée $\\overset{\\text{b}}{P}$ est un automorphisme de $\\mathbb{K}^n$, donc $\\text{rg}(PA) = \\text{rg}(\\overset{\\text{b}}{PA}) = \\text{rg}(\\overset{\\text{b}}{P} \\circ \\overset{\\text{b}}{A}) = \\text{rg}(\\overset{\\text{b}}{A}) = \\text{rg}(A)$. On procéderait de même sur les colonnes."
+    },
+    {
+      "id": "applications_lineaires__methode_calcul_rang",
+      "type": "method",
+      "title": "Méthode : Algorithme de calcul du rang d'une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$. L'algorithme qui suit est une adaptation de l'algorithme du pivot et ramène tout rang de matrice au rang d'une matrice plus petite. Le procédé est répété à l'identique jusqu'à obtention du résultat.\\par 0) Si $A = 0$, évidemment $\\text{rg}(A) = 0$ et on sort de l'algorithme.\\par 1) Dans le cas contraire, au moins un coefficient de $A$ est non nul, disons $a$, et va pouvoir nous servir de pivot. On le place en position $(1, 1)$ par une éventuelle permutation de lignes et colonnes.\\par 2) À l'aide du pivot $a$, on annule par des opérations élémentaires sur les lignes tous les termes de la première colonne situés sous $a$.\\par Ensuite, toujours à l'aide du pivot $a$, on annule par des opérations élémentaires sur les colonnes tous les termes de la première ligne situés à droite de $a$.\\par 3) À ce stade, la première colonne de la matrice obtenue est clairement NON combinaison linéaire des autres colonnes, donc la sous-matrice $A'$ obtenue par oubli des première ligne et colonne est de rang $\\text{rg}(A') = \\text{rg}(A) - 1$.\\par L'algorithme ainsi décrit se termine avec certitude car $A'$ est strictement plus petite en taille que $A$.\\par Une dernière remarque. Alors que vous devez choisir de travailler sur les lignes OU-EXCLUSIF sur les colonnes pour inverser une matrice, vous pouvez ici mélanger librement les opérations sur les lignes et celles sur les colonnes.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_calcul_rang_matrice",
+      "type": "example",
+      "title": "Exemple : Calcul du rang d'une matrice",
+      "content_latex": "$\\text{rg} \\begin{pmatrix} 0 & 1 & 0 & -1 \\ -1 & 1 & 1 & 3 \\ 4 & -2 & -4 & 0 \\ 3 & 0 & 3 & 2 \\end{pmatrix} = 4$.",
+      "proof_latex": "Par opérations élémentaires sur les colonnes et lignes :\\par $\\text{rg} \\begin{pmatrix} 0 & 1 & 0 & -1 \\ -1 & 1 & 1 & 3 \\ 4 & -2 & -4 & 0 \\ 3 & 0 & 3 & 2 \\end{pmatrix} = \\text{rg} \\begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & -1 & 1 & 4 \\ -2 & 4 & -4 & -2 \\ 0 & 3 & 3 & 2 \\end{pmatrix}$ (après $C_1 \\leftrightarrow C_2$)\\par $= 1 + \\text{rg} \\begin{pmatrix} -1 & 1 & 4 \\ 4 & -4 & -2 \\ 3 & 3 & 2 \\end{pmatrix} = 1 + \\text{rg} \\begin{pmatrix} -1 & 0 & 0 \\ 4 & 0 & 14 \\ 3 & 6 & 14 \\end{pmatrix} = 2 + \\text{rg} \\begin{pmatrix} 14 & 14 \\ 6 & 14 \\end{pmatrix} = 2 + 2 = 4$."
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_matrices_extraites",
+      "type": "theorem",
+      "title": "Définition-théorème : Matrices extraites",
+      "content_latex": "Soient $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$. On appelle matrice extraite de $A$ toute matrice de la forme $\\begin{pmatrix} a_{i_1 j_1} & \\cdots & a_{i_1 j_{p'}} \\ \\vdots & & \\vdots \\ a_{i_{n'} j_1} & \\cdots & a_{i_{n'} j_{p'}} \\end{pmatrix}$ où $i_1, \\ldots, i_{n'}, j_1, \\ldots, j_{p'}$ satisfont les inégalités $1 \\leq i_1 < \\ldots < i_{n'} \\leq n$ et $1 \\leq j_1 < \\ldots < j_{p'} \\leq p$.\\par Rang d'une matrice extraite : Pour toute matrice $B$ extraite de $A$ : $\\text{rg}(B) \\leq \\text{rg}(A)$.",
+      "proof_latex": "Soit $B$ une matrice extraite de $A$, avec les mêmes notations que dans la définition. Notons $C_1, \\ldots, C_p$ les colonnes de $A$, puis $(E_1, \\ldots, E_p)$ la base canonique de $\\mathcal{M}_{p,1}(\\mathbb{K})$ et $(E'_1, \\ldots, E'_{n'})$ celle de $\\mathcal{M}_{n',1}(\\mathbb{K})$, et posons enfin $U = E_{j_1} \\cdots E_{j_{p'}}$ et $U' = E'_{i_1} \\cdots E'_{i_{n'}}$. Aussitôt, $AU = C_{j_1} \\cdots C_{j_{p'}}$ et $U'^\\top AU = \\begin{pmatrix} a_{i_1 j_1} & \\cdots & a_{i_1 j_{p'}} \\ \\vdots & & \\vdots \\ a_{i_{n'} j_1} & \\cdots & a_{i_{n'} j_{p'}} \\end{pmatrix} = B$, donc $\\text{rg}(B) = \\text{rg}(\\overset{\\text{b}}{B}) = \\text{rg}(\\overset{\\text{b}}{U'^\\top} \\circ \\overset{\\text{b}}{A} \\circ \\overset{\\text{b}}{U}) \\leq \\text{rg}(\\overset{\\text{b}}{A}) = \\text{rg}(A)$."
+    },
+    {
+      "id": "applications_lineaires__example_matrice_extraite",
+      "type": "example",
+      "title": "Exemple : Matrice extraite",
+      "content_latex": "La matrice $\\begin{pmatrix} 4 & 5 \\ 10 & 11 \\end{pmatrix}$ est extraite de $\\begin{pmatrix} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ 9 & 10 & 11 & 12 \\end{pmatrix}$ — on a retenu les lignes 1 et 2 et les colonnes 2 et 4.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_minoration_rang",
+      "type": "example",
+      "title": "Exemple : Minoration du rang par une matrice extraite",
+      "content_latex": "$\\text{rg} \\begin{pmatrix} 1 & 2 & 1 & 3 \\ 2 & 1 & 3 & 0 \\ 1 & 3 & 0 & 0 \\ 0 & 1 & 2 & 0 \\end{pmatrix} \\geq 3$ car la matrice extraite $\\begin{pmatrix} 1 & 3 & 0 \\ 3 & 0 & 0 \\ 0 & 1 & 2 \\end{pmatrix}$ est inversible.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_invariance_transposition",
+      "type": "theorem",
+      "title": "Théorème : Invariance du rang par transposition et caractérisation par les matrices extraites inversibles",
+      "content_latex": "Soit $A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$.\\par (i) Invariance du rang par transposition : $\\text{rg}(A^\\top) = \\text{rg}(A)$.\\par (ii) Caractérisation du rang par les matrices extraites inversibles : Le rang de $A$ est la taille maximale des matrices inversibles qu'on peut extraire de $A$.\\par L'assertion (ii) est au programme, mais inutile.",
+      "proof_latex": "(i) Notons $r$ le rang de $A$ et $A_1, \\ldots, A_p$ ses colonnes. Grâce à l'algorithme de la base incomplète, nous pouvons noter $B$ une matrice de $\\mathcal{M}_{n,r}(\\mathbb{R})$ dont les colonnes $B_1, \\ldots, B_r$ forment une base de $\\text{Im} \\overset{\\text{b}}{A}$. Pour tout $j \\in \\{1, \\ldots, p\\}$, $A_j$ est combinaison linéaire de $B_1, \\ldots, B_r$, donc $A_j = c_{1j} B_1 + \\ldots + c_{rj} B_r$ pour certains $c_{1j}, \\ldots, c_{rj} \\in \\mathbb{K}$, donc $A_j = BC_j$ si on pose $C_j = \\begin{pmatrix} c_{1j} \\ \\vdots \\ c_{rj} \\end{pmatrix}$. A fortiori, $A = BC$ si on note $C$ la matrice de $\\mathcal{M}_{r,p}(\\mathbb{K})$ de colonnes $C_1, \\ldots, C_r$.\\par Finalement, en notant d'un chapeau les applications linéaires canoniquement associées : $\\text{Im} \\overset{\\text{b}}{A^\\top} = \\text{Im} \\overset{\\text{b}}{(C^\\top B^\\top)} \\subset \\text{Im} \\overset{\\text{b}}{C^\\top}$, donc $\\text{rg}(A^\\top) \\leq \\text{rg}(C^\\top) \\leq r$ car $C^\\top \\in \\mathcal{M}_{p,r}(\\mathbb{K})$, autrement dit $\\text{rg}(A^\\top) \\leq \\text{rg}(A)$. Remplaçons maintenant dans ce résultat $A$ par $A^\\top$ : $\\text{rg}(A) = \\text{rg}(A^{\\top\\top}) \\leq \\text{rg}(A^\\top)$, d'où l'égalité des rangs.\\par (ii) Il nous suffit d'établir l'équivalence suivante pour tout $r \\in \\mathbb{N}^*$ : $\\text{rg}(A) \\geq r \\Leftrightarrow$ On peut extraire de $A$ une matrice inversible de taille $r$.\\par • Si on peut extraire de $A$ une matrice inversible de taille $r$, alors $\\text{rg}(A) \\geq r$ d'après le théorème précédent.\\par • Réciproquement, supposons $\\text{rg}(A) \\geq r$. On peut donc extraire de la famille des colonnes de $A$ une famille libre de $r$ vecteurs, i.e. matriciellement extraire de $A$ une matrice $B \\in \\mathcal{M}_{n,r}(\\mathbb{K})$ de rang $r$ par suppression de certaines colonnes. En raisonnant de même, puisque $\\text{rg}(B^\\top) = \\text{rg}(B) = r$, nous pouvons extraire de $B^\\top$ une matrice $C \\in \\mathcal{M}_r(\\mathbb{K})$ de rang $r$ par suppression de certaines colonnes — i.e. par suppression de certaines lignes de $B$. La matrice carrée $C^\\top$ est finalement extraite de $A$ et inversible de taille $r$."
+    },
+    {
+      "id": "applications_lineaires__intro_complements_noyaux_images",
+      "type": "remark",
+      "title": "Introduction : Compléments sur les noyaux et les images",
+      "content_latex": "Ce paragraphe regroupe quelques petits résultats sur les noyaux et les images que nous avons déjà prouvés en TD, mais que je juge assez importants pour figurer dans ce cours.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_deux_resultats",
+      "type": "theorem",
+      "title": "Théorème : Deux petits résultats bien utiles",
+      "content_latex": "Soient $E, F$ et $G$ trois $\\mathbb{K}$-espaces vectoriels, $f \\in \\mathcal{L}(E, F)$ et $g \\in \\mathcal{L}(F, G)$.\\par (i) $g \\circ f = 0_{\\mathcal{L}(E,G)}$ si et seulement si $\\text{Im} f \\subset \\text{Ker} g$.\\par (ii) Ici, $E = F = G$. Si $f$ et $g$ commutent, alors $\\text{Im} g$ et $\\text{Ker} g$ sont stables par $f$.",
+      "proof_latex": "(i) Simple jeu d'écriture : $g \\circ f = 0_{\\mathcal{L}(E,G)} \\Leftrightarrow \\forall x \\in E, g(f(x)) = 0_G$ $\\Leftrightarrow \\forall y \\in \\text{Im} f, g(y) = 0_G \\Leftrightarrow \\text{Im} f \\subset \\text{Ker} g$.\\par (ii) Pour commencer, $\\text{Ker} g$ est stable par $f$ car pour tout $x \\in \\text{Ker} g$ : $g(f(x)) = f(g(x)) = f(0_E) = 0_E$, donc $f(x) \\in \\text{Ker} g$. Ensuite, $\\text{Im} g$ est stable par $f$, car pour tout $y \\in \\text{Im} g$, $y = g(x)$ pour un certain $x \\in E$, donc $f(y) = f(g(x)) = g(f(x)) \\in \\text{Im} g$."
+    },
+    {
+      "id": "applications_lineaires__example_rangs_iteres",
+      "type": "example",
+      "title": "Exemple : Inégalité sur les rangs itérés",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $f \\in \\mathcal{L}(E)$. Si $f^3 = 0_{\\mathcal{L}(E)}$, alors $\\text{rg}(f) + \\text{rg}(f^2) \\leq \\dim E$.",
+      "proof_latex": "L'égalité $f \\circ f^2 = 0_{\\mathcal{L}(E)}$ montre que $\\text{Im} f^2 \\subset \\text{Ker} f$, et donc en particulier que $\\text{rg}(f^2) \\leq \\dim \\text{Ker} f$. Ainsi, d'après le théorème du rang à $f$, $E$ étant de dimension finie : $\\dim E = \\dim \\text{Ker} f + \\text{rg}(f) \\geq \\text{rg}(f) + \\text{rg}(f^2)$."
+    },
+    {
+      "id": "applications_lineaires__remark_hors_programme",
+      "type": "remark",
+      "title": "Remarque : Noyaux itérés, images itérées et décomposition de Fitting",
+      "content_latex": "Ci-dessous, la notion d'indice et la décomposition de Fitting sont hors programme, mais ce sont de grands classiques !",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_fitting",
+      "type": "theorem",
+      "title": "Théorème : Noyaux itérés, images itérées et décomposition de Fitting",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie et $f \\in \\mathcal{L}(E)$.\\par (i) Noyaux itérés : La suite $(\\text{Ker} f^k)_{k \\in \\mathbb{N}}$ est croissante. Plus précisément, elle est strictement croissante jusqu'à un certain rang $p \\in \\{1, \\ldots, n\\}$ pour lequel $\\text{Ker} f^p = \\text{Ker} f^{p+1}$, puis constante à partir de ce rang. L'entier $p$ est appelé l'indice de $f$.\\par (ii) Images itérées : La suite $(\\text{Im} f^k)_{k \\in \\mathbb{N}}$ est décroissante. Plus précisément, elle est strictement décroissante jusqu'au rang $p$, puis constante.\\par (iii) Décomposition de Fitting de $E$ par rapport à $f$ : $E = \\text{Im} f^p \\oplus \\text{Ker} f^p$.\\par En outre, $f_{|\\text{Im} f^p}$ est un automorphisme de $\\text{Im} f^p$ et $f_{|\\text{Ker} f^p}$ est un endomorphisme nilpotent de $\\text{Ker} f^p$.",
+      "proof_latex": "(i) Soit $k \\in \\mathbb{N}$. Montrons que $\\text{Ker} f^k \\subset \\text{Ker} f^{k+1}$. Pour tout $x \\in \\text{Ker} f^k$ : $f^{k+1}(x) = f(f^k(x)) = f(0_E) = 0_E$, donc $x \\in \\text{Ker} f^{k+1}$.\\par Montrons maintenant l'existence du rang $p$.\\par — Si $f$ est injectif, $f^2$ l'est aussi, donc $\\text{Ker} f = \\text{Ker} f^2 = \\{0_E\\}$. Le plus petit entier cherché existe et vaut 1.\\par — Supposons $f$ non injectif, i.e. $\\dim \\text{Ker} f > 0$. Comme toute partie non vide de $\\mathbb{N}$ possède un plus petit élément, il nous suffit de montrer l'existence d'un entier $k \\in \\{1, \\ldots, n\\}$ pour lequel $\\text{Ker} f^k = \\text{Ker} f^{k+1}$. Or par croissance de la suite des noyaux itérés : $0 < \\dim \\text{Ker} f < \\dim \\text{Ker} f^2 < \\ldots < \\dim \\text{Ker} f^{n+1}$, donc $\\dim \\text{Ker} f^{n+1} \\geq n + 1 > \\dim E$ — contradiction.\\par Montrons enfin par récurrence que $\\text{Ker} f^k = \\text{Ker} f^p$ pour tout $k \\geq p$, i.e. que $\\text{Ker} f^k \\subset \\text{Ker} f^p$ par croissance.\\par Initialisation : $\\text{Ker} f^p \\subset \\text{Ker} f^p$.\\par Hérédité : Soit $k \\geq p$. Si $\\text{Ker} f^k \\subset \\text{Ker} f^p$, alors pour tout $x \\in \\text{Ker} f^{k+1}$ : $f(x) \\in \\text{Ker} f^k \\subset \\text{Ker} f^p$, donc $f^{p+1}(x) = 0_E$, i.e. $x \\in \\text{Ker} f^{p+1} = \\text{Ker} f^p$, et cela montre bien que $\\text{Ker} f^{k+1} \\subset \\text{Ker} f^p$.\\par (ii) Soit $k \\in \\mathbb{N}$. Montrons que $\\text{Im} f^{k+1} \\subset \\text{Im} f^k$. Pour tout $y \\in \\text{Im} f^{k+1}$, $y = f^{k+1}(x)$ pour un certain $x \\in E$, donc $y = f^k(f(x)) \\in \\text{Im} f^k$.\\par Ensuite, $\\dim \\text{Im} f^k = \\dim E - \\dim \\text{Ker} f^k$ pour tout $k \\in \\mathbb{N}$ d'après le théorème du rang, donc la stationnarité après croissance stricte de $(\\text{Ker} f^k)_{k \\in \\mathbb{N}}$ se traduit en stationnarité après décroissance stricte sur $(\\text{Im} f^k)_{k \\in \\mathbb{N}}$.\\par (iii) D'après le théorème du rang, il suffit de montrer que $\\text{Ker} f^p$ et $\\text{Im} f^p$ sont en somme directe. Or pour tout $x \\in \\text{Ker} f^p \\cap \\text{Im} f^p$, $x = f^p(t)$ pour un certain $t \\in E$, donc $f^{2p}(t) = f^p(x) = 0_E$, donc $t \\in \\text{Ker} f^{2p} = \\text{Ker} f^p$ car $2p \\geq p$, et enfin $x = f^p(t) = 0_E$.\\par Observons à présent que $f$ et $f^p$ commutent, donc $\\text{Im} f^p$ et $\\text{Ker} f^p$ sont stables par $f$. Ainsi, $f_{|\\text{Ker} f^p}$ et $f_{|\\text{Im} f^p}$ sont des endomorphismes. Ensuite, pour tout $x \\in \\text{Ker} f^p$ : $f_{|\\text{Ker} f^p}^p(x) = f^p(x) = 0_E$, donc $f_{|\\text{Ker} f^p}$ est nilpotent. Enfin : $\\text{Ker} f_{|\\text{Im} f^p} = \\text{Im} f^p \\cap \\text{Ker} f \\subset \\text{Im} f^p \\cap \\text{Ker} f^p = \\{0_E\\}$, donc $\\text{Im} f^p$ étant de dimension finie, $f_{|\\text{Im} f^p}$ est un automorphisme de $\\text{Im} f^p$."
+    },
+    {
+      "id": "applications_lineaires__warning_dimension_infinie",
+      "type": "warning",
+      "title": "Attention : Dimension infinie",
+      "content_latex": "En dimension infinie, la suite des noyaux reste croissante et celles des images décroissante, mais on ne peut rien dire de plus en général. Par exemple, en notant $D$ l'endomorphisme $P \\longmapsto P'$ sur $\\mathbb{K}[X]$, $\\text{Ker} D^k = \\mathbb{K}_{k-1}[X]$ et $\\text{Im} D^k = \\mathbb{K}[X]$ pour tout $k \\in \\mathbb{N}$, donc $(\\text{Ker} D^k)_{k \\in \\mathbb{N}}$ est strictement croissante alors que $(\\text{Im} D^k)_{k \\in \\mathbb{N}}$ est constante.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_proprietes_nilpotents",
+      "type": "theorem",
+      "title": "Théorème : Deux propriétés des endomorphismes nilpotents",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f \\in \\mathcal{L}(E)$ nilpotent.\\par (i) Noyau et image : Si $E \\neq \\{0_E\\}$, alors $\\text{Ker} f \\neq \\{0_E\\}$ et $\\text{Im} f \\neq E$.\\par (ii) Indice : Si $E$ est de dimension finie $n$, l'indice de nilpotence de $f$ coïncide avec son indice au sens de la décomposition de Fitting. En particulier, l'indice de nilpotence de $f$ est inférieur à $n$ et $f^n = 0_{\\mathcal{L}(E)}$.",
+      "proof_latex": "Notons $p$ l'indice de nilpotence de $f$.\\par (i) Par contraposition, si $\\text{Ker} f = \\{0_E\\}$, alors $f$ est injectif, donc $f^p = 0_{\\mathcal{L}(E)}$ aussi, donc $E = \\text{Ker} f^p = \\{0_E\\}$. De même, si $\\text{Im} f = E$, alors $f$ est surjectif, donc $f^p = 0_{\\mathcal{L}(E)}$ aussi, donc $E = \\text{Im} f^p = \\{0_E\\}$.\\par (ii) Pour commencer, $\\text{Ker} f^{p-1} \\neq \\text{Ker} f^p = \\text{Ker} f^{p+1} = E$ car $f^p = 0_{\\mathcal{L}(E)}$ et $f^{p-1} \\neq 0_{\\mathcal{L}(E)}$, donc $p$ est l'indice de $f$ au sens de Fitting. En particulier, $p \\leq n$ donc $\\text{Ker} f^n = \\text{Ker} f^p = E$, autrement dit $f^n = 0_{\\mathcal{L}(E)}$."
+    },
+    {
+      "id": "applications_lineaires__example_nilpotence_matrice",
+      "type": "example",
+      "title": "Exemple : Nilpotence d'une matrice",
+      "content_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$. Si $A$ est nilpotente, alors $A^n = 0$.",
+      "proof_latex": "Pour tout $k \\in \\mathbb{N}^*$ : $\\overset{\\text{b}}{A^k} = \\overset{\\text{b}}{A}^k$, donc $A$ est nilpotente si et seulement si $\\overset{\\text{b}}{A}$ l'est, et plus exactement, $A$ et $\\overset{\\text{b}}{A}$ ont le même indice de nilpotence, donc $A^n = 0$ si $A$ est nilpotente."
+    },
+    {
+      "id": "applications_lineaires__definition_projecteur_symetrie",
+      "type": "definition",
+      "title": "Définition : Projecteur et symétrie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$. Tout élément $x \\in E$ s'écrit d'une et une seule manière comme la somme $x = f + g$ d'un élément $f \\in F$ et d'un élément $g \\in G$. Avec ces notations :\\par — l'application de $E$ dans $E$ qui à $x$ associe $f$ est appelée projection sur $F$ parallèlement à $G$ ou encore projecteur sur $F$ de direction $G$,\\par — l'application de $E$ dans $E$ qui à $x$ associe $f - g$ est appelée symétrie par rapport à $F$ parallèlement à $G$ ou encore symétrie par rapport à $F$ de direction $G$.\\par Dans les deux cas, $F$ est appelé la base et $G$ la direction de la projection ou de la symétrie.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_projection_r3",
+      "type": "example",
+      "title": "Exemple : Projection dans $\\mathbb{R}^3$",
+      "content_latex": "La projection de $\\mathbb{R}^3$ par rapport à $F = \\{(x, y, z) \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$ parallèlement à $G = \\text{Vect}((1, 1, 1))$ est l'application linéaire canoniquement associée à la matrice $\\frac{1}{3}\\begin{pmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \\end{pmatrix}$.",
+      "proof_latex": "Montrons d'abord que $F$ et $G$ sont supplémentaires dans $\\mathbb{R}^3$, le reste en découlera. Soit $(x, y, z) \\in \\mathbb{R}^3$. Pour tous $(a, b, c) \\in \\mathbb{R}^3$ et $\\lambda \\in \\mathbb{R}$ : $(x, y, z) = (a, b, c) + \\lambda(1, 1, 1)$ et $(a, b, c) \\in F$ $\\Leftrightarrow \\begin{cases} a + \\lambda = x \\ b + \\lambda = y \\ c + \\lambda = z \\ a + b + c = 0 \\end{cases}$ $\\Leftrightarrow \\begin{cases} a + \\lambda = x \\ b + \\lambda = y \\ c + \\lambda = z \\ \\lambda = \\frac{x + y + z}{3} \\end{cases}$ $\\Leftrightarrow (a, b, c) = (\\frac{2x - y - z}{3}, \\frac{-x + 2y - z}{3}, \\frac{-x - y + 2z}{3})$ et $\\lambda = \\frac{x + y + z}{3}$.\\par La supplémentarité de $F$ et $G$ dans $\\mathbb{R}^3$ est ainsi démontrée, et comme le projeté de $(x, y, z)$ par rapport à $F$ parallèlement à $G$ est par définition le vecteur $(a, b, c)$, la projection cherchée est finalement l'application : $(x, y, z) \\longmapsto (\\frac{2x - y - z}{3}, \\frac{-x + 2y - z}{3}, \\frac{-x - y + 2z}{3})$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_proprietes_projecteurs_symetries",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des projecteurs et des symétries",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$. On note $p$ la projection sur $F$ parallèlement à $G$ et $s$ la symétrie par rapport à $F$ parallèlement à $G$.\\par (i) Propriétés des projecteurs : $p$ est un endomorphisme de $E$ et $p^2 = p$.\\par $F = \\text{Im} p = \\text{Ker}(p - \\text{Id}_E) = \\{x \\in E \\mid p(x) = x\\}$ et $G = \\text{Ker} p$.\\par (ii) Propriétés des symétries : $s$ est un automorphisme de $E$ et $s^2 = \\text{Id}_E$, i.e. $s^{-1} = s$.\\par $F = \\text{Ker}(s - \\text{Id}_E) = \\{x \\in E \\mid s(x) = x\\}$ et $G = \\text{Ker}(s + \\text{Id}_E) = \\{x \\in E \\mid s(x) = -x\\}$.",
+      "proof_latex": "(i) Par construction, $p$ est l'unique endomorphisme de $E$ pour lequel $p_{|F} = \\text{Id}_F$ et $p_{|G} = 0_{\\mathcal{L}(G,E)}$.\\par Montrons que $p^2 = p$. Soit $x = f + g \\in E$ avec $f \\in F$ et $g \\in G$. Aussitôt, $p(x) = f = f + 0_E$ avec $f \\in F$ et $0_E \\in G$, donc $p^2(x) = p(p(x)) = f = p(x)$.\\par Par définition de $p$, si on y réfléchit deux secondes : $\\text{Im} p \\subset F \\subset \\{x \\in E \\mid p(x) = x\\} \\subset \\text{Im} p$, donc les trois ensembles mentionnés sont égaux. L'égalité $G = \\text{Ker} p$ paraît tout aussi clair.\\par (ii) Par construction, $s$ est l'unique endomorphisme de $E$ pour lequel $s_{|F} = \\text{Id}_F$ et $s_{|G} = -\\text{Id}_G$. Pour le reste, à vous de jouer !"
+    },
+    {
+      "id": "applications_lineaires__remark_noyau_f_lambda",
+      "type": "remark",
+      "title": "Remarque : Noyau de $f - \\lambda \\text{Id}_E$",
+      "content_latex": "De façon plus générale, habituez-vous à l'idée que pour tous $f \\in \\mathcal{L}(E)$ et $\\lambda \\in \\mathbb{K}$ : $\\text{Ker}(f - \\lambda \\text{Id}_E) = \\{x \\in E \\mid (f - \\lambda \\text{Id}_E)(x) = 0_E\\} = \\{x \\in E \\mid f(x) = \\lambda x\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_projecteurs",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation algébrique des projecteurs",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $p : E \\longrightarrow E$ une application.\\par $p$ est un projecteur si et seulement si $p$ est linéaire et $p^2 = p$.\\par Dans ce cas, $\\text{Im} p$ et $\\text{Ker} p$ sont supplémentaires dans $E$ et $p$ est la projection sur $\\text{Im} p$ parallèlement à $\\text{Ker} p$. Concrètement, pour tout $x \\in E$ : $x = \\underbrace{p(x)}_{\\in \\text{Im} p} + \\underbrace{(x - p(x))}_{\\in \\text{Ker} p}$.",
+      "proof_latex": "Nous n'avons plus qu'une implication à prouver. Faisons l'hypothèse que $p$ est linéaire et que $p^2 = p$ et montrons d'abord par analyse-synthèse que $E = \\text{Im} p \\oplus \\text{Ker} p$. Soit $x \\in E$.\\par • Analyse : Soient $i \\in \\text{Im} p$ et $k \\in \\text{Ker} p$ pour lesquels $x = i + k$. Aussitôt, $p(k) = 0_E$ et $i = p(t)$ pour un certain $t \\in E$, donc $p(x) = p(i)$ par linéarité, puis $i = p(t) = p^2(t) = p(i) = p(x)$, et enfin $k = x - i = x - p(x)$.\\par • Synthèse : Posons $i = p(x)$ et $k = x - p(x)$. Clairement, $x = i + k$ et $i \\in \\text{Im} p$. En outre, $x - p(x) \\in \\text{Ker} p$ car $p(x - p(x)) = p(x) - p^2(x) = p(x) - p(x) = 0_E$.\\par Conclusion : $E = \\text{Im} p \\oplus \\text{Ker} p$, et la décomposition de $x$ cherchée est $x = p(x) + (x - p(x))$, donc en effet, $p(x)$ est le projeté de $x$ sur $\\text{Im} p$ parallèlement à $\\text{Ker} p$ par définition des projections."
+    },
+    {
+      "id": "applications_lineaires__example_projecteur_polynomes",
+      "type": "example",
+      "title": "Exemple : Projecteur sur $\\mathbb{R}_2[X]$",
+      "content_latex": "Pour tout $P = \\sum_{k=0}^{+\\infty} a_k X^k \\in \\mathbb{R}[X]$, on pose $\\tau(P) = a_2 X^2 + a_1 X + a_0$. L'application $\\tau$ ainsi définie est le projecteur de $\\mathbb{R}[X]$ sur $\\mathbb{R}_2[X]$ de direction $X^3\\mathbb{R}[X]$. Par exemple : $\\tau(X^4 - 4X^3 + X^2 + 1) = X^2 + 1$.",
+      "proof_latex": "D'après le théorème de la division euclidienne par $X^3$ : $\\mathbb{R}[X] = X^3\\mathbb{R}[X] \\oplus \\mathbb{R}_2[X]$, donc $\\tau$ est l'unique endomorphisme de $\\mathbb{R}[X]$ pour lequel $\\tau_{|\\mathbb{R}_2[X]} = \\text{Id}_{\\mathbb{R}_2[X]}$ et $\\tau_{|X^3\\mathbb{R}[X]} = 0_{\\mathcal{L}(X^3\\mathbb{R}[X], \\mathbb{R}[X])}$. À ce titre, c'est un projecteur.\\par Les points fixes de $\\tau$ sont exactement les polynômes de degré au plus 2, donc $\\text{Im} \\tau = \\mathbb{R}_2[X]$. Enfin, $\\text{Ker} \\tau$ est constitué de ceux dont les trois premiers coefficients sont nuls, i.e. qu'on peut factoriser par $X^3$, donc $\\text{Ker} \\tau = X^3\\mathbb{R}[X]$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_symetries",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation algébrique des symétries",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $s : E \\longrightarrow E$ une application.\\par $s$ est une symétrie si et seulement si $s$ est linéaire et $s^2 = \\text{Id}_E$.\\par Dans ce cas, $\\text{Ker}(s - \\text{Id}_E)$ et $\\text{Ker}(s + \\text{Id}_E)$ sont supplémentaires dans $E$ et $s$ est la symétrie par rapport à $\\text{Ker}(s - \\text{Id}_E)$ parallèlement à $\\text{Ker}(s + \\text{Id}_E)$.",
+      "proof_latex": "Nous n'avons plus qu'une implication à prouver. Faisons l'hypothèse que $s$ est linéaire et que $s^2 = \\text{Id}_E$ et montrons d'abord par analyse-synthèse que $E = \\text{Ker}(s - \\text{Id}_E) \\oplus \\text{Ker}(s + \\text{Id}_E)$. Soit $x \\in E$.\\par • Analyse : Soient $x_+ \\in \\text{Ker}(s - \\text{Id}_E)$ et $x_- \\in \\text{Ker}(s + \\text{Id}_E)$ pour lesquels $x = x_+ + x_-$. Aussitôt, $s(x_+) = x_+$ et $s(x_-) = -x_-$, donc $s(x) = x_+ - x_-$, donc $x_+ = \\frac{x + s(x)}{2}$ et $x_- = \\frac{x - s(x)}{2}$.\\par • Synthèse : Posons $x_+ = \\frac{x + s(x)}{2}$ et $x_- = \\frac{x - s(x)}{2}$. Ainsi $x = x_+ + x_-$, et $x_+ \\in \\text{Ker}(s - \\text{Id}_E)$ car : $s(x_+) = s(\\frac{x + s(x)}{2}) = \\frac{s(x) + s^2(x)}{2} = \\frac{x + s(x)}{2} = x_+$. On montre de même que $x_- \\in \\text{Ker}(s + \\text{Id}_E)$.\\par Conclusion : $E = \\text{Ker}(s - \\text{Id}_E) \\oplus \\text{Ker}(s + \\text{Id}_E)$, donc en effet, $x = \\frac{x + s(x)}{2} + \\frac{x - s(x)}{2}$ et $\\frac{x + s(x)}{2} - \\frac{x - s(x)}{2} = s(x)$ est le symétrique de $x$ par rapport à $\\text{Ker}(s - \\text{Id}_E)$ parallèlement à $\\text{Ker}(s + \\text{Id}_E)$."
+    },
+    {
+      "id": "applications_lineaires__example_transposition",
+      "type": "example",
+      "title": "Exemple : Transposition comme symétrie",
+      "content_latex": "La transposition $M \\overset{t}{\\longmapsto} M^\\top$ est une symétrie de $\\mathcal{M}_n(\\mathbb{K})$, en l'occurrence par rapport à $\\mathcal{S}_n(\\mathbb{K})$ parallèlement à $\\mathcal{A}_n(\\mathbb{K})$.\\par En particulier : $\\mathcal{M}_n(\\mathbb{K}) = \\mathcal{S}_n(\\mathbb{K}) \\oplus \\mathcal{A}_n(\\mathbb{K})$.",
+      "proof_latex": "La linéarité de $t$ est connue et $t^2 = \\text{Id}_{\\mathcal{M}_n(\\mathbb{K})}$, donc $t$ est une symétrie et les égalités $\\text{Ker}(t - \\text{Id}_{\\mathcal{M}_n(\\mathbb{K})}) = \\mathcal{S}_n(\\mathbb{K})$ et $\\text{Ker}(t + \\text{Id}_{\\mathcal{M}_n(\\mathbb{K})}) = \\mathcal{A}_n(\\mathbb{K})$ sont immédiates."
+    },
+    {
+      "id": "applications_lineaires__example_symetrie_fonctions",
+      "type": "example",
+      "title": "Exemple : Symétrie des fonctions paires/impaires",
+      "content_latex": "L'application $\\sigma$ qui associe à toute fonction $f : \\mathbb{R} \\longrightarrow \\mathbb{R}$ la fonction $x \\longmapsto f(-x)$ est une symétrie de $\\mathbb{R}^\\mathbb{R}$, en l'occurrence par rapport à l'ensemble $\\mathcal{P}$ des fonctions paires parallèlement à l'ensemble $\\mathcal{I}$ des fonctions impaires.\\par En particulier : $\\mathbb{R}^\\mathbb{R} = \\mathcal{P} \\oplus \\mathcal{I}$.",
+      "proof_latex": "La linéarité de $\\sigma$ est claire, de même que la relation $\\sigma^2 = \\text{Id}_{\\mathbb{R}^\\mathbb{R}}$, donc $\\sigma$ est une symétrie et les égalités $\\text{Ker}(\\sigma - \\text{Id}_{\\mathbb{R}^\\mathbb{R}}) = \\mathcal{P}$ et $\\text{Ker}(\\sigma + \\text{Id}_{\\mathbb{R}^\\mathbb{R}}) = \\mathcal{I}$ découlent aisément de la définition de $\\sigma$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_lien_projecteur_symetrie",
+      "type": "theorem",
+      "title": "Théorème : Lien projecteur/symétrie",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$. On note $p$ la projection sur $F$ parallèlement à $G$, $p'$ la projection sur $G$ parallèlement à $F$ et $s$ la symétrie par rapport à $F$ parallèlement à $G$. Dans ces conditions : $p + p' = \\text{Id}_E$, $p \\circ p' = p' \\circ p = 0_{\\mathcal{L}(E)}$ et $p = \\frac{s + \\text{Id}_E}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_polynomes_annulateurs",
+      "type": "theorem",
+      "title": "Définition-théorème : Polynômes annulateurs d'un endomorphisme",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f \\in \\mathcal{L}(E)$. On appelle polynôme annulateur de $f$ tout polynôme $P \\in \\mathbb{K}[X]$ pour lequel $P(f) = 0_{\\mathcal{L}(E)}$.\\par Par exemple, les projecteurs sont annulés par $X^2 - X = X(X - 1)$ et les symétries par $X^2 - 1 = (X - 1)(X + 1)$. Cette factorisation fait étrangement écho aux décompositions $E = \\text{Ker} p \\oplus \\text{Ker}(p - \\text{Id}_E)$ et $E = \\text{Ker}(s - \\text{Id}_E) \\oplus \\text{Ker}(s + \\text{Id}_E)$ du paragraphe précédent. Serait-ce un hasard ? Non, bien sûr ! Le lemme de décomposition des noyaux offre un cadre général à ce type de résultat. Officiellement, ce théorème relève du programme de MP.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__remark_notations_polynomes",
+      "type": "remark",
+      "title": "Remarque : Notations pour les polynômes d'endomorphismes",
+      "content_latex": "Commençons cela dit par quelques précisions sur les notations. Soient $E$ un $\\mathbb{K}$-espace vectoriel, $f \\in \\mathcal{L}(E)$ et $x \\in E$. Rappelons tout d'abord que la composition fait office de produit dans l'anneau $\\mathcal{L}(E)$.\\par — $f$ est un endomorphisme de $E$, donc $P(f)$ est aussi.\\par — $P(f)(x)$ est l'image du vecteur $x$ de $E$ par l'endomorphisme $P(f)$, c'est donc aussi un vecteur de $E$.\\par — La notation $P(f(x))$ n'a aucun sens en revanche, car $f(x)$ est un vecteur de $E$ et on ne sait pas le multiplier par lui-même pour calculer ses puissances dans un espace vectoriel abstrait.\\par — L'application $P \\longmapsto P(f)$ est un morphisme d'algèbres de $\\mathbb{K}[X]$ dans $\\mathbb{K}[f] \\subset \\mathcal{L}(E)$, donc si $Q$ est un autre polynôme de $\\mathbb{K}[X]$, alors $(PQ)(f) = P(f) \\circ Q(f)$. Produit polynomial d'un côté, composition de l'autre. Cette relation montre en passant que $P(f)$ et $Q(f)$ commutent dans $\\mathcal{L}(E)$ car $P$ et $Q$ commutent dans $\\mathbb{K}[X]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_lemme_decomposition_noyaux",
+      "type": "theorem",
+      "title": "Théorème : Lemme de décomposition des noyaux",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel, $f \\in \\mathcal{L}(E)$ et $P_1, \\ldots, P_r \\in \\mathbb{K}[X]$ des polynômes premiers entre eux deux à deux. Alors : $\\text{Ker}(P_1 \\ldots P_r)(f) = \\bigoplus_{i=1}^r \\text{Ker} P_i(f)$.\\par En particulier, si $P_1 \\ldots P_r$ annule $f$, c'est $E$ lui-même qui se trouve décomposé : $E = \\text{Ker} P_1(f) \\oplus \\ldots \\oplus \\text{Ker} P_r(f)$.",
+      "proof_latex": "• Focalisons-nous d'abord sur le cas de deux polynômes. Par hypothèse, $P_1 \\wedge P_2 = 1$ donc $U_1 P_1 + U_2 P_2 = 1$ pour certains $U_1, U_2 \\in \\mathbb{K}[X]$. Le théorème est entièrement dans cette relation de Bézout !\\par Montrons que $\\text{Ker} P_1(f) + \\text{Ker} P_2(f) \\subset \\text{Ker}(P_1 P_2)(f)$. Par symétrie des rôles de $P_1$ et $P_2$, il nous suffit d'ailleurs de montrer que $\\text{Ker} P_1(f) \\subset \\text{Ker}(P_1 P_2)(f)$. Or pour tout $x \\in \\text{Ker} P_1(f)$ : $(P_1 P_2)(f)(x) = (P_2 P_1)(f)(x) = P_2(f) \\circ P_1(f)(x) = P_2(f)(0_E) = 0_E$.\\par Pour l'inclusion réciproque, soit $x \\in \\text{Ker}(P_1 P_2)(f)$. Après évaluation en $f$, la relation $U_1 P_1 + U_2 P_2 = 1$ devient $(U_1 P_1)(f) + (U_2 P_2)(f) = \\text{Id}_E$, puis après évaluation en $x$ : $x = (U_1 P_1)(f)(x) + (U_2 P_2)(f)(x)$. Or $P_1(f)((U_2 P_2)(f)(x)) = U_2(f) \\circ (P_1 P_2)(f)(x) = U_2(f)(0_E) = 0_E$, donc $(U_2 P_2)(f)(x) \\in \\text{Ker} P_1(f)$, et on montre de même que $(U_1 P_1)(f)(x) \\in \\text{Ker} P_2(f)$.\\par Montrons enfin que $\\text{Ker} P_1(f)$ et $\\text{Ker} P_2(f)$ sont en somme directe. Pour tout $x \\in \\text{Ker} P_1(f) \\cap \\text{Ker} P_2(f)$, comme à l'instant : $x = (U_1 P_1)(f)(x) + (U_2 P_2)(f)(x) = U_1(f)(0_E) + U_2(f)(0_E) = 0_E$.\\par • Revenons maintenant au cas général et posons $Q_i = P_1 \\ldots P_{i-1} P_{i+1} \\ldots P_r$ pour tout $i \\in \\{1, \\ldots, r\\}$. Comme nous allons le voir, $Q_1, \\ldots, Q_r$ sont premiers entre eux DANS LEUR ENSEMBLE, donc $U_1 Q_1 + \\ldots + U_r Q_r = 1$ pour certains $U_1, \\ldots, U_r \\in \\mathbb{K}[X]$. Le lemme se démontre alors avec $r$ polynômes comme on l'a prouvé avec deux.\\par Pour montrer que $Q_1 \\wedge \\ldots \\wedge Q_r = 1$, observons d'abord que pour tout $i \\in \\{1, \\ldots, r\\}$, $P_i$ est premier à $P_1, \\ldots, P_{i-1}, P_{i+1}, \\ldots, P_r$, donc à leur produit $Q_i$. Supposons à présent par l'absurde que $Q_1 \\wedge \\ldots \\wedge Q_r \\neq 1$. Nous pouvons ainsi nous donner un diviseur irréductible $D$ de ce PGCD. En particulier, $D$ divise $Q_1$, donc $D$ divise $P_i$ pour un certain $i \\in \\{2, \\ldots, r\\}$. Cela dit, $D$ divise $Q_i$ et $P_i \\wedge Q_i = 1$, donc $D$ divise 1, mais cela contredit l'irréductibilité de $D$."
+    },
+    {
+      "id": "applications_lineaires__example_equation_differentielle",
+      "type": "example",
+      "title": "Exemple : Application aux équations différentielles",
+      "content_latex": "Nous n'avons pas encore étudié les équations différentielles linéaires, mais le lemme de décomposition des noyaux est plein de promesses dans ce cadre. Intéressons-nous par exemple à l'équation différentielle $y'' - 3y' + 2y = 0$ d'inconnue $y : \\mathbb{R} \\longrightarrow \\mathbb{R}$ deux fois dérivable.\\par Notons à présent $E$ le $\\mathbb{R}$-espace vectoriel $\\mathcal{C}^\\infty(\\mathbb{R}, \\mathbb{R})$ et $D$ l'endomorphisme $y \\longmapsto y'$ de $E$. L'application $y \\longmapsto y'' - 3y' + 2y$ n'est alors rien d'autre qu'un polynôme en $D$, à savoir $D^2 - 3D + 2\\text{Id}_E = (D - \\text{Id}_E)(D - 2\\text{Id}_E)$, et son noyau est l'ensemble des solutions de l'équation différentielle étudiée. Les polynômes $X - 1$ et $X - 2$ étant premiers entre eux, le lemme de décomposition des noyaux montre que : $\\text{Ker}(D^2 - 3D + 2\\text{Id}_E) = \\text{Ker}(D - \\text{Id}_E) \\oplus \\text{Ker}(D - 2\\text{Id}_E)$, i.e. que : $\\{y \\in E \\mid y'' - 3y' + 2y = 0\\} = \\{y \\in E \\mid y' - y = 0\\} \\oplus \\{y \\in E \\mid y' - 2y = 0\\}$.\\par En d'autres termes, pour résoudre l'équation différentielle $y'' - 3y' + 2y = 0$ d'ordre 2, il suffit de savoir résoudre deux équations différentielles d'ordre 1, en l'occurrence $y' - y = 0$ et $y' - 2y = 0$. On sait bien que : $\\text{Ker}(D - \\text{Id}_E) = \\text{Vect}(x \\longmapsto e^x)$, $\\text{Ker}(D - 2\\text{Id}_E) = \\text{Vect}(x \\longmapsto e^{2x})$ et $\\text{Ker}(D^2 - 3D + 2\\text{Id}_E) = \\text{Vect}(x \\longmapsto e^x, x \\longmapsto e^{2x})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__intro_formes_lineaires",
+      "type": "remark",
+      "title": "Introduction : Formes linéaires et hyperplans",
+      "content_latex": "Rappelons pour commencer qu'une FORME linéaire n'est jamais qu'une application linéaire à valeurs dans $\\mathbb{K}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_theoreme_dual",
+      "type": "theorem",
+      "title": "Définition-théorème : Dual d'un espace vectoriel",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel. Le $\\mathbb{K}$-espace vectoriel $\\mathcal{L}(E, \\mathbb{K})$ des formes linéaires de $E$ est appelé le dual de $E$ et noté $E^\\star$.\\par Si $E$ est de dimension finie $n$, alors pour toute base $(e_1, \\ldots, e_n)$ de $E$, la famille $(e_1^\\star, \\ldots, e_n^\\star)$ des formes coordonnées associée est une base de $E^\\star$ appelée la base duale de $(e_1, \\ldots, e_n)$. En particulier, $\\dim E^\\star = \\dim E$.\\par En résumé, en dimension finie, les formes linéaires ne sont rien de plus que les combinaisons linéaires des formes coordonnées dans une base fixée.",
+      "proof_latex": "Pour le caractère générateur, soit $\\phi \\in E^\\star$. Pour tout $x \\in E$ : $\\phi(x) = \\phi(\\sum_{i=1}^n e_i^\\star(x) e_i) = \\sum_{i=1}^n \\phi(e_i) e_i^\\star(x)$ par linéarité de $\\phi$, donc $\\phi = \\sum_{i=1}^n \\underbrace{\\phi(e_i)}_{\\in \\mathbb{K}} e_i^\\star$.\\par Ensuite, pour la liberté, soient $\\lambda_1, \\ldots, \\lambda_n \\in \\mathbb{K}$. Si $\\sum_{i=1}^n \\lambda_i e_i^\\star = 0_{E^\\star}$, alors $\\sum_{i=1}^n \\lambda_i e_i^\\star(e_j) = 0$ pour tout $j \\in \\{1, \\ldots, n\\}$, donc $\\lambda_j = 0$."
+    },
+    {
+      "id": "applications_lineaires__example_formes_lineaires_kn",
+      "type": "example",
+      "title": "Exemple : Formes linéaires de $\\mathbb{K}^n$",
+      "content_latex": "Soit $\\phi$ une forme linéaire de $\\mathbb{K}^n$. Notons $(e_1, \\ldots, e_n)$ la base canonique de $\\mathbb{K}^n$ et posons $a_i = \\phi(e_i)$ pour tout $i \\in \\{1, \\ldots, n\\}$. Pour tout $(x_1, \\ldots, x_n) \\in \\mathbb{K}^n$ : $\\phi(x_1, \\ldots, x_n) = \\phi(x_1 e_1 + \\ldots + x_n e_n) = x_1 \\phi(e_1) + \\ldots + x_n \\phi(e_n) = a_1 x_1 + \\ldots + a_n x_n$, donc $\\phi$ est l'application $(x_1, \\ldots, x_n) \\longmapsto a_1 x_1 + \\ldots + a_n x_n$. Vous avez là sous les yeux la forme générale de toutes les formes linéaires de $\\mathbb{K}^n$, et n'oubliez pas que les applications $(x_1, \\ldots, x_n) \\longmapsto x_1$, \\ldots, $(x_1, \\ldots, x_n) \\longmapsto x_n$ sont les formes coordonnées de la base canonique de $\\mathbb{K}^n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_formes_lineaires_polynomes",
+      "type": "example",
+      "title": "Exemple : Formes linéaires de $\\mathbb{K}_n[X]$",
+      "content_latex": "Soit $\\phi$ une forme linéaire de $\\mathbb{K}_n[X]$. Posons $\\phi_k = \\phi(X^k)$ pour tout $k \\in \\{0, \\ldots, n\\}$. Pour tout $P = \\sum_{k=0}^n a_k X^k \\in \\mathbb{K}_n[X]$ : $\\phi(P) = \\sum_{k=0}^n a_k \\phi(X^k) = \\sum_{k=0}^n \\phi_k a_k$, donc $\\phi$ est l'application $P \\longmapsto \\sum_{k=0}^n \\phi_k a_k$.\\par Par exemple, la forme linéaire $P \\longmapsto P(2)$ de $\\mathbb{R}_3[X]$ envoie tout polynôme $P = a_3 X^3 + a_2 X^2 + a_1 X + a_0$ sur la combinaison linéaire suivante de $a_0, a_1, a_2$ et $a_3$ : $P(2) = a_0 + 2a_1 + 4a_2 + 8a_3$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__definition_hyperplan",
+      "type": "definition",
+      "title": "Définition : Hyperplan",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel — pas forcément de dimension finie. On appelle hyperplan de $E$ tout noyau d'une forme linéaire NON NULLE de $E$.\\par Le noyau de la forme linéaire nulle $x \\longmapsto 0_E$ est $E$ tout entier. On précise donc « non nulle » dans la définition pour éviter que $E$ lui-même soit un hyperplan de $E$.\\par En dimension finie : Hyperplan = Ensemble décrit par UNE équation linéaire non nulle sur les coordonnées dans une base fixée.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_hyperplans",
+      "type": "example",
+      "title": "Exemple : Hyperplans",
+      "content_latex": "• Le plan d'équation $2x + y - z = 0$ est un hyperplan de $\\mathbb{R}^3$, noyau de la forme linéaire non nulle $(x, y, z) \\longmapsto 2x + y - z$.\\par • L'ensemble $H = \\{P \\in \\mathbb{R}_3[X] \\mid P'(1) + P(0) = 0\\}$ est un hyperplan de $\\mathbb{R}_3[X]$, noyau de la forme linéaire non nulle $P \\longmapsto P'(1) + P(0)$. On voit moins bien ici que $H$ est décrit par une équation linéaire sur les coordonnées, mais si on introduit les coefficients $a, b, c, d$ de $P$ : $P = aX^3 + bX^2 + cX + d$, $H$ est décrit par l'équation $3a + 2b + c + d = 0$.\\par • L'ensemble $\\{f \\in \\mathcal{C}^\\infty(\\mathbb{R}, \\mathbb{R}) \\mid f'(0) = f(0)\\}$ est un hyperplan de $\\mathcal{C}^\\infty(\\mathbb{R}, \\mathbb{R})$, noyau de la forme linéaire non nulle $f \\longmapsto f(0) - f'(0)$. Ici, $\\mathcal{C}^\\infty(\\mathbb{R}, \\mathbb{R})$ est de dimension infinie.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_caracterisation_hyperplans",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation géométrique des hyperplans",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $H$ une partie de $E$. Les assertions suivantes sont équivalentes :\\par (i) $H$ est un hyperplan de $E$.\\par (ii) $H$ est supplémentaire d'une droite de $E$.\\par Si $E$ est de dimension finie $n \\geq 1$, les hyperplans de $E$ sont donc ses sous-espaces vectoriels de dimension $n - 1$.\\par En dimension 3, hyperplan = plan.\\par En dimension 2, hyperplan = droite.",
+      "proof_latex": "(ii) $\\Rightarrow$ (i) Par hypothèse, $E = H \\oplus \\text{Vect}(v)$ pour un certain $v \\in E$ non nul. Nous pouvons alors noter $\\phi$ l'unique forme linéaire de $E$ pour laquelle $\\phi_{|H} = 0_{\\mathcal{L}(H, \\mathbb{K})}$ et $\\phi(v) = 1$. Assez clairement, $\\phi$ est non nulle et $\\text{Ker} \\phi = H$, donc $H$ est un hyperplan de $E$.\\par (i) $\\Rightarrow$ (ii) Donnons-nous une forme linéaire non nulle $\\phi$ de noyau $H$ et un vecteur $v$ de $E \\setminus H$. Pour montrer que $E = H \\oplus \\text{Vect}(v)$, montrons simplement que $E \\subset H + \\text{Vect}(v)$ car $H \\cap \\text{Vect}(v) = \\{0_E\\}$.\\par Soit $x \\in E$. Par définition de $v$, $\\phi(v) \\neq 0$ donc $\\phi(x - \\frac{\\phi(x)}{\\phi(v)} v) = \\phi(x) - \\frac{\\phi(x)}{\\phi(v)} \\phi(v) = 0$. En d'autres termes $x - \\frac{\\phi(x)}{\\phi(v)} v \\in \\text{Ker} \\phi = H$, donc $x \\in H + \\text{Vect}(v)$."
+    },
+    {
+      "id": "applications_lineaires__example_hyperplans_dimension",
+      "type": "example",
+      "title": "Exemple : Hyperplans et dimension",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}$, pour une raison de dimension, $\\mathbb{K}_n[X]$ est un hyperplan de $\\mathbb{K}_{n+1}[X]$ et $\\mathbb{K}^n \\times \\{0\\}$ un hyperplan de $\\mathbb{K}^{n+1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__example_hyperplans_concrets",
+      "type": "example",
+      "title": "Exemple : Hyperplans concrets",
+      "content_latex": "• L'ensemble $\\{(x, y, z, t) \\in \\mathbb{R}^4 \\mid 2x + y = z + t\\}$ est un sous-espace vectoriel de $\\mathbb{R}^4$ de dimension $4 - 1 = 3$ en tant que noyau de la forme linéaire non nulle $(x, y, z, t) \\longmapsto 2x + y - z - t$.\\par • L'ensemble $\\{P \\in \\mathbb{R}_4[X] \\mid P(0) = P(1)\\}$ est un sous-espace vectoriel de $\\mathbb{R}_4[X]$ de dimension $5 - 1 = 4$ en tant que noyau de la forme linéaire non nulle $P \\longmapsto P(1) - P(0)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_comparaison_equations_hyperplan",
+      "type": "theorem",
+      "title": "Théorème : Comparaison des équations d'un hyperplan",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel, $H$ un hyperplan de $E$ et $\\phi, \\psi$ deux formes linéaires non nulles de $E$ dont $H$ est le noyau. Alors $\\psi = \\lambda \\phi$ pour un certain $\\lambda \\in \\mathbb{K}^*$.\\par En résumé, tout hyperplan possède une et une seule « vraie » équation, toutes ses équations sont multiples les unes des autres. En géométrie analytique plane, le plan d'équation $x + y + 2z = 0$ et le plan d'équation $2x + 2y + 4z = 0$ sont un seul et même plan et ce plan n'a pas d'autre équation réellement différente.",
+      "proof_latex": "Grâce au théorème précédent, $E = H \\oplus \\text{Vect}(v)$ pour un certain $v \\in E$. La forme linéaire $\\phi(v) \\psi - \\psi(v) \\phi$ est alors nulle sur $H$ par définition de $\\phi$ et $\\psi$, mais également nulle en $v$, donc nulle sur $E$ tout entier par linéarité. Or $\\phi(v) \\neq 0$ — sans quoi $\\phi$ serait nulle sur $E$ tout entier — donc $\\psi = \\lambda \\phi$ avec $\\lambda = \\frac{\\psi(v)}{\\phi(v)}$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_intersections_hyperplans",
+      "type": "theorem",
+      "title": "Théorème : Intersections d'hyperplans",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n \\geq 1$ et $p \\in \\{1, \\ldots, n\\}$.\\par (i) L'intersection de $p$ hyperplans de $E$ est un sous-espace vectoriel de $E$ de dimension AU MOINS $n - p$.\\par (ii) Tout sous-espace vectoriel de $E$ de dimension $n - p$ est l'intersection d'exactement $p$ hyperplans de $E$.\\par Dans $\\mathbb{R}^3$, nous savons bien qu'une équation scalaire décrit un plan et que deux telles équations, pour peu qu'elles ne soient pas multiples l'une de l'autre, décrivent une droite. L'idée générale du théorème ci-dessus, c'est que dans un système linéaire, chaque équation occasionne POTENTIELLEMENT la perte d'une dimension par rapport au nombre total d'inconnues. Pourquoi potentiellement ? Parce que certaines équations peuvent être redondantes et ne pas compter vraiment dans le système. Par exemple, le système linéaire $\\begin{cases} x + y - 2z = 0 \\ 2x - y + z = 0 \\ 3x - z = 0 \\end{cases}$ d'inconnue $(x, y, z) \\in \\mathbb{R}^3$ décrit une droite et non un point de $\\mathbb{R}^3$ car la troisième équation n'est jamais que la somme des deux premières.",
+      "proof_latex": "(i) Soient $H_1, \\ldots, H_p$ des hyperplans de $E$. Pour tout $k \\in \\{1, \\ldots, p\\}$, notons $\\phi_k$ une forme linéaire non nulle de $E$ dont $H_k$ est le noyau. L'application $x \\overset{\\Phi}{\\longmapsto} (\\phi_1(x), \\ldots, \\phi_p(x))$ est linéaire de $E$ dans $\\mathbb{K}^p$ de noyau $H_1 \\cap \\ldots \\cap H_p$, donc d'après le théorème du rang : $\\dim(H_1 \\cap \\ldots \\cap H_p) = \\dim E - \\text{rg}(\\Phi) \\geq \\dim E - \\dim \\mathbb{K}^p = n - p$.\\par (ii) Soit $F$ un sous-espace vectoriel de $E$ de dimension $n - p$. Donnons-nous une base $(e_1, \\ldots, e_n)$ de $E$ dont les $n - p$ derniers vecteurs forment une base de $F$ et pour tout $i \\in \\{1, \\ldots, n\\}$, notons $e_i^\\star$ la $i^{\\text{ème}}$ forme coordonnée associée. Pour tout $x \\in E$ : $x \\in F \\Leftrightarrow x \\in \\text{Vect}(e_{p+1}, \\ldots, e_n) \\Leftrightarrow e_1^\\star(x) = \\ldots = e_p^\\star(x) = 0 \\Leftrightarrow x \\in \\text{Ker} e_1^\\star \\cap \\ldots \\cap \\text{Ker} e_p^\\star$.\\par Conclusion : $F = \\text{Ker} e_1^\\star \\cap \\ldots \\cap \\text{Ker} e_p^\\star$, ce qui fait bien de $F$ l'intersection de $p$ hyperplans de $E$."
+    },
+    {
+      "id": "applications_lineaires__remark_fin_programme",
+      "type": "remark",
+      "title": "Remarque : Fin du programme officiel",
+      "content_latex": "Sur ces questions d'hyperplans, le programme de MPSI s'arrête ici et les programmes de MP et PSI ne vont pas plus loin, mais nous, nous allons tâcher d'en comprendre un peu plus.",
+      "proof_latex": null
+    },
+    {
+      "id": "applications_lineaires__theoreme_dimension_intersection",
+      "type": "theorem",
+      "title": "Théorème : Dimension d'une intersection d'hyperplans",
+      "content_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n \\geq 1$ et $\\phi_1, \\ldots, \\phi_p \\in E^\\star$. Alors $\\dim(\\text{Ker} \\phi_1 \\cap \\ldots \\cap \\text{Ker} \\phi_p) = n - \\text{rg}(\\phi_1, \\ldots, \\phi_p)$.\\par Je parlais de redondance un peu plus haut. Dans un système linéaire, une équation peut être supprimée quand la contrainte qu'elle exprime est déjà portée par les autres équations. Le théorème ci-dessus précise que la redondance des équations associées aux formes linéaires $\\phi_1, \\ldots, \\phi_p$ se mesure en termes de rang de la famille $(\\phi_1, \\ldots, \\phi_p)$ dans le dual $E^\\star$.\\par En particulier, dire que les équations sont non redondantes, c'est dire que la famille $(\\phi_1, \\ldots, \\phi_p)$ est libre.",
+      "proof_latex": "$\\text{Ker} \\phi_1 \\cap \\ldots \\cap \\text{Ker} \\phi_p = \\{x \\in E \\mid \\forall i \\in \\{1, \\ldots, p\\}, \\phi_i(x) = 0\\} = \\{x \\in E \\mid \\forall \\psi \\in \\text{Vect}(\\phi_1, \\ldots, \\phi_p), \\psi(x) = 0\\} = \\text{Vect}(\\phi_1, \\ldots, \\phi_p)^\\circ$, donc d'après l'assertion (iii) du théorème précédent : $\\dim(\\text{Ker} \\phi_1 \\cap \\ldots \\cap \\text{Ker} \\phi_p) = \\dim \\text{Vect}(\\phi_1, \\ldots, \\phi_p)^\\circ = \\dim E - \\dim \\text{Vect}(\\phi_1, \\ldots, \\phi_p) = n - \\text{rg}(\\phi_1, \\ldots, \\phi_p)$."
+    },
+    {
+      "id": "applications_lineaires__theoreme_rudiments_dualite",
+      "type": "theorem",
+      "title": "Théorème : Rudiments de dualité",
+      "content_latex": "Soit $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie. Le dual de $E^\\star$, concrètement $\\mathcal{L}(\\mathcal{L}(E, \\mathbb{K}), \\mathbb{K})$, est appelé le bidual de $E$ et noté $E^{\\star\\star}$.\\par (i) En notant $\\text{ev}_x$ l'application $\\phi \\longmapsto \\phi(x)$ pour tout $x \\in E$, l'application $x \\longmapsto \\text{ev}_x$ est un isomorphisme de $E$ sur $E^{\\star\\star}$.\\par (ii) Pour toute base $\\mathcal{F}$ de $E^\\star$, il existe une et une seule base $\\mathcal{B}$ de $E$, appelée la base antéduale de $\\mathcal{F}$, dont $\\mathcal{F}$ est la base duale, i.e. pour laquelle $\\mathcal{F} = \\mathcal{B}^\\star$.\\par (iii) Soit $A$ un sous-espace vectoriel de $E^\\star$. L'ensemble $A^\\circ = \\{x \\in E \\mid \\forall a \\in A, a(x) = 0\\} = \\bigcap_{a \\in A} \\text{Ker} a$ est un sous-espace vectoriel de $E$ appelé l'anté-orthogonal de $A$. En outre : $\\dim A + \\dim A^\\circ = \\dim E$.\\par La dualité est une branche de l'algèbre linéaire hors programme dont l'objet est d'approfondir le lien qui unit $E$ à $E^\\star$.",
+      "proof_latex": "(i) Clairement, $\\dim E^{\\star\\star} = \\dim E^\\star = \\dim E$. Pour montrer que l'application $x \\overset{\\text{ev}}{\\longmapsto} \\text{ev}_x$ est un isomorphisme de $E$ sur $E^{\\star\\star}$, il nous suffit donc de montrer que cette application est linéaire et injective.\\par • Pour la linéarité, soient $x, y \\in E$ et $\\lambda \\in \\mathbb{K}$. Alors $\\text{ev}_{\\lambda x + y} = \\lambda \\text{ev}_x + \\text{ev}_y$ car pour tout $f \\in E^\\star$ : $\\text{ev}_{\\lambda x + y}(f) = f(\\lambda x + y) = \\lambda f(x) + f(y) = \\lambda \\text{ev}_x(f) + \\text{ev}_y(f) = (\\lambda \\text{ev}_x + \\text{ev}_y)(f)$.\\par • Pour l'injectivité, soit $x \\in \\text{Ker} \\text{ev}$. Ainsi $\\text{ev}_x = 0_{E^{\\star\\star}}$, donc $f(x) = 0$ pour tout $f \\in E^\\star$. Raisonnons par l'absurde en supposant $x \\neq 0_E$. Nous pouvons alors compléter la famille libre $(x)$ en une base $\\mathcal{B}$ de $E$ et noter $f_x$ l'unique forme linéaire de $E$ de valeur 1 en $x$ et 0 en les autres vecteurs de $\\mathcal{B}$. Par construction, $f_x(x) = 1 \\neq 0$ — contradiction — donc $x = 0_E$.\\par (ii) Introduisons les éléments de $\\mathcal{F}$ : $\\mathcal{F} = (f_1, \\ldots, f_n)$.\\par $\\mathcal{F} = \\mathcal{B}^\\star \\Leftrightarrow \\mathcal{F}$ est la base duale de $\\mathcal{B} \\Leftrightarrow \\forall i, j \\in \\{1, \\ldots, n\\}, f_i(e_j) = \\delta_{ij} \\Leftrightarrow \\forall i, j \\in \\{1, \\ldots, n\\}, \\text{ev}_{e_j}(f_i) = \\delta_{ij} \\Leftrightarrow$ Pour toute base $\\mathcal{B} = (e_1, \\ldots, e_n)$ de $E$ : $\\forall j \\in \\{1, \\ldots, n\\}, \\text{ev}_{e_j} = f_j^\\star \\Leftrightarrow \\forall j \\in \\{1, \\ldots, n\\}, \\text{ev}_{e_j} = f_j^\\star \\Leftrightarrow \\forall j \\in \\{1, \\ldots, n\\}, e_j = \\text{ev}^{-1}(f_j^\\star)$.\\par Ces équivalences prouvent à la fois l'existence et l'unicité de la base antéduale de $\\mathcal{F}$.\\par (iii) Donnons-nous une base $(a_1, \\ldots, a_p)$ de $A$, éventuellement vide, et complétons-la en une base $(a_1, \\ldots, a_n)$ de $E^\\star$, puis notons $\\mathcal{B} = (e_1, \\ldots, e_n)$ la base antéduale de $(a_1, \\ldots, a_n)$. Pour tout $x \\in E$ : $x \\in A^\\circ \\Leftrightarrow \\forall a \\in A, a(x) = 0 \\Leftrightarrow \\forall i \\in \\{1, \\ldots, p\\}, a_i(x) = 0$ (car $(a_1, \\ldots, a_p)$ engendre $A$) $\\Leftrightarrow \\forall i \\in \\{1, \\ldots, p\\}, e_i^\\star(x) = 0$ (par définition de $\\mathcal{B}$) $\\Leftrightarrow$ Les $p$ premières coordonnées de $x$ dans $\\mathcal{B}$ sont nulles $\\Leftrightarrow x \\in \\text{Vect}(e_{p+1}, \\ldots, e_n)$.\\par Conclusion : $A^\\circ = \\text{Vect}(e_{p+1}, \\ldots, e_n)$. Libre, $(e_{p+1}, \\ldots, e_n)$ est finalement une base de $A^\\circ$, donc $\\dim A^\\circ = n - p = \\dim E - \\dim A$."
+    },
+    {
+      "id": "applications_lineaires__example_lagrange_bis",
+      "type": "example",
+      "title": "Exemple : Base de Lagrange comme base antéduale",
+      "content_latex": "Soient $x_0, \\ldots, x_n \\in \\mathbb{K}$ distincts. Les formes linéaires $P \\overset{\\phi_i}{\\longmapsto} P(x_i)$, $i$ décrivant $\\{0, \\ldots, n\\}$, forment une base de $\\mathbb{K}_n[X]^\\star$ et sa base antéduale est la famille $(L_0, \\ldots, L_n)$ des polynômes de Lagrange de $x_0, \\ldots, x_n$.",
+      "proof_latex": "Les formes linéaires étudiées sont linéairement indépendantes car pour tous $\\lambda_0, \\ldots, \\lambda_n \\in \\mathbb{K}$, si $\\sum_{i=0}^n \\lambda_i \\phi_i = 0_{\\mathbb{K}_n[X]^\\star}$, alors $\\sum_{i=0}^n \\lambda_i L_j(x_i) = 0$ pour tout $j \\in \\{0, \\ldots, n\\}$ après évaluation en $L_j$, donc $\\lambda_j = 0$. Composée de $n + 1 = \\dim \\mathbb{K}_n[X]^\\star$ vecteurs, la famille $(\\phi_0, \\ldots, \\phi_n)$ est ainsi une base de $\\mathbb{K}_n[X]^\\star$.\\par D'après le théorème d'interpolation de Lagrange, la famille $(L_0, \\ldots, L_n)$ est quant à elle une base de $\\mathbb{K}_n[X]$. Enfin, pour tous $i, j \\in \\{0, \\ldots, n\\}$ : $\\phi_i(L_j) = L_j(x_i) = \\delta_{ij} = L_i^\\star(L_j)$, donc $\\phi_i = L_i^\\star$, ce qui achève de montrer que $(L_0, \\ldots, L_n)$ est la base antéduale de $(\\phi_0, \\ldots, \\phi_n)$."
+    }
+  ],
+  "exercises": []
+}

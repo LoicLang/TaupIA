@@ -1,0 +1,358 @@
+{
+  "chapter_official_id": "espaces_prehilbertiens_reels",
+  "chapter_name": "Espaces préhilbertiens réels",
+  "source_document": "Cours - Espaces prehilbertiens reels.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "espaces_prehilbertiens_reels__definition_produit_scalaire",
+      "type": "definition",
+      "title": "Définition : Produit scalaire, espace préhilbertien réel, espace euclidien",
+      "content_latex": "Produit scalaire : Soit $E$ un $\\mathbb{R}$-espace vectoriel. On appelle produit scalaire sur $E$ toute forme bilinéaire symétrique définie positive, i.e. toute application $\\langle \\cdot, \\cdot \rangle : E \times E \\longrightarrow \\mathbb{R}$ :\\par — bilinéaire : $\forall x, y, z \\in E, \forall \\lambda, \\mu \\in \\mathbb{R}$ : $\\langle \\lambda x + \\mu y, z \rangle = \\lambda \\langle x, z \rangle + \\mu \\langle y, z \rangle$ et $\\langle x, \\lambda y + \\mu z \rangle = \\lambda \\langle x, y \rangle + \\mu \\langle x, z \rangle$,\\par — symétrique : $\forall x, y \\in E$ : $\\langle x, y \rangle = \\langle y, x \rangle$,\\par — définie : $\forall x \\in E$ : $\\langle x, x \rangle = 0 \\Rightarrow x = 0_E$ (propriété de séparation),\\par — positive : $\forall x \\in E$ : $\\langle x, x \rangle \\geq 0$.\\par\\par Le produit scalaire $\\langle x, y \rangle$ est aussi parfois noté $x \\cdot y$, $(x|y)$ ou bien sûr $x^\top y$.\\par\\par Espace préhilbertien réel, espace euclidien : Un espace vectoriel réel muni d'un produit scalaire est appelé un espace préhilbertien réel. Un espace préhilbertien réel DE DIMENSION FINIE est appelé un espace euclidien.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_bilinearite",
+      "type": "remark",
+      "title": "Remarque : Bilinearité et symétrie",
+      "content_latex": "Pour montrer la bilinéarité d'un produit scalaire potentiel, la linéarité par rapport à une variable seulement est suffisante si on a pris la peine de démontrer la symétrie avant.\\par\\par Petite remarque au passage : $\\langle x, 0_E \rangle = \\langle 0_E, x \rangle = 0$ pour tout $x \\in E$ par bilinéarité du produit scalaire.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_theorem_produits_scalaires_canoniques",
+      "type": "theorem",
+      "title": "Définition-théorème : Produits scalaires canoniques sur $\\mathbb{R}^n$ et $\\mathcal{M}_{n,p}(\\mathbb{R})$",
+      "content_latex": "(i) L'application $(X, Y) \\longmapsto X^\top Y = \\sum_{i=1}^{n} x_i y_i$ est un produit scalaire sur $\\mathbb{R}^n$ appelé son produit scalaire canonique.\\par\\par (ii) L'application $(A, B) \\longmapsto \text{tr}(A^\top B) = \\sum_{1 \\leq i \\leq n, 1 \\leq j \\leq p} a_{ij} b_{ij}$ est un produit scalaire sur $\\mathcal{M}_{n,p}(\\mathbb{R})$ appelé son produit scalaire canonique.\\par\\par Nous retrouvons ici les produits scalaires usuels auxquels nous sommes habitués dans le plan $\\mathbb{R}^2$ et l'espace $\\mathbb{R}^3$. Par exemple, pour tous vecteurs $\\vec{u} = (x, y)$ et $\\vec{v} = (x', y')$ de $\\mathbb{R}^2$ : $\\vec{u} \\cdot \\vec{v} = xx' + yy'$.\\par\\par Pour tous $X, Y \\in \\mathbb{R}^n$, le produit matriciel $X^\top Y$ est une matrice carrée de taille 1, i.e. un réel. Plus généralement, $A^\top B$ est une matrice carrée de taille $p$ pour tous $A, B \\in \\mathcal{M}_{n,p}(\\mathbb{R})$, que l'on convertit en un réel grâce à la trace.\\par\\par Retenez bien que le produit scalaire canonique de $\\mathbb{R}^n$ peut être calculé matriciellement.",
+      "proof_latex": "Nous nous contenterons de démontrer l'assertion (ii), car comme on vient de le remarquer, le produit scalaire canonique de $\\mathbb{R}^n$ n'est jamais que le produit scalaire canonique de $\\mathcal{M}_{n,1}(\\mathbb{R})$.\\par\\par Pour commencer, pour tous $A, B \\in \\mathcal{M}_{n,p}(\\mathbb{R})$ : $(A^\top B)_{jj} = \\sum_{i=1}^{n} (A^\top)_{ji} b_{ij} = \\sum_{i=1}^{n} a_{ij} b_{ij}$, donc $\text{tr}(A^\top B) = \\sum_{j=1}^{p} (A^\top B)_{jj} = \\sum_{i,j} a_{ij} b_{ij}$.\\par\\par Symétrie : Pour tous $A, B \\in \\mathcal{M}_{n,p}(\\mathbb{R})$ : $\text{tr}(A^\top B) = \text{tr}((A^\top B)^\top) = \text{tr}(B^\top A)$.\\par\\par Bilinéarité : Par symétrie, la linéarité par rapport à la première variable suffit. Pour tous $A, B, C \\in \\mathcal{M}_{n,p}(\\mathbb{R})$ et $\\lambda \\in \\mathbb{R}$, par bilinéarité du produit matriciel et linéarité de la trace : $\text{tr}(A^\top(\\lambda B + C)) = \text{tr}(\\lambda(A^\top B) + (A^\top C)) = \\lambda \text{tr}(A^\top B) + \text{tr}(A^\top C)$.\\par\\par Positivité et séparation : Pour tout $A \\in \\mathcal{M}_{n,p}(\\mathbb{R})$ : $\text{tr}(A^\top A) = \\sum_{i,j} a_{ij}^2 \\geq 0$, et si $\text{tr}(A^\top A) = 0$, alors $a_{ij} = 0$ pour tous $i, j$, donc $A = 0$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_produit_scalaire_R2",
+      "type": "example",
+      "title": "Exemple : Produit scalaire non canonique sur $\\mathbb{R}^2$",
+      "content_latex": "De nombreux produits scalaires peuvent exister sur un même espace vectoriel. L'application $(X, Y) \\longmapsto X^\top \begin{pmatrix} 2 & 1 \\ 1 & 2 \\end{pmatrix} Y$ est par exemple un produit scalaire sur $\\mathbb{R}^2$ distinct du produit scalaire canonique.",
+      "proof_latex": "Symétrie et bilinéarité évidentes. Ensuite, pour tout $X = (x, y) \\in \\mathbb{R}^2$ : $X^\top \begin{pmatrix} 2 & 1 \\ 1 & 2 \\end{pmatrix} X = (x \\quad y) \begin{pmatrix} 2x + y \\ x + 2y \\end{pmatrix} = 2x^2 + 2xy + 2y^2 = x^2 + y^2 + (x+y)^2 \\geq 0$, et si $X^\top \begin{pmatrix} 2 & 1 \\ 1 & 2 \\end{pmatrix} X = 0$, alors $x = y = x + y = 0$ car $x^2$, $y^2$ et $(x+y)^2$ sont positifs, donc $X = (0, 0)$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_produit_scalaire_Cab",
+      "type": "example",
+      "title": "Exemple : Produit scalaire sur $\\mathcal{C}([a,b], \\mathbb{R})$",
+      "content_latex": "Soient $a, b \\in \\mathbb{R}$ avec $a < b$. L'application $(f, g) \\longmapsto \\int_a^b f(t)g(t) \\, dt$ est un produit scalaire sur $\\mathcal{C}([a, b], \\mathbb{R})$.",
+      "proof_latex": "Symétrie et bilinéarité évidentes. Ensuite, pour tout $f \\in \\mathcal{C}([a, b], \\mathbb{R})$ : $\\int_a^b f(t)^2 \\, dt \\geq 0$ et si $\\int_a^b f(t)^2 \\, dt = 0$, $f$ étant continue et positive, alors $f^2$ est nulle sur $[a, b]$, donc $f = 0$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__warning_prehilbertien_non_euclidien",
+      "type": "warning",
+      "title": "Attention : Espace préhilbertien non euclidien",
+      "content_latex": "Muni du produit scalaire défini ci-dessus, $\\mathcal{C}([a, b], \\mathbb{R})$ n'est pas un espace EUCLIDIEN car ce n'est pas un $\\mathbb{R}$-espace vectoriel de dimension finie. C'est seulement un espace préhilbertien réel.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_produit_scalaire_RnX",
+      "type": "example",
+      "title": "Exemple : Produit scalaire sur $\\mathbb{R}_n[X]$",
+      "content_latex": "Soient $x_0, \\ldots, x_n \\in \\mathbb{R}$ distincts. L'application $(P, Q) \\longmapsto \\sum_{i=0}^{n} P(x_i)Q(x_i)$ est un produit scalaire sur $\\mathbb{R}_n[X]$.",
+      "proof_latex": "Symétrie et bilinéarité : Symétrie évidente, donc la linéarité par rapport à la première variable suffit. Pour tous $P, Q, R \\in \\mathbb{R}_n[X]$ et $\\lambda, \\mu \\in \\mathbb{R}$ : $\\sum_{i=0}^{n} (\\lambda P + \\mu Q)(x_i)R(x_i) = \\lambda \\sum_{i=0}^{n} P(x_i)R(x_i) + \\mu \\sum_{i=0}^{n} Q(x_i)R(x_i)$.\\par\\par Positivité et séparation : Pour tout $P \\in \\mathbb{R}_n[X]$ : $\\sum_{i=0}^{n} P(x_i)^2 \\geq 0$, et si $\\sum_{i=0}^{n} P(x_i)^2 = 0$, alors $P(x_i) = 0$ pour tout $i \\in \\{0, n\\}$, i.e. $x_0, \\ldots, x_n$ sont des racines de $P$. Le polynôme $P$ de degré au plus $n$ possède ainsi $n+1$ racines distinctes, donc est nul."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_norme_distance",
+      "type": "definition",
+      "title": "Définition : Norme et distance associées à un produit scalaire",
+      "content_latex": "Soit $E$ un espace préhilbertien réel.\\par\\par Norme : On appelle norme sur $E$ (associée au produit scalaire $\\langle \\cdot, \\cdot \rangle$) l'application $\\|\\cdot\\| : E \\longrightarrow \\mathbb{R}_+$ définie pour tout $x \\in E$, le réel $\\|x\\| = \\sqrt{\\langle x, x \rangle}$. On dit qu'un vecteur $x$ de $E$ est unitaire si $\\|x\\| = 1$.\\par\\par Distance : Pour tous $x, y \\in E$, le réel $\\|x - y\\|$, souvent noté $d(x, y)$, est appelé la distance entre $x$ et $y$ (associée au produit scalaire $\\langle \\cdot, \\cdot \rangle$).",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__warning_distance_depend_produit_scalaire",
+      "type": "warning",
+      "title": "Attention : La distance dépend du choix de produit scalaire",
+      "content_latex": "La notion de distance n'est pas forcément celle qu'on croit ! La distance dépend d'un CHOIX de produit scalaire. Par exemple, pour le produit scalaire $(X, Y) \\longmapsto X^\top \begin{pmatrix} 2 & 1 \\ 1 & 2 \\end{pmatrix} Y$ sur $\\mathbb{R}^2$ : $\\|(1, 0)\\| = \\sqrt{2} \neq 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_identites_remarquables",
+      "type": "remark",
+      "title": "Remarque : Identités remarquables et polarisation",
+      "content_latex": "Qui dit bilinéarité dit identités remarquables. En l'occurrence, pour tous $x, y \\in E$ : $\\|x + y\\|^2 = \\|x\\|^2 + 2\\langle x, y \rangle + \\|y\\|^2$ et $\\langle x + y, x - y \rangle = \\|x\\|^2 - \\|y\\|^2$.\\par\\par On peut aussi inverser ces relations et récupérer le produit scalaire en fonction de la norme. On obtient alors ce qu'on appelle des identités de polarisation. Par exemple : $\\langle x, y \rangle = \frac{1}{2}\\left(\\|x + y\\|^2 - \\|x\\|^2 - \\|y\\|^2\right) = \frac{1}{4}\\left(\\|x + y\\|^2 - \\|x - y\\|^2\right)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_cauchy_schwarz",
+      "type": "theorem",
+      "title": "Théorème : Inégalité de Cauchy-Schwarz, inégalité triangulaire",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $x, y \\in E$.\\par\\par (i) Inégalité de Cauchy-Schwarz : $|\\langle x, y \rangle| \\leq \\|x\\| \\cdot \\|y\\|$ avec égalité si et seulement si $x$ et $y$ sont colinéaires.\\par\\par (ii) Inégalité triangulaire, version norme : $\big|\\|x\\| - \\|y\\|\big| \\leq \\|x + y\\| \\leq \\|x\\| + \\|y\\|$.\\par\\par L'inégalité de droite est une égalité si et seulement si $x$ et $y$ sont colinéaires DE MÊME SENS.",
+      "proof_latex": "Pour l'inégalité généralisée : Pour tout $t \\in \\mathbb{R}$ : $\\phi(x + ty, x + ty) = \\phi(x, x) + 2t\\phi(x, y) + t^2\\phi(y, y) \\geq 0$.\\par\\par — Si $\\phi(y, y) = 0$, la fonction $t \\mapsto \\phi(x + ty, x + ty)$ est affine et positive sur $\\mathbb{R}$ tout entier, donc son coefficient directeur $\\phi(x, y)$ est nul et c'est fini.\\par\\par — Si $\\phi(y, y) \neq 0$, la fonction $t \\mapsto \\phi(x + ty, x + ty)$ est polynomiale de degré EXACTEMENT 2 et positive sur $\\mathbb{R}$ tout entier, donc son discriminant est négatif : $\\phi(x, y)^2 - \\phi(x, x)\\phi(y, y) \\leq 0$ et c'est fini.\\par\\par Cas d'égalité dans le cas préhilbertien : Si $y = 0_E$, l'inégalité de Cauchy-Schwarz est une égalité et $x$ et $y$ sont colinéaires. Dans le cas contraire, en reprenant ce qui précède, l'inégalité est une égalité si et seulement si le discriminant calculé est nul, i.e. si et seulement si la fonction $t \\mapsto \\|x + ty\\|^2$ s'annule. Or cette annulation équivaut à l'existence d'un réel $t_0$ pour lequel $x + t_0y = 0_E$, i.e. à la colinéarité de $x$ et $y$.\\par\\par (ii) D'abord : $\\|x + y\\|^2 = \\|x\\|^2 + 2\\langle x, y \rangle + \\|y\\|^2 \\overset{(i)}{\\leq} \\|x\\|^2 + 2\\|x\\|\\|y\\| + \\|y\\|^2 = (\\|x\\| + \\|y\\|)^2$, ensuite on passe à la racine carrée.\\par\\par L'inégalité obtenue est alors une égalité si et seulement si $\\langle x, y \rangle = \\|x\\|\\|y\\|$. Le cas échéant, les vecteurs $x$ et $y$ sont colinéaires d'après (i), et quitte à les permuter, on peut supposer que $y = \\lambda x$ pour un certain $\\lambda \\in \\mathbb{R}$. Aussitôt : $\\langle x, y \rangle = \\langle x, \\lambda x \rangle = \\lambda \\langle x, x \rangle = \\lambda \\|x\\|^2$ et $\\|x\\|\\|y\\| = \\|x\\|\\|\\lambda x\\| = |\\lambda|\\|x\\|^2$, donc soit $x$ est nul, soit $\\lambda = |\\lambda|$, i.e. $\\lambda \\geq 0$. Dans les deux cas, $x$ et $y$ sont colinéaires de même sens. Réciproque immédiate.\\par\\par Pour l'inégalité généralisée : $\\|x\\| = \\|(x + y) + (-y)\\| \\leq \\|x + y\\| + \\|y\\|$, donc $\\|x\\| - \\|y\\| \\leq \\|x + y\\|$, et de même $\\|y\\| - \\|x\\| \\leq \\|x + y\\|$, donc $\big|\\|x\\| - \\|y\\|\big| \\leq \\|x + y\\|$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_generalisee",
+      "type": "theorem",
+      "title": "Théorème : Inégalité de Cauchy-Schwarz généralisée",
+      "content_latex": "Soient $E$ un $\\mathbb{R}$-espace vectoriel, $\\phi$ une forme bilinéaire symétrique positive — mais pas forcément définie positive — et $x, y \\in E$. Alors : $|\\phi(x, y)| \\leq \\sqrt{\\phi(x, x)}\\sqrt{\\phi(y, y)}$.",
+      "proof_latex": "Pour tout $t \\in \\mathbb{R}$ : $\\phi(x + ty, x + ty) = \\phi(x, x) + 2t\\phi(x, y) + t^2\\phi(y, y) \\geq 0$.\\par\\par — Si $\\phi(y, y) = 0$, la fonction $t \\mapsto \\phi(x + ty, x + ty)$ est affine et positive sur $\\mathbb{R}$ tout entier, donc son coefficient directeur $\\phi(x, y)$ est nul et c'est fini.\\par\\par — Si $\\phi(y, y) \neq 0$, la fonction $t \\mapsto \\phi(x + ty, x + ty)$ est polynomiale de degré EXACTEMENT 2 et positive sur $\\mathbb{R}$ tout entier, donc son discriminant est négatif : $\\phi(x, y)^2 - \\phi(x, x)\\phi(y, y) \\leq 0$ et c'est fini."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_cauchy_schwarz_Rn",
+      "type": "example",
+      "title": "Exemple : Inégalité de Cauchy-Schwarz dans $\\mathbb{R}^n$",
+      "content_latex": "Pour tous $x_1, \\ldots, x_n \\in \\mathbb{R}$ : $\\left(\\sum_{k=1}^{n} x_k\right)^2 \\leq n\\sum_{k=1}^{n} x_k^2$ avec égalité si et seulement si $x_1 = \\ldots = x_n$.",
+      "proof_latex": "Simple application de l'inégalité de Cauchy-Schwarz aux vecteurs $(x_1, \\ldots, x_n)$ et $(1, \\ldots, 1)$ de $\\mathbb{R}^n$ pour le produit scalaire canonique."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_cauchy_schwarz_C1",
+      "type": "example",
+      "title": "Exemple : Inégalité de Cauchy-Schwarz dans $\\mathcal{C}^1([0,1], \\mathbb{R})$",
+      "content_latex": "Pour toute fonction $f \\in \\mathcal{C}^1([0, 1], \\mathbb{R})$ pour laquelle $f(0) = 0$ : $f(1)^2 \\leq 2\\sqrt{\\int_0^1 f(t)^2 \\, dt}\\sqrt{\\int_0^1 f'(t)^2 \\, dt}$.",
+      "proof_latex": "Appliquons l'inégalité de Cauchy-Schwarz à $f$ et $f'$ dans l'espace préhilbertien réel $\\mathcal{C}([0, 1], \\mathbb{R})$ muni du produit scalaire $(u, v) \\longmapsto \\int_0^1 u(t)v(t) \\, dt$ : $\\left|\\int_0^1 f(t)f'(t) \\, dt\right| \\leq \\sqrt{\\int_0^1 f(t)^2 \\, dt}\\sqrt{\\int_0^1 f'(t)^2 \\, dt}$. On conclut en calculant l'intégrale de gauche, qui vaut $\frac{1}{2}(f(1)^2 - f(0)^2) = \frac{1}{2}f(1)^2$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_cauchy_schwarz_va",
+      "type": "theorem",
+      "title": "Théorème : Inégalité de Cauchy-Schwarz pour les variables aléatoires",
+      "content_latex": "Soient $(\\Omega, P)$ un espace probabilisé fini.\\par\\par (i) L'application $(X, Y) \\longmapsto E(XY)$ est une forme bilinéaire symétrique positive sur $\\mathbb{R}^\\Omega$, mais n'est pas forcément un produit scalaire. Elle en est un si et seulement si $P\\{\\omega\\} > 0$ pour tout $\\omega \\in \\Omega$.\\par\\par (ii) Inégalité de Cauchy-Schwarz : Pour toutes variables aléatoires $X$ et $Y$ sur $\\Omega$ : $|E(XY)| \\leq \\sqrt{E(X^2)}\\sqrt{E(Y^2)}$.",
+      "proof_latex": "(i) L'application $(X, Y) \\longmapsto E(XY)$ a-t-elle la propriété de séparation ? C'est toute la question.\\par\\par Si $(X, Y) \\longmapsto E(XY)$ est un produit scalaire, alors pour tout $\\omega \\in \\Omega$ : $P\\{\\omega\\} = E(1_{\\{\\omega\\}}^2) > 0$.\\par\\par Faisons l'hypothèse que $P\\{\\omega\\} > 0$ pour tout $\\omega \\in \\Omega$. Pour toute variable aléatoire $X \\in \\mathbb{R}^\\Omega$ pour laquelle $E(X^2) = 0$ : $\\sum_{\\omega \\in \\Omega} P\\{\\omega\\}X(\\omega)^2 = 0$, donc $X(\\omega) = 0$ pour tout $\\omega \\in \\Omega$, donc $X = 0$.\\par\\par (ii) Simple application de l'inégalité de Cauchy-Schwarz généralisée."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_vecteurs_orthogonaux",
+      "type": "definition",
+      "title": "Définition : Vecteurs orthogonaux, parties orthogonales, familles orthogonales/orthonormales",
+      "content_latex": "Soient $E$ un espace préhilbertien réel, $x, y \\in E$, $X$ et $Y$ deux parties de $E$ et $(x_i)_{i \\in I}$ une famille de vecteurs de $E$. On dit que :\\par\\par — $x$ et $y$ sont orthogonaux, ce qu'on note $x \\perp y$, si $\\langle x, y \rangle = 0$,\\par\\par — les parties $X$ et $Y$ sont orthogonales, ce qu'on note $X \\perp Y$, si pour tous $x \\in X$ et $y \\in Y$ : $\\langle x, y \rangle = 0$,\\par\\par — la famille $(x_i)_{i \\in I}$ est orthogonale si pour tous $i, j \\in I$ distincts : $\\langle x_i, x_j \rangle = 0$,\\par\\par — la famille $(x_i)_{i \\in I}$ est orthonormale (ou orthonormée) si elle est orthogonale et constituée de vecteurs unitaires, i.e. si pour tous $i, j \\in I$ : $\\langle x_i, x_j \rangle = \\delta_{ij}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_orthogonalite_relative",
+      "type": "remark",
+      "title": "Remarque : L'orthogonalité est relative au produit scalaire",
+      "content_latex": "Notre théorie géométrique a définitivement la tête en bas. Jusqu'ici, pour vous, la notion d'orthogonalité était première et le produit scalaire second. C'est le contraire qui est vrai à présent, la notion d'orthogonalité repose sur la définition préalable d'un produit scalaire. En particulier, à chaque produit scalaire est associée une notion d'orthogonalité, ce qui fait que les angles droits ne sont pas droits absolument, mais relativement.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_separation_orthogonalite",
+      "type": "remark",
+      "title": "Remarque : Propriété de séparation et orthogonalité",
+      "content_latex": "Le petit résultat suivant est à la fois trivial et essentiel. La propriété de séparation énonce que le vecteur nul est le seul vecteur orthogonal à lui-même. En particulier, seul le vecteur nul est orthogonal à tout vecteur.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_base_canonique_Rn",
+      "type": "example",
+      "title": "Exemple : Base canonique de $\\mathbb{R}^n$ orthonormale",
+      "content_latex": "Pour le produit scalaire canonique de $\\mathbb{R}^n$, la base canonique $(E_i)_{1 \\leq i \\leq n}$ de $\\mathbb{R}^n$ est orthonormale car $E_i^\top E_j = \\delta_{ij}$ pour tous $i, j \\in \\{1, n\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_base_non_orthonormale",
+      "type": "example",
+      "title": "Exemple : Base non orthonormale pour un produit scalaire non canonique",
+      "content_latex": "La base canonique de $\\mathbb{R}^2$ n'est pas orthonormale pour le produit scalaire $(X, Y) \\longmapsto X^\top \begin{pmatrix} 2 & 1 \\ 1 & 2 \\end{pmatrix} Y$, mais la famille $\\left(\frac{1}{\\sqrt{2}}(1, 0), \frac{1}{\\sqrt{6}}(1, -2)\right)$ l'est comme on le vérifie aisément.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_base_canonique_Mnp",
+      "type": "example",
+      "title": "Exemple : Base canonique de $\\mathcal{M}_{n,p}(\\mathbb{R})$ orthonormale",
+      "content_latex": "Pour le produit scalaire canonique de $\\mathcal{M}_{n,p}(\\mathbb{R})$, la base canonique de $\\mathcal{M}_{n,p}(\\mathbb{R})$ est orthonormale.",
+      "proof_latex": "Pour tous $i, k \\in \\{1, n\\}$ et $j, l \\in \\{1, p\\}$, notons $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{R})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$ qui vaut 1. Fixons $i, k \\in \\{1, n\\}$ et $j, l \\in \\{1, p\\}$. Seules la $l$-ème colonne et la $j$-ème ligne de la matrice $E_{ij}^\top E_{kl}$ sont éventuellement non nulles. Les coefficients de cette matrice sont donc tous nuls, sauf peut-être son coefficient de position $(j, l)$, qui vaut $\\delta_{ik}$, donc $E_{ij}^\top E_{kl} = \\delta_{ik}E_{jl}$. Ce calcul est important et mérite d'être refait. Finalement : $\\langle E_{ij}, E_{kl} \rangle = \text{tr}(\\delta_{ik}E_{jl}) = \\delta_{ik}\\delta_{jl} = \\delta_{(i,j),(k,l)}$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_famille_sin_orthonormale",
+      "type": "example",
+      "title": "Exemple : Famille orthonormale de fonctions sinus",
+      "content_latex": "La famille des fonctions $s_n : t \\longmapsto \frac{1}{\\sqrt{\\pi}}\\sin(nt)$, $n$ décrivant $\\mathbb{N}^*$, est orthonormale dans $\\mathcal{C}([0, 2\\pi], \\mathbb{R})$ pour le produit scalaire $(f, g) \\longmapsto \frac{1}{\\pi}\\int_0^{2\\pi} f(t)g(t) \\, dt$.",
+      "proof_latex": "Pour tous $m, n \\in \\mathbb{N}^*$ : $\\langle s_m, s_n \rangle = \frac{1}{\\pi}\\int_0^{2\\pi} \\sin(mt)\\sin(nt) \\, dt = \frac{1}{2\\pi}\\int_0^{2\\pi} [\\cos((m-n)t) - \\cos((m+n)t)] \\, dt = \begin{cases} 1 & \text{si } m = n \\ 0 & \text{si } m \neq n \\end{cases}$.\\par\\par En effet : $\\|s_n\\|^2 = \frac{1}{\\pi}\\int_0^{2\\pi} \\sin^2(nt) \\, dt = \frac{1}{\\pi}\\int_0^{2\\pi} \frac{1 - \\cos(2nt)}{2} \\, dt = \frac{1}{\\pi}\\left[\frac{t}{2} - \frac{\\sin(2nt)}{4n}\right]_0^{2\\pi} = 1$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_fonctions_paires_impaires",
+      "type": "example",
+      "title": "Exemple : Fonctions paires et fonctions impaires orthogonales",
+      "content_latex": "Dans $\\mathcal{C}([-1, 1], \\mathbb{R})$, l'ensemble des fonctions paires et l'ensemble des fonctions impaires sont deux sous-espaces vectoriels orthogonaux pour le produit scalaire $(f, g) \\longmapsto \\int_{-1}^{1} f(t)g(t) \\, dt$.",
+      "proof_latex": "Pour toutes $p \\in \\mathcal{C}([-1, 1], \\mathbb{R})$ paire et $i \\in \\mathcal{C}([-1, 1], \\mathbb{R})$ impaire : $\\langle p, i \rangle = \\int_{-1}^{1} p(t)i(t) \\, dt = 0$ car la fonction $t \\mapsto p(t)i(t)$ est impaire."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_proprietes_familles_orthogonales",
+      "type": "theorem",
+      "title": "Théorème : Propriétés des familles orthogonales",
+      "content_latex": "Soit $E$ un espace préhilbertien réel.\\par\\par (i) Théorème de Pythagore : Pour tous $x, y \\in E$, $x$ et $y$ sont orthogonaux si et seulement si $\\|x\\|^2 + \\|y\\|^2 = \\|x + y\\|^2$.\\par\\par En outre, pour toute famille orthogonale $(x_1, \\ldots, x_n)$ de $E$ : $\\left\\|\\sum_{i=1}^{n} x_i\right\\|^2 = \\sum_{i=1}^{n} \\|x_i\\|^2$.\\par\\par (ii) Liberté : Toute famille orthogonale de vecteurs NON NULS de $E$ est libre. En particulier, toute famille orthonormale de $E$ est libre.",
+      "proof_latex": "(i) Tout simplement : $\\left\\|\\sum_{i=1}^{n} x_i\right\\|^2 = \\sum_{i=1}^{n} \\|x_i\\|^2 + 2\\sum_{1 \\leq i < j \\leq n} \\langle x_i, x_j \rangle = \\sum_{i=1}^{n} \\|x_i\\|^2$ car $\\langle x_i, x_j \rangle = 0$ pour $i \neq j$.\\par\\par (ii) Soient $(x_1, \\ldots, x_n)$ une famille orthogonale de vecteurs non nuls de $E$ et $\\lambda_1, \\ldots, \\lambda_n \\in \\mathbb{R}$ pour lesquels $\\sum_{i=1}^{n} \\lambda_i x_i = 0_E$. Pour tout $j \\in \\{1, n\\}$ : $0 = \\langle 0_E, x_j \rangle = \\left\\langle \\sum_{i=1}^{n} \\lambda_i x_i, x_j \right\rangle = \\sum_{i=1}^{n} \\lambda_i \\langle x_i, x_j \rangle = \\lambda_j \\|x_j\\|^2$, or $\\|x_j\\| \neq 0$, donc $\\lambda_j = 0$. Comme voulu, $(x_1, \\ldots, x_n)$ est libre."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_pythagore_identite",
+      "type": "remark",
+      "title": "Remarque : Pythagore comme identité remarquable",
+      "content_latex": "Aviez-vous compris avant que le théorème de Pythagore n'est qu'un simple commentaire de l'identité remarquable : $\\|x + y\\|^2 = \\|x\\|^2 + 2\\langle x, y \rangle + \\|y\\|^2$ ?",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_theoreme_composante",
+      "type": "theorem",
+      "title": "Définition-théorème : Composante selon un vecteur",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $x \\in E$.\\par\\par (i) Cas d'un vecteur unitaire : Soit $u \\in E$ UNITAIRE. Le vecteur $x - \\langle x, u \rangle u$ est orthogonal à $u$ et $\\langle x, u \rangle u$ est appelé la composante de $x$ selon $u$.\\par\\par Cas général : Soit $a \\in E$ NON NUL. La composante de $x$ selon $a$ vaut $\frac{\\langle x, a \rangle}{\\|a\\|^2} a$. Elle vaut $\frac{\\langle x, a \rangle}{\\|a\\|} \\cdot \frac{a}{\\|a\\|}$ si on veut la décomposer en norme $\times$ vecteur unitaire.\\par\\par (ii) Et si on retire plein de composantes ? Pour toute famille ORTHONORMALE $(u_1, \\ldots, u_n)$ de $E$, le vecteur $x - \\sum_{i=1}^{n} \\langle x, u_i \rangle u_i$ est orthogonal à $u_1, \\ldots, u_n$.",
+      "proof_latex": "(i) $\\left\\langle x - \\langle x, u \rangle u, u \right\rangle = \\langle x, u \rangle - \\langle x, u \rangle \\|u\\|^2 = 0$.\\par\\par (ii) Pour tout $j \\in \\{1, n\\}$ : $\\left\\langle x - \\sum_{i=1}^{n} \\langle x, u_i \rangle u_i, u_j \right\rangle = \\langle x, u_j \rangle - \\sum_{i=1}^{n} \\langle x, u_i \rangle \\langle u_i, u_j \rangle = \\langle x, u_j \rangle - \\sum_{i=1}^{n} \\langle x, u_i \rangle \\delta_{ij} = \\langle x, u_j \rangle - \\langle x, u_j \rangle = 0$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_coordonnees_base_orthonormale",
+      "type": "theorem",
+      "title": "Théorème : Coordonnées dans une base orthonormale et expression du produit scalaire et de la norme",
+      "content_latex": "Soient $E$ un espace euclidien, $(e_1, \\ldots, e_n)$ une base ORTHONORMALE de $E$ et $x, y \\in E$.\\par\\par (i) Coordonnées : $x = \\sum_{i=1}^{n} \\langle x, e_i \rangle e_i$.\\par\\par En d'autres termes, en notant $(e_1^*, \\ldots, e_n^*)$ la base duale de $(e_1, \\ldots, e_n)$, $e_i^*(x) = \\langle x, e_i \rangle$ pour tout $i \\in \\{1, n\\}$.\\par\\par (ii) Produit scalaire et norme : En notant $X = (x_1, \\ldots, x_n)$ et $Y = (y_1, \\ldots, y_n)$ les coordonnées respectives de $x$ et $y$ dans $(e_1, \\ldots, e_n)$ : $\\langle x, y \rangle = \\sum_{i=1}^{n} x_i y_i = X^\top Y$ et $\\|x\\| = \\sqrt{\\sum_{i=1}^{n} x_i^2} = \\sqrt{X^\top X}$.",
+      "proof_latex": "(i) D'après le théorème précédent, $x - \\sum_{i=1}^{n} \\langle x, e_i \rangle e_i$ est orthogonal à $e_1, \\ldots, e_n$ donc à tout vecteur de $E$, donc est nul par séparation.\\par\\par On peut aussi voir les choses autrement. En notant $(x_1, \\ldots, x_n)$ les coordonnées de $x$ dans $(e_1, \\ldots, e_n)$, pour tout $j \\in \\{1, n\\}$ : $\\langle x, e_j \rangle = \\left\\langle \\sum_{i=1}^{n} x_i e_i, e_j \right\rangle = \\sum_{i=1}^{n} x_i \\langle e_i, e_j \rangle = \\sum_{i=1}^{n} x_i \\delta_{ij} = x_j$.\\par\\par (ii) $\\langle x, y \rangle = \\left\\langle \\sum_{i=1}^{n} x_i e_i, \\sum_{j=1}^{n} y_j e_j \right\rangle = \\sum_{1 \\leq i, j \\leq n} x_i y_j \\langle e_i, e_j \rangle = \\sum_{1 \\leq i, j \\leq n} x_i y_j \\delta_{ij} = \\sum_{i=1}^{n} x_i y_i = X^\top Y$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_coordonnees_vs_composantes",
+      "type": "remark",
+      "title": "Remarque : Coordonnées et composantes",
+      "content_latex": "Dans l'assertion (i), attention de ne pas confondre les coordonnées de $x$ dans $(e_1, \\ldots, e_n)$, qui sont des scalaires, et ses composantes selon $e_1, \\ldots, e_n$, qui sont des vecteurs.\\par\\par L'assertion (ii) montre que le produit scalaire canonique sur $\\mathbb{R}^n$ est l'archétype de tous les produits scalaires des espaces euclidiens. Calculer le produit scalaire $\\langle x, y \rangle$ dans un espace euclidien abstrait revient à calculer le produit scalaire canonique des coordonnées des vecteurs $x$ et $y$ dans une base ORTHONORMALE quelconque.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__warning_base_non_orthonormale",
+      "type": "warning",
+      "title": "Attention : Tout ceci est très faux si la base n'est pas ORTHONORMALE !",
+      "content_latex": "Tout ceci est très faux si la base n'est pas ORTHONORMALE !",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_gram_schmidt",
+      "type": "theorem",
+      "title": "Théorème : Algorithme d'orthonormalisation de Gram-Schmidt",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $(e_1, \\ldots, e_n)$ une famille LIBRE de $E$. Il existe alors une famille orthonormale $(u_1, \\ldots, u_n)$ de $E$ pour laquelle pour tout $k \\in \\{1, n\\}$ : $\text{Vect}(u_1, \\ldots, u_k) = \text{Vect}(e_1, \\ldots, e_k)$.\\par\\par Les vecteurs $u_1, \\ldots, u_n$ peuvent être construits de proche en proche depuis $u_1$ jusqu'à $u_n$. Pour tout $k \\in \\{1, n\\}$, si on a construit $u_1, \\ldots, u_{k-1}$ et si on pose $\tilde{u}_k = e_k - \\sum_{i=1}^{k-1} \\langle e_k, u_i \rangle u_i$, alors $\tilde{u}_k \neq 0_E$ et $u_k = \frac{\tilde{u}_k}{\\|\tilde{u}_k\\|}$.\\par\\par On a tout compris quand on a compris le cas $n = 2$. On veut transformer une famille libre quelconque $(e_1, e_2)$ en une famille orthonormale $(u_1, u_2)$ avec $u_1 = \frac{e_1}{\\|e_1\\|}$ et $u_2 = \frac{e_2 - \\langle e_2, u_1 \rangle u_1}{\\|e_2 - \\langle e_2, u_1 \rangle u_1\\|}$.\\par\\par — La première formule normalise $e_1$, c'est-à-dire le rend unitaire.\\par\\par — La seconde redresse $e_2$ en lui retranchant sa composante $\\langle e_2, u_1 \rangle u_1$ selon $u_1$ pour le rendre orthogonal à $u_1$. Le vecteur obtenu n'a aucune raison d'être unitaire, c'est pourquoi on le divise par sa norme.",
+      "proof_latex": "Montrons par récurrence que pour tout $k \\in \\{1, n\\}$, il existe une famille orthonormale $(u_1, \\ldots, u_k)$ de $E$ pour laquelle pour tout $i \\in \\{1, k\\}$ : $\text{Vect}(u_1, \\ldots, u_i) = \text{Vect}(e_1, \\ldots, e_i)$.\\par\\par Initialisation : La famille $(e_1)$ est libre, donc $e_1 \neq 0_E$, et si on pose $u_1 = \frac{e_1}{\\|e_1\\|}$, alors $\text{Vect}(e_1) = \text{Vect}(u_1)$.\\par\\par Hérédité : Soit $k \\in \\{2, n\\}$. Faisons l'hypothèse qu'il existe une famille orthonormale $(u_1, \\ldots, u_{k-1})$ de $E$ pour laquelle pour tout $i \\in \\{1, k-1\\}$ : $\text{Vect}(u_1, \\ldots, u_i) = \text{Vect}(e_1, \\ldots, e_i)$. Nous sommes en quête d'un vecteur $u_k$ pour lequel $(u_1, \\ldots, u_k)$ est orthonormale et $\text{Vect}(u_1, \\ldots, u_k) = \text{Vect}(e_1, \\ldots, e_k)$.\\par\\par Le vecteur $\tilde{u}_k = e_k - \\sum_{i=1}^{k-1} \\langle e_k, u_i \rangle u_i$ est orthogonal à $u_1, \\ldots, u_{k-1}$. Se peut-il qu'il soit nul ? La liberté de $(e_1, \\ldots, e_n)$ s'en trouverait contredite car $e_k$ appartiendrait à $\text{Vect}(u_1, \\ldots, u_{k-1}) = \text{Vect}(e_1, \\ldots, e_{k-1})$. Nous pouvons ainsi poser $u_k = \frac{\tilde{u}_k}{\\|\tilde{u}_k\\|}$. La famille $(u_1, \\ldots, u_k)$ est orthonormale. Enfin, $u_k$ est combinaison linéaire de $u_1, \\ldots, u_{k-1}$ et $e_k$ avec un coefficient non nul devant $e_k$, donc : $\text{Vect}(u_1, \\ldots, u_k) = \text{Vect}(u_1, \\ldots, e_k) = \text{Vect}(u_1, \\ldots, u_{k-1}) + \text{Vect}(e_k) = \text{Vect}(e_1, \\ldots, e_{k-1}) + \text{Vect}(e_k) = \text{Vect}(e_1, \\ldots, e_k)$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_gram_schmidt_RX",
+      "type": "example",
+      "title": "Exemple : Orthonormalisation de Gram-Schmidt sur $\\mathbb{R}[X]$",
+      "content_latex": "La famille $\\left(\frac{1}{\\sqrt{2}}(2X - 1), \\sqrt{5}(6X^2 - 6X + 1)\right)$ est orthonormale pour le produit scalaire $(P, Q) \\longmapsto \\int_0^1 P(t)Q(t) \\, dt$ sur $\\mathbb{R}[X]$.",
+      "proof_latex": "Appliquons l'algorithme de Gram-Schmidt pour construire une famille orthonormale $(U_0, U_1, U_2)$ à partir de la famille libre $(1, X, X^2)$.\\par\\par Construction de $U_0$ : $\\|1\\|^2 = \\int_0^1 1 \\, dt = 1$, donc on pose $U_0 = 1$.\\par\\par Construction de $U_1$ : $\\langle X, U_0 \rangle = \\int_0^1 t \\, dt = \frac{1}{2}$, donc $X - \\langle X, U_0 \rangle U_0 = X - \frac{1}{2}$. Ensuite : $\\|X - \frac{1}{2}\\|^2 = \\int_0^1 (t - \frac{1}{2})^2 \\, dt = \frac{1}{12}$, donc on pose $U_1 = \\sqrt{12}(X - \frac{1}{2}) = \\sqrt{3}(2X - 1)$.\\par\\par Construction de $U_2$ : $\\langle X^2, U_0 \rangle = \\int_0^1 t^2 \\, dt = \frac{1}{3}$ et $\\langle X^2, U_1 \rangle = \\sqrt{3}\\int_0^1 t^2(2t - 1) \\, dt = \\sqrt{3}\\int_0^1 (2t^3 - t^2) \\, dt = \\sqrt{3}\\left[\frac{t^4}{2} - \frac{t^3}{3}\right]_0^1 = \frac{\\sqrt{3}}{6}$, donc : $X^2 - \\langle X^2, U_0 \rangle U_0 - \\langle X^2, U_1 \rangle U_1 = X^2 - \frac{1}{3} - \frac{\\sqrt{3}}{6} \\cdot \\sqrt{3}(2X - 1) = X^2 - X + \frac{1}{6}$.\\par\\par $\\|X^2 - X + \frac{1}{6}\\|^2 = \\int_0^1 (t^2 - t + \frac{1}{6})^2 \\, dt = \frac{1}{180}$, donc on pose $U_2 = \\sqrt{180}(X^2 - X + \frac{1}{6}) = \\sqrt{5}(6X^2 - 6X + 1)$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_existence_base_orthonormale",
+      "type": "theorem",
+      "title": "Théorème : Existence de bases orthonormales en dimension finie",
+      "content_latex": "(i) Tout espace euclidien possède une base orthonormale.\\par\\par (ii) Théorème de la base orthonormale incomplète : Soit $E$ un espace euclidien. Toute famille orthonormale de $E$ peut être complétée en une base orthonormale de $E$.",
+      "proof_latex": "(i) Tout $\\mathbb{R}$-espace vectoriel de dimension finie possède une base — éventuellement vide — donc une base orthonormale grâce à l'algorithme de Gram-Schmidt.\\par\\par (ii) Libre, toute famille orthonormale $\\mathcal{F}$ de $E$ peut être complétée en une base de $E$. Or appliqué à cette base, l'algorithme de Gram-Schmidt n'affecte pas les vecteurs de $\\mathcal{F}$ et on peut donc considérer que $\\mathcal{F}$ a été complétée en une base orthonormale de $E$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_theoreme_orthogonal",
+      "type": "theorem",
+      "title": "Définition-théorème : Orthogonal d'une partie",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $X$ une partie de $E$. On appelle orthogonal de $X$ dans $E$ l'ensemble $X^\\perp = \\{t \\in E \\mid \forall x \\in X, \\langle t, x \rangle = 0\\}$.\\par\\par (i) $X^\\perp$ est un sous-espace vectoriel de $E$ orthogonal à $X$.\\par\\par (ii) Si $X$ est un sous-espace vectoriel de $E$, $X$ et $X^\\perp$ sont en somme directe.\\par\\par (iii) $X^\\perp = \text{Vect}(X)^\\perp$ et $X \\subset X^{\\perp\\perp}$.",
+      "proof_latex": "(i) D'abord, $0_E \\in X^\\perp$ car $\\langle 0_E, x \rangle = 0$ pour tout $x \\in X$. Ensuite, pour la stabilité par combinaison linéaire, $X^\\perp$ pour tous $t, t' \\in X^\\perp$ et $\\lambda \\in \\mathbb{R}$ car pour tout $x \\in X$ : $\\langle \\lambda t + t', x \rangle = \\lambda \\langle t, x \rangle + \\langle t', x \rangle = \\lambda \\cdot 0 + 0 = 0$.\\par\\par On peut aussi observer que $X^\\perp$ est l'intersection des noyaux des formes linéaires $t \\longmapsto \\langle t, x \rangle$, $x$ décrivant $X$.\\par\\par (ii) Si $X$ est un sous-espace vectoriel de $E$, $X \\cap X^\\perp$ contient $0_E$. Inversement, $x \\in X \\cap X^\\perp$, donc $\\langle x, x \rangle = 0$, donc $x = 0_E$ par séparation.\\par\\par (iii) Par linéarité à droite du produit scalaire, il est équivalent pour un vecteur d'être orthogonal à $X$ ou à ses combinaisons linéaires, autrement à $\text{Vect}(X)$, donc $X^\\perp = \text{Vect}(X)^\\perp$. Enfin, l'inclusion $X \\subset X^{\\perp\\perp}$ signifie juste que tout vecteur de $X$ est orthogonal à tout vecteur de $X^\\perp$ — ce qui est évident par définition de $X^\\perp$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_orthogonal_partie_generatrice",
+      "type": "remark",
+      "title": "Remarque : Orthogonalité à une partie génératrice",
+      "content_latex": "L'égalité $X^\\perp = \text{Vect}(X)^\\perp$ signifie que pour déterminer l'orthogonal d'un sous-espace vectoriel $F$, il n'est pas nécessaire d'exiger l'orthogonalité à tous les vecteurs de $F$, l'orthogonalité à tout vecteur d'une partie génératrice suffit.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__warning_supplementaire_orthogonal",
+      "type": "warning",
+      "title": "Attention : $F$ et $F^\\perp$ ne sont pas toujours supplémentaires",
+      "content_latex": "Pour un sous-espace vectoriel $F$ de $E$, $F$ et $F^\\perp$ sont toujours en somme directe. En revanche, il n'est pas vrai en général que $F$ et $F^\\perp$ sont supplémentaires dans $E$, ils sont seulement en somme directe. En dépit des apparences, il n'est pas non plus vrai en général que $F^{\\perp\\perp} = F$. Nous y reviendrons.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_orthogonal_E",
+      "type": "example",
+      "title": "Exemple : Orthogonaux de $\\{0_E\\}$ et $E$",
+      "content_latex": "Pour tout espace préhilbertien réel $E$ : $\\{0_E\\}^\\perp = E$ et $E^\\perp = \\{0_E\\}$.\\par\\par Pour la seconde égalité, rappelons que $0_E$ est le seul vecteur de $E$ orthogonal à tout vecteur de $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_orthogonal_plan_R3",
+      "type": "example",
+      "title": "Exemple : Orthogonal d'un plan dans $\\mathbb{R}^3$",
+      "content_latex": "Dans l'espace euclidien canonique $\\mathbb{R}^3$, le plan vectoriel d'équation $3x - y + 2z = 0$ n'est jamais que l'orthogonal $\text{Vect}((3, -1, 2))^\\perp$ car pour tout $(x, y, z) \\in \\mathbb{R}^3$ : $\\langle (3, -1, 2), (x, y, z) \rangle = 3x - y + 2z$.\\par\\par En termes géométriques, le vecteur $(3, -1, 2)$ est normal au plan d'équation $3x - y + 2z = 0$. Remarque essentielle, nous y reviendrons.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_orthogonal_R2X",
+      "type": "example",
+      "title": "Exemple : Orthogonal dans $\\mathbb{R}_2[X]$",
+      "content_latex": "Pour le produit scalaire $(P, Q) \\longmapsto P(-1)Q(-1) + P(0)Q(0) + P(1)Q(1)$ sur $\\mathbb{R}_2[X]$ : $\\mathbb{R}_1[X]^\\perp = \text{Vect}(3X^2 - 2)$.",
+      "proof_latex": "Pour tout $P = aX^2 + bX + c \\in \\mathbb{R}_2[X]$ : $P \\in \\mathbb{R}_1[X]^\\perp \\Leftrightarrow \\langle P, 1 \rangle = 0$ et $\\langle P, X \rangle = 0 \\Leftrightarrow (a - b + c) \\cdot 1 + c \\cdot 0 + (a + b + c) \\cdot 1 = 0$ et $(a - b + c) \\cdot (-1) + c \\cdot 0 + (a + b + c) \\cdot 1 = 0 \\Leftrightarrow 2a + 3c = 0$ et $2b = 0$.\\par\\par Le point important de cet exemple, c'est que l'orthogonalité à $1$ et $X$ a suffi car $\\mathbb{R}_1[X] = \text{Vect}(1, X)$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_theoreme_supplementaire_orthogonal",
+      "type": "theorem",
+      "title": "Définition-théorème : Supplémentaire orthogonal d'un sous-espace vectoriel de dimension finie",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $F$ un sous-espace vectoriel DE DIMENSION FINIE de $E$.\\par\\par (i) Supplémentaire orthogonal : $F^\\perp$ est un supplémentaire de $F$ dans $E$ orthogonal à $F$ et c'est même le seul. On l'appelle par conséquent LE supplémentaire orthogonal de $F$ dans $E$. Pour résumer, on écrit souvent les choses ainsi : $E = F \\overset{\\perp}{\\oplus} F^\\perp$.\\par\\par En particulier, si $E$ lui-même est de dimension finie : $\\dim F^\\perp = \\dim E - \\dim F$.\\par\\par (ii) Bi-orthogonal : $F^{\\perp\\perp} = F$.",
+      "proof_latex": "(i) Nous savons déjà que $F \\cap F^\\perp = \\{0_E\\}$, il reste donc à montrer que $E \\subset F + F^\\perp$. Comme $F$ est de dimension finie, nous pouvons nous en donner une base orthonormale $(f_1, \\ldots, f_n)$ — éventuellement vide. Pour tout $x \\in E$, le vecteur $x - \\sum_{i=1}^{n} \\langle x, f_i \rangle f_i$ est orthogonal à $f_1, \\ldots, f_n$, donc appartient à $\text{Vect}(f_1, \\ldots, f_n)^\\perp = F^\\perp$, donc $x \\in F + F^\\perp$.\\par\\par Montrons que $F^\\perp$ est le seul supplémentaire de $F$ dans $E$ orthogonal à $F$. Soit $F'$ un tel supplémentaire. Aussitôt, $F' \\subset F^\\perp$. Inversement, soit $x \\in F^\\perp$. Comme $E = F \\oplus F'$, $x = f + f'$ pour certains $f \\in F$ et $f' \\in F'$, donc $\\langle x, f \rangle = \\langle f + f', f \rangle = \\langle f, f \rangle + \\langle f', f \rangle = \\langle f, f \rangle = 0$, donc $f = 0_E$ par séparation, et enfin $x = f' \\in F'$.\\par\\par (ii) Nous savons déjà que $F \\subset F^{\\perp\\perp}$. Inversement, pour tout $x \\in F^{\\perp\\perp}$, disons $x = f + f'$ avec $f \\in F$ et $f' \\in F^\\perp$ : $0 = \\langle x, f' \rangle = \\langle f + f', f' \rangle = \\langle f, f' \rangle + \\langle f', f' \rangle = \\langle f', f' \rangle$, donc $f' = 0_E$ par séparation, i.e. $x = f \\in F$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__warning_dimension_finie_essentielle",
+      "type": "warning",
+      "title": "Attention : La dimension finie est essentielle",
+      "content_latex": "Il est ici essentiel que $F$ soit DE DIMENSION FINIE. Par ailleurs, il existe UN SEUL supplémentaire ORTHOGONAL mais tout plein de supplémentaires en toute généralité.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_supplementaire_R4",
+      "type": "example",
+      "title": "Exemple : Supplémentaire orthogonal dans $\\mathbb{R}^4$",
+      "content_latex": "Dans l'espace euclidien canonique $\\mathbb{R}^4$, le plan vectoriel $P$ d'équations $x - y - z - t = 0$ et $2x + y + z - t = 0$ admet $\text{Vect}((1, -1, -1, -1), (2, 1, 1, -1))$ pour orthogonal.",
+      "proof_latex": "La première égalité qui suit mérite d'être parfaitement comprise.\\par\\par $P = \\{(x, y, z, t) \\in \\mathbb{R}^4 \\mid \\langle (1, -1, -1, -1), (x, y, z, t) \rangle = 0 \text{ et } \\langle (2, 1, 1, -1), (x, y, z, t) \rangle = 0\\} = \text{Vect}((1, -1, -1, -1), (2, 1, 1, -1))^\\perp$, donc $P^\\perp = \text{Vect}((1, -1, -1, -1), (2, 1, 1, -1))^{\\perp\\perp} = \text{Vect}((1, -1, -1, -1), (2, 1, 1, -1))$ car $\\mathbb{R}^4$ est euclidien."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_supplementaire_MnR",
+      "type": "example",
+      "title": "Exemple : Supplémentaire orthogonal dans $\\mathcal{M}_n(\\mathbb{R})$",
+      "content_latex": "On munit $\\mathcal{M}_n(\\mathbb{R})$ de sa structure euclidienne canonique — en d'autres termes, on travaille avec le produit scalaire canonique de $\\mathcal{M}_n(\\mathbb{R})$. Dans ce contexte : $\\mathcal{S}_n(\\mathbb{R})^\\perp = \\mathcal{A}_n(\\mathbb{R})$.",
+      "proof_latex": "Pour tous $S \\in \\mathcal{S}_n(\\mathbb{R})$ et $A \\in \\mathcal{A}_n(\\mathbb{R})$ : $\\langle A, S \rangle = \text{tr}(A^\top S) = \text{tr}(-AS) = -\text{tr}(AS) = -\text{tr}(SA) = -\text{tr}(S^\top A) = -\\langle S, A \rangle = -\\langle A, S \rangle$, donc $\\langle A, S \rangle = 0$.\\par\\par Ainsi, $\\mathcal{S}_n(\\mathbb{R})$ et $\\mathcal{A}_n(\\mathbb{R})$ sont orthogonaux — donc en somme directe. Bref : $\\mathcal{A}_n(\\mathbb{R}) \\subset \\mathcal{S}_n(\\mathbb{R})^\\perp$ et notez bien que ce n'est qu'une inclusion à ce stade. Cela dit, pour tout $M \\in \\mathcal{M}_n(\\mathbb{R})$ : $M = \frac{M + M^\top}{2} + \frac{M - M^\top}{2}$ avec $\frac{M + M^\top}{2} \\in \\mathcal{S}_n(\\mathbb{R})$ et $\frac{M - M^\top}{2} \\in \\mathcal{A}_n(\\mathbb{R})$, donc $\\mathcal{M}_n(\\mathbb{R}) = \\mathcal{S}_n(\\mathbb{R}) + \\mathcal{A}_n(\\mathbb{R})$. Finalement, $\\mathcal{M}_n(\\mathbb{R}) = \\mathcal{S}_n(\\mathbb{R}) \\overset{\\perp}{\\oplus} \\mathcal{A}_n(\\mathbb{R})$ donc $\\mathcal{A}_n(\\mathbb{R}) = \\mathcal{S}_n(\\mathbb{R})^\\perp$ par unicité du supplémentaire orthogonal."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_projection_orthogonale",
+      "type": "definition",
+      "title": "Définition : Projection/symétrie orthogonale",
+      "content_latex": "Soient $E$ un espace préhilbertien réel et $F$ un sous-espace vectoriel DE DIMENSION FINIE de $E$. La projection sur $F$ de direction $F^\\perp$ est appelée la projection orthogonale sur $F$ (tout court). De même, la symétrie par rapport à $F$ parallèlement à $F^\\perp$ est appelée la symétrie orthogonale par rapport à $F$.\\par\\par Comme $F$ est de dimension finie : $E = F \\overset{\\perp}{\\oplus} F^\\perp$.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_expression_projete",
+      "type": "theorem",
+      "title": "Théorème : Expression d'un projeté orthogonal dans une base orthonormale",
+      "content_latex": "Soient $E$ un espace préhilbertien réel, $F$ un sous-espace vectoriel DE DIMENSION FINIE de $E$ et $(f_1, \\ldots, f_n)$ une base orthonormale de $F$.\\par\\par Pour tout $x \\in E$, le projeté orthogonal de $x$ sur $F$ vaut $\\sum_{i=1}^{n} \\langle x, f_i \rangle f_i$.",
+      "proof_latex": "D'après nos résultats précédents : $x = \\sum_{i=1}^{n} \\langle x, f_i \rangle f_i + \\left(x - \\sum_{i=1}^{n} \\langle x, f_i \rangle f_i\right)$ avec $\\sum_{i=1}^{n} \\langle x, f_i \rangle f_i \\in F$ et $x - \\sum_{i=1}^{n} \\langle x, f_i \rangle f_i \\in F^\\perp$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__remark_calcul_projete",
+      "type": "remark",
+      "title": "Remarque : Comment calculer un projeté orthogonal",
+      "content_latex": "On peut calculer essentiellement de deux manières un projeté orthogonal. Donnons-nous $E$ un espace préhilbertien réel, $F$ un sous-espace vectoriel de dimension finie de $E$, $(f_1, \\ldots, f_n)$ une base PAS FORCÉMENT ORTHONORMALE de $F$ et $x \\in E$.\\par\\par Comment calculer le projeté orthogonal $p(x)$ de $x$ sur $F$ ? Si la base $(f_1, \\ldots, f_n)$ est orthonormale, on peut bien sûr utiliser le théorème précédent, mais sinon ?\\par\\par Première stratégie : On s'y ramène de force en orthonormalisant $(f_1, \\ldots, f_n)$ grâce à l'algorithme de Gram-Schmidt.\\par\\par Deuxième stratégie : Le projeté $p(x)$ est caractérisé par deux assertions : $p(x) \\in F$ et $x - p(x) \\in F^\\perp$. Concrètement, on introduit les coordonnées $(\\lambda_1, \\ldots, \\lambda_n)$ de $p(x)$ dans $(f_1, \\ldots, f_n)$ : $p(x) = \\lambda_1 f_1 + \\ldots + \\lambda_n f_n$, puis on les calcule grâce aux relations $\\langle x - p(x), f_j \rangle = 0$, $j$ décrivant $\\{1, n\\}$. Ces relations expriment l'appartenance de $x - p(x)$ à $F^\\perp$ et fournissent un système de $n$ équations à $n$ inconnues qu'on n'a plus qu'à résoudre.\\par\\par Finalement, quelle stratégie vaut-il mieux privilégier ? La deuxième est généralement plus agréable à pratiquer et moins source d'erreurs de calcul.",
+      "proof_latex": null
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_projete_Id",
+      "type": "example",
+      "title": "Exemple : Projeté orthogonal de l'identité",
+      "content_latex": "On note $F$ le sous-espace vectoriel $\text{Vect}(\\cos, \\sin)$ de $\\mathcal{C}([0, 2\\pi], \\mathbb{R})$. Le projeté orthogonal de l'identité $\text{Id}$ sur $F$ pour le produit scalaire $(f, g) \\longmapsto \frac{1}{\\pi}\\int_0^{2\\pi} f(t)g(t) \\, dt$ est la fonction $t \\longmapsto -2\\sin t$.",
+      "proof_latex": "Nous aurons besoin d'un certain nombre de produits scalaires, calculons-les de prime abord pour que l'essentiel des stratégies adoptées soit bien lisible ensuite.\\par\\par $\\|\\cos\\|^2 = \frac{1}{\\pi}\\int_0^{2\\pi} \\cos^2 t \\, dt = \frac{1}{\\pi}\\int_0^{2\\pi} \frac{1 + \\cos(2t)}{2} \\, dt = \frac{1}{\\pi}\\left[\frac{t}{2} + \frac{\\sin(2t)}{4}\right]_0^{2\\pi} = 1$, et de même $\\|\\sin\\|^2 = 1$.\\par\\par Ensuite : $\\langle \\cos, \\sin \rangle = \frac{1}{\\pi}\\int_0^{2\\pi} \\cos t \\sin t \\, dt = \frac{1}{\\pi}\\left[\frac{\\sin^2 t}{2}\right]_0^{2\\pi} = 0$, donc la famille $(\\cos, \\sin)$ est orthogonale.\\par\\par Enfin : $\\langle \text{Id}, \\sin \rangle = \frac{1}{\\pi}\\int_0^{2\\pi} t \\sin t \\, dt = \frac{1}{\\pi}\text{Im}\\left(\\int_0^{2\\pi} te^{it} \\, dt\right) = \frac{1}{\\pi}\text{Im}(-2i\\pi) = -2$ et de même $\\langle \text{Id}, \\cos \rangle = 0$.\\par\\par Première stratégie : On orthonormalise la base $(\\cos, \\sin)$ de $F$ grâce à l'algorithme de Gram-Schmidt. Ici, la famille est déjà orthogonale, donc $\\left(\frac{\\cos}{\\|\\cos\\|}, \frac{\\sin}{\\|\\sin\\|}\right) = \\left(\frac{\\cos}{\\sqrt{\\pi}}, \frac{\\sin}{\\sqrt{\\pi}}\right)$ est une base orthonormale de $F$. Le projeté orthogonal de $\text{Id}$ sur $F$ est finalement la fonction : $\\left\\langle \text{Id}, \frac{\\cos}{\\sqrt{\\pi}} \right\rangle \frac{\\cos}{\\sqrt{\\pi}} + \\left\\langle \text{Id}, \frac{\\sin}{\\sqrt{\\pi}} \right\rangle \frac{\\sin}{\\sqrt{\\pi}} = \frac{\\langle \text{Id}, \\cos \rangle}{\\pi}\\cos + \frac{\\langle \text{Id}, \\sin \rangle}{\\pi}\\sin = -2\\sin$.\\par\\par Deuxième stratégie : Notons $p(\text{Id})$ le projeté orthogonal de $\text{Id}$ sur $F$ et $(\\lambda, \\mu)$ ses coordonnées dans la base $(\\cos, \\sin)$ de $F$ : $p(\text{Id}) = \\lambda \\cos + \\mu \\sin$. Appuyons-nous sur le fait que $\text{Id} - p(\text{Id}) \\in F^\\perp$.\\par\\par $0 = \\langle \text{Id} - p(\text{Id}), \\cos \rangle = \\langle \text{Id} - \\lambda \\cos - \\mu \\sin, \\cos \rangle = \\langle \text{Id}, \\cos \rangle - \\lambda\\|\\cos\\|^2 - \\mu\\langle \\sin, \\cos \rangle = -\\lambda\\pi$, donc $\\lambda = 0$.\\par\\par $0 = \\langle \text{Id} - p(\text{Id}), \\sin \rangle = \\langle \text{Id} - \\lambda \\cos - \\mu \\sin, \\sin \rangle = \\langle \text{Id}, \\sin \rangle - \\lambda\\langle \\cos, \\sin \rangle - \\mu\\|\\sin\\|^2 = -2\\pi - \\mu\\pi$, donc $\\mu = -2$.\\par\\par Conclusion : $p(\text{Id}) = -2\\sin$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_theoreme_vecteur_normal",
+      "type": "theorem",
+      "title": "Définition-théorème : Vecteurs normaux à un hyperplan, projection orthogonale et réflexion",
+      "content_latex": "Soient $E$ un espace euclidien de dimension non nulle et $H$ un hyperplan de $E$.\\par\\par (i) Vecteurs normaux à un hyperplan : Le sous-espace $H^\\perp$ est une droite dont tout vecteur non nul est appelé un vecteur normal à $H$. Soit $a$ un vecteur normal à $H$ fixé.\\par\\par (ii) Projection orthogonale : Pour tout $x \\in E$, le projeté orthogonal de $x$ sur $H$ vaut $x - \frac{\\langle x, a \rangle}{\\|a\\|^2}a$, ou encore $x - \\langle x, a \rangle a$ si $a$ est unitaire.\\par\\par (iii) Réflexion : On appelle réflexion de $E$ toute symétrie orthogonale par rapport à un hyperplan de $E$. La réflexion de $E$ par rapport à $H$ a pour expression $x \\longmapsto x - 2\frac{\\langle x, a \rangle}{\\|a\\|^2}a$, ou encore $x \\longmapsto x - 2\\langle x, a \rangle a$ si $a$ est unitaire.",
+      "proof_latex": "(i) $H$ est de dimension finie, donc $E = H \\overset{\\perp}{\\oplus} H^\\perp$, mais par ailleurs $E$ est de dimension finie et $H$ en est un hyperplan, donc $\\dim H^\\perp = \\dim E - \\dim H = 1$.\\par\\par (ii) La famille $\frac{a}{\\|a\\|}$ est une base orthonormale de $\text{Vect}(a)$, donc le projeté orthogonal de $x$ sur $\text{Vect}(a)$ vaut $\\left\\langle x, \frac{a}{\\|a\\|} \right\rangle \frac{a}{\\|a\\|} = \frac{\\langle x, a \rangle}{\\|a\\|^2}a$. A fortiori, son projeté orthogonal sur $H = \text{Vect}(a)^\\perp$ vaut $x - \frac{\\langle x, a \rangle}{\\|a\\|^2}a$.\\par\\par Pour finir, n'oublions pas que par définition des hyperplans, $H$ est le noyau d'une forme linéaire non nulle, i.e. peut être décrit par une unique équation linéaire scalaire non nulle. Quel lien avec la notion de vecteur normal ? Tout simplement, pour tout vecteur normal $a$ à $H$ : $H = \\{x \\in E \\mid \\langle x, a \rangle = 0\\} = \text{Ker}(x \\longmapsto \\langle x, a \rangle)$, donc $H$ est le noyau de la forme linéaire non nulle $x \\longmapsto \\langle x, a \rangle$. Donnons-nous maintenant une base orthonormale $(e_1, \\ldots, e_n)$ de $E$ et notons $(a_1, \\ldots, a_n)$ les coordonnées de $a$ dans cette base. L'équation $\\langle x, a \rangle = 0$ s'écrit aussi $a_1x_1 + \\ldots + a_nx_n = 0$ sous forme analytique. Nous retrouvons là l'équation typique d'un hyperplan et le fait bien connu que les coefficients $a_1, \\ldots, a_n$ y décrivent un vecteur normal."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__definition_distance_partie",
+      "type": "definition",
+      "title": "Définition-théorème : Distance à une partie",
+      "content_latex": "Soient $E$ un espace préhilbertien réel, $A$ une partie non vide de $E$ et $x \\in E$. On appelle distance de $x$ à $A$, notée $d(x, A)$, le réel $d(x, A) = \\inf_{a \\in A} \\|x - a\\|$.\\par\\par Intuitivement, la distance d'un vecteur $x$ à une partie $A$ est la plus petite distance séparant $x$ d'un élément de $A$, mais qui nous dit qu'une telle plus petite distance existe ? Elle n'existe justement pas forcément et c'est pour cela que la définition introduit une borne inférieure.",
+      "proof_latex": "L'ensemble $\\{\\|x - a\\| \\mid a \\in A\\}$ est une partie de $\\mathbb{R}$ non vide car $A \neq \\emptyset$ et minorée par 0, donc possède une borne inférieure d'après la propriété de la borne inférieure."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__theorem_distance_ssev",
+      "type": "theorem",
+      "title": "Théorème : Distance à un sous-espace vectoriel de dimension finie",
+      "content_latex": "Soient $E$ un espace préhilbertien réel, $F$ un sous-espace vectoriel DE DIMENSION FINIE de $E$ et $x \\in E$. On note $p$ la projection orthogonale sur $F$.\\par\\par La distance de $x$ à $F$ est mieux qu'une borne inférieure, c'est un minimum : $d(x, F) = \\|x - p(x)\\|$, et ce minimum n'est atteint qu'en $p(x)$.\\par\\par Par ailleurs : $d(x, F)^2 = \\|x\\|^2 - \\|p(x)\\|^2$.",
+      "proof_latex": "Pour tout $f \\in F$ : $x - f = (x - p(x)) + (p(x) - f)$ avec $x - p(x) \\in \text{Ker } p = F^\\perp$ et $p(x) - f \\in \text{Im } p = F$, donc $\\|x - f\\|^2 = \\|x - p(x)\\|^2 + \\|p(x) - f\\|^2$ d'après le théorème de Pythagore.\\par\\par Notons à présent $\\mathcal{D} = \\{\\|x - f\\| \\mid f \\in F\\}$ et montrons que $\\|x - p(x)\\| = \\min \\mathcal{D} = d(x, F)$. Or d'une part, $\\|x - p(x)\\| \\in \\mathcal{D}$ car $p(x) \\in F$, mais d'autre part, pour tout $f \\in \\mathcal{D}$ : $\\|x - f\\|^2 = \\|x - p(x)\\|^2 + \\|p(x) - f\\|^2 \\geq \\|x - p(x)\\|^2$ car $\\|p(x) - f\\|^2 \\geq 0$, donc $\\|x - f\\| \\geq \\|x - p(x)\\|$. Comme voulu, $\\|x - p(x)\\| = \\min \\mathcal{D} = d(x, F)$.\\par\\par D'autre part, pour tout $f \\in \\mathcal{D}$ : $\\|x - f\\| = \\|x - p(x)\\|$ si et seulement si $\\|p(x) - f\\| = 0$, i.e. $f = p(x)$. Comme voulu, la distance $d(x, F)$ n'est atteinte qu'en $p(x)$."
+    },
+    {
+      "id": "espaces_prehilbertiens_reels__example_infimum_distance",
+      "type": "example",
+      "title": "Exemple : Calcul d'un infimum comme distance",
+      "content_latex": "On souhaite calculer $I = \\inf_{a,b \\in \\mathbb{R}} \\int_0^{2\\pi} (t - a\\cos t - b\\sin t)^2 \\, dt$.\\par\\par À ce stade du chapitre, une telle borne inférieure évoque une distance au carrée, mais ce point de vue mérite des précisions. Intéressons-nous au produit scalaire $(f, g) \\longmapsto \frac{1}{\\pi}\\int_0^{2\\pi} f(t)g(t) \\, dt$ sur $\\mathcal{C}([0, 2\\pi], \\mathbb{R})$.\\par\\par Première reformulation du problème : $I = \\inf_{a,b \\in \\mathbb{R}} \\pi\\|\text{Id} - (a\\cos + b\\sin)\\|^2$, mais nous pouvons aller plus loin en notant $F$ le sous-espace vectoriel $\text{Vect}(\\cos, \\sin)$ de $\\mathcal{C}([0, 2\\pi], \\mathbb{R})$ : $I = \\inf_{f \\in F} \\pi\\|\text{Id} - f\\|^2 = \\pi \\cdot d(\text{Id}, F)^2$.\\par\\par Comme $F$ est de dimension finie, il nous suffit ainsi de calculer le projeté orthogonal de $\text{Id}$ sur $F$, et il se trouve que nous l'avons calculé dans un exemple précédent : $p(\text{Id}) = -2\\sin$.\\par\\par Par conséquent : $I = \\pi\\|\text{Id} - p(\text{Id})\\|^2 = \\pi(\\|\text{Id}\\|^2 - \\|p(\text{Id})\\|^2) = \\pi\\left(\frac{1}{\\pi}\\int_0^{2\\pi} t^2 \\, dt - \frac{4}{\\pi}\\int_0^{2\\pi} \\sin^2 t \\, dt\right) = \frac{8\\pi^3}{3} - 4\\pi$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,421 @@
+{
+  "chapter_official_id": "arithmetique_des_polynomes_et_fractions_rationnelles",
+  "chapter_name": "Arithmétique des polynômes et fractions rationnelles",
+  "source_document": "Cours - Arithmetique des polynomes et fractions rationnelles.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__intro_corps_K",
+      "type": "remark",
+      "title": "Introduction : Corps de base",
+      "content_latex": "Dans ce chapitre, $\\mathbb{K}$ sera souvent l'un des corps $\\mathbb{R}$ ou $\\mathbb{C}$, mais ce sera aussi souvent un corps quelconque, typiquement $\\mathbb{Q}$ ou $\\mathbb{F}_p$. De nombreuses preuves qui ressemblent très fort à celles du chapitre « Arithmétique des entiers » seront omises. On rappelle que deux polynômes $P, Q \\in \\mathbb{K}[X]$ sont associés (sur $\\mathbb{K}$) s'ils se divisent mutuellement, i.e. si $P = \\lambda Q$ pour un certain $\\lambda \\in \\mathbb{K}^*$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_polynome_irreductible",
+      "type": "definition",
+      "title": "Définition : Polynôme irréductible",
+      "content_latex": "Soit $P \\in \\mathbb{K}[X]$. On dit que $P$ est irréductible (sur $\\mathbb{K}$) si $P$ n'est PAS CONSTANT et si ses seuls diviseurs sont $1$, $P$ et leurs associés.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__warning_irreductibilite_depend_K",
+      "type": "warning",
+      "title": "Attention : L'irréductibilité dépend de $\\mathbb{K}$",
+      "content_latex": "— L'irréductibilité dépend de $\\mathbb{K}$. Le polynôme $X^2 + 1$ n'est pas irréductible sur $\\mathbb{C}$ car $X^2 + 1 = (X + i)(X - i)$, mais nous allons voir qu'il l'est sur $\\mathbb{R}$.\\par — Les polynômes irréductibles de degré au moins 2 n'ont pas de racine dans $\\mathbb{K}$ car ils ne sont divisibles par aucun polynôme $X - \\lambda$, mais la réciproque est fausse ! Le polynôme $(X^2 + 1)^2$ n'est pas irréductible sur $\\mathbb{R}$ et ça ne l'empêche pas de n'avoir aucune racine réelle.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_deg_2_3",
+      "type": "theorem",
+      "title": "Théorème : Polynômes irréductibles de degré au plus 3",
+      "content_latex": "(i) Tout polynôme de degré 1 de $\\mathbb{K}[X]$ est irréductible.\\par (ii) Tout polynôme de degré 2 ou 3 de $\\mathbb{K}[X]$ sans racine dans $\\mathbb{K}$ est irréductible.",
+      "proof_latex": "(i) Soit $P \\in \\mathbb{K}[X]$ de degré 1. Soient $D$ un diviseur de $P$, de sorte que $P = AD$ pour un certain $A \\in \\mathbb{K}[X]$. Par non-nullité de $A$, $\\deg(A) \\geq 0$ donc $\\deg(D) \\leq \\deg(P) = 1$, donc $\\deg(D) \\in \\{0, 1\\}$.\\par — Si $\\deg(D) = 0$, alors $D$ est constant non nul.\\par — Si $\\deg(D) = 1$, alors $\\deg(A) = 0$, donc $A$ est constant non nul, disons de valeur $a$, et ainsi $D = \\frac{1}{a}P$.\\par Comme voulu, $P$ est irréductible sur $\\mathbb{K}$.\\par\\par (ii) Soit $P \\in \\mathbb{K}[X]$ de degré 2 (resp. 3) sans racine dans $\\mathbb{K}$. Reprenons les grandes lignes de la preuve précédente. La différence principale, c'est qu'ici $\\deg(D) \\in \\{0, 2\\}$ (resp. $\\{0, 1, 2, 3\\}$), mais si $\\deg(D)$ vaut 0 ou 2 (resp. 3), on conclut de la même façon.\\par — Si $\\deg(D) = 1$, alors $D$ possède une racine dans $\\mathbb{K}$, donc $P$ aussi — contradiction.\\par — Enfin, dans le cas où $P$ est de degré 3, si $\\deg(D) = 2$, alors $\\deg(A) = 1$, donc $A$ possède une racine dans $\\mathbb{K}$, donc $P$ aussi — contradiction.\\par Comme voulu, $P$ est irréductible sur $\\mathbb{K}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_irreductibles_analogue_premiers",
+      "type": "remark",
+      "title": "Remarque : Analogie avec les nombres premiers",
+      "content_latex": "Le résultat suivant est un théorème d'EXISTENCE facile à démontrer. Il montre que les polynômes irréductibles sont l'analogue polynomial des nombres premiers dans $\\mathbb{Z}$. Nous aurons plus tard un théorème d'unicité.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_factorisation_irreductible",
+      "type": "theorem",
+      "title": "Théorème : Existence de la factorisation irréductible",
+      "content_latex": "Tout polynôme non nul de $\\mathbb{K}[X]$ est le produit d'un élément de $\\mathbb{K}^*$ et d'un ensemble fini — éventuellement vide — de polynômes UNITAIRES irréductibles sur $\\mathbb{K}$. Une telle écriture est appelée une factorisation irréductible de $P$ sur $\\mathbb{K}$.",
+      "proof_latex": "Par récurrence forte sur le degré.\\par — Initialisation : Les polynômes constants non nuls sont le produit d'eux-mêmes avec... rien.\\par — Hérédité : Soit $n \\in \\mathbb{N}^*$. Faisons l'hypothèse que tout polynôme non nul de $\\mathbb{K}[X]$ de degré strictement inférieur à $n$ est le produit d'un élément de $\\mathbb{K}^*$ et d'un ensemble fini de polynômes irréductibles unitaires sur $\\mathbb{K}$. Soit $P \\in \\mathbb{K}[X]$ non nul de degré $n$. Deux cas possibles — soit $P$ est irréductible, soit il ne l'est pas. Si $P$ est irréductible, on obtient la décomposition voulue en factorisant simplement par le coefficient dominant.\\par Dans le cas contraire $P = AB$ pour certains $A, B \\in \\mathbb{K}[X]$ non nuls de degrés strictement inférieurs à $n$. Or par hypothèse de récurrence, $A$ et $B$ sont chacun le produit d'un élément de $\\mathbb{K}^*$ et d'un ensemble fini de polynômes irréductibles unitaires, donc $P$ aussi par produit."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_C",
+      "type": "theorem",
+      "title": "Théorème : Polynômes irréductibles de $\\mathbb{C}[X]$ et unicité de la factorisation irréductible sur $\\mathbb{C}$",
+      "content_latex": "(i) Les irréductibles de $\\mathbb{C}[X]$ sont exactement ses polynômes de degré 1.\\par (ii) La factorisation irréductible d'un polynôme non nul de $\\mathbb{C}[X]$ coïncide avec sa forme scindée. En particulier, elle est unique.\\par\\par L'assertion (i) est équivalente au théorème de d'Alembert-Gauss.",
+      "proof_latex": "Pour l'assertion (i), nous savons déjà que les polynômes de degré 1 sont irréductibles. Réciproquement, soit $P \\in \\mathbb{C}[X]$ irréductible. Non constant, $P$ possède une racine $\\lambda \\in \\mathbb{C}$ d'après le théorème de d'Alembert-Gauss. Ainsi, $X - \\lambda$ divise $P$, donc $P$ et $X - \\lambda$ sont associés par irréductibilité de $P$, donc $P$ est de degré 1."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_irreductibles_R",
+      "type": "theorem",
+      "title": "Théorème : Polynômes irréductibles de $\\mathbb{R}[X]$ et unicité de la factorisation irréductible sur $\\mathbb{R}$",
+      "content_latex": "(i) Les irréductibles de $\\mathbb{R}[X]$ sont exactement ses polynômes de degré 1 et ses polynômes de degré 2 sans racine réelle (i.e. à discriminant strictement négatif).\\par (ii) La factorisation irréductible d'un polynôme non nul de $\\mathbb{R}[X]$ est unique. Elle est précisément de la forme :\\par $P = A \\prod_{i=1}^r (X - \\lambda_i)^{m_i} \\prod_{j=1}^s (X^2 + b_j X + c_j)^{n_j}$\\par avec : — $A$ pour coefficient dominant,\\par — $\\lambda_1, \\ldots, \\lambda_r$ pour racines réelles distinctes de multiplicités respectives $m_1, \\ldots, m_r$,\\par — des polynômes $X^2 + b_j X + c_j$ distincts et irréductibles sur $\\mathbb{R}$ pour tout $j \\in \\{1, \\ldots, s\\}$, et $n_j \\in \\mathbb{N}^*$.",
+      "proof_latex": "(i) Nous savons déjà que les polynômes de degré 1 et les polynômes de degré 2 sans racine réelle sont irréductibles sur $\\mathbb{R}$. Réciproquement, soit $P \\in \\mathbb{R}[X]$ irréductible. Non constant, $P$ possède une racine COMPLEXE $\\lambda \\in \\mathbb{C}$ d'après le théorème de d'Alembert-Gauss, et $P$ étant à coefficients réels, $\\overline{\\lambda}$ aussi est racine de $P$.\\par — Si $\\lambda$ est réel, $X - \\lambda$ divise $P$ dans $\\mathbb{R}[X]$, or $P$ est irréductible sur $\\mathbb{R}$, donc $P$ et $X - \\lambda$ sont associés et $P$ est de degré 1.\\par — Si $\\lambda$ n'est pas réel, alors $\\overline{\\lambda} \\neq \\lambda$, donc $P = (X - \\lambda)(X - \\overline{\\lambda})Q$ pour un certain $Q \\in \\mathbb{C}[X]$. Or après développement, $P = (X^2 - 2\\text{Re}(\\lambda)X + |\\lambda|^2)Q$ et $X^2 - 2\\text{Re}(\\lambda)X + |\\lambda|^2$ est à coefficients réels, donc $Q$ aussi par unicité de la division euclidienne dans $\\mathbb{C}[X]$. De là, $P$ étant irréductible sur $\\mathbb{R}$, $P$ et $X^2 - 2\\text{Re}(\\lambda)X + |\\lambda|^2$ sont associés, donc $P$ est de degré 2, sans racine réelle.\\par\\par (ii) Soit $P \\in \\mathbb{R}[X]$ non nul. Nous savons que $P$ est scindé sur $\\mathbb{C}$, mais aussi, parce qu'il est à coefficients réels, que ses racines non réelles peuvent être regroupées par paires de conjuguées de mêmes multiplicités. Comme en (i), le regroupement de termes $X - \\lambda$ et $X - \\overline{\\lambda}$ donne un terme $X^2 - 2\\text{Re}(\\lambda)X + |\\lambda|^2$ irréductible.\\par Pour finir, cette factorisation irréductible sur $\\mathbb{R}$ est unique, car si elle ne l'était pas, $P$ aurait plusieurs formes scindées sur $\\mathbb{C}$ — ce que nous savons être faux."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_factorisation_R_depuis_C",
+      "type": "remark",
+      "title": "Remarque : Factorisation sur $\\mathbb{R}$ à partir de $\\mathbb{C}$",
+      "content_latex": "La factorisation irréductible sur $\\mathbb{R}$ se calcule à partir de la factorisation irréductible sur $\\mathbb{C}$ par regroupement des racines non réelles par paires de conjuguées.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_factorisation_X4_16",
+      "type": "example",
+      "title": "Exemple : Factorisation de $X^4 + 16$",
+      "content_latex": "La factorisation irréductible de $X^4 + 16$ sur $\\mathbb{C}$ s'écrit $X^4 + 16 = (X - 2e^{i\\pi/4})(X - 2e^{-i\\pi/4})(X - 2e^{3i\\pi/4})(X - 2e^{-3i\\pi/4})$.\\par Quant à sa factorisation irréductible sur $\\mathbb{R}$ : $X^4 + 16 = (X^2 - 2\\sqrt{2}X + 4)(X^2 + 2\\sqrt{2}X + 4)$.",
+      "proof_latex": "— Factorisation irréductible sur $\\mathbb{C}$ : Qui sont les racines complexes de $X^4 + 16$ ? Pour tout $r \\in \\mathbb{C}$ : $r^4 + 16 = 0 \\Leftrightarrow r^4 = -16 = 2^4 e^{i\\pi} \\Leftrightarrow \\exists k \\in \\{0, 1, 2, 3\\}, r = 2e^{i\\frac{\\pi + 2k\\pi}{4}}$. La factorisation irréductible de $X^4 + 16$ sur $\\mathbb{C}$ en découle — avec ici des racines simples.\\par — Factorisation irréductible sur $\\mathbb{R}$ : Il nous reste à regrouper les racines par paires de conjuguées.\\par $(X - 2e^{-i\\pi/4})(X - 2e^{i\\pi/4}) = X^2 - 2(e^{-i\\pi/4} + e^{i\\pi/4})X + 4 = X^2 - 4X\\cos(\\frac{\\pi}{4}) + 4 = X^2 - 2\\sqrt{2}X + 4$\\par et $(X - 2e^{-3i\\pi/4})(X - 2e^{3i\\pi/4}) = X^2 - 2(e^{-3i\\pi/4} + e^{3i\\pi/4})X + 4 = X^2 - 4X\\cos(\\frac{3\\pi}{4}) + 4 = X^2 + 2\\sqrt{2}X + 4$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_pgcd_ppcm",
+      "type": "definition",
+      "title": "Définition-théorème : PGCD, PPCM, unicité",
+      "content_latex": "Soient $A_1, \\ldots, A_r \\in \\mathbb{K}[X]$.\\par\\par PGCD : On appelle plus grand commun diviseur (ou PGCD) de $A_1, \\ldots, A_r$ tout polynôme unitaire ou nul $D$ pour lequel $\\text{div}(A_1) \\cap \\ldots \\cap \\text{div}(A_r) = \\text{div}(D)$. S'il existe, un tel polynôme $D$ est unique et noté $A_1 \\wedge \\ldots \\wedge A_r$.\\par\\par PPCM : On appelle plus petit commun multiple (ou PPCM) de $A_1, \\ldots, A_r$ tout polynôme unitaire ou nul $M$ pour lequel $A_1\\mathbb{K}[X] \\cap \\ldots \\cap A_r\\mathbb{K}[X] = M\\mathbb{K}[X]$. S'il existe, un tel polynôme $M$ est unique et noté $A_1 \\vee \\ldots \\vee A_r$.",
+      "proof_latex": "Montrons l'unicité du PGCD. Pour tous PGCD $D$, $\\tilde{D}$ de $A_1, \\ldots, A_r$ : $\\text{div}(D) = \\text{div}(A_1) \\cap \\ldots \\cap \\text{div}(A_r) = \\text{div}(\\tilde{D})$, donc $D$ et $\\tilde{D}$ se divisent mutuellement, donc sont associés, donc sont égaux puisqu'ils sont unitaires ou nuls. Même chose pour le PPCM."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_idee_fondamentale_euclide",
+      "type": "remark",
+      "title": "Remarque : Idée fondamentale de l'algorithme d'Euclide",
+      "content_latex": "L'existence du PGCD de deux polynômes repose sur une idée simple que j'appelle personnellement l'idée fondamentale de l'algorithme d'Euclide. Soient $A, B, P \\in \\mathbb{K}[X]$. Montrons que $\\text{div}(A) \\cap \\text{div}(B) = \\text{div}(A) \\cap \\text{div}(AP + B)$. Or tout diviseur commun de $A$ et $B$ divise $A$ et $AP + B$, et inversement, tout diviseur commun de $A$ et $AP + B$ divise $A$ et $(AP + B) - AP = B$.\\par En particulier, pour tous $A, B \\in \\mathbb{K}[X]$ avec $B$ non nul : $\\text{div}(A) \\cap \\text{div}(B) = \\text{div}(B) \\cap \\text{div}(R)$ si on note $R$ le reste de la division euclidienne de $A$ par $B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_existence_pgcd",
+      "type": "theorem",
+      "title": "Théorème : Existence du PGCD",
+      "content_latex": "Toute famille finie de polynômes possède un PGCD.\\par Plus précisément, pour deux polynômes $A, B \\in \\mathbb{K}[X]$ dont l'un au moins est non nul, $A \\wedge B$ est l'unique diviseur commun unitaire de degré maximal de $A$ et $B$. En outre : $0 \\wedge 0 = 0$.",
+      "proof_latex": "Cas de deux polynômes (algorithme d'Euclide) : Soient $A, B \\in \\mathbb{K}[X]$ avec $\\deg(B) \\leq \\deg(A)$ sans perte de généralité. On définit une famille de polynômes $R_0, R_1, R_2, \\ldots$ de la manière suivante. Au départ, on pose $R_0 = A$ et $R_1 = B$. Ensuite, pour $k \\in \\mathbb{N}$, tant que $R_{k+1} \\neq 0$, on note $R_{k+2}$ le reste de la division euclidienne de $R_k$ par $R_{k+1}$, ce qui implique en particulier que $\\deg(R_{k+2}) < \\deg(R_{k+1})$.\\par À l'issue de cette construction : $\\deg(R_0) \\geq \\deg(R_1) > \\deg(R_2) > \\ldots$, et comme il n'existe qu'un nombre fini d'entiers naturels entre $0$ et $\\deg(R_0)$, $\\deg(R_N) = -\\infty$ pour un certain $N \\in \\mathbb{N}^*$, autrement dit $R_N = 0$, de sorte que l'algorithme se termine. Or grâce à l'idée fondamentale de l'algorithme d'Euclide : $\\text{div}(A) \\cap \\text{div}(B) = \\text{div}(R_0) \\cap \\text{div}(R_1) = \\text{div}(R_1) \\cap \\text{div}(R_2) = \\ldots = \\text{div}(R_{N-1}) \\cap \\text{div}(0) = \\text{div}(R_{N-1})$, donc $A$ et $B$ possèdent un PGCD, en l'occurrence $R_{N-1}$ divisé par son coefficient dominant.\\par\\par Cas général : Par récurrence.\\par — Initialisation : Faite à l'instant pour deux polynômes.\\par — Hérédité : Soit $r \\geq 2$. On suppose que toute famille de $r$ polynômes possède un PGCD. Pour tous $A_1, \\ldots, A_{r+1} \\in \\mathbb{K}[X]$ : $\\text{div}(A_1) \\cap \\ldots \\cap \\text{div}(A_{r+1}) = \\text{div}(A_1) \\cap \\ldots \\cap \\text{div}(A_r) \\cap \\text{div}(A_{r+1}) = \\text{div}(A_1 \\wedge \\ldots \\wedge A_r) \\cap \\text{div}(A_{r+1}) = \\text{div}((A_1 \\wedge \\ldots \\wedge A_r) \\wedge A_{r+1})$, donc $A_1, \\ldots, A_{r+1}$ possèdent un PGCD."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_calcul",
+      "type": "remark",
+      "title": "Remarque : Algorithme d'Euclide pour calculer le PGCD",
+      "content_latex": "L'algorithme d'Euclide calcule rapidement le PGCD de deux polynômes $A$ et $B$ pour lesquels $0 \\leq \\deg(B) \\leq \\deg(A)$. D'après ce qui précède : $A \\wedge B$ est le DERNIER RESTE NON NUL, rendu unitaire, de la suite des restes successifs $R_0, R_1, R_2, \\ldots$",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_pgcd_calculs",
+      "type": "example",
+      "title": "Exemple : Calculs de PGCD",
+      "content_latex": "On peut vérifier grâce à l'algorithme d'Euclide que $(X+1)^3 \\wedge (X+1)^2(X+2) = (X+1)^2$.\\par Autre calcul pour s'entraîner : $(2X^4 + 9X^3 + 12X^2 + 10X + 3) \\wedge (2X^4 + X^3 - 2X^2 + 3X + 2) = X + \\frac{1}{2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_factorisation_pgcd",
+      "type": "theorem",
+      "title": "Théorème : Factorisation d'un PGCD",
+      "content_latex": "Pour tous $A_1, \\ldots, A_r \\in \\mathbb{K}[X]$ et $P \\in \\mathbb{K}[X]$ unitaire : $(A_1 P) \\wedge \\ldots \\wedge (A_r P) = (A_1 \\wedge \\ldots \\wedge A_r) P$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_bezout",
+      "type": "definition",
+      "title": "Définition-théorème : Relations de Bézout",
+      "content_latex": "Soient $A_1, \\ldots, A_r \\in \\mathbb{K}[X]$. Il existe des polynômes $U_1, \\ldots, U_r \\in \\mathbb{K}[X]$ pour lesquels $A_1 \\wedge \\ldots \\wedge A_r = A_1 U_1 + \\ldots + A_r U_r$. Une telle relation est appelée UNE relation de Bézout de $A_1, \\ldots, A_r$.",
+      "proof_latex": "Contentons-nous du cas de deux polynômes $A$ et $B$ avec $\\deg(B) \\leq \\deg(A)$ sans perte de généralité. Intéressons-nous de nouveau aux restes successifs $R_0, \\ldots, R_N$ de l'algorithme d'Euclide. Concrètement, $R_0 = A$, $R_1 = B$ et $R_{k+2}$ est le reste de la division euclidienne de $R_k$ par $R_{k+1}$ pour tout $k \\in \\{0, \\ldots, N-2\\}$. En outre, $R_{N-1}$ et $A \\wedge B$ sont associés et $R_N = 0$. Montrons par récurrence double que $R_k \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$ pour tout $k \\in \\{0, \\ldots, N-1\\}$. Cela montrera en particulier que $R_{N-1} \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$, et donc que $A \\wedge B \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$.\\par\\par Observons en amont que pour tous $P, Q, M, N \\in \\mathbb{K}[X]$ : $MP + NQ \\in P\\mathbb{K}[X] + Q\\mathbb{K}[X]$.\\par\\par Initialisation : $R_0 = A = A \\times 1 + B \\times 0 \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$ et $R_1 = A \\times 0 + B \\times 1 \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$.\\par\\par Hérédité : Soit $k \\in \\{0, \\ldots, N-2\\}$. Si $R_k \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$ et $R_{k+1} \\in A\\mathbb{K}[X] + B\\mathbb{K}[X]$, alors en notant $Q$ le quotient de la division euclidienne de $R_k$ par $R_{k+1}$, le reste $R_{k+2} = R_k - QR_{k+1}$ appartient à $A\\mathbb{K}[X] + B\\mathbb{K}[X]$ d'après l'observation préliminaire."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__warning_unite_bezout",
+      "type": "warning",
+      "title": "Attention : Non-unicité des coefficients de Bézout",
+      "content_latex": "Les polynômes $U_1, \\ldots, U_r$ ne sont pas du tout uniques.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_algorithme_euclide_etendu",
+      "type": "remark",
+      "title": "Remarque : Algorithme d'Euclide étendu",
+      "content_latex": "Le procédé de construction des polynômes $U$ et $V$ de cette démonstration s'appelle l'algorithme d'Euclide étendu et sa mise en œuvre concrète sera plus claire après un exemple. En résumé, alors que l'algorithme d'Euclide ne s'intéresse qu'aux restes des divisions euclidiennes successives, l'algorithme d'Euclide étendu va plus loin et tient compte aussi des quotients.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_bezout_calcul",
+      "type": "example",
+      "title": "Exemple : Calcul d'une relation de Bézout",
+      "content_latex": "Pour $A = 6X^4 + 8X^3 - 7X^2 - 5X - 2$ et $B = 6X^3 - 4X^2 - X - 1$ : $A \\wedge B = X - 1 = -(3X+1) \\times A + (3X^2 + 7X + 3) \\times B$.",
+      "proof_latex": "On calcule d'abord les restes successifs associés à $A$ et $B$ :\\par $A = (X + 2) \\times B + (2X^2 - 2X)$,\\par $B = (3X + 1) \\times (2X^2 - 2X) + (X - 1)$,\\par $2X^2 - 2X = 2X \\times (X - 1) + 0$.\\par\\par Le dernier reste non nul vaut $X - 1$ et il est unitaire, c'est notre PGCD. Pour calculer un jeu de coefficients de Bézout associé, on remonte la chaîne des divisions euclidiennes successives en partant du PGCD $X - 1$ :\\par $X - 1 = B - (3X + 1)(2X^2 - 2X)$\\par $= B - (3X + 1)(A - (X + 2)B)$\\par $= -(3X + 1)A + (3X^2 + 7X + 3)B$ (on a éliminé $2X^2 - 2X$ puis $X - 1$)."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_ppcm",
+      "type": "definition",
+      "title": "Définition-théorème : Existence du PPCM, lien avec le PGCD",
+      "content_latex": "Toute famille finie de polynômes possède un PPCM.\\par Plus précisément, pour deux polynômes $A, B \\in \\mathbb{K}[X]$ non nuls, $A \\vee B$ est l'unique multiple commun unitaire de degré minimal de $A$ et $B$.\\par\\par Lien avec le PGCD : Les polynômes $AB$ et $(A \\wedge B)(A \\vee B)$ sont associés.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_divisibilite_changement_corps",
+      "type": "theorem",
+      "title": "Théorème : Divisibilité et changement de corps",
+      "content_latex": "Soient $\\mathbb{L}$ un corps et $\\mathbb{K}$ un sous-corps de $\\mathbb{L}$ et $A, B, A_1, \\ldots, A_r \\in \\mathbb{K}[X]$.\\par (i) $A$ divise $B$ dans $\\mathbb{L}[X]$ si et seulement si $A$ divise $B$ dans $\\mathbb{K}[X]$.\\par (ii) Le PGCD (resp. PPCM) de $A_1, \\ldots, A_r$ défini au sens de la divisibilité dans $\\mathbb{L}[X]$ est le même que leur PGCD (resp. PPCM) défini au sens de la divisibilité dans $\\mathbb{K}[X]$.",
+      "proof_latex": "(i) On peut effectuer a priori deux divisions euclidiennes de $B$ par $A$, une dans $\\mathbb{K}[X]$ et une dans $\\mathbb{L}[X]$. Cela dit, la division euclidienne dans $\\mathbb{K}[X]$ est aussi une division euclidienne dans $\\mathbb{L}[X]$, donc par unicité de la division euclidienne dans $\\mathbb{L}[X]$, les deux divisions euclidiennes coïncident et le résultat en découle.\\par\\par (ii) Le PGCD de $A_1, \\ldots, A_r$ au sens de $\\mathbb{K}[X]$ divise $A_1, \\ldots, A_r$ dans $\\mathbb{K}[X]$, donc dans $\\mathbb{L}[X]$ d'après (i), donc il divise leur PGCD au sens de $\\mathbb{L}[X]$. Cela dit, le même raisonnement montre que le PGCD de $A_1, \\ldots, A_r$ au sens de $\\mathbb{L}[X]$ divise leur PGCD au sens de $\\mathbb{K}[X]$. Unitaires, les deux PGCD sont égaux. Même chose pour les PPCM."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__intro_unicite_factorisation",
+      "type": "remark",
+      "title": "Introduction : Unicité de la factorisation irréductible",
+      "content_latex": "Sur $\\mathbb{R}$ et $\\mathbb{C}$, le théorème de d'Alembert-Gauss nous a permis d'atteindre les irréductibles et l'unicité de la factorisation irréductible sans difficulté majeure. Ici, nous travaillons sur un corps quelconque et les irréductibles sont indescriptibles en toute généralité, chaque corps a ses spécificités. L'unicité de la factorisation irréductible, en revanche, est préservée.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_proprietes_irreductibles",
+      "type": "theorem",
+      "title": "Théorème : Deux propriétés des irréductibles",
+      "content_latex": "Soient $P \\in \\mathbb{K}[X]$ irréductible, $A, B \\in \\mathbb{K}[X]$ et $n \\in \\mathbb{N}$.\\par (i) Être ou ne pas être divisible par un irréductible : $P \\nmid A \\Leftrightarrow P \\wedge A = 1$.\\par (ii) Lemme d'Euclide : $P \\mid AB \\Leftrightarrow P \\mid A$ ou $P \\mid B$.\\par En particulier : $P \\mid A^n \\Leftrightarrow P \\mid A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__warning_irreductibilite_indispensable",
+      "type": "warning",
+      "title": "Attention : L'irréductibilité est indispensable",
+      "content_latex": "L'irréductibilité de $P$ est indispensable. Par exemple, pour (i), $X^2 \\nmid X(X+1)$ mais $X^2 \\wedge X(X+1) = X \\neq 1$. Et pour le lemme d'Euclide, $X^2 \\mid X \\cdot X$ mais $X^2 \\nmid X$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_unicite_factorisation_irreductible",
+      "type": "theorem",
+      "title": "Théorème : Unicité de la factorisation irréductible",
+      "content_latex": "Tout polynôme de $\\mathbb{K}[X]$ est d'une et une seule manière, à l'ordre des facteurs près, le produit d'un élément de $\\mathbb{K}^*$ et d'un ensemble fini de polynômes irréductibles unitaires.\\par Quand on connaît la factorisation irréductible de deux polynômes $A$ et $B$, on peut déterminer $A \\wedge B$ et $A \\vee B$ sans utiliser l'algorithme de Bézout, exactement comme dans $\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_pgcd_ppcm_factorisation",
+      "type": "example",
+      "title": "Exemple : PGCD et PPCM par factorisation",
+      "content_latex": "$2X(X+1)^2(X+2)^3 \\wedge X(X+2)^4(X^2+1) = X(X+2)^3$ et $3X^2(X+1) \\vee X^4(X+2)^2 = X^4(X+1)(X+2)^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_premiers_entre_eux",
+      "type": "definition",
+      "title": "Définition : Polynômes premiers entre eux",
+      "content_latex": "Soient $A, B, A_1, \\ldots, A_r \\in \\mathbb{K}[X]$.\\par — Cas de deux polynômes : On dit que $A$ et $B$ sont premiers entre eux si $1$ est leur seul diviseur commun unitaire, i.e. si $A \\wedge B = 1$.\\par — Dans leur ensemble : On dit que $A_1, \\ldots, A_r$ sont premiers entre eux dans leur ensemble si $1$ est leur seul diviseur commun unitaire, i.e. si $A_1 \\wedge \\ldots \\wedge A_r = 1$.\\par — Deux à deux : On dit que $A_1, \\ldots, A_r$ sont premiers entre eux deux à deux si $A_i$ et $A_j$ sont premiers entre eux pour tous $i, j \\in \\{1, \\ldots, r\\}$ distincts.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__warning_deux_a_deux_vs_ensemble",
+      "type": "warning",
+      "title": "Attention : Deux à deux vs dans leur ensemble",
+      "content_latex": "Premiers entre eux DEUX À DEUX $\\Rightarrow$ Premiers entre eux DANS LEUR ENSEMBLE... mais la réciproque est fausse ! Par exemple, $X(X+1)$, $X(X+2)$ et $(X+1)(X+2)$ sont premiers entre eux dans leur ensemble, i.e. n'ont rien de commun à trois, mais cela ne les empêche pas d'avoir un contenu commun deux par deux : $X(X+1) \\wedge X(X+2) = X \\neq 1$, $X(X+2) \\wedge (X+1)(X+2) = X+2 \\neq 1$ et $(X+1)(X+2) \\wedge X(X+1) = X+1 \\neq 1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_bezout_gauss",
+      "type": "theorem",
+      "title": "Théorème : Théorèmes de Bézout et Gauss, conséquences",
+      "content_latex": "Soient $A, B, C, P, A_1, \\ldots, A_r \\in \\mathbb{K}[X]$.\\par — Théorème de Bézout : $A \\wedge B = 1 \\Leftrightarrow \\exists U, V \\in \\mathbb{K}[X], AU + BV = 1$.\\par — Théorème de Gauss : Si $A \\wedge B = 1$ et $A \\mid BC$, alors $A \\mid C$.\\par — Produits de polynômes :\\par — Si chacun des polynômes $A_1, \\ldots, A_r$ est premier avec $P$, leur produit $A_1 \\ldots A_r$ l'est aussi.\\par — Si $A_1, \\ldots, A_r$ divisent $P$ et sont premiers entre eux DEUX À DEUX, leur produit $A_1 \\ldots A_r$ divise $P$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_theoreme_KX",
+      "type": "definition",
+      "title": "Définition-théorème : Ensemble $\\mathbb{K}(X)$",
+      "content_latex": "On construit dans la preuve ci-dessous un ensemble $\\mathbb{K}(X)$ satisfaisant les trois assertions suivantes :\\par — À tout couple $(A, B) \\in \\mathbb{K}[X]^2$ avec $B$ non nul, on peut associer un unique élément de $\\mathbb{K}(X)$ noté $\\frac{A}{B}$.\\par — Tout élément de $\\mathbb{K}(X)$ peut être écrit sous la forme $\\frac{A}{B}$ pour certains $A, B \\in \\mathbb{K}[X]$ avec $B$ non nul.\\par — Pour tous $(A, B), (C, D) \\in \\mathbb{K}[X]^2$ avec $B$ et $D$ non nuls : $\\frac{A}{B} = \\frac{C}{D} \\Leftrightarrow AD = BC$.\\par\\par Les éléments de $\\mathbb{K}(X)$ sont appelés les fractions rationnelles à coefficients dans $\\mathbb{K}$.",
+      "proof_latex": "On pose $\\mathcal{F} = \\mathbb{K}[X] \\times \\mathbb{K}[X] \\setminus \\{0\\}$. Pour tous $(A, B), (C, D) \\in \\mathcal{F}$, on dit que $(A, B) \\sim (C, D)$ si $AD = BC$. La relation ainsi définie est une relation d'équivalence sur $\\mathcal{F}$.\\par — Réflexivité : Pour tout $(A, B) \\in \\mathcal{F}$, $AB = AB$ donc $(A, B) \\sim (A, B)$.\\par — Transitivité : Soient $(A, B), (C, D), (E, F) \\in \\mathcal{F}$ pour lesquels $(A, B) \\sim (C, D)$ et $(C, D) \\sim (E, F)$. Aussitôt, $AD = BC$ et $CF = DE$, donc $ADF = BCF = BDE$. Cela dit, $\\mathbb{K}[X]$ est intègre et $D \\neq 0$, donc $AF = BE$, i.e. $(A, B) \\sim (E, F)$.\\par — Symétrie : Pour tous $(A, B), (C, D) \\in \\mathcal{F}$, si $(A, B) \\sim (C, D)$, alors $AD = BC$, donc $CB = DA$, autrement dit $(C, D) \\sim (A, B)$.\\par\\par On note finalement $\\mathbb{K}(X)$ l'ensemble quotient $\\mathcal{F}/\\sim$ et, pour tout $(A, B) \\in \\mathcal{F}$, $\\frac{A}{B}$ la classe d'équivalence de $(A, B)$. L'ensemble ainsi construit satisfait par définition toutes les propriétés désirées. Notez bien en passant que la notation fractionnaire n'est au départ qu'une notation pour désigner une classe d'équivalence."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_fractions_egales",
+      "type": "example",
+      "title": "Exemple : Égalité de fractions",
+      "content_latex": "Dans $\\mathbb{R}(X)$, les fractions $\\frac{1}{X}$ et $\\frac{X+1}{X(X+1)}$ sont égales car $1 \\cdot X(X+1) = X \\cdot (X+1)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_structure_corps_KX",
+      "type": "definition",
+      "title": "Définition : Structure de corps sur $\\mathbb{K}(X)$",
+      "content_latex": "On munit $\\mathbb{K}(X)$ de deux lois internes $+$ et $\\times$ qui en font un corps en posant pour tous $(A, B), (C, D) \\in \\mathbb{K}[X]^2$ avec $B$ et $D$ non nuls :\\par $\\frac{A}{B} + \\frac{C}{D} = \\frac{AD + BC}{BD}$ et $\\frac{A}{B} \\times \\frac{C}{D} = \\frac{AC}{BD}$.\\par Ces définitions sont possibles car les fractions $\\frac{AD+BC}{BD}$ et $\\frac{AC}{BD}$ ne dépendent pas du choix de $(A, B)$ et $(C, D)$.",
+      "proof_latex": "Soient $A, B, C, D, E, F \\in \\mathbb{K}[X]$ avec $B, D$ et $F$ non nuls.\\par\\par Bonne définition de $+$ et $\\times$ : Soient $A_1, B_1, C_1, D_1, A_2, B_2, C_2, D_2 \\in \\mathbb{K}[X]$ avec $B_1, D_1, B_2$ et $D_2$ non nuls. Faisons l'hypothèse que $\\frac{A_1}{B_1} = \\frac{A_2}{B_2}$ et $\\frac{C_1}{D_1} = \\frac{C_2}{D_2}$. Pour que les définitions de $+$ et $\\times$ aient un sens, nous devons nous assurer que $\\frac{A_1 D_1 + B_1 C_1}{B_1 D_1} = \\frac{A_2 D_2 + B_2 C_2}{B_2 D_2}$ et $\\frac{A_1 C_1}{B_1 D_1} = \\frac{A_2 C_2}{B_2 D_2}$. Or par définition de $\\sim$ : $(A_1 D_1 + B_1 C_1) \\cdot B_2 D_2 = A_1 B_2 \\cdot D_1 D_2 + B_1 B_2 \\cdot C_1 D_2 = B_1 A_2 \\cdot D_1 D_2 + B_1 B_2 \\cdot D_1 C_2 = B_1 D_1 \\cdot (A_2 D_2 + B_2 C_2)$ et $A_1 C_1 \\cdot B_2 D_2 = A_1 B_2 \\cdot C_1 D_2 = B_1 A_2 \\cdot D_1 C_2 = B_1 D_1 \\cdot A_2 C_2$.\\par\\par Commutativité de $+$ : $\\frac{A}{B} + \\frac{C}{D} = \\frac{AD+BC}{BD} = \\frac{CB+DA}{DB} = \\frac{C}{D} + \\frac{A}{B}$.\\par\\par Associativité de $+$ : $\\left(\\frac{A}{B} + \\frac{C}{D}\\right) + \\frac{E}{F} = \\frac{AD+BC}{BD} + \\frac{E}{F} = \\frac{(AD+BC)F + (BD)E}{(BD)F} = \\frac{A(DF) + B(CF+DE)}{B(DF)} = \\frac{A}{B} + \\frac{CF+DE}{DF} = \\frac{A}{B} + \\left(\\frac{C}{D} + \\frac{E}{F}\\right)$.\\par\\par Neutralité de $\\frac{0}{1}$ pour $+$ : $\\frac{A}{B} + \\frac{0}{1} = \\frac{A \\cdot 1 + B \\cdot 0}{B} = \\frac{A}{B}$ et de même : $\\frac{0}{1} + \\frac{A}{B} = \\frac{A}{B}$.\\par\\par Inverses pour $+$ : $\\frac{A}{B} + \\left(-\\frac{A}{B}\\right) = \\frac{AB + B(-A)}{B^2} = \\frac{0}{B^2} = \\frac{0}{1}$ et de même : $-\\frac{A}{B} + \\frac{A}{B} = \\frac{0}{1}$.\\par\\par À ce stade, $(\\mathbb{K}(X), +)$ est un groupe commutatif d'élément neutre $\\frac{0}{1}$. Pour montrer que $(\\mathbb{K}(X), +, \\times)$ est un anneau, on montre comme ci-dessus que $(\\mathbb{K}(X), \\times)$ est un magma associatif d'élément neutre $\\frac{1}{1}$ et que $\\times$ est distributive sur $+$. Enfin, pour montrer que $(\\mathbb{K}(X), +, \\times)$ est un corps, il reste à montrer que $\\times$ est commutative et que toute fraction non nulle $\\frac{A}{B}$ possède un inverse, en l'occurrence $\\frac{B}{A}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_polynomes_fractions",
+      "type": "theorem",
+      "title": "Théorème : Les polynômes sont des fractions rationnelles",
+      "content_latex": "L'application $P \\longmapsto \\frac{P}{1}$ est un morphisme injectif d'anneaux de $\\mathbb{K}[X]$ dans $\\mathbb{K}(X)$. Grâce à cette injection, on identifiera désormais tout polynôme $P \\in \\mathbb{K}[X]$ à la fraction rationnelle $\\frac{P}{1}$. Cette identification fait de $\\mathbb{K}[X]$ un sous-anneau de $\\mathbb{K}(X)$.",
+      "proof_latex": "L'application $\\phi : P \\longmapsto \\frac{P}{1}$ est un morphisme d'anneaux car $\\phi(1) = \\frac{1}{1}$ et pour tous $P, Q \\in \\mathbb{K}[X]$ : $\\phi(P) + \\phi(Q) = \\frac{P}{1} + \\frac{Q}{1} = \\frac{P+Q}{1} = \\phi(P+Q)$ et $\\phi(P)\\phi(Q) = \\frac{P}{1} \\times \\frac{Q}{1} = \\frac{PQ}{1} = \\phi(PQ)$.\\par Ensuite, $\\phi$ est injective car pour tout $P \\in \\text{Ker}\\phi$, $\\frac{P}{1} = \\phi(P) = \\frac{0}{1}$ donc $P = 0$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_structure_algebre_KX",
+      "type": "theorem",
+      "title": "Théorème : Structure de $\\mathbb{K}$-algèbre de $\\mathbb{K}(X)$",
+      "content_latex": "Parce que tout élément de $\\mathbb{K}$ peut être identifié à un polynôme et donc à une fraction rationnelle, on sait multiplier toute fraction rationnelle de $\\mathbb{K}(X)$ par un scalaire. Cette identification fait de $\\mathbb{K}(X)$ un $\\mathbb{K}$-espace vectoriel, et même une $\\mathbb{K}$-algèbre.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_forme_irreductible",
+      "type": "definition",
+      "title": "Définition : Forme irréductible d'une fraction rationnelle",
+      "content_latex": "Soit $R \\in \\mathbb{K}(X)$. On appelle forme irréductible de $R$ toute écriture de $R$ de la forme $R = \\frac{A}{B}$ avec $A$ et $B$ premiers entre eux. Une telle écriture est toujours possible, et unique à multiplication près par des scalaires non nuls.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_forme_irreductible",
+      "type": "example",
+      "title": "Exemple : Forme irréductible",
+      "content_latex": "L'écriture $\\frac{(X^2+1)(X+1)^2}{X(X+1)}$ n'est pas irréductible, mais l'écriture $\\frac{(X^2+1)(X+1)}{X}$ l'est.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_derivee_fraction",
+      "type": "definition",
+      "title": "Définition : Dérivée d'une fraction rationnelle",
+      "content_latex": "Pour tout $R = \\frac{A}{B} \\in \\mathbb{K}(X)$, la fraction rationnelle $\\frac{A'B - AB'}{B^2}$ dépend de $R$ sans dépendre du choix de $(A, B)$. On l'appelle la dérivée de $R$ et on la note $R'$.\\par Pour tous $R, S \\in \\mathbb{K}(X)$ : $(R+S)' = R' + S'$, $(RS)' = R'S + RS'$ et si $S$ est non nulle : $\\left(\\frac{R}{S}\\right)' = \\frac{R'S - RS'}{S^2}$.\\par En outre, la dérivée d'un polynôme coïncide avec sa dérivée comme fraction rationnelle.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_somme_serie_derivee",
+      "type": "example",
+      "title": "Exemple : Calcul d'une somme par dérivation",
+      "content_latex": "$\\sum_{k=0}^{+\\infty} \\frac{k}{7^k} = \\frac{7}{36}$.",
+      "proof_latex": "Dérivons pour tout $n \\in \\mathbb{N}$ la relation $\\sum_{k=0}^n X^k = \\frac{1 - X^{n+1}}{1 - X}$ dans $\\mathbb{R}(X)$. Cela donne : $\\sum_{k=0}^n kX^{k-1} = \\frac{-(n+1)X^n(1-X) + (1-X^{n+1})}{(1-X)^2}$, puis $\\sum_{k=0}^n kX^k = \\frac{X(1 - (n+1)X^n + nX^{n+1})}{(1-X)^2}$. Finalement : $\\sum_{k=0}^n \\frac{k}{7^k} = \\frac{7}{36}\\left(1 + \\frac{n}{7^{n+1}} - \\frac{n+1}{7^n}\\right) \\xrightarrow[n \\to +\\infty]{} \\frac{7}{36}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_degre_fraction",
+      "type": "definition",
+      "title": "Définition : Degré d'une fraction rationnelle",
+      "content_latex": "Pour tout $R = \\frac{A}{B} \\in \\mathbb{K}(X)$, la quantité $\\deg(A) - \\deg(B)$ dépend de $R$ sans dépendre du choix de $(A, B)$. On l'appelle le degré de $R$ et on la note $\\deg(R)$. Le degré d'une fraction rationnelle est ainsi soit un entier RELATIF, soit $-\\infty$.\\par Pour tous $R, S \\in \\mathbb{K}(X)$ : $\\deg(R+S) \\leq \\max\\{\\deg(R), \\deg(S)\\}$ et $\\deg(RS) = \\deg(R) + \\deg(S)$.\\par En outre, le degré d'un polynôme coïncide avec son degré comme fraction rationnelle.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__warning_degre_positif",
+      "type": "warning",
+      "title": "Attention : Degré positif et polynôme",
+      "content_latex": "Une fraction rationnelle peut être de degré positif sans être un polynôme. C'est le cas de la fraction rationnelle $\\frac{X^4 + X^3 + 1}{X^2 + 3}$, de degré $4 - 2 = 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_fonction_rationnelle",
+      "type": "definition",
+      "title": "Définition : Fonction rationnelle",
+      "content_latex": "Soit $R = \\frac{A}{B} \\in \\mathbb{K}(X)$ IRRÉDUCTIBLE. La fonction $x \\longmapsto \\frac{A(x)}{B(x)}$ définie sur $\\mathbb{K}$ privé des racines de $B$ est appelée la fonction rationnelle associée à $R$ et encore notée $R$ — définition possible car cette fonction dépend de $R$ sans dépendre du choix de $(A, B)$.\\par On impose à l'écriture $R = \\frac{A}{B}$ d'être irréductible pour que le dénominateur de $R$ ait le moins de racines possible, i.e. pour que la fonction $x \\longmapsto R(x)$ soit définie sur le plus grand ensemble possible. Par exemple, la fonction $x \\longmapsto \\frac{x+2}{x-1}$ est définie sur $\\mathbb{R} \\setminus \\{1\\}$, mais la fonction $x \\longmapsto \\frac{x(x+2)}{x(x-1)}$ l'est seulement sur $\\mathbb{R} \\setminus \\{0, 1\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__definition_zeros_poles",
+      "type": "definition",
+      "title": "Définition : Zéros et pôles d'une fraction rationnelle, multiplicité",
+      "content_latex": "Soit $R = \\frac{A}{B} \\in \\mathbb{K}(X)$ IRRÉDUCTIBLE.\\par — Zéros : Soit $\\lambda \\in \\mathbb{K}$. On dit que $\\lambda$ est un zéro de $R$ si $\\lambda$ est une racine de $A$. La multiplicité de $\\lambda$ dans $A$ est alors appelée la multiplicité de $\\lambda$ dans $R$.\\par — Pôles : Soit $\\mu \\in \\mathbb{K}$. On dit que $\\mu$ est un pôle de $R$ si $\\mu$ est une racine de $B$. La multiplicité de $\\mu$ dans $B$ est alors appelée la multiplicité de $\\mu$ dans $R$. Un pôle de multiplicité 1 (resp. 2) est aussi appelé un pôle simple (resp. double).\\par On impose ici à l'écriture $R = \\frac{A}{B}$ d'être irréductible pour qu'il ne soit pas possible de confondre les zéros et les pôles de $R$. Quand $A$ et $B$ sont premiers entre eux, il est certain en effet qu'ils n'ont pas de racine commune.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_zeros_poles",
+      "type": "example",
+      "title": "Exemple : Zéros et pôles",
+      "content_latex": "Dans $\\mathbb{R}(X)$, la fraction $\\frac{(X^2+1)(X-2)^3(X+1)X}{(X-1)^2(X^2+X+1)}$ a pour zéros les réels $-1, 0$ et $2$ et pour pôle le seul réel $1$. La multiplicité de $2$ est égale à $3$, celle de $1$ est $2$, etc.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_entiere",
+      "type": "theorem",
+      "title": "Théorème : Partie entière",
+      "content_latex": "Soit $R = \\frac{A}{B} \\in \\mathbb{K}(X)$. Il existe un unique polynôme $E \\in \\mathbb{K}[X]$ et une unique fraction rationnelle $Q \\in \\mathbb{K}(X)$ pour lesquels $R = E + Q$ et $\\deg(Q) < 0$. Le polynôme $E$ est appelé la partie entière de $R$ et n'est autre que le quotient de la division euclidienne de $A$ par $B$.\\par En particulier, la partie entière de $R$ est nulle si $\\deg(R) < 0$.",
+      "proof_latex": "— Existence : Notons $E$ le quotient de la division euclidienne de $A$ par $B$ et $F$ son reste, et posons $Q = \\frac{F}{B}$. Alors $R = \\frac{EB + F}{B} = E + Q$ d'une part, et $\\deg(Q) = \\deg(F) - \\deg(B) < 0$ d'autre part.\\par — Unicité : Soient $R = E + Q$ et $R = \\tilde{E} + \\tilde{Q}$ deux décompositions de $R$. Le POLYNÔME $E - \\tilde{E} = \\tilde{Q} - Q$ est de degré $\\max\\{\\deg(\\tilde{Q}), \\deg(Q)\\} < 0$, donc est nul, donc $E = \\tilde{E}$, puis $Q = \\tilde{Q}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_partie_entiere",
+      "type": "example",
+      "title": "Exemple : Partie entière",
+      "content_latex": "La partie entière de la fraction $\\frac{X^4 - 3X^3 + 5X^2 - 3X + 1}{X^2 - X - 1}$ est $X^2 + 4$ par simple division euclidienne : $X^4 - 3X^3 + 5X^2 - 3X + 1 = (X^2 - X - 1)(X^2 + 4) + 12X - 5$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_C",
+      "type": "theorem",
+      "title": "Théorème : Décomposition en éléments simples sur $\\mathbb{C}$",
+      "content_latex": "Soit $R \\in \\mathbb{C}(X)$ de partie entière $E$ et de pôles distincts $\\lambda_1, \\ldots, \\lambda_r$ de multiplicités respectives $m_1, \\ldots, m_r$. Il existe une et une seule famille $(a_{ik})_{1 \\leq i \\leq r, 1 \\leq k \\leq m_i}$ de nombres complexes pour laquelle :\\par $R = E + \\sum_{i=1}^r \\sum_{k=1}^{m_i} \\frac{a_{ik}}{(X - \\lambda_i)^k}$.\\par Cette décomposition de $R$ est appelée sa décomposition en éléments simples sur $\\mathbb{C}$.",
+      "proof_latex": "Démonstration hors programme, mais l'existence de la décomposition me paraît intéressante à comprendre. Écrivons $R$ sous la forme $R = \\frac{A}{B}$ avec $A \\in \\mathbb{C}[X]$ et $B = (X - \\lambda_1)^{m_1} \\ldots (X - \\lambda_r)^{m_r}$. Les POLYNÔMES $\\frac{B}{(X - \\lambda_1)^{m_1}}, \\ldots, \\frac{B}{(X - \\lambda_r)^{m_r}}$ sont premiers entre eux dans leur ensemble, donc $1 = \\sum_{i=1}^r \\frac{BU_i}{(X - \\lambda_i)^{m_i}}$ pour certains $U_1, \\ldots, U_r \\in \\mathbb{C}[X]$ — relation de Bézout. Multiplions par $R$ : $R = \\sum_{i=1}^r \\frac{AU_i}{(X - \\lambda_i)^{m_i}}$. Pour tout $i \\in \\{1, \\ldots, r\\}$, $AU_i \\in \\mathbb{C}[X]$ et $R_i \\in \\mathbb{C}_{m_i - 1}[X]$ par division euclidienne et nous pouvons décomposer $R_i$ dans la base $(1, X - \\lambda_i, \\ldots, (X - \\lambda_i)^{m_i - 1})$ de $\\mathbb{C}_{m_i - 1}[X]$ : $R_i = \\sum_{k=1}^{m_i} a_{ik}(X - \\lambda_i)^{m_i - k}$ pour certains $a_{i1}, \\ldots, a_{im_i} \\in \\mathbb{C}$. Conclusion : $R = \\sum_{i=1}^r \\frac{E_i}{(X - \\lambda_i)^{m_i}} + \\sum_{i=1}^r \\sum_{k=1}^{m_i} \\frac{a_{ik}}{(X - \\lambda_i)^k} = E + \\sum_{i=1}^r \\sum_{k=1}^{m_i} \\frac{a_{ik}}{(X - \\lambda_i)^k}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_des_C_formes",
+      "type": "example",
+      "title": "Exemple : Formes de décomposition en éléments simples sur $\\mathbb{C}$",
+      "content_latex": "— Pour certains $a, b \\in \\mathbb{C}$ : $\\frac{X^3 + 4X^2 + 1}{X^2 + 1} = X + 4 + \\frac{a}{X - i} + \\frac{b}{X + i}$, donc après conjugaison, $b = \\overline{a}$ par unicité de la décomposition en éléments simples. Conclusion : $\\frac{X^3 + 4X^2 + 1}{X^2 + 1} = X + 4 + \\frac{a}{X - i} + \\frac{\\overline{a}}{X + i}$.\\par — Pour certains $a, b, c, d \\in \\mathbb{R}$ et $e \\in \\mathbb{C}$ : $\\frac{X^4 + X + 1}{X(X-5)^3(X^2+4)} = 0 + \\frac{a}{X} + \\frac{b}{(X-5)^3} + \\frac{c}{(X-5)^2} + \\frac{d}{X-5} + \\frac{e}{X-2i} + \\frac{\\overline{e}}{X+2i}$.\\par — Pour certains $a \\in \\mathbb{R}$ et $b, c \\in \\mathbb{C}$ : $\\frac{1}{X(X^2+X+1)^2} = 0 + \\frac{a}{X} + \\frac{b}{X-j} + \\frac{c}{(X-j)^2} + \\frac{\\overline{b}}{X-\\overline{j}} + \\frac{\\overline{c}}{(X-\\overline{j})^2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_des_R",
+      "type": "theorem",
+      "title": "Théorème : Décomposition en éléments simples sur $\\mathbb{R}$",
+      "content_latex": "Soit $R = \\frac{A}{B} \\in \\mathbb{R}(X)$ IRRÉDUCTIBLE de partie entière $E$. On introduit la factorisation irréductible de $B$, avec des notations évidentes : $B = \\beta \\prod_{i=1}^r (X - \\lambda_i)^{m_i} \\prod_{j=1}^s (X^2 + b_j X + c_j)^{n_j}$.\\par Il existe des familles uniques $(a_{ik})_{1 \\leq i \\leq r, 1 \\leq k \\leq m_i}$, $(u_{jk})_{1 \\leq j \\leq s, 1 \\leq k \\leq n_j}$ et $(v_{jk})_{1 \\leq j \\leq s, 1 \\leq k \\leq n_j}$ de réels pour lesquelles :\\par $R = E + \\sum_{i=1}^r \\sum_{k=1}^{m_i} \\frac{a_{ik}}{(X - \\lambda_i)^k} + \\sum_{j=1}^s \\sum_{k=1}^{n_j} \\frac{u_{jk}X + v_{jk}}{(X^2 + b_j X + c_j)^k}$.\\par Cette décomposition de $R$ est appelée sa décomposition en éléments simples sur $\\mathbb{R}$.",
+      "proof_latex": "Hors programme."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_des_R_formes",
+      "type": "example",
+      "title": "Exemple : Formes de décomposition en éléments simples sur $\\mathbb{R}$",
+      "content_latex": "— Pour certains $a', b' \\in \\mathbb{R}$ : $\\frac{X^3 + 4X^2 + 1}{X^2 + 1} = X + 4 + \\frac{a'X + b'}{X^2 + 1}$.\\par — Pour certains $a', b', c', d', e', f' \\in \\mathbb{R}$ : $\\frac{X^4 + X + 1}{X(X-5)^3(X^2+4)} = 0 + \\frac{a'}{X} + \\frac{b'}{(X-5)^3} + \\frac{c'}{(X-5)^2} + \\frac{d'}{X-5} + \\frac{e'X + f'}{X^2 + 4}$.\\par — Pour certains $a', b', c', d', e' \\in \\mathbb{R}$ : $\\frac{1}{X(X^2+X+1)^2} = 0 + \\frac{a'}{X} + \\frac{b'X + c'}{(X^2+X+1)^2} + \\frac{d'X + e'}{X^2+X+1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_techniques_calcul",
+      "type": "remark",
+      "title": "Remarque : Techniques de calcul des coefficients",
+      "content_latex": "Pour le calcul pratique des coefficients, nous avions quatre techniques en début d'année :\\par — multiplier par $(X - \\lambda)^m$ puis évaluer en $\\lambda$,\\par — multiplier par $X$ puis passer à la limite en $+\\infty$,\\par — évaluer en un point,\\par — mettre au même dénominateur et identifier.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_calcul_coefficients",
+      "type": "example",
+      "title": "Exemple : Calcul de coefficients",
+      "content_latex": "$\\frac{X^2 + 3X + 1}{(X-1)^2(X-2)} = \\frac{-5}{(X-1)^2} - \\frac{10}{X-1} + \\frac{11}{X-2}$.",
+      "proof_latex": "Forme de la décomposition en éléments simples sur $\\mathbb{R}$ : La partie entière est nulle, donc pour certains $a, b, c \\in \\mathbb{R}$ : $\\frac{X^2 + 3X + 1}{(X-1)^2(X-2)} = \\frac{a}{(X-1)^2} + \\frac{b}{X-1} + \\frac{c}{X-2}$.\\par — Calcul de $a$ : On multiplie par $(X-1)^2$ puis on évalue en $1$ : $a = \\frac{1 + 3 + 1}{1 - 2} = -5$.\\par — Calcul de $c$ : On multiplie par $(X-2)$ puis on évalue en $2$ : $c = \\frac{4 + 6 + 1}{(2-1)^2} = 11$.\\par — Calcul de $b$ : On multiplie par $X$ puis on passe à la limite en $+\\infty$ : $b + c = 1$, donc $b = -10$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_partie_polaire_simple",
+      "type": "theorem",
+      "title": "Théorème : Partie polaire associée à un pôle simple",
+      "content_latex": "Soient $R = \\frac{A}{B} \\in \\mathbb{C}(X)$ et $\\lambda \\in \\mathbb{C}$. Si $\\lambda$ est une racine SIMPLE de $B$ et si on note $\\frac{a}{X - \\lambda}$ la partie polaire associée, alors $a = \\frac{A(\\lambda)}{B'(\\lambda)}$.\\par Notre hypothèse selon laquelle $\\lambda$ est racine simple de $B$ ne peut pas être remplacée par l'hypothèse selon laquelle $\\lambda$ est un pôle simple de $R$, qui n'empêche pas $\\lambda$ d'être à la fois racine de $A$ et racine multiple de $B$, auquel cas $B'(\\lambda) = 0$.",
+      "proof_latex": "Comme $\\lambda$ est racine simple de $B$, $B = (X - \\lambda)C$ pour un certain $C \\in \\mathbb{K}[X]$ avec $C(\\lambda) \\neq 0$ et la décomposition en éléments simples de $R$ sur $\\mathbb{C}$ s'écrit $R = \\frac{a}{X - \\lambda} + Q$ pour une certaine fraction $Q$ n'admettant pas $\\lambda$ pour pôle. Ainsi $\\frac{A}{C} = (X - \\lambda)R = a + (X - \\lambda)Q$, donc $\\frac{A(\\lambda)}{C(\\lambda)} = a$ après évaluation en $\\lambda$, or $B' = C + (X - \\lambda)C'$, donc $B'(\\lambda) = C(\\lambda)$, et enfin $a = \\frac{A(\\lambda)}{B'(\\lambda)}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_1_sur_Xn_1",
+      "type": "example",
+      "title": "Exemple : Décomposition de $\\frac{1}{X^n - 1}$ sur $\\mathbb{C}$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$ : $\\frac{1}{X^n - 1} = \\sum_{\\omega \\in \\mathbb{U}_n} \\frac{1}{n\\omega} \\frac{1}{X - \\omega}$.",
+      "proof_latex": "Les pôles de $\\frac{1}{X^n - 1}$ sont les racines n-ièmes de l'unité et sont tous SIMPLES. La partie entière étant par ailleurs nulle, $\\frac{1}{X^n - 1} = \\sum_{\\omega \\in \\mathbb{U}_n} \\frac{a_\\omega}{X - \\omega}$ pour une certaine famille $(a_\\omega)_{\\omega \\in \\mathbb{U}_n} \\in \\mathbb{C}^n$.\\par Soit $\\omega \\in \\mathbb{U}_n$ fixé. La technique de multiplication/évaluation serait ici pénible à mettre en œuvre — essayez pour comprendre — nous allons nous en sortir grâce au théorème précédent. Écrivons $\\frac{A}{B} = \\frac{1}{X^n - 1}$ avec $A = 1$ et $B = X^n - 1$. Comme $\\omega$ est racine SIMPLE de $B$ : $a_\\omega = \\frac{A(\\omega)}{B'(\\omega)} = \\frac{1}{n\\omega^{n-1}} = \\frac{\\omega}{n}$ car $\\omega^n = 1$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__remarque_poles_non_reels",
+      "type": "remark",
+      "title": "Remarque : Pôles non réels simples d'une fraction réelle",
+      "content_latex": "Quand les pôles NON RÉELS d'une fraction RÉELLE sont SIMPLES, on peut obtenir la décomposition en éléments simples sur $\\mathbb{R}$ facilement à partir de la décomposition en éléments simples sur $\\mathbb{C}$ en regroupant les parties polaires conjuguées.",
+      "proof_latex": null
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_integrale_des",
+      "type": "example",
+      "title": "Exemple : Calcul d'une intégrale par décomposition",
+      "content_latex": "$\\int_0^{1/2} \\frac{t^5}{t^4 - 1} \\, dt = \\frac{1}{4}\\ln\\frac{5}{3} - \\frac{1}{8}$.",
+      "proof_latex": "— Décomposition en éléments simples sur $\\mathbb{C}$ : La partie entière vaut $X$, donc pour certains $a, b, c \\in \\mathbb{C}$ : $\\frac{X^5}{X^4 - 1} = X + \\frac{a}{X-1} + \\frac{b}{X+1} + \\frac{c}{X-i} + \\frac{\\overline{c}}{X+i}$ et les pôles étant SIMPLES : $a = \\frac{X^5}{(X^4-1)'}(1) = \\frac{1}{4}$, $b = \\frac{X^5}{(X^4-1)'}(-1) = \\frac{1}{4}$ et $c = \\frac{X^5}{(X^4-1)'}(i) = \\frac{1}{4}$.\\par — Décomposition en éléments simples sur $\\mathbb{R}$ : On regroupe ! $\\frac{X^5}{X^4 - 1} = X + \\frac{1}{4}\\left(-\\frac{1}{X-1} - \\frac{1}{X+1} + \\frac{1}{X-i} + \\frac{1}{X+i}\\right) = X + \\frac{1}{4}\\left(-\\frac{1}{X-1} - \\frac{1}{X+1} + \\frac{2X}{X^2+1}\\right)$.\\par — Calcul de l'intégrale : $\\int_0^{1/2} \\frac{t^5}{t^4 - 1} \\, dt = \\left[\\frac{t^2}{2} + \\frac{1}{4}\\left(-\\ln(1-t) - \\ln(t+1) + \\frac{1}{2}\\ln(t^2+1)\\right)\\right]_0^{1/2} = \\frac{1}{4}\\ln\\frac{5}{3} - \\frac{1}{8}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_1_sur_X2n_1",
+      "type": "example",
+      "title": "Exemple : Décomposition de $\\frac{1}{X^{2n} - 1}$ sur $\\mathbb{R}$",
+      "content_latex": "Pour tout $n \\in \\mathbb{N}^*$, $\\frac{1}{X^{2n} - 1}$ a pour décomposition en éléments simples sur $\\mathbb{R}$ :\\par $\\frac{1}{X^{2n} - 1} = \\frac{1}{2n(X-1)} - \\frac{1}{2n(X+1)} + \\frac{1}{n}\\sum_{k=1}^{n-1} \\frac{X\\cos\\frac{k\\pi}{n} - 1}{X^2 - 2X\\cos\\frac{k\\pi}{n} + 1}$.",
+      "proof_latex": "Nous avons déjà calculé la décomposition en éléments simples sur $\\mathbb{C}$, elle admet pour seuls pôles réels, $1$ et $-1$, les autres peuvent être regroupés par paires de conjugués. Pour tout $\\omega \\in \\mathbb{U}_{2n} \\setminus \\{\\pm 1\\}$ : $\\frac{1}{X - \\omega} + \\frac{1}{X - \\overline{\\omega}} = \\frac{(\\omega + \\overline{\\omega})X - 2}{(X - \\omega)(X - \\overline{\\omega})} = \\frac{2\\text{Re}(\\omega)X - 2}{X^2 - 2\\text{Re}(\\omega)X + 1}$, donc : $\\frac{1}{X^{2n} - 1} = \\frac{1}{2n(X-1)} - \\frac{1}{2n(X+1)} + \\frac{1}{2n}\\sum_{k=1}^{n-1} \\left(\\frac{2\\cos\\frac{k\\pi}{n}X - 2}{X^2 - 2\\cos\\frac{k\\pi}{n}X + 1}\\right) = \\frac{1}{2n(X-1)} - \\frac{1}{2n(X+1)} + \\frac{1}{n}\\sum_{k=1}^{n-1} \\frac{X\\cos\\frac{k\\pi}{n} - 1}{X^2 - 2X\\cos\\frac{k\\pi}{n} + 1}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__theorem_Pprime_sur_P",
+      "type": "theorem",
+      "title": "Théorème : Décomposition en éléments simples sur $\\mathbb{C}$ de $\\frac{P'}{P}$",
+      "content_latex": "Soit $P \\in \\mathbb{C}[X]$ non nul. En notant $\\lambda_1, \\ldots, \\lambda_r$ les racines de $P$ et $m_1, \\ldots, m_r$ leurs multiplicités respectives : $\\frac{P'}{P} = \\sum_{k=1}^r \\frac{m_k}{X - \\lambda_k}$.",
+      "proof_latex": "On pourrait observer que $\\frac{P'}{P}$ n'a que des pôles simples et recourir aux techniques de calcul usuelles des coefficients, mais le résultat gagne ici à être compris autrement. Pour tous $P_1, \\ldots, P_n \\in \\mathbb{C}[X]$ : $(P_1 \\ldots P_n)' = P_1'P_2 \\ldots P_n + P_1P_2'P_3 \\ldots P_n + \\ldots + P_1 \\ldots P_{n-1}P_n'$, donc $\\frac{(P_1 \\ldots P_n)'}{P_1 \\ldots P_n} = \\frac{P_1'}{P_1} + \\ldots + \\frac{P_n'}{P_n}$. Appliquons ce résultat à la forme scindée de $P$ : $P = \\alpha(X - \\lambda_1)^{m_1} \\ldots (X - \\lambda_r)^{m_r}$ où $\\alpha$ est le coefficient dominant de $P$ : $\\frac{P'}{P} = \\frac{\\alpha'}{\\alpha} + \\sum_{k=1}^r \\frac{((X - \\lambda_k)^{m_k})'}{(X - \\lambda_k)^{m_k}} = 0 + \\sum_{k=1}^r \\frac{m_k(X - \\lambda_k)^{m_k - 1}}{(X - \\lambda_k)^{m_k}} = \\sum_{k=1}^r \\frac{m_k}{X - \\lambda_k}$."
+    },
+    {
+      "id": "arithmetique_des_polynomes_et_fractions_rationnelles__example_somme_inverse_unites",
+      "type": "example",
+      "title": "Exemple : Somme des inverses des racines de l'unité",
+      "content_latex": "$\\sum_{\\omega \\in \\mathbb{U}_n \\setminus \\{1\\}} \\frac{1}{1 - \\omega} = \\frac{n-1}{2}$.",
+      "proof_latex": "La somme à calculer évoque fortement le théorème précédent évalué en $1$, mais pour quel polynôme $P$ ? Manifestement, pour $P = \\sum_{k=0}^{n-1} X^k = \\frac{X^n - 1}{X - 1} = \\prod_{\\omega \\in \\mathbb{U}_n \\setminus \\{1\\}} (X - \\omega)$. En effet, $\\sum_{k=0}^{n-1} \\omega^k = \\frac{\\omega^n - 1}{\\omega - 1} = 0$ pour tout $\\omega \\in \\mathbb{U}_n \\setminus \\{1\\}$ d'après le théorème précédent, or $P(1) = n$ et $P'(1) = \\sum_{k=0}^{n-1} k = \\frac{n(n-1)}{2}$, donc $\\sum_{\\omega \\in \\mathbb{U}_n \\setminus \\{1\\}} \\frac{1}{1 - \\omega} = \\sum_{\\omega \\in \\mathbb{U}_n \\setminus \\{1\\}} \\frac{1}{\\omega - 1} = -\\frac{P'(1)}{P(1)} = -\\frac{n-1}{2}$."
+    }
+  ],
+  "exercises": []
+}

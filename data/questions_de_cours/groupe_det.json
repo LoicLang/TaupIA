@@ -1,0 +1,907 @@
+{
+  "programme_chapter_id": "GROUPE_DET",
+  "programme_chapter_title": "Groupe symétrique et déterminants",
+  "semestre": 2,
+  "linked_course_chapters": [
+    "determinants"
+  ],
+  "questions": [
+    {
+      "id": "GROUPE_DET__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Groupe des permutations de {1,...,n} (notation S_n).",
+      "programme_notion": "Groupe des permutations de {1,...,n} (notation S_n)",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_002",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Groupe des permutations de {1,...,n} (notation S_n).",
+      "programme_notion": "Groupe des permutations de {1,...,n} (notation S_n)",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.\n\n\\textbf{Démonstration.} (i) Soit $(x_1, \\ldots, x_n)$ une famille liée de $E$, avec disons $x_k = \\sum_{i \neq k} \\lambda_i x_i$ pour un certain $k \\in \\llbracket 1, n \rrbracket$ et pour certains $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Alors :\\par $f(x_1, \\ldots, x_n) = f\\left(\\ldots, x_{k-1}, \\sum_{i \neq k} \\lambda_i x_i, x_{k+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i \neq k} \\lambda_i f(\\ldots, x_{k-1}, x_i, x_{k+1}, \\ldots) = 0$ car $x_i$ figure 2 fois.\\par\\par (ii) Soient $x_1, \\ldots, x_n \\in E$ et $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Seule la $k$-ème variable est explicitée ci-après :\\par $f\\left(\\ldots, x_k + \\sum_{i \neq k} \\lambda_i x_i, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} f(\\ldots, x_k, \\ldots) + \\sum_{i \neq k} \\lambda_i f(\\ldots, x_i, \\ldots) = f(\\ldots, x_k, \\ldots)$ car $x_i$ figure 2 fois.\\par\\par (iii) Seules la $i$-ème et $j$-ème variables sont explicitées ci-après. Par n-linéarité et caractère alterné de $f$ :\\par $f(\\ldots, x_i + x_j, \\ldots, x_i + x_j, \\ldots) = f(\\ldots, x_i, \\ldots, x_i, \\ldots) + f(\\ldots, x_i, \\ldots, x_j, \\ldots) + f(\\ldots, x_j, \\ldots, x_i, \\ldots) + f(\\ldots, x_j, \\ldots, x_j, \\ldots)$\\par donc $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_003",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cycle, transposition (notation (a₁ a₂ ... a_p)).",
+      "programme_notion": "Cycle, transposition (notation (a₁ a₂ ... a_p))",
+      "answer_node_id": "determinants__theorem_signature_cycle",
+      "answer_latex": "Soit $p \\in \\llbracket 2, n \rrbracket$. La signature d'un $p$-cycle de $\\mathfrak{S}_n$ est $(-1)^{p-1}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_004",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Cycle, transposition (notation (a₁ a₂ ... a_p)).",
+      "programme_notion": "Cycle, transposition (notation (a₁ a₂ ... a_p))",
+      "answer_node_id": "determinants__theorem_signature_cycle",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$ et cette décomposition fait intervenir $p-1$ transpositions, donc $\u000barepsilon((x_1 \\ldots x_p)) = (-1)^{p-1}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Décomposition d'une permutation en produit de cycles à supports disjoints.",
+      "programme_notion": "Décomposition d'une permutation en produit de cycles à supports disjoints",
+      "answer_node_id": "determinants__theorem_effet_permutation_forme_multilineaire",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$. Pour tous $x_1, \\ldots, x_n \\in E$ et $\\sigma \\in \\mathfrak{S}_n$ :\\par $f(x_{\\sigma(1)}, \\ldots, x_{\\sigma(n)}) = \u000barepsilon(\\sigma) f(x_1, \\ldots, x_n)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_006",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Décomposition d'une permutation en produit de cycles à supports disjoints.",
+      "programme_notion": "Décomposition d'une permutation en produit de cycles à supports disjoints",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "Sachant que $\\mathfrak{S}_n$ est engendré par ses cycles, il nous suffit de montrer que tout cycle est un produit de transpositions. Or pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$.\\par\\par Attention, la décomposition d'une permutation en produit de transpositions n'est pas du tout unique, par exemple :\\par $(1 \\; 2 \\; 3) = (1 \\; 2)(2 \\; 3) = (1 \\; 3)(1 \\; 2)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_007",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence, unicité, commutativité des cycles à supports disjoints.",
+      "programme_notion": "Existence, unicité, commutativité des cycles à supports disjoints",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence, unicité, commutativité des cycles à supports disjoints.",
+      "programme_notion": "Existence, unicité, commutativité des cycles à supports disjoints",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.\n\n\\textbf{Démonstration.} (i) Soit $(x_1, \\ldots, x_n)$ une famille liée de $E$, avec disons $x_k = \\sum_{i \neq k} \\lambda_i x_i$ pour un certain $k \\in \\llbracket 1, n \rrbracket$ et pour certains $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Alors :\\par $f(x_1, \\ldots, x_n) = f\\left(\\ldots, x_{k-1}, \\sum_{i \neq k} \\lambda_i x_i, x_{k+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i \neq k} \\lambda_i f(\\ldots, x_{k-1}, x_i, x_{k+1}, \\ldots) = 0$ car $x_i$ figure 2 fois.\\par\\par (ii) Soient $x_1, \\ldots, x_n \\in E$ et $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Seule la $k$-ème variable est explicitée ci-après :\\par $f\\left(\\ldots, x_k + \\sum_{i \neq k} \\lambda_i x_i, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} f(\\ldots, x_k, \\ldots) + \\sum_{i \neq k} \\lambda_i f(\\ldots, x_i, \\ldots) = f(\\ldots, x_k, \\ldots)$ car $x_i$ figure 2 fois.\\par\\par (iii) Seules la $i$-ème et $j$-ème variables sont explicitées ci-après. Par n-linéarité et caractère alterné de $f$ :\\par $f(\\ldots, x_i + x_j, \\ldots, x_i + x_j, \\ldots) = f(\\ldots, x_i, \\ldots, x_i, \\ldots) + f(\\ldots, x_i, \\ldots, x_j, \\ldots) + f(\\ldots, x_j, \\ldots, x_i, \\ldots) + f(\\ldots, x_j, \\ldots, x_j, \\ldots)$\\par donc $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Décomposition d'une permutation en produit de transpositions.",
+      "programme_notion": "Décomposition d'une permutation en produit de transpositions",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "$\\mathfrak{S}_n$ est engendré par ses transpositions. En d'autres termes, toute permutation de $\\llbracket 1, n \rrbracket$ peut être décomposée comme un produit de transpositions.\\par\\par En d'autres termes, quand on permute $n$ objets — quelle que soit la complexité apparente de la permutation — on peut toujours le faire pas à pas par des échanges de deux objets.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_010",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Décomposition d'une permutation en produit de transpositions.",
+      "programme_notion": "Décomposition d'une permutation en produit de transpositions",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "Sachant que $\\mathfrak{S}_n$ est engendré par ses cycles, il nous suffit de montrer que tout cycle est un produit de transpositions. Or pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$.\\par\\par Attention, la décomposition d'une permutation en produit de transpositions n'est pas du tout unique, par exemple :\\par $(1 \\; 2 \\; 3) = (1 \\; 2)(2 \\; 3) = (1 \\; 3)(1 \\; 2)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_011",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Signature : unique morphisme S_n → {-1,1} envoyant toute transposition sur -1.",
+      "programme_notion": "Signature : unique morphisme S_n → {-1,1} envoyant toute transposition sur -1",
+      "answer_node_id": "determinants__definition_theoreme_signature",
+      "answer_latex": "— Signature : Il existe un et un seul morphisme de groupes de $\\mathfrak{S}_n$ dans $\\{\\pm 1\\}$ qui donne à toute transposition la valeur $-1$. On le note $\u000barepsilon$ et on l'appelle la signature de $\\mathfrak{S}_n$.\\par — Permutation paire/impaire : Pour tout $\\sigma \\in \\mathfrak{S}_n$, on dit que $\\sigma$ est paire si $\u000barepsilon(\\sigma) = 1$ et impaire si $\u000barepsilon(\\sigma) = -1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_012",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Signature : unique morphisme S_n → {-1,1} envoyant toute transposition sur -1.",
+      "programme_notion": "Signature : unique morphisme S_n → {-1,1} envoyant toute transposition sur -1",
+      "answer_node_id": "determinants__definition_theoreme_signature",
+      "answer_latex": "— Signature : Il existe un et un seul morphisme de groupes de $\\mathfrak{S}_n$ dans $\\{\\pm 1\\}$ qui donne à toute transposition la valeur $-1$. On le note $\u000barepsilon$ et on l'appelle la signature de $\\mathfrak{S}_n$.\\par — Permutation paire/impaire : Pour tout $\\sigma \\in \\mathfrak{S}_n$, on dit que $\\sigma$ est paire si $\u000barepsilon(\\sigma) = 1$ et impaire si $\u000barepsilon(\\sigma) = -1$.\n\n\\textbf{Démonstration.} — Notons $P$ l'ensemble des paires $\\{i, j\\}$ d'entiers $i, j \\in \\llbracket 1, n \rrbracket$ distincts, et pour toute permutation $\\sigma \\in \\mathfrak{S}_n$, $\\mu_\\sigma : P \\longrightarrow P$ l'application $\\{i, j\\} \\longmapsto \\{\\sigma(i), \\sigma(j)\\}$ bijective de réciproque $\\mu_{\\sigma^{-1}}$. Cette bijectivité nous autorise à effectuer le changement d'indice $\\{u, v\\} = \\mu_\\sigma\\{i, j\\}$ :\\par $\frac{|\\sigma(j) - \\sigma(i)|}{|j - i|} = \frac{|v - u|}{|v - u|} = \frac{|j - i|}{|j - i|} = 1$. Ainsi, le produit $\u000barepsilon(\\sigma) = \\prod_{\\{i,j\\} \\in P} \frac{\\sigma(j) - \\sigma(i)}{j - i}$ vaut $\\pm 1$.\\par\\par — Montrons que $\u000barepsilon$ est un morphisme de groupes. Pour tous $\\sigma, \\sigma' \\in \\mathfrak{S}_n$ :\\par $\u000barepsilon(\\sigma\\sigma') = \\prod_{\\{i,j\\} \\in P} \frac{\\sigma\\sigma'(j) - \\sigma\\sigma'(i)}{j - i} = \\prod_{\\{i,j\\} \\in P} \frac{\\sigma\\sigma'(j) - \\sigma\\sigma'(i)}{\\sigma'(j) - \\sigma'(i)} \times \\prod_{\\{i,j\\} \\in P} \frac{\\sigma'(j) - \\sigma'(i)}{j - i} = \u000barepsilon(\\sigma)\u000barepsilon(\\sigma')$ via le changement d'indice $\\{u, v\\} = \\mu_{\\sigma'}\\{i, j\\}$.\\par\\par — Soit $\tau = (a \\; b) \\in \\mathfrak{S}_n$ une transposition avec $a < b$. Pour montrer que $\u000barepsilon(\tau) = -1$, passons simplement en revue les termes du produit qui définit $\u000barepsilon(\tau)$.\\par — Si $\\{i, j\\}$ ne contient ni $a$ ni $b$, alors $\frac{\tau(j) - \tau(i)}{j - i} = \frac{j - i}{j - i} = 1$.\\par — Pour tout $i \\in \\llbracket 1, n \rrbracket$ distinct de $a$ et $b$, regroupons les termes d'indices $\\{i, a\\}$ et $\\{i, b\\}$. Leur contribution au produit vaut $\frac{\tau(a) - \tau(i)}{a - i} \times \frac{\tau(b) - \tau(i)}{b - i} = \frac{b - i}{a - i} \times \frac{a - i}{b - i} = 1$.\\par — Pour finir, le terme d'indice $\\{a, b\\}$ vaut $-1$ car $\frac{\tau(b) - \tau(a)}{b - a} = \frac{a - b}{b - a} = -1$.\\par Finalement, $\u000barepsilon(\tau) = -1$ par produit.\\par\\par — Pour l'unicité de la signature, soient $\\eta$ et $\\eta'$ deux morphismes de groupes de $\\mathfrak{S}_n$ dans $\\{\\pm 1\\}$ qui envoient toute transposition sur $-1$. Pour tout $\\sigma \\in \\mathfrak{S}_n$, $\\sigma = \tau_1 \\ldots \tau_p$ pour certaines transpositions $\tau_1, \\ldots, \tau_p$, donc $\\eta(\\sigma) = \\eta(\tau_1) \\ldots \\eta(\tau_p) = (-1)^p = \\eta'(\tau_1) \\ldots \\eta'(\tau_p) = \\eta'(\tau_1 \\ldots \tau_p) = \\eta'(\\sigma)$. Comme voulu, $\\eta = \\eta'$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_013",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Forme n-linéaire alternée sur un K-espace vectoriel de dimension n.",
+      "programme_notion": "Forme n-linéaire alternée sur un K-espace vectoriel de dimension n",
+      "answer_node_id": "determinants__theorem_effet_permutation_forme_multilineaire",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$. Pour tous $x_1, \\ldots, x_n \\in E$ et $\\sigma \\in \\mathfrak{S}_n$ :\\par $f(x_{\\sigma(1)}, \\ldots, x_{\\sigma(n)}) = \u000barepsilon(\\sigma) f(x_1, \\ldots, x_n)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_014",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Forme n-linéaire alternée sur un K-espace vectoriel de dimension n.",
+      "programme_notion": "Forme n-linéaire alternée sur un K-espace vectoriel de dimension n",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "Sachant que $\\mathfrak{S}_n$ est engendré par ses cycles, il nous suffit de montrer que tout cycle est un produit de transpositions. Or pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$.\\par\\par Attention, la décomposition d'une permutation en produit de transpositions n'est pas du tout unique, par exemple :\\par $(1 \\; 2 \\; 3) = (1 \\; 2)(2 \\; 3) = (1 \\; 3)(1 \\; 2)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_015",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Motivation par les notions d'aire et volume algébriques.",
+      "programme_notion": "Motivation par les notions d'aire et volume algébriques",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "$\\mathfrak{S}_n$ est engendré par ses transpositions. En d'autres termes, toute permutation de $\\llbracket 1, n \rrbracket$ peut être décomposée comme un produit de transpositions.\\par\\par En d'autres termes, quand on permute $n$ objets — quelle que soit la complexité apparente de la permutation — on peut toujours le faire pas à pas par des échanges de deux objets.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_016",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Motivation par les notions d'aire et volume algébriques.",
+      "programme_notion": "Motivation par les notions d'aire et volume algébriques",
+      "answer_node_id": "determinants__theorem_signature_cycle",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$ et cette décomposition fait intervenir $p-1$ transpositions, donc $\u000barepsilon((x_1 \\ldots x_p)) = (-1)^{p-1}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_017",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Antisymétrie, effet d'une permutation.",
+      "programme_notion": "Antisymétrie, effet d'une permutation",
+      "answer_node_id": "determinants__theorem_effet_permutation_forme_multilineaire",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$. Pour tous $x_1, \\ldots, x_n \\in E$ et $\\sigma \\in \\mathfrak{S}_n$ :\\par $f(x_{\\sigma(1)}, \\ldots, x_{\\sigma(n)}) = \u000barepsilon(\\sigma) f(x_1, \\ldots, x_n)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_018",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Antisymétrie, effet d'une permutation.",
+      "programme_notion": "Antisymétrie, effet d'une permutation",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "Sachant que $\\mathfrak{S}_n$ est engendré par ses cycles, il nous suffit de montrer que tout cycle est un produit de transpositions. Or pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$.\\par\\par Attention, la décomposition d'une permutation en produit de transpositions n'est pas du tout unique, par exemple :\\par $(1 \\; 2 \\; 3) = (1 \\; 2)(2 \\; 3) = (1 \\; 3)(1 \\; 2)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_019",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si f est n-linéaire alternée et (x₁,...,x_n) liée, alors f(x₁,...,x_n) = 0.",
+      "programme_notion": "Si f est n-linéaire alternée et (x₁,...,x_n) liée, alors f(x₁,...,x_n) = 0",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_020",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Si f est n-linéaire alternée et (x₁,...,x_n) liée, alors f(x₁,...,x_n) = 0.",
+      "programme_notion": "Si f est n-linéaire alternée et (x₁,...,x_n) liée, alors f(x₁,...,x_n) = 0",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.\n\n\\textbf{Démonstration.} Résultat déjà prouvé : $f(x_1, \\ldots, x_n) = \\left(\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}\right) f(e_1, \\ldots, e_n)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_021",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence et unicité de det_e tel que det_e(e) = 1.",
+      "programme_notion": "Existence et unicité de det_e tel que det_e(e) = 1",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_022",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence et unicité de det_e tel que det_e(e) = 1.",
+      "programme_notion": "Existence et unicité de det_e tel que det_e(e) = 1",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.\n\n\\textbf{Démonstration.} Résultat déjà prouvé : $f(x_1, \\ldots, x_n) = \\left(\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}\right) f(e_1, \\ldots, e_n)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_023",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Toute forme n-linéaire alternée est multiple de det_e.",
+      "programme_notion": "Toute forme n-linéaire alternée est multiple de det_e",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_024",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Toute forme n-linéaire alternée est multiple de det_e.",
+      "programme_notion": "Toute forme n-linéaire alternée est multiple de det_e",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.\n\n\\textbf{Démonstration.} Résultat déjà prouvé : $f(x_1, \\ldots, x_n) = \\left(\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}\right) f(e_1, \\ldots, e_n)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_025",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression du déterminant dans une base en fonction des coordonnées.",
+      "programme_notion": "Expression du déterminant dans une base en fonction des coordonnées",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_026",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Expression du déterminant dans une base en fonction des coordonnées.",
+      "programme_notion": "Expression du déterminant dans une base en fonction des coordonnées",
+      "answer_node_id": "determinants__theorem_forme_multilineaire_multiple_determinant",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$, $\\mathcal{B}$ une base de $E$ et $f$ une forme $n$-alternée de $E^n$. Alors $f = f(\\mathcal{B})\\det_\\mathcal{B}$.\\par\\par On peut exprimer le résultat de façon plus abstraite en disant que l'ensemble des formes $n$-linéaires alternées d'un $\\mathbb{K}$-espace vectoriel $E$ de dimension $n$ est une droite vectorielle engendrée par $\\det_\\mathcal{B}$ pour toute base $\\mathcal{B}$ de $E$.\n\n\\textbf{Démonstration.} Résultat déjà prouvé : $f(x_1, \\ldots, x_n) = \\left(\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}\right) f(e_1, \\ldots, e_n)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_027",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation dans R² et R³ : aire et volume orientés.",
+      "programme_notion": "Interprétation dans R² et R³ : aire et volume orientés",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_028",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Interprétation dans R² et R³ : aire et volume orientés.",
+      "programme_notion": "Interprétation dans R² et R³ : aire et volume orientés",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.\n\n\\textbf{Démonstration.} — Caractère alterné : Nous supposerons pour simplifier que le corps $\\mathbb{K}$ n'est pas de caractéristique 2, i.e. que $2 \neq 0$ dans $\\mathbb{K}$. Soient $x_1, \\ldots, x_n \\in E$. Faisons l'hypothèse que $x_u = x_v$ pour certains $u, v \\in \\llbracket 1, n \rrbracket$ distincts et posons $\tau = (u \\; v)$. Dans le calcul suivant, on effectue le changement d'indice $j = \tau(i)$ associé à la bijection $\tau$, puis le changement d'indice $\theta = \\sigma\tau^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma\tau^{-1}$ de $\\mathfrak{S}_n$ sur lui-même.\\par $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = \\det_\\mathcal{B}(x_{\tau(1)}, \\ldots, x_{\tau(n)}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)\tau(i)} \\stackrel{j = \tau(i)}{=} \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{\\sigma\tau^{-1}(j)j}$\\par $\\stackrel{\theta = \\sigma\tau^{-1}}{=} \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta\tau) \\prod_{j=1}^n a_{\theta(j)j} = \u000barepsilon(\tau) \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta) \\prod_{j=1}^n a_{\theta(j)j} = -\\det_\\mathcal{B}(x_1, \\ldots, x_n)$, donc $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = 0$ car $2 \neq 0$.\\par\\par — Calcul de $\\det_\\mathcal{B}(\\mathcal{B})$ : Sachant que $\text{Mat}_\\mathcal{B}(\\mathcal{B}) = I_n$, $b_{\\sigma(i)i} = 0$ pour tout $\\sigma \\in \\mathfrak{S}_n \\setminus \\{\text{Id}\\}$ car l'un des termes de ce produit au moins est nul. Par conséquent :\\par $\\det_\\mathcal{B}(\\mathcal{B}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n b_{\\sigma(i)i} = \u000barepsilon(\text{Id}) \\prod_{i=1}^n b_{\text{Id}(i)i} = 1$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_029",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Comparaison de det_e et det_{e'} pour deux bases e, e'.",
+      "programme_notion": "Comparaison de det_e et det_{e'} pour deux bases e, e'",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_030",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Comparaison de det_e et det_{e'} pour deux bases e, e'.",
+      "programme_notion": "Comparaison de det_e et det_{e'} pour deux bases e, e'",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.\n\n\\textbf{Démonstration.} Soient $\\mathcal{B}$, $\\mathcal{B}'$ et $\\mathcal{B}''$ trois bases de $E$.\\par — Réflexivité : $\\det_\\mathcal{B}(\\mathcal{B}) = 1 > 0$.\\par — Symétrie : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$, donc $\\det_{\\mathcal{B}'}(\\mathcal{B}) = \frac{1}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$, autrement dit $\\mathcal{B}$ a la même orientation que $\\mathcal{B}'$.\\par — Transitivité : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ et si $\\mathcal{B}''$ a la même que $\\mathcal{B}'$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$ et $\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\det_\\mathcal{B}(\\mathcal{B}'') = \\det_\\mathcal{B}(\\mathcal{B}')\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\mathcal{B}''$ a la même orientation que $\\mathcal{B}$.\\par — Deux classes d'équivalence : Il s'agit de montrer que si $\\mathcal{B}$ n'a pas la même orientation que $\\mathcal{B}'$ et $\\mathcal{B}''$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation. Or en effet, si $\\det_\\mathcal{B}(\\mathcal{B}') < 0$ et $\\det_\\mathcal{B}(\\mathcal{B}'') < 0$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation car $\\det_{\\mathcal{B}'}(\\mathcal{B}'') = \\det_{\\mathcal{B}'}(\\mathcal{B})\\det_\\mathcal{B}(\\mathcal{B}'') = \frac{\\det_\\mathcal{B}(\\mathcal{B}'')}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_031",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des bases : det_e(x₁,...,x_n) ≠ 0.",
+      "programme_notion": "Caractérisation des bases : det_e(x₁,...,x_n) ≠ 0",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_032",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des bases : det_e(x₁,...,x_n) ≠ 0.",
+      "programme_notion": "Caractérisation des bases : det_e(x₁,...,x_n) ≠ 0",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.\n\n\\textbf{Démonstration.} (i) Soit $(x_1, \\ldots, x_n)$ une famille liée de $E$, avec disons $x_k = \\sum_{i \neq k} \\lambda_i x_i$ pour un certain $k \\in \\llbracket 1, n \rrbracket$ et pour certains $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Alors :\\par $f(x_1, \\ldots, x_n) = f\\left(\\ldots, x_{k-1}, \\sum_{i \neq k} \\lambda_i x_i, x_{k+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i \neq k} \\lambda_i f(\\ldots, x_{k-1}, x_i, x_{k+1}, \\ldots) = 0$ car $x_i$ figure 2 fois.\\par\\par (ii) Soient $x_1, \\ldots, x_n \\in E$ et $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Seule la $k$-ème variable est explicitée ci-après :\\par $f\\left(\\ldots, x_k + \\sum_{i \neq k} \\lambda_i x_i, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} f(\\ldots, x_k, \\ldots) + \\sum_{i \neq k} \\lambda_i f(\\ldots, x_i, \\ldots) = f(\\ldots, x_k, \\ldots)$ car $x_i$ figure 2 fois.\\par\\par (iii) Seules la $i$-ème et $j$-ème variables sont explicitées ci-après. Par n-linéarité et caractère alterné de $f$ :\\par $f(\\ldots, x_i + x_j, \\ldots, x_i + x_j, \\ldots) = f(\\ldots, x_i, \\ldots, x_i, \\ldots) + f(\\ldots, x_i, \\ldots, x_j, \\ldots) + f(\\ldots, x_j, \\ldots, x_i, \\ldots) + f(\\ldots, x_j, \\ldots, x_j, \\ldots)$\\par donc $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_033",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant d'un endomorphisme.",
+      "programme_notion": "Déterminant d'un endomorphisme",
+      "answer_node_id": "determinants__definition_theoreme_determinant_endomorphisme",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u \\in \\mathcal{L}(E)$. Le scalaire $\\det_\\mathcal{B}(u(\\mathcal{B})) = \\det(\text{Mat}_\\mathcal{B}(u))$ ne dépend pas de la base $\\mathcal{B}$ choisie pour le calculer. On l'appelle déterminant de $u$, noté $\\det(u)$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_034",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant d'un endomorphisme.",
+      "programme_notion": "Déterminant d'un endomorphisme",
+      "answer_node_id": "determinants__definition_theoreme_determinant_endomorphisme",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u \\in \\mathcal{L}(E)$. Le scalaire $\\det_\\mathcal{B}(u(\\mathcal{B})) = \\det(\text{Mat}_\\mathcal{B}(u))$ ne dépend pas de la base $\\mathcal{B}$ choisie pour le calculer. On l'appelle déterminant de $u$, noté $\\det(u)$.\n\n\\textbf{Démonstration.} Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, les matrices $\text{Mat}_\\mathcal{B}(u)$ et $\text{Mat}_{\\mathcal{B}'}(u)$ ont le même déterminant car elles sont semblables.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant d'une composée.",
+      "programme_notion": "Déterminant d'une composée",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_036",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant d'une composée.",
+      "programme_notion": "Déterminant d'une composée",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.\n\n\\textbf{Démonstration.} — Caractère alterné : Nous supposerons pour simplifier que le corps $\\mathbb{K}$ n'est pas de caractéristique 2, i.e. que $2 \neq 0$ dans $\\mathbb{K}$. Soient $x_1, \\ldots, x_n \\in E$. Faisons l'hypothèse que $x_u = x_v$ pour certains $u, v \\in \\llbracket 1, n \rrbracket$ distincts et posons $\tau = (u \\; v)$. Dans le calcul suivant, on effectue le changement d'indice $j = \tau(i)$ associé à la bijection $\tau$, puis le changement d'indice $\theta = \\sigma\tau^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma\tau^{-1}$ de $\\mathfrak{S}_n$ sur lui-même.\\par $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = \\det_\\mathcal{B}(x_{\tau(1)}, \\ldots, x_{\tau(n)}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)\tau(i)} \\stackrel{j = \tau(i)}{=} \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{\\sigma\tau^{-1}(j)j}$\\par $\\stackrel{\theta = \\sigma\tau^{-1}}{=} \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta\tau) \\prod_{j=1}^n a_{\theta(j)j} = \u000barepsilon(\tau) \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta) \\prod_{j=1}^n a_{\theta(j)j} = -\\det_\\mathcal{B}(x_1, \\ldots, x_n)$, donc $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = 0$ car $2 \neq 0$.\\par\\par — Calcul de $\\det_\\mathcal{B}(\\mathcal{B})$ : Sachant que $\text{Mat}_\\mathcal{B}(\\mathcal{B}) = I_n$, $b_{\\sigma(i)i} = 0$ pour tout $\\sigma \\in \\mathfrak{S}_n \\setminus \\{\text{Id}\\}$ car l'un des termes de ce produit au moins est nul. Par conséquent :\\par $\\det_\\mathcal{B}(\\mathcal{B}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n b_{\\sigma(i)i} = \u000barepsilon(\text{Id}) \\prod_{i=1}^n b_{\text{Id}(i)i} = 1$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_037",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des automorphismes par le déterminant.",
+      "programme_notion": "Caractérisation des automorphismes par le déterminant",
+      "answer_node_id": "determinants__theorem_determinant_matrice_triangulaire_blocs",
+      "answer_latex": "Pour tous $A_1 \\in \\mathcal{M}_{p_1}(\\mathbb{K}), \\ldots, A_r \\in \\mathcal{M}_{p_r}(\\mathbb{K})$ :\\par $\begin{vmatrix} A_1 & \times & \\cdots & \times \\ & A_2 & \\ddots & \u000bdots \\ & & \\ddots & \times \\ & & & A_r \\end{vmatrix} = \begin{vmatrix} A_1 & & & \\ \times & A_2 & & \\ \u000bdots & \\ddots & \\ddots & \\ \times & \\cdots & \times & A_r \\end{vmatrix} = \\det(A_1) \\ldots \\det(A_r)$.\\par\\par En particulier, le déterminant d'une matrice triangulaire est le produit de ses coefficients diagonaux.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_038",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des automorphismes par le déterminant.",
+      "programme_notion": "Caractérisation des automorphismes par le déterminant",
+      "answer_node_id": "determinants__theorem_determinant_matrice_triangulaire_blocs",
+      "answer_latex": "Pour tous $A_1 \\in \\mathcal{M}_{p_1}(\\mathbb{K}), \\ldots, A_r \\in \\mathcal{M}_{p_r}(\\mathbb{K})$ :\\par $\begin{vmatrix} A_1 & \times & \\cdots & \times \\ & A_2 & \\ddots & \u000bdots \\ & & \\ddots & \times \\ & & & A_r \\end{vmatrix} = \begin{vmatrix} A_1 & & & \\ \times & A_2 & & \\ \u000bdots & \\ddots & \\ddots & \\ \times & \\cdots & \times & A_r \\end{vmatrix} = \\det(A_1) \\ldots \\det(A_r)$.\\par\\par En particulier, le déterminant d'une matrice triangulaire est le produit de ses coefficients diagonaux.\n\n\\textbf{Démonstration.} L'invariance par transposition permet de ne travailler qu'avec des matrices triangulaires supérieures par blocs.\\par\\par — Cas d'une matrice triangulaire tout court : Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$ triangulaire supérieure. Dans la relation $\\det(A) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$, si le terme associé à une permutation $\\sigma$ est non nul, alors $a_{\\sigma(i)i} \neq 0$ pour tout $i \\in \\llbracket 1, n \rrbracket$, donc $\\sigma(i) \\leq i$, mais nous montrons ci-dessous par récurrence forte qu'en réalité $\\sigma(i) = i$.\\par Initialisation : $\\sigma(1) = 1$ car $\\sigma(1) \\leq 1$ et $\\sigma(1) \\in \\llbracket 1, n \rrbracket$.\\par Hérédité : Soit $i \\in \\llbracket 1, n-1 \rrbracket$. On suppose que $\\sigma(j) = j$ pour tous $j \\in \\llbracket 1, i \rrbracket$. Que vaut $\\sigma(i+1)$ ? Nous savons d'une part que $\\sigma(i+1) \\leq i+1$, mais aussi d'autre part que $\\sigma(i+1) \notin \\llbracket 1, i \rrbracket$ par hypothèse de récurrence et injectivité de $\\sigma$, donc $\\sigma(i+1) = i+1$.\\par En d'autres termes, si le terme associé à une permutation $\\sigma$ est non nul dans la définition de $\\det(A)$, forcément $\\sigma = \text{Id}$. Comme voulu : $\\det(A) = \u000barepsilon(\text{Id})\\prod_{i=1}^n a_{\text{Id}(i)i} = a_1 \\ldots a_n$.\\par\\par — Cas d'une matrice triangulaire par blocs : Prouvons le résultat pour $r = 2$, le cas général s'en déduit par récurrence. Fixons $A \\in \\mathcal{M}_p(\\mathbb{K})$, $B \\in \\mathcal{M}_q(\\mathbb{K})$ et $X \\in \\mathcal{M}_{p,q}(\\mathbb{K})$, et notons $\\mathcal{B}_p$ (resp. $\\mathcal{B}_q$) la base canonique de $\\mathbb{K}^p$ (resp. $\\mathbb{K}^q$). On veut montrer que $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\det(A)\\det(B)$.\\par En notant $M$ la matrice de colonnes $M_1, \\ldots, M_p$, l'application $\\phi : (M_1, \\ldots, M_p) \\longmapsto \begin{vmatrix} M & X \\ 0 & B \\end{vmatrix}$ est une forme $p$-linéaire alternée de $\\mathbb{K}^p$, donc $\\phi = \\phi(\\mathcal{B}_p)\\det_{\\mathcal{B}_p}$. En particulier, en notant $A_1, \\ldots, A_p$ les colonnes de $A$ : $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\phi(A_1, \\ldots, A_p) = \\phi(\\mathcal{B}_p)\\det_{\\mathcal{B}_p}(A_1, \\ldots, A_p) = \begin{vmatrix} I_p & X \\ 0 & B \\end{vmatrix}\\det(A)$.\\par De même, en notant $N$ la matrice de lignes $N_1, \\ldots, N_q$, l'application $\\psi : (N_1, \\ldots, N_q) \\longmapsto \begin{vmatrix} I_p & X \\ 0 & N \\end{vmatrix}$ est une forme $q$-linéaire alternée de $\\mathbb{K}^q$, donc $\\psi = \\psi(\\mathcal{B}_q)\\det_{\\mathcal{B}_q}$. En particulier, en notant $B_1, \\ldots, B_q$ les lignes de $B$ : $\begin{vmatrix} I_p & X \\ 0 & B \\end{vmatrix} = \\det(A)\\psi(B_1, \\ldots, B_q) = \\det(A)\\psi(\\mathcal{B}_q)\\det_{\\mathcal{B}_q}(B_1, \\ldots, B_q) = \\det(A)\begin{vmatrix} I_p & X \\ 0 & I_q \\end{vmatrix}\\det(B)$, or la matrice $\begin{pmatrix} I_p & X \\ 0 & I_q \\end{pmatrix}$ est vraiment triangulaire de déterminant 1, donc $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\det(A)\\det(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_039",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant d'une matrice carrée.",
+      "programme_notion": "Déterminant d'une matrice carrée",
+      "answer_node_id": "determinants__definition_determinant_matrice_carree",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$. On appelle déterminant de $A$ le déterminant de la famille de ses colonnes dans la base canonique de $\\mathbb{K}^n$, noté $\\det(A)$ ou $\begin{vmatrix} a_{11} & \\cdots & a_{1n} \\ \u000bdots & & \u000bdots \\ a_{n1} & \\cdots & a_{nn} \\end{vmatrix}$.\\par\\par Par définition, donc : $\\det(A) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_040",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractère n-linéaire alterné par rapport aux colonnes.",
+      "programme_notion": "Caractère n-linéaire alterné par rapport aux colonnes",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_041",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractère n-linéaire alterné par rapport aux colonnes.",
+      "programme_notion": "Caractère n-linéaire alterné par rapport aux colonnes",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n = (E_1, \\ldots, E_n)$ la base canonique de $\\mathbb{K}^n$. Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $j \\in \\llbracket 1, n \rrbracket$ :\\par $\\det(A) = \\det_{\\mathcal{B}_n}(C_1, \\ldots, C_n) = \\det_{\\mathcal{B}_n}\\left(\\ldots, C_{j-1}, \\sum_{i=1}^n a_{ij}E_i, C_{j+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i=1}^n a_{ij}\\det_{\\mathcal{B}_n}(\\ldots, C_{j-1}, E_i, C_{j+1}, \\ldots)$\\par $= \\sum_{i=1}^n (-1)^{j-1}a_{ij}\begin{vmatrix} 0 & \\cdots & a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ 0 & \\cdots & a_{i,j-1} & a_{i,j+1} & \\cdots \\ 0 & \\cdots & a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (on échange la $j$-ème colonne avec la $(j-1)$-ème, puis la $(j-1)$-ème avec la $(j-2)$-ème, etc. Au total, $j-1$ échanges de colonnes, d'où le $(-1)^{j-1}$)\\par $= \\sum_{i=1}^n (-1)^{i-1}(-1)^{j-1}a_{ij}\begin{vmatrix} 1 & 0 & 0 & \\cdots \\ \u000bdots & \u000bdots & \u000bdots & \\ a_{i,j-1} & a_{i,j+1} & \\cdots \\ a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (même chose sur les lignes. La matrice obtenue est triangulaire par blocs)\\par $= \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_042",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant d'un produit : det(AB) = det(A)det(B).",
+      "programme_notion": "Déterminant d'un produit : det(AB) = det(A)det(B)",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_043",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant d'un produit : det(AB) = det(A)det(B).",
+      "programme_notion": "Déterminant d'un produit : det(AB) = det(A)det(B)",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n$ la base canonique de $\\mathbb{K}^n$.\\par\\par (i) L'application $\\det_{\\mathcal{B}_n}$ est $n$-linéaire, c'est tout !\\par\\par (ii) Notons $A_1, \\ldots, A_n$ les colonnes de $A$ et $B_1, \\ldots, B_n$ celles de $B$. Montrons que $\\phi : (C_1, \\ldots, C_n) \\longmapsto \\det_{\\mathcal{B}_n}(AC_1, \\ldots, AC_n)$ est une forme $n$-linéaire alternée de $(\\mathbb{K}^n)^n$, le résultat en découlera.\\par — Multilinéarité : Pour tous $k \\in \\llbracket 1, n \rrbracket$, $C_k, C'_k \\in \\mathbb{K}^n$ et $\\lambda \\in \\mathbb{K}$ — les autres variables étant fixées :\\par $\\phi(\\ldots, \\lambda C_k + C'_k, \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, A(\\lambda C_k + C'_k), \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, \\lambda AC_k + AC'_k, \\ldots) = \\lambda\\phi(\\ldots, C_k, \\ldots) + \\phi(\\ldots, C'_k, \\ldots)$.\\par — Caractère alterné : Si deux des colonnes $C_1, \\ldots, C_n$ sont égales, $\\phi(C_1, \\ldots, C_n) = 0$ car $\\det_{\\mathcal{B}_n}$ est alterné.\\par Sachant que $\\det_{\\mathcal{B}_n}$ est une base de la droite vectorielle des formes $n$-linéaires alternées de $(\\mathbb{K}^n)^n$ : $\\phi = \\phi(\\mathcal{B}_n)\\det_{\\mathcal{B}_n} = \\det_{\\mathcal{B}_n}(A_1, \\ldots, A_n)\\det_{\\mathcal{B}_n} = \\det(A)\\det_{\\mathcal{B}_n}$, donc $\\det(AB) = \\det_{\\mathcal{B}_n}(AB_1, \\ldots, AB_n) = \\phi(B_1, \\ldots, B_n) = \\det(A)\\det_{\\mathcal{B}_n}(B_1, \\ldots, B_n) = \\det(A)\\det(B)$.\\par\\par (iii) Pour les familles de vecteurs, le résultat a été démontré dans les paragraphes précédents et $A$ est inversible si et seulement si la famille de ses colonnes est une base de $\\mathbb{K}^n$.\\par\\par (iv) Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $P \\in \text{GL}_n(\\mathbb{K})$, $\\det(P^{-1}AP) = \\det(P)^{-1}\\det(A)\\det(P) = \\det(A)$ d'après (ii) et (iii).\\par\\par (v) On veut montrer que $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$. On effectue ci-dessous le changement d'indice $j = \\sigma(i)$ associé à la bijection $\\sigma$, puis le changement d'indice $\u000barphi = \\sigma^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma^{-1}$ de $\\mathfrak{S}_n$ sur $\\mathfrak{S}_n$ (de réciproque elle-même). Remarquons par ailleurs que pour tout $\u000barphi \\in \\mathfrak{S}_n$, $\u000barepsilon(\u000barphi) = \\pm 1$ donc $\u000barepsilon(\u000barphi^{-1}) = \u000barepsilon(\u000barphi)^{-1} = \u000barepsilon(\u000barphi)$.\\par $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{j\\sigma^{-1}(j)} \\stackrel{\u000barphi = \\sigma^{-1}}{=} \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi^{-1}) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_044",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation det(λA) = λ^n det(A).",
+      "programme_notion": "Relation det(λA) = λ^n det(A)",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_045",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation det(λA) = λ^n det(A).",
+      "programme_notion": "Relation det(λA) = λ^n det(A)",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.\n\n\\textbf{Démonstration.} Soient $\\mathcal{B}$, $\\mathcal{B}'$ et $\\mathcal{B}''$ trois bases de $E$.\\par — Réflexivité : $\\det_\\mathcal{B}(\\mathcal{B}) = 1 > 0$.\\par — Symétrie : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$, donc $\\det_{\\mathcal{B}'}(\\mathcal{B}) = \frac{1}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$, autrement dit $\\mathcal{B}$ a la même orientation que $\\mathcal{B}'$.\\par — Transitivité : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ et si $\\mathcal{B}''$ a la même que $\\mathcal{B}'$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$ et $\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\det_\\mathcal{B}(\\mathcal{B}'') = \\det_\\mathcal{B}(\\mathcal{B}')\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\mathcal{B}''$ a la même orientation que $\\mathcal{B}$.\\par — Deux classes d'équivalence : Il s'agit de montrer que si $\\mathcal{B}$ n'a pas la même orientation que $\\mathcal{B}'$ et $\\mathcal{B}''$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation. Or en effet, si $\\det_\\mathcal{B}(\\mathcal{B}') < 0$ et $\\det_\\mathcal{B}(\\mathcal{B}'') < 0$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation car $\\det_{\\mathcal{B}'}(\\mathcal{B}'') = \\det_{\\mathcal{B}'}(\\mathcal{B})\\det_\\mathcal{B}(\\mathcal{B}'') = \frac{\\det_\\mathcal{B}(\\mathcal{B}'')}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_046",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des matrices inversibles.",
+      "programme_notion": "Caractérisation des matrices inversibles",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_047",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractérisation des matrices inversibles.",
+      "programme_notion": "Caractérisation des matrices inversibles",
+      "answer_node_id": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel et $f$ une forme $n$-linéaire alternée de $E^n$.\\par\\par (i) $f$ est nulle sur toute famille liée.\\par (ii) On ne change pas la valeur de $f$ quand on ajoute à l'une de ses variables une combinaison linéaire des autres.\\par (iii) $f$ est antisymétrique, ce qui signifie que pour tous $x_1, \\ldots, x_n \\in E$ et $i, j \\in \\llbracket 1, n \rrbracket$ pour lesquels $i < j$ :\\par $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.\n\n\\textbf{Démonstration.} (i) Soit $(x_1, \\ldots, x_n)$ une famille liée de $E$, avec disons $x_k = \\sum_{i \neq k} \\lambda_i x_i$ pour un certain $k \\in \\llbracket 1, n \rrbracket$ et pour certains $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Alors :\\par $f(x_1, \\ldots, x_n) = f\\left(\\ldots, x_{k-1}, \\sum_{i \neq k} \\lambda_i x_i, x_{k+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i \neq k} \\lambda_i f(\\ldots, x_{k-1}, x_i, x_{k+1}, \\ldots) = 0$ car $x_i$ figure 2 fois.\\par\\par (ii) Soient $x_1, \\ldots, x_n \\in E$ et $\\lambda_1, \\ldots, \\lambda_{k-1}, \\lambda_{k+1}, \\ldots, \\lambda_n \\in \\mathbb{K}$. Seule la $k$-ème variable est explicitée ci-après :\\par $f\\left(\\ldots, x_k + \\sum_{i \neq k} \\lambda_i x_i, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} f(\\ldots, x_k, \\ldots) + \\sum_{i \neq k} \\lambda_i f(\\ldots, x_i, \\ldots) = f(\\ldots, x_k, \\ldots)$ car $x_i$ figure 2 fois.\\par\\par (iii) Seules la $i$-ème et $j$-ème variables sont explicitées ci-après. Par n-linéarité et caractère alterné de $f$ :\\par $f(\\ldots, x_i + x_j, \\ldots, x_i + x_j, \\ldots) = f(\\ldots, x_i, \\ldots, x_i, \\ldots) + f(\\ldots, x_i, \\ldots, x_j, \\ldots) + f(\\ldots, x_j, \\ldots, x_i, \\ldots) + f(\\ldots, x_j, \\ldots, x_j, \\ldots)$\\par donc $f(\\ldots, x_j, \\ldots, x_i, \\ldots) = -f(\\ldots, x_i, \\ldots, x_j, \\ldots)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_048",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : det induit un morphisme GL(E) → K* et GL_n(K) → K*.",
+      "programme_notion": "det induit un morphisme GL(E) → K* et GL_n(K) → K*",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_049",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : det induit un morphisme GL(E) → K* et GL_n(K) → K*.",
+      "programme_notion": "det induit un morphisme GL(E) → K* et GL_n(K) → K*",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n$ la base canonique de $\\mathbb{K}^n$.\\par\\par (i) L'application $\\det_{\\mathcal{B}_n}$ est $n$-linéaire, c'est tout !\\par\\par (ii) Notons $A_1, \\ldots, A_n$ les colonnes de $A$ et $B_1, \\ldots, B_n$ celles de $B$. Montrons que $\\phi : (C_1, \\ldots, C_n) \\longmapsto \\det_{\\mathcal{B}_n}(AC_1, \\ldots, AC_n)$ est une forme $n$-linéaire alternée de $(\\mathbb{K}^n)^n$, le résultat en découlera.\\par — Multilinéarité : Pour tous $k \\in \\llbracket 1, n \rrbracket$, $C_k, C'_k \\in \\mathbb{K}^n$ et $\\lambda \\in \\mathbb{K}$ — les autres variables étant fixées :\\par $\\phi(\\ldots, \\lambda C_k + C'_k, \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, A(\\lambda C_k + C'_k), \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, \\lambda AC_k + AC'_k, \\ldots) = \\lambda\\phi(\\ldots, C_k, \\ldots) + \\phi(\\ldots, C'_k, \\ldots)$.\\par — Caractère alterné : Si deux des colonnes $C_1, \\ldots, C_n$ sont égales, $\\phi(C_1, \\ldots, C_n) = 0$ car $\\det_{\\mathcal{B}_n}$ est alterné.\\par Sachant que $\\det_{\\mathcal{B}_n}$ est une base de la droite vectorielle des formes $n$-linéaires alternées de $(\\mathbb{K}^n)^n$ : $\\phi = \\phi(\\mathcal{B}_n)\\det_{\\mathcal{B}_n} = \\det_{\\mathcal{B}_n}(A_1, \\ldots, A_n)\\det_{\\mathcal{B}_n} = \\det(A)\\det_{\\mathcal{B}_n}$, donc $\\det(AB) = \\det_{\\mathcal{B}_n}(AB_1, \\ldots, AB_n) = \\phi(B_1, \\ldots, B_n) = \\det(A)\\det_{\\mathcal{B}_n}(B_1, \\ldots, B_n) = \\det(A)\\det(B)$.\\par\\par (iii) Pour les familles de vecteurs, le résultat a été démontré dans les paragraphes précédents et $A$ est inversible si et seulement si la famille de ses colonnes est une base de $\\mathbb{K}^n$.\\par\\par (iv) Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $P \\in \text{GL}_n(\\mathbb{K})$, $\\det(P^{-1}AP) = \\det(P)^{-1}\\det(A)\\det(P) = \\det(A)$ d'après (ii) et (iii).\\par\\par (v) On veut montrer que $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$. On effectue ci-dessous le changement d'indice $j = \\sigma(i)$ associé à la bijection $\\sigma$, puis le changement d'indice $\u000barphi = \\sigma^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma^{-1}$ de $\\mathfrak{S}_n$ sur $\\mathfrak{S}_n$ (de réciproque elle-même). Remarquons par ailleurs que pour tout $\u000barphi \\in \\mathfrak{S}_n$, $\u000barepsilon(\u000barphi) = \\pm 1$ donc $\u000barepsilon(\u000barphi^{-1}) = \u000barepsilon(\u000barphi)^{-1} = \u000barepsilon(\u000barphi)$.\\par $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{j\\sigma^{-1}(j)} \\stackrel{\u000barphi = \\sigma^{-1}}{=} \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi^{-1}) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_050",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Déterminant d'une transposée : det(A^T) = det(A).",
+      "programme_notion": "Déterminant d'une transposée : det(A^T) = det(A)",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_051",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant d'une transposée : det(A^T) = det(A).",
+      "programme_notion": "Déterminant d'une transposée : det(A^T) = det(A)",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.\n\n\\textbf{Démonstration.} — Caractère alterné : Nous supposerons pour simplifier que le corps $\\mathbb{K}$ n'est pas de caractéristique 2, i.e. que $2 \neq 0$ dans $\\mathbb{K}$. Soient $x_1, \\ldots, x_n \\in E$. Faisons l'hypothèse que $x_u = x_v$ pour certains $u, v \\in \\llbracket 1, n \rrbracket$ distincts et posons $\tau = (u \\; v)$. Dans le calcul suivant, on effectue le changement d'indice $j = \tau(i)$ associé à la bijection $\tau$, puis le changement d'indice $\theta = \\sigma\tau^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma\tau^{-1}$ de $\\mathfrak{S}_n$ sur lui-même.\\par $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = \\det_\\mathcal{B}(x_{\tau(1)}, \\ldots, x_{\tau(n)}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)\tau(i)} \\stackrel{j = \tau(i)}{=} \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{\\sigma\tau^{-1}(j)j}$\\par $\\stackrel{\theta = \\sigma\tau^{-1}}{=} \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta\tau) \\prod_{j=1}^n a_{\theta(j)j} = \u000barepsilon(\tau) \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta) \\prod_{j=1}^n a_{\theta(j)j} = -\\det_\\mathcal{B}(x_1, \\ldots, x_n)$, donc $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = 0$ car $2 \neq 0$.\\par\\par — Calcul de $\\det_\\mathcal{B}(\\mathcal{B})$ : Sachant que $\text{Mat}_\\mathcal{B}(\\mathcal{B}) = I_n$, $b_{\\sigma(i)i} = 0$ pour tout $\\sigma \\in \\mathfrak{S}_n \\setminus \\{\text{Id}\\}$ car l'un des termes de ce produit au moins est nul. Par conséquent :\\par $\\det_\\mathcal{B}(\\mathcal{B}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n b_{\\sigma(i)i} = \u000barepsilon(\text{Id}) \\prod_{i=1}^n b_{\text{Id}(i)i} = 1$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_052",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractère n-linéaire alterné par rapport aux lignes.",
+      "programme_notion": "Caractère n-linéaire alterné par rapport aux lignes",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_053",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Caractère n-linéaire alterné par rapport aux lignes.",
+      "programme_notion": "Caractère n-linéaire alterné par rapport aux lignes",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n = (E_1, \\ldots, E_n)$ la base canonique de $\\mathbb{K}^n$. Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $j \\in \\llbracket 1, n \rrbracket$ :\\par $\\det(A) = \\det_{\\mathcal{B}_n}(C_1, \\ldots, C_n) = \\det_{\\mathcal{B}_n}\\left(\\ldots, C_{j-1}, \\sum_{i=1}^n a_{ij}E_i, C_{j+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i=1}^n a_{ij}\\det_{\\mathcal{B}_n}(\\ldots, C_{j-1}, E_i, C_{j+1}, \\ldots)$\\par $= \\sum_{i=1}^n (-1)^{j-1}a_{ij}\begin{vmatrix} 0 & \\cdots & a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ 0 & \\cdots & a_{i,j-1} & a_{i,j+1} & \\cdots \\ 0 & \\cdots & a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (on échange la $j$-ème colonne avec la $(j-1)$-ème, puis la $(j-1)$-ème avec la $(j-2)$-ème, etc. Au total, $j-1$ échanges de colonnes, d'où le $(-1)^{j-1}$)\\par $= \\sum_{i=1}^n (-1)^{i-1}(-1)^{j-1}a_{ij}\begin{vmatrix} 1 & 0 & 0 & \\cdots \\ \u000bdots & \u000bdots & \u000bdots & \\ a_{i,j-1} & a_{i,j+1} & \\cdots \\ a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (même chose sur les lignes. La matrice obtenue est triangulaire par blocs)\\par $= \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_054",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Effet des opérations élémentaires sur le déterminant.",
+      "programme_notion": "Effet des opérations élémentaires sur le déterminant",
+      "answer_node_id": "determinants__theorem_determinant_operations_elementaires",
+      "answer_latex": "Soient $i, j \\in \\llbracket 1, n \rrbracket$ avec $i \neq j$ et $\\lambda \\in \\mathbb{K}$.\\par — Les opérations élémentaires $L_i \\leftarrow L_i + \\lambda L_j$ et $C_j \\leftarrow C_j + \\lambda C_i$ ne modifient pas les déterminants.\\par — Les opérations élémentaires $L_i \\leftarrow \\lambda L_i$ et $C_j \\leftarrow \\lambda C_j$ multiplient les déterminants par $\\lambda$.\\par — Les opérations élémentaires $L_i \\leftrightarrow L_j$ et $C_j \\leftrightarrow C_i$ multiplient les déterminants par $-1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_055",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Effet des opérations élémentaires sur le déterminant.",
+      "programme_notion": "Effet des opérations élémentaires sur le déterminant",
+      "answer_node_id": "determinants__theorem_determinant_operations_elementaires",
+      "answer_latex": "Soient $i, j \\in \\llbracket 1, n \rrbracket$ avec $i \neq j$ et $\\lambda \\in \\mathbb{K}$.\\par — Les opérations élémentaires $L_i \\leftarrow L_i + \\lambda L_j$ et $C_j \\leftarrow C_j + \\lambda C_i$ ne modifient pas les déterminants.\\par — Les opérations élémentaires $L_i \\leftarrow \\lambda L_i$ et $C_j \\leftarrow \\lambda C_j$ multiplient les déterminants par $\\lambda$.\\par — Les opérations élémentaires $L_i \\leftrightarrow L_j$ et $C_j \\leftrightarrow C_i$ multiplient les déterminants par $-1$.\n\n\\textbf{Démonstration.} Fixons $A \\in \\mathcal{M}_n(\\mathbb{K})$ de colonnes $C_1, \\ldots, C_n$ et notons $\\mathcal{B}_n$ la base canonique de $\\mathbb{K}^n$.\\par — Par linéarité par rapport à la $j$-ème variable et caractère alterné de l'application $\\det_{\\mathcal{B}_n}$ : $\\det_{\\mathcal{B}_n}(\\ldots, C_j + \\lambda C_i, \\ldots) = \\det_{\\mathcal{B}_n}(C_1, \\ldots, C_n) + \\lambda\\det_{\\mathcal{B}_n}(\\ldots, C_i, \\ldots) = \\det(A) + 0 = \\det(A)$.\\par — Par linéarité par rapport à la $j$-ème variable : $\\det_{\\mathcal{B}_n}(\\ldots, \\lambda C_j, \\ldots) = \\lambda\\det_{\\mathcal{B}_n}(C_1, \\ldots, C_n) = \\lambda\\det(A)$.\\par — Par caractère alterné : $\\det_{\\mathcal{B}_n}(\\ldots, C_j, \\ldots, C_i, \\ldots) = -\\det_{\\mathcal{B}_n}(\\ldots, C_i, \\ldots, C_j, \\ldots) = -\\det(A)$.\\par Il nous a suffi de montrer le résultat sur les colonnes car le déterminant est invariant par transposition.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_056",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cofacteur.",
+      "programme_notion": "Cofacteur",
+      "answer_node_id": "determinants__definition_mineurs_cofacteurs_comatrice",
+      "answer_latex": "Soient $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $i, j \\in \\llbracket 1, n \rrbracket$.\\par\\par — Mineurs : On appelle mineur de $A$ de position $(i, j)$ le déterminant de la matrice extraite de $A$ par suppression de sa $i$-ème ligne et de sa $j$-ème colonne. Nous le noterons $\\Delta_{ij}(A)$ dans ce cours, mais la notation n'est pas universelle.\\par\\par — Cofacteurs : On appelle cofacteur de $A$ de position $(i, j)$ le scalaire $(-1)^{i+j}\\Delta_{ij}(A)$.\\par\\par — Comatrice : On appelle comatrice de $A$ la matrice des cofacteurs de $A$ : $\text{com}(A) = ((-1)^{i+j}\\Delta_{ij}(A))_{1 \\leq i,j \\leq n}$.\\par\\par Le cofacteur de position $(i, j)$ est égal, au signe près, au mineur de même position — mais comment ces signes sont-ils distribués ? La matrice schématise leur distribution avec le motif $\begin{pmatrix} + & - & + & \\cdots \\ - & + & - & \\cdots \\ + & - & + & \\cdots \\ \u000bdots & \u000bdots & \u000bdots & \\ddots \\end{pmatrix}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_057",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Développement par rapport à une ligne ou une colonne.",
+      "programme_notion": "Développement par rapport à une ligne ou une colonne",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_058",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Développement par rapport à une ligne ou une colonne.",
+      "programme_notion": "Développement par rapport à une ligne ou une colonne",
+      "answer_node_id": "determinants__theorem_developpement_ligne_colonne",
+      "answer_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par — Développement par rapport à une ligne : Pour tout $i \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\\par\\par — Développement par rapport à une colonne : Pour tout $j \\in \\llbracket 1, n \rrbracket$ : $\\det(A) = \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n = (E_1, \\ldots, E_n)$ la base canonique de $\\mathbb{K}^n$. Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $j \\in \\llbracket 1, n \rrbracket$ :\\par $\\det(A) = \\det_{\\mathcal{B}_n}(C_1, \\ldots, C_n) = \\det_{\\mathcal{B}_n}\\left(\\ldots, C_{j-1}, \\sum_{i=1}^n a_{ij}E_i, C_{j+1}, \\ldots\right) \\stackrel{\text{n-linéarité}}{=} \\sum_{i=1}^n a_{ij}\\det_{\\mathcal{B}_n}(\\ldots, C_{j-1}, E_i, C_{j+1}, \\ldots)$\\par $= \\sum_{i=1}^n (-1)^{j-1}a_{ij}\begin{vmatrix} 0 & \\cdots & a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ 0 & \\cdots & a_{i,j-1} & a_{i,j+1} & \\cdots \\ 0 & \\cdots & a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (on échange la $j$-ème colonne avec la $(j-1)$-ème, puis la $(j-1)$-ème avec la $(j-2)$-ème, etc. Au total, $j-1$ échanges de colonnes, d'où le $(-1)^{j-1}$)\\par $= \\sum_{i=1}^n (-1)^{i-1}(-1)^{j-1}a_{ij}\begin{vmatrix} 1 & 0 & 0 & \\cdots \\ \u000bdots & \u000bdots & \u000bdots & \\ a_{i,j-1} & a_{i,j+1} & \\cdots \\ a_{i-1,j-1} & a_{i-1,j+1} & \\cdots \\ a_{i+1,j-1} & a_{i+1,j+1} & \\cdots \\end{vmatrix}$ (même chose sur les lignes. La matrice obtenue est triangulaire par blocs)\\par $= \\sum_{i=1}^n (-1)^{i+j} a_{ij} \\Delta_{ij}(A)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_059",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant d'une matrice triangulaire.",
+      "programme_notion": "Déterminant d'une matrice triangulaire",
+      "answer_node_id": "determinants__theorem_determinant_matrice_triangulaire_blocs",
+      "answer_latex": "Pour tous $A_1 \\in \\mathcal{M}_{p_1}(\\mathbb{K}), \\ldots, A_r \\in \\mathcal{M}_{p_r}(\\mathbb{K})$ :\\par $\begin{vmatrix} A_1 & \times & \\cdots & \times \\ & A_2 & \\ddots & \u000bdots \\ & & \\ddots & \times \\ & & & A_r \\end{vmatrix} = \begin{vmatrix} A_1 & & & \\ \times & A_2 & & \\ \u000bdots & \\ddots & \\ddots & \\ \times & \\cdots & \times & A_r \\end{vmatrix} = \\det(A_1) \\ldots \\det(A_r)$.\\par\\par En particulier, le déterminant d'une matrice triangulaire est le produit de ses coefficients diagonaux.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_060",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant d'une matrice triangulaire.",
+      "programme_notion": "Déterminant d'une matrice triangulaire",
+      "answer_node_id": "determinants__theorem_determinant_matrice_triangulaire_blocs",
+      "answer_latex": "Pour tous $A_1 \\in \\mathcal{M}_{p_1}(\\mathbb{K}), \\ldots, A_r \\in \\mathcal{M}_{p_r}(\\mathbb{K})$ :\\par $\begin{vmatrix} A_1 & \times & \\cdots & \times \\ & A_2 & \\ddots & \u000bdots \\ & & \\ddots & \times \\ & & & A_r \\end{vmatrix} = \begin{vmatrix} A_1 & & & \\ \times & A_2 & & \\ \u000bdots & \\ddots & \\ddots & \\ \times & \\cdots & \times & A_r \\end{vmatrix} = \\det(A_1) \\ldots \\det(A_r)$.\\par\\par En particulier, le déterminant d'une matrice triangulaire est le produit de ses coefficients diagonaux.\n\n\\textbf{Démonstration.} L'invariance par transposition permet de ne travailler qu'avec des matrices triangulaires supérieures par blocs.\\par\\par — Cas d'une matrice triangulaire tout court : Soit $A \\in \\mathcal{M}_n(\\mathbb{K})$ triangulaire supérieure. Dans la relation $\\det(A) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$, si le terme associé à une permutation $\\sigma$ est non nul, alors $a_{\\sigma(i)i} \neq 0$ pour tout $i \\in \\llbracket 1, n \rrbracket$, donc $\\sigma(i) \\leq i$, mais nous montrons ci-dessous par récurrence forte qu'en réalité $\\sigma(i) = i$.\\par Initialisation : $\\sigma(1) = 1$ car $\\sigma(1) \\leq 1$ et $\\sigma(1) \\in \\llbracket 1, n \rrbracket$.\\par Hérédité : Soit $i \\in \\llbracket 1, n-1 \rrbracket$. On suppose que $\\sigma(j) = j$ pour tous $j \\in \\llbracket 1, i \rrbracket$. Que vaut $\\sigma(i+1)$ ? Nous savons d'une part que $\\sigma(i+1) \\leq i+1$, mais aussi d'autre part que $\\sigma(i+1) \notin \\llbracket 1, i \rrbracket$ par hypothèse de récurrence et injectivité de $\\sigma$, donc $\\sigma(i+1) = i+1$.\\par En d'autres termes, si le terme associé à une permutation $\\sigma$ est non nul dans la définition de $\\det(A)$, forcément $\\sigma = \text{Id}$. Comme voulu : $\\det(A) = \u000barepsilon(\text{Id})\\prod_{i=1}^n a_{\text{Id}(i)i} = a_1 \\ldots a_n$.\\par\\par — Cas d'une matrice triangulaire par blocs : Prouvons le résultat pour $r = 2$, le cas général s'en déduit par récurrence. Fixons $A \\in \\mathcal{M}_p(\\mathbb{K})$, $B \\in \\mathcal{M}_q(\\mathbb{K})$ et $X \\in \\mathcal{M}_{p,q}(\\mathbb{K})$, et notons $\\mathcal{B}_p$ (resp. $\\mathcal{B}_q$) la base canonique de $\\mathbb{K}^p$ (resp. $\\mathbb{K}^q$). On veut montrer que $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\det(A)\\det(B)$.\\par En notant $M$ la matrice de colonnes $M_1, \\ldots, M_p$, l'application $\\phi : (M_1, \\ldots, M_p) \\longmapsto \begin{vmatrix} M & X \\ 0 & B \\end{vmatrix}$ est une forme $p$-linéaire alternée de $\\mathbb{K}^p$, donc $\\phi = \\phi(\\mathcal{B}_p)\\det_{\\mathcal{B}_p}$. En particulier, en notant $A_1, \\ldots, A_p$ les colonnes de $A$ : $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\phi(A_1, \\ldots, A_p) = \\phi(\\mathcal{B}_p)\\det_{\\mathcal{B}_p}(A_1, \\ldots, A_p) = \begin{vmatrix} I_p & X \\ 0 & B \\end{vmatrix}\\det(A)$.\\par De même, en notant $N$ la matrice de lignes $N_1, \\ldots, N_q$, l'application $\\psi : (N_1, \\ldots, N_q) \\longmapsto \begin{vmatrix} I_p & X \\ 0 & N \\end{vmatrix}$ est une forme $q$-linéaire alternée de $\\mathbb{K}^q$, donc $\\psi = \\psi(\\mathcal{B}_q)\\det_{\\mathcal{B}_q}$. En particulier, en notant $B_1, \\ldots, B_q$ les lignes de $B$ : $\begin{vmatrix} I_p & X \\ 0 & B \\end{vmatrix} = \\det(A)\\psi(B_1, \\ldots, B_q) = \\det(A)\\psi(\\mathcal{B}_q)\\det_{\\mathcal{B}_q}(B_1, \\ldots, B_q) = \\det(A)\begin{vmatrix} I_p & X \\ 0 & I_q \\end{vmatrix}\\det(B)$, or la matrice $\begin{pmatrix} I_p & X \\ 0 & I_q \\end{pmatrix}$ est vraiment triangulaire de déterminant 1, donc $\begin{vmatrix} A & X \\ 0 & B \\end{vmatrix} = \\det(A)\\det(B)$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_061",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Déterminant de Vandermonde.",
+      "programme_notion": "Déterminant de Vandermonde",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_062",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Déterminant de Vandermonde.",
+      "programme_notion": "Déterminant de Vandermonde",
+      "answer_node_id": "determinants__definition_theoreme_determinant_famille_vecteurs",
+      "answer_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension $n$ et $\\mathcal{B}$ une base de $E$. Pour toute famille $\\mathcal{X}$ de $n$ vecteurs de $E$ de matrice $A$ dans $\\mathcal{B}$, on appelle déterminant de $\\mathcal{X}$ dans $\\mathcal{B}$ le scalaire :\\par $\\det_\\mathcal{B}(\\mathcal{X}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i}$.\\par\\par L'application $\\det_\\mathcal{B}$ ainsi définie sur $E^n$ est une forme $n$-linéaire alternée de $E^n$ et $\\det_\\mathcal{B}(\\mathcal{B}) = 1$.\n\n\\textbf{Démonstration.} — Caractère alterné : Nous supposerons pour simplifier que le corps $\\mathbb{K}$ n'est pas de caractéristique 2, i.e. que $2 \neq 0$ dans $\\mathbb{K}$. Soient $x_1, \\ldots, x_n \\in E$. Faisons l'hypothèse que $x_u = x_v$ pour certains $u, v \\in \\llbracket 1, n \rrbracket$ distincts et posons $\tau = (u \\; v)$. Dans le calcul suivant, on effectue le changement d'indice $j = \tau(i)$ associé à la bijection $\tau$, puis le changement d'indice $\theta = \\sigma\tau^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma\tau^{-1}$ de $\\mathfrak{S}_n$ sur lui-même.\\par $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = \\det_\\mathcal{B}(x_{\tau(1)}, \\ldots, x_{\tau(n)}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)\tau(i)} \\stackrel{j = \tau(i)}{=} \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{\\sigma\tau^{-1}(j)j}$\\par $\\stackrel{\theta = \\sigma\tau^{-1}}{=} \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta\tau) \\prod_{j=1}^n a_{\theta(j)j} = \u000barepsilon(\tau) \\sum_{\theta \\in \\mathfrak{S}_n} \u000barepsilon(\theta) \\prod_{j=1}^n a_{\theta(j)j} = -\\det_\\mathcal{B}(x_1, \\ldots, x_n)$, donc $\\det_\\mathcal{B}(x_1, \\ldots, x_n) = 0$ car $2 \neq 0$.\\par\\par — Calcul de $\\det_\\mathcal{B}(\\mathcal{B})$ : Sachant que $\text{Mat}_\\mathcal{B}(\\mathcal{B}) = I_n$, $b_{\\sigma(i)i} = 0$ pour tout $\\sigma \\in \\mathfrak{S}_n \\setminus \\{\text{Id}\\}$ car l'un des termes de ce produit au moins est nul. Par conséquent :\\par $\\det_\\mathcal{B}(\\mathcal{B}) = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n b_{\\sigma(i)i} = \u000barepsilon(\text{Id}) \\prod_{i=1}^n b_{\text{Id}(i)i} = 1$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_063",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Lien avec les polynômes de Lagrange.",
+      "programme_notion": "Lien avec les polynômes de Lagrange",
+      "answer_node_id": "determinants__theorem_engendrement_transpositions",
+      "answer_latex": "$\\mathfrak{S}_n$ est engendré par ses transpositions. En d'autres termes, toute permutation de $\\llbracket 1, n \rrbracket$ peut être décomposée comme un produit de transpositions.\\par\\par En d'autres termes, quand on permute $n$ objets — quelle que soit la complexité apparente de la permutation — on peut toujours le faire pas à pas par des échanges de deux objets.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_064",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Lien avec les polynômes de Lagrange.",
+      "programme_notion": "Lien avec les polynômes de Lagrange",
+      "answer_node_id": "determinants__theorem_signature_cycle",
+      "answer_latex": "Pour tous $x_1, \\ldots, x_p \\in \\llbracket 1, n \rrbracket$ distincts :\\par $(x_1 \\ldots x_p) = (x_1 \\; x_2)(x_2 \\; x_3)\\ldots(x_{p-1} \\; x_p)$ et cette décomposition fait intervenir $p-1$ transpositions, donc $\u000barepsilon((x_1 \\ldots x_p)) = (-1)^{p-1}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_065",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Comatrice (notation Com(A)).",
+      "programme_notion": "Comatrice (notation Com(A))",
+      "answer_node_id": "determinants__definition_mineurs_cofacteurs_comatrice",
+      "answer_latex": "Soient $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $i, j \\in \\llbracket 1, n \rrbracket$.\\par\\par — Mineurs : On appelle mineur de $A$ de position $(i, j)$ le déterminant de la matrice extraite de $A$ par suppression de sa $i$-ème ligne et de sa $j$-ème colonne. Nous le noterons $\\Delta_{ij}(A)$ dans ce cours, mais la notation n'est pas universelle.\\par\\par — Cofacteurs : On appelle cofacteur de $A$ de position $(i, j)$ le scalaire $(-1)^{i+j}\\Delta_{ij}(A)$.\\par\\par — Comatrice : On appelle comatrice de $A$ la matrice des cofacteurs de $A$ : $\text{com}(A) = ((-1)^{i+j}\\Delta_{ij}(A))_{1 \\leq i,j \\leq n}$.\\par\\par Le cofacteur de position $(i, j)$ est égal, au signe près, au mineur de même position — mais comment ces signes sont-ils distribués ? La matrice schématise leur distribution avec le motif $\begin{pmatrix} + & - & + & \\cdots \\ - & + & - & \\cdots \\ + & - & + & \\cdots \\ \u000bdots & \u000bdots & \u000bdots & \\ddots \\end{pmatrix}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_066",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation A·Com(A)^T = Com(A)^T·A = det(A)·I_n.",
+      "programme_notion": "Relation A·Com(A)^T = Com(A)^T·A = det(A)·I_n",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_067",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation A·Com(A)^T = Com(A)^T·A = det(A)·I_n.",
+      "programme_notion": "Relation A·Com(A)^T = Com(A)^T·A = det(A)·I_n",
+      "answer_node_id": "determinants__definition_theoreme_orientation",
+      "answer_latex": "Soit $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle. Pour toutes bases $\\mathcal{B}$ et $\\mathcal{B}'$ de $E$, on dit que $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ si et seulement si $\\det_\\mathcal{B}(\\mathcal{B}') > 0$.\\par\\par La relation ainsi définie sur l'ensemble des bases de $E$ est une relation d'équivalence et possède exactement deux classes d'équivalence. Orienter $E$, c'est choisir arbitrairement d'appeler directes les bases de l'une des classes et indirectes les bases de l'autre.\\par\\par En particulier, on dit que $\\mathbb{R}^n$ est muni de son orientation canonique quand sa base canonique est décrétée directe.\n\n\\textbf{Démonstration.} Soient $\\mathcal{B}$, $\\mathcal{B}'$ et $\\mathcal{B}''$ trois bases de $E$.\\par — Réflexivité : $\\det_\\mathcal{B}(\\mathcal{B}) = 1 > 0$.\\par — Symétrie : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$, donc $\\det_{\\mathcal{B}'}(\\mathcal{B}) = \frac{1}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$, autrement dit $\\mathcal{B}$ a la même orientation que $\\mathcal{B}'$.\\par — Transitivité : Si $\\mathcal{B}'$ a la même orientation que $\\mathcal{B}$ et si $\\mathcal{B}''$ a la même que $\\mathcal{B}'$, alors $\\det_\\mathcal{B}(\\mathcal{B}') > 0$ et $\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\det_\\mathcal{B}(\\mathcal{B}'') = \\det_\\mathcal{B}(\\mathcal{B}')\\det_{\\mathcal{B}'}(\\mathcal{B}'') > 0$, donc $\\mathcal{B}''$ a la même orientation que $\\mathcal{B}$.\\par — Deux classes d'équivalence : Il s'agit de montrer que si $\\mathcal{B}$ n'a pas la même orientation que $\\mathcal{B}'$ et $\\mathcal{B}''$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation. Or en effet, si $\\det_\\mathcal{B}(\\mathcal{B}') < 0$ et $\\det_\\mathcal{B}(\\mathcal{B}'') < 0$, alors $\\mathcal{B}'$ et $\\mathcal{B}''$ ont la même orientation car $\\det_{\\mathcal{B}'}(\\mathcal{B}'') = \\det_{\\mathcal{B}'}(\\mathcal{B})\\det_\\mathcal{B}(\\mathcal{B}'') = \frac{\\det_\\mathcal{B}(\\mathcal{B}'')}{\\det_\\mathcal{B}(\\mathcal{B}')} > 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_068",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Expression de l'inverse d'une matrice inversible.",
+      "programme_notion": "Expression de l'inverse d'une matrice inversible",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "GROUPE_DET__qc_069",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Expression de l'inverse d'une matrice inversible.",
+      "programme_notion": "Expression de l'inverse d'une matrice inversible",
+      "answer_node_id": "determinants__theorem_premieres_proprietes_determinant_matrice",
+      "answer_latex": "Soient $A, B \\in \\mathcal{M}_n(\\mathbb{K})$.\\par\\par (i) Multilinéarité par rapport aux colonnes : L'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux colonnes de $A$.\\par En particulier, pour tout $\\lambda \\in \\mathbb{K}$ : $\\det(\\lambda A) = \\lambda^n \\det(A)$.\\par\\par (ii) Déterminant d'un produit : $\\det(AB) = \\det(A)\\det(B)$.\\par\\par (iii) Caractérisation de l'inversibilité : $A$ est inversible si et seulement si $\\det(A) \neq 0$.\\par Le cas échéant : $\\det(A^{-1}) = \frac{1}{\\det(A)}$.\\par\\par (iv) Invariance par similitude : Deux matrices semblables de $\\mathcal{M}_n(\\mathbb{K})$ ont même déterminant.\\par\\par (v) Invariance par transposition : $\\det(A^\top) = \\det(A)$.\\par A fortiori, l'application $A \\longmapsto \\det(A)$ sur $\\mathcal{M}_n(\\mathbb{K})$ est $n$-linéaire par rapport aux lignes de $A$.\\par\\par D'après (ii) et (iii), $\\det_{\text{GL}_n(\\mathbb{K})}$ est un morphisme de groupes de $\text{GL}_n(\\mathbb{K})$ dans $\\mathbb{K}^*$.\n\n\\textbf{Démonstration.} Notons $\\mathcal{B}_n$ la base canonique de $\\mathbb{K}^n$.\\par\\par (i) L'application $\\det_{\\mathcal{B}_n}$ est $n$-linéaire, c'est tout !\\par\\par (ii) Notons $A_1, \\ldots, A_n$ les colonnes de $A$ et $B_1, \\ldots, B_n$ celles de $B$. Montrons que $\\phi : (C_1, \\ldots, C_n) \\longmapsto \\det_{\\mathcal{B}_n}(AC_1, \\ldots, AC_n)$ est une forme $n$-linéaire alternée de $(\\mathbb{K}^n)^n$, le résultat en découlera.\\par — Multilinéarité : Pour tous $k \\in \\llbracket 1, n \rrbracket$, $C_k, C'_k \\in \\mathbb{K}^n$ et $\\lambda \\in \\mathbb{K}$ — les autres variables étant fixées :\\par $\\phi(\\ldots, \\lambda C_k + C'_k, \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, A(\\lambda C_k + C'_k), \\ldots) = \\det_{\\mathcal{B}_n}(\\ldots, \\lambda AC_k + AC'_k, \\ldots) = \\lambda\\phi(\\ldots, C_k, \\ldots) + \\phi(\\ldots, C'_k, \\ldots)$.\\par — Caractère alterné : Si deux des colonnes $C_1, \\ldots, C_n$ sont égales, $\\phi(C_1, \\ldots, C_n) = 0$ car $\\det_{\\mathcal{B}_n}$ est alterné.\\par Sachant que $\\det_{\\mathcal{B}_n}$ est une base de la droite vectorielle des formes $n$-linéaires alternées de $(\\mathbb{K}^n)^n$ : $\\phi = \\phi(\\mathcal{B}_n)\\det_{\\mathcal{B}_n} = \\det_{\\mathcal{B}_n}(A_1, \\ldots, A_n)\\det_{\\mathcal{B}_n} = \\det(A)\\det_{\\mathcal{B}_n}$, donc $\\det(AB) = \\det_{\\mathcal{B}_n}(AB_1, \\ldots, AB_n) = \\phi(B_1, \\ldots, B_n) = \\det(A)\\det_{\\mathcal{B}_n}(B_1, \\ldots, B_n) = \\det(A)\\det(B)$.\\par\\par (iii) Pour les familles de vecteurs, le résultat a été démontré dans les paragraphes précédents et $A$ est inversible si et seulement si la famille de ses colonnes est une base de $\\mathbb{K}^n$.\\par\\par (iv) Pour tous $A \\in \\mathcal{M}_n(\\mathbb{K})$ et $P \\in \text{GL}_n(\\mathbb{K})$, $\\det(P^{-1}AP) = \\det(P)^{-1}\\det(A)\\det(P) = \\det(A)$ d'après (ii) et (iii).\\par\\par (v) On veut montrer que $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$. On effectue ci-dessous le changement d'indice $j = \\sigma(i)$ associé à la bijection $\\sigma$, puis le changement d'indice $\u000barphi = \\sigma^{-1}$ associé à la bijection $\\sigma \\longmapsto \\sigma^{-1}$ de $\\mathfrak{S}_n$ sur $\\mathfrak{S}_n$ (de réciproque elle-même). Remarquons par ailleurs que pour tout $\u000barphi \\in \\mathfrak{S}_n$, $\u000barepsilon(\u000barphi) = \\pm 1$ donc $\u000barepsilon(\u000barphi^{-1}) = \u000barepsilon(\u000barphi)^{-1} = \u000barepsilon(\u000barphi)$.\\par $\\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{\\sigma(i)i} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{j=1}^n a_{j\\sigma^{-1}(j)} \\stackrel{\u000barphi = \\sigma^{-1}}{=} \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi^{-1}) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\u000barphi \\in \\mathfrak{S}_n} \u000barepsilon(\u000barphi) \\prod_{j=1}^n a_{j\u000barphi(j)} = \\sum_{\\sigma \\in \\mathfrak{S}_n} \u000barepsilon(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

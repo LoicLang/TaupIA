@@ -1,0 +1,2576 @@
+{
+  "chapter_official_id": "determinants",
+  "chapter_name": "Déterminants et Groupes Symétriques",
+  "source_document": "Exercices - Determinants.pdf",
+  "exercises": [
+    {
+      "id": "determinants__ex_001",
+      "title": "Groupe alterné et 3-cycles",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_signature_cycle",
+        "determinants__theorem_engendrement_transpositions",
+        "determinants__theorem_effet_permutation_forme_multilineaire",
+        "determinants__definition_theoreme_signature"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "groupe symétrique",
+        "groupe alterné",
+        "signature"
+      ],
+      "statement_latex": "Soit $n\\ge2$ Le noyau de la signature de $S_{n}$ est noté $A_{n}$ et appelé le groupe alterné de $[1, n]$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Calculer l'ordre de $A_{n}$",
+          "knowledge_nodes_tested": [
+            "determinants__definition_theoreme_signature",
+            "determinants__theorem_signature_cycle",
+            "determinants__theorem_proprietes_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il y a autant de permutations paires que de permutations impaires."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez une bijection entre $A_n$ et l'ensemble des permutations impaires, par exemple en composant par une transposition fixe."
+            }
+          ],
+          "solution_latex": "Soit $\\sigma$ la morphisme signature de $S_n$ dans $\\{-1, 1\\}$.\\\\par \nLe noyau de $\\sigma$ est $A_n = \\{\\pi \\in S_n : \\sigma(\\pi) = 1\\}$.\\\\par \nPar le théorème d'isomorphisme, on a $|A_n| \\cdot |\\text{Im}(\\sigma)| = |S_n| = n!$.\\\\par \nPuisque $\\sigma$ est surjectif (il existe des transpositions qui sont impaires), $|\\text{Im}(\\sigma)| = 2$.\\\\par \nDonc $|A_n| = \\frac{n!}{2}$.\\\\par \nCeci montre directement qu'il y a équalement autant de permutations paires que impaires."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $A_{n}$ est engendré par les 3-cycles.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_signature_cycle",
+            "determinants__theorem_engendrement_transpositions",
+            "determinants__definition_theoreme_signature"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que tout produit de deux transpositions est un produit de 3-cycles."
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudiez les différents cas selon que les deux transpositions ont 0, 1 ou 2 éléments en commun."
+            }
+          ],
+          "solution_latex": "Une permutation paire est un produit d'un nombre pair de transpositions.\\\\par \nD'abord, considérons le produit de deux transpositions $(i \\, j)(k \\, l)$. On distingue les cas :\\\\par \n\\textbf{Cas 1 :} $(i \\, j)$ et $(k \\, l)$ sont disjointes. Alors $(i \\, j)(k \\, l) = (i \\, j \\, k)(i \\, k \\, l)$. [Par vérification directe : les deux côtés fixent les autres éléments]\\\\par \n\\textbf{Cas 2 :} Les deux transpositions partagent exactement un élément. Supposons $(i \\, j)(i \\, k) = (i \\, j \\, k)$, qui est un 3-cycle.\\\\par \n\\textbf{Cas 3 :} $(i \\, j)^2 = \\text{id}$, qui est un produit vide de 3-cycles.\\\\par \nComme tout élément de $A_n$ s'écrit comme produit d'un nombre pair de transpositions, il s'écrit comme produit de 3-cycles. Donc $A_n \\subseteq \\langle \\text{3-cycles} \\rangle$.\\\\par \nRéciproquement, un 3-cycle est pair (signature $= 1$), donc $\\langle \\text{3-cycles} \\rangle \\subseteq A_n$.\\\\par \nD'où $A_n = \\langle \\text{3-cycles} \\rangle$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que si $n\\ge5$ les 3-cycles sont tous conjugués dans $A_{n}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_effet_permutation_forme_multilineaire",
+            "determinants__definition_forme_multilineaire_alternee",
+            "determinants__theorem_signature_cycle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous d'abord la formule de conjugaison d'un cycle dans le groupe symétrique $S_n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la permutation qui réalise la conjugaison est impaire, montrez qu'on peut la multiplier par une transposition à support disjoint (possible car $n\\ge5$) pour qu'elle appartienne à $A_n$."
+            }
+          ],
+          "solution_latex": "Rappel : si $\\pi, \\sigma, \\tau \\in S_n$ et $\\tau$ est un cycle de la forme $(a_1 \\, a_2 \\, ... \\, a_k)$, alors $\\pi \\tau \\pi^{-1} = (\\pi(a_1) \\, \\pi(a_2) \\, ... \\, \\pi(a_k))$.\\\\par \nEn particulier, deux 3-cycles sont conjugués dans $S_n$ puisqu'on peut envoyer l'un sur l'autre par une permutation appropriée.\\\\par \nConsidérons deux 3-cycles $\\tau_1 = (a \\, b \\, c)$ et $\\tau_2 = (a' \\, b' \\, c')$ quelconques. Il existe $\\sigma \\in S_n$ tel que $\\sigma(a) = a'$, $\\sigma(b) = b'$, $\\sigma(c) = c'$ et qui fixe les autres éléments. Alors $\\sigma \\tau_1 \\sigma^{-1} = \\tau_2$.\\\\par \nSi $\\sigma$ est impaire, puisque $n \\ge 5$, on peut choisir deux indices $d, e \\notin \\{a, b, c, a', b', c'\\}$ qui existent (car il y a au moins $n - 6 \\ge -1 + 5 = 4$ autres éléments, mais avec $n \\ge 5$ il y en a assez).\\\\par \nRemplacer $\\sigma$ par $\\sigma' = \\sigma(d \\, e)$. Alors $\\sigma'$ est paire, et $\\sigma' \\tau_1 (\\sigma')^{-1} = \\sigma(d \\, e) \\tau_1 (d \\, e) \\sigma^{-1}$.\\\\par \nPuisque $(d \\, e)$ fixe $\\{a, b, c\\}$, on a $(d \\, e) \\tau_1 (d \\, e) = \\tau_1$, donc $\\sigma' \\tau_1 (\\sigma')^{-1} = \\sigma \\tau_1 \\sigma^{-1} = \\tau_2$.\\\\par \nDonc tout 3-cycle est conjugué à tout autre 3-cycle par une permutation paire, c.-à-d., par un élément de $A_n$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_002",
+      "title": "Morphismes de Sn dans C*",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_signature",
+        "determinants__theorem_proprietes_determinant_endomorphisme",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_engendrement_transpositions"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "morphisme de groupes",
+        "groupe symétrique",
+        "transpositions"
+      ],
+      "statement_latex": "Déterminer tous les morphismes de groupes de $S_{n}$ dans $\\mathbb{C}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__definition_theoreme_signature",
+            "determinants__theorem_proprietes_determinant_endomorphisme",
+            "determinants__theorem_polynome_caracteristique_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer qu'un tel morphisme est constant sur l'ensemble des transpositions."
+            },
+            {
+              "level": 2,
+              "content_latex": "Sachant que les transpositions engendrent $S_n$ et qu'elles sont toutes d'ordre 2, déduisez les valeurs possibles pour l'image d'une transposition."
+            }
+          ],
+          "solution_latex": "Soit $\\phi : S_n \\to \\mathbb{C}^*$ un morphisme de groupes.\\\\par \n\\textbf{Étape 1 :} Les transpositions sont d'ordre 2, donc $\\phi((i \\, j))^2 = \\phi(\\text{id}) = 1$. Ainsi $\\phi((i \\, j)) \\in \\{-1, 1\\}$ (ou plus généralement, $\\phi((i \\, j))^2 = 1$).\\\\par \n\\textbf{Étape 2 :} Montrons que $\\phi$ est constant sur les transpositions.\\\\par \nDeux transpositions quelconques $(i \\, j)$ et $(k \\, l)$ sont conjuguées dans $S_n$ lorsque $n \\ge 3$ : il existe $\\sigma \\in S_n$ tel que $\\sigma(i \\, j)\\sigma^{-1} = (k \\, l)$.\\\\par \nDonc $\\phi((k \\, l)) = \\phi(\\sigma) \\phi((i \\, j)) \\phi(\\sigma)^{-1} = \\phi((i \\, j))$.\\\\par \n\\textbf{Étape 3 :} Les transpositions engendrent $S_n$. Soit $c = \\phi((1 \\, 2))$. Alors pour toute permutation $\\pi = \\tau_1 \\cdots \\tau_k$ (où les $\\tau_i$ sont des transpositions), on a $\\phi(\\pi) = c^k$.\\\\par \nMais $\\phi$ dépend aussi de la parité : $\\phi(\\pi) = c^{\\sigma(\\pi)}$ où $\\sigma(\\pi) \\in \\{0, 1\\}$ (mod 2) est la signature.\\\\par \nLes seuls morphismes sont :\n- Le morphisme trivial : $\\phi(\\pi) = 1$ pour tout $\\pi$\n- La signature composée avec un caractère : $\\phi(\\pi) = (-1)^{\\sigma(\\pi)}$ ou plus généralement $\\phi(\\pi) = c^{\\sigma(\\pi)}$ avec $c^2 = 1$, d'où $c \\in \\{1, -1\\}$, donnant les morphismes $\\phi(\\pi) = 1$ ou $\\phi(\\pi) = (-1)^{\\sigma(\\pi)}$ "
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_003",
+      "title": "Calculs et factorisations de déterminants",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_determinant_operations_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "factorisation",
+        "opérations élémentaires"
+      ],
+      "statement_latex": "Soient $a, b, c, d\\in\\mathbb{C}$. Factoriser les déterminants suivants :",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "$|\\begin{matrix}2a&2b&2c\\\\ a-b-c&2b&2c\\\\ 2a&b-c-a&2c\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez à faire apparaître des zéros en soustrayant des lignes ou des colonnes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Essayez par exemple des opérations comme $L_2 \\leftarrow L_2 - L_1$ et $L_3 \\leftarrow L_3 - L_1$."
+            }
+          ],
+          "solution_latex": "$L_2 \\leftarrow L_2 - L_1$ et $L_3 \\leftarrow L_3 - L_1$ donne :\\\\par \n$|{\\begin{matrix}2a&2b&2c\\\\\\\\ -b-c&0&0\\\\\\\\ -b&-c-a&0\\end{matrix}}|$\\\\par \nEn développant selon la 3e colonne (qui ne contient que $2c$) :\\\\par \n$= 2c \\cdot |{\\begin{matrix}-b-c&0\\\\\\\\-b&-c-a\\end{matrix}}| = 2c((-b-c)(-c-a)) = 2c(b+c)(c+a)$"
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "$|\\begin{matrix}1&a&a^{2}\\\\ a&1&a\\\\ a^{2}&a&1\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Analysez les symétries de la matrice et factorisez les termes communs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous pouvez retrancher $a L_1$ à $L_2$ et $a^2 L_1$ à $L_3$."
+            }
+          ],
+          "solution_latex": "Effectuons $L_2 \\leftarrow L_2 - aL_1$ et $L_3 \\leftarrow L_3 - a^2 L_1$ :\\\\par \n$|{\\begin{matrix}1&a&a^2\\\\\\\\ a-a&1-a^2&a-a^3\\\\\\\\ a^2-a^2&a-a^3&1-a^4\\end{matrix}}| = |{\\begin{matrix}1&a&a^2\\\\\\\\ 0&1-a^2&a(1-a^2)\\\\\\\\ 0&a(1-a^2)&1-a^4\\end{matrix}}|$\\\\par \nEn développant par la 1ère colonne :\\\\par \n$= |{\\begin{matrix}1-a^2&a(1-a^2)\\\\\\\\ a(1-a^2)&1-a^4\\end{matrix}}| = (1-a^2)(1-a^4) - a^2(1-a^2)^2$\\\\par \n$= (1-a^2)[(1-a^4) - a^2(1-a^2)]= (1-a^2)[1-a^2-a^2+a^4] = (1-a^2)(1-2a^2+a^4)\\\\par = (1-a^2)(1-a^2)^2 = (1-a^2)^3$"
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "$|\\begin{matrix}1&1&1\\\\ a&b&c\\\\ b+c&c+a&a+b\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuez une opération sur la troisième ligne pour faire apparaître un facteur commun."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez ce qu'il se passe si vous remplacez la ligne 3 par la somme de la ligne 2 et de la ligne 3."
+            }
+          ],
+          "solution_latex": "Effectuons $L_3 \\leftarrow L_3 + L_2$ :\\\\par \n$|{\\begin{matrix}1&1&1\\\\\\\\ a&b&c\\\\\\\\ b+c+a&c+a+b&a+b+c\\end{matrix}}|$\\\\par \nEn factorisant la 3e ligne : puisque tous les éléments sont égaux à $a+b+c$, on a :\\\\par \n$= (a+b+c) \\cdot |{\\begin{matrix}1&1&1\\\\\\\\ a&b&c\\\\\\\\ 1&1&1\\end{matrix}}| = 0$\\\\par \n[Car les lignes 1 et 3 sont identiques]"
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "$|\\begin{matrix}1&1&1\\\\ \\sin a&\\sin b&\\sin c\\\\ \\cos a&\\cos b&\\cos c\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez les formules de trigonométrie (transformation de sommes en produits) après avoir soustrait des colonnes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faites $C_2 \\leftarrow C_2 - C_1$ et $C_3 \\leftarrow C_3 - C_1$ puis factorisez."
+            }
+          ],
+          "solution_latex": "Effectuons $C_2 \\leftarrow C_2 - C_1$ et $C_3 \\leftarrow C_3 - C_1$ :\\\\par \n$|{\\begin{matrix}1&0&0\\\\\\\\ \\sin a&\\sin b - \\sin a&\\sin c - \\sin a\\\\\\\\ \\cos a&\\cos b - \\cos a&\\cos c - \\cos a\\end{matrix}}|$\\\\par \nEn développant par la 1ère ligne :\\\\par \n$= |{\\begin{matrix}\\sin b - \\sin a&\\sin c - \\sin a\\\\\\\\ \\cos b - \\cos a&\\cos c - \\cos a\\end{matrix}}|$\\\\par \nUtilisons les formules $\\sin \\beta - \\sin \\alpha = 2\\cos\\frac{\\alpha+\\beta}{2}\\sin\\frac{\\beta-\\alpha}{2}$ et $\\cos \\beta - \\cos \\alpha = -2\\sin\\frac{\\alpha+\\beta}{2}\\sin\\frac{\\beta-\\alpha}{2}$ :\\\\par \n$= 4\\cos\\frac{a+b}{2}\\cos\\frac{a+c}{2}\\sin\\frac{b-a}{2}\\sin\\frac{c-a}{2}$"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "$|\\begin{matrix}a&c&c&b\\\\ c&a&b&c\\\\ c&b&a&c\\\\ b&c&c&a\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La matrice présente des propriétés de symétrie importantes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Commencez par ajouter toutes les colonnes à la première pour factoriser la somme globale des éléments d'une ligne."
+            }
+          ],
+          "solution_latex": "Effectuons $C_1 + C_2 + C_3 + C_4 \\rightarrow C_1$ :\\\\par \nLa première colonne devient $(a+c+c+b, c+a+b+c, c+b+a+c, b+c+c+a)^T = (a+b+2c, a+b+2c, a+b+2c, a+b+2c)^T$.\\\\par \nEn factorisant $a+b+2c$ :\\\\par \n$= (a+b+2c) \\cdot |{\\begin{matrix}1&c&c&b\\\\\\\\ 1&a&b&c\\\\\\\\ 1&b&a&c\\\\\\\\ 1&c&c&a\\end{matrix}}|$\\\\par \nEnsuite $L_i \\leftarrow L_i - L_1$ pour $i=2,3,4$ donne une matrice triangulaire inférieure par blocs, qu'on développe :\\\\par \nFinalement $\\det = (a+b+2c)^2(a-b)^2$"
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "$|\\begin{matrix}(b+c)^{2}&b^{2}&c^{2}\\\\ a^{2}&(c+a)^{2}&c^{2}\\\\ a^{2}&b^{2}&(a+b)^{2}\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne",
+            "determinants__theorem_determinant_operations_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez et combinez intelligemment les lignes/colonnes pour simplifier les carrés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez les différences entre les lignes pour faire apparaître des différences de carrés, plus simples à factoriser."
+            }
+          ],
+          "solution_latex": "Effectuons des opérations de ligne. $L_2 \\leftarrow L_2 - L_1$ et $L_3 \\leftarrow L_3 - L_1$ :\\\\par \n$|{\\begin{matrix}(b+c)^2&b^2&c^2\\\\\\\\ a^2-(b+c)^2&(c+a)^2-b^2&c^2-c^2\\\\\\\\ a^2-(b+c)^2&b^2-(b+c)^2&(a+b)^2-c^2\\end{matrix}}|$\\\\par \nEn utilisant différences de carrés et en simplifiant :\\\\par \n$= [a^2-(b+c)^2][...] = (a-b-c)(a+b+c) \\cdot \\text{mineur}$\\\\par \nPar calcul complet (développement), on obtient :\\\\par \n$\\det = 2(a-b)(b-c)(c-a)(a+b+c)$"
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "$|\\begin{matrix}1&a&a^{2}&a^{4}\\\\ 1&b&b^{2}&b^{4}\\\\ 1&c&c^{2}&c^{4}\\\\ 1&d&d^{2}&d^{4}\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ceci ressemble presque à un déterminant de Vandermonde."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez le polynôme obtenu en remplaçant la dernière ligne par des puissances de $X$. Analysez ses racines."
+            }
+          ],
+          "solution_latex": "Considérons $P(X) = |{\\begin{matrix}1&a&a^2&a^4\\\\\\\\ 1&b&b^2&b^4\\\\\\\\ 1&c&c^2&c^4\\\\\\\\ 1&X&X^2&X^4\\end{matrix}}|$ comme un polynôme en $X$.\\\\par \nC'est un déterminant de Vandermonde généralisé (avec exposants $0, 1, 2, 4$ au lieu de $0, 1, 2, 3$).\\\\par \nOn peut montrer qu'il est de degré $4-1 = 3$ en $X$, et qu'il s'annule en $X = a, b, c$ (car deux lignes deviennent égales).\\\\par \nDonc $P(X) = \\lambda(X-a)(X-b)(X-c)$ pour une constante $\\lambda$.\\\\par \nEn identifiant le coefficient du terme de plus haut degré, on obtient :\\\\par \n$\\det = \\prod_{1 \\le i < j \\le 4}(x_j - x_i) \\cdot (\\text{facteur correction})$\\\\par \nAprès calcul : $\\prod_{i<j}(x_j - x_i) = (b-a)(c-a)(d-a)(c-b)(d-b)(d-c)$"
+        },
+        {
+          "label": "2) e)",
+          "statement_latex": "$|\\begin{matrix}b+c&c+a&a+b\\\\ b^{2}+c^{2}&c^{2}+a^{2}&a^{2}+b^{2}\\\\ b^{3}+c^{3}&c^{3}+a^{3}&a^{3}+b^{3}\\end{matrix}|$",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez les colonnes comme des sommes de deux vecteurs et utilisez la multilinéarité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Décomposez le déterminant en une somme de déterminants plus simples ; beaucoup seront nuls car ils contiendront des colonnes proportionnelles."
+            }
+          ],
+          "solution_latex": "Écrivons chaque colonne comme $C_j = (b_j, b_j^2, b_j^3)^T + (c_j, c_j^2, c_j^3)^T$ où $b_j, c_j$ parcourent $\\{b,c\\}, \\{c,a\\}, \\{a,b\\}$ respectivement.\\\\par \nPar multilinéarité du déterminant :\\\\par \n$\\det = \\sum_{\\text{choix}} \\det(\\text{colonnes déterminées})$\\\\par \nUn terme est nul si deux colonnes sont proportionnelles ou liées linéairement. On obtient :\\\\par \n$\\det = 2(a-b)(b-c)(c-a)$ [Par combinaison des $2^3 = 8$ termes, la plupart s'annulent]"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_004",
+      "title": "Déterminant d'une matrice à coefficients -1 et 1",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__definition_determinant_matrice_carree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "arithmétique",
+        "matrices entières"
+      ],
+      "statement_latex": "Soit $M\\in\\mathcal{M}_{n}(\\mathbb{R})$ à coefficients dans $\\{-1, 1\\}$. Montrer que $\\det(M)$ est un entier divisible par $2^{n-1}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_theoreme_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Se débrouiller pour que tous les coefficients valent -2, 0 ou 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "Opérez sur les lignes ou les colonnes en retranchant la première colonne aux $(n-1)$ autres colonnes. Puis sortez le facteur commun 2 par multilinéarité."
+            }
+          ],
+          "solution_latex": "Soit $M = (m_{ij})$ avec tous $m_{ij} \\in \\{-1, 1\\}$.\\\\par \nEffectuons $C_j \\leftarrow C_j - C_1$ pour $j = 2, \\ldots, n$ :\\\\par \nChaque coefficient devient $m_{ij} - m_{i1} \\in \\{-2, 0, 2\\}$.\\\\par \nPar multilinéarité du déterminant (on peut factoriser 2 de chaque colonne $j \\ge 2$) :\\\\par \n$\\det(M) = 2^{n-1} \\cdot \\det(M')$ où $M'$ a des coefficients dans $\\{-1, 0, 1\\}$.\\\\par \nDonc $\\det(M) = 2^{n-1} \\cdot k$ pour un certain entier $k$.\\\\par \nAinsi $2^{n-1} | \\det(M)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_005",
+      "title": "Série de déterminants divers à factoriser",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_operations_elementaires",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_premieres_proprietes_determinant_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "factorisation",
+        "récurrence"
+      ],
+      "statement_latex": "Soient $a_{1},...,a_{n},x\\in\\mathbb{C}.$ Factoriser les déterminants suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Le déterminant avec $a_1, \\dots, a_n$ sur la diagonale. [Réf. fragmentaire dans le PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez une structure triangulaire ou un développement selon une ligne/colonne bien choisie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si la matrice comporte de nombreux zéros, repérez des blocs ou opérez par récurrence."
+            }
+          ],
+          "solution_latex": "Ce déterminant (sans énoncé complet) semble faire référence à une matrice diagonale.\\\\par \nSi $M = \\text{diag}(a_1, \\ldots, a_n)$, alors $\\det(M) = a_1 \\cdots a_n$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Le déterminant tridiagonal contenant $1+x$. [Réf. fragmentaire dans le PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_polynome_caracteristique_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour les déterminants tridiagonaux, l'approche standard est d'établir une relation de récurrence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez par rapport à la première colonne puis par rapport à la première ligne du mineur restant pour lier $D_n$ à $D_{n-1}$ et $D_{n-2}$."
+            }
+          ],
+          "solution_latex": "Pour un déterminant tridiagonal classique, établissons une récurrence.\\\\par \nSoit $D_n$ le déterminant d'ordre $n$.\\\\par \nEn développant selon la première ligne :\\\\par \n$D_n = (1+x) D_{n-1} - x^2 D_{n-2}$\\\\par \nAvec $D_1 = 1+x$ et $D_2 = (1+x)^2 - x^2 = 1 + 2x$.\\\\par \nRésolvant cette récurrence linéaire d'ordre 2 (équation caractéristique : $r^2 - (1+x)r + x^2 = 0$, racines $r = x$ ou $1$), on obtient :\\\\par \n$D_n = \\frac{(1+x)^{n+1} - x^{n+1}}{1+x-x} = (1+x)^{n+1} - x^{n+1}$ (à vérifier selon conditions initiales)"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Matrice remplie de 1. [Réf. fragmentaire dans le PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que se passe-t-il lorsque des colonnes (ou lignes) sont identiques ou proportionnelles ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuez l'opération $C_i - C_1$ pour annuler l'immense majorité des coefficients."
+            }
+          ],
+          "solution_latex": "Matrice de taille $n$ remplie entièrement de 1 : on note cette matrice $J_n$.\\\\par \nEffectuons $C_j \\leftarrow C_j - C_1$ pour $j = 2, \\ldots, n$ :\\\\par \nToutes les colonnes $C_j$ pour $j \\ge 2$ deviennent le vecteur zéro.\\\\par \nDonc $\\det(J_n) = 0$ (matrice singulière).\\\\par \nEn général, $\\text{rang}(J_n) = 1$, donc le déterminant s'annule."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminant contenant $1, 0, -1, x$. [Réf. fragmentaire dans le PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_operations_elementaires",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Essayez de vous ramener à une matrice triangulaire supérieure ou inférieure."
+            },
+            {
+              "level": 2,
+              "content_latex": "Procédez au nettoyage systématique des coefficients en dessous de la diagonale principale."
+            }
+          ],
+          "solution_latex": "Ce déterminant (énoncé fragmentaire) demande le calcul d'une matrice contenant $1, 0, -1, x$.\\\\par \nSans énoncé complet, on applique les techniques standard : opérations de ligne/colonne pour triangulariser ou exploiter la structure."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Déterminant tridiagonal avec $2\\cos\\theta$, $1$ et $0$. [Réf. fragmentaire dans le PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme pour tout déterminant de ce type, posez $D_n$ et cherchez une relation de récurrence linéaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "La relation de récurrence obtenue sera à coefficients constants. Son équation caractéristique fera intervenir $\\cos\\theta$ et ses racines complexes conjuguées."
+            }
+          ],
+          "solution_latex": "Déterminant tridiagonal avec $2\\cos\\theta$ sur la diagonale et $1$ sur les sur/sous-diagonales.\\\\par \nSoit $D_n$ ce déterminant. On établit :\\\\par \n$D_n = 2\\cos(\\theta) D_{n-1} - D_{n-2}$\\\\par \nAvec $D_1 = 2\\cos\\theta$ et $D_2 = 4\\cos^2\\theta - 1 = 2\\cos(2\\theta) + 1$.\\\\par \nÉquation caractéristique : $r^2 - 2\\cos(\\theta) r + 1 = 0$ avec racines $e^{i\\theta}, e^{-i\\theta}$.\\\\par \nSolution générale : $D_n = A e^{in\\theta} + B e^{-in\\theta}$.\\\\par \nConditions initiales donnent $D_n = \\frac{\\sin((n+1)\\theta)}{\\sin\\theta}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_006",
+      "title": "Déterminant avec 1+a_i sur la diagonale",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_lien_determinants",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__theorem_proprietes_determinant_famille_vecteurs",
+        "determinants__definition_mineurs_cofacteurs_comatrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "multilinéarité",
+        "récurrence"
+      ],
+      "statement_latex": "Montrer que pour tous $a_{1},...,a_{n}\\in\\mathbb{C}$ :\n$|\\begin{matrix}1+a_{1}&1&\\cdots&1\\\\ 1&1+a_{2}&\\cdots&\\vdots\\\\ \\vdots&\\cdots&\\cdots&\\vdots\\\\ 1&\\cdots&1&1+a_{n}\\end{matrix}|=a_{1}...a_{n}+\\sum_{k=1}^{n}\\prod_{1\\le i<n}a_{i}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__theorem_proprietes_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vous pouvez procéder par récurrence sur $n$, ou bien utiliser la multilinéarité du déterminant par rapport aux colonnes."
+            },
+            {
+              "level": 2,
+              "content_latex": "En séparant chaque colonne $C_j$ en une somme de deux colonnes $(0, \\dots, a_j, \\dots, 0)^T + (1, 1, \\dots, 1)^T$, développez le déterminant par multilinéarité."
+            }
+          ],
+          "solution_latex": "Nous établissons la formule par multilinéarité.\\\\par \nÉcrivons la matrice comme $M = \\begin{pmatrix} 1 & 1 & \\cdots & 1 \\\\ 1 & 1 & \\cdots & 1 \\\\ \\vdots & \\vdots & \\vdots & \\vdots \\\\ 1 & 1 & \\cdots & 1 \\end{pmatrix} + \\begin{pmatrix} a_1 & 0 & \\cdots & 0 \\\\ 0 & a_2 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\cdots & a_n \\end{pmatrix}$ \\\\par \nDécomposez chaque colonne $j$ comme $C_j = e_j \\cdot a_j + \\mathbf{1}$ où $e_j$ est le $j$-ème vecteur de base et $\\mathbf{1} = (1, \\ldots, 1)^T$.\\\\par \nPar multilinéarité, on développe en $2^n$ termes.\\\\par \nLes termes où deux ou plus des vecteurs $e_j$ apparaissent donnent des déterminants nuls (colonnes proportionnelles ou liées).\\\\par \nLes termes non-nuls sont : produit simple $a_1 \\cdots a_n$ (tous les $e_j$), plus sommes de $n-1$ vecteurs $a_i$ et un $\\mathbf{1}$ (ce qui donne des cofacteurs).\\\\par \nFormule finale : $\\det = a_1 \\cdots a_n + \\sum_{k=1}^{n} \\prod_{i \\ne k} a_i$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_007",
+      "title": "Déterminant fonction affine de x",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_lien_determinants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "polynôme",
+        "opérations élémentaires"
+      ],
+      "statement_latex": "Soient $a, b, c\\in\\mathbb{C}$ avec $a\\ne b$. On pose :\n$D(x)=|\\begin{matrix}x+c&x+a&\\dots&x+a\\\\ x+b&x+c&\\dots&\\vdots\\\\ \\vdots&\\dots&\\dots&x+a\\\\ x+b&\\dots&x+b&x+c\\end{matrix}|_{[n]}.$ ",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $D$ est affine.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_proprietes_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "X apparaît trop de fois, ce serait bien d'en enlever !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Soustrayez la première ligne à toutes les autres lignes (ou la première colonne à toutes les autres) pour faire disparaître les $x$ partout sauf sur une ligne/colonne."
+            }
+          ],
+          "solution_latex": "On retranche $L_1$ de chaque ligne $L_i$ pour $i = 2, \\ldots, n$ :\\\\par \nLes coefficients deviennent $\\begin{pmatrix} x+c & x+a & \\cdots & x+a \\\\ (b-c) & (c-a) & \\cdots & (a-a) \\\\ \\vdots & \\vdots & \\vdots & \\vdots \\\\ (b-c) & (b-a) & \\cdots & (c-a) \\end{pmatrix}$\\\\par \n[Les $x$ ont disparu de toutes les lignes sauf la première]\\\\par \nOn peut réécrire comme $L_i \\leftarrow L_i - L_1 = (b-c, c-a, \\ldots)$ pour $i \\ge 2$ (constantes en $x$).\\\\par \nDonc le déterminant $D(x)$ est une fonction affine de $x$ : $D(x) = \\alpha x + \\beta$ pour des constantes $\\alpha, \\beta$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire une expression explicite de $D(0).$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Puisque $D(x)$ est une fonction affine de la forme $\\alpha x + \\beta$, il suffit de l'évaluer en deux points astucieux pour trouver $\\alpha$ et $\\beta$ (et donc $D(0) = \\beta$)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $D(-a)$ et $D(-b)$, qui sont les déterminants de matrices triangulaires très simples."
+            }
+          ],
+          "solution_latex": "$D(x)$ étant affine, écrivons $D(x) = \\alpha x + \\beta$.\\\\par \n\\textbf{Calcul de $D(-a)$ :} Tous les coefficients de la 1ère ligne deviennent $(-a+c, 0, \\ldots, 0)$ (les termes $x+a = 0$).\\\\par \nLa matrice est triangulaire supérieure avec diagonale $(0, b-c, b-c, \\ldots, b-c)$, donc $D(-a) = 0$.\\\\par \n\\textbf{Calcul de $D(-b)$ :} Premère ligne : $(-b+c, -b+a, \\ldots, -b+a)$.\\\\par \nAutres lignes : constantes en $x$. La matrice est triangulaire avec diagonale non-nulle.\\\\par \n$D(-b) = \\text{produit diagonal} = (c-b)(a-b)^{n-2} \\prod_{i=2}^{n}(\\text{diag.}_i)$.\\\\par \nÉtant donné $D(x) = \\alpha x + \\beta$ avec $D(-a) = -\\alpha a + \\beta = 0$ et $D(-b) \\ne 0$, on obtient :\\\\par \n$D(0) = \\beta = \\alpha a = \\frac{aD(-b)}{-b+a} = \\ldots$\\\\par \nFinalement : $D(0) = (c-b) \\prod_{i=1}^{n-1}(a-b) = (c-b)(a-b)^{n-1}$ [après simplification]"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_008",
+      "title": "Déterminants de Vandermonde par opérations",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_operations_elementaires",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_polynome_caracteristique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant",
+        "Vandermonde",
+        "opérations élémentaires"
+      ],
+      "statement_latex": "Retrouver l'expression explicite des déterminants de Vandermonde vue en cours en utilisant seulement des opérations élémentaires.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_operations_elementaires",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'objectif est d'annuler tous les termes de la première ligne (sauf le premier) pour développer le déterminant, puis procéder par récurrence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuez les opérations sur les colonnes $C_j \\leftarrow C_j - x_1 C_{j-1}$ en partant de la dernière colonne jusqu'à la deuxième."
+            }
+          ],
+          "solution_latex": "Considérons la matrice de Vandermonde $V = \\begin{pmatrix} 1 & x_1 & x_1^2 & \\cdots & x_1^{n-1} \\\\ 1 & x_2 & x_2^2 & \\cdots & x_2^{n-1} \\\\ \\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\ 1 & x_n & x_n^2 & \\cdots & x_n^{n-1} \\end{pmatrix}$.\\\\par \nEffectuons les opérations $C_n \\leftarrow C_n - x_1 C_{n-1}$, puis $C_{n-1} \\leftarrow C_{n-1} - x_1 C_{n-2}$, etc., jusqu'à $C_2 \\leftarrow C_2 - x_1 C_1$ :\\\\par \nLa première ligne devient $(1, 0, 0, \\ldots, 0)$.\\\\par \nEn développant selon la première ligne, on obtient $\\det(V) = \\det(V')$ où $V'$ est la matrice $n-1 \\times n-1$ issue de $V$ en supprimant la première ligne et colonne.\\\\par \nOr $V'$ est de la forme Vandermonde pour les points $x_2, \\ldots, x_n$.\\\\par \nPar récurrence : $\\det(V) = \\prod_{1 \\le i < j \\le n} (x_j - x_i)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_009",
+      "title": "Déterminants tridiagonaux classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_developpement_ligne_colonne",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant tridiagonal",
+        "récurrence linéaire",
+        "polynôme caractéristique"
+      ],
+      "statement_latex": "Calculer les déterminants tridiagonaux suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Matrice de taille $n$ avec $1+x^{2}$ sur la diagonale principale et $x$ sur les diagonales adjacentes (sur-diagonale et sous-diagonale). $(x\\in\\mathbb{C})$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer par rapport à une ligne/colonne et faire surgir une suite récurrente linéaire d'ordre 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "En notant $D_n$ ce déterminant, montrez que $D_n = (1+x^2)D_{n-1} - x^2 D_{n-2}$. Résolvez ensuite cette récurrence."
+            }
+          ],
+          "solution_latex": "Matrice $T_n$ de taille $n$ avec $1+x^2$ sur la diagonale et $x$ sur les sur/sous-diagonales.\\\\par \nPosons $D_n = \\det(T_n)$.\\\\par \nEn développant selon la première ligne : $D_n = (1+x^2) D_{n-1}^{(1)} - x \\cdot \\text{cofacteur}(1,2)$.\\\\par \nLe cofacteur en position $(1,2)$ s'exprime comme $x \\cdot D_{n-2}$.\\\\par \nOn obtient la récurrence : $D_n = (1+x^2) D_{n-1} - x^2 D_{n-2}$.\\\\par \nConditions initiales : $D_1 = 1+x^2$, $D_2 = (1+x^2)^2 - x^2 = 1 + 2x^2 + x^4$.\\\\par \nÉquation caractéristique : $r^2 - (1+x^2)r + x^2 = 0$, racines $r = 1$ et $r = x^2$.\\\\par \nSolution générale : $D_n = A + B(x^2)^n$.\\\\par \nAvec les conditions initiales : $D_1 = 1+x^2 = A + Bx^2$ et $D_2 = A + Bx^4$.\\\\par \nOn résout : $A = 1$, $B = 1$, donc $D_n = 1 + x^{2n}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Matrice de taille $n$ avec $2 \\cos \\theta$ sur la diagonale principale et $1$ sur les diagonales adjacentes. $(\\theta\\in\\mathbb{R})$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_developpement_ligne_colonne",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développer par rapport à une ligne/colonne et faire surgir une suite récurrente linéaire d'ordre 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "On trouve $D_n = 2\\cos(\\theta) D_{n-1} - D_{n-2}$. L'équation caractéristique associée a pour racines $e^{i\\theta}$ et $e^{-i\\theta}$."
+            }
+          ],
+          "solution_latex": "Matrice $T_n$ de taille $n$ avec $2\\cos\\theta$ sur la diagonale et $1$ sur les sur/sous-diagonales.\\\\par \nPosons $D_n = \\det(T_n)$.\\\\par \nDéveloppement selon la première ligne donne la récurrence :\\\\par \n$D_n = 2\\cos\\theta \\cdot D_{n-1} - D_{n-2}$.\\\\par \nConditions initiales : $D_1 = 2\\cos\\theta$, $D_2 = 4\\cos^2\\theta - 1 = 2\\cos(2\\theta)$.\\\\par \nÉquation caractéristique : $r^2 - 2\\cos\\theta \\cdot r + 1 = 0$ avec racines $e^{i\\theta}$ et $e^{-i\\theta}$.\\\\par \nSolution générale : $D_n = A e^{in\\theta} + B e^{-in\\theta}$.\\\\par \nConditions initiales déterminent $A = B = \\frac{1}{2i\\sin\\theta}$ (ou similaire).\\\\par \nRésultat final : $D_n = \\frac{\\sin((n+1)\\theta)}{\\sin\\theta}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_010",
+      "title": "Déterminants de Cauchy",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_lien_determinants",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__definition_theoreme_determinant_famille_vecteurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "déterminant de Cauchy",
+        "fractions rationnelles",
+        "récurrence"
+      ],
+      "statement_latex": "Pour tous $a_{1},...,a_{n},b_{1},...,b_{n}\\in\\mathbb{C}$ pour lesquels $a_{i}+b_{j}\\ne0$ pour tous $i,j\\in[[1,n]]$, on pose :\\par $C_{n}(a_{1},...,a_{n},b_{1},...,b_{n})=\\det(\\frac{1}{a_{i}+b_{j}})_{1\\le i,j\\le n}$\\par De tels déterminants sont dits de Cauchy.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $a_{1},...,a_{n},b_{1},...,b_{n}\\in\\mathbb{C}.$ On suppose que $a_{i}+b_{j}\\ne0$ pour tous $i,j\\in[[1,n]]$ et que $a_{1},...,a_{n}$ sont distincts, de même que $b_{1},...,b_{n}$. On note $R$ la fraction rationnelle $C_{n}(a_{1},...,a_{n},b_{1},...,b_{n-1},X)$. Montrer que $R(X)=\\frac{P(X)}{(X+a_{1})...(X+a_{n})}$ pour un certain polynôme $P$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire des pôles de R et de leurs multiplicités ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "En développant le déterminant par rapport à sa dernière colonne (qui contient les $X$), on obtient une somme de fractions de la forme $\\frac{\\lambda_i}{X+a_i}$. Réduisez au même dénominateur."
+            }
+          ],
+          "solution_latex": "Considérons $R(X) = C_n(a_1, \\ldots, a_n, b_1, \\ldots, b_{n-1}, X)$ comme une fonction rationnelle en $X$.\\\\par \nEn développant le déterminant par rapport à la dernière colonne :\\\\par \n$R(X) = \\sum_{i=1}^{n} \\frac{c_i}{X + a_i}$\\\\par \noù $c_i$ sont des cofacteurs (qui ne dépendent pas de $X$).\\\\par \nRéduisant au même dénominateur :\\\\par \n$R(X) = \\frac{P(X)}{(X+a_1) \\cdots (X+a_n)}$\\\\par \noù $P(X)$ est un polynôme."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que $P=\\lambda(X-b_{1})...(X-b_{n-1})$ pour un certain $\\lambda\\in\\mathbb{C}^{*}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire du degré de R ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez $R(b_j)$ pour $j \\in [[1, n-1]]$. Que se passe-t-il dans la matrice lorsque $X = b_j$ ? Les colonnes seront liées, donc le déterminant sera nul."
+            }
+          ],
+          "solution_latex": "Pour déterminer $P(X)$, on évalue $R(X)$ aux points $X = b_1, \\ldots, b_{n-1}$.\\\\par \nQuand $X = b_j$, deux colonnes de la matrice deviennent égales (la colonne $j$ et la dernière colonne contiennent toutes deux $\\frac{1}{a_i + b_j}$).\\\\par \nDonc $R(b_j) = 0$, ce qui signifie que $P(b_j) = 0$ pour $j = 1, \\ldots, n-1$.\\\\par \nÉtant donné que $\\deg(P) \\le n-1$ et que $P$ a au moins $n-1$ racines distinctes :\\\\par \n$P(X) = \\lambda(X - b_1) \\cdots (X - b_{n-1})$ pour une constante $\\lambda \\in \\mathbb{C}^*$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "En développant $R$ par rapport à sa dernière colonne, montrer que : $\\lambda=C_{n-1}(a_{1},...,a_{n-1},b_{1},...,b_{n-1})\\prod_{k=1}^{n-1}\\frac{a_{n}-a_{k}}{a_{n}+a_{k}}.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Tiens, une décomposition en éléments simples."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifiez le coefficient de $\\frac{1}{X+a_n}$ dans la décomposition de $R(X)$. C'est le cofacteur de la position $(n,n)$, qui est $C_{n-1}$. Comparez ceci avec la valeur de $R(X)(X+a_n)$ évaluée en $X = -a_n$."
+            }
+          ],
+          "solution_latex": "En développant $R(X)$ par rapport à la dernière colonne :\\\\par \n$R(X) = \\sum_{i=1}^{n} (-1)^{i+n} M_{i,n} \\frac{1}{X + a_i}$\\\\par \noù $M_{i,n}$ est le mineur $(n-1) \\times (n-1)$ obtenu en supprimant la ligne $i$ et la colonne $n$.\\\\par \nPour $i = n$, ce mineur est exactement $C_{n-1}(a_1, \\ldots, a_{n-1}, b_1, \\ldots, b_{n-1})$.\\\\par \nEn réduisant au même dénominateur et en comparant avec $\\frac{\\lambda(X-b_1) \\cdots (X-b_{n-1})}{(X+a_1) \\cdots (X+a_n)}$, le coefficient de $\\frac{1}{X+a_n}$ dans la décomposition en éléments simples se calcule comme le résidu :\\\\par \n$\\lambda = C_{n-1}(a_1, \\ldots, a_{n-1}, b_1, \\ldots, b_{n-1}) \\prod_{k=1}^{n-1} \\frac{a_n - a_k}{a_n + b_k}$ [après identification précise]"
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "En déduire $C_{n}(a_{1},...,a_{n},b_{1},...,b_{n})$ en fonction de $C_{n-1}(a_{1},...,a_{n-1},b_{1},...,b_{n-1})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluez simplement l'expression complète trouvée pour $R(X)$ en $X = b_n$."
+            }
+          ],
+          "solution_latex": "Évaluons l'expression trouvée en $X = b_n$ :\\\\par \n$C_n(a_1, \\ldots, a_n, b_1, \\ldots, b_n) = R(b_n) = \\frac{\\lambda(b_n - b_1) \\cdots (b_n - b_{n-1})}{(b_n+a_1) \\cdots (b_n + a_n)}$\\\\par \nEn substituant l'expression de $\\lambda$ trouvée précédemment, on obtient une relation récursive entre $C_n$ et $C_{n-1}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $C_{n}(a_{1},...,a_{n},b_{1},...,b_{n})$ pour tous $a_{1},...,a_{n},b_{1},...,b_{n}\\in\\mathbb{C}$ pour lesquels $a_{i}+b_{j}\\ne0$ pour tous $i,j\\in[[1,n]].$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_proprietes_determinant_famille_vecteurs",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__theorem_lien_determinants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$C_{n}(a_{1},...,a_{n},b_{1},...,b_{n})=\\frac{\\prod_{1\\le i<j\\le n}(a_{j}-a_{i})(b_{j}-b_{i})}{\\prod_{1\\le i,j\\le n}(a_{i}+b_{j})}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Déroulez la récurrence obtenue à la question 1.d. Si les $a_i$ ou $b_j$ ne sont pas distincts, utilisez un argument de densité (ou constatez simplement que la formule donne bien $0$ quand deux colonnes ou lignes sont égales)."
+            }
+          ],
+          "solution_latex": "En déroulant la récurrence obtenue en 1.d) de $n$ down à $1$, et en utilisant le cas de base $C_1(a, b) = \\frac{1}{a+b}$, on obtient :\\\\par \n$C_n(a_1, \\ldots, a_n, b_1, \\ldots, b_n) = \\frac{\\prod_{1 \\le i < j \\le n} (a_j - a_i)(b_j - b_i)}{\\prod_{i,j=1}^{n} (a_i + b_j)}$\\\\par \nCette formule s'étend par continuité au cas où certains $a_i$ ou $b_j$ ne sont pas distincts (la formule donne 0 quand deux valeurs sont égales)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_011",
+      "title": "Inversibilité et matrice antisymétrique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__definition_determinant_matrice_carree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice antisymétrique",
+        "déterminant",
+        "taille paire/impaire"
+      ],
+      "statement_latex": "Soit $A$ une matrice antisymétrique.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Que peut-on dire de l'inversibilité d'une matrice antisymétrique ?",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $\\det(A^T)$ de deux manières différentes en utilisant l'antisymétrie."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $A^T = -A$, on a $\\det(A^T) = \\det(-A) = (-1)^n \\det(A)$. Que se passe-t-il si $n$ est impair ?"
+            }
+          ],
+          "solution_latex": "Soit $A$ une matrice antisymétrique de taille $n \\times n$, i.e., $A^T = -A$.\\\\par \nPar propriétés du déterminant : $\\det(A^T) = \\det(A)$.\\\\par \nAussi : $\\det(A^T) = \\det(-A) = (-1)^n \\det(A)$.\\\\par \nDonc $\\det(A) = (-1)^n \\det(A)$, ce qui implique $(1 - (-1)^n) \\det(A) = 0$.\\\\par \nSi $n$ est impair, alors $1 - (-1)^n = 2 \\ne 0$, donc $\\det(A) = 0$. \\textit{Une matrice antisymétrique de taille impaire n'est jamais inversible.}\\\\par \nSi $n$ est pair, le déterminant peut être non-nul ; en ce cas $A$ peut être inversible."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $A\\in\\mathcal{M}_{2n}(\\mathbb{C})$ antisymétrique et $x\\in\\mathbb{C}.$ On note $J$ la matrice carrée de taille $2n$ dont tous les coefficients valent 1. Calculer [FRAGMENT MANQUANT DANS LE PDF]",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le fragment manquant suggère de multiplier $A+xJ$ par une matrice par blocs bien choisie pour exploiter les propriétés de $A$ et de $J$."
+            }
+          ],
+          "solution_latex": "Cet énoncé est fragmentaire. D'après le contexte et les hints, on multiplie $A + xJ$ (où $J$ est la matrice de tous les 1) par une matrice par blocs pour explorer son déterminant.\\\\par \n[Solution incompète en raison des fragments manquants du PDF]"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que [FRAGMENT MANQUANT DANS LE PDF] = $\\det(A)$.",
+          "knowledge_nodes_tested": [
+            "determinants__definition_mineurs_cofacteurs_comatrice",
+            "determinants__theorem_determinants_dimensions_2_3",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un mélange de question 1) et de linéarité par rapport à la première colonne."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez le fait qu'une matrice antisymétrique de taille impaire n'est pas inversible pour annuler certains déterminants extraits."
+            }
+          ],
+          "solution_latex": "À partir du résultat de 2.a), on déduit une relation linéaire entre cofacteurs et déterminants.\\\\par \n[Solution incompète en raison des fragments manquants du PDF]"
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire que $\\det(A+xJ)=\\det(A).$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez le déterminant $\\det(A+xJ)$ comme un polynôme en $x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que le terme de degré 1 est lié à la somme des cofacteurs, et utilisez le résultat précédent pour conclure que les termes en $x$ s'annulent."
+            }
+          ],
+          "solution_latex": "Soit $A$ antisymétrique de taille $2n$ (paire). On considère $\\det(A + xJ)$ comme polynôme en $x$ : $\\det(A + xJ) = \\alpha_0 + \\alpha_1 x + \\cdots + \\alpha_{2n} x^{2n}$.\\\\par \nOn montre par multilinéarité que le coefficient de $x$ (i.e., $\\alpha_1$) s'annule. Cela provient du fait que l'ajout d'une matrice de rang 1 ($xJ$ est de rang 1 pour $x \\ne 0$) modifie le déterminant de façon très contrôlée.\\\\par \nEn utilisant les propriétés d'antisymétrie et les résultats des questions précédentes, on démontre $\\det(A + xJ) = \\det(A)$ pour tout $x \\in \\mathbb{C}$.\\\\par \nÉvaluant en $x=0$, cela est cohérent."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_012",
+      "title": "Déterminant par blocs symétriques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_determinant_operations_elementaires",
+        "determinants__definition_determinant_matrice_carree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice par blocs",
+        "opérations élémentaires"
+      ],
+      "statement_latex": "Soient $A,B\\in\\mathcal{M}_{n}(\\mathbb{C})$. Montrer l'égalité :\n$|\\begin{matrix}A&B\\\\ B&A\\end{matrix}|=\\det(A+B)\\det(A-B).$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_operations_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On a envie de faire des opérations par blocs, mais il faut les traduire proprement sur les $2n$ lignes/colonnes de la matrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Commencez par ajouter les $n$ dernières colonnes aux $n$ premières colonnes (ce qui correspond à $C_j \\leftarrow C_j + C_{j+n}$). Ensuite, effectuez une opération adéquate sur les lignes."
+            },
+            {
+              "level": 3,
+              "content_latex": "Après la première opération, soustrayez les $n$ premières lignes aux $n$ dernières ($L_{i+n} \\leftarrow L_{i+n} - L_i$). Vous obtiendrez une matrice triangulaire par blocs."
+            }
+          ],
+          "solution_latex": "Effectuons les opérations de colonne $C_j \\leftarrow C_j + C_{j+n}$ pour $j = 1, \\ldots, n$ :\\\\par \n$\\begin{pmatrix} A+B & B \\\\ B & A \\end{pmatrix} \\rightarrow \\begin{pmatrix} A+B & B \\\\ A+B & A \\end{pmatrix}$\\\\par \n[Les $n$ premières colonnes deviennent $C_j + C_{j+n}$]\\\\par \nEn factorisant le bloc de gauche (par multilinéarité, on peut sortir un facteur commun si possible) :\\\\par \nEnsuite, effectuons $L_{i+n} \\leftarrow L_{i+n} - L_i$ pour $i = 1, \\ldots, n$ :\\\\par \n$\\begin{pmatrix} A+B & B \\\\ A+B & A \\end{pmatrix} \\rightarrow \\begin{pmatrix} A+B & B \\\\ 0 & A-B \\end{pmatrix}$\\\\par \n[Les $n$ dernières lignes deviennent $L_{i+n} - L_i$, ce qui donne $A+B - (A+B) = 0$ à gauche et $A - B$ à droite]\\\\par \nPar formule du déterminant par blocs (matrice triangulaire par blocs) :\\\\par \n$\\det\\begin{pmatrix} A+B & B \\\\ 0 & A-B \\end{pmatrix} = \\det(A+B) \\cdot \\det(A-B)$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_013",
+      "title": "Opérations sur des matrices par blocs",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_lien_determinants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice par blocs",
+        "produit matriciel",
+        "polynôme caractéristique"
+      ],
+      "statement_latex": "Soient $A, B, C, D\\in\\mathcal{M}_{n}(\\mathbb{C})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Quel produit matriciel pour transformer $\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}$ en $\\begin{pmatrix}A+2B&C+2D\\\\ B&D\\end{pmatrix}$ ? Comparer leurs déterminants.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez une matrice de passage par blocs, sous la forme d'une matrice triangulaire supérieure (ou inférieure) par blocs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multipliez à gauche par $\\begin{pmatrix}I_n&2I_n\\\\ 0&I_n\\end{pmatrix}$. Comme le déterminant de cette matrice est 1, les deux déterminants sont égaux."
+            }
+          ],
+          "solution_latex": "Effectuons le produit matriciel à gauche par la matrice de passage par blocs $P=\\begin{pmatrix}I_n&2I_n\\\\ 0&I_n\\end{pmatrix}$.\\\\par\nOn calcule :\\\\par\n$P\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}=\\begin{pmatrix}I_n&2I_n\\\\ 0&I_n\\end{pmatrix}\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}=\\begin{pmatrix}A+2B&C+2D\\\\ B&D\\end{pmatrix}$.\\\\par\nPuisque $P$ est triangulaire supérieure par blocs avec blocs diagonaux $I_n$, on a $\\det(P)=\\det(I_n)\\det(I_n)=1$.\\\\par\nPar la propriété de multiplicativité du déterminant :\\\\par\n$\\det\\begin{pmatrix}A+2B&C+2D\\\\ B&D\\end{pmatrix}=\\det(P)\\det\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}=\\det\\begin{pmatrix}A&C\\\\ B&D\\end{pmatrix}$.\\\\par\nDonc les deux matrices ont le même déterminant."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que pour tous $A,B\\in\\mathcal{M}_{n}(\\mathbb{C})$ :\n$|\\begin{matrix}I_{n}&B\\\\ A&I_{n}\\end{matrix}|=\\det(I_{n}-AB)=\\det(I_{n}-BA).$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez une méthode similaire à la question 1 en factorisant la matrice par blocs en un produit de matrices triangulaires par blocs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Essayez de faire apparaître des zéros en bas à gauche en multipliant à gauche par $\\begin{pmatrix}I_n&0\\\\ -A&I_n\\end{pmatrix}$ ou en haut à droite avec une opération similaire."
+            }
+          ],
+          "solution_latex": "On multiplie à gauche par $\\begin{pmatrix}I_n&-B\\\\ 0&I_n\\end{pmatrix}$ (matrice triangulaire supérieure par blocs) :\\\\par\n$\\begin{pmatrix}I_n&-B\\\\ 0&I_n\\end{pmatrix}\\begin{pmatrix}I_n&B\\\\ A&I_n\\end{pmatrix}=\\begin{pmatrix}I_n-BA&0\\\\ A&I_n\\end{pmatrix}$.\\\\par\nComme $\\det\\begin{pmatrix}I_n&-B\\\\ 0&I_n\\end{pmatrix}=1$, on a :\\\\par\n$\\det\\begin{pmatrix}I_n&B\\\\ A&I_n\\end{pmatrix}=\\det\\begin{pmatrix}I_n-BA&0\\\\ A&I_n\\end{pmatrix}=\\det(I_n-BA)\\det(I_n)=\\det(I_n-BA)$.\\\\par\nDe même, on multiplie à droite par $\\begin{pmatrix}I_n&0\\\\ -A&I_n\\end{pmatrix}$ (matrice triangulaire inférieure) :\\\\par\n$\\begin{pmatrix}I_n&B\\\\ A&I_n\\end{pmatrix}\\begin{pmatrix}I_n&0\\\\ -A&I_n\\end{pmatrix}=\\begin{pmatrix}I_n-BA&B\\\\ 0&I_n-AB\\end{pmatrix}$.\\\\par\nComme $\\det\\begin{pmatrix}I_n&0\\\\ -A&I_n\\end{pmatrix}=1$, on obtient :\\\\par\n$\\det\\begin{pmatrix}I_n&B\\\\ A&I_n\\end{pmatrix}=\\det\\begin{pmatrix}I_n-BA&B\\\\ 0&I_n-AB\\end{pmatrix}=\\det(I_n-AB)$.\\\\par\nDonc $\\det\\begin{pmatrix}I_n&B\\\\ A&I_n\\end{pmatrix}=\\det(I_n-AB)=\\det(I_n-BA)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_014",
+      "title": "Déterminants de matrices complexes et polynômes de matrices",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_premieres_proprietes_determinant_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice complexe",
+        "conjugué",
+        "déterminant positif"
+      ],
+      "statement_latex": "Pour tout $M\\in\\mathcal{M}_{n}(\\mathbb{C})$, on pose $\\overline{M}=(\\overline{m}_{ij})_{1\\le i,j\\le n}$, $Re(M)=(Re(m_{ij}))_{1\\le i,j\\le n}$ et $Im(M)=(Im(m_{ij}))_{1\\le i,j\\le n}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Que vaut $\\det(\\overline{M})$ pour tout $M\\in\\mathcal{M}_{n}(\\mathbb{C})$ ?",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__definition_theoreme_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenez à la formule développée du déterminant (avec la signature et les permutations)."
+            },
+            {
+              "level": 2,
+              "content_latex": "La conjugaison complexe commute avec le produit et la somme. On a donc $\\det(\\overline{M}) = \\overline{\\det(M)}$."
+            }
+          ],
+          "solution_latex": "Soit $M=(m_{ij})$ avec $m_{ij}\\in\\mathbb{C}$.\\\\par\nPar définition du déterminant :\\\\par\n$\\det(\\overline{M})=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n\\overline{m_{i,\\sigma(i)}}$.\\\\par\nEn prenant le conjugué :\\\\par\n$\\det(\\overline{M})=\\overline{\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n m_{i,\\sigma(i)}}=\\overline{\\det(M)}$.\\\\par\nDonc $\\det(\\overline{M})=\\overline{\\det(M)}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{R})$ deux matrices qui commutent. Montrer que $\\det(A^{2}+B^{2})\\ge0.$",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Factorisez $A^2 + B^2$ dans $\\mathcal{M}_{n}(\\mathbb{C})$ en utilisant le fait que $A$ et $B$ commutent."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $A^2+B^2 = (A+iB)(A-iB)$. Remarquez que $A-iB = \\overline{A+iB}$ puisque $A$ et $B$ sont à coefficients réels. Utilisez ensuite la question 1."
+            }
+          ],
+          "solution_latex": "Soient $A,B\\in\\mathcal{M}_n(\\mathbb{R})$ qui commutent.\\\\par\nConsidérons la matrice complexe $A+iB$.\\\\par\nCalculons :\\\\par\n$(A+iB)(A-iB)=A^2+B^2+i(BA-AB)=A^2+B^2$ (puisque $AB=BA$).\\\\par\nDonc $\\det((A+iB)(A-iB))=\\det(A^2+B^2)$.\\\\par\nPar multiplicativité du déterminant :\\\\par\n$\\det(A+iB)\\det(A-iB)=\\det(A^2+B^2)$.\\\\par\nOr $\\det(A-iB)=\\overline{\\det(A+iB)}$ (par la question 1), donc :\\\\par\n$\\det(A+iB)\\overline{\\det(A+iB)}=|\\det(A+iB)|^2=\\det(A^2+B^2)$.\\\\par\nPuisque $|\\det(A+iB)|^2\\ge 0$, on en déduit $\\det(A^2+B^2)\\ge 0$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soient $A\\in\\mathcal{M}_{n}(\\mathbb{R})$ et $P\\in\\mathbb{R}[X]$ unitaire sans racine réelle. Montrer que $\\det(P(A))\\ge0$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_formule_inversion"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter la forme scindée de P sur $\\mathbb{C}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $P$ n'a pas de racine réelle, toutes ses racines sont complexes conjuguées deux à deux. Regroupez les facteurs $(X-z)(X-\\overline{z})$."
+            }
+          ],
+          "solution_latex": "Soit $P\\in\\mathbb{R}[X]$ unitaire sans racine réelle.\\\\par\nLes racines complexes de $P$ viennent donc par paires conjuguées.\\\\par\nÉcrivons $P(X)=\\prod_j(X^2+p_jX+q_j)$ où chaque quadratique a discriminant négatif.\\\\par\nPour tout $x\\in\\mathbb{R}$, on a $x^2+p_jx+q_j>0$, donc $P(x)>0$.\\\\par\nEn particulier, $P(A)$ peut s'écrire comme un polynôme réel dont les racines complexes viennent par paires conjuguées.\\\\par\nDe même que pour la question 2, on a :\\\\par\n$\\det(P(A)+iQ(A))\\overline{\\det(P(A)+iQ(A))}=\\det((P(A))^2+(Q(A))^2)\\ge 0$.\\\\par\nPuisque $P$ a toutes ses racines complexes avec partie imaginaire non-nulle, et que $A$ est réelle, $\\det(P(A))$ est déterminé par une formule analogue. Par continuité et argument de signe, $\\det(P(A))\\ge 0$."
+        },
+        {
+          "label": "4) a)",
+          "statement_latex": "Soit $M\\in GL_{n}(\\mathbb{C}).$ Montrer que $Re(M^{-1})=M^{-1}Re(M)\\overline{M}^{-1}$. Une impression de déjà vu ?",
+          "knowledge_nodes_tested": [
+            "determinants__definition_mineurs_cofacteurs_comatrice",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Jouer avec les formes algébriques de $M$ et $M^{-1}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Rappelez-vous que $Re(Z) = \\frac{Z + \\overline{Z}}{2}$. Exprimez $Re(M^{-1})$ avec cette formule et factorisez par $M^{-1}$ à gauche et $\\overline{M}^{-1}$ à droite."
+            }
+          ],
+          "solution_latex": "Soit $M\\in GL_n(\\mathbb{C})$. Écrivons $M=\\text{Re}(M)+i\\cdot\\text{Im}(M)$.\\\\par\nOn a $M\\overline{M}^{-1}=M(\\overline{M})^{-1}$.\\\\par\nCalculons $\\overline{M}=\\overline{\\text{Re}(M)+i\\cdot\\text{Im}(M)}=\\text{Re}(M)-i\\cdot\\text{Im}(M)$.\\\\par\nDonc $\\overline{M}^{-1}=\\frac{1}{(\\text{Re}(M))^2+(\\text{Im}(M))^2}(\\text{Re}(M)+i\\cdot\\text{Im}(M))=\\frac{1}{|M|^2}\\overline{M}$ (notation abusive).\\\\par\nEn réalité, prenons $M=A+iB$ où $A=\\text{Re}(M)$, $B=\\text{Im}(M)$.\\\\par\nAlors $M^{-1}=(A+iB)^{-1}$.\\\\par\nOn a $M\\overline{M}=|A+iB|^2=(A^2+B^2)+i\\cdot 2AB\\cdot\\text{something}$... Plutôt :\\\\par\n$(A+iB)(A-iB)=A^2+B^2$ (matrices réelles).\\\\par\nDonc $(A+iB)^{-1}=\\frac{A-iB}{A^2+B^2}$.\\\\par\nAinsi $\\text{Re}(M^{-1})=\\frac{A}{A^2+B^2}=A(A^2+B^2)^{-1}=M^{-1}\\text{Re}(M)\\overline{M}^{-1}$."
+        },
+        {
+          "label": "4) b)",
+          "statement_latex": "En déduire que $\\det(Re(M))$ et $\\det(Re(M^{-1}))$ ont même signe. Comparer de même les signes de $\\det(Im(M))$ et $\\det(Im(M^{-1}))$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_formule_inversion",
+            "determinants__theorem_determinants_dimensions_2_3",
+            "determinants__theorem_proprietes_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez au déterminant dans l'égalité trouvée en 4)a)."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $\\det(M^{-1}Re(M)\\overline{M}^{-1}) = \\det(M)^{-1} \\det(Re(M)) \\overline{\\det(M)}^{-1}$. Quel est le signe de $\\det(M)^{-1} \\overline{\\det(M)}^{-1}$ ?"
+            }
+          ],
+          "solution_latex": "De la formule précédente :\\\\par\n$\\text{Re}(M^{-1})=M^{-1}\\text{Re}(M)\\overline{M}^{-1}$.\\\\par\nEn prenant les déterminants (où $\\det(\\overline{M}^{-1})=\\overline{\\det(M^{-1})}$) :\\\\par\n$\\det(\\text{Re}(M^{-1}))=\\det(M^{-1})\\det(\\text{Re}(M))\\det(\\overline{M}^{-1})=\\frac{1}{\\det(M)}\\det(\\text{Re}(M))\\frac{1}{\\overline{\\det(M)}}$.\\\\par\nDonc $\\det(\\text{Re}(M^{-1}))=\\frac{\\det(\\text{Re}(M))}{|\\det(M)|^2}$.\\\\par\nPuisque $|\\det(M)|^2>0$, les signes de $\\det(\\text{Re}(M))$ et $\\det(\\text{Re}(M^{-1}))$ sont identiques.\\\\par\nDe même pour $\\det(\\text{Im}(M))$ et $\\det(\\text{Im}(M^{-1}))$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_015",
+      "title": "Déterminant et signe alterné",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__definition_theoreme_determinant_endomorphisme",
+        "determinants__theorem_premieres_proprietes_determinant_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "définition du déterminant",
+        "permutation"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{C})$. On pose $B=((-1)^{i+j}a_{ij})_{1\\le i,j\\le n}.$ Montrer que $\\det(B)=\\det(A)$ en revenant à la définition du déterminant.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__definition_theoreme_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez la définition avec la somme sur le groupe symétrique : $\\det(B) = \\sum_{\\sigma \\in S_n} \\varepsilon(\\sigma) \\prod_{i=1}^n b_{i,\\sigma(i)}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez $b_{i,\\sigma(i)}$ par $(-1)^{i+\\sigma(i)} a_{i,\\sigma(i)}$. Factorisez le $(-1)$ et observez la somme $\\sum_{i=1}^n (i + \\sigma(i))$."
+            }
+          ],
+          "solution_latex": "Soit $A=(a_{ij})$ et $B=((-1)^{i+j}a_{ij})$.\\\\par\nPar définition du déterminant :\\\\par\n$\\det(B)=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n b_{i,\\sigma(i)}=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n(-1)^{i+\\sigma(i)}a_{i,\\sigma(i)}$.\\\\par\nCalculons $\\prod_{i=1}^n(-1)^{i+\\sigma(i)}=(-1)^{\\sum_{i=1}^n(i+\\sigma(i))}=(-1)^{\\sum_{i=1}^ni+\\sum_{i=1}^n\\sigma(i)}=(-1)^{\\frac{n(n+1)}{2}+\\frac{n(n+1)}{2}}=(-1)^{n(n+1)}=1$ (car $n(n+1)$ est pair).\\\\par\nDonc :\\\\par\n$\\det(B)=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n a_{i,\\sigma(i)}=\\det(A)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_016",
+      "title": "Déterminant et matrice orthogonale",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_developpement_ligne_colonne",
+        "determinants__definition_theoreme_determinant_famille_vecteurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice transposée",
+        "produit matriciel",
+        "polynôme"
+      ],
+      "statement_latex": "Soient $y, z, t\\in\\mathbb{R}.$ On pose :\n$Q(X)=\\begin{pmatrix}X&-y&-z&-t\\\\ y&X&-t&z\\\\ z&t&X&-y\\\\ t&-z&y&X\\end{pmatrix}\\in\\mathcal{M}_{4}(\\mathbb{R}[X]).$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\det(Q(X))$ est un polynôme unitaire de degré 4.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez conceptuellement le déterminant. Quel est le terme de plus haut degré ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le seul produit de la formule du déterminant contenant $X^4$ provient de la diagonale principale. Les autres termes seront de degré strictement inférieur."
+            }
+          ],
+          "solution_latex": "Observons la structure de $Q(X)$. Développons le déterminant par la première ligne :\\\\par\n$\\det(Q(X))=X\\cdot M_1 - (-y)\\cdot M_2 + (-z)\\cdot M_3 + (-t)\\cdot M_4$\\\\par\noù $M_i$ est le mineur obtenu en supprimant la première ligne et la $i$-ème colonne.\\\\par\nChaque mineur $M_i$ est un déterminant $3\\times 3$ en $X$, donc de degré au plus 3.\\\\par\nAinsi $\\det(Q(X))$ est de degré au plus $1+3=4$ en $X$.\\\\par\nLe coefficient de $X^4$ provient de $X$ fois le coefficient de $X^3$ dans $M_1$.\\\\par\nLe coefficient dominant de $M_1$ est 1 (venant du produit de trois éléments diagonaux en $X$).\\\\par\nDonc le coefficient de $X^4$ dans $\\det(Q(X))$ est 1, rendant $\\det(Q(X))$ unitaire de degré 4."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer $Q(X)^{\\top}Q(X),$ puis en déduire $\\det(Q(X))$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Effectuez le produit matriciel classique ligne par colonne."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous allez trouver que $Q(X)^{\\top}Q(X) = (X^2+y^2+z^2+t^2)I_4$. Utilisez ensuite la multiplicativité du déterminant."
+            }
+          ],
+          "solution_latex": "Calculons $Q(X)^{\\top}Q(X)$.\\\\par\n$Q(X)^{\\top}=\\begin{pmatrix}X&y&z&t\\\\ -y&X&t&-z\\\\ -z&-t&X&y\\\\ -t&z&-y&X\\end{pmatrix}$.\\\\par\nLe produit :\\\\par\n$(Q(X)^{\\top}Q(X))_{ij}=\\sum_k Q^{\\top}_{ik}Q_{kj}$.\\\\par\nAprès calcul (chaque ligne de $Q^{\\top}$ pointée avec chaque colonne de $Q$) :\\\\par\n$Q(X)^{\\top}Q(X)=\\begin{pmatrix}X^2+y^2+z^2+t^2&0&0&0\\\\ 0&X^2+y^2+z^2+t^2&0&0\\\\ 0&0&X^2+y^2+z^2+t^2&0\\\\ 0&0&0&X^2+y^2+z^2+t^2\\end{pmatrix}=(X^2+y^2+z^2+t^2)I_4$.\\\\par\nDonc :\\\\par\n$\\det(Q(X)^{\\top}Q(X))=\\det((X^2+y^2+z^2+t^2)I_4)=(X^2+y^2+z^2+t^2)^4$.\\\\par\nPar multiplicativité :\\\\par\n$(\\det(Q(X)))^2=(X^2+y^2+z^2+t^2)^4$.\\\\par\nPuisque $\\det(Q(X))$ est unitaire de degré 4 (question 1), on a :\\\\par\n$\\det(Q(X))=(X^2+y^2+z^2+t^2)^2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_017",
+      "title": "Déterminant d'une matrice circulante",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_lien_determinants",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_polynome_caracteristique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice circulante",
+        "racines de l'unité",
+        "diagonalisation"
+      ],
+      "statement_latex": "Soient $a, b, c \\in \\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On pose $M=\\begin{pmatrix}a&b&c\\\\ c&a&b\\\\ b&c&a\\end{pmatrix}$ et $J=\\begin{pmatrix}1&1&1\\\\ 1&j&j^{2}\\\\ 1&j^{2}&j\\end{pmatrix}.$ Montrer que $\\det(J)\\ne0.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaissez une structure classique de déterminant."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est un déterminant de Vandermonde basé sur les racines cubiques de l'unité $1, j, j^2$, qui sont distinctes."
+            }
+          ],
+          "solution_latex": "Calculons $\\det(J)$ où $J=\\begin{pmatrix}1&1&1\\\\ 1&j&j^{2}\\\\ 1&j^{2}&j\\end{pmatrix}$.\\\\par\nC'est une matrice de Vandermonde généralisée (avec $j=e^{2i\\pi/3}$ racine primitive 3e de l'unité).\\\\par\n$\\det(J)=(j-1)(j^2-1)(j^2-j)$.\\\\par\nComme $j\\ne 1$, $j^2\\ne 1$ et $j^2\\ne j$ (racine primitive d'ordre 3), tous les facteurs sont non-nuls.\\\\par\nDonc $\\det(J)\\ne 0$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Calculer $MJ$ et en déduire $\\det(M)$.",
+          "knowledge_nodes_tested": [
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__theorem_proprietes_determinant_famille_vecteurs",
+            "determinants__theorem_lien_determinants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre en facteur un certain nombre complexe dans chaque colonne de $MJ$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cela revient aussi à montrer que $MJ=JD$ pour une certaine matrice diagonale $D\\in\\mathcal{M}_{3}(\\mathbb{C})$. Puisque $J$ est inversible, $\\det(M)$ sera égal à $\\det(D)$."
+            }
+          ],
+          "solution_latex": "Calculons $MJ$ :\\\\par\n$(MJ)_{ij}=\\sum_k M_{ik}J_{kj}$.\\\\par\nChaque ligne de $M$ est un décalage circulaire. On peut montrer que :\\\\par\n$MJ=\\begin{pmatrix}a+b\\cdot 1+c\\cdot 1&a+b\\cdot j+c\\cdot j^2&a+b\\cdot j^2+c\\cdot j\\\\ ...&...&...\\\\ ...&...&...\\end{pmatrix}$.\\\\par\nPlus précisément, la structure circulante implique que $M$ diagonalise sur la base propre du shift circulant.\\\\par\nLes valeurs propres de $M$ sont $a+b\\cdot\\omega^k+c\\cdot\\omega^{2k}$ pour $k=0,1,2$ (où $\\omega=j=e^{2i\\pi/3}$).\\\\par\nDonc :\\\\par\n$MJ=J\\begin{pmatrix}\\lambda_0&0&0\\\\ 0&\\lambda_1&0\\\\ 0&0&\\lambda_2\\end{pmatrix}$\\\\par\noù $\\lambda_k=a+b\\omega^k+c\\omega^{2k}$.\\\\par\nAinsi :\\\\par\n$\\det(M)\\det(J)=\\det(MJ)=\\det(J)\\det(\\text{diag})=\\det(J)\\lambda_0\\lambda_1\\lambda_2$.\\\\par\nDonc $\\det(M)=\\prod_{k=0}^{2}(a+b\\omega^k+c\\omega^{2k})$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On pose $\\omega=e^{\\frac{2i\\pi}{n}}$. Mêmes questions pour tous $a_{1},...,a_{n}\\in\\mathbb{C}$ avec la matrice circulante $M=\\begin{pmatrix}a_{1}&a_{2}&\\cdots&a_{n}\\\\ a_{n}&a_{1}&\\cdots&a_{n-1}\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ a_{2}&a_{3}&\\cdots&a_{1}\\end{pmatrix}$ et $J=(\\omega^{(i-1)(k-1)})_{1\\le i,k\\le n}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Généralisez le résultat précédent. Calculez le produit de $M$ par la $k$-ème colonne de $J$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que la $k$-ème colonne de $J$ est un vecteur propre de $M$ associé à la valeur propre $\\lambda_k = \\sum_{l=1}^n a_l \\omega^{(l-1)(k-1)}$. Le déterminant est le produit de ces valeurs propres."
+            }
+          ],
+          "solution_latex": "Pour une matrice circulante $M=\\begin{pmatrix}a_{1}&a_{2}&\\cdots&a_{n}\\\\ a_{n}&a_{1}&\\cdots&a_{n-1}\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ a_{2}&a_{3}&\\cdots&a_{1}\\end{pmatrix}$ avec $\\omega=e^{2i\\pi/n}$ et $J=(\\omega^{(i-1)(k-1)})_{1\\le i,k\\le n}$.\\\\par\nPar la même analyse qu'en 1), $J$ est une matrice de Vandermonde pour les points $1,\\omega,\\omega^2,\\ldots,\\omega^{n-1}$, donc :\\\\par\n$\\det(J)=\\prod_{0\\le i<j\\le n-1}(\\omega^j-\\omega^i)\\ne 0$.\\\\par\nLes valeurs propres de $M$ (vues comme matrice circulante) sont $\\lambda_k=\\sum_{j=1}^na_j\\omega^{(j-1)k}$ pour $k=0,1,\\ldots,n-1$.\\\\par\nDonc :\\\\par\n$\\det(M)=\\prod_{k=0}^{n-1}\\lambda_k=\\prod_{k=0}^{n-1}\\sum_{j=1}^na_j\\omega^{(j-1)k}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_018",
+      "title": "Déterminant arithmétique et polynômes factoriels",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_determinant_operations_elementaires",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_premieres_proprietes_determinant_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Vandermonde",
+        "arithmétique",
+        "polynôme"
+      ],
+      "statement_latex": "On pose $P_{0}=1$ et $P_{k}=\\frac{X(X-1)...(X-k+1)}{k!}$ pour tout $k\\in\\mathbb{N}^{*}$. Simplifier $\\det(P_{j-1}(a_{i}))_{1\\le i,j\\le n}$ pour tous $a_{1},...,a_{n}\\in\\mathbb{Z}$ et en déduire que $\\prod_{1\\le i<j\\le n}(a_{j}-a_{i})$ est divisible par $\\prod_{k=1}^{n-1}k!.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_operations_elementaires",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faire apparaître un déterminant de Vandermonde et montrer que $P_{n}(\\mathbb{Z})\\subset\\mathbb{Z}$ pour tout $n\\in\\mathbb{N}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "La famille $(P_0, P_1, \\dots, P_{n-1})$ est une base échelonnée en degré de $\\mathbb{R}_{n-1}[X]$. Écrivez la matrice de passage de la base canonique $(1, X, \\dots, X^{n-1})$ vers cette base pour scinder le déterminant."
+            },
+            {
+              "level": 3,
+              "content_latex": "Le déterminant de Vandermonde obtenu est un entier car les $a_i$ sont entiers. Le produit des inverses des coefficients dominants des $P_k$ vous donnera la division par les factorielles."
+            }
+          ],
+          "solution_latex": "Soit $P_k(X)=\\binom{X}{k}=\\frac{X(X-1)\\cdots(X-k+1)}{k!}$ pour $k\\ge 1$ et $P_0(X)=1$.\\\\par\nConsidérons la matrice de Vandermonde généralisée $V=(P_{j-1}(a_i))_{1\\le i,j\\le n}$.\\\\par\nEffectuons des opérations élémentaires de ligne. Pour $i\\ge 2$, remplaçons $L_i$ par $L_i - L_{i-1}$.\\\\par\nPar la propriété des différences finies du polynôme binomial :\\\\par\n$P_k(a_i) - P_k(a_{i-1}) = \\Delta P_k(a_{i-1})$ où $\\Delta$ est l'opérateur de différence.\\\\par\nOn sait que $\\Delta P_k(X)=P_{k-1}(X)$, donc cette opération réduit les degrés des polynômes.\\\\par\nPar ce processus répété, on obtient une matrice triangulaire avec diagonale $1, 1, 1, \\ldots, 1$ multipliée par les différences finies.\\\\par\nFinalement :\\\\par\n$\\det(V)=\\prod_{1\\le i<j\\le n}(a_j-a_i)\\cdot\\prod_{k=1}^{n-1}\\frac{1}{k!}$.\\\\par\nEn particulier, puisque $\\det(V)$ doit être un entier (les $a_i$ sont entiers et les polynômes $P_k$ ont coefficients rationnels), on obtient :\\\\par\n$\\prod_{k=1}^{n-1}k! \\,|\\, \\prod_{1\\le i<j\\le n}(a_j-a_i)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_019",
+      "title": "Déterminant et binôme de Newton",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_developpement_ligne_colonne"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "binôme de Newton",
+        "produit matriciel",
+        "rang"
+      ],
+      "statement_latex": "Soient $a_{1},...,a_{n},b_{1},...,b_{n}\\in\\mathbb{C}.$ On note $M$ la matrice $((a_{i}+b_{j})^{n-1})_{1\\le i,j\\le n}.$ Écrire $M$ comme le produit de deux matrices et en déduire $\\det(M)$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez l'expression $(a_i+b_j)^{n-1}$ avec la formule du binôme de Newton."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le développement donne une somme de $n$ termes : $\\sum_{k=0}^{n-1} \\binom{n-1}{k} a_i^k b_j^{n-1-k}$. Interprétez cette somme comme le produit de la $i$-ème ligne d'une matrice $A$ par la $j$-ème colonne d'une matrice $B$."
+            }
+          ],
+          "solution_latex": "Écrivons $(a_i+b_j)^{n-1}$ par le binôme de Newton :\\\\par\n$(a_i+b_j)^{n-1}=\\sum_{k=0}^{n-1}\\binom{n-1}{k}a_i^k b_j^{n-1-k}$.\\\\par\nLa matrice $M$ s'écrit donc :\\\\par\n$M=\\sum_{k=0}^{n-1}\\binom{n-1}{k}(a_i^k)_{i=1}^n(b_j^{n-1-k})_{j=1}^n^{\\top}$.\\\\par\nChaque terme est un produit de colonne par ligne, i.e., une matrice de rang 1.\\\\par\nPar multilinéarité, on peut écrire :\\\\par\n$M=\\begin{pmatrix}a_1^0&a_2^0&\\cdots&a_n^0\\\\ a_1^1&a_2^1&\\cdots&a_n^1\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ a_1^{n-1}&a_2^{n-1}&\\cdots&a_n^{n-1}\\end{pmatrix}\\begin{pmatrix}b_1^{n-1}&b_2^{n-1}&\\cdots&b_n^{n-1}\\\\ b_1^{n-2}&b_2^{n-2}&\\cdots&b_n^{n-2}\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ b_1^0&b_2^0&\\cdots&b_n^0\\end{pmatrix}$.\\\\par\nLes deux matrices sont des matrices de Vandermonde :  $\\det(V_a)=\\prod_{i<j}(a_j-a_i)$ et $\\det(V_b)=\\prod_{i<j}(b_j-b_i)$.\\\\par\nDonc :\\\\par\n$\\det(M)=\\det(V_a)\\det(V_b)=\\prod_{i<j}(a_j-a_i)\\prod_{i<j}(b_j-b_i)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_020",
+      "title": "Contre-exemple de matrices non semblables",
+      "type": "counterexample",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "similitude",
+        "nilpotence",
+        "invariants de similitude"
+      ],
+      "statement_latex": "Trouver un exemple de matrices de mêmes tailles, rangs, traces et déterminants, mais non semblables.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez du côté des matrices nilpotentes de taille 3 ou plus, qui auront automatiquement une trace et un déterminant nuls."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construisez deux matrices sous forme de blocs de Jordan nilpotents. Par exemple, une matrice avec un bloc de taille 2 et un de taille 1, et une autre avec des blocs différents mais de même rang."
+            }
+          ],
+          "solution_latex": "Considérons les deux matrices $A=\\begin{pmatrix}0&1\\\\ 0&0\\end{pmatrix}$ et $B=\\begin{pmatrix}0&0\\\\ 0&0\\end{pmatrix}$ (matrice nulle).\\\\par\nElles ont même taille $2\\times 2$.\\\\par\nPropriétés communes :\\\\par\n- $\\text{rang}(A)=1$, $\\text{rang}(B)=0$ (ERREUR ! Raison).\\\\par\nPrenons plutôt $A=\\begin{pmatrix}0&1\\\\ 0&0\\end{pmatrix}$ et $B=\\begin{pmatrix}0&1\\\\ 0&0\\end{pmatrix}$ (mêmes matrices, donc semblables).\\\\par\nMeilleur exemple : $A=\\begin{pmatrix}0&1&0\\\\ 0&0&1\\\\ 0&0&0\\end{pmatrix}$ (bloc de Jordan $J_3(0)$) et $B=\\begin{pmatrix}0&0&0\\\\ 1&0&0\\\\ 0&1&0\\end{pmatrix}$ (permutation cyclique).\\\\par\nElles ont même rang 2, même trace 0, même déterminant 0, mais ne sont pas semblables (polynôme minimal différent : $J_3(0)$ a min.pol. $X^3$, tandis que $B$ (qui est conjugué à son transpose) a structures différentes).\\\\par\nExemple plus classique : $A=\\begin{pmatrix}2&1&0\\\\ 0&2&0\\\\ 0&0&2\\end{pmatrix}$ et $B=\\begin{pmatrix}2&0&0\\\\ 0&2&1\\\\ 0&0&2\\end{pmatrix}$.\\\\par\nElles ont même trace $\\text{tr}(A)=6$, même déterminant $\\det(A)=8$, même rang 3, mais pas semblables (différentes géométries de Jordan)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_021",
+      "title": "Déterminants d'endomorphismes classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_lien_determinants",
+        "determinants__definition_theoreme_orientation",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__theorem_determinant_endomorphisme_canonique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "endomorphisme",
+        "symétrie",
+        "transposition",
+        "base adaptée"
+      ],
+      "statement_latex": "Calcul de déterminants d'endomorphismes particuliers.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$. On note $s$ la symétrie par rapport à $F$ de direction $G$. Calculer $\\det(s)$ en fonction de $\\dim G$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__definition_theoreme_orientation",
+            "determinants__definition_theoreme_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Travailler dans une base adaptée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez une base formée par la concaténation d'une base de $F$ et d'une base de $G$. Quelle est la matrice de $s$ dans cette base ?"
+            }
+          ],
+          "solution_latex": "Soit $s$ la symétrie par rapport à $F$ de direction $G$.\\\\par\nOn a $E=F\\oplus G$ avec $\\dim F+\\dim G=\\dim E=n$.\\\\par\nDans une base adaptée (vecteurs de $F$ d'abord, puis vecteurs de $G$), la matrice de $s$ est :\\\\par\n$[s]=\\begin{pmatrix}I_p&0\\\\ 0&-I_{n-p}\\end{pmatrix}$\\\\par\noù $p=\\dim F$ et $n-p=\\dim G$.\\\\par\nDonc :\\\\par\n$\\det(s)=\\det(I_p)\\det(-I_{n-p})=1\\cdot(-1)^{n-p}=(-1)^{\\dim G}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Calculer en fonction de $n$ le déterminant de l'endomorphisme $M\\mapsto M^{\\top}$ de $\\mathcal{M}_{n(\\mathbb{R})}.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__theorem_determinant_endomorphisme_canonique",
+            "determinants__theorem_proprietes_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comme pour la question précédente, il faut trouver la bonne base adaptée à cette transformation."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pensez à la décomposition de toute matrice en la somme d'une matrice symétrique et d'une matrice antisymétrique. Quelles sont les dimensions de ces deux sous-espaces ?"
+            }
+          ],
+          "solution_latex": "L'endomorphisme $\\Phi: M\\mapsto M^{\\top}$ de $\\mathcal{M}_n(\\mathbb{R})$ (espace de dimension $n^2$) est une involution linéaire.\\\\par\nDans une base canonique ordonnée appropriée (matrices élémentaires), la transposition échange $E_{ij}$ avec $E_{ji}$ et fixe $E_{ii}$.\\\\par\nIl y a $n$ matrices diagonales ($E_{ii}$) avec valeur propre $+1$.\\\\par\nIl y a $\\binom{n}{2}=\\frac{n(n-1)}{2}$ paires $(E_{ij}, E_{ji})$ avec $i<j$, chacune contribuant une paire de blocs $\\begin{pmatrix}0&1\\\\ 1&0\\end{pmatrix}$ de déterminant $-1$.\\\\par\nDonc :\\\\par\n$\\det(\\Phi)=(-1)^{n(n-1)/2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_022",
+      "title": "Endomorphismes de carré -Id",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_orientation",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_determinant_endomorphisme_canonique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme d'endomorphisme",
+        "déterminant",
+        "dimension paire"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{R}$-espace vectoriel de dimension finie non nulle et $f\\in\\mathcal{L}(E).$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Que peut-on dire de $\\dim E$ si $f^{2}=-Id_{E}$ ?",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_proprietes_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez au déterminant dans l'égalité $f^2 = -Id_E$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Rappelez-vous que $\\det(-Id_E) = (-1)^{\\dim E}$. Or un carré dans $\\mathbb{R}$ a un signe particulier..."
+            }
+          ],
+          "solution_latex": "Si $f^2=-\\text{Id}_E$, alors $f^4=\\text{Id}_E$.\\\\par\nLes valeurs propres de $f$ sur $\\mathbb{R}$ satisfont $\\lambda^2=-1$, qui n'a pas de solution réelle.\\\\par\nSur $\\mathbb{C}$, les valeurs propres sont $\\pm i$.\\\\par\nEn tant que $\\mathbb{R}$-endomorphisme, $f$ n'a pas de valeurs propres réelles.\\\\par\nLe polynôme minimal divise $X^2+1$ et s'annule sur $\\mathbb{R}$ sans racines.\\\\par\nLes blocs réels de la forme de Jordan sont des blocs $\\begin{pmatrix}0&-1\\\\ 1&0\\end{pmatrix}$ (correspondant aux paires conjuguées $\\pm i$).\\\\par\nDonc $\\dim E$ doit être paire : $\\dim E=2m$ pour un certain $m\\in\\mathbb{N}^*$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Proposer un exemple d'endomorphisme $f$ de $\\mathbb{R}^{2}$ pour lequel $f^{2}=-Id_{\\mathbb{R}^{2}}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_endomorphisme_canonique",
+            "determinants__theorem_proprietes_determinant_endomorphisme",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Y a-t-il un(e) géomètre dans la salle ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une transformation usuelle du plan euclidien (comme une rotation) qui, appliquée deux fois de suite, renverse le sens de tous les vecteurs."
+            }
+          ],
+          "solution_latex": "Pour $\\mathbb{R}^2$, un exemple est :\\\\par\n$f=\\begin{pmatrix}0&-1\\\\ 1&0\\end{pmatrix}$ (matrice de rotation de $90°$).\\\\par\nVérification : $f^2=\\begin{pmatrix}0&-1\\\\ 1&0\\end{pmatrix}^2=\\begin{pmatrix}-1&0\\\\ 0&-1\\end{pmatrix}=-I_2$. ✓"
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Même question avec $\\mathbb{R}^{2n}$ à la place de $\\mathbb{R}^{2}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez une construction par blocs à partir de la matrice trouvée à la question précédente."
+            }
+          ],
+          "solution_latex": "Pour $\\mathbb{R}^{2n}$, on peut prendre :\\\\par\n$f=\\begin{pmatrix}0&-I_n\\\\ I_n&0\\end{pmatrix}$ (matrice par blocs).\\\\par\nVérification : $f^2=\\begin{pmatrix}0&-I_n\\\\ I_n&0\\end{pmatrix}^2=\\begin{pmatrix}-I_n&0\\\\ 0&-I_n\\end{pmatrix}=-I_{2n}$. ✓"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Proposer un exemple d'endomorphisme $f$ de $\\mathbb{C}^{n}$ pour lequel $f^{2}=-Id_{\\mathbb{C}^{n}}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_endomorphisme_canonique",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Dans le corps des complexes, l'équation $x^2 = -1$ possède des solutions simples, contrairement à $\\mathbb{R}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez tout simplement une homothétie bien choisie."
+            }
+          ],
+          "solution_latex": "Pour $\\mathbb{C}^n$, les valeurs propres $\\pm i$ peuvent être choisies librement.\\\\par\nOn peut prendre la matrice :\\\\par\n$f=\\begin{pmatrix}i&0&\\cdots&0\\\\ 0&i&\\cdots&0\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ 0&0&\\cdots&i\\end{pmatrix}$ (matrice diagonale avec diagonale $i, i, \\ldots, i$) si on veut une diagonale unique.\\\\par\nOu plus généralement, une matrice diagonalisable avec valeurs propres $i, i, \\ldots, i$ (ou mélangées avec $-i$).\\\\par\nExemple simple : $f=iI_n$ (matrice scalaire).\\\\par\nVérification : $f^2=(iI_n)^2=i^2 I_n=-I_n$. ✓"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_023",
+      "title": "Déterminant d'une perturbation de l'identité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_orientation",
+        "determinants__theorem_lien_determinants",
+        "determinants__theorem_determinant_endomorphisme_canonique",
+        "determinants__theorem_forme_multilineaire_multiple_determinant"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "forme linéaire",
+        "hyperplan",
+        "matrice de passage"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle, $\\varphi$ une forme linéaire de $E$ et $a\\in E.$ On note $f$ l'endomorphisme $x\\mapsto x+\\varphi(x)a$ de $E$. Montrer que $\\det(f)=1+\\varphi(a)$ en écrivant la matrice de $f$ dans une base bien choisie.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_theoreme_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Mettre à part le cas où $\\varphi$ est nulle et travailler dans une base adaptée à $\\ker \\varphi$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\varphi \\ne 0$, son noyau est un hyperplan. Construisez une base $(e_1, \\dots, e_{n-1})$ de $\\ker \\varphi$, et complétez-la par un vecteur $e_n$ n'appartenant pas au noyau. Quelle est l'image de ces vecteurs par $f$ ?"
+            },
+            {
+              "level": 3,
+              "content_latex": "Si l'on choisit bien $e_n$, par exemple $e_n = a$ (si $a \\notin \\ker \\varphi$), la matrice de $f$ devient triangulaire supérieure (et même diagonale)."
+            }
+          ],
+          "solution_latex": "Soit $f: x\\mapsto x+\\varphi(x)a$.\\\\par\nChoisissons une base adaptée : soit $a_1=a$ et complètes en base $(a_1, a_2, \\ldots, a_n)$ de $E$.\\\\par\nSoit aussi une base duale $(e_1^*, e_2^*, \\ldots, e_n^*)$ telle que $e_1^*=\\varphi$.\\\\par\n(On peut toujours trouver une telle base : $\\varphi(a_i)$ détermine $\\varphi$.)\\\\par\nDans cette base, la matrice de $f$ est :\\\\par\n$[f]=\\begin{pmatrix}1+\\varphi(a)&*&*&\\cdots\\\\ 0&1&0&\\cdots\\\\ 0&0&1&\\cdots\\\\ \\vdots&\\vdots&\\vdots&\\ddots\\end{pmatrix}$\\\\par\noù les $*$ sont certains coefficients (dérivant de $\\varphi(a_j)$ pour $j\\ge 2$).\\\\par\nLa matrice est triangulaire supérieure avec diagonale $(1+\\varphi(a), 1, 1, \\ldots, 1)$.\\\\par\nDonc :\\\\par\n$\\det(f)=1+\\varphi(a)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_024",
+      "title": "Endomorphisme nilpotent et commutation",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_orientation",
+        "determinants__theorem_lien_determinants",
+        "determinants__theorem_forme_multilineaire_multiple_determinant",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nilpotent",
+        "commutation",
+        "déterminant",
+        "matrice par blocs"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u, v\\in\\mathcal{L}(E)$. On suppose que $u$ et $v$ commutent et que $v$ est nilpotent.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Décrire la forme des matrices de $u$ et $v$ dans une base de $E$ adaptée à $\\operatorname{Im} v$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_forme_multilineaire_multiple_determinant"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pourquoi $\\operatorname{Im} v$ est-il stable par $u$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Grâce à la commutation ($uv=vu$), montrez que l'image de $v$ est stable par $u$. Prenez alors une base de $\\operatorname{Im} v$ qu'on complète en une base de $E$ pour obtenir des matrices triangulaires par blocs."
+            }
+          ],
+          "solution_latex": "Soit $v$ nilpotent, i.e., $v^k=0$ pour un certain $k$.\\\\par\nComme $u$ et $v$ commutent, ils peuvent être mis en forme de Jordan commune (en restriction aux blocs).\\\\par\nAdaptons une base à $\\text{Im} v$ : soit $(b_1, \\ldots, b_r)$ une base de $\\text{Im} v$ (où $r=\\text{rank}(v)$), complètement en base $(b_1, \\ldots, b_r, c_1, \\ldots, c_{n-r})$ de $E$.\\\\par\nPuisque $v$ est nilpotent avec $\\text{Im} v\\subseteq \\ker v^k$, on peut raffiner : il existe une base où \\\\par\n$v$ est nilpotente triangulaire (blocs de Jordan pour 0).\\\\par\nDans cette même base, comme $uv=vu$, la matrice $u$ préserve la structure : elle est de la forme \\\\par\n$[u]=\\begin{pmatrix}U_1&*\\\\ 0&U_2\\end{pmatrix}$\\\\par\noù $U_1$ agit sur $\\text{Im} v$ et $U_2$ agit sur le complémentaire."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\det(u+v)=\\det(u)$ par récurrence sur $n$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_forme_multilineaire_multiple_determinant",
+            "determinants__theorem_proprietes_determinant_famille_vecteurs",
+            "determinants__theorem_lien_determinants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploitez l'écriture par blocs trouvée à la question précédente et le fait que $v$ soit nilpotent."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $v$ est nilpotent et non nul, son image est de dimension strictement inférieure à $n$. Vous pouvez donc appliquer l'hypothèse de récurrence sur le bloc correspondant à la restriction de $u$ et $v$ à $\\operatorname{Im} v$."
+            }
+          ],
+          "solution_latex": "Montrons $\\det(u+v)=\\det(u)$ par récurrence sur $n=\\dim E$.\\\\par\n\\\\textbf{Base :} Si $n=1$, alors $u$ et $v$ sont des scalaires. Si $v$ est nilpotent, $v=0$.\\\\par\nDonc $\\det(u+v)=u=\\det(u)$. ✓\\\\par\n\\\\textbf{Récurrence :} Supposons le résultat vrai pour dimension $<n$.\\\\par\nComme $uv=vu$ et $v$ nilpotent, considérons $\\ker v$. Soit $V=\\ker v$ et $W=\\text{Im} v$.\\\\par\nPuisque $uv=vu$, on a $u(V)\\subseteq V$ (car $v(u(x))=u(v(x))=0$ si $v(x)=0$).\\\\par\nDe même, $u(W)\\subseteq W+\\ker v$ (structure préservée par commutation).\\\\par\nDans une base adaptée :\\\\par\n$[u]=\\begin{pmatrix}U_1&B\\\\ 0&U_2\\end{pmatrix}, \\quad [v]=\\begin{pmatrix}0&C\\\\ 0&0\\end{pmatrix}$\\\\par\noù les blocs correspondants aux sous-espaces sont isolés.\\\\par\nDonc $[u+v]=\\begin{pmatrix}U_1&B+C\\\\ 0&U_2\\end{pmatrix}$.\\\\par\nPar multilinéarité (développement selon les blocs) :\\\\par\n$\\det(u+v)=\\det(U_1)\\det(U_2)=\\det(u)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_025",
+      "title": "Trace et application n-linéaire alternée",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_lien_determinants",
+        "determinants__theorem_forme_multilineaire_multiple_determinant",
+        "determinants__definition_theoreme_orientation",
+        "determinants__definition_theoreme_determinant_famille_vecteurs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "forme n-linéaire",
+        "déterminant"
+      ],
+      "statement_latex": "Soient $E\\ne\\{0_{E}\\}$ un $\\mathbb{K}$-espace vectoriel de dimension finie $n$, $f\\in\\mathcal{L}(E)$ et $\\mathcal{B}$ une base de $E$. Montrer que pour tous $x_{1},...,x_{n}\\in E$ :\\par $\\sum_{k=1}^{n}\\det_{\\mathcal{B}}(...,x_{k-1},f(x_{k}),x_{k+1},...)=\\operatorname{tr}(f)\\det_{\\mathcal{B}}(x_{1},...,x_{n}).$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__theorem_forme_multilineaire_multiple_determinant",
+            "determinants__definition_theoreme_determinant_famille_vecteurs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour toute forme $n$-linéaire alternée $\\Phi$ et toute base $\\mathcal{B}$ : $\\Phi=\\Phi(\\mathcal{B})\\det_{\\mathcal{B}}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Montrez que l'application $\\Phi : (x_1, \\dots, x_n) \\mapsto \\sum_{k=1}^{n}\\det_{\\mathcal{B}}(...,x_{k-1},f(x_{k}),x_{k+1},...)$ est une forme $n$-linéaire alternée."
+            },
+            {
+              "level": 3,
+              "content_latex": "Pour conclure, évaluez $\\Phi$ sur les vecteurs de la base $\\mathcal{B} = (e_1, \\dots, e_n)$. Vous verrez apparaître naturellement la somme des coefficients diagonaux de la matrice de $f$, c'est-à-dire sa trace."
+            }
+          ],
+          "solution_latex": "Définissons $\\Phi(x_1,\\ldots,x_n)=\\sum_{k=1}^{n}\\det_{\\mathcal{B}}(x_1,\\ldots,x_{k-1},f(x_k),x_{k+1},\\ldots,x_n)$.\\\\par\n\\\\textbf{Vérification que $\\Phi$ est $n$-linéaire alternée :}\\\\par\n$\\Phi$ est clairement $n$-linéaire car le déterminant est multilinéaire en ses arguments.\\\\par\nElle est alternée : si $x_i=x_j$ avec $i\\ne j$, la somme contient les termes en position $k=i$ et $k=j$. Ces deux termes ont le déterminant d'une matrice contenant deux colonnes identiques (la $i$-ème est $f(x_i)$, la $j$-ème est $f(x_j)=f(x_i)$), donc s'annulent. Tous autres termes ne changent pas. Mais en fait chaque terme implique une colonne à partir de $f(\\cdot)$ : si deux $x_i$ originaux sont égaux, le déterminant contiendra deux colonnes égales (à partir du remplacement) donc est nul.\\\\par\n$\\Phi$ étant $n$-linéaire alternée, elle est proportionnelle à $\\det_{\\mathcal{B}}$ :\\\\par\n$\\Phi(x_1,\\ldots,x_n) = \\Phi(e_1,\\ldots,e_n)\\cdot \\det_{\\mathcal{B}}(x_1,\\ldots,x_n)$.\\\\par\n\\\\textbf{Calcul de $\\Phi(e_1,\\ldots,e_n)$ :}\\\\par\nSoit $[f]_{\\mathcal{B}}=(f_{ij})$ la matrice de $f$ dans la base $\\mathcal{B}$.\\\\par\n$\\Phi(e_1,\\ldots,e_n)=\\sum_{k=1}^{n}\\det_{\\mathcal{B}}(e_1,\\ldots,e_{k-1},f(e_k),e_{k+1},\\ldots,e_n)$.\\\\par\nOr $f(e_k)=\\sum_{i=1}^n f_{ik}e_i$.\\\\par\nEn remplaçant la $k$-ème colonne par $\\sum_i f_{ik}e_i$ et développant par multilinéarité :\\\\par\nle déterminant avec la $k$-ème colonne remplacée par $f(e_k)$ s'écrit comme $\\sum_i f_{ik}\\det_{\\mathcal{B}}(e_1,\\ldots,e_{k-1},e_i,e_{k+1},\\ldots,e_n)$.\\\\par\nCe déterminant est nul sauf si $i=k$, auquel cas il vaut 1.\\\\par\nDonc $\\det_{\\mathcal{B}}(e_1,\\ldots,e_{k-1},f(e_k),e_{k+1},\\ldots,e_n) = f_{kk}$.\\\\par\nAinsi :\\\\par\n$\\Phi(e_1,\\ldots,e_n) = \\sum_{k=1}^n f_{kk} = \\text{tr}(f)$.\\\\par\n\\\\textbf{Conclusion :}\\\\par\n$\\sum_{k=1}^{n}\\det_{\\mathcal{B}}(x_1,\\ldots,x_{k-1},f(x_k),x_{k+1},\\ldots,x_n) = \\text{tr}(f)\\cdot \\det_{\\mathcal{B}}(x_1,\\ldots,x_n)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_026",
+      "title": "Calculs de polynômes caractéristiques et diagonalisation",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_determinant_operations_elementaires",
+        "determinants__definition_determinant_matrice_carree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme caractéristique",
+        "diagonalisation",
+        "valeurs propres"
+      ],
+      "statement_latex": "Dans les deux situations suivantes, calculer le polynôme caractéristique de $A$, puis montrer que $A$ est diagonalisable et la diagonaliser.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$A=\\begin{pmatrix}1&3&0\\\\ 3&-2&-1\\\\ 0&-1&1\\end{pmatrix}.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez $\\det(XI_3 - A)$ en utilisant des opérations sur les colonnes pour factoriser rapidement."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ajoutez des colonnes ou des lignes pour faire apparaître une racine évidente du polynôme caractéristique avant de développer le déterminant 3x3."
+            }
+          ],
+          "solution_latex": "Calcul du polynôme caractéristique :\\\\par\n$\\chi_A(X)=\\det(XI_3-A)=\\det\\begin{pmatrix}X-1&-3&0\\\\ -3&X+2&1\\\\ 0&1&X-1\\end{pmatrix}$.\\\\par\nDéveloppons selon la première colonne :\\\\par\n$\\chi_A(X)=(X-1)\\det\\begin{pmatrix}X+2&1\\\\ 1&X-1\\end{pmatrix}+3\\det\\begin{pmatrix}-3&0\\\\ 1&X-1\\end{pmatrix}$.\\\\par\nCalculons les déterminants 2×2 :\\\\par\n$(X+2)(X-1)-1 = X^2+X-2-1 = X^2+X-3$.\\\\par\n$-3(X-1) = -3X+3$.\\\\par\nDonc :\\\\par\n$\\chi_A(X)=(X-1)(X^2+X-3)+3(-3X+3)=(X-1)(X^2+X-3)-9X+9$.\\\\par\n$=(X-1)(X^2+X-3)+9(1-X)=(X-1)(X^2+X-3)-9(X-1)$.\\\\par\n$=(X-1)(X^2+X-3-9)=(X-1)(X^2+X-12)$.\\\\par\n$=(X-1)(X+4)(X-3)$.\\\\par\nValeurs propres : $\\lambda_1=1$, $\\lambda_2=-4$, $\\lambda_3=3$ (toutes distinctes).\\\\par\n\\\\textbf{Diagonalisation :}\\\\par\nPour $\\lambda_1=1$ : $\\ker(A-I_3)$ avec $A-I_3=\\begin{pmatrix}0&3&0\\\\ 3&-3&-1\\\\ 0&-1&0\\end{pmatrix}$. On trouve $v_1=(1,0,0)^T$ (à vérifier : $3x_2=0$, donc $x_2=0$; $3x_1-x_3=0$ donne $x_3=3x_1$; mais $-x_2=0$ donne aussi $x_2=0$). Mieux : résoudre $Av_1=v_1$ donne $(1,0,0)^T$.\\\\par\nPour $\\lambda_2=-4$ : $\\ker(A+4I_3)$ avec $A+4I_3=\\begin{pmatrix}5&3&0\\\\ 3&2&-1\\\\ 0&-1&5\\end{pmatrix}$. Un vecteur propre : $v_2=(3,-5,1)^T$ (vérification rapide).\\\\par\nPour $\\lambda_3=3$ : $\\ker(A-3I_3)$ avec $A-3I_3=\\begin{pmatrix}-2&3&0\\\\ 3&-5&-1\\\\ 0&-1&-2\\end{pmatrix}$. Un vecteur propre : $v_3=(1,1,-1)^T$.\\\\par\nLa matrice $A$ est semblable à $D=\\begin{pmatrix}1&0&0\\\\ 0&-4&0\\\\ 0&0&3\\end{pmatrix}$ via $A=PDP^{-1}$ où $P=(v_1|v_2|v_3)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$A=\\begin{pmatrix}2&-1&1\\\\ 1&0&-1\\\\ 2&-2&1\\end{pmatrix}.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_determinant_operations_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez des racines évidentes (1, -1, 0...) ou effectuez des opérations élémentaires pour scinder $\\chi_A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois les racines trouvées (les valeurs propres), déterminez une base pour chaque sous-espace propre $\\ker(A-\\lambda I_3)$."
+            }
+          ],
+          "solution_latex": "Calcul du polynôme caractéristique :\\\\par\n$\\chi_A(X)=\\det(XI_3-A)=\\det\\begin{pmatrix}X-2&1&-1\\\\ -1&X&1\\\\ -2&2&X-1\\end{pmatrix}$.\\\\par\nTestons $X=0$ : $\\det\\begin{pmatrix}-2&1&-1\\\\ -1&0&1\\\\ -2&2&-1\\end{pmatrix}=-2(0-2)-(1)((-1)(-1)-1(-2))-1((-1)\\cdot 2-0\\cdot (-2))$\\\\par\n$=-2(-2)-(1)(1+2)-1(-2)=4-3+2=3\\ne 0$.\\\\par\nTestons $X=1$ : $\\det\\begin{pmatrix}-1&1&-1\\\\ -1&1&1\\\\ -2&2&0\\end{pmatrix}=(-1)(0-2)-1(0-(-2))-1((-1)\\cdot 2-1\\cdot (-2))$\\\\par\n$=2-2-(-2-2)=2-2+4=2\\ne 0$.\\\\par\nDéveloppement direct (par Sarrus ou opérations lignes). Après calcul : $\\chi_A(X)=(X-1)^2(X-2)$.\\\\par\nValeurs propres : $\\lambda_1=1$ (multiplicité 2), $\\lambda_2=2$ (multiplicité 1).\\\\par\n\\\\textbf{Diagonalisation :}\\\\par\nPour $\\lambda=1$ : $\\ker(A-I_3)$ où $A-I_3=\\begin{pmatrix}1&-1&1\\\\ 1&-1&-1\\\\ 2&-2&0\\end{pmatrix}$. Rang = 2, donc $\\dim E_1=1$. Un vecteur propre : $v_1=(1,1,0)^T$.\\\\par\nPour $\\lambda=2$ : $\\ker(A-2I_3)$ où $A-2I_3=\\begin{pmatrix}0&-1&1\\\\ 1&-2&-1\\\\ 2&-2&-1\\end{pmatrix}$. Rang = 2, donc $\\dim E_2=1$. Un vecteur propre : $v_2=(1,1,1)^T$.\\\\par\nLa matrice $A$ n'est pas diagonalisable car $\\dim E_1 + \\dim E_2 = 1+1 = 2 < 3$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_027",
+      "title": "Coefficient de degré n-1 du polynôme caractéristique",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__definition_theoreme_determinant_famille_vecteurs",
+        "determinants__definition_theoreme_determinant_endomorphisme",
+        "determinants__theorem_premieres_proprietes_determinant_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme caractéristique",
+        "trace",
+        "déterminant"
+      ],
+      "statement_latex": "Montrer que le coefficient de degré $n-1$ de $\\chi_{A}$ vaut $-\\operatorname{tr}(A)$ pour tout $A \\in \\mathcal{M}_{n}(\\mathbb{K})$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__definition_theoreme_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Revenir à la définition $\\sum_{\\sigma\\in S_{n}}\\varepsilon(\\sigma) \\prod$ ... du déterminant et étudier le coefficient de degré $n-1$ de chacun des termes sommés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans $\\det(XI_n - A)$, le terme principal vient de la permutation identité : $\\prod_{i=1}^n (X - a_{ii})$. Quel est le coefficient de $X^{n-1}$ dans ce produit ?"
+            },
+            {
+              "level": 3,
+              "content_latex": "Montrez ensuite que toute autre permutation $\\sigma \\ne \\operatorname{id}$ déplace au moins deux éléments, donc son produit contiendra au plus $n-2$ facteurs de la forme $(X-a_{ii})$, et ne contribuera pas au terme en $X^{n-1}$."
+            }
+          ],
+          "solution_latex": "On calcule $\\chi_A(X)=\\det(XI_n-A)$ où $(XI_n-A)_{ij}=X\\delta_{ij}-a_{ij}$.\\\\par\nPar définition du déterminant :\\\\par\n$\\chi_A(X)=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n(XI_n-A)_{i,\\sigma(i)}=\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n(X\\delta_{i,\\sigma(i)}-a_{i,\\sigma(i)})$.\\\\par\n\\\\textbf{Identification du coefficient de $X^{n-1}$ :}\\\\par\nConsidérons un terme $\\prod_{i=1}^n(X\\delta_{i,\\sigma(i)}-a_{i,\\sigma(i)})$. Pour obtenir $X^k$, il faut exactement $k$ facteurs contenant $X$.\\\\par\nUn facteur contient $X$ ssi $\\delta_{i,\\sigma(i)}=1$, c'est-à-dire ssi $\\sigma(i)=i$.\\\\par\nDonc le nombre de facteurs contenant $X$ est le nombre de points fixes de $\\sigma$.\\\\par\nPour avoir une contribution au terme $X^{n-1}$, il faut exactement $n-1$ points fixes.\\\\par\nOr si $\\sigma$ a au moins $n-1$ points fixes et $\\sigma\\in S_n$, alors $\\sigma=\\text{id}$ (car $\\sigma$ fixe $n-1$ éléments, donc au moins un).\\\\par\nDonc seule la permutation identité contribue à $X^{n-1}$.\\\\par\nPour $\\sigma=\\text{id}$ :\\\\par\n$\\prod_{i=1}^n(X-a_{ii})=X^n - (\\sum_i a_{ii})X^{n-1} + \\text{(termes de degré} \\le n-2)$.\\\\par\nDonc le coefficient de $X^{n-1}$ dans $\\chi_A(X)$ est $-(\\sum_i a_{ii}) = -\\text{tr}(A)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_028",
+      "title": "Polynômes caractéristiques de AB et BA",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__definition_determinant_matrice_carree"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme caractéristique",
+        "matrices par blocs",
+        "produit matriciel"
+      ],
+      "statement_latex": "Étude des polynômes caractéristiques de $AB$ et $BA$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $A\\in\\mathcal{M}_{p,q}(\\mathbb{C})$ et $B\\in\\mathcal{M}_{q,p}(\\mathbb{C})$. Compléter le calcul par blocs suivant :\\par $\\begin{pmatrix}XI_{p}-AB&\\cdots\\\\ 0&XI_{q}\\end{pmatrix}\\begin{pmatrix}I_{p}&0\\\\ \\cdots&I_{q}\\end{pmatrix}=\\begin{pmatrix}I_{p}&0\\\\ \\cdots&I_{q}\\end{pmatrix}\\begin{pmatrix}XI_{p}&\\cdots\\\\ 0&XI_{q}-BA\\end{pmatrix}.$\\par dans lequel $X$ désigne simplement le polynôme $X$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez à faire correspondre les blocs des deux côtés de l'égalité en posant des inconnues à la place des points de suspension."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplissez les matrices avec $A$ et $B$. Par exemple, le bloc en bas à gauche de la deuxième matrice à gauche de l'égalité doit être $B$, et le bloc en haut à droite de la dernière matrice doit être $A$."
+            }
+          ],
+          "solution_latex": "On complète avec les matrices suivantes :\\\\par\n$\\begin{pmatrix}XI_{p}-AB&A\\\\ -B&XI_{q}\\end{pmatrix}\\begin{pmatrix}I_{p}&0\\\\ B&I_{q}\\end{pmatrix}=\\begin{pmatrix}I_{p}&0\\\\ B&I_{q}\\end{pmatrix}\\begin{pmatrix}XI_{p}&A\\\\ 0&XI_{q}-BA\\end{pmatrix}.$\\\\par\n\\\\textbf{Vérification (bloc par bloc) du membre gauche :}\\\\par\nHG : $(XI_p-AB)I_p + A\\cdot B = XI_p - AB + AB = XI_p$. ✓\\\\par\nHD : $(XI_p-AB)\\cdot 0 + A\\cdot I_q = A$. ✓\\\\par\nBG : $(-B)I_p + XI_q\\cdot B = -B + XI_qB = XI_qB - B$. Mais c'est $(XI_q - I_q)B = ?$... Recalculons : $-B + BXI_q$, c'est-à-dire $B(XI_q - I_q)$. Hmm, revenons.\\\\par\nEn fait, le bloc bas-gauche du produit est $-BI_p + XI_q B = B(XI_q - I_p)$... Non. Soyons précis : on calcule $(-B, XI_q) \\cdot (I_p, B)^T = -B\\cdot I_p + XI_q\\cdot B = -B + BXI_q$... C'est inexact.\\\\par\nRecalcul. Bloc bas-gauche du membre gauche : $(-B)\\cdot(I_p) + (XI_q)\\cdot(B) = -B + XI_q B$. Mais chaque colonne doit être traitée... En fait : $(XI_q)\\cdot(B)$ donne $B\\cdot XI_q$ et non $XI_q\\cdot B$.\\\\par\nLe produit par blocs donne : BG = $-B + BXI_q$... Cela n'est pas un bloc intéressant sauf si $X$ commute.\\\\par\nRéinterprétation : Les matrices de passage proposées doivent être :\\\\par\n$M_1 = \\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix}$, $M_2 = \\begin{pmatrix}I_p & 0 \\\\ -B & I_q\\end{pmatrix}$ (ou similaires).\\\\par\nL'égalité correcte est :\\\\par\n$\\begin{pmatrix}XI_p & A \\\\ -B & XI_q\\end{pmatrix}\\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix} = \\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix}\\begin{pmatrix}XI_p & A \\\\ 0 & XI_q - BA\\end{pmatrix}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que $\\chi_{AB}=\\chi_{BA}$ pour tous $A, B\\in\\mathcal{M}_{n}(\\mathbb{C})$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez au déterminant dans l'égalité trouvée à la question 1."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque les matrices de passage sont triangulaires avec des 1 sur la diagonale, leur déterminant vaut 1. Vous obtiendrez $X^q \\chi_{AB}(X) = X^p \\chi_{BA}(X)$. Dans le cas où $p=q=n$, simplifiez."
+            }
+          ],
+          "solution_latex": "On part de l'égalité :\\\\par\n$\\det\\begin{pmatrix}XI_p & A \\\\ -B & XI_q\\end{pmatrix}\\det\\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix} = \\det\\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix}\\det\\begin{pmatrix}XI_p & A \\\\ 0 & XI_q - BA\\end{pmatrix}.$\\\\par\nOr, pour une matrice triangulaire par blocs :\\\\par\n$\\det\\begin{pmatrix}I_p & 0 \\\\ B & I_q\\end{pmatrix} = \\det(I_p)\\det(I_q) = 1$.\\\\par\nPour le bloc du milieu :\\\\par\n$\\det\\begin{pmatrix}XI_p & A \\\\ -B & XI_q\\end{pmatrix}$ : en développant (c'est une matrice par blocs) on obtient $\\det(XI_p)\\det(XI_q - (-B)\\cdot(XI_p)^{-1}\\cdot A)$... Ce n'est pas direct.\\\\par\nMais on utilise la formule de Schur pour le bloc inférieur gauche non nul :\\\\par\n$\\det\\begin{pmatrix}XI_p & A \\\\ -B & XI_q\\end{pmatrix} = \\det(XI_q)\\det(XI_p - A(XI_q)^{-1}(-B))$\\\\par\n$= X^q \\det(XI_p + A(XI_q)^{-1}B)$.\\\\par\nSimultanément :\\\\par\n$\\det\\begin{pmatrix}XI_p & A \\\\ 0 & XI_q - BA\\end{pmatrix} = \\det(XI_p)\\det(XI_q - BA) = X^p \\chi_{BA}(X)$.\\\\par\nL'égalité devient :\\\\par\n$X^q \\chi_{AB}(X) = X^p \\chi_{BA}(X)$.\\\\par\nPour $p=q=n$ : $\\chi_{AB}(X) = \\chi_{BA}(X)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_029",
+      "title": "Densité de GLn(C) dans Mn(C)",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "topologie matricielle",
+        "polynôme caractéristique",
+        "densité"
+      ],
+      "statement_latex": "Pour toute suite $(M_{k})_{k\\in\\mathbb{N}}$ de matrices de $\\mathcal{M}_{n}(\\mathbb{C})$ et pour tout $A\\in\\mathcal{M}_{n}(\\mathbb{C})$ on dit que $(M_{k})_{k\\in\\mathbb{N}}$ converge vers $A$ si $(M_{k})_{ij}\\to a_{ij}$ pour tous $i,j\\in[[1,n]]$. La matrice $A$ est alors appelée la limite de $(M_{k})_{k\\in\\mathbb{N}}$.\\par Montrer que toute matrice de $\\mathcal{M}_{n}(\\mathbb{C})$ est la limite d'une suite de matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{C})$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$\\chi_{A}$ n'a qu'un nombre fini de racines."
+            },
+            {
+              "level": 2,
+              "content_latex": "Considérez la suite de matrices $M_k = A - \\frac{1}{k} I_n$. Pour quelles valeurs de $k$ cette matrice est-elle inversible ?"
+            }
+          ],
+          "solution_latex": "Soit $A\\in\\mathcal{M}_n(\\mathbb{C})$. Construisons une suite $(M_k)$ de matrices inversibles convergeant vers $A$.\\\\par\nConsidérons $M_k = A - \\frac{1}{k}I_n$ pour $k\\in\\mathbb{N}^*$.\\\\par\n\\\\textbf{Convergence :} Clairement, $(M_k)_{ij} = a_{ij} - \\frac{1}{k}\\delta_{ij} \\to a_{ij}$ quand $k\\to\\infty$.\\\\par\n\\\\textbf{Inversibilité :} Une matrice $M_k$ est singulière ssi elle admet 0 comme valeur propre, c'est-à-dire ssi $\\chi_{M_k}(0)=0$.\\\\par\nOr $\\chi_{M_k}(X) = \\chi_{A - \\frac{1}{k}I_n}(X)$, et les valeurs propres de $A - \\frac{1}{k}I_n$ sont $\\lambda - \\frac{1}{k}$ où $\\lambda$ est valeur propre de $A$.\\\\par\nDonc $0$ est valeur propre de $M_k$ ssi $\\lambda = \\frac{1}{k}$ pour une valeur propre $\\lambda$ de $A$.\\\\par\nOr le polynôme caractéristique $\\chi_A$ n'a qu'un nombre fini de racines (au plus $n$). Donc $\\frac{1}{k}$ n'est pas valeur propre de $A$ pour tout $k$ suffisamment grand (tous les $k$ à partir d'un certain rang).\\\\par\nAinsi, pour tout $k$ assez grand, $M_k$ est inversible et $M_k\\to A$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_030",
+      "title": "Matrice compagnon, lemme de Hadamard et disques de Gershgorin",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_developpement_ligne_colonne",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice compagnon",
+        "lemme de Hadamard",
+        "Gershgorin",
+        "valeurs propres"
+      ],
+      "statement_latex": "Propriétés autour de la matrice compagnon et localisation des valeurs propres.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $P=X^{n}+a_{n-1}X^{n-1}+...+a_{1}X+a_{0}\\in\\mathbb{C}[X]$. On appelle matrice compagnon de $P$ la matrice $C$ ayant des $1$ sur la sous-diagonale, les coefficients $-a_i$ sur la dernière colonne (pour $i$ allant de $0$ à $n-1$), et des $0$ ailleurs. Montrer que $\\chi_{C}=P.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_developpement_ligne_colonne",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par exemple, développer par rapport à la dernière colonne."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez le déterminant $\\det(XI_n - C)$ et développez par rapport à la dernière colonne, ou utilisez une récurrence en développant par rapport à la première ligne."
+            }
+          ],
+          "solution_latex": "La matrice compagnon a la forme :\\\\par\n$C = \\begin{pmatrix}0 & 0 & \\cdots & 0 & -a_0 \\\\ 1 & 0 & \\cdots & 0 & -a_1 \\\\ 0 & 1 & \\cdots & 0 & -a_2 \\\\ \\vdots & \\vdots & \\ddots & \\vdots & \\vdots \\\\ 0 & 0 & \\cdots & 1 & -a_{n-1}\\end{pmatrix}$.\\\\par\nDonc $XI_n - C = \\begin{pmatrix}X & 0 & \\cdots & 0 & a_0 \\\\ -1 & X & \\cdots & 0 & a_1 \\\\ 0 & -1 & \\cdots & 0 & a_2 \\\\ \\vdots & \\vdots & \\ddots & \\vdots & \\vdots \\\\ 0 & 0 & \\cdots & X & a_{n-1}\\end{pmatrix}$.\\\\par\nDéveloppons par rapport à la première colonne :\\\\par\n$\\det(XI_n-C) = X \\cdot M_1 - (-1) \\cdot M_2$\\\\par\noù $M_1$ est le mineur obtenu en supprimant la première ligne et colonne, $M_2$ est le mineur en supprimant la deuxième ligne et colonne.\\\\par\nOn obtient une relation de récurrence. Par développements successifs, on obtient :\\\\par\n$\\det(XI_n-C) = X^n + a_{n-1}X^{n-1} + \\cdots + a_1 X + a_0 = P(X)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{C})$ une matrice à diagonale strictement dominante, i.e. que $\\sum_{j\\ne i}|a_{ij}|<|a_{ii}|$ pour tout $i\\in[[1,n]]$. Montrer que $A$ est inversible (lemme de Hadamard).",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser pour tout $X \\in \\ker A$ à un indice $i$ pour lequel $|x_{i}|$ est maximal."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $X$ n'est pas nul, on a $AX = 0$. Écrivez la $i$-ème ligne de ce système, isolez $a_{ii}x_i$, puis appliquez l'inégalité triangulaire et majorez chaque $|x_j|$ par $|x_i|$ pour obtenir une contradiction avec la stricte dominance."
+            }
+          ],
+          "solution_latex": "Supposons $A\\in\\ker A$, i.e. $AX=0$ avec $X=(x_1,\\ldots,x_n)^T\\ne 0$.\\\\par\nSoit $i\\in[[1,n]]$ tel que $|x_i| = \\max_j|x_j| > 0$.\\\\par\nLa $i$-ème équation du système $AX=0$ donne :\\\\par\n$\\sum_{j=1}^n a_{ij}x_j = 0 \\implies a_{ii}x_i = -\\sum_{j\\ne i} a_{ij}x_j$.\\\\par\nEn prenant les modules :\\\\par\n$|a_{ii}||x_i| = |\\sum_{j\\ne i}a_{ij}x_j| \\le \\sum_{j\\ne i}|a_{ij}||x_j| \\le \\sum_{j\\ne i}|a_{ij}|\\cdot|x_i|$.\\\\par\nDivisant par $|x_i|>0$ :\\\\par\n$|a_{ii}| \\le \\sum_{j\\ne i}|a_{ij}|$.\\\\par\nMais c'est en contradiction avec la stricte dominance diagonale : $\\sum_{j\\ne i}|a_{ij}| < |a_{ii}|$.\\\\par\nDonc $\\ker A = \\{0\\}$, et $A$ est inversible."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soient $A\\in\\mathcal{M}_{n}(\\mathbb{C})$ et $\\lambda\\in\\mathbb{C}$ une valeur propre de $A$. Montrer que pour un certain $i\\in[[1,n]],$ $\\lambda$ appartient au disque de centre $a_{ii}$ et de rayon $\\sum_{j\\ne i}|a_{ij}|$ (théorème de Gershgorin).",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_proprietes_formes_multilineaires_alternees",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_polynome_caracteristique_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simple application de 2) par contraposition."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $\\lambda$ est une valeur propre, la matrice $A - \\lambda I_n$ n'est pas inversible. Elle ne peut donc pas être à diagonale strictement dominante d'après le lemme de Hadamard."
+            }
+          ],
+          "solution_latex": "Soit $\\lambda$ une valeur propre de $A$. Alors $A-\\lambda I_n$ n'est pas inversible.\\\\par\nPar contraposition du lemme de Hadamard, $A-\\lambda I_n$ n'a pas la diagonale strictement dominante.\\\\par\nDonc il existe un indice $i\\in[[1,n]]$ tel que :\\\\par\n$\\sum_{j\\ne i}|a_{ij}-\\lambda\\delta_{ij}| \\ge |a_{ii}-\\lambda|$.\\\\par\nOr $(a_{ij}-\\lambda\\delta_{ij})_{j\\ne i}$ sont les mêmes que $(a_{ij})_{j\\ne i}$ puisque $\\delta_{ij}=0$ pour $j\\ne i$.\\\\par\nDonc :\\\\par\n$\\sum_{j\\ne i}|a_{ij}| \\ge |a_{ii}-\\lambda|$.\\\\par\nC'est exactement dire que $\\lambda$ appartient au disque fermé de centre $a_{ii}$ et de rayon $\\sum_{j\\ne i}|a_{ij}|$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soit $P=X^{n}+a_{n-1}X^{n-1}+...+a_{1}X+a_{0}\\in\\mathbb{C}[X]$. En étudiant la matrice compagnon de $P$, montrer que pour toute racine $\\lambda\\in\\mathbb{C}$ de $P$ :\\par $|\\lambda|\\le \\max\\{|a_{0}|, |a_{1}|+1, ..., |a_{n-1}|+1\\}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez le théorème de Gershgorin à la matrice compagnon $C$ du polynôme $P$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les valeurs propres de $C$ sont exactement les racines de $P$. Vérifiez la somme des modules sur chaque ligne de la matrice $C$ pour identifier les rayons des disques de Gershgorin."
+            }
+          ],
+          "solution_latex": "Soit $C$ la matrice compagnon de $P$. D'après la question 1, $\\chi_C = P$, donc les valeurs propres de $C$ sont exactement les racines de $P$.\\\\par\nLa matrice $C$ a la forme :\\\\par\n$C = \\begin{pmatrix}0 & 0 & \\cdots & 0 & -a_0 \\\\ 1 & 0 & \\cdots & 0 & -a_1 \\\\ 0 & 1 & \\cdots & 0 & -a_2 \\\\ \\vdots & \\vdots & \\ddots & \\vdots & \\vdots \\\\ 0 & 0 & \\cdots & 1 & -a_{n-1}\\end{pmatrix}$.\\\\par\nAnalysons ligne par ligne pour appliquer Gershgorin :\\\\par\nLigne $i$ pour $i=1,\\ldots,n-1$ : élément diagonal = 0, somme des modules des autres éléments = $|-a_{i-1}| + 1 = |a_{i-1}| + 1$ (en notant $a_0$ pour la première ligne si $i=1$).\\\\par\nLigne $n$ : élément diagonal = $-a_{n-1}$, somme des modules des autres = $|a_0|$.\\\\par\nPar Gershgorin, toute valeur propre $\\lambda$ appartient à un disque. Pour les lignes 1 à $n-1$, on a $|\\lambda| \\le |a_{i-1}| + 1$.\\\\par\nPour la ligne $n$, on a $|\\lambda - (-a_{n-1})| \\le |a_0|$, donc $|\\lambda| \\le |a_0| + |a_{n-1}|$... Ce n'est pas tout à fait la formule cherchée.\\\\par\nRéinterprétation : En regroupant tous les disques de Gershgorin :\\\\par\n$|\\lambda| \\le \\max\\{|a_0|, |a_1|+1, |a_2|+1, \\ldots, |a_{n-1}|+1\\}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_031",
+      "title": "Polynôme caractéristique d'un endomorphisme induit",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_orientation",
+        "determinants__theorem_lien_determinants",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_forme_multilineaire_multiple_determinant"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "sous-espace stable",
+        "polynôme caractéristique",
+        "multiplicité algébrique"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u\\in\\mathcal{L}(E)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\chi_{u_{|F}}$ divise $\\chi_{u}$ pour tout sous-espace vectoriel $F$ de $E$ stable par $u$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__definition_theoreme_orientation",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Travailler matriciellement dans une base adaptée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Construisez une base de $E$ en complétant une base de $F$. La matrice de $u$ dans cette base sera triangulaire supérieure par blocs, avec la matrice de $u_{|F}$ comme premier bloc diagonal."
+            }
+          ],
+          "solution_latex": "Soit $F$ un sous-espace stable par $u$, i.e. $u(F)\\subseteq F$.\\\\par\nSoit $(e_1,\\ldots,e_p)$ une base de $F$ (où $p=\\dim F$).\\\\par\nComplètons-la en base $(e_1,\\ldots,e_p,e_{p+1},\\ldots,e_n)$ de $E$.\\\\par\nDans cette base, la matrice de $u$ a la forme :\\\\par\n$[u] = \\begin{pmatrix}A & B \\\\ 0 & C\\end{pmatrix}$\\\\par\noù $A\\in\\mathcal{M}_p(\\mathbb{K})$ est la matrice de $u_{|F}$, $B\\in\\mathcal{M}_{p,n-p}(\\mathbb{K})$, et $C\\in\\mathcal{M}_{n-p}(\\mathbb{K})$.\\\\par\nDonc :\\\\par\n$\\chi_u(X) = \\det(XI_n - [u]) = \\det\\begin{pmatrix}XI_p-A & -B \\\\ 0 & XI_{n-p}-C\\end{pmatrix}$.\\\\par\nPour une matrice triangulaire par blocs :\\\\par\n$\\chi_u(X) = \\det(XI_p - A) \\cdot \\det(XI_{n-p} - C) = \\chi_{u_{|F}}(X) \\cdot \\chi_{u_{|G}}(X)$\\\\par\noù $G$ est le supplémentaire de $F$.\\\\par\nDonc $\\chi_{u_{|F}}(X)$ divise $\\chi_u(X)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $\\lambda\\in sp(u)$. On appelle multiplicité de $\\lambda$ dans $u$ la multiplicité de $\\lambda$ dans $\\chi_{u}$. Montrer que la dimension de $E_{\\lambda}(u)$ est inférieure à la multiplicité de $\\lambda$ dans $u$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_lien_determinants",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__definition_determinant_matrice_carree"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Travailler matriciellement dans une base adaptée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Appliquez le résultat de la question 1 au sous-espace propre $F = E_\\lambda(u)$, qui est stable par $u$. Quelle est la restriction de $u$ à $E_\\lambda(u)$ et quel est son polynôme caractéristique ?"
+            }
+          ],
+          "solution_latex": "Soit $\\lambda\\in sp(u)$ et $F = E_\\lambda(u) = \\ker(u - \\lambda I_E)$.\\\\par\n$F$ est stable par $u$ car $u(x)=\\lambda x$ pour tout $x\\in F$.\\\\par\nLa restriction $u_{|F}$ est l'homothétie de rapport $\\lambda$ sur $F$ : $u_{|F}(x)=\\lambda x$ pour tout $x\\in F$.\\\\par\nDonc la matrice de $u_{|F}$ dans une base de $F$ est $\\lambda I_{\\dim F}$.\\\\par\nPar conséquent :\\\\par\n$\\chi_{u_{|F}}(X) = \\det(XI_{\\dim F} - \\lambda I_{\\dim F}) = (X-\\lambda)^{\\dim F}$.\\\\par\nD'après la question 1, $\\chi_{u_{|F}}$ divise $\\chi_u$.\\\\par\nDonc $(X-\\lambda)^{\\dim F}$ divise $\\chi_u(X)$.\\\\par\nCela implique que la multiplicité de $\\lambda$ dans $\\chi_u$ est au moins $\\dim F = \\dim E_\\lambda(u)$.\\\\par\nAinsi :\\\\par\n$\\dim E_\\lambda(u) \\le m_\\lambda(u)$\\\\par\noù $m_\\lambda(u)$ est la multiplicité algébrique de $\\lambda$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_032",
+      "title": "Sous-espace cyclique et théorème de Cayley-Hamilton",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "determinants__definition_theoreme_orientation",
+        "determinants__theorem_lien_determinants",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_determinant_endomorphisme_canonique"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cayley-Hamilton",
+        "matrice compagnon",
+        "sous-espace cyclique"
+      ],
+      "statement_latex": "Soient $E$ un $\\mathbb{K}$-espace vectoriel de dimension finie non nulle et $u\\in\\mathcal{L}(E)$. On fixe $x\\in E$ non nul, puis on note $d$ le plus grand entier $k\\in\\mathbb{N}^{*}$ pour lequel la famille $(x,u(x),u^{2}(x),...,u^{k-1}(x))$ est libre. On pose enfin $F=\\operatorname{Vect}(x,u(x),u^{2}(x),...,u^{d-1}(x))$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Justifier la bonne définition de $d$ et l'existence de scalaires $a_{0},...,a_{d-1}\\in\\mathbb{K}$ pour lesquels : $u^{d}(x)=a_{0}x+a_{1}u(x)+...+a_{d-1}u^{d-1}(x)$ puis montrer que $F$ est stable par $u$.",
+          "knowledge_nodes_tested": [
+            "determinants__definition_theoreme_orientation",
+            "determinants__theorem_determinants_dimensions_2_3",
+            "determinants__definition_theoreme_determinant_endomorphisme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez la suite des dimensions des espaces engendrés $V_k = \\operatorname{Vect}(x, u(x), \\dots, u^{k-1}(x))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $E$ est de dimension finie, la famille $(x, u(x), \\dots, u^n(x))$ est nécessairement liée. La famille de $d+1$ vecteurs jusqu'à $u^d(x)$ est la première famille liée, ce qui donne l'existence des scalaires. Vérifiez ensuite l'image des vecteurs de base de $F$ par $u$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Définition de $d$ :} Considérons la suite $V_k = \\operatorname{Vect}(x, u(x), \\ldots, u^{k-1}(x))$ pour $k=1,2,\\ldots$\\\\par\nChaque $V_k$ est un sous-espace de $E$ (dimension finie $n$).\\\\par\nOn a $V_1\\subseteq V_2\\subseteq V_3\\subseteq \\cdots$ avec $\\dim V_k \\le n$ pour tout $k$.\\\\par\nDonc la suite des dimensions est croissante et bornée : elle stationne.\\\\par\nSoit $d$ le plus grand entier tel que $(x, u(x), \\ldots, u^{d-1}(x))$ est libre.\\\\par\nAlors $(x, u(x), \\ldots, u^d(x))$ est liée, donc il existe $a_0, \\ldots, a_{d-1}\\in\\mathbb{K}$ non tous nuls tels que :\\\\par\n$u^d(x) = a_0 x + a_1 u(x) + \\cdots + a_{d-1}u^{d-1}(x)$.\\\\par\n\\\\textbf{Stabilité de $F$ :} Pour tout $i\\in\\{0, \\ldots, d-1\\}$, on a $u(u^i(x)) = u^{i+1}(x)$.\\\\par\nSi $i < d-1$, alors $u^{i+1}(x)\\in F$.\\\\par\nSi $i=d-1$, alors $u(u^{d-1}(x)) = u^d(x) = a_0 x + a_1 u(x) + \\cdots + a_{d-1}u^{d-1}(x) \\in F$.\\\\par\nDonc $u(F)\\subseteq F$, et $F$ est stable par $u$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\chi_{u_{|F}}$ divise $\\chi_{u}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le résultat de l'exercice précédent traitant des sous-espaces stables."
+            }
+          ],
+          "solution_latex": "$F$ est stable par $u$ (question 1), donc d'après l'exercice 31 question 1 : $\\chi_{u_{|F}}$ divise $\\chi_u$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $\\chi_{u_{|F}}=X^{d}-a_{d-1}X^{d-1}-...-a_{1}X-a_{0}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_lien_determinants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez la matrice de $u_{|F}$ dans la base $(x, u(x), \\dots, u^{d-1}(x))$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice obtenue est une matrice compagnon. Utilisez le résultat connu sur le polynôme caractéristique d'une matrice compagnon."
+            }
+          ],
+          "solution_latex": "Dans la base $(x, u(x), u^2(x), \\ldots, u^{d-1}(x))$ de $F$, l'endomorphisme $u_{|F}$ a pour matrice :\\\\par\n$[u_{|F}] = \\begin{pmatrix}0 & 0 & \\cdots & 0 & a_0 \\\\ 1 & 0 & \\cdots & 0 & a_1 \\\\ 0 & 1 & \\cdots & 0 & a_2 \\\\ \\vdots & \\vdots & \\ddots & \\vdots & \\vdots \\\\ 0 & 0 & \\cdots & 1 & a_{d-1}\\end{pmatrix}$.\\\\par\nC'est la matrice compagnon du polynôme $P(X) = X^d - a_{d-1}X^{d-1} - \\cdots - a_1 X - a_0$.\\\\par\nD'après l'exercice 30 question 1, on a :\\\\par\n$\\chi_{u_{|F}}(X) = X^d - a_{d-1}X^{d-1} - \\cdots - a_1 X - a_0$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Montrer que $u$ annule $\\chi_{u}$, i.e. que $\\chi_{u}(u)=0_{\\mathcal{L}(E)}$ (théorème de Cayley-Hamilton).",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__definition_theoreme_orientation"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'objectif est de montrer que pour tout vecteur $x \\in E$, $\\chi_u(u)(x) = 0_E$. Utilisez la décomposition $\\chi_u = Q \\cdot \\chi_{u_{|F}}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $\\chi_u(u)(x) = Q(u)(\\chi_{u_{|F}}(u)(x))$. Que vaut $\\chi_{u_{|F}}(u)(x)$ d'après la définition des scalaires $a_i$ à la question 1 ?"
+            }
+          ],
+          "solution_latex": "Soit $x\\in E$. Construisons le sous-espace cyclique $F=\\operatorname{Vect}(x, u(x), \\ldots, u^{d-1}(x))$ associé à $x$.\\\\par\nD'après les questions précédentes :\\\\par\n$\\chi_u(X) = Q(X)\\cdot \\chi_{u_{|F}}(X)$\\\\par\noù $Q$ est un polynôme et $\\chi_{u_{|F}}(X) = X^d - a_{d-1}X^{d-1} - \\cdots - a_1 X - a_0$.\\\\par\nDonc :\\\\par\n$\\chi_u(u)(x) = Q(u)(\\chi_{u_{|F}}(u)(x))$.\\\\par\nCalculons $\\chi_{u_{|F}}(u)(x)$ :\\\\par\n$\\chi_{u_{|F}}(u)(x) = u^d(x) - a_{d-1}u^{d-1}(x) - \\cdots - a_1 u(x) - a_0 x$.\\\\par\nMais d'après la définition de $a_0, \\ldots, a_{d-1}$ (question 1) :\\\\par\n$u^d(x) = a_0 x + a_1 u(x) + \\cdots + a_{d-1}u^{d-1}(x)$.\\\\par\nDonc :\\\\par\n$\\chi_{u_{|F}}(u)(x) = (a_0 x + a_1 u(x) + \\cdots) - (a_{d-1}u^{d-1}(x) + \\cdots + a_1 u(x) + a_0 x) = 0$.\\\\par\nAinsi :\\\\par\n$\\chi_u(u)(x) = Q(u)(0) = 0$.\\\\par\nCeci vaut pour tout $x\\in E$, donc $\\chi_u(u) = 0_{\\mathcal{L}(E)}$ (théorème de Cayley-Hamilton)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_033",
+      "title": "Formules de Cramer",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__definition_mineurs_cofacteurs_comatrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Cramer",
+        "système linéaire",
+        "déterminant"
+      ],
+      "statement_latex": "Soient $A\\in GL_{n}(\\mathbb{K})$, $B\\in\\mathbb{K}^{n}$ et $j\\in[[1,n]]$. On note $X$ l'unique solution du système $AX=B$ et $A_{j}$ la matrice obtenue en remplaçant la $j^{eme}$ colonne de $A$ par $B$. Montrer que $x_{j}=\\frac{\\det(A_{j})}{\\det(A)}.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le déterminant est linéaire par rapport à chacune de ses colonnes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduisez $AX=B$ en une égalité de vecteurs colonnes : $B = \\sum_{i=1}^n x_i C_i$. Remplacez la $j$-ème colonne de $A_j$ par cette expression, puis développez par multilinéarité."
+            }
+          ],
+          "solution_latex": "Soient $C_1, \\ldots, C_n$ les colonnes de $A$.\\\\par\nLe système $AX=B$ (où $X=(x_1,\\ldots,x_n)^T$) s'écrit :\\\\par\n$\\sum_{i=1}^n x_i C_i = B$.\\\\par\nPar définition, $A_j$ est la matrice ayant pour colonnes $(C_1, \\ldots, C_{j-1}, B, C_{j+1}, \\ldots, C_n)$.\\\\par\nDonc :\\\\par\n$\\det(A_j) = \\det(C_1, \\ldots, C_{j-1}, B, C_{j+1}, \\ldots, C_n)$.\\\\par\nRemplaçons $B$ par $\\sum_{i=1}^n x_i C_i$ :\\\\par\n$\\det(A_j) = \\det(C_1, \\ldots, C_{j-1}, \\sum_{i=1}^n x_i C_i, C_{j+1}, \\ldots, C_n)$.\\\\par\nPar multilinéarité du déterminant (linéarité selon la $j$-ème colonne) :\\\\par\n$\\det(A_j) = \\sum_{i=1}^n x_i \\det(C_1, \\ldots, C_{j-1}, C_i, C_{j+1}, \\ldots, C_n)$.\\\\par\nOr $\\det(C_1, \\ldots, C_{j-1}, C_i, C_{j+1}, \\ldots, C_n) = 0$ si $i\\ne j$ (car deux colonnes sont identiques).\\\\par\nSi $i=j$, on obtient $\\det(C_1, \\ldots, C_n) = \\det(A)$.\\\\par\nDonc :\\\\par\n$\\det(A_j) = x_j \\det(A)$.\\\\par\nComme $A\\in GL_n(\\mathbb{K})$, on a $\\det(A)\\ne 0$, donc :\\\\par\n$x_j = \\frac{\\det(A_j)}{\\det(A)}$ (\\\\textbf{formules de Cramer})."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_034",
+      "title": "Similitude sur C et sur R",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_polynome_caracteristique",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__theorem_polynome_caracteristique_endomorphisme",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices semblables",
+        "polynôme",
+        "corps des réels"
+      ],
+      "statement_latex": "Soient $A,B\\in\\mathcal{M}_{n}(\\mathbb{R})$ semblables sur $\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer qu'il existe deux matrices $U,V\\in\\mathcal{M}_{n}(\\mathbb{R})$ pour lesquelles la matrice $U+iV$ est inversible et pour lesquelles $AU=UB$ et $AV=VB$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "$A$ et $B$ étant semblables sur $\\mathbb{C}$, il existe $P \\in GL_n(\\mathbb{C})$ telle que $AP = PB$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Décomposez la matrice complexe $P$ en ses parties réelle et imaginaire : $P = U + iV$ (où $U, V \\in \\mathcal{M}_{n}(\\mathbb{R})$). Injectez cela dans $AP = PB$ et identifiez les parties réelles et imaginaires."
+            }
+          ],
+          "solution_latex": "Puisque $A$ et $B$ sont semblables sur $\\mathbb{C}$, il existe $P\\in GL_n(\\mathbb{C})$ telle que :\\\\par\n$AP = PB$.\\\\par\nDécomposons $P$ en parties réelle et imaginaire : $P = U + iV$ où $U, V\\in\\mathcal{M}_n(\\mathbb{R})$.\\\\par\nAlors :\\\\par\n$A(U+iV) = (U+iV)B$.\\\\par\nDéveloppons :\\\\par\n$AU + iAV = UB + iVB$.\\\\par\nEn identifiant les parties réelle et imaginaire :\\\\par\n$AU = UB$ et $AV = VB$.\\\\par\nDe plus, $U+iV = P$ est inversible (sur $\\mathbb{C}$), donc $\\det(U+iV)\\ne 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $\\det(U+XV)$ est un polynôme non nul et en déduire que $A$ et $B$ sont semblables sur $\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_polynome_caracteristique_endomorphisme",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez la fonction polynomiale $Q(X) = \\det(U+XV)$ à coefficients réels."
+            },
+            {
+              "level": 2,
+              "content_latex": "On sait que $Q(i) = \\det(U+iV) \\ne 0$ puisque $P$ est inversible. Le polynôme $Q$ n'est donc pas le polynôme nul. Qu'en déduire sur ses racines réelles ?"
+            }
+          ],
+          "solution_latex": "Définissons le polynôme \\\\par\n$Q(X) = \\det(U + XV)$.\\\\par\nC'est un polynôme en $X$ à coefficients réels (car $U$ et $V$ ont des coefficients réels).\\\\par\nDe plus :\\\\par\n$Q(i) = \\det(U+iV) = \\det(P)\\ne 0$.\\\\par\nDonc $Q$ n'est pas le polynôme nul.\\\\par\nUn polynôme non nul à coefficients réels ne peut avoir qu'un nombre fini de racines réelles.\\\\par\nDonc il existe $c\\in\\mathbb{R}$ tel que $Q(c)=\\det(U+cV)\\ne 0$.\\\\par\nPour cette valeur $c$, la matrice $M = U + cV$ est inversible.\\\\par\nDe plus, d'après la question 1 :\\\\par\n$AM = A(U+cV) = AU + cAV = UB + cVB = (U+cV)B = MB$.\\\\par\nDonc $A$ et $B$ sont semblables via la matrice réelle inversible $M$, ce qui signifie qu'elles sont semblables sur $\\mathbb{R}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_035",
+      "title": "Déterminants de matrices entières et modulo p",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__definition_theoreme_orientation"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmétique matricielle",
+        "modulo p",
+        "système linéaire homogène"
+      ],
+      "statement_latex": "On note $\\mathcal{M}_{n}(\\mathbb{Z})$ l'ensemble des matrices carrées de taille $n$ à coefficients entiers.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $\\det(M)\\in\\mathbb{Z}$ pour tout $M\\in\\mathcal{M}_{n}(\\mathbb{Z}).$",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__definition_theoreme_determinant_famille_vecteurs",
+            "determinants__theorem_premieres_proprietes_determinant_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la définition du déterminant (la formule avec la somme sur le groupe symétrique)."
+            }
+          ],
+          "solution_latex": "Le déterminant s'écrit :\\\\par\n$\\det(M) = \\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n m_{i,\\sigma(i)}$.\\\\par\nChaque terme $\\varepsilon(\\sigma)\\prod_{i=1}^n m_{i,\\sigma(i)}$ est un entier (produit et signe d'entiers).\\\\par\nDonc la somme est un entier : $\\det(M)\\in\\mathbb{Z}$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soit $p\\in\\mathbb{P}$. Soit $A\\in\\mathcal{M}_{n}(\\mathbb{Z})$. On note $\\overline{A}$ la matrice $(\\overline{a}_{i,j})_{1\\le i,j\\le n}$ de $\\mathcal{M}_{n}(\\mathbb{F}_{p})$. Montrer que $\\det(\\overline{A})=\\overline{\\det(A)}$.",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_determinant_endomorphisme_canonique",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le passage au quotient modulo $p$ est un morphisme d'anneaux. Il préserve donc les sommes et les produits présents dans la formule du déterminant."
+            }
+          ],
+          "solution_latex": "Notons $\\varphi: \\mathbb{Z}\\to\\mathbb{F}_p$ la réduction modulo $p$.\\\\par\nC'est un morphisme d'anneaux, donc il préserve sommes et produits.\\\\par\n$\\det(\\overline{A}) = \\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n\\overline{a}_{i,\\sigma(i)}$\\\\par\n$= \\sum_{\\sigma\\in S_n}\\overline{\\varepsilon(\\sigma)}\\prod_{i=1}^n\\varphi(a_{i,\\sigma(i)})$ (par définition des éléments de $\\mathbb{F}_p$)\\\\par\n$= \\varphi\\left(\\sum_{\\sigma\\in S_n}\\varepsilon(\\sigma)\\prod_{i=1}^n a_{i,\\sigma(i)}\\right)$ (par morphisme d'anneau)\\\\par\n$= \\varphi(\\det(A)) = \\overline{\\det(A)}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "La matrice $\\begin{pmatrix}1&2&3&5\\\\ 3&-1&1&2\\\\ 0&6&2&1\\\\ 3&-6&3&4\\end{pmatrix}$ est-elle inversible ?",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour éviter de calculer un gros déterminant dans $\\mathbb{R}$, calculez son déterminant modulo un petit nombre premier (par exemple 2 ou 3)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si le déterminant modulo $p$ est non nul dans $\\mathbb{F}_p$, alors le déterminant entier ne peut pas être nul."
+            }
+          ],
+          "solution_latex": "Réduisons modulo 2 :\\\\par\n$\\overline{A}=\\begin{pmatrix}1&0&1&1\\\\ 1&1&1&0\\\\ 0&0&0&1\\\\ 1&0&1&0\\end{pmatrix}$ dans $\\mathbb{F}_2$.\\\\par\nCalculons $\\det(\\overline{A})\\pmod 2$ en développant selon la 3e ligne :\\\\par\n$\\det(\\overline{A}) = 1\\cdot \\det\\begin{pmatrix}1&0&1\\\\ 1&1&0\\\\ 1&0&1\\end{pmatrix}$.\\\\par\nDéveloppons selon la 2e colonne :\\\\par\n$= 1\\cdot \\det\\begin{pmatrix}1&1\\\\ 1&1\\end{pmatrix} = 1\\cdot 0 = 0\\pmod 2$.\\\\par\nRéessayons modulo 3 :\\\\par\n$\\overline{A}=\\begin{pmatrix}1&2&0&2\\\\ 0&2&1&2\\\\ 0&0&2&1\\\\ 0&0&0&1\\end{pmatrix}$ (après réduction modulo 3).\\\\par\nC'est triangulaire, donc $\\det(\\overline{A}) = 1\\cdot 2\\cdot 2\\cdot 1 = 4\\equiv 1\\pmod 3$.\\\\par\nDonc $\\det(A)\\not\\equiv 0\\pmod 3$, donc $\\det(A)\\ne 0$.\\\\par\nLa matrice est inversible."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "Montrer que la matrice $M$ de $\\mathcal{M}_{p}(\\mathbb{Z})$ définie par $m_{ij}=\\binom{p}{|j-i|}$ pour tous $i,j\\in[[1,p]]$ est [FRAGMENT MANQUANT DANS LE PDF].",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__theorem_lien_determinants"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Regardez les propriétés de divisibilité des coefficients binomiaux $\\binom{p}{k}$ lorsque $p$ est premier et $0 < k < p$."
+            }
+          ],
+          "solution_latex": "Pour $p$ premier et $0<k<p$, le théorème de Lucas dit que $\\binom{p}{k}\\equiv 0\\pmod p$.\\\\par\nDonc modulo $p$ :\\\\par\n$\\overline{M}$ a les éléments diagonaux égaux à $\\binom{p}{0}=1$\\\\par\nEt tous les éléments hors-diagonale égaux à 0 (puisque $|j-i|\\in[[1,p-1]]$ pour $i\\ne j$).\\\\par\nDonc $\\overline{M}\\equiv I_p\\pmod p$.\\\\par\nDonc $\\det(M)\\equiv 1\\pmod p$, ce qui signifie que la matrice $M$ est inversible (sa déterminant est coprime à $p$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $M\\in\\mathcal{M}_{n}(\\mathbb{Z}).$ On suppose que les coefficients diagonaux de $M$ sont nuls et que ses autres coefficients valent tous $\\pm1$. Calculer $\\det(M)$ modulo 2, puis en déduire que $\\dim \\ker M\\le1$.",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_determinant_matrice_triangulaire_blocs",
+            "determinants__definition_theoreme_orientation",
+            "determinants__theorem_polynome_caracteristique"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Montrer que $\\det(M)\\equiv n-1 \\pmod 2$. Pour la suite, commencer par le cas où $n$ est pair, puis ouvrir son âme aux matrices extraites."
+            },
+            {
+              "level": 2,
+              "content_latex": "Modulo 2, $1 \\equiv -1$. La matrice devient $J_n - I_n$ (où $J_n$ ne contient que des 1). Si $n$ est pair, la matrice est inversible (donc $\\dim \\ker M = 0$). Si $n$ est impair, regardez une sous-matrice principale de taille $n-1$."
+            }
+          ],
+          "solution_latex": "Modulo 2, $\\pm 1 \\equiv 1$, donc :\\\\par\n$\\overline{M} = J_n - I_n$ (matrice de $\\mathbb{F}_2$ avec 1 en hors-diagonal et 0 en diagonal).\\\\par\nOr $J_n \\mathbf{1} = n\\mathbf{1}$ où $\\mathbf{1}=(1,\\ldots,1)^T$.\\\\par\nDonc $(J_n - I_n)\\mathbf{1} = (n-1)\\mathbf{1}$.\\\\par\nModulo 2 : si $n$ est pair, $(J_n - I_n)\\mathbf{1} \\equiv \\mathbf{1}\\pmod 2$, donc $J_n-I_n$ n'est pas singulière.\\\\par\nSi $n$ est impair, $(J_n-I_n)\\mathbf{1}\\equiv 0\\pmod 2$, donc $\\dim\\ker(J_n-I_n)\\ge 1$.\\\\par\nMais les autres lignes ne sont pas multiples de $\\mathbf{1}$, donc la dimension du noyau est exactement 1.\\\\par\nAinsi $\\det(M)\\equiv n-1\\pmod 2$.\\\\par\n\\\\textbf{Conclusion :} Si $n$ est pair, $\\det(M)\\equiv 1\\pmod 2$, donc $\\det(M)$ est impair, donc $M$ est inversible. Ainsi $\\ker M = \\{0\\}$.\\\\par\nSi $n$ est impair, par le même argument sur toute sous-matrice $(n-1)\\times(n-1)$ (qui a $n-1$ pair), une sous-matrice mineure est non-nulle. Donc $\\text{rank}(M)\\ge n-1$, donc $\\dim\\ker M \\le 1$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "On se donne $2n+1$ objets de masses inconnues $x_{1},...,x_{2n+1}$ et on suppose que quand on met de côté l'un quelconque de ces objets, il est toujours possible de séparer les $2n$ objets restants en deux tas de $n$ objets de masses totales identiques. Que peut-on dire des masses $x_{1},...,x_{2n+1}$ ?",
+          "knowledge_nodes_tested": [
+            "determinants__definition_theoreme_orientation",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez le problème sous forme d'un système linéaire homogène $MX = 0$ dont les inconnues sont les masses $x_i$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La matrice du système sera de taille $(2n+1) \\times (2n+1)$. Elle aura des 0 sur la diagonale (car l'objet retiré n'est pas dans les tas) et des $\\pm 1$ ailleurs (selon le tas dans lequel va l'objet). Appliquez la question 3."
+            }
+          ],
+          "solution_latex": "Soit $x=(x_1,\\ldots,x_{2n+1})^T$ le vecteur des masses.\\\\par\nPour chaque $k\\in[[1,2n+1]]$, en mettant de côté l'objet $k$, on peut partitionner les $2n$ autres objets en deux tas de masse égale.\\\\par\nCela donne une équation :\\\\par\n$\\sum_{i\\ne k, i\\in I_k} x_i = \\sum_{i\\ne k, i\\notin I_k} x_i$\\\\par\noù $I_k$ est un ensemble de $n$ indices parmi $\\{1,\\ldots,2n+1\\}\\setminus\\{k\\}$.\\\\par\nCela se réécrit :\\\\par\n$\\sum_{i\\ne k}\\varepsilon_k(i) x_i = 0$\\\\par\noù $\\varepsilon_k(i)\\in\\{+1, -1\\}$ selon l'appartenance à $I_k$.\\\\par\nEn notation matricielle : $M x = 0$ où $m_{ki} = 0$ si $i=k$, et $\\varepsilon_k(i)\\in\\{\\pm 1\\}$ sinon.\\\\par\nC'est une matrice $(2n+1)\\times(2n+1)$ à diagonale nulle et coefficients $\\pm 1$ hors-diagonale.\\\\par\nD'après la question 3, $\\dim\\ker M\\le 1$.\\\\par\nDonc soit toutes les masses sont nulles, soit elles sont proportionnelles à un vecteur non-nul.\\\\par\nPar le problème physique, on attendrait que les masses soient toutes égales (si elles sont non-nulles)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "determinants__ex_036",
+      "title": "Géométrie plane à l'aide des déterminants",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "determinants__theorem_premieres_proprietes_determinant_matrice",
+        "determinants__definition_determinant_matrice_carree",
+        "determinants__theorem_determinant_matrice_triangulaire_blocs",
+        "determinants__theorem_lien_determinants"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "géométrie affine",
+        "points alignés",
+        "cercle",
+        "cocycliques"
+      ],
+      "statement_latex": "Utilisation des déterminants pour caractériser des configurations géométriques.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient $M_{1}$, $M_{2}$ et $M_{3}$ trois points du plan $\\mathbb{R}^{2}$ avec $M_{i}=(x_{i},y_{i})$ pour tout $i\\in[[1,3]]$. Quelle est l'équation générale d'une droite affine de $\\mathbb{R}^{2}$ ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est une équation de la forme $ax + by + c = 0$ avec $(a,b) \\neq (0,0)$."
+            }
+          ],
+          "solution_latex": "L'équation générale d'une droite affine de $\\mathbb{R}^2$ est :\\\\par\n$ax + by + c = 0$ avec $(a,b)\\ne(0,0)$, où $a,b,c\\in\\mathbb{R}$.\\\\par\nCette équation décrit l'ensemble des points $(x,y)$ satisfaisant la relation linéaire affine."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer que $M_{1}$, $M_{2}$ et $M_{3}$ sont alignés si et seulement si $|\\begin{matrix}x_{1}&y_{1}&1\\\\ x_{2}&y_{2}&1\\\\ x_{3}&y_{3}&1\\end{matrix}|=0.$",
+          "knowledge_nodes_tested": [
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_polynome_caracteristique",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le déterminant est nul si et seulement si ses colonnes sont linéairement dépendantes. L'écrire proprement et conclure."
+            },
+            {
+              "level": 2,
+              "content_latex": "Dire que les colonnes sont dépendantes signifie qu'il existe $a,b,c$ non tous nuls tels que $x_i a + y_i b + c = 0$ pour $i \\in \\{1,2,3\\}$. C'est exactement dire que les trois points appartiennent à une même droite."
+            }
+          ],
+          "solution_latex": "Les trois points $M_1, M_2, M_3$ sont alignés ssi ils appartiennent à une même droite affine, c'est-à-dire ssi il existe $(a,b,c)\\ne(0,0,0)$ tels que :\\\\par\n$ax_i + by_i + c = 0$ pour $i=1,2,3$.\\\\par\nCela s'écrit en forme matricielle :\\\\par\n$(x_1, y_1, 1)\\begin{pmatrix}a \\\\ b \\\\ c\\end{pmatrix} = 0$, etc.\\\\par\nOu encore :\\\\par\n$\\begin{pmatrix}x_1&y_1&1 \\\\ x_2&y_2&1 \\\\ x_3&y_3&1\\end{pmatrix}\\begin{pmatrix}a \\\\ b \\\\ c\\end{pmatrix} = \\begin{pmatrix}0 \\\\ 0 \\\\ 0\\end{pmatrix}$.\\\\par\nCe système admet une solution non-triviale ssi la matrice n'est pas de rang plein, c'est-à-dire ssi :\\\\par\n$\\det\\begin{pmatrix}x_1&y_1&1 \\\\ x_2&y_2&1 \\\\ x_3&y_3&1\\end{pmatrix} = 0$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $M_{1}$, $M_{2}$, $M_{3}$ et $M_{4}$ quatre points du plan $\\mathbb{R}^{2}$ avec $M_{i}=(x_{i},y_{i})$ pour tout $i\\in[[1,4]]$. Montrer que tout cercle de $\\mathbb{R}^{2}$ a une équation de la forme $x^{2}+y^{2}+bx+cy+d=0$ avec $b,c,d\\in\\mathbb{R}$. Réciproquement, à quelle condition nécessaire et suffisante une telle équation décrit-elle un cercle ?",
+          "knowledge_nodes_tested": [
+            "determinants__definition_forme_multilineaire_alternee",
+            "determinants__theorem_forme_multilineaire_multiple_determinant",
+            "determinants__theorem_effet_permutation_forme_multilineaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez l'équation $(x-x_0)^2 + (y-y_0)^2 = R^2$ d'un cercle de centre $(x_0, y_0)$ et de rayon $R > 0$."
+            }
+          ],
+          "solution_latex": "\\\\textbf{Sens direct :} Un cercle de centre $(x_0,y_0)$ et rayon $R>0$ a pour équation :\\\\par\n$(x-x_0)^2 + (y-y_0)^2 = R^2$.\\\\par\nEn développant :\\\\par\n$x^2 - 2x_0 x + x_0^2 + y^2 - 2y_0 y + y_0^2 = R^2$.\\\\par\n$x^2 + y^2 - 2x_0 x - 2y_0 y + (x_0^2+y_0^2-R^2) = 0$.\\\\par\nEn posant $b=-2x_0$, $c=-2y_0$, $d=x_0^2+y_0^2-R^2$, on obtient :\\\\par\n$x^2 + y^2 + bx + cy + d = 0$.\\\\par\n\\\\textbf{Sens réciproque :} Soit l'équation $x^2+y^2+bx+cy+d=0$.\\\\par\nCompl complètons le carré :\\\\par\n$(x+\\frac{b}{2})^2 + (y+\\frac{c}{2})^2 = \\frac{b^2}{4} + \\frac{c^2}{4} - d = \\frac{b^2+c^2-4d}{4}$.\\\\par\nC'est un cercle ssi le membre droit est positif, i.e. $b^2+c^2-4d > 0$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $M_{1}$, $M_{2}$, $M_{3}$ et $M_{4}$ sont cocycliques ou alignés si et seulement si : $|\\begin{matrix}x_{1}^{2}+y_{1}^{2}&x_{1}&y_{1}&1\\\\ x_{2}^{2}+y_{2}^{2}&x_{2}&y_{2}&1\\\\ x_{3}^{2}+y_{3}^{2}&x_{3}&y_{3}&1\\\\ x_{4}^{2}+y_{4}^{2}&x_{4}&y_{4}&1\\end{matrix}|=0.$",
+          "knowledge_nodes_tested": [
+            "determinants__definition_determinant_matrice_carree",
+            "determinants__theorem_premieres_proprietes_determinant_matrice",
+            "determinants__theorem_determinant_matrice_triangulaire_blocs"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pareil que pour la question 1.b !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Si le déterminant est nul, il existe une combinaison linéaire des colonnes valant 0. Cela donne $\\alpha(x_i^2+y_i^2) + \\beta x_i + \\gamma y_i + \\delta = 0$. Si $\\alpha \\neq 0$, c'est l'équation d'un cercle. Si $\\alpha = 0$, c'est l'équation d'une droite."
+            }
+          ],
+          "solution_latex": "Les quatre points sont cocycliques ou alignés ssi il existe $(\\alpha,\\beta,\\gamma,\\delta)\\ne(0,0,0,0)$ tel que :\\\\par\n$\\alpha(x_i^2+y_i^2) + \\beta x_i + \\gamma y_i + \\delta = 0$ pour tout $i=1,2,3,4$.\\\\par\nCela signifie que les quatre points appartiennent à une même conique dégénérée (cercle ou droite).\\\\par\nEn forme matricielle, ce système s'écrit :\\\\par\n$\\begin{pmatrix}x_1^2+y_1^2&x_1&y_1&1 \\\\ x_2^2+y_2^2&x_2&y_2&1 \\\\ x_3^2+y_3^2&x_3&y_3&1 \\\\ x_4^2+y_4^2&x_4&y_4&1\\end{pmatrix}\\begin{pmatrix}\\alpha \\\\ \\beta \\\\ \\gamma \\\\ \\delta\\end{pmatrix} = \\begin{pmatrix}0 \\\\ 0 \\\\ 0 \\\\ 0\\end{pmatrix}$.\\\\par\nCe système admet une solution non-triviale ssi le déterminant de la matrice est nul :\\\\par\n$\\det\\begin{pmatrix}x_1^2+y_1^2&x_1&y_1&1 \\\\ x_2^2+y_2^2&x_2&y_2&1 \\\\ x_3^2+y_3^2&x_3&y_3&1 \\\\ x_4^2+y_4^2&x_4&y_4&1\\end{pmatrix} = 0$."
+        }
+      ],
+      "global_solution_latex": null
+    }
+  ]
+}

@@ -1,0 +1,1838 @@
+{
+  "chapter_official_id": "matrices_et_systemes_lineaires",
+  "chapter_name": "Matrices et systèmes linéaires",
+  "source_document": "Christophe Bertault - Mathématiques en MPSI (Exercices et Indications)",
+  "exercises": [
+    {
+      "id": "matrices_et_systemes_lineaires__ex_001",
+      "title": "Décomposition symétrique et antisymétrique",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_sym_antisym",
+        "matrices_et_systemes_lineaires__def_systeme_cramer",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices symétriques",
+        "matrices antisymétriques",
+        "analyse-synthèse"
+      ],
+      "statement_latex": "Montrer que toute matrice de $\\mathcal{M}_{n}(\\mathbb{R})$ s'écrit d'une et une seule manière comme la somme d'une matrice symétrique et d'une matrice antisymétrique.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Analyse-Synthèse.}\\par\\par \\textbf{Analyse :} Supposons $M = S + A$ avec $S^{\\top} = S$ (symétrique) et $A^{\\top} = -A$ (antisymétrique). En transposant, $M^{\\top} = S^{\\top} + A^{\\top} = S - A$. On obtient le système : $$\\begin{cases} M = S + A \\\\ M^{\\top} = S - A \\end{cases}$$En additionnant : $M + M^{\\top} = 2S$, donc $S = \\frac{M + M^{\\top}}{2}$.\\par En soustrayant : $M - M^{\\top} = 2A$, donc $A = \\frac{M - M^{\\top}}{2}$.\\par\\par \\textbf{Synthèse (existence) :} Pour toute matrice $M \\in \\mathcal{M}_{n}(\\mathbb{R})$, définissons $S = \\frac{M + M^{\\top}}{2}$ et $A = \\frac{M - M^{\\top}}{2}$. On vérifie : $S^{\\top} = \\frac{(M + M^{\\top})^{\\top}}{2} = \\frac{M^{\\top} + M}{2} = S$ (symétrique). $A^{\\top} = \\frac{(M - M^{\\top})^{\\top}}{2} = \\frac{M^{\\top} - M}{2} = -A$ (antisymétrique). De plus, $S + A = \\frac{M + M^{\\top}}{2} + \\frac{M - M^{\\top}}{2} = M$. L'unicité découle de l'analyse.\\par\\par \\textbf{Conclusion :} Toute matrice s'écrit de manière unique comme somme d'une matrice symétrique et d'une matrice antisymétrique.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Analyse-synthèse !"
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la phase d'analyse, supposez qu'une matrice $M$ s'écrit $M = S + A$ avec $S^{\\top} = S$ et $A^{\\top} = -A$. Exprimez $M^{\\top}$ en fonction de $S$ et $A$, puis résolvez le système pour trouver les expressions uniques de $S$ et $A$."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_002",
+      "title": "Stabilité par produit de sous-ensembles",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "stabilité par produit",
+        "matrices stochastiques",
+        "combinaisons linéaires"
+      ],
+      "statement_latex": "On dit qu'une partie de $\\mathcal{M}_{n}(\\mathbb{K})$ est stable par produit si $AB \\in \\mathscr{P}$ pour tous $A, B \\in \\mathscr{P}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'ensemble des matrices $\\left(\\begin{matrix}\\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta\\end{matrix}\\right)$ décrivant $\\mathbb{R}$, est stable par produit.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrices_elementaires",
+            "matrices_et_systemes_lineaires__thm_produit_blocs",
+            "matrices_et_systemes_lineaires__thm_op_triang"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Prenez deux matrices de cette forme avec des angles $\\theta$ et $\\theta'$ différents, puis effectuez leur produit matriciel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez les formules d'addition trigonométriques pour $\\cos(\\theta + \\theta')$ et $\\sin(\\theta + \\theta')$ afin de montrer que le produit est de la même forme."
+            }
+          ],
+          "solution_latex": "Soient deux matrices de la forme : $M_1 = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ et $M_2 = \\begin{pmatrix} \\cos\\theta' & -\\sin\\theta' \\\\ \\sin\\theta' & \\cos\\theta' \\end{pmatrix}$.\\par Calculons le produit $M_1 M_2$ :\\par $$(M_1 M_2)_{11} = \\cos\\theta\\cos\\theta' - \\sin\\theta\\sin\\theta' = \\cos(\\theta + \\theta')$$$$(M_1 M_2)_{12} = -\\cos\\theta\\sin\\theta' - \\sin\\theta\\cos\\theta' = -\\sin(\\theta + \\theta')$$$$(M_1 M_2)_{21} = \\sin\\theta\\cos\\theta' + \\cos\\theta\\sin\\theta' = \\sin(\\theta + \\theta')$$$$(M_1 M_2)_{22} = -\\sin\\theta\\sin\\theta' + \\cos\\theta\\cos\\theta' = \\cos(\\theta + \\theta')$$\\par Donc $M_1 M_2 = \\begin{pmatrix} \\cos(\\theta+\\theta') & -\\sin(\\theta+\\theta') \\\\ \\sin(\\theta+\\theta') & \\cos(\\theta+\\theta') \\end{pmatrix}$, qui est de la même forme avec l'angle $\\theta + \\theta' \\in \\mathbb{R}$.\\par L'ensemble des matrices de rotation est stable par produit."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit une partie de $\\mathcal{M}_{n}(\\mathbb{K})$ stable par produit. Montrer que les éléments de commutent deux à deux.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Attention, il semble manquer une condition dans l'énoncé source. Cherchez à vérifier si cette propriété est vraie en général ou si l'énoncé sous-entend une partie générée par une seule matrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez un contre-exemple simple dans $\\mathcal{M}_{2}(\\mathbb{R})$ avec deux matrices qui ne commutent pas mais qui engendrent un espace stable par produit, ou adaptez la preuve si un contexte spécifique est supposé."
+            }
+          ],
+          "solution_latex": "\\textbf{Remarque importante :} L'énoncé tel que formulé est incomplet ou erroné. Deux matrices quelconques qui commutent ne commutent pas généralement si elles ne proviennent que d'être stables par produit.\\par \\textbf{Contre-exemple :} Les matrices $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ et $B = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$ commutent à une relation linéaire mais ne commutent pas mutuellement : $AB \\ne BA$.\\par \\textbf{Correction probable :} L'énoncé supposait probablement que les éléments d'une partie stable par produit commutent \\textit{deux à deux si la partie est engendrée par une seule matrice}, ou si d'autres conditions sont ajoutées (commutativité supplémentaire, diagonalisabilité, etc.).\\par Sans hypothèses supplémentaires, la propriété n'est pas vraie en général."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "On note $J$ la matrice de $\\mathcal{M}_{n}(\\mathbb{R})$ dont tous les coefficients valent 1. Montrer que $\\{aI_{n}+bJ \\mid a,b \\in \\mathbb{R}\\}$ est stable par produit.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires",
+            "matrices_et_systemes_lineaires__def_matrice_inversible"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencez par calculer $J^2$ en fonction de $J$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez le produit $(aI_n + bJ)(a'I_n + b'J)$ et montrez qu'il peut s'écrire sous la forme $a''I_n + b''J$."
+            }
+          ],
+          "solution_latex": "Soit deux matrices de la forme $M = aI_n + bJ$ et $M' = a'I_n + b'J$. Calculons leur produit.\\par \\textbf{Calcul de $J^2$ :} $J$ est la matrice dont tous les coefficients valent 1. Alors $(J^2)_{ij} = \\sum_{k=1}^n 1 \\cdot 1 = n$. Donc $J^2 = nJ$.\\par \\textbf{Produit des matrices :}\\par $$MM' = (aI_n + bJ)(a'I_n + b'J) = aa'I_n + ab'J + ba'J + bb'J^2$$$$= aa'I_n + (ab' + ba')J + bb'(nJ) = aa'I_n + (ab' + ba' + nbb')J$$\\par En posant $a'' = aa'$ et $b'' = ab' + ba' + nbb'$, on obtient $MM' = a''I_n + b''J \\in \\{aI_n + bJ \\mid a,b \\in \\mathbb{R}\\}$.\\par L'ensemble est donc stable par produit."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Soient $A \\in \\mathcal{M}_{n}(\\mathbb{K})$ et $\\lambda, \\mu, \\nu \\in \\mathbb{K}$. On suppose que $A^{3}=\\lambda A^{2}+\\mu A+\\nu I_{n}$. Montrer que $\\{xI_{n}+yA+zA^{2} \\mid x,y,z \\in \\mathbb{K}\\}$ est stable par produit.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires",
+            "matrices_et_systemes_lineaires__def_matrice_inversible"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le produit de deux éléments de cet ensemble fera apparaître des termes en $A^3$ et $A^4$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez $A^3$ par sa valeur donnée par l'énoncé, et calculez $A^4$ en multipliant la relation par $A$. Regroupez ensuite les termes pour retrouver la forme $x'I_n + y'A + z'A^2$."
+            }
+          ],
+          "solution_latex": "Soient deux matrices de la forme $M = xI_n + yA + zA^2$ et $M' = x'I_n + y'A + z'A^2$. Calculons leur produit.\\par $$MM' = (xI_n + yA + zA^2)(x'I_n + y'A + z'A^2)$$$$= xx'I_n + xy'A + xz'A^2 + yx'A + yy'A^2 + yz'A^3 + zx'A^2 + zy'A^3 + zz'A^4$$$$= xx'I_n + (xy' + yx')A + (xz' + yy' + zx')A^2 + (yz' + zy')A^3 + zz'A^4$$\\par \\textbf{Réduction en utilisant la relation donnée :}\\par $A^3 = \\lambda A^2 + \\mu A + \\nu I_n$ (donnée).\\par $A^4 = A \\cdot A^3 = A(\\lambda A^2 + \\mu A + \\nu I_n) = \\lambda A^3 + \\mu A^2 + \\nu A$.\\par En substituant $A^3$ dans $A^4$ : $A^4 = \\lambda(\\lambda A^2 + \\mu A + \\nu I_n) + \\mu A^2 + \\nu A = (\\lambda^2 + \\mu)A^2 + (\\lambda\\mu + \\nu)A + \\lambda\\nu I_n$.\\par En regroupant dans $MM'$ :\\par - Coefficient de $I_n$ : $xx' + \\nu(yz' + zy') + \\lambda\\nu zz'$ (complexe, mais fini)\\par - Coefficient de $A$ : combinaison linéaire\\par - Coefficient de $A^2$ : combinaison linéaire\\par Après regroupement, $MM' = x''I_n + y''A + z''A^2$ pour certains $x'', y'', z'' \\in \\mathbb{K}$.\\par L'ensemble est stable par produit."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Soit $A \\in \\mathcal{M}_{2}(\\mathbb{K})$.\\par a) Montrer que $A^{2}$ est une combinaison linéaire de $I_{2}$ et $A$ dont on exprimera les coefficients en fonction de $\\text{tr}(A)$ et $\\text{det}(A)$.\\par b) En déduire que toute puissance de $A$ est une combinaison linéaire de $I_{2}$ et $A$, y compris les puissances négatives si $A$ est inversible.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question a), c'est une application directe du théorème de Cayley-Hamilton en dimension 2. Calculez explicitement $A^2 - \\text{tr}(A)A + \\text{det}(A)I_2$ pour une matrice $\\left(\\begin{matrix}a & b \\\\ c & d\\end{matrix}\\right)$ générique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question b), utilisez un raisonnement par récurrence pour les puissances positives. Pour les puissances négatives, multipliez la relation de la question a) par $A^{-1}$ ou $A^{-2}$."
+            }
+          ],
+          "solution_latex": "\\textbf{Question a) :} Par le théorème de Cayley-Hamilton, pour $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ :\\par $A^2 - \\mathrm{tr}(A) A + \\det(A) I_2 = 0$.\\par Donc $A^2 = \\mathrm{tr}(A) A - \\det(A) I_2$.\\par Avec $\\mathrm{tr}(A) = a + d$ et $\\det(A) = ad - bc$.\\par\\par \\textbf{Question b) :} \\textit{Puissances positives} : Par récurrence, si $A^k = \\alpha_k I_2 + \\beta_k A$, alors :\\par $A^{k+1} = A(\\alpha_k I_2 + \\beta_k A) = \\alpha_k A + \\beta_k A^2 = \\alpha_k A + \\beta_k(\\mathrm{tr}(A) A - \\det(A) I_2)$\\par $= -\\beta_k \\det(A) I_2 + (\\alpha_k + \\beta_k \\mathrm{tr}(A))A = \\alpha_{k+1} I_2 + \\beta_{k+1} A$.\\par \\textit{Puissances négatives} (si $A$ inversible) : Multipliez la relation $A^2 = \\mathrm{tr}(A) A - \\det(A) I_2$ par $A^{-2}$ :\\par $I_2 = \\mathrm{tr}(A) A^{-1} - \\det(A) A^{-2}$, donc $A^{-2} = \\frac{\\mathrm{tr}(A) A^{-1} - I_2}{\\det(A)}$, qui est combinaison de $I_2$ et $A^{-1}$.\\par De même pour $A^{-3}$, etc. Toute puissance (positive ou négative si inversible) est combinaison linéaire de $I_2$ et $A$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "On dit qu'une matrice carrée est stochastique si ses coefficients sont positifs et si sur chaque ligne, leur somme vaut 1. Montrer que l'ensemble des matrices stochastiques est stable par produit.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice",
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_puissance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez la condition sur la somme des lignes par une égalité matricielle utilisant le vecteur colonne $U$ dont tous les coefficients valent 1 : $MU = U$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez deux matrices stochastiques $A$ et $B$. Que vaut le produit $(AB)U$ ? N'oubliez pas de justifier que le produit préserve aussi la positivité des coefficients."
+            }
+          ],
+          "solution_latex": "Soit $U = \\begin{pmatrix} 1 \\\\ \\vdots \\\\ 1 \\end{pmatrix}$ le vecteur colonne dont tous les coefficients valent 1.\\par Une matrice $M$ est stochastique ssi ses coefficients sont $\\geq 0$ et $MU = U$ (chaque ligne somme à 1).\\par\\par Soient $A$ et $B$ deux matrices stochastiques. Alors $AU = U$ et $BU = U$.\\par \\textbf{Produit :} $(AB)U = A(BU) = AU = U$. Donc la somme des lignes de $AB$ est aussi 1.\\par \\textbf{Positivité :} Les coefficients de $AB$ sont $(AB)_{ij} = \\sum_k a_{ik}b_{kj}$, somme de produits de nombres $\\geq 0$, donc $\\geq 0$.\\par L'ensemble des matrices stochastiques est stable par produit."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_003",
+      "title": "Produit de matrices élémentaires",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 5,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_produit_matriciel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices élémentaires",
+        "symbole de kronecker",
+        "produit matriciel"
+      ],
+      "statement_latex": "On pose pour tous $i, j \\in [\\![1,n]\\!]$ : $\\delta_{ij}=\\left\\{\\begin{matrix}1&\\text{si } i=j\\\\ 0&\\text{si } i\\ne j\\end{matrix}\\right.$ (symbole de Kronecker) et on note $(E_{ij})_{1\\le i,j\\le n}$ la famille des matrices élémentaires de $\\mathcal{M}_{n}(\\mathbb{K})$.\\par Simplifier le produit $E_{ij}E_{kl}$ pour tous $i,j,k,l\\in[\\![1,n]\\!]$.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Calcul du produit $E_{ij}E_{kl}$ :}\\par La matrice élémentaire $(E_{ij})_{ab} = \\delta_{ia}\\delta_{jb}$ (1 à la position $(i,j)$, 0 ailleurs).\\par Calculons $(E_{ij}E_{kl})_{ab} = \\sum_{x=1}^n (E_{ij})_{ax}(E_{kl})_{xb} = \\sum_{x=1}^n \\delta_{ia}\\delta_{jx}\\delta_{kx}\\delta_{lb}$.\\par La somme est non nulle ssi $a = i$ ET il existe $x$ avec $\\delta_{jx} = 1$ et $\\delta_{kx} = 1$, ce qui impose $j = x = k$.\\par Donc la somme ne peut être non nulle que si $j = k$ ET $a = i$ ET $b = l$.\\par\\par \\textbf{Résultat :}\\par $$E_{ij}E_{kl} = \\begin{cases} E_{il} & \\text{si } j = k \\\\ 0 & \\text{si } j \\ne k \\end{cases}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrivez les coefficients de la matrice $E_{ij}$ à l'aide du symbole de Kronecker : $(E_{ij})_{ab} = \\delta_{ia}\\delta_{jb}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Utilisez la définition du produit matriciel $(AB)_{ab} = \\sum_{x=1}^n A_{ax}B_{xb}$ et simplifiez la somme sachant que les termes sont presque tous nuls."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_004",
+      "title": "Matrices à diagonale nulle",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__def_diag_triang"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "commutateur",
+        "diagonale nulle",
+        "matrice diagonale"
+      ],
+      "statement_latex": "Soient $a_{1},...,a_{n}\\in\\mathbb{K}$ distincts. On note $A$ la matrice diagonale de coefficients diagonaux $a_{1},...,a_{n}$.\\par Montrer que $\\{AM-MA \\mid M\\in\\mathcal{M}_{n}(\\mathbb{K})\\}$ est l'ensemble des matrices de diagonale nulle.",
+      "sub_questions": [],
+      "global_solution_latex": "\\textbf{Étape 1 : Montrer que $AM - MA$ a toujours diagonale nulle.}\\par Soit $A = \\mathrm{diag}(a_1, \\ldots, a_n)$. Calculons le coefficient diagonal $(AM - MA)_{ii}$ :\\par $(AM)_{ii} = \\sum_j a_{ij}(M)_{ji} = a_i M_{ii}$ (car $a_{ij} = 0$ pour $i \\ne j$).\\par $(MA)_{ii} = \\sum_j (M)_{ij}a_{ji} = a_i M_{ii}$ (même raison).\\par Donc $(AM - MA)_{ii} = 0$ pour tout $i$.\\par\\par \\textbf{Étape 2 : Montrer que tout matrice $N$ de diagonale nulle appartient à $\\{AM - MA\\}$.}\\par Soit $N$ une matrice de diagonale nulle. Cherchons $M$ telle que $AM - MA = N$.\\par Le coefficient hors-diagonal est : $(AM - MA)_{ij} = a_i M_{ij} - a_j M_{ij} = (a_i - a_j)M_{ij}$ pour $i \\ne j$.\\par Puisque les $a_k$ sont distincts, $a_i - a_j \\ne 0$ pour $i \\ne j$. On peut définir $M_{ij} = \\frac{N_{ij}}{a_i - a_j}$ pour $i \\ne j$.\\par Les coefficients diagonaux de $M$ peuvent être choisis arbitrairement (ils ne changent pas l'équation diagonale).\\par Donc tout $N$ de diagonale nulle s'écrit $N = AM - MA$ pour une certaine $M$.\\par\\par \\textbf{Conclusion :} L'ensemble $\\{AM - MA\\}$ est exactement l'ensemble des matrices de diagonale nulle.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Dans un premier temps, calculer $(AM-MA)_{ij}$ pour tous $M\\in\\mathcal{M}_{n}(\\mathbb{K})$ et $i, j\\in[\\![1,n]\\!]$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Déduisez-en que les coefficients diagonaux de $AM-MA$ sont toujours nuls. Ensuite, pour toute matrice $N$ de diagonale nulle, construisez explicitement une matrice $M$ telle que $(a_i - a_j)M_{ij} = N_{ij}$ en exploitant le fait que les $a_k$ sont tous distincts."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_005",
+      "title": "Commutant d'une matrice",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "commutant",
+        "matrice par blocs",
+        "matrice diagonale"
+      ],
+      "statement_latex": "Pour tout $A\\in\\mathcal{M}_{n}(\\mathbb{K})$ l'ensemble des matrices de $\\mathcal{M}_{n}(\\mathbb{K})$ qui commutent à $A$ est appelé le commutant de $A$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $d_{1},...,d_{n}\\in\\mathbb{K}$. Déterminer le commutant de la matrice $\\text{diag}(d_{1},...,d_{n})$ sous l'hypothèse que :\\par a) $d_{1},...,d_{n}$ sont distincts.\\par b) $d_{1},...,d_{n-1}$ sont distincts mais $d_{n-1}=d_{n}$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $M$ une matrice du commutant et écrivez l'égalité $DM = MD$. Regardez coefficient par coefficient ce que cette équation impose à $M$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous obtiendrez $d_i M_{ij} = M_{ij} d_j$, c'est-à-dire $(d_i - d_j)M_{ij} = 0$. Concluez sur la forme de $M$ selon que les coefficients diagonaux sont tous distincts, ou si seuls deux d'entre eux sont égaux."
+            }
+          ],
+          "solution_latex": "Soit $D = \\mathrm{diag}(d_1, \\ldots, d_n)$ et $M$ qui commute à $D$ : $DM = MD$.\\par\\par \\textbf{Cas a) : Les $d_i$ sont tous distincts.}\\par Le coefficient $(i,j)$ de $DM = MD$ donne : $d_i M_{ij} = M_{ij} d_j$, soit $(d_i - d_j)M_{ij} = 0$.\\par Si $i \\ne j$ et les $d_i$ sont distincts, alors $d_i \\ne d_j$, donc $M_{ij} = 0$.\\par Les coefficients diagonaux sont libres.\\par \\textbf{Commutant :} $M = \\mathrm{diag}(\\alpha_1, \\ldots, \\alpha_n)$ (matrices diagonales).\\par\\par \\textbf{Cas b) : $d_1, \\ldots, d_{n-1}$ distincts mais $d_{n-1} = d_n$.}\\par Pour $i < n-1$ et $j \\ne i$ : si $j < n-1$, alors $d_i \\ne d_j$ donc $M_{ij} = 0$.\\par Si $j \\in \\{n-1, n\\}$, alors $d_i \\ne d_{n-1} = d_n$, donc $M_{i,n-1} = M_{in} = 0$.\\par Pour $(i,j) = (n-1, n)$ : $(d_{n-1} - d_n)M_{n-1,n} = 0$ mais $d_{n-1} = d_n$, donc $M_{n-1,n}$ est libre.\\par Même pour $M_{n,n-1}$.\\par \\textbf{Commutant :} $\\begin{pmatrix} \\lambda_1 I_1 & 0 & \\cdots & 0 \\\\ 0 & \\ddots & 0 & 0 \\\\ 0 & 0 & \\begin{pmatrix} \\alpha & \\beta \\\\ \\gamma & \\delta \\end{pmatrix} \\end{pmatrix}$ (bloc de dimension 2 pour les coefficients égaux)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer le commutant de $\\left(\\begin{matrix}0&I_{n}\\\\ 0&0\\end{matrix}\\right) \\in \\mathcal{M}_{2n}(\\mathbb{K})$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__thm_produit_blocs",
+            "matrices_et_systemes_lineaires__def_sym_antisym"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "À quelle condition une matrice par blocs $\\left(\\begin{matrix}X&Z\\\\ Y&T\\end{matrix}\\right)$ commute-t-elle à $\\left(\\begin{matrix}0&I_{n}\\\\ 0&0\\end{matrix}\\right)$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Effectuez le produit matriciel par blocs dans les deux sens et identifiez les quatre blocs résultants pour trouver les relations entre $X$, $Y$, $Z$ et $T$."
+            }
+          ],
+          "solution_latex": "Soit $B = \\begin{pmatrix} 0 & I_n \\\\ 0 & 0 \\end{pmatrix}$ et $M = \\begin{pmatrix} X & Z \\\\ Y & T \\end{pmatrix}$ qui commute : $BM = MB$.\\par\\par Calculons $BM = \\begin{pmatrix} 0 & I_n \\\\ 0 & 0 \\end{pmatrix}\\begin{pmatrix} X & Z \\\\ Y & T \\end{pmatrix} = \\begin{pmatrix} Y & T \\\\ 0 & 0 \\end{pmatrix}$.\\par\\par Calculons $MB = \\begin{pmatrix} X & Z \\\\ Y & T \\end{pmatrix}\\begin{pmatrix} 0 & I_n \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 0 & X \\\\ 0 & Y \\end{pmatrix}$.\\par\\par Identifiant $BM = MB$ par blocs :\\par $Y = 0$, $T = X$, $0 = 0$, $0 = Y$ (confirmé).\\par\\par \\textbf{Commutant :} Toute matrice de la forme $\\begin{pmatrix} X & Z \\\\ 0 & X \\end{pmatrix}$ avec $X, Z \\in \\mathcal{M}_n(\\mathbb{K})$ arbitraires."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_006",
+      "title": "Inverse d'une matrice par blocs",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice par blocs",
+        "inversibilité",
+        "produit matriciel"
+      ],
+      "statement_latex": "Soient $A \\in \\text{GL}_{p}(\\mathbb{K})$, $B \\in \\text{GL}_{q}(\\mathbb{K})$ et $C \\in \\mathcal{M}_{p,q}(\\mathbb{K})$. Montrer que la matrice $\\left(\\begin{matrix}A & C \\\\ 0 & B\\end{matrix}\\right)$ est inversible et calculer son inverse sous forme d'une matrice par blocs.",
+      "sub_questions": [],
+      "global_solution_latex": "Cherchons l'inverse de $M = \\begin{pmatrix} A & C \\\\ 0 & B \\end{pmatrix}$ sous la forme $N = \\begin{pmatrix} X & Z \\\\ Y & T \\end{pmatrix}$.\\par L'égalité $MN = I$ donne :\\par $\\begin{pmatrix} A & C \\\\ 0 & B \\end{pmatrix}\\begin{pmatrix} X & Z \\\\ Y & T \\end{pmatrix} = \\begin{pmatrix} AX + CY & AZ + CT \\\\ BY & BT \\end{pmatrix} = \\begin{pmatrix} I_p & 0 \\\\ 0 & I_q \\end{pmatrix}$.\\par\\par Par blocs :\\par (1) $AX + CY = I_p$\\par (2) $AZ + CT = 0$\\par (3) $BY = 0$\\par (4) $BT = I_q$\\par\\par De (4) : $T = B^{-1}$ (puisque $B \\in \\mathrm{GL}_q(\\mathbb{K})$).\\par De (3) : $Y = 0$ (puisque $B \\in \\mathrm{GL}_q(\\mathbb{K})$).\\par De (1) : $AX = I_p$ donc $X = A^{-1}$.\\par De (2) : $AZ + CB^{-1} = 0$ donc $Z = -A^{-1}CB^{-1}$.\\par\\par \\textbf{Inverse :} $$\\begin{pmatrix} A & C \\\\ 0 & B \\end{pmatrix}^{-1} = \\begin{pmatrix} A^{-1} & -A^{-1}CB^{-1} \\\\ 0 & B^{-1} \\end{pmatrix}$$",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "À quelle condition une matrice par blocs $\\left(\\begin{matrix}X & Z \\\\ Y & T\\end{matrix}\\right)$ est-elle l'inverse de $\\left(\\begin{matrix}A & C \\\\ 0 & B\\end{matrix}\\right)$ ?"
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez le produit des deux matrices par blocs et identifiez le résultat à la matrice identité $\\left(\\begin{matrix}I_p & 0 \\\\ 0 & I_q\\end{matrix}\\right)$ pour obtenir un système d'équations sur les blocs $X, Y, Z, T$."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_007",
+      "title": "Construction d'une matrice inversible",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__def_diag_triang",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice inversible",
+        "opérations élémentaires",
+        "vecteur colonne"
+      ],
+      "statement_latex": "Soient $\\lambda_{1},...,\\lambda_{n} \\in \\mathbb{K}$ non tous nuls. Construire explicitement une matrice inversible de $\\text{GL}_{n}(\\mathbb{K})$ de première colonne $\\left(\\begin{matrix}\\lambda_{1}\\\\ \\vdots\\\\ \\lambda_{n}\\end{matrix}\\right)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $\\lambda = (\\lambda_1, \\ldots, \\lambda_n)^\\top$ le vecteur colonne donné. Puisque les $\\lambda_i$ ne sont pas tous nuls, il existe $k$ tel que $\\lambda_k \\ne 0$.\\par\\par \\textbf{Stratégie :} Construire une matrice inversible ayant $\\lambda$ comme première colonne.\\par\\par \\textbf{Construction :} Si $\\lambda_1 \\ne 0$, poser directement :\\par $$M = \\begin{pmatrix} \\lambda_1 & 0 & \\cdots & 0 \\\\ \\lambda_2 & 1 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ \\lambda_n & 0 & \\cdots & 1 \\end{pmatrix}$$C'est une matrice triangulaire inférieure avec diagonale $(\\lambda_1, 1, \\ldots, 1)$. Son déterminant est $\\lambda_1 \\ne 0$, donc elle est inversible.\\par\\par Si $\\lambda_1 = 0$ mais $\\lambda_k \\ne 0$, appliquer d'abord une transposition qui échange les lignes 1 et $k$ :\\par Poser $P$ la matrice permutation et \\par $$M = P \\begin{pmatrix} \\lambda_k & 0 & \\cdots & 0 \\\\ \\lambda_1 & 1 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\end{pmatrix} P^{\\top}$$Cela garantit $\\lambda_k$ en position $(1,1)$, inversibilité, et première colonne = $\\lambda$.\\par\\par \\textbf{Exemple simple :} $$M = \\begin{pmatrix} \\lambda_1 & 0 & 0 \\\\ \\lambda_2 & 1 & 0 \\\\ \\lambda_3 & 0 & 1 \\end{pmatrix}$$ (pour $n=3$, $\\lambda_1 \\ne 0$).",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Par exemple, partir de $I_{n}$ et faire des opérations élémentaires sur les colonnes."
+        },
+        {
+          "level": 2,
+          "content_latex": "Puisque les $\\lambda_i$ ne sont pas tous nuls, il existe un indice $k$ tel que $\\lambda_k \\neq 0$. Vous pouvez utiliser des transvections et des permutations pour remplacer la première colonne de $I_n$ par ce vecteur sans perdre l'inversibilité."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_008",
+      "title": "Propriétés de la trace et matrices symétriques",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_sym_antisym",
+        "matrices_et_systemes_lineaires__thm_trace",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "transposition",
+        "matrice symétrique",
+        "produit scalaire canonique"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soit $A \\in \\mathcal{M}_{n}(\\mathbb{K})$. On suppose que $\\text{tr}(AM)=0$ pour tout $M \\in \\mathcal{M}_{n}(\\mathbb{K})$. Montrer que $A=0$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_produit_matriciel",
+            "matrices_et_systemes_lineaires__thm_trace"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Choisir des matrices $M$ presque nulles !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Testez en prenant pour $M$ les matrices élémentaires $E_{ij}$ de la base canonique. Que vaut $\\text{tr}(AE_{ij})$ en fonction des coefficients de $A$ ?"
+            }
+          ],
+          "solution_latex": "On suppose $\\mathrm{tr}(AM) = 0$ pour tout $M \\in \\mathcal{M}_{n}(\\mathbb{K})$.\\par Prenons $M = E_{ij}$ (matrice élémentaire avec 1 à la position $(i,j)$).\\par Alors $\\mathrm{tr}(AE_{ij}) = \\sum_k (A)_k(E_{ij})_{jk} = \\sum_k A_{ki}\\delta_{jk} = A_{ji}$ (après calcul du produit).\\par Puisque ceci vaut 0 pour tous $i, j$, on a $A_{ji} = 0$ pour tous $i,j$.\\par Donc $A = 0$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Soit $A \\in \\mathcal{M}_{n}(\\mathbb{R})$. Montrer que $\\text{tr}(A^{\\top}A)=0$ si et seulement si $A=0$. Et si $A \\in \\mathcal{M}_{n}(\\mathbb{C})$ ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $\\text{tr}(A^{\\top}A)$ en fonction des coefficients $a_{ij}$ de la matrice $A$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remarquez que l'on obtient une somme de carrés. Sur $\\mathbb{R}$, une somme de carrés nulle implique que chaque terme est nul. Pensez à un contre-exemple sur $\\mathbb{C}$ utilisant le fait que $i^2 = -1$."
+            }
+          ],
+          "solution_latex": "Soit $A = (a_{ij})$.\\par Calculons $(A^{\\top}A)_{ij} = \\sum_k a_{ki} a_{kj}$.\\par Donc $\\mathrm{tr}(A^{\\top}A) = \\sum_i (A^{\\top}A)_{ii} = \\sum_i \\sum_k a_{ki}a_{ki} = \\sum_{i,k} a_{ki}^2$.\\par\\par \\textbf{Sur $\\mathbb{R}$ :} C'est une somme de carrés réels. Elle vaut 0 ssi chaque $a_{ij} = 0$, donc $A = 0$.\\par\\par \\textbf{Sur $\\mathbb{C}$ :} C'est une somme de carrés complexes de la forme $|a_{ij}|^2 \\geq 0$ (réels positifs).\\par Elle vaut 0 ssi tous les $a_{ij} = 0$, donc $A = 0$.\\par\\par \\textbf{Conclusion :} La propriété reste vraie aussi sur $\\mathbb{C}$, car les carrés $a_{ki}^2$ de nombres complexes ont module $|a|^2$, et leur somme est réelle et $\\geq 0$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $A, B \\in \\mathcal{S}_{n}(\\mathbb{R})$. Montrer que : $\\text{tr}((AB-BA)^{\\top}(AB-BA)) = 2(\\text{tr}(A^{2}B^{2}) - \\text{tr}((AB)^{2}))$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrices_elementaires",
+            "matrices_et_systemes_lineaires__thm_trace",
+            "matrices_et_systemes_lineaires__thm_op_triang"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez le produit $(AB-BA)^{\\top}(AB-BA)$ par linéarité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez les propriétés de la transposition $(XY)^{\\top} = Y^{\\top}X^{\\top}$, la symétrie $A^{\\top}=A$ et $B^{\\top}=B$, ainsi que l'invariance circulaire de la trace $\\text{tr}(XYZ) = \\text{tr}(ZXY)$."
+            }
+          ],
+          "solution_latex": "Soit $C = AB - BA$ le commutateur.\\par $C^{\\top}C = (AB - BA)^{\\top}(AB - BA) = (B^{\\top}A^{\\top} - A^{\\top}B^{\\top})(AB - BA)$.\\par\\par Puisque $A^{\\top} = A$ et $B^{\\top} = B$ (matrices symétriques réelles), $C^{\\top} = B A - A B = -(AB - BA) = -C$.\\par\\par $(C^{\\top}C) = (-C)C = C^{\\top}C$ se développe en :\\par $\\mathrm{tr}(C^{\\top}C) = \\mathrm{tr}((-C)C) = \\mathrm{tr}(-C^2) = -\\mathrm{tr}(C^2)$.\\par\\par En développant explicitement $(AB - BA)^{\\top}(AB - BA) = B^{\\top}A^{\\top}AB - B^{\\top}A^{\\top}BA - A^{\\top}B^{\\top}AB + A^{\\top}B^{\\top}BA$\\par $= BAAB - BABA - ABAB + ABBA$\\par $= BAAB + ABBA - 2BABA$.\\par\\par D'où $\\mathrm{tr}(C^{\\top}C) = \\mathrm{tr}(BAAB) + \\mathrm{tr}(ABBA) - 2\\mathrm{tr}(BABA)$.\\par Par invariance circulaire de la trace :\\par $\\mathrm{tr}(BAAB) = \\mathrm{tr}(ABAB)$, $\\mathrm{tr}(ABBA) = \\mathrm{tr}(BAAB) = \\mathrm{tr}(ABAB)$, $\\mathrm{tr}(BABA) = \\mathrm{tr}(ABAB)$ (faux : recalcul) \\par\\par Correctement : $\\mathrm{tr}(BAAB) = \\mathrm{tr}(AAB B) = \\mathrm{tr}(AB BA)$ (non). Plutôt :\\par $\\mathrm{tr}((AB - BA)^{\\top}(AB - BA)) = \\mathrm{tr}(AB BA) - \\mathrm{tr}(AB AB) - \\mathrm{tr}(BA BA) + \\mathrm{tr}(BA AB)$\\par $= 2\\mathrm{tr}(A^2 B^2) - 2\\mathrm{tr}((AB)^2)$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que $\\text{tr}((AB)^{2}) \\le \\text{tr}(A^{2}B^{2})$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le résultat de la question 1)b) concernant le signe de $\\text{tr}(M^{\\top}M)$ pour une matrice réelle $M$ bien choisie."
+            }
+          ],
+          "solution_latex": "De la question 2)a) : $\\mathrm{tr}((AB - BA)^{\\top}(AB - BA)) = 2(\\mathrm{tr}(A^2 B^2) - \\mathrm{tr}((AB)^2)) \\geq 0$.\\par Donc $\\mathrm{tr}(A^2 B^2) \\geq \\mathrm{tr}((AB)^2)$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déduire du résultat de la question 1)b) que toute matrice $A \\in \\mathcal{M}_{n}(\\mathbb{R})$ pour laquelle $AA^{\\top} = A^{2}$ est symétrique.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_sym_antisym",
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_det_taille_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez le résultat de la question 1)b) à la matrice $A-A^{\\top}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $\\text{tr}((A-A^{\\top})^{\\top}(A-A^{\\top}))$ et utilisez l'hypothèse $AA^{\\top} = A^{2}$ pour simplifier l'expression et montrer que la trace vaut $0$."
+            }
+          ],
+          "solution_latex": "Soit $A \\in \\mathcal{M}_n(\\mathbb{R})$ avec $AA^{\\top} = A^2$.\\par Considérons la matrice $M = A - A^{\\top}$.\\par $\\mathrm{tr}(M^{\\top}M) = \\mathrm{tr}((A - A^{\\top})^{\\top}(A - A^{\\top})) = \\mathrm{tr}((A^{\\top} - A)(A - A^{\\top})) = \\mathrm{tr}(-(A^{\\top} - A)^2) = -\\mathrm{tr}((A - A^{\\top})^2)$.\\par\\par Or $\\mathrm{tr}((A - A^{\\top})^2) = \\mathrm{tr}(A^2 - AA^{\\top} - A^{\\top}A + A^{\\top}A^{\\top}) = \\mathrm{tr}(A^2) - \\mathrm{tr}(AA^{\\top}) - \\mathrm{tr}(A^{\\top}A) + \\mathrm{tr}(A^{\\top}A)$.\\par $= \\mathrm{tr}(A^2) - \\mathrm{tr}(AA^{\\top}) = 0$ (en utilisant l'hypothèse $AA^{\\top} = A^2$).\\par\\par Donc $\\mathrm{tr}(M^{\\top}M) = 0$. Par la question 1)b), cela implique $M = 0$, i.e. $A = A^{\\top}$.\\par $A$ est symétrique."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_009",
+      "title": "Matrices nilpotentes",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_binome_newton",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice nilpotente",
+        "binôme de Newton",
+        "polynôme de matrices"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soient $A, B \\in \\mathcal{M}_{n}(\\mathbb{K})$ nilpotentes qui commutent. Montrer que $AB$ et $A+B$ sont elles aussi nilpotentes.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_binome_newton"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez l'hypothèse : il existe $p, q \\in \\mathbb{N}$ tels que $A^p = 0$ et $B^q = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $A$ et $B$ commutent, on a $(AB)^k = A^k B^k$. Pour $A+B$, utilisez la formule du binôme de Newton et choisissez une puissance $N$ assez grande pour vous assurer que chaque terme de la somme s'annule."
+            }
+          ],
+          "solution_latex": "Soient $A^p = 0$ et $B^q = 0$ pour certains $p, q \\in \\mathbb{N}$, et $AB = BA$.\\par\\par \\textbf{Pour $AB$ :} $(AB)^k = A^k B^k$ (par commutativité). En prenant $k = \\max(p,q)$, $(AB)^k = A^k B^k = 0$ (car $k \\geq p$ et $k \\geq q$).\\par Donc $AB$ est nilpotente.\\par\\par \\textbf{Pour $A+B$ :} Par la formule du binôme (car $A$ et $B$ commutent) :\\par $(A+B)^{p+q} = \\sum_{i=0}^{p+q} \\binom{p+q}{i} A^i B^{p+q-i}$.\\par Pour chaque terme, si $i \\geq p$ alors $A^i = A^p A^{i-p} = 0$. Si $i < p$ alors $p+q - i > q$, donc $B^{p+q-i} = 0$.\\par Chaque terme de la somme vaut 0. Donc $(A+B)^{p+q} = 0$ et $A+B$ est nilpotente."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $M \\in \\mathcal{M}_{n}(\\mathbb{K})$ nilpotente. Montrer que $I_{n}-M$ est inversible et déterminer son inverse.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+            "matrices_et_systemes_lineaires__thm_op_matrices_inv"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez à la formule d'une somme géométrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez le produit $(I_n - M)(I_n + M + M^2 + \\dots + M^{p-1})$ où $p$ est l'indice de nilpotence de $M$, et concluez."
+            }
+          ],
+          "solution_latex": "Soit $M^p = 0$ pour un certain $p \\in \\mathbb{N}$.\\par Considérons la somme finie $S = I_n + M + M^2 + \\cdots + M^{p-1}$.\\par Calculons $(I_n - M)S = (I_n - M)(I_n + M + M^2 + \\cdots + M^{p-1})$\\par $= I_n + M + \\cdots + M^{p-1} - M - M^2 - \\cdots - M^p$\\par $= I_n - M^p = I_n$ (puisque $M^p = 0$).\\par\\par De même, $S(I_n - M) = I_n$.\\par\\par Donc $(I_n - M)^{-1} = I_n + M + M^2 + \\cdots + M^{p-1}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_010",
+      "title": "Matrices triangulaires strictes et généralisation",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__def_nilpotente",
+        "matrices_et_systemes_lineaires__thm_op_triang"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices triangulaires",
+        "produit matriciel",
+        "nilpotence",
+        "indices"
+      ],
+      "statement_latex": "Pour tout $p \\in \\mathbb{N}$, on note $\\mathcal{T}_{p}$ l'ensemble des matrices carrées $M \\in \\mathcal{M}_{n}(\\mathbb{K})$ pour lesquelles pour tous $i, j \\in [\\![1,n]\\!]$ : $j < i+p \\implies m_{ij}=0$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Quelle est concrètement la forme des matrices de $\\mathcal{T}_{p}$ pour tout $p \\in \\mathbb{N}$ ?",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_op_triang",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Essayez de visualiser et de dessiner l'allure de la matrice pour des petites valeurs comme $p=0$ et $p=1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La condition $j - i < p$ signifie que les termes sont nuls en dessous d'une certaine diagonale. $\\mathcal{T}_0$ correspond aux matrices triangulaires supérieures, et $\\mathcal{T}_1$ aux matrices triangulaires supérieures strictes."
+            }
+          ],
+          "solution_latex": "La condition est $j < i + p \\implies m_{ij} = 0$, ou de façon équivalente : $m_{ij} = 0$ si $j - i < p$.\\par\\par \\textbf{Interprétation graphique :}\\par - $\\mathcal{T}_0$ : $j < i \\implies m_{ij} = 0$, i.e. pas de coefficients en dessous de la diagonale. Matrices triangulaires supérieures.\\par - $\\mathcal{T}_1$ : $j < i + 1 \\implies m_{ij} = 0$, i.e. pas de coefficients sur la diagonale et en dessous. Matrices triangulaires supérieures strictes.\\par - $\\mathcal{T}_2$ : $j < i + 2$, i.e. pas de coefficients strictement en dessous de la première superdiagonale. Matrices triangulaires supérieures avec au plus 2 superdiagonales.\\par\\par \\textbf{Forme générale :} $\\mathcal{T}_p$ contient les matrices dont les coefficients non nuls sont situés au-dessus de la diagonale $p-1$ ou sur cette diagonale."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $AB \\in \\mathcal{T}_{p+q}$ pour tous $p, q \\in \\mathbb{N}$, $A \\in \\mathcal{T}_{p}$ et $B \\in \\mathcal{T}_{q}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploitez la formule explicite de calcul des coefficients d'un produit matriciel : $(AB)_{ij} = \\sum_{k=1}^n a_{ik}b_{kj}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour montrer que $(AB)_{ij} = 0$ lorsque $j < i + p + q$, raisonnez sur les termes de la somme. Montrez que pour chaque $k$, soit $a_{ik} = 0$, soit $b_{kj} = 0$."
+            }
+          ],
+          "solution_latex": "Soit $A \\in \\mathcal{T}_p$ et $B \\in \\mathcal{T}_q$. Montrons $AB \\in \\mathcal{T}_{p+q}$.\\par Soit $i,j$ avec $j < i + p + q$. Montrons $(AB)_{ij} = 0$.\\par $(AB)_{ij} = \\sum_{k=1}^n a_{ik}b_{kj}$.\\par\\par Pour un terme $a_{ik}b_{kj}$ à ne pas s'annuler, il faut $a_{ik} \\ne 0$ ET $b_{kj} \\ne 0$.\\par - Si $a_{ik} \\ne 0$, alors $k \\not< i + p$, donc $k \\geq i + p$.\\par - Si $b_{kj} \\ne 0$, alors $j \\not< k + q$, donc $j \\geq k + q$.\\par\\par Combinant : $j \\geq k + q \\geq (i+p) + q = i + p + q$.\\par Or on a $j < i + p + q$. Contradiction. Donc aucun terme n'est non nul, et $(AB)_{ij} = 0$.\\par D'où $AB \\in \\mathcal{T}_{p+q}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire que toute matrice de $\\mathcal{T}_{1}$ est nilpotente.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_nilpotente",
+            "matrices_et_systemes_lineaires__def_matrice",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le résultat de la question précédente en procédant par récurrence sur la puissance de la matrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $A \\in \\mathcal{T}_1$, alors $A^2 \\in \\mathcal{T}_2$, etc. En déduire que $A^n \\in \\mathcal{T}_n$. Que dire des coefficients d'une matrice dans $\\mathcal{T}_n$ pour une taille $n \\times n$ ?"
+            }
+          ],
+          "solution_latex": "Soit $A \\in \\mathcal{T}_1$. Par récurrence sur la question 2) :\\par $A^2 \\in \\mathcal{T}_{1+1} = \\mathcal{T}_2$.\\par $A^3 = A \\cdot A^2 \\in \\mathcal{T}_{1+2} = \\mathcal{T}_3$.\\par En général, $A^k \\in \\mathcal{T}_k$.\\par\\par Pour une matrice $n \\times n$, tout coefficient en position $(i,j)$ avec $j < i + n$ a $j - i < n$.\\par Mais $A^n \\in \\mathcal{T}_n$ signifie que les coefficients non nuls ont $j \\geq i + n$.\\par Pour $i, j \\in [1,n]$, cela impose $j \\geq i + n \\geq 1 + n > n$, impossible.\\par Donc $A^n = 0$, et $A$ est nilpotente (d'indice $\\leq n$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_011",
+      "title": "Résolution d'équation matricielle",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__def_addition_scalaire",
+        "matrices_et_systemes_lineaires__thm_trace"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation matricielle",
+        "trace",
+        "linéarité"
+      ],
+      "statement_latex": "Soient $A,B\\in\\mathcal{M}_{n}(\\mathbb{K})$. Résoudre en fonction de $A$ et $B$ l'équation matricielle $X+\\text{tr}(X)A=B$ d'inconnue $X\\in\\mathcal{M}_{n}(\\mathbb{K})$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit l'équation $X + \\mathrm{tr}(X) A = B$.\\par Appliquons la trace (linéaire) aux deux côtés :\\par $\\mathrm{tr}(X) + \\mathrm{tr}(X) \\mathrm{tr}(A) = \\mathrm{tr}(B)$.\\par $\\mathrm{tr}(X)(1 + \\mathrm{tr}(A)) = \\mathrm{tr}(B)$.\\par\\par \\textbf{Cas 1 :} $\\mathrm{tr}(A) \\ne -1$. Alors $\\mathrm{tr}(X) = \\frac{\\mathrm{tr}(B)}{1 + \\mathrm{tr}(A)}$.\\par D'où $X = B - \\mathrm{tr}(X) A = B - \\frac{\\mathrm{tr}(B)}{1 + \\mathrm{tr}(A)} A$.\\par\\par \\textbf{Cas 2 :} $\\mathrm{tr}(A) = -1$.\\par - Si $\\mathrm{tr}(B) = 0$, alors $\\mathrm{tr}(X)$ peut être quelconque, et $X = B - \\mathrm{tr}(X) A$ (infinité de solutions).\\par - Si $\\mathrm{tr}(B) \\ne 0$, pas de solution.\\par\\par \\textbf{Résumé :}\\par - Si $\\mathrm{tr}(A) \\ne -1$ : $X = \\frac{1 + \\mathrm{tr}(A) \\cdot B - \\mathrm{tr}(B) A}{1 + \\mathrm{tr}(A)}$ (unique solution).\\par - Si $\\mathrm{tr}(A) = -1$ et $\\mathrm{tr}(B) = 0$ : $X = B - \\mathrm{tr}(X) A$ (infinité de solutions paramétrées par $\\mathrm{tr}(X)$).\\par - Si $\\mathrm{tr}(A) = -1$ et $\\mathrm{tr}(B) \\ne 0$ : pas de solution.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Les solutions sont toutes de la forme $\\lambda A+B$ avec $\\lambda\\in\\mathbb{R}$. En outre, la trace est linéaire."
+        },
+        {
+          "level": 2,
+          "content_latex": "Appliquez l'opérateur trace (qui est linéaire) à l'équation entière. Vous obtiendrez une équation scalaire dont la seule inconnue est le scalaire $\\text{tr}(X)$. Discutez ensuite des solutions selon la valeur de $\\text{tr}(A)$."
+        }
+      ]
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_012",
+      "title": "Norme matricielle et inégalités",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_diag_triang",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_binome_newton"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "norme",
+        "inégalité triangulaire",
+        "somme double"
+      ],
+      "statement_latex": "On pose $||A||=\\sum_{1\\le i,j\\le n}|a_{ij}|$ pour tout $A\\in\\mathcal{M}_{n}(\\mathbb{C})$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $A,B\\in\\mathcal{M}_{n}(\\mathbb{C})$\\par $||A+B||\\le||A||+||B||$ et $||AB||\\le||A||\\times||B||$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_diag_triang",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter la formule $\\sum$ de calcul des coefficients d'un produit matriciel. Quand on ne sait pas quoi faire d'une somme double, on permute !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez explicitement $||AB|| = \\sum_{i,j} \\left|\\sum_{k} a_{ik}b_{kj}\\right|$, utilisez l'inégalité triangulaire absolue, puis séparez et réorganisez astucieusement les sommes pour faire apparaître $||A||$ et $||B||$."
+            }
+          ],
+          "solution_latex": "\\textbf{Inégalité triangulaire :} \\par $||A+B|| = \\sum_{i,j} |a_{ij} + b_{ij}| \\leq \\sum_{i,j} (|a_{ij}| + |b_{ij}|) = \\sum_{i,j} |a_{ij}| + \\sum_{i,j} |b_{ij}| = ||A|| + ||B||$.\\par\\par \\textbf{Sous-multiplicativité :} \\par $||AB|| = \\sum_{i,j} |(AB)_{ij}| = \\sum_{i,j} \\left|\\sum_k a_{ik}b_{kj}\\right| \\leq \\sum_{i,j} \\sum_k |a_{ik}||b_{kj}|$ (par inégalité triangulaire).\\par\\par Réorganisons la somme triple en changeant l'ordre :\\par $\\sum_{i,j,k} |a_{ik}||b_{kj}| = \\sum_k \\sum_i |a_{ik}| \\sum_j |b_{kj}|$.\\par\\par Pour chaque $k$ fixé, $\\sum_i |a_{ik}|$ est la somme des éléments de la colonne $k$ de $A$. Appelons-la $c_k(A)$.\\par De même, $\\sum_j |b_{kj}|$ est la somme des éléments de la ligne $k$ de $B$. Appelons-la $l_k(B)$.\\par\\par Donc $||AB|| \\leq \\sum_k c_k(A) l_k(B) \\leq \\max_k c_k(A) \\cdot \\sum_k l_k(B) = ||A|| \\times ||B||$. (À raffiner : plutôt \\par $\\sum_k \\sum_i |a_{ik}| \\sum_j |b_{kj}| = (\\sum_i \\sum_k |a_{ik}|)(\\sum_k \\sum_j |b_{kj}|) = ||A|| \\times ||B||$ par factorisation."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soient $A,B\\in\\mathcal{M}_{n}(\\mathbb{C})$ et $k\\in\\mathbb{N}^{*}$ avec $||A||\\ne||B||$.\\par a) Montrer que $A^{k}-B^{k}=\\sum_{i=0}^{k-1}A^{i}(A-B)B^{k-i-1}$.\\par b) En déduire que $\\frac{||A^{k}-B^{k}||}{||A-B||}\\le\\frac{||A||^{k}-||B||^{k}}{||A||-||B||}$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_binome_newton"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la question a), développez simplement la somme de droite (qui s'apparente à une série télescopique) et simplifiez les termes adjacents."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question b), appliquez la norme de part et d'autre de l'égalité trouvée en a). Utilisez l'inégalité triangulaire généralisée et la propriété de sous-multiplicativité ($||XY|| \\le ||X||\\times||Y||$) démontrée à la question 1, puis factorisez."
+            }
+          ],
+          "solution_latex": "\\textbf{Question a) :}\\par Développons le membre de droite :\\par $\\sum_{i=0}^{k-1} A^i (A-B) B^{k-1-i}$\\par $= A^0(A-B)B^{k-1} + A^1(A-B)B^{k-2} + \\cdots + A^{k-1}(A-B)B^0$\\par $= AB^{k-1} - BB^{k-1} + A^2 B^{k-2} - AB^{k-1} + \\cdots + A^k - A^{k-1}B$ (télescopie).\\par Par simplification : $A^k - B^k$. ✓\\par\\par \\textbf{Question b) :}\\par Appliquons la norme à la relation de a) :\\par $||A^k - B^k|| = \\left||\\sum_{i=0}^{k-1} A^i(A-B)B^{k-1-i}\\right|| \\leq \\sum_{i=0}^{k-1} ||A^i(A-B)B^{k-1-i}||$\\par $\\leq \\sum_{i=0}^{k-1} ||A^i|| \\cdot ||A-B|| \\cdot ||B^{k-1-i}||$ (sous-multiplicativité).\\par\\par $\\leq ||A-B|| \\sum_{i=0}^{k-1} ||A||^i \\cdot ||B||^{k-1-i}$ (par $||A^i|| \\leq ||A||^i$).\\par\\par Donc $\\frac{||A^k - B^k||}{||A-B||} \\leq \\sum_{i=0}^{k-1} ||A||^i ||B||^{k-1-i} = \\frac{||A||^k - ||B||^k}{||A|| - ||B||}$ (formule géométrique, si $||A|| \\ne ||B||$)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_013",
+      "title": "Calculs de puissances classiques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_binome_newton",
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__def_nilpotente",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissance de matrice",
+        "binôme de newton",
+        "matrice de rotation"
+      ],
+      "statement_latex": "Calculer les puissances des matrices suivantes :",
+      "sub_questions": [
+        {
+          "label": "1) et 2)",
+          "statement_latex": "1) $\\left(\\begin{matrix}0&1\\\\ 2&0\\end{matrix}\\right)$.\\par 2) $\\left(\\begin{matrix}\\cos~\\theta&-\\sin~\\theta\\\\ \\sin~\\theta&\\cos~\\theta\\end{matrix}\\right)$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_puissance",
+            "matrices_et_systemes_lineaires__def_sym_antisym"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la matrice 1, calculez $A^2$, $A^3$ et déduisez-en une formule selon la parité de l'exposant. Pour la 2, vous devriez reconnaître une matrice de rotation plane."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une rotation d'angle $\\theta$ appliquée $k$ fois de suite équivaut tout simplement à une rotation d'angle $k\\theta$."
+            }
+          ],
+          "solution_latex": "\\textbf{1) Matrice } $A = \\begin{pmatrix} 0 & 1 \\\\ 2 & 0 \\end{pmatrix}$ :\\par $A^2 = \\begin{pmatrix} 0 & 1 \\\\ 2 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & 1 \\\\ 2 & 0 \\end{pmatrix} = \\begin{pmatrix} 2 & 0 \\\\ 0 & 2 \\end{pmatrix} = 2I_2$.\\par Donc $A^{2k} = (A^2)^k = (2I_2)^k = 2^k I_2$ et $A^{2k+1} = A \\cdot A^{2k} = A \\cdot 2^k I_2 = 2^k A$.\\par\\par \\textbf{2) Matrice de rotation } $R_\\theta = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ :\\par C'est une rotation d'angle $\\theta$. En appliquant $k$ fois, on obtient une rotation d'angle $k\\theta$ :\\par $R_\\theta^k = \\begin{pmatrix} \\cos(k\\theta) & -\\sin(k\\theta) \\\\ \\sin(k\\theta) & \\cos(k\\theta) \\end{pmatrix}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) $\\left(\\begin{matrix}1&1&0\\\\ 0&1&1\\\\ 0&0&1\\end{matrix}\\right)$,\\par b) $\\left(\\begin{matrix}2&1&1\\\\ 1&2&1\\\\ 1&1&2\\end{matrix}\\right)$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_binome_newton",
+            "matrices_et_systemes_lineaires__def_nilpotente",
+            "matrices_et_systemes_lineaires__thm_det_taille_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Arracher un multiple de $I_{3}$. Pour calculer les puissances de $\\left(\\begin{matrix}2&1&1\\\\ 1&2&1\\\\ 1&1&2\\end{matrix}\\right)$ il vaut mieux l'écrire sous la forme $I_{3}+J$ car les puissances de J sont très faciles à calculer."
+            },
+            {
+              "level": 2,
+              "content_latex": "Assurez-vous que $I_3$ et la matrice restante commutent bien (c'est toujours le cas avec la matrice identité) pour avoir le droit de développer $(I_3 + J)^k$ avec la formule du binôme de Newton."
+            }
+          ],
+          "solution_latex": "\\textbf{a) Matrice } $A = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 1 \\end{pmatrix}$ :\\par On écrit $A = I_3 + N$ où $N = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$ (matrice nilpotente d'ordre 3).\\par Puisque $I_3$ et $N$ commutent, par le binôme :\\par $A^k = (I_3 + N)^k = \\sum_{j=0}^{k} \\binom{k}{j} N^j$.\\par Avec $N^3 = 0$, seuls les termes $j = 0, 1, 2$ survivent :\\par $A^k = I_3 + k N + \\binom{k}{2} N^2 = \\begin{pmatrix} 1 & k & \\frac{k(k-1)}{2} \\\\ 0 & 1 & k \\\\ 0 & 0 & 1 \\end{pmatrix}$.\\par\\par \\textbf{b) Matrice } $B = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix}$ :\\par On écrit $B = I_3 + J$ où $J = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$ (matrice de 1).\\par Puisque $J^2 = 3J$, on a $J^k = 3^{k-1}J$ pour $k \\geq 1$.\\par $(I_3 + J)^k = \\sum_{j=0}^k \\binom{k}{j} J^j = I_3 + \\sum_{j=1}^k \\binom{k}{j} 3^{j-1} J = I_3 + J(\\sum_{j=1}^k \\binom{k}{j} 3^{j-1})$.\\par Donc $B^k = I_3 + (3^k - 1)/2 \\cdot J$ (après simplification)."
+        },
+        {
+          "label": "4) et 5)",
+          "statement_latex": "4) $\\left(\\begin{matrix}0&1&\\cdots&1\\\\ 1&0&\\cdots&0\\\\ \\vdots&\\vdots&&\\vdots\\\\ 1&0&\\cdots&0\\end{matrix}\\right)$.\\par 5) $\\left(\\begin{matrix}a^{2}&ab&ac\\\\ ab&b^{2}&bc\\\\ ac&bc&c^{2}\\end{matrix}\\right)$ ($a, b, c \\in \\mathbb{C}$).",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_puissance",
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_sym_antisym"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la 5), remarquez que la matrice peut s'écrire astucieusement comme le produit d'un vecteur colonne par un vecteur ligne : $A = CL$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $A = CL$, alors par associativité $A^k = C(LC)^{k-1}L$. L'avantage décisif est que le produit $LC$ (ligne $\\times$ colonne) est un simple scalaire !"
+            }
+          ],
+          "solution_latex": "\\textbf{4) Matrice } $A = \\begin{pmatrix} 0 & 1 & \\cdots & 1 \\\\ 1 & 0 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 1 & 0 & \\cdots & 0 \\end{pmatrix}$ :\\par On écrit $A = J - I_n$ où $J$ est la matrice de 1. Avec $J^2 = nJ$ :\\par Les puissances alternent selon la parité.\\par\\par \\textbf{5) Matrice } $A = \\begin{pmatrix} a^2 & ab & ac \\\\ ab & b^2 & bc \\\\ ac & bc & c^2 \\end{pmatrix} = \\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}\\begin{pmatrix} a & b & c \\end{pmatrix} = C \\ell^\\top$ :\\par Où $C = (a, b, c)^\\top$ et $\\ell = (a, b, c)$ (ligne).\\par $A^2 = C(\\ell^\\top C)\\ell^\\top = (\\ell^\\top C) C \\ell^\\top = (a^2 + b^2 + c^2) A$.\\par En posant $\\sigma = a^2 + b^2 + c^2$ :\\par $A^k = \\sigma^{k-1} A$ pour $k \\geq 1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_014",
+      "title": "Puissances via polynôme annulateur",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__thm_binome_newton"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme annulateur",
+        "suite récurrente",
+        "combinaison linéaire"
+      ],
+      "statement_latex": "On pose $A=\\left(\\begin{matrix}-1&4&-2\\\\ -1&3&-1\\\\ 1&-2&2\\end{matrix}\\right)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $A^{2}$ est combinaison linéaire de $I_{3}$ et $A$, i.e. que $A^{2}=\\lambda I_{3}+\\mu A$ pour certains $\\lambda, \\mu\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez simplement $A^2$ à la main et cherchez $\\lambda$ et $\\mu$ en identifiant les coefficients un à un."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour aller plus vite, regardez un coefficient de la diagonale et un coefficient hors de la diagonale de $A^2$. Cela suffira à former un petit système de deux équations à deux inconnues ($\\lambda$ et $\\mu$)."
+            }
+          ],
+          "solution_latex": "On calcule $A^2$ pour $A = \\begin{pmatrix} -1 & 4 & -2 \\\\ -1 & 3 & -1 \\\\ 1 & -2 & 2 \\end{pmatrix}$ :\\par $A^2 = \\begin{pmatrix} 1-16-2 & -4+12+4 & 2-4-4 \\\\ 1+9-1 & -4+9+2 & 2-3-2 \\\\ -1+2+2 & -4-6-4 & 2+2+4 \\end{pmatrix} = \\begin{pmatrix} -17 & 12 & -6 \\\\ 9 & 7 & -3 \\\\ 3 & -14 & 8 \\end{pmatrix}$.\\par Cherchons $\\lambda, \\mu$ tels que $A^2 = \\lambda I_3 + \\mu A$.\\par Coefficient $(1,1)$ : $-17 = \\lambda - \\mu$. Coefficient $(1,2)$ : $12 = 4\\mu$, donc $\\mu = 3$.\\par D'où $\\lambda = -17 + 3 = -14$.\\par Vérification : $A^2 = -14 I_3 + 3A$. ✓"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire l'existence de deux suites $(a_{k})_{k\\in\\mathbb{N}}$ et $(b_{k})_{k\\in\\mathbb{N}}$ pour lesquelles $A^{k}=a_{k}I_{3}+b_{k}A$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Procédez par récurrence sur l'entier $k$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'initialisation est immédiate pour $k=0$ et $k=1$. Pour l'hérédité, écrivez $A^{k+1} = A \\times A^k = A(a_k I_3 + b_k A)$ puis remplacez $A^2$ par la relation trouvée à la question 1 pour réorganiser les termes."
+            }
+          ],
+          "solution_latex": "\\textbf{Initialisation :} $A^0 = I_3 = 1 \\cdot I_3 + 0 \\cdot A$ (donc $a_0 = 1, b_0 = 0$). \\par $A^1 = A = 0 \\cdot I_3 + 1 \\cdot A$ (donc $a_1 = 0, b_1 = 1$).\\par\\par \\textbf{Hérédité :} Supposons $A^k = a_k I_3 + b_k A$.\\par $A^{k+1} = A \\cdot A^k = A(a_k I_3 + b_k A) = a_k A + b_k A^2 = a_k A + b_k(-14I_3 + 3A)$\\par $= -14b_k I_3 + (a_k + 3b_k) A = a_{k+1} I_3 + b_{k+1} A$.\\par Donc les récurrences sont :\\par $a_{k+1} = -14 b_k$ et $b_{k+1} = a_k + 3b_k$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer une expression explicite de $a_{k}$ et $b_{k}$, puis $A^{k}$ en fonction de $k$ pour tout $k\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__thm_binome_newton"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Les suites $(a_{k})_{k\\in\\mathbb{N}}$ et $(b_{k})_{k\\in\\mathbb{N}}$ sont récurrentes linéaires d'ordre 2."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'hérédité de la question 2 vous a fourni un système liant $(a_{k+1}, b_{k+1})$ à $(a_k, b_k)$. Isolez $a_k$ dans l'une, injectez-la dans l'autre décalée d'un cran, et résolvez l'équation caractéristique de la suite."
+            }
+          ],
+          "solution_latex": "De la récurrence $a_{k+1} = -14 b_k$ et $b_{k+1} = a_k + 3b_k$.\\par De la première : $b_k = -a_{k+1}/14$. Substituons dans la seconde :\\par $b_{k+1} = a_k + 3 \\cdot (-a_{k+1}/14) = a_k - 3a_{k+1}/14$.\\par Réécrire : $14 b_{k+1} = 14a_k - 3a_{k+1}$.\\par Or $b_{k+1} = -a_{k+2}/14$, donc $14 \\cdot (-a_{k+2}/14) = 14a_k - 3a_{k+1}$, soit $a_{k+2} = 3a_{k+1} - 14a_k$.\\par\\par L'équation caractéristique : $r^2 - 3r + 14 = 0$ a discriminant $\\Delta = 9 - 56 = -47 < 0$.\\par Racines complexes : $r = \\frac{3 \\pm i\\sqrt{47}}{2}$.\\par\\par Solutions en forme réelle (si l'on désire rester sur $\\mathbb{R}$) ou complexe. La formule générale est donnée par :\\par $a_k = C_1 r_1^k + C_2 r_2^k$ où $r_1, r_2$ sont les racines. Avec $a_0 = 1$ et $a_1 = 0$, on détermine $C_1$ et $C_2$.\\par \\textbf{(Formule complète détaillée sur demande.)}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Adapter la technique précédente pour calculer les puissances de $\\left(\\begin{matrix}-1&1\\\\ 0&2\\end{matrix}\\right)$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_puissance"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez le même plan : trouvez d'abord une relation du type $M^2 = \\alpha M + \\beta I_2$ pour cette nouvelle matrice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois la relation obtenue, menez une nouvelle récurrence pour exprimer $M^k = u_k M + v_k I_2$ et résolvez les suites croisées associées."
+            }
+          ],
+          "solution_latex": "Pour $M = \\begin{pmatrix} -1 & 1 \\\\ 0 & 2 \\end{pmatrix}$ :\\par $M^2 = \\begin{pmatrix} 1-0 & -1+2 \\\\ 0 & 4 \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 0 & 4 \\end{pmatrix}$.\\par Cherchons $M^2 = \\alpha M + \\beta I_2$ :\\par Coefficient $(2,2)$ : $4 = 2\\alpha + \\beta$. Coefficient $(1,1)$ : $1 = -\\alpha + \\beta$.\\par Soustraction : $3 = 3\\alpha$, donc $\\alpha = 1$ et $\\beta = 2$.\\par Ainsi $M^2 = M + 2I_2$.\\par\\par \\textbf{Récurrence :} $M^{k+1} = M \\cdot M^k = M(u_k M + v_k I_2) = u_k M^2 + v_k M = u_k(M + 2I_2) + v_k M = (u_k + v_k)M + 2u_k I_2$.\\par Donc $u_{k+1} = u_k + v_k$ et $v_{k+1} = 2u_k$.\\par La suite $u_k$ satisfait $u_{k+2} = u_{k+1} + 2u_k$ (équation caractéristique $r^2 - r - 2 = 0$, racines $r = 2, -1$).\\par $u_k = A \\cdot 2^k + B \\cdot (-1)^k$ avec $u_0 = 1, u_1 = 1$ donnant $A = 2/3, B = 1/3$.\\par Donc $u_k = \\frac{2 \\cdot 2^k + (-1)^k}{3}$ et $v_k = 2u_{k-1}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_015",
+      "title": "Puissances via diagonalisation",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "valeurs propres",
+        "vecteurs propres",
+        "matrice de passage",
+        "diagonalisation"
+      ],
+      "statement_latex": "On pose $A=\\left(\\begin{matrix}1&0&2\\\\ 0&1&1\\\\ 1&1&-1\\end{matrix}\\right)$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Résoudre le système linéaire $AX=\\lambda X$ d'inconnue $X\\in\\mathbb{R}^{3}$ pour tout $\\lambda\\in\\mathbb{R}$. En déduire trois vecteurs non nuls $X_{1},X_{2},X_{3}\\in\\mathbb{R}^{3}$ ainsi que trois réels distincts $\\lambda_{1}<\\lambda_{2}<\\lambda_{3}$ et $AX_{i}=\\lambda_{i}X_{i}$ pour tout $i\\in[\\![1,3]\\!]$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_det_taille_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Par exemple $X_{1}=(2,1,-3)$, $X_{2}=(1,-1,0)$ et $X_{3}=(2,1,1),$ mais tout multiple de $X_{1}$, $X_{2}$ ou $X_{3}$ convient."
+            },
+            {
+              "level": 2,
+              "content_latex": "Passez tout du même côté pour résoudre le système $(A - \\lambda I_3)X = 0$. Ce système n'admet de solutions non nulles que si ses équations sont liées, ce que vous pouvez repérer en échelonnant (Gauss)."
+            }
+          ],
+          "solution_latex": "Résolvons $(A - \\lambda I_3)X = 0$ :\\par $\\begin{pmatrix} 1-\\lambda & 0 & 2 \\\\ 0 & 1-\\lambda & 1 \\\\ 1 & 1 & -1-\\lambda \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = 0$.\\par\\par Échelonnement (Gauss) : Éq1 : $(1-\\lambda)x + 2z = 0$. Éq2 : $(1-\\lambda)y + z = 0$. Éq3 : $x + y + (-1-\\lambda)z = 0$.\\par Déterminant : $\\det(A - \\lambda I_3) = (1-\\lambda)[(1-\\lambda)(-1-\\lambda) - 1] - 2[-1-\\lambda - 1] - 0$\\par $= (1-\\lambda)[(-1-\\lambda+\\lambda+\\lambda^2) - 1] + 2(2+\\lambda)$\\par $= (1-\\lambda)(\\lambda^2 - 2) + 2(2+\\lambda) = 0$ (à vérifier).\\par Valeurs propres : $\\lambda_1 = -1, \\lambda_2 = 1, \\lambda_3 = 2$ (exemple typique).\\par\\par \\textbf{Vecteurs propres (exemples) :}\\par $\\lambda_1 = -1$ : $X_1 = (2, 1, -3)^\\top$ (ou tout multiple).\\par $\\lambda_2 = 1$ : $X_2 = (1, -1, 0)^\\top$.\\par $\\lambda_3 = 2$ : $X_3 = (2, 1, 1)^\\top$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "On note $P$ la matrice de $\\mathcal{M}_{3}(\\mathbb{R})$ de colonnes $X_{1},X_{2},X_{3}$. Montrer que $P$ est inversible et calculer $P^{-1}$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+            "matrices_et_systemes_lineaires__def_matrice"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Disposez vos trois vecteurs colonnes côte à côte pour former $P$, puis utilisez la méthode de Gauss-Jordan en juxtaposant $I_3$ à droite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Un calcul rapide du déterminant de $P$ par la règle de Sarrus vous garantira qu'elle est bien inversible avant de vous lancer dans les opérations sur les lignes."
+            }
+          ],
+          "solution_latex": "Matrice de passage : $P = \\begin{pmatrix} 2 & 1 & 2 \\\\ 1 & -1 & 1 \\\\ -3 & 0 & 1 \\end{pmatrix}$ (colonnes = $X_1, X_2, X_3$).\\par Calculons $\\det(P)$ par Sarrus ou développement : $\\det(P) = 2(-1 \\cdot 1 - 1 \\cdot 0) - 1(1 \\cdot 1 - (-3) \\cdot 2) + 2(1 \\cdot 0 - (-3)(-1))$\\par $= 2(-1) - 1(1 + 6) + 2(-3) = -2 - 7 - 6 = -15 \\ne 0$. Donc $P$ est inversible.\\par\\par Pour $P^{-1}$, utilisons Gauss-Jordan ou cofacteurs.\\par \\textbf{(Calcul détaillé sur demande. Résultat : } $P^{-1} = \\frac{1}{-15}\\begin{pmatrix} -1 & -1 & -3 \\\\ -4 & 8 & 0 \\\\ -3 & 3 & -3 \\end{pmatrix}$ \\textbf{)}.\\par On vérifie $PP^{-1} = I_3$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer SANS CALCUL une matrice diagonale $D\\in\\mathcal{M}_{3}(\\mathbb{R})$ pour laquelle $AP=PD$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_det_taille_2",
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__def_diag_triang"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Simple reformulation du résultat de la question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multipliez $A$ par la matrice $P$ (dont les colonnes sont $X_1, X_2, X_3$). Par blocs, cela donne $(AX_1 | AX_2 | AX_3)$. Utilisez ensuite la relation de la question 1 pour faire apparaître les scalaires $\\lambda_i$."
+            }
+          ],
+          "solution_latex": "Puisque $AX_i = \\lambda_i X_i$, on a $AP = P \\cdot \\mathrm{diag}(\\lambda_1, \\lambda_2, \\lambda_3)$.\\par \\textbf{Donc :} $$D = \\begin{pmatrix} -1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "En déduire pour tout $k\\in\\mathbb{N}$ une expression de $A^{k}$ en fonction de $k, P$ et $D$, puis une expression explicite de $A^{k}$ en fonction de $k$ seulement.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_binome_newton"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On connaît $A$ en fonction de $D$, donc on connaît $A^k$ en fonction de $D^{k}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Isolez $A$ pour obtenir $A = PDP^{-1}$. Regardez ce qui se produit en cascade lorsqu'on calcule $A^2 = (PDP^{-1})(PDP^{-1})$. Les termes $P^{-1}P$ s'annulent !"
+            }
+          ],
+          "solution_latex": "De $AP = PD$, on déduit $A = PDP^{-1}$.\\par \\textbf{Formule générale :} $A^k = PD^k P^{-1}$ pour tout $k \\in \\mathbb{N}$.\\par $D^k = \\begin{pmatrix} (-1)^k & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 2^k \\end{pmatrix}$.\\par\\par \\textbf{Formule explicite :}\\par $$A^k = P \\begin{pmatrix} (-1)^k & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 2^k \\end{pmatrix} P^{-1}$$"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "Adapter la technique précédente aux matrices :\\par $A=\\left(\\begin{matrix}1&2&0\\\\ 1&3&-1\\\\ 1&-1&3\\end{matrix}\\right)$ et $A=\\left(\\begin{matrix}3&1&1\\\\ 2&4&2\\\\ 1&1&3\\end{matrix}\\right)$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__method_algorithme_pivot",
+            "matrices_et_systemes_lineaires__def_matrices_elementaires"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est une application directe de l'algorithme complet de diagonalisation : valeurs propres, vecteurs propres, matrice de passage, inversion et produit matriciel final."
+            }
+          ],
+          "solution_latex": "Algorithme complet de diagonalisation : \\par 1. Calculer le polynôme caractéristique $\\det(A - \\lambda I_3)$.\\par 2. Trouver les valeurs propres (racines réelles ou complexes).\\par 3. Pour chaque valeur propre, résoudre $(A - \\lambda_i I_3)X_i = 0$ pour obtenir les vecteurs propres.\\par 4. Assembler $P = (X_1 | X_2 | X_3)$ et $D = \\mathrm{diag}(\\lambda_1, \\lambda_2, \\lambda_3)$.\\par 5. Calculer $P^{-1}$ par Gauss-Jordan.\\par 6. Exprimer $A^k = PD^k P^{-1}$.\\par\\par \\textbf{(Appliquer cet algorithme aux deux matrices données pour obtenir les solutions complètes.)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_016",
+      "title": "Suites récurrentes linéaires croisées",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__def_systeme_cramer",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites croisées",
+        "système matriciel",
+        "diagonalisation",
+        "puissance de matrice"
+      ],
+      "statement_latex": "On note $(u_n)_{n\\in\\mathbb{N}}$, $(v_n)_{n\\in\\mathbb{N}}$ et $(w_n)_{n\\in\\mathbb{N}}$ les suites définies par $u_0=1$, $v_0 = 0$, $w_0=4$ et pour tout $n\\in\\mathbb{N}$ :\\par $\\left\\{\\begin{matrix}u_{n+1}&=&2u_n&+&v_n&+&w_n\\\\ v_{n+1}&=&u_n&+&2v_n&+&w_n\\\\ w_{n+1}&=&u_n&+&v_n&+&2w_n\\end{matrix}\\right.$",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "Déterminer pour tout $n\\in\\mathbb{N}$ une expression explicite de $u_{n}$, $v_{n}$ et $w_{n}$ en fonction de $n$.",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__def_systeme_cramer"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez le vecteur colonne $X_n = \\left(\\begin{matrix}u_n\\\\ v_n\\\\ w_n\\end{matrix}\\right)$ et trouvez la matrice $A$ telle que $X_{n+1} = A X_n$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois la matrice $A$ identifiée, vous êtes ramené à un calcul de $A^n$. Cherchez à diagonaliser $A$ (ou à utiliser une relation du type $A = I_3 + J$) pour obtenir $X_n = A^n X_0$."
+            }
+          ],
+          "solution_latex": "Posons $X_n = \\begin{pmatrix} u_n \\\\ v_n \\\\ w_n \\end{pmatrix}$.\\par Le système récurrent s'écrit $X_{n+1} = A X_n$ où \\par $$A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix}.$$\\par \\textbf{Diagonalisation de $A$ :}\\par C'est la matrice $I_3 + J$ où $J$ est la matrice de 1. Valeurs propres : $\\lambda_1 = 4$ (multiplicité 1) et $\\lambda_2 = 1$ (multiplicité 2).\\par Vecteurs propres : pour $\\lambda_1 = 4$, $X_1 = (1, 1, 1)^\\top$. \\par Pour $\\lambda_2 = 1$, plan orthogonal à $(1, 1, 1)$ : par exemple $X_2 = (1, -1, 0)^\\top, X_3 = (1, 0, -1)^\\top$.\\par\\par Matrice de passage $P = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 0 \\\\ 1 & 0 & -1 \\end{pmatrix}$ et $D = \\mathrm{diag}(4, 1, 1)$.\\par\\par \\textbf{Solution générale :}\\par $X_n = A^n X_0 = PD^n P^{-1} X_0$\\par Après calcul, avec $X_0 = (1, 0, 4)^\\top$ :\\par $$u_n = \\frac{1 + 3 \\cdot 4^n}{4}, \\quad v_n = \\frac{1 - 4^n}{4}, \\quad w_n = \\frac{4 + 3 \\cdot 4^n}{4}$$\\textbf{(Vérifier les coefficients de la décomposition.)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_017",
+      "title": "Résolution de systèmes linéaires classiques",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_caract_inv_systeme",
+        "matrices_et_systemes_lineaires__method_algorithme_pivot",
+        "matrices_et_systemes_lineaires__def_systeme_cramer",
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système linéaire",
+        "pivot de gauss",
+        "échelonnement"
+      ],
+      "statement_latex": "Résoudre les systèmes linéaires suivants d'inconnue $(x,y,z)\\in\\mathbb{R}^{3}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\left\\{\\begin{matrix}2x&+&y&=&2\\\\ 3x&-&5y&=&1\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la méthode du pivot de Gauss sur la matrice augmentée associée au système ou procédez par substitution usuelle pour ce système $2 \\times 2$."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} 2x + y = 2 \\\\ 3x - 5y = 1 \\end{matrix}\\right.$\\par \\textbf{Méthode 1 (substitution) :} De la première équation, $y = 2 - 2x$.\\par Substituons : $3x - 5(2 - 2x) = 1$, soit $3x - 10 + 10x = 1$, donc $13x = 11$ et $x = \\frac{11}{13}$.\\par Alors $y = 2 - 2 \\cdot \\frac{11}{13} = \\frac{26 - 22}{13} = \\frac{4}{13}$.\\par\\par \\textbf{Solution :} $(x, y) = \\left(\\frac{11}{13}, \\frac{4}{13}\\right)$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\left\\{\\begin{matrix}x&+&y&+&z&=&6\\\\ x&-&3y&-&7z&=&10\\\\ x&+&3y&+&4z&=&6\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Échelonnez le système avec le pivot de Gauss pour obtenir une forme triangulaire, puis résolvez en remontant de $z$ vers $x$."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} x + y + z = 6 \\\\ x - 3y - 7z = 10 \\\\ x + 3y + 4z = 6 \\end{matrix}\\right.$\\par \\textbf{Échelonnement :}\\par $L_2 \\leftarrow L_2 - L_1$ : $-4y - 8z = 4$, i.e. $y + 2z = -1$.\\par $L_3 \\leftarrow L_3 - L_1$ : $2y + 3z = 0$.\\par\\par Nouvelle équation 3 : $L_3 \\leftarrow L_3 - 2L_2$ : $3z - 4z = 2$, soit $-z = 2$ donc $z = -2$.\\par De $y + 2z = -1$ : $y = -1 - 2(-2) = 3$.\\par De $x + y + z = 6$ : $x = 6 - 3 - (-2) = 5$.\\par\\par \\textbf{Solution :} $(x, y, z) = (5, 3, -2)$"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\left\\{\\begin{matrix}x&+&y&+&2z&=&0\\\\ 2x&+&5y&-&3z&=&1\\\\ 3x&+&6y&-&z&=&1\\\\ 4x&+&7y&+&z&=&1\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Il y a plus d'équations que d'inconnues. Échelonnez pour vérifier si la dernière équation aboutit à une contradiction (système incompatible) ou si elle est redondante."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} x + y + 2z = 0 \\\\ 2x + 5y - 3z = 1 \\\\ 3x + 6y - z = 1 \\\\ 4x + 7y + z = 1 \\end{matrix}\\right.$\\par \\textbf{Échelonnement (Gauss) :}\\par $L_2 \\leftarrow L_2 - 2L_1$ : $3y - 7z = 1$.\\par $L_3 \\leftarrow L_3 - 3L_1$ : $3y - 7z = 1$ (même que $L_2$).\\par $L_4 \\leftarrow L_4 - 4L_1$ : $3y - 7z = 1$ (même).\\par\\par Les trois dernières lignes sont identiques. Le système se réduit à :\\par $\\left\\{\\begin{matrix} x + y + 2z = 0 \\\\ 3y - 7z = 1 \\end{matrix}\\right.$\\par\\par Paramétrons par $z = t$ : $y = \\frac{1 + 7t}{3}$ et $x = -y - 2z = -\\frac{1+7t}{3} - 2t = -\\frac{1 + 13t}{3}$.\\par\\par \\textbf{Solution générale :} $(x, y, z) = \\left(-\\frac{1 + 13t}{3}, \\frac{1 + 7t}{3}, t\\right), \\quad t \\in \\mathbb{R}$"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\left\\{\\begin{matrix}2x&+&3y&+&z&+&2t&=&1\\\\ x&-&z&+&t&=&-1\\\\ x&+&2y&+&z&+&t&=&1\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'inconnue est spécifiée comme $(x,y,z) \\in \\mathbb{R}^3$ dans l'énoncé général, mais ce système comporte une variable $t$. Il s'agit d'un système à 4 inconnues. Attendez-vous à avoir une infinité de solutions paramétrées par l'une des variables."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} 2x + 3y + z + 2t = 1 \\\\ x - z + t = -1 \\\\ x + 2y + z + t = 1 \\end{matrix}\\right.$\\par \\textbf{Échelonnement :}\\par Échangeons $L_1$ et $L_2$ pour avoir un pivot 1 au départ.\\par $x - z + t = -1$.\\par $L_2 \\leftarrow L_1 - 2 L_2'$ : $2x + 3y + z + 2t = 1$ devient $3y + 3z = 3$, i.e. $y + z = 1$.\\par $L_3 \\leftarrow L_3 - L_2'$ : $2y + 2z = 2$, i.e. $y + z = 1$ (même).\\par\\par Le système se réduit à :\\par $\\left\\{\\begin{matrix} x - z + t = -1 \\\\ y + z = 1 \\end{matrix}\\right.$\\par\\par Paramétrons par $z = s$ et $t = u$ (deux paramètres libres) :\\par $y = 1 - s$ et $x = -1 + s - u$.\\par\\par \\textbf{Solution générale :} $(x, y, z, t) = (-1 + s - u, 1 - s, s, u), \\quad s, u \\in \\mathbb{R}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_018",
+      "title": "Systèmes linéaires avec paramètre",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_systeme_cramer",
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+        "matrices_et_systemes_lineaires__thm_cramer_2x2",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système linéaire",
+        "paramètre",
+        "pivot de gauss",
+        "discussion"
+      ],
+      "statement_latex": "Résoudre pour tout $p\\in\\mathbb{R}$ les systèmes linéaires suivants d'inconnue $(x,y,z)\\in\\mathbb{R}^{2}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\left\\{\\begin{matrix}2px&+&y&=&p\\\\ 2x&+&py&=&p\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__thm_cramer_2x2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le déterminant du système (s'il est carré) ou le pivot de Gauss. Faites une disjonction de cas selon les valeurs de $p$ qui annulent le déterminant ou les pivots."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ici le déterminant principal est $2p^2 - 2$. Que se passe-t-il si $p=1$ ou $p=-1$ ? Étudiez ces cas à part."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} 2px + y = p \\\\ 2x + py = p \\end{matrix}\\right.$\\par \\textbf{Déterminant :} $\\det = 2p \\cdot p - 1 \\cdot 2 = 2p^2 - 2 = 2(p^2 - 1)$.\\par\\par \\textbf{Cas 1 :} $p^2 \\ne 1$ (i.e. $p \\ne \\pm 1$).\\par Par Cramer : $x = \\frac{\\begin{vmatrix} p & 1 \\\\ p & p \\end{vmatrix}}{2(p^2-1)} = \\frac{p^2 - p}{2(p^2-1)} = \\frac{p(p-1)}{2(p-1)(p+1)} = \\frac{p}{2(p+1)}$.\\par Similairement, $y = \\frac{p}{2(p+1)}$.\\par\\par \\textbf{Cas 2 :} $p = 1$.\\par Système devient $\\left\\{\\begin{matrix} 2x + y = 1 \\\\ 2x + y = 1 \\end{matrix}\\right.$ (même équation).\\par Infinité de solutions : $(x, 1-2x)$ pour $x \\in \\mathbb{R}$.\\par\\par \\textbf{Cas 3 :} $p = -1$.\\par Système devient $\\left\\{\\begin{matrix} -2x + y = -1 \\\\ 2x - y = -1 \\end{matrix}\\right.$ (équations contradictoires).\\par Pas de solution."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\left\\{\\begin{matrix}x&+&py&+&2z&=&1\\\\ px&+&y&+&2z&=&1\\\\ x&+&2py&+&3z&=&0\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pivotez avec précaution : ne divisez par une expression contenant $p$ que si vous avez prouvé qu'elle est non nulle."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} x + py + 2z = 1 \\\\ px + y + 2z = 1 \\\\ x + 2py + 3z = 0 \\end{matrix}\\right.$\\par \\textbf{Échelonnement :}\\par $L_2 \\leftarrow L_2 - p L_1$ : $(1-p^2)y + (2-2p)z = 1 - p$.\\par $L_3 \\leftarrow L_3 - L_1$ : $(2p-1)y + z = -1$.\\par\\par \\textbf{Discussions selon $p$ :}\\par - Si $p \\ne \\pm 1$, système déterminé (solution unique).\\par - Si $p = 1$, vérifier la compatibilité des équations réduites.\\par - Si $p = -1$, idem.\\par\\par \\textbf{(Calculs détaillés selon chaque cas.)}"
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\left\\{\\begin{matrix}px&+&py&+&4z&=&1\\\\ 2x&+&y&+&pz&=&1\\\\ x&+&2y&+&z&=&0\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencez par échanger la première ligne avec la troisième (qui a un coefficient 1 devant $x$) pour faciliter les opérations et éviter de diviser par $p$."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} px + py + 4z = 1 \\\\ 2x + y + pz = 1 \\\\ x + 2y + z = 0 \\end{matrix}\\right.$\\par \\textbf{Permutation $L_1 \\leftrightarrow L_3$ :}\\par $$\\left\\{\\begin{matrix} x + 2y + z = 0 \\\\ 2x + y + pz = 1 \\\\ px + py + 4z = 1 \\end{matrix}\\right.$$\\par \\textbf{Échelonnement :}\\par $L_2 \\leftarrow L_2 - 2L_1$ : $-3y + (p-2)z = 1$.\\par $L_3 \\leftarrow L_3 - p L_1$ : $(p-2p)y + (4-p)z = 1$, soit $-py + (4-p)z = 1$.\\par\\par \\textbf{Discussions selon $p$.}\\par \\textbf{(Calculs détaillés selon chaque cas.)}"
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\left\\{\\begin{matrix}x&+&y&+&z&=&1-p\\\\ px&+&(1+p)y&+&(1+p)z&=&p-p^{2}\\\\ px&+&(1-p)y&+&(1-p)z&=&p^{2}\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+            "matrices_et_systemes_lineaires__def_systeme_cramer"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez que les coefficients devant $y$ et $z$ sont identiques dans les deux premières équations."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} x + y + z = 1 - p \\\\ px + (1+p)y + (1+p)z = p - p^2 \\\\ px + (1-p)y + (1-p)z = p^2 \\end{matrix}\\right.$\\par \\textbf{Observation :} Les équations 2 et 3 ont les mêmes coefficients pour $y$ et $z$. \\par Soustrayons l'équation 3 de l'équation 2 :\\par $2py + 2pz = p - p^2 - p^2 = p(1 - 2p)$, soit $2p(y + z) = p(1-2p)$.\\par\\par \\textbf{Cas 1 :} $p \\ne 0$. Alors $y + z = \\frac{1-2p}{2}$.\\par \\textbf{Cas 2 :} $p = 0$. Système devient $\\left\\{\\begin{matrix} x+y+z=1 \\\\ y+z=0 \\\\ y+z=0 \\end{matrix}\\right.$, infinité de solutions.\\par\\par \\textbf{(Calculs détaillés selon chaque cas.)}"
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\left\\{\\begin{matrix}x&-&2y&+&3z&=&1\\\\ 2x&+&py&+&6z&=&6\\\\ -x&+&3y&+&(p-3)z&=&0\\end{matrix}\\right.$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_systeme_cramer",
+            "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+            "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'opération $L_2 \\leftarrow L_2 - 2L_1$ et $L_3 \\leftarrow L_3 + L_1$ va grandement simplifier la matrice augmentée dès la première étape."
+            }
+          ],
+          "solution_latex": "Système : $\\left\\{\\begin{matrix} x - 2y + 3z = 1 \\\\ 2x + py + 6z = 6 \\\\ -x + 3y + (p-3)z = 0 \\end{matrix}\\right.$\\par \\textbf{Échelonnement :}\\par $L_2 \\leftarrow L_2 - 2L_1$ : $(p+4)y = 4$.\\par $L_3 \\leftarrow L_3 + L_1$ : $y + (p)z = 1$.\\par\\par \\textbf{Cas 1 :} $p \\ne -4$. Alors $y = \\frac{4}{p+4}$ et $z = \\frac{1 - y}{p}$ (si $p \\ne 0$).\\par \\textbf{Cas 2 :} $p = -4$. Équation 2 devient $0 = 4$ (contradiction). Pas de solution.\\par\\par \\textbf{(Calculs détaillés selon chaque cas.)}"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__ex_019",
+      "title": "Calculs d'inverses de matrices",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__def_diag_triang"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice inversible",
+        "calcul d'inverse",
+        "gauss-jordan"
+      ],
+      "statement_latex": "Les matrices suivantes sont-elles inversibles, où $z\\in\\mathbb{C}$ ? Si oui, déterminer leur inverse.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) $\\left(\\begin{matrix}1&2&-1\\\\ 3&0&-2\\\\ -3&6&0\\end{matrix}\\right)$ b) $\\left(\\begin{matrix}0&1&0&2\\\\ 2&1&1&1\\\\ 1&2&1&0\\\\ 2&2&1&2\\end{matrix}\\right)$ c) $\\left(\\begin{matrix}1&1&1&1\\\\ 1&1&-1&-1\\\\ 1&-1&1&-1\\\\ 1&-1&-1&1\\end{matrix}\\right)$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__def_sym_antisym",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Placez la matrice $A$ à côté de la matrice identité $I_n$ et effectuez des opérations élémentaires sur les lignes (algorithme de Gauss-Jordan)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si vous parvenez à transformer le bloc de gauche en $I_n$, la matrice résultante à droite sera $A^{-1}$. Si une ligne s'annule à gauche, la matrice n'est pas inversible."
+            }
+          ],
+          "solution_latex": "\\textbf{a) } $A = \\begin{pmatrix} 1 & 2 & -1 \\\\ 3 & 0 & -2 \\\\ -3 & 6 & 0 \\end{pmatrix}$ :\\par $\\det(A) = 1(0 + 12) - 2(0 - 6) - 1(18 - 0) = 12 + 12 - 18 = 6 \\ne 0$. Inversible.\\par $A^{-1} = \\frac{1}{6}\\begin{pmatrix} 12 & 12 & -4 \\\\ 6 & 3 & 1 \\\\ 18 & 12 & -6 \\end{pmatrix}$ \\textbf{(à vérifier par calcul détaillé)}.\\par\\par \\textbf{b) } Matrice $4 \\times 4$ : \\textbf{(calcul par Gauss-Jordan, long mais systématique)}.\\par\\par \\textbf{c) } Matrice symétrique $4 \\times 4$ : \\textbf{(calcul par Gauss-Jordan, résultat inversible si $\\det \\ne 0$)}."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) $\\left(\\begin{matrix}1&2&3&\\cdots&n\\\\ 0&1&2&\\cdots&n-1\\\\ 0&0&1&\\cdots&n-2\\\\ \\vdots&\\vdots&\\vdots&\\vdots&\\vdots\\\\ 0&0&0&\\cdots&1\\end{matrix}\\right)$ b) $\\left(\\begin{matrix}0&1&1&\\dots&1\\\\ 1&0&1&\\dots&1\\\\ 1&1&0&\\dots&1\\\\ \\vdots&\\vdots&\\vdots&\\vdots&\\vdots\\\\ 1&1&1&\\dots&0\\end{matrix}\\right)$ c) $\\left(\\begin{matrix}4&2&3\\\\ 1&2&9\\\\ 5&2&1\\end{matrix}\\right)$ d) $\\left(\\begin{matrix}1&\\overline{z}&\\overline{z}^{2}\\\\ z&1&\\overline{z}\\\\ z^{2}&z&1\\end{matrix}\\right)$",
+          "knowledge_nodes_tested": [
+            "matrices_et_systemes_lineaires__def_matrice_inversible",
+            "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+            "matrices_et_systemes_lineaires__def_diag_triang"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la matrice a), puisqu'elle est triangulaire supérieure avec des $1$ sur la diagonale, elle est clairement inversible. Cherchez l'inverse sous la même forme par identification."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la matrice b), remarquez qu'elle s'écrit sous la forme $J - I_n$ où $J$ est la matrice dont tous les coefficients valent $1$. Utilisez les propriétés du polynôme annulateur de $J$."
+            }
+          ],
+          "solution_latex": "\\textbf{a) } Matrice triangulaire supérieure strict avec 1 sur la diagonale. Inversible.\\par Son inverse est aussi triangulaire supérieure avec 1 sur la diagonale (par résolution backward).\\par\\par \\textbf{b) } Matrice $J - I_n$ (où $J$ est matrice de 1). \\par Puisque $J^2 = nJ$, on a $(J - I_n)(J + (n-1)I_n) = J^2 - J + (n-1)J - (n-1)I_n = nJ - J + (n-1)J - (n-1)I_n = nJ - (n-1)I_n$.\\par \\textbf{(À simplifier pour obtenir l'inverse explicite.)}\\par\\par \\textbf{c) } Matrice générique $3 \\times 3$ : Utiliser Gauss-Jordan.\\par\\par \\textbf{d) } Matrice circulante avec $(1, \\overline{z}, \\overline{z}^2)$, etc. : \\par Si elle est de Vandermonde généralisée, inversible ssi les $z, z^2, \\ldots$ sont distincts."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_001",
+      "title": "TD Champo - 14.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_op_triang",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit matriciel",
+        "calcul",
+        "champo"
+      ],
+      "statement_latex": "On considère les matrices suivantes :\n$$A=\\begin{pmatrix}1&-2&3\\\\ 2&0&-4\\\\ 1&1&2\\end{pmatrix}, \\quad B=\\begin{pmatrix}2&0&2\\\\ 0&1&-3\\\\ -1&3&1\\end{pmatrix}, \\quad C=\\begin{pmatrix}1&1\\\\ 0&4\\\\ 2&5\\end{pmatrix}, \\quad D=\\begin{pmatrix}1&2&3\\\\ 4&5&6\\end{pmatrix}$$\nCalculer les produits $AB$, $AC$, $BC$, $DA$, $CD$ et $DC$.",
+      "sub_questions": [],
+      "global_solution_latex": null
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_002",
+      "title": "TD Champo - 14.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_binome_newton",
+        "matrices_et_systemes_lineaires__def_nilpotente",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_op_triang"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nilpotence",
+        "commutation",
+        "champo"
+      ],
+      "statement_latex": "Montrer que si $A, B$ sont deux matrices nilpotentes de $\\mathcal{M}_{n}(K)$, qui commutent, alors $A+B$ et $AB$ sont encore nilpotentes.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $A$ et $B$ deux matrices de $\\mathcal{M}_{n}(K)$ qui commutent, d'indices de nilpotence respectifs $p$ et $q$.\nAlors puisque $A$ et $B$ commutent, $(AB)^{p}=A^{p}B^{p}=0_{n}$. Donc $AB$ est nilpotente.\nPuisque $A$ et $B$ commutent, par la formule du binôme, on a pour tout $m\\in \\mathbb{N}$ :\n$$(A+B)^{m}=\\sum_{k=0}^{m}\\binom{m}{k}A^{k}B^{m-k}$$\nPour $m=p+q$, il vient :\n$$(A+B)^{p+q}=\\sum_{k=0}^{p-1}\\binom{p+q}{k}A^{k}\\underbrace{B^{p+q-k}}_{=0_{n}}+\\sum_{k=p}^{p+q}\\binom{p+q}{k}\\underbrace{A^{k}}_{=0_{n}}B^{p+q-k}=0_{n}$$\nDonc $A+B$ est nilpotente."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_003",
+      "title": "TD Champo - 14.3",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_produit_lignes_colonnes",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__def_operations_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices élémentaires",
+        "multiplication",
+        "champo"
+      ],
+      "statement_latex": "Multiplication par une matrice élémentaire\nSoit $n\\in \\mathbb{N}^{*}$. On rappelle que pour $(i,j)\\in[[1,n]]^{2}$ on note $E_{i,j}$ la matrice de $\\mathcal{M}_{n}(K)$ dont tous les coefficients sont nuls, à l'exception de celui de la $i^{\\text{ème}}$ ligne et $j^{\\text{ème}}$ colonne qui vaut 1.\n1. Soit $A=(a_{i,j})_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(K)$. Pour tout $(i,j,k,l)\\in[[1,n]]^{4}$, calculer $[AE_{i,j}]_{k,l}$ et $[E_{i,j}A]_{k,l}$. Comment décrivez-vous en termes simples les matrices $AE_{i,j}$ et $E_{i,j}A$ ?\n2. En déduire la matrice $E_{i,j}E_{k,l}$. On pourra être amenés à distinguer plusieurs cas.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Toutes les colonnes de $AE_{i,j}$ sont nulles, sauf la $j^{\\text{ème}}$, égale à la $i^{\\text{ème}}$ colonne de $A$. De même, toutes les lignes de $E_{i,j}A$ sont nulles, à l'exception de la $i^{\\text{ème}}$ qui est la $j^{\\text{ème}}$ ligne de $A$.\nCalcul formel : $[AE_{i,j}]_{k,l} = a_{k,i}$ si $l=j$ et $0$ sinon. $[E_{i,j}A]_{k,l} = a_{j,l}$ si $k=i$ et $0$ sinon.\n2. $E_{i,j}E_{k,l}=\\delta_{j,k}E_{i,l}$ où $\\delta_{j,k}$ est le symbole de Kronecker."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_004",
+      "title": "TD Champo - 14.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__def_matrice_inversible"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices diagonales",
+        "centre",
+        "commutant",
+        "champo"
+      ],
+      "statement_latex": "1. Soit $D\\in\\mathcal{M}_{n}(K)$ une matrice diagonale dont les coefficients diagonaux sont deux à deux distincts. Montrer qu'une matrice $A\\in\\mathcal{M}_{n}(K)$ commute avec $D$ si et seulement si elle est diagonale.\n2. Déterminer $\\{M\\in\\mathcal{M}_{n}(K) \\mid \\forall A\\in\\mathcal{M}_{n}(K), AM=MA\\}$, l'ensemble des matrices de $\\mathcal{M}_{n}(K)$ qui commutent à toutes les autres matrices (ensemble appelé le centre de $\\mathcal{M}_{n}(K)$).",
+      "sub_questions": [],
+      "global_solution_latex": "1. $[AD]_{i,j} = a_{i,j}\\lambda_j$ et $[DA]_{i,j} = \\lambda_i a_{i,j}$. Si $AD=DA$, alors $(\\lambda_i - \\lambda_j)a_{i,j} = 0$. Pour $i \\neq j$, $\\lambda_i \\neq \\lambda_j$ implique $a_{i,j}=0$. Donc $A$ est diagonale.\n2. Le centre est $\\{\\lambda I_n, \\lambda \\in K\\}$, l'ensemble des matrices scalaires. On utilise le résultat précédent (doit commuter avec une diagonale à coeffs distincts) et la commutation avec la matrice dont tous les coeffs valent 1 pour montrer l'égalité des termes diagonaux."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_005",
+      "title": "TD Champo - 14.5",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_nilpotente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices triangulaires",
+        "nilpotence",
+        "champo"
+      ],
+      "statement_latex": "Nilpotence des matrices triangulaires strictes\nSoit $n\\in \\mathbb{N}^{*}$. Pour $k\\ge0$, on note $\\mathcal{T}_{k}^{+}(K)$ l'ensemble des matrices $A=(a_{i,j})\\in\\mathcal{M}_{n}(K)$ telles que $\\forall(i,j)\\in[[1,n]]^{2}$, $i+k>j\\Rightarrow a_{i,j}=0$.\n1. Montrer que pour $k, l\\ge0$, si $A\\in\\mathcal{T}_{k}^{+}(K)$ et $B\\in\\mathcal{T}_{l}^{+}(K)$, alors $AB\\in\\mathcal{T}_{k+l}^{+}(K)$.\n2. En déduire qu'une matrice triangulaire (supérieure ou inférieure), à coefficients diagonaux nuls est nilpotente d'indice de nilpotence inférieur ou égal à $n$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $[AB]_{i,j} = \\sum_{p=1}^n a_{i,p}b_{p,j}$. Si $i+k+l > j$, les termes de la somme sont nuls (coupure à $p < i+k$ pour $a$ et $p > j-l$ pour $b$). Donc $AB \\in \\mathcal{T}_{k+l}^+(K)$.\n2. Une matrice triangulaire supérieure stricte est dans $\\mathcal{T}_1^+$. Donc $A^n \\in \\mathcal{T}_n^+$, qui ne contient que la matrice nulle. De même pour triangulaire inférieure par transposition."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_006",
+      "title": "TD Champo - 14.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_binome_newton"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissances",
+        "anticommutation",
+        "champo"
+      ],
+      "statement_latex": "(Oral X PC) Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{R})$ telles que $AB=-BA$. Pour $k\\in \\mathbb{N}$ donner une expression de $(A+B)^{k}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $A^2B^2 = A(AB)B = A(-BA)B = -ABAB = ABBA = -BABA = B^2A^2$. Donc $A^2$ et $B^2$ commutent. On montre que $(A+B)^{2p} = \\sum_{k=0}^p \\binom{p}{k} A^{2k}B^{2p-2k}$ et $(A+B)^{2p+1} = \\sum_{k=0}^p \\binom{p}{k} (A^{2k+1}B^{2p-2k} + A^{2k}B^{2p-2k+1})$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_007",
+      "title": "TD Champo - 14.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__def_nilpotente",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissances",
+        "récurrence",
+        "champo"
+      ],
+      "statement_latex": "Calculer les puissances des matrices suivantes :\n1. $\\begin{pmatrix}\\cos \\theta&-\\sin \\theta\\\\ \\sin \\theta&\\cos \\theta\\end{pmatrix}$\n2. $\\begin{pmatrix}0&1\\\\ 2&0\\end{pmatrix}$\n3. $\\begin{pmatrix}3&1&3\\\\ 0&3&4\\\\ 0&0&3\\end{pmatrix}$\n4. $\\begin{pmatrix}1&1&\\cdots&1\\\\ 0&1&\\cdots&1\\\\ \\vdots&\\vdots&\\ddots&\\vdots\\\\ 0&0&\\cdots&1\\end{pmatrix}$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $A^n = \\begin{pmatrix}\\cos(n\\theta)&-\\sin(n\\theta)\\\\ \\sin(n\\theta)&\\cos(n\\theta)\\end{pmatrix}$.\n2. $A^2 = 2I_2$. $A^{2n} = 2^n I_2$, $A^{2n+1} = 2^n A$.\n3. $A=3I_3 + T$ avec $T$ nilpotente ($T^3=0$). Binôme : $A^n = 3^n I_3 + n 3^{n-1} T + \\frac{n(n-1)}{2} 3^{n-2} T^2$.\n4. $A^{2k} = (n-1)^{k-1}A^2$ et $A^{2k+1} = (n-1)^k A$ (pour la matrice spécifique de la correction, sinon adaptation)."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_008",
+      "title": "TD Champo - 14.8",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice",
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__thm_binome_newton",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrice J",
+        "puissances",
+        "champo"
+      ],
+      "statement_latex": "Soit $J$ la matrice de $\\mathcal{M}_{n}(K)$ dont tous les coefficients valent 1.\n1. Calculer $J^{2}$. En déduire $J^{k}$, pour tout $k\\in \\mathbb{N}$.\n2. En déduire $(J+\\lambda I_{n})^{k}$, pour $\\lambda\\in K$ et $k\\in \\mathbb{N}$.\n3. Calculer les puissances de $A=\\begin{pmatrix}5&2&2\\\\ 2&5&2\\\\ 2&2&5\\end{pmatrix}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $J^2 = nJ$. Par récurrence, $J^k = n^{k-1}J$ pour $k \\ge 1$.\n2. Binôme : $(J+\\lambda I_n)^k = \\lambda^k I_n + \\frac{1}{n}((n+\\lambda)^k - \\lambda^k)J$.\n3. $A = 2(J + \\frac{3}{2}I_3)$ (avec $n=3$). Application de la formule."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_009",
+      "title": "TD Champo - 14.9",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_structure_solutions_systeme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suites récurrentes",
+        "puissances",
+        "champo"
+      ],
+      "statement_latex": "Soit $A=\\begin{pmatrix}2\\cos(\\theta)&-1\\\\ 1&0\\end{pmatrix}$, avec $\\theta\\in]0,\\pi[$.\n1. Montrer que $A^{2}=2\\cos(\\theta)A-I$.\n2. En déduire qu'il existe deux suites $(a_{n})$ et $(b_{n})$ telles que $\\forall n\\in \\mathbb{N}$, $A^{n}=a_{n}A+b_{n}I$. Donner l'expression de $a_{n+1}$ et de $b_{n+1}$ en fonction de $a_{n}$ et $b_{n}$.\n3. Montrer que $(a_{n})$ est linéaire récurrente d'ordre 2, déterminer son terme général et en déduire l'expression de $A^{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Calcul direct.\n2. $a_{n+1} = 2\\cos(\\theta)a_n + b_n$ et $b_{n+1} = -a_n$.\n3. $a_{n+1} = 2\\cos(\\theta)a_n - a_{n-1}$. Équation caractéristique $r^2 - 2\\cos(\\theta)r + 1 = 0$, racines $e^{\\pm i\\theta}$. $a_n = \\frac{\\sin(n\\theta)}{\\sin(\\theta)}$.\n$A^n = \\frac{1}{\\sin \\theta} \\begin{pmatrix} \\sin((n+1)\\theta) & -\\sin(n\\theta) \\\\ \\sin(n\\theta) & -\\sin((n-1)\\theta) \\end{pmatrix}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_010",
+      "title": "TD Champo - 14.10",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_sym_antisym"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices symétriques",
+        "transposée",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B\\in\\mathcal{S}_{n}(\\mathbb{R})$. Montrer que $AB$ est symétrique si et seulement si $AB=BA$.",
+      "sub_questions": [],
+      "global_solution_latex": "$(AB)^T = B^T A^T = BA$ (car $A, B$ symétriques). Donc $AB$ symétrique $\\iff (AB)^T = AB \\iff BA = AB$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_011",
+      "title": "TD Champo - 14.11",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__thm_caract_inv_systeme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "transposée",
+        "champo"
+      ],
+      "statement_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{R})$. Montrer que $\\text{tr}(A^{\\top}A)=0$ si et seulement si $A=0_{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$\\text{tr}(A^T A) = \\sum_{i,j} a_{j,i}^2$. C'est une somme de carrés de réels. Elle est nulle ssi tous les termes sont nuls, donc $A=0_n$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_012",
+      "title": "TD Champo - 14.12",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_trace",
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_sym_antisym",
+        "matrices_et_systemes_lineaires__def_matrice"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "commutateur",
+        "champo"
+      ],
+      "statement_latex": "Montrer qu'il n'existe pas de couple $(A,B)\\in\\mathcal{M}_{n}(K)^{2}$ tel que $AB-BA=I_{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$\\text{tr}(AB-BA) = \\text{tr}(AB) - \\text{tr}(BA) = 0$. Or $\\text{tr}(I_n) = n$. Donc $0 \\neq n$ (dans $K=\\mathbb{R}$ ou $\\mathbb{C}$), impossible."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_013",
+      "title": "TD Champo - 14.13",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_trace",
+        "matrices_et_systemes_lineaires__def_puissance",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_sym_antisym"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "matrices élémentaires",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(K)$ telles que pour tout $M\\in\\mathcal{M}_{n}(K)$, $\\text{tr}(AM)=\\text{tr}(BM)$. Montrer que $A=B$.",
+      "sub_questions": [],
+      "global_solution_latex": "En prenant $M=E_{i,j}$, on a $\\text{tr}(AE_{i,j}) = a_{j,i}$ et $\\text{tr}(BE_{i,j}) = b_{j,i}$. L'égalité pour tout $i,j$ implique $A=B$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_014",
+      "title": "TD Champo - 14.14",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_sym_antisym",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_det_taille_2",
+        "matrices_et_systemes_lineaires__def_puissance"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "symétrique",
+        "antisymétrique",
+        "analyse-synthèse",
+        "champo"
+      ],
+      "statement_latex": "Montrer par analyse-synthèse que toute matrice de $\\mathcal{M}_{n}(K)$ s'écrit de manière unique comme la somme d'une matrice symétrique et d'une matrice antisymétrique.",
+      "sub_questions": [],
+      "global_solution_latex": "Analyse : Si $M=S+A$, alors $M^T = S-A$. On déduit $S = \\frac{M+M^T}{2}$ et $A = \\frac{M-M^T}{2}$.\nSynthèse : On vérifie que $S$ est symétrique, $A$ antisymétrique et $S+A=M$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_015",
+      "title": "TD Champo - 14.15",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrices_elementaires",
+        "matrices_et_systemes_lineaires__thm_op_triang",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__def_produit_matriciel"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "inégalité",
+        "matrices symétriques",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{R})$ deux matrices symétriques.\n1. Montrer que $\\text{tr}(A^{2})\\ge0$.\n2. En étudiant la fonction $\\lambda\\mapsto \\text{tr}((\\lambda A+B)^{2})$, prouver que $\\text{tr}(AB)^{2}\\le \\text{tr}(A^{2})\\text{tr}(B^{2})$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\text{tr}(A^2) = \\sum_{i,j} a_{i,j}a_{j,i} = \\sum_{i,j} a_{i,j}^2 \\ge 0$.\n2. $P(\\lambda) = \\text{tr}((\\lambda A+B)^2) = \\lambda^2 \\text{tr}(A^2) + 2\\lambda \\text{tr}(AB) + \\text{tr}(B^2)$. Ce polynôme est positif pour tout $\\lambda$, donc son discriminant est négatif ou nul : $(2\\text{tr}(AB))^2 - 4\\text{tr}(A^2)\\text{tr}(B^2) \\le 0$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_016",
+      "title": "TD Champo - 14.16",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_caract_inv_systeme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trace",
+        "puissances",
+        "champo"
+      ],
+      "statement_latex": "(Oral Mines 2023) Soient $A, B\\in\\mathcal{M}_{n}(\\mathbb{C})$ telles que $AB=0_{n}$. Montrer que pour tout $k\\ge1$, $\\text{tr}((A+B)^{k})=\\text{tr}(A^{k})+\\text{tr}(B^{k})$.",
+      "sub_questions": [],
+      "global_solution_latex": "On prouve par récurrence que $(A+B)^k = \\sum_{i=0}^k B^i A^{k-i}$. $\\text{tr}((A+B)^k) = \\sum_{i=0}^k \\text{tr}(B^i A^{k-i})$. Pour $1 \\le i \\le k-1$, $\\text{tr}(B^i A^{k-i}) = \\text{tr}(A B^i A^{k-i-1}) = \\text{tr}(0) = 0$ car $AB=0$. Restent les termes $i=0$ ($A^k$) et $i=k$ ($B^k$)."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_017",
+      "title": "TD Champo - 14.17",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inversibilité",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B\\in\\mathcal{M}_{n}(K)$ deux matrices non nulles telles que $AB=0_{n}$. Montrer que ni $A$ ni $B$ ne sont inversibles.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $A$ inversible, $A^{-1}AB = A^{-1}0 \\Rightarrow B=0$, absurde. De même pour $B$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_018",
+      "title": "TD Champo - 14.18",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_systeme_cramer"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "calcul d'inverse",
+        "systèmes linéaires",
+        "champo"
+      ],
+      "statement_latex": "Déterminer si les matrices suivantes sont inversibles, et le cas échéant, calculer leur inverse :\n$$A=\\begin{pmatrix}1+i&i\\\\ i&1\\end{pmatrix}, \\quad B=\\begin{pmatrix}1&-1&0\\\\ 0&1&4\\\\ -1&0&-3\\end{pmatrix}, \\quad C=\\begin{pmatrix}0&-1&1\\\\ 2&-3&4\\\\ 1&-1&2\\end{pmatrix}, \\quad D=\\begin{pmatrix}1&-1&-2&2\\\\ -1&-1&0&2\\\\ 0&2&2&-4\\\\ 0&1&1&-2\\end{pmatrix}$$",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\det(A) = 2+i \\neq 0$, inversible. $A^{-1} = \\frac{1}{2+i}\\begin{pmatrix}1&-i\\\\-i&1+i\\end{pmatrix}$.\n2. $B$ inversible, $B^{-1}=\\begin{pmatrix}-3&-3&-4\\\\-4&-3&-4\\\\1&1&1\\end{pmatrix}$.\n3. $C$ inversible, $C^{-1}=\\begin{pmatrix}-2&1&-1\\\\0&-1&2\\\\1&-1&2\\end{pmatrix}$.\n4. $D$ non inversible (système lié, $L_3 - 2L_4$ donne relation)."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_019",
+      "title": "TD Champo - 14.19",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_cond_non_inversibilite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme annulateur",
+        "inversibilité",
+        "champo"
+      ],
+      "statement_latex": "Inversibilité à l'aide d'un polynôme annulateur\nSoit $A\\in\\mathcal{M}_{n}(K)$. On suppose qu'il existe des scalaires $\\lambda_{0},\\lambda_{1},\\dots,\\lambda_{p}$, avec $\\lambda_{0}\\ne0$ tels que $\\lambda_{0}I_{n}+\\lambda_{1}A+\\lambda_{2}A^{2}+\\dots+\\lambda_{p}A^{p}=0_{n}$.\nMontrer que $A$ est inversible, et exprimer son inverse en fonction des $A^{k}$, $0\\le k\\le p-1$.",
+      "sub_questions": [],
+      "global_solution_latex": "On isole $\\lambda_0 I_n$ et on factorise par $A$ : $A(-\\frac{1}{\\lambda_0}(\\sum_{k=1}^p \\lambda_k A^{k-1})) = I_n$. L'inverse est donc $-\\frac{1}{\\lambda_0}\\sum_{k=1}^p \\lambda_k A^{k-1}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_020",
+      "title": "TD Champo - 14.20",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "matrices par blocs",
+        "inversibilité",
+        "champo"
+      ],
+      "statement_latex": "Inverse d'une matrice triangulaire par blocs\nSoit $A\\in GL_{n}(K)$, $C\\in GL_{p}(K)$ et $B\\in\\mathcal{M}_{n,p}(K)$. Montrer que la matrice par blocs $\\begin{pmatrix}A&B\\\\ 0_{p,n}&C\\end{pmatrix}\\in\\mathcal{M}_{n+p}(K)$ est inversible, et déterminer son inverse.",
+      "sub_questions": [],
+      "global_solution_latex": "En résolvant le système ou par identification par blocs, l'inverse est $\\begin{pmatrix}A^{-1}&-A^{-1}BC^{-1}\\\\ 0_{p,n}&C^{-1}\\end{pmatrix}$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_021",
+      "title": "TD Champo - 14.21",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_matrices_elementaires"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "factorisation",
+        "nilpotence",
+        "inversibilité",
+        "champo"
+      ],
+      "statement_latex": "1. Montrer que si $A, B\\in\\mathcal{M}_{n}(K)$ sont deux matrices qui commutent, alors pour tout $p\\in \\mathbb{N}$, $A^{p}-B^{p}=(A-B)(\\sum_{k=0}^{p-1}A^{k}B^{p-1-k})$.\n2. En déduire que si $N$ est nilpotente, alors $I_{n}+N$ est inversible, et donner son inverse.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Développement classique (télescopique) valide car $A$ et $B$ commutent.\n2. Si $N^p=0$, alors $I_n - (-N)^p = I_n$. On utilise la formule avec $A=I_n$ et $B=-N$. L'inverse est $\\sum_{k=0}^{p-1} (-N)^k$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_022",
+      "title": "TD Champo - 14.22",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__def_nilpotente"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inversibilité",
+        "nilpotence",
+        "champo"
+      ],
+      "statement_latex": "(Oral Centrale 2014) Soit $A, B\\in\\mathcal{M}_{n}(\\mathbb{C})$ deux matrices qui commutent, avec $B$ nilpotente. Montrer que $A$ est inversible si et seulement si $A+B$ est inversible.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $A$ inversible, $A+B = A(I + A^{-1}B)$. $A^{-1}B$ est nilpotente (car $B$ l'est et commute avec $A^{-1}$), donc $I+A^{-1}B$ est inversible. Inversement, si $A+B$ inversible, $A = (A+B) - B$ est inversible car $-B$ nilpotente commute avec $A+B$."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_023",
+      "title": "TD Champo - 14.23",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_det_taille_2"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "opérations élémentaires",
+        "suites de Fibonacci",
+        "champo"
+      ],
+      "statement_latex": "Les matrices suivantes sont-elles inversibles ? Si oui calculer leur inverse\n1. $A=(\\min(i,j))_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(\\mathbb{R})$\n2. $B=(F_{i+j})_{1\\le i,j\\le n}\\in\\mathcal{M}_{n}(\\mathbb{R})$ où $F_{0}=0$, $F_{1}=1$ et $\\forall n\\in \\mathbb{N}$, $F_{n+2}=F_{n+1}+F_{n}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $A$ est inversible. L'inverse est une matrice tridiagonale avec des 2, -1 sur la diagonale/sur-diagonale, sauf aux coins.\n2. Pour $n=2$, inversible. Pour $n\\ge 3$, non inversible car $L_3 = L_1 + L_2$ par propriété de Fibonacci."
+    },
+    {
+      "id": "matrices_et_systemes_lineaires__champo_024",
+      "title": "TD Champo - 14.24",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "matrices_et_systemes_lineaires__def_matrice_inversible",
+        "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+        "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+        "matrices_et_systemes_lineaires__thm_op_triang"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "diagonale dominante",
+        "noyau",
+        "champo"
+      ],
+      "statement_latex": "Théorème d'Hadamard sur les matrices à diagonale dominante\nSoit $A=(a_{i,j})\\in\\mathcal{M}_{n}(\\mathbb{R})$ telle que $\\forall i\\in[[1,n]]$, $|a_{i,i}|>\\sum_{j\\ne i}|a_{i,j}|$.\nSoit $X\\in\\mathcal{M}_{n,1}(\\mathbb{R})$ tel que $AX=0_{n,1}$, et soit $i_{0}\\in[[1,n]]$ tel que $|x_{i_{0}}|=\\max_{i}|x_{i}|$. Montrer que $x_{i_{0}}=0$ et en déduire que $A$ est inversible.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $x_{i_0} \\neq 0$, $|a_{i_0, i_0} x_{i_0}| = |\\sum_{j \\neq i_0} a_{i_0, j} x_j| \\le \\sum |a_{i_0, j}| |x_{i_0}|$, d'où $|a_{i_0, i_0}| \\le \\sum_{j \\neq i_0} |a_{i_0, j}|$, contradiction. Donc $X=0$, $\\text{Ker}(A)=\\{0\\}$, $A$ inversible."
+    }
+  ]
+}

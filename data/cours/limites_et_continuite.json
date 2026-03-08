@@ -1,0 +1,435 @@
+{
+  "chapter_official_id": "limites_et_continuite",
+  "chapter_name": "Limites et Continuité",
+  "source_document": "Cours - Limites et continuite.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "limites_et_continuite__definition_limite_point",
+      "type": "definition",
+      "title": "Définition : Limite d'une fonction en un point",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. On dit que $f$ admet $l$ pour limite en $a$, ce qu'on note $f\\rightarrow l$ ou $\\lim_{x\\rightarrow a}f(x) = l$, si :\\par $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in \\mathcal{V}_{\\mathbb{R}}(a), f(E\\cap V_{a})\\subset V_{l}$.\\par i.e. si : $\\forall V_{l}\\in\\mathcal{V}_{\\mathbb{R}}(l), \\exists V_{a}\\in\\mathcal{V}_{\\mathbb{R}}(a), \\forall x\\in E\\cap V_{a}, f(x)\\in V_{l}$ à condition de noter $\\mathcal{V}_{\\mathbb{R}}(s)$ l'ensemble des voisinages de $s$ dans $\\mathbb{R}$ pour tout $s\\in\\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_unicite_limite",
+      "type": "theorem",
+      "title": "Théorème : Unicité de la limite",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$.\\par (i) Si $f$ possède une limite en $a$, cette limite est unique et notée $\\lim_{a} f$ ou $\\lim_{x\\rightarrow a}f(x)$.\\par (ii) Si $f$ est définie en $a$ et y possède une limite, alors forcément : $\\lim_{x\\rightarrow a}f(x) = f(a)$.",
+      "proof_latex": "(i) Soient $l, l'\\in\\overline{\\mathbb{R}}$. On veut montrer, sous l'hypothèse que $f$ admet $l$ et $l'$ pour limites en $a$, que $l=l'$. Supposons par l'absurde que $l\\ne l'$. Il existe alors un voisinage $V_{l}$ de $l$ et un voisinage $V_{l'}$ de $l'$ pour lesquels $V_{l}\\cap V_{l'}=\\emptyset$. Or par hypothèse sur $f$, il existe deux voisinages $V_{a}$ et $V_{a}'$ de $a$ pour lesquels $f(E\\cap V_{a})\\subset V_{l}$ et $f(E\\cap V_{a}')\\subset V_{l'}$. Pourtant, $a$ est adhérent à $E$ et $V_{a}\\cap V_{a}'$ est un voisinage de $a$, donc $E\\cap V_{a}\\cap V_{a}'\\ne\\emptyset$. Il en découle que $f(E\\cap V_{a}\\cap V_{a}')\\subset V_{l}\\cap V_{l'}=\\emptyset$ : contradiction !\\par (ii) Faisons l'hypothèse que $f$ est définie en $a$ et possède une limite $l$ en $a$. Pour tout voisinage $V_{l}$ de $l$, il existe alors un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{l}$. En particulier, $f(a)$ appartient à TOUT voisinage de $l$ car $f$ est définie en $a$. Comme $]f(a), +\\infty[$ et $]-\\infty, f(a)[$ sont des voisinages de $+\\infty$ et $-\\infty$ respectivement ne contenant pas $f(a)$, il en découle que $l\\in\\mathbb{R}$. Finalement, $f(a)$ appartient au voisinage $]l-\\epsilon, l+\\epsilon[$ de $l$ pour tout $\\epsilon>0$, donc $l=f(a)$."
+    },
+    {
+      "id": "limites_et_continuite__definition_9_limites",
+      "type": "definition",
+      "title": "Définition : Les 9 limites",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\mathbb{R}$ adhérent à $E$ et $l\\in\\mathbb{R}$. Voici les caractérisations quantifiées des différentes limites :\\par 1. $f\\xrightarrow[x\\to a]{} l \\iff \\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-l|<\\epsilon$\\par 2. $f\\xrightarrow[x\\to +\\infty]{} +\\infty \\iff \\forall A>0, \\exists B>0, \\forall x\\in E, x>B\\Rightarrow f(x)>A$\\par 3. $f\\xrightarrow[x\\to +\\infty]{} -\\infty \\iff \\forall A<0, \\exists B>0, \\forall x\\in E, x>B\\Rightarrow f(x)<A$\\par 4. $f\\xrightarrow[x\\to -\\infty]{} +\\infty \\iff \\forall A>0, \\exists B<0, \\forall x\\in E, x<B\\Rightarrow f(x)>A$\\par 5. $f\\xrightarrow[x\\to -\\infty]{} -\\infty \\iff \\forall A<0, \\exists B<0, \\forall x\\in E, x<B\\Rightarrow f(x)<A$\\par 6. $f\\xrightarrow[x\\to +\\infty]{} l \\iff \\forall\\epsilon>0, \\exists B>0, \\forall x\\in E, x>B\\Rightarrow|f(x)-l|<\\epsilon$\\par 7. $f\\xrightarrow[x\\to -\\infty]{} l \\iff \\forall\\epsilon>0, \\exists B<0, \\forall x\\in E, x<B\\Rightarrow|f(x)-l|<\\epsilon$\\par 8. $f\\xrightarrow[x\\to a]{} +\\infty \\iff \\forall A>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow f(x)>A$\\par 9. $f\\xrightarrow[x\\to a]{} -\\infty \\iff \\forall A<0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow f(x)<A$",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_limite_racine",
+      "type": "example",
+      "title": "Exemple : Limite de la fonction $\\frac{x+2}{\\sqrt{x-1}}$ en 1",
+      "content_latex": "$\\lim_{x\\rightarrow 1} \\frac{x+2}{\\sqrt{x-1}} = +\\infty$.",
+      "proof_latex": "Montrons que $\\forall A>0, \\exists\\alpha>0, \\forall x\\in]1,+\\infty[, |x-1|<\\alpha\\Rightarrow\\frac{x+2}{\\sqrt{x-1}}>A$.\\par Soit $A>0$. Pour tout $x\\in]1, +\\infty[$, minorons : $\\frac{x+2}{\\sqrt{x-1}}\\ge\\frac{3}{\\sqrt{x-1}}\\ge\\frac{1}{\\sqrt{x-1}}$.\\par Or : $\\frac{1}{\\sqrt{x-1}}>A\\iff |x-1|<\\frac{1}{A^{2}}$.\\par On pose donc $\\alpha = \\frac{1}{A^2}$. Ainsi : $\\forall x\\in]1,+\\infty[, |x-1|<\\frac{1}{A^{2}}\\Rightarrow\\frac{1}{\\sqrt{x-1}}>A$."
+    },
+    {
+      "id": "limites_et_continuite__example_limite_fraction_rationnelle",
+      "type": "example",
+      "title": "Exemple : Limite de $\\frac{x^2}{x^2+1}$ en $+\\infty$",
+      "content_latex": "$\\lim_{x\\rightarrow+\\infty} \\frac{x^{2}}{x^{2}+1} = 1$.",
+      "proof_latex": "Montrons que : $\\forall\\epsilon>0, \\exists B>0, \\forall x\\in\\mathbb{R}, x>B\\Rightarrow\\left|\\frac{x^{2}}{x^{2}+1}-1\\right|<\\epsilon$.\\par Soit $\\epsilon>0$. Pour tout $x\\in\\mathbb{R}$ majorons : $\\left|\\frac{x^{2}}{x^{2}+1}-1\\right|=\\frac{1}{x^{2}+1}\\le\\frac{1}{x^{2}}$.\\par Or pour tout $x>0$ : $\\frac{1}{x^{2}}<\\epsilon \\iff x>\\frac{1}{\\sqrt{\\epsilon}}$.\\par Donc on choisit $B = \\frac{1}{\\sqrt{\\epsilon}}$, et on a bien $\\forall x\\in\\mathbb{R}, x>\\frac{1}{\\sqrt{\\epsilon}}\\Rightarrow\\left|\\frac{x^{2}}{x^{2}+1}-1\\right|<\\epsilon$."
+    },
+    {
+      "id": "limites_et_continuite__example_limite_polynome",
+      "type": "example",
+      "title": "Exemple : Limite de $x^2-x$ en $+\\infty$",
+      "content_latex": "$\\lim_{x\\rightarrow+\\infty} (x^{2}-x) = +\\infty$.",
+      "proof_latex": "Montrons que : $\\forall A>0, \\exists B>0, \\forall x\\in\\mathbb{R}, x>B\\Rightarrow x^{2}-x>A$.\\par Soit $A>0$. Pour tout $x\\ge2$, minorons : $x^{2}-x=x(x-1)\\ge x\\times 1=x$.\\par Ainsi, en posant $B = \\max\\{2, A\\}$, on obtient : $\\forall x\\in\\mathbb{R}, x > \\max\\{2, A\\} \\Rightarrow x^{2}-x>A$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_limite_finie_bornee",
+      "type": "theorem",
+      "title": "Théorème : Limite finie et caractère localement borné",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$.\\par Si $f$ possède une limite FINIE en $a$, alors $f$ est bornée au voisinage de $a$.",
+      "proof_latex": "Par hypothèse, il existe un voisinage $V_{a}$ de $a$ sur lequel $|f(x)-l|<1$. Il en découle que $f$ est bornée sur $E\\cap V_{a}$ car pour tout $x\\in E\\cap V_{a}$ : $|f(x)|=|f(x)-l+l|\\le|f(x)-l|+|l|\\le|l|+1$."
+    },
+    {
+      "id": "limites_et_continuite__definition_limite_gauche_droite",
+      "type": "definition",
+      "title": "Définition : Limite à gauche et à droite d'une fonction",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\mathbb{R}$ et $l\\in\\mathbb{R}$.\\par — **Limite à gauche** : Si $a$ est adhérent à $E\\cap]-\\infty, a[$, on dit que $f$ possède une limite à gauche en $a$ si $f_{|_{E\\cap]-\\infty,a[}}$ possède une limite en $a$. Cette limite est notée $\\lim_{a^{-}}f, \\lim_{x\\rightarrow a^{-}}f(x)$ ou encore $\\lim_{x\\xrightarrow{<} a}f(x)$.\\par En quantificateurs (si $l\\in\\mathbb{R}$) : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, a-\\alpha<x<a\\Rightarrow|f(x)-l|<\\epsilon$.\\par — **Limite à droite** : On définit de même la notion de limite à droite à partir de la fonction restreinte $f_{|_{E\\cap]a,+\\infty[}}$ si $a$ est adhérent à $E\\cap]a, +\\infty[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_limite_droite_inverse",
+      "type": "example",
+      "title": "Exemple : Limite à droite de $x \\mapsto \\frac{1}{x}$ en $0$",
+      "content_latex": "$\\lim_{x\\rightarrow 0^{+}} \\frac{1}{x} = +\\infty$.\\par On montre de même que $\\lim_{x\\rightarrow 0^{-}} \\frac{1}{x} = -\\infty$, ce qui prouve que la fonction $x\\mapsto\\frac{1}{x}$ n'a pas de limite globale en $0$.",
+      "proof_latex": "Soit $A>0$. Nous cherchons un réel $\\alpha>0$ pour lequel pour tout $x\\in]0,\\alpha[$ : $\\frac{1}{x}>A$.\\par Or pout tout $x>0$ : $\\frac{1}{x}>A\\iff x<\\frac{1}{A}$, donc nous pouvons choisir $\\alpha=\\frac{1}{A}$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_caracterisation_limite_gauche_droite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la limite à l'aide des limites à gauche et à droite",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $l\\in\\mathbb{R}$ et $a\\in\\mathbb{R}$. On suppose $a$ adhérent à $E\\cap]-\\infty, a[$ et $E\\cap]a,+\\infty[$.\\par (i) Si $f$ est définie en $a$ : $\\lim_{a}f = l \\iff \\lim_{a^{-}}f = l \\text{ ET } \\lim_{a^{+}}f = l \\text{ ET } f(a)=l$.\\par (ii) Si $f$ n'est pas définie en $a$ : $\\lim_{a}f = l \\iff \\lim_{a^{-}}f = l \\text{ ET } \\lim_{a^{+}}f = l$.",
+      "proof_latex": "Montrons seulement (i).\\par $\\Rightarrow$ Si $f\\rightarrow l$, nous savons déjà que $l=f(a)$ et les égalités $f\\xrightarrow{a^{-}} l$ et $f\\xrightarrow{a^{+}} l$ découlent d'une simple restriction du domaine à $E\\cap]-\\infty, a[$ et $E\\cap]a, +\\infty[$ dans la définition de la limite.\\par $\\Leftarrow$ Réciproquement, faisons l'hypothèse que $f\\xrightarrow{a^{-}} l$, $f\\xrightarrow{a^{+}} l$ et $f(a)=l$. En particulier, $l\\in\\mathbb{R}$ et nous voulons montrer que $f\\rightarrow l$. Soit $\\epsilon>0$. Il existe des réels $\\alpha^{-}>0$ et $\\alpha^{+}>0$ pour lesquels pour tout $x\\in E$ :\\par $a-\\alpha^{-}<x<a\\Rightarrow|f(x)-l|<\\epsilon \\quad \\text{et} \\quad a<x<a+\\alpha^{+}\\Rightarrow|f(x)-l|<\\epsilon$\\par Posons $\\alpha=\\min\\{\\alpha^{-},\\alpha^{+}\\}>0$. Pour tout $x\\in E$ vérifiant $|x-a|<\\alpha$, on a soit $a-\\alpha<x<a$ (auquel cas $|f(x)-l|<\\epsilon$), soit $a<x<a+\\alpha$ (même conclusion), soit $x=a$. Comme $f(a)=l$, l'écart est nul donc $<\\epsilon$. La conclusion $|f(x)-l|<\\epsilon$ est vraie dans tous les cas."
+    },
+    {
+      "id": "limites_et_continuite__example_raccordement_limites",
+      "type": "example",
+      "title": "Exemple : Raccordement des limites à gauche et à droite",
+      "content_latex": "Si on note $f$ la fonction de $\\mathbb{R}$ dans $\\mathbb{R}$ définie par $f(x) = \\begin{cases} e^{x} & \\text{si } x\\ge 0 \\\\ 1-x & \\text{si } x<0 \\end{cases}$, alors $\\lim_{x\\rightarrow 0} f(x) = 1$.",
+      "proof_latex": "Ceci découle du théorème précédent pour trois raisons :\\par — $\\lim_{x\\rightarrow 0^{+}} f(x) = \\lim_{x\\rightarrow 0^{+}} e^x = 1$,\\par — $\\lim_{x\\rightarrow 0^{-}} f(x) = \\lim_{x\\rightarrow 0^{-}} (1-x) = 1$,\\par — et $f(0) = e^0 = 1$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_composition_limites",
+      "type": "theorem",
+      "title": "Théorème : Composition de limites",
+      "content_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$, $b\\in\\overline{\\mathbb{R}}$ adhérent à $F$ et $c\\in\\overline{\\mathbb{R}}$.\\par Si $f\\longrightarrow b$ et $g\\longrightarrow c$, alors $g\\circ f\\longrightarrow c$.",
+      "proof_latex": "Soit $V_{c}$ un voisinage de $c$. Par hypothèse, il existe un voisinage $V_{b}$ de $b$ pour lequel $g(F\\cap V_{b})\\subset V_{c}$ et un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{b}$. Par composition, $g\\circ f(E\\cap V_{a})\\subset g(F\\cap V_{b})\\subset V_{c}$, donc en effet $g\\circ f\\longrightarrow c$."
+    },
+    {
+      "id": "limites_et_continuite__example_composition_limites",
+      "type": "example",
+      "title": "Exemple : Calcul de limite par composition",
+      "content_latex": "$\\lim_{x\\rightarrow+\\infty} \\ln\\frac{e^{-2x}+1}{(e^{-x}+1)^{2}} = 0$.",
+      "proof_latex": "Simple composition des limites : $e^{-x}\\xrightarrow[x\\rightarrow+\\infty]{} 0$, $\\frac{y^{2}+1}{(y+1)^{2}}\\xrightarrow[y\\rightarrow 0]{} 1$ et $\\ln z \\xrightarrow[z\\rightarrow 1]{} 0$."
+    },
+    {
+      "id": "limites_et_continuite__warning_remplacement_limite",
+      "type": "warning",
+      "title": "Attention : Remplacement hâtif dans une limite",
+      "content_latex": "Dans une limite, on ne peut pas remplacer $f(x)$ par $l$ au seul motif que $f(x)\\xrightarrow[x\\rightarrow+\\infty]{} l\\in\\mathbb{R}$. Rien ne garantit en toute généralité que $\\lim_{x\\rightarrow+\\infty}\\frac{x}{x+f(x)}=\\lim_{x\\rightarrow+\\infty}\\frac{x}{x+l}$ et $\\lim_{x\\rightarrow+\\infty}f(x)^{x}=\\lim_{x\\rightarrow+\\infty}l^{x}$.\\par Par exemple, la deuxième égalité est fausse si $l=1$ à cause de la forme indéterminée $1^{+\\infty}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_limites_inegalites_strictes",
+      "type": "theorem",
+      "title": "Théorème : Limites et inégalités strictes",
+      "content_latex": "Soient $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$, $f:E\\longrightarrow\\mathbb{R}$ une fonction possédant une limite $l$ en $a$ et $m, M\\in\\mathbb{R}$.\\par (i) Si $l < M$, alors $f(x)<M$ au voisinage de $a$.\\par (ii) Si $l>m$, alors $f(x)>m$ au voisinage de $a$.",
+      "proof_latex": "Prouvons (ii). Si $l=+\\infty$, il existe un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset]m,+\\infty[$. Si $l\\in\\mathbb{R}$, il existe un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset]l-(l-m),l+(l-m)[\\subset]m,+\\infty[$ car $l-m>0$. Dans les deux cas, $f(x)>m$ au voisinage de $a$."
+    },
+    {
+      "id": "limites_et_continuite__example_limite_signe_voisinage",
+      "type": "example",
+      "title": "Exemple : Signe local déduit d'une limite",
+      "content_latex": "Soit $f:\\mathbb{R}^{*}\\longrightarrow\\mathbb{R}$ une fonction pour laquelle $\\frac{f(x)}{x}\\xrightarrow[x\\rightarrow 0]{} 1$. Alors $f$ est négative au voisinage de $0$ à gauche et positive à droite.",
+      "proof_latex": "Par définition de la limite, $\\frac{f(x)}{x}>\\frac{1}{2}>0$ au voisinage de $0$. Le résultat en découle après multiplication par $x$, qui est négatif à gauche de $0$ et positif à droite."
+    },
+    {
+      "id": "limites_et_continuite__theorem_limites_inegalites_larges",
+      "type": "theorem",
+      "title": "Théorème : Limites et inégalités larges",
+      "content_latex": "Soient $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions possédant une limite finie en $a$.\\par Si $f(x)\\le g(x)$ au voisinage de $a$, alors $\\lim_{a}f\\le \\lim_{a}g$.",
+      "proof_latex": "Par l'absurde, si $\\lim_{a}(g-f)<0$, le théorème précédent montre que $g(x)-f(x)<0$ au voisinage de $a$ : contradiction."
+    },
+    {
+      "id": "limites_et_continuite__warning_limites_inegalites_strictes",
+      "type": "warning",
+      "title": "Attention : Limites et inégalités strictes",
+      "content_latex": "C'est faux avec des inégalités strictes !\\par Par exemple, $\\frac{1}{x}>0$ pour tout $x>0$, alors que $\\lim_{x\\rightarrow+\\infty}\\frac{1}{x} = 0$. Le passage à la limite transforme les inégalités strictes en inégalités larges.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_caracterisation_sequentielle_limite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation séquentielle de la limite d'une fonction",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\overline{\\mathbb{R}}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $f(x_{n})\\longrightarrow l$ pour toute suite $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ de limite $a$.",
+      "proof_latex": "$(i)\\Rightarrow(ii)$ Faisons l'hypothèse que $f\\longrightarrow l$. Soit $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ une suite de limite $a$. Pour montrer que $f(x_{n})\\longrightarrow l$, donnons-nous un voisinage $V_{l}$ de $l$. Comme $f\\longrightarrow l$, il existe un voisinage $V_{a}$ de $a$ pour lequel $f(E\\cap V_{a})\\subset V_{l}$. Or $x_{n}\\longrightarrow a$, donc $x_{n}\\in V_{a}$ à partir d'un certain rang $N$. Plus précisément, $x_{n}\\in E\\cap V_{a}$ pour tout $n\\ge N$ donc $f(x_{n})\\in f(E\\cap V_{a})\\subset V_{l}$. Comme voulu, $f(x_{n})\\xrightarrow[n\\rightarrow+\\infty]{} l$.\\par $(ii)\\Rightarrow(i)$ Par contraposition, supposons que $f$ n'admet pas $l$ pour limite (cas $a, l\\in\\mathbb{R}$). Il existe alors un réel $\\epsilon_{0}>0$ pour lequel : $\\forall\\alpha>0, \\exists x\\in E, |x-a|<\\alpha$ et $|f(x)-l|\\ge\\epsilon_{0}$. En choisissant $\\alpha=\\frac{1}{n}$ pour tout $n\\in\\mathbb{N}^{*}$, nous héritons d'un élément $x_{n}$ de $E$ pour lequel $|x_{n}-a|<\\frac{1}{n}$ et $|f(x_{n})-l|\\ge\\epsilon_{0}$. La suite $(x_{n})_{n\\in\\mathbb{N}^{*}}$ ainsi construite est à valeurs dans $E$ et de limite $a$, et la suite $(f(x_{n}))_{n\\in\\mathbb{N}^{*}}$ n'admet pas $l$ pour limite."
+    },
+    {
+      "id": "limites_et_continuite__example_limite_non_existante_ln",
+      "type": "example",
+      "title": "Exemple : Divergence via suites pour $\\ln$",
+      "content_latex": "Utilisation de suites pour une limite de type fonctionnel. Si on pose $x_n = n!$, on a $x_n\\xrightarrow[n\\rightarrow+\\infty]{} +\\infty$, donc $\\ln(n!)\\xrightarrow[n\\rightarrow+\\infty]{} +\\infty$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_limite_non_existante_sin",
+      "type": "example",
+      "title": "Exemple : Absence de limite pour sinus en $+\\infty$",
+      "content_latex": "La fonction sinus n'a pas de limite en $+\\infty$.",
+      "proof_latex": "On a $n\\pi\\xrightarrow[n\\rightarrow+\\infty]{} +\\infty$ et $(2n\\pi+\\frac{\\pi}{2})\\xrightarrow[n\\rightarrow+\\infty]{} +\\infty$. Mais $\\sin(n\\pi)=0\\xrightarrow[n\\rightarrow+\\infty]{} 0$ et $\\sin(2n\\pi+\\frac{\\pi}{2})=1\\xrightarrow[n\\rightarrow+\\infty]{} 1$. Comme $1\\ne 0$, les limites diffèrent selon la suite choisie, ce qui contredit la caractérisation séquentielle."
+    },
+    {
+      "id": "limites_et_continuite__theorem_encadrement_minoration_majoration",
+      "type": "theorem",
+      "title": "Théorème : Encadrement / Minoration / Majoration",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$, $m:E\\longrightarrow\\mathbb{R}$ et $M:E\\longrightarrow\\mathbb{R}$ trois fonctions, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{R}$.\\par (i) **Théorème d'encadrement** : Si $m(x)\\le f(x)\\le M(x)$ au voisinage de $a$ avec $m\\longrightarrow l$ et $M\\longrightarrow l$, alors $f\\longrightarrow l$.\\par (ii) **Théorème de minoration** : Si $f(x)\\ge m(x)$ au voisinage de $a$ avec $m\\longrightarrow +\\infty$, alors $f\\xrightarrow{a} +\\infty$.\\par (iii) **Théorème de majoration** : Si $f(x)\\le M(x)$ au voisinage de $a$ avec $M\\longrightarrow -\\infty$, alors $f\\xrightarrow{a} -\\infty$.",
+      "proof_latex": "Pour (i), soit $\\epsilon>0$. Il existe un voisinage $V_{a}$ de $a$ sur lequel $m(x)\\le f(x)\\le M(x)$, un voisinage $V_{a}'$ sur lequel $m(x)>l-\\epsilon$, et un voisinage $V_{a}''$ sur lequel $M(x)<l+\\epsilon$. Par intersection, $V_{a}\\cap V_{a}'\\cap V_{a}''$ est aussi un voisinage de $a$ et $l-\\epsilon<m(x)\\le f(x)\\le M(x)<l+\\epsilon$ pour tout $x\\in E\\cap V_{a}\\cap V_{a}'\\cap V_{a}''$, donc $|f(x)-l|<\\epsilon$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_produit_bornee_limite_nulle",
+      "type": "theorem",
+      "title": "Théorème : Produit d'une fonction bornée par une fonction de limite nulle",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $\\epsilon:E\\longrightarrow\\mathbb{R}$ deux fonctions et $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$. Si $f$ est bornée au voisinage de $a$ et si $\\epsilon\\longrightarrow 0$, alors $\\epsilon(x)f(x)\\longrightarrow 0$.",
+      "proof_latex": "Ce résultat est une application classique du théorème d'encadrement, en utilisant l'inégalité $0 \\le |\\epsilon(x)f(x)| \\le M |\\epsilon(x)|$ au voisinage de $a$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_limite_monotone",
+      "type": "theorem",
+      "title": "Théorème : Théorème de la limite monotone",
+      "content_latex": "Toute fonction monotone possède une limite à gauche et une limite à droite en tout point en lequel cela a un sens.\\par Dans le cas d'une fonction $f:[a,b[\\longrightarrow\\mathbb{R}$ croissante avec $a\\in\\mathbb{R}$ et $b\\in]a,+\\infty]$, cela signifie concrètement que :\\par — $f$ possède une limite FINIE à droite en $a$, et de plus $f(a)\\le \\lim_{a^{+}}f$.\\par — pour tout $c\\in ]a, b[$, $f$ possède des limites FINIES à gauche et à droite en $c$, et de plus $\\lim_{c^{-}}f\\le f(c)\\le \\lim_{c^{+}}f$.\\par — $f$ possède une limite en $b$, soit finie soit $+\\infty$.",
+      "proof_latex": "Montrons seulement que $f$ possède une limite à droite en $a$ dans le cadre proposé ci-dessus. Par croissance de $f$, $f(]a,b[)$ est une partie non vide de $\\mathbb{R}$ minorée par $f(a)$, donc possède une borne inférieure $l\\in\\mathbb{R}$ d'après la propriété de la borne inférieure. En outre, $f(a)\\le l$. Montrons que $f\\xrightarrow{a^{+}} l$. Soit $\\epsilon>0$. Le réel $l+\\epsilon$ ne minore pas $f(]a,b[)$ car $l$ en est le plus grand minorant, donc $f(x_{0})<l+\\epsilon$ pour un certain $x_{0}\\in ]a, b[$. Posons $\\alpha=x_{0}-a>0$. Pour tout $x\\in]a,a+\\alpha[$ : $l-\\epsilon<l\\le f(x)\\le f(x_{0})<l+\\epsilon$, car $f$ est croissante d'une part et $l=\\inf f(]a,b[)$ d'autre part. Conclusion : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in]a,a+\\alpha[, |f(x)-l|<\\epsilon$, autrement dit $f\\xrightarrow{a^{+}} l$."
+    },
+    {
+      "id": "limites_et_continuite__definition_limite_complexe",
+      "type": "definition",
+      "title": "Définition : Limite d'une fonction en un point (cas complexe)",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. On dit que $f$ admet $l$ pour limite en $a$, ce qu'on note $f\\longrightarrow l$ ou $f(x)\\xrightarrow[x\\rightarrow a]{} l$, si :\\par $\\forall V_{l}\\in \\mathcal{V}_{\\mathbb{C}}(l), \\exists V_{a}\\in\\mathcal{V}_{\\mathbb{R}}(a), f(E\\cap V_{a})\\subset V_{l}$.\\par Par ailleurs, toute limite de fonction complexe se ramène aisément à une limite de fonction réelle car pour tout $l\\in\\mathbb{C}$ : $f(x)\\xrightarrow[x\\rightarrow a]{} l \\iff |f(x)-l|\\xrightarrow[x\\rightarrow a]{} 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_limite_complexe_parties",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la limite par les parties réelle et imaginaire",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$, $a\\in\\overline{\\mathbb{R}}$ adhérent à $E$ et $l\\in\\mathbb{C}$. Les assertions suivantes sont équivalentes :\\par (i) $f\\longrightarrow l$\\par (ii) $\\text{Re}(f)\\longrightarrow \\text{Re}(l)$ et $\\text{Im}(f)\\longrightarrow \\text{Im}(l)$.",
+      "proof_latex": "$(i)\\Rightarrow(ii)$ Pour tout $z\\in\\mathbb{C}$ : $|\\text{Re}(z)|\\le|z|$ et $|\\text{Im}(z)|\\le|z|$...\\par $(ii)\\Rightarrow(i)$ Pour tout $z\\in\\mathbb{C}$ : $|z|=\\sqrt{\\text{Re}(z)^{2}+\\text{Im}(z)^{2}}$..."
+    },
+    {
+      "id": "limites_et_continuite__definition_continuite",
+      "type": "definition",
+      "title": "Définition : Continuité en un point ou sur une partie",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$. On dit que $f$ est continue en $a$ si $f\\longrightarrow f(a)$, i.e. si :\\par $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-f(a)|<\\epsilon$\\par Cela dit, $f$ étant définie en $a$, il est équivalent d'exiger que $f$ possède une limite en $a$, celle-ci vaut forcément $f(a)$.\\par On dit enfin que $f$ est continue sur $E$ si elle l'est en tout point de $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_continuite_valeur_absolue",
+      "type": "example",
+      "title": "Exemple : Continuité de la valeur absolue",
+      "content_latex": "La fonction valeur absolue $|\\cdot|$ est continue sur $\\mathbb{R}$.",
+      "proof_latex": "Soit $a\\in\\mathbb{R}$. Montrons que $|\\cdot|$ est continue en $a$. Soit $\\epsilon>0$. Pour tout $x\\in\\mathbb{R}$, $||x|-|a||\\le|x-a|$ d'après l'inégalité triangulaire généralisée, donc pour $\\alpha=\\epsilon$ : $\\forall x\\in\\mathbb{R}, |x-a|<\\alpha\\Rightarrow||x|-|a||<\\epsilon$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_continuite_reelle_imaginaire",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la continuité à partir des parties réelle et imaginaire",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$.\\par $f$ est continue en $a$ (resp. sur $E$) si et seulement si $\\text{Re}(f)$ et $\\text{Im}(f)$ le sont.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_continuite_exponentielle_imaginaire",
+      "type": "example",
+      "title": "Exemple : Continuité de $t \\mapsto e^{it}$",
+      "content_latex": "La fonction $t\\mapsto e^{it}$ est continue sur $\\mathbb{R}$ car les fonctions cosinus et sinus le sont.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__definition_continuite_gauche_droite",
+      "type": "definition",
+      "title": "Définition : Continuité à gauche / à droite en un point",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$.\\par — **Continuité à gauche** : On dit que $f$ est continue à gauche en $a$ si $f_{|_{E\\cap]-\\infty,a]}}$ est continue en $a$, i.e. si $f\\xrightarrow{a^{-}} f(a)$.\\par — **Continuité à droite** : On dit que $f$ est continue à droite en $a$ si $f_{|_{E\\cap[a,+\\infty[}}$ est continue en $a$, i.e. si $f\\xrightarrow{a^{+}} f(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_caracterisation_continuite_gauche_droite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation de la continuité à l'aide des continuités à gauche/à droite",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$ un point au voisinage duquel $f$ est définie à gauche et à droite.\\par $f$ est continue en $a$ si et seulement si $f$ est continue à gauche et à droite en $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_continuite_partie_entiere",
+      "type": "example",
+      "title": "Exemple : Continuité de la fonction partie entière",
+      "content_latex": "La fonction partie entière $\\lfloor\\cdot\\rfloor$ est continue en tout point non entier, mais seulement continue à droite en $n$ pour tout $n\\in\\mathbb{Z}$.",
+      "proof_latex": "Soit $n\\in\\mathbb{Z}$. Pour tout $x\\in[n,n+1[ : \\lfloor x\\rfloor=n\\xrightarrow[x\\rightarrow n]{} n=\\lfloor n\\rfloor$, donc $\\lfloor\\cdot\\rfloor$ est continue à droite en $n$.\\par Au contraire, pour tout $x\\in[n-1,n[ : \\lfloor x\\rfloor=n-1\\xrightarrow[x\\rightarrow n^{-}]{} n-1\\ne\\lfloor n\\rfloor$, donc $f$ n'est pas continue à gauche en $n$."
+    },
+    {
+      "id": "limites_et_continuite__warning_continuite_partie_entiere",
+      "type": "warning",
+      "title": "Attention : Restriction et continuity",
+      "content_latex": "Pour tout $x\\in[0,1[ : \\lfloor x\\rfloor=0$ et la fonction $x\\mapsto 0$ est continue sur $[0, 1[$, mais peut-on pour autant dire que la fonction $x\\mapsto\\lfloor x\\rfloor$ est continue sur $[0, 1[$ ?\\par Non ! Ces deux fonctions sont définies sur $\\mathbb{R}$ tout entier et coïncident sur $[0, 1[$, mais leur continuité en $0$ dépend aussi de leur comportement au voisinage de $0$ à gauche, i.e. à l'extérieur de $[0, 1[$.\\par Il est vrai que la restriction $\\lfloor\\cdot\\rfloor_{|_{[0,1[}}$ est continue sur $[0, 1[$ tout entier, mais la fonction $\\lfloor\\cdot\\rfloor$ n'est pas continue en $0$, elle ne l'est que sur $]0, 1[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__definition_prolongement_continuite",
+      "type": "definition",
+      "title": "Définition-théorème : Prolongement par continuité en un point",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ et $a\\in\\mathbb{R}\\setminus E$ adhérent à $E$. Attention, $f$ n'est pas définie en $a$.\\par On dit que $f$ est prolongeable par continuité en $a$ si $f$ possède une limite finie en $a$.\\par Le prolongement $\\tilde{f}$ de $f$ à $E\\sqcup\\{a\\}$ obtenu en posant $\\tilde{f}(a)=\\lim_{a}f$ est alors continu en $a$.\\par On choisit généralement de noter encore $f$ le prolongement $\\tilde{f}$, i.e. d'identifier $f$ et $\\tilde{f}$.",
+      "proof_latex": "Montrons que $\\tilde{f}$ est continue en $a$, i.e. que $\\tilde{f}\\longrightarrow \\tilde{f}(a)$. Or par hypothèse, $f\\longrightarrow \\tilde{f}(a)$, donc : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E, |x-a|<\\alpha\\Rightarrow|f(x)-\\tilde{f}(a)|<\\epsilon$.\\par C'est presque le résultat car $f$ et $\\tilde{f}$ coïncident sur $E$, mais pas tout à fait car $\\tilde{f}$ est aussi définie en $a$. Cela dit, l'implication reste vraie pour $x=a$, donc : $\\forall\\epsilon>0, \\exists\\alpha>0, \\forall x\\in E\\sqcup\\{a\\}, |x-a|<\\alpha\\Rightarrow|\\tilde{f}(x)-\\tilde{f}(a)|<\\epsilon$."
+    },
+    {
+      "id": "limites_et_continuite__example_prolongements_usuels",
+      "type": "example",
+      "title": "Exemple : Prolongements par continuité classiques",
+      "content_latex": "— La fonction $x\\mapsto x\\ln x$ n'est pas définie en $0$ mais on peut la prolonger par continuité en ce point en lui donnant la valeur $0$ en $0$, car $x\\ln x\\xrightarrow[x\\rightarrow 0]{} 0$.\\par — La fonction $x\\mapsto \\frac{\\sin x}{x}$ n'est pas définie en $0$, mais comme $\\frac{\\sin x}{x}\\xrightarrow[x\\rightarrow 0]{} 1$ on peut la prolonger par continuité en ce point en lui donnant la valeur $1$ en $0$.\\par — Pour tout $\\alpha>0$, $x^{\\alpha}=e^{\\alpha\\ln x}\\xrightarrow[x\\rightarrow 0]{} 0$ donc en posant $0^{\\alpha}=0$, on prolonge la fonction $x\\mapsto x^{\\alpha}$ a priori définie sur $\\mathbb{R}_{+}^{*}$ en une fonction continue sur $\\mathbb{R}_{+}$ tout entier.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_operations_continuite",
+      "type": "example",
+      "title": "Exemple : Continuité par opérations",
+      "content_latex": "La fonction $x\\mapsto \\left(\\ln\\left(x^{2}+e^{\\frac{1}{x}}\\right)\\right)^{2}$ est définie et continue sur $\\mathbb{R}^{*}$.",
+      "proof_latex": "Attention, pour la composition, il faut bien préciser les domaines manipulés !\\par — La fonction $x\\mapsto \\frac{1}{x}$ est continue sur $\\mathbb{R}^{*}$ (à valeurs dans $\\mathbb{R}$) et la fonction $x\\mapsto e^{x}$ l'est sur $\\mathbb{R}$, donc par composition $x\\mapsto e^{\\frac{1}{x}}$ est continue sur $\\mathbb{R}^{*}$.\\par — La fonction $x\\mapsto x^{2}$ est continue sur $\\mathbb{R}$, donc sur $\\mathbb{R}^{*}$. Par somme, $x\\mapsto x^{2}+e^{\\frac{1}{x}}$ est continue sur $\\mathbb{R}^{*}$.\\par — La fonction $x\\mapsto x^{2}+e^{\\frac{1}{x}}$ est continue sur $\\mathbb{R}^{*}$ à valeurs dans $\\mathbb{R}_{+}^{*}$. Or $x\\mapsto \\ln x$ est continue sur $\\mathbb{R}_{+}^{*}$, donc par composition $x\\mapsto \\ln\\left(x^{2}+e^{\\frac{1}{x}}\\right)$ est continue sur $\\mathbb{R}^{*}$ (à valeurs dans $\\mathbb{R}$).\\par — Enfin, la fonction $x\\mapsto x^{2}$ est continue sur $\\mathbb{R}$. Le résultat découle donc d'une dernière composition."
+    },
+    {
+      "id": "limites_et_continuite__theorem_caracterisation_sequentielle_continuite",
+      "type": "theorem",
+      "title": "Théorème : Caractérisation séquentielle de la continuité",
+      "content_latex": "Soient $f:E\\longrightarrow\\mathbb{C}$ une fonction et $a\\in E$. Les assertions suivantes sont équivalentes :\\par (i) $f$ est continue en $a$, i.e. $f(x)\\xrightarrow[x\\rightarrow a]{} f(a)$.\\par (ii) $f(x_{n})\\xrightarrow[n\\rightarrow+\\infty]{} f(a)$ pour toute suite $(x_{n})_{n\\in\\mathbb{N}}$ d'éléments de $E$ de limite $a$.\\par En résumé : Pour une fonction CONTINUE, $f(\\lim_{n\\rightarrow+\\infty} ...) = \\lim_{n\\rightarrow+\\infty} f(...)$ si la limite existe.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_zeros_fonction_continue",
+      "type": "example",
+      "title": "Exemple : Utilisation conjointe avec la borne supérieure",
+      "content_latex": "Soit $f\\in\\mathcal{C}([0,1],\\mathbb{R})$. On suppose que $f$ s'annule au moins une fois. L'ensemble $\\{x\\in[0,1] \\mid f(x)=0\\}$ des zéros de $f$ est alors une partie non vide majorée de $\\mathbb{R}$, donc possède une borne supérieure $s$. Alors $s$ est le plus grand zéro de $f$.",
+      "proof_latex": "Rien n'indique a priori que $f$ s'annule en $s$ car $s$ est une borne supérieure et non pas un maximum. Cela dit, $s$ est la limite d'une suite $(x_{n})_{n\\in\\mathbb{N}}$ de zéros de $f$ d'après la caractérisation séquentielle de la borne supérieure, donc d'après la caractérisation séquentielle de la continuité en $s$ : $f(s)=f(\\lim_{n\\rightarrow+\\infty}x_{n})=\\lim_{n\\rightarrow+\\infty}f(x_{n})=\\lim_{n\\rightarrow+\\infty}0=0$. Conclusion : $s$ est mieux qu'une borne supérieure, c'est le plus grand zéro de $f$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_endomorphismes_continus_R",
+      "type": "theorem",
+      "title": "Théorème : Endomorphismes continus du groupe $\\mathbb{R}$",
+      "content_latex": "Les endomorphismes continus du groupe $\\mathbb{R}$, i.e. les fonctions $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$ pour lesquelles $f(x+y)=f(x)+f(y)$ pour tous $x, y\\in\\mathbb{R}$, sont exactement les fonctions linéaires $x\\mapsto\\lambda x$, $\\lambda$ décrivant $\\mathbb{R}$.",
+      "proof_latex": "Les fonctions linéaires répondent bien sûr au problème. Réciproquement, soit $f$ un endomorphisme continu de $\\mathbb{R}$. Ainsi, pour tous $n\\in\\mathbb{Z}$ et $x\\in\\mathbb{R}$ : $f(nx)=nf(x)$.\\par — Posons $\\lambda=f(1)$ et montrons que $f_{|_{\\mathbb{Q}}}=\\lambda \\text{Id}_{\\mathbb{Q}}$. Or pour tout $r=\\frac{p}{q}\\in\\mathbb{Q}$ avec $p\\in\\mathbb{Z}$ et $q\\in\\mathbb{N}^{*}$ : $qf(r) = f(qr)=f(p) = pf(1)=\\lambda p$, donc $f(r)=\\lambda\\frac{p}{q}=\\lambda r$.\\par — Montrons que $f=\\lambda \\text{Id}_{\\mathbb{R}}$. Soit $x\\in\\mathbb{R}$. Comme $\\mathbb{Q}$ est dense dans $\\mathbb{R}$, $x$ est la limite d'une suite de rationnels $(r_{n})_{n\\in\\mathbb{N}}$ d'après la caractérisation séquentielle de la densité. Ainsi, d'après la caractérisation séquentielle de la continuité en $x$ : $f(x)=f(\\lim_{n\\rightarrow+\\infty}r_{n})=\\lim_{n\\rightarrow+\\infty}f(r_{n})=\\lim_{n\\rightarrow+\\infty}\\lambda r_{n}=\\lambda x$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_tvi_existence_antecedents",
+      "type": "theorem",
+      "title": "Théorème : Théorème des valeurs intermédiaires ou TVI (version existence d'antécédents)",
+      "content_latex": "Soient $a$ et $b$ deux réels pour lesquels $a\\le b$ et $f\\in\\mathcal{C}([a,b],\\mathbb{R})$.\\par Tout réel compris entre $f(a)$ et $f(b)$ possède un antécédent par $f$.",
+      "proof_latex": "Démonstration (n°1) : Quitte à remplacer $f$ par $-f$, on peut supposer que $f(a)\\le y\\le f(b)$ sans perte de généralité et poser $X=\\{t\\in[a,b] \\mid f(t)\\le y\\}$. L'ensemble $X$ est majoré par $b$ et contient $a$ car $f(a)\\le y$, donc possède une borne supérieure $x$ d'après la propriété de la borne supérieure. Montrons que $f(x)=y$ en prouvant successivement que $f(x)\\le y$ et $f(x)\\ge y$. D'après la caractérisation séquentielle de la borne supérieure, $x$ est la limite d'une suite $(x_{n})$ d'éléments de $X$, or $f(x_{n})\\le y$, donc d'après la caractérisation séquentielle de la continuité : $f(x)=f(\\lim_{n\\rightarrow+\\infty}x_{n})=\\lim_{n\\rightarrow+\\infty}f(x_{n})\\le y$. Ensuite, si $x=b$, alors $f(x)=f(b)\\ge y$. Si $x<b$, alors $x+\\frac{1}{n}$ appartient à $[a, b]$ à partir d'un certain rang mais pas à $X$, donc $f(x+\\frac{1}{n})>y$, donc après passage à la limite : $f(x)\\ge y$.\\par Démonstration (n°2, par dichotomie) : On pose $a_{0}=a$ et $b_{0}=b$. On construit par récurrence des intervalles $[a_{n},b_{n}]$ tels que $b_{n}-a_{n}=\\frac{b-a}{2^{n}}$ et $f(a_{n})\\le y\\le f(b_{n})$. Les suites $(a_{n})$ et $(b_{n})$ sont adjacentes, donc possèdent une limite finie commune $x\\in[a,b]$. En passant à la limite via la continuité, $f(x)\\le y\\le f(x)$ i.e. $y=f(x)$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_tvi_image_intervalle",
+      "type": "theorem",
+      "title": "Théorème : TVI, version image d'un intervalle",
+      "content_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{R})$ et tout intervalle $I$ inclus dans $E$, $f(I)$ est aussi un intervalle.",
+      "proof_latex": "Soient $f\\in\\mathcal{C}(E,\\mathbb{R})$ et $I$ un intervalle inclus dans $E$. Pour montrer que $f(I)$ est un intervalle, donnons-nous deux réels $u,v\\in f(I)$ pour lesquels $u\\le v$, puis $y\\in[u,v]$, et montrons que $y\\in f(I)$. Par hypothèse, $u=f(a)$ et $v=f(b)$ pour certains $a, b\\in I$ et $f$ est définie sur tout le segment d'extrémités $a$ et $b$ car $I$ est un intervalle. La version précédente du TVI montre alors que $y$ possède un antécédent par $f$ compris entre $a$ et $b$, donc élément de $I$. Comme voulu, $y=f(x)\\in f(I)$."
+    },
+    {
+      "id": "limites_et_continuite__warning_tvi_nature_intervalle",
+      "type": "warning",
+      "title": "Attention : Nature de l'intervalle image",
+      "content_latex": "Cette version nouvelle du TVI ne garantit pas que les intervalles $I$ et $f(I)$ sont de même nature. Il se peut que $I$ soit ouvert et $f(I)$ un segment, ou bien que $I$ soit semi-ouvert et $f(I)$ ouvert, etc.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_tvi_strictement_monotone",
+      "type": "theorem",
+      "title": "Théorème : TVI strictement monotone",
+      "content_latex": "Soient $a, b\\in\\mathbb{R}$ avec $a<b$. \\par (i) Toute fonction continue et strictement croissante $f:[a,b]\\longrightarrow\\mathbb{R}$ est bijective de $[a, b]$ sur $[f(a),f(b)]$.\\par (ii) Toute fonction continue et strictement décroissante $f:[a,b[\\longrightarrow\\mathbb{R}$ est bijective de $[a, b[$ sur $]\\lim_{b^{-}}f,f(a)]$.",
+      "proof_latex": "Dans le cas où $f$ est strictement croissante sur $[a, b[$, $f$ est bijective de $[a, b[$ sur son image $f([a,b[)$. $f([a,b[)$ est un intervalle d'après le TVI. Ensuite, $f(a)$ minore $f([a,b[)$ par croissance de $f$, donc $f(a)=\\min f([a,b[)$. À présent, d'après le théorème de la limite monotone, $f$ possède une limite $\\lim_{b^{-}}f$. L'intervalle est donc de borne supérieure $\\lim_{b^{-}}f$. Si la limite appartenait à l'ensemble, $f$ serait constante sur une portion, ce qui contredit la stricte croissance. Donc $f([a,b[)=[f(a),\\lim_{b^{-}}f[$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_continuite_reciproque",
+      "type": "theorem",
+      "title": "Théorème : Continuité d'une réciproque",
+      "content_latex": "Soient $I$ un intervalle et $f\\in\\mathcal{C}(I,\\mathbb{R})$. On note $J$ l'intervalle $f(I)$. Les assertions suivantes sont équivalentes :\\par (i) $f$ est strictement monotone sur $I$.\\par (ii) $f$ injective sur $I$ donc bijective de $I$ sur $J$.\\par Le cas échéant, $f^{-1}$ est continue et strictement monotone de même sens de variation que $f$ sur $J$.",
+      "proof_latex": "Pour l'équivalence (i) et (ii), (i) implique (ii) sans hypothèse de continuité. Pour la réciproque, fixons $a, b\\in I$ avec $a<b$. Quitte à remplacer $f$ par $-f$, supposons $f(a)<f(b)$. Soient $x, y\\in I$ avec $x<y$. La fonction $\\varphi(\\lambda)=f((1-\\lambda)b+\\lambda y)-f((1-\\lambda)a+\\lambda x)$ est bien définie et continue sur $[0, 1]$. Par injectivité, $\\varphi$ ne s'annule pas sur $[0, 1]$. D'après le TVI, $\\varphi$ est de signe constant, or $\\varphi(0)>0$, donc $\\varphi(1)=f(y)-f(x)>0$. Donc $f$ est strictement croissante.\\par Pour la continuité de $f^{-1}$, d'après le théorème de la limite monotone, $f^{-1}$ possède une limite $l$ en $b$ à gauche. Par composition avec $f$ qui est continue : $f(f^{-1}(y))\\xrightarrow[y\\rightarrow b^{-}]{} f(l)$. Or $f(f^{-1}(y))=y\\rightarrow b$, donc $f(l)=b$ d'où $l=f^{-1}(b)$, ce qui montre la continuité de $f^{-1}$."
+    },
+    {
+      "id": "limites_et_continuite__warning_discontinuite_reciproque",
+      "type": "warning",
+      "title": "Attention : Discontinuité et bijectivité",
+      "content_latex": "Le moindre point de discontinuité ruine la validité de l'implication. Une fonction peut être injective sans être strictement monotone si elle n'est pas continue.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_fonctions_circulaires_reciproques",
+      "type": "example",
+      "title": "Exemple : Arccosinus, arcsinus, arctangente",
+      "content_latex": "L'existence des fonctions arccosinus, arcsinus et arctangente a découlé du TVI strictement monotone et leur continuité du théorème de continuité d'une réciproque.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_limites_bornes_reciproque",
+      "type": "example",
+      "title": "Exemple : Limites aux bornes d'une réciproque",
+      "content_latex": "Soient $f\\in\\mathcal{C}(\\mathbb{R}_{+},\\mathbb{R})$ et $l\\in\\mathbb{R}$. Si $f$ est strictement croissante sur $\\mathbb{R}_{+}$ et si $f\\rightarrow l$, alors $f$ est bijective de $\\mathbb{R}_{+}$ sur $[f(0), l[$ et $f^{-1}\\xrightarrow[x\\rightarrow l^{-}]{} +\\infty$.",
+      "proof_latex": "D'après le TVI strictement monotone, $f$ est bijective de $\\mathbb{R}_{+}$ sur $[f(0), l[$. Ensuite, $f^{-1}$ étant croissante, elle possède une limite $L$ d'après le théorème de la limite monotone. Ainsi, $f^{-1}(f(x))\\xrightarrow[x\\rightarrow+\\infty]{} L$ par composition, mais par ailleurs $f^{-1}(f(x)) = x \\xrightarrow[x\\rightarrow+\\infty]{} +\\infty$, donc $L=+\\infty$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_image_compact",
+      "type": "theorem",
+      "title": "Théorème : Image d'un compact par une fonction continue",
+      "content_latex": "Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{K})$ et tout compact $C$ inclus dans $E$, $f(C)$ est un compact.",
+      "proof_latex": "Soit $(y_{n})$ une suite d'éléments de $f(C)$. Montrons que $(y_{n})$ possède une suite extraite convergente de limite un élément de $f(C)$. Pour tout $n\\in\\mathbb{N}$, $y_{n}=f(x_{n})$ pour un certain $x_{n}\\in C$. Or $C$ étant compact, la suite $(x_{n})$ possède une suite extraite convergente $(x_{\\varphi(n)})$ de limite $l\\in C$. Par continuité de $f$ en $l$, il en découle que $y_{\\varphi(n)}=f(x_{\\varphi(n)})\\xrightarrow[n\\rightarrow+\\infty]{} f(l)\\in f(C)$."
+    },
+    {
+      "id": "limites_et_continuite__example_image_compact_cercle",
+      "type": "example",
+      "title": "Exemple : Image d'un segment dans le plan complexe",
+      "content_latex": "L'image du compact $[0,2\\pi]$ par la fonction continue $t\\mapsto e^{it}$ est un compact. (C'est le cercle trigonométrique $\\mathbb{U}$).",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_bornes_atteintes",
+      "type": "theorem",
+      "title": "Théorème : Théorème des bornes atteintes",
+      "content_latex": "Deux versions équivalentes :\\par (i) Toute fonction continue sur un SEGMENT y est bornée et atteint ses bornes.\\par (ii) L'image d'un segment par une fonction continue est un segment.",
+      "proof_latex": "Soient $f\\in\\mathcal{C}(E,\\mathbb{R})$ et $a$ et $b$ deux réels pour lesquels $a\\le b$ et $[a,b]\\subset E$. Le segment $[a, b]$ est compact, donc son image $f([a,b])$ aussi. Cela dit, $f([a,b])$ est aussi un intervalle d'après le TVI, donc $f([a,b])$ est un intervalle compact, i.e. un segment."
+    },
+    {
+      "id": "limites_et_continuite__warning_image_ferme_borne",
+      "type": "warning",
+      "title": "Attention : Image d'un fermé ou d'un borné",
+      "content_latex": "La continuité ne préserve pas la forme des intervalles en général... sauf si les intervalles en jeu sont des segments. L'image d'un intervalle fermé (resp. borné) par une fonction continue est un intervalle, mais pas forcément fermé (resp. borné). Pour le côté borné, pensez à la fonction tangente sur $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__example_minimum_fonction",
+      "type": "example",
+      "title": "Exemple : Existence d'un minimum sur $]0, 1]$",
+      "content_latex": "La fonction $f : x \\mapsto \\frac{x \\ln x}{x^{2}+e^{x}}$ possède un minimum sur $]0, 1]$.",
+      "proof_latex": "Prolongée par continuité en $0$ par la valeur $0$, $f$ est continue sur le segment $[0, 1]$, donc y possède un minimum. Ensuite, ce minimum est atteint sur $]0, 1]$ car $f$ est strictement négative sur $]0, 1[$ et $f(0)=0$."
+    },
+    {
+      "id": "limites_et_continuite__example_fonction_periodique_bornee",
+      "type": "example",
+      "title": "Exemple : Fonction continue périodique",
+      "content_latex": "Toute fonction continue périodique définie sur $\\mathbb{R}$ tout entier est bornée.",
+      "proof_latex": "Soient $T>0$ et $f\\in\\mathcal{C}(\\mathbb{R},\\mathbb{R})$ $T$-périodique. D'après le théorème des bornes atteintes, $f$ est bornée sur le segment $[0, T]$, donc il existe un réel $K\\ge 0$ pour lequel $|f(x)|\\le K$ pour tout $x\\in[0,T]$. Ainsi, pour tout $x\\in\\mathbb{R}$, $0\\le x-\\lfloor\\frac{x}{T}\\rfloor T<T$, donc $|f(x)|=|f(x-\\lfloor\\frac{x}{T}\\rfloor T)|\\le K$."
+    },
+    {
+      "id": "limites_et_continuite__definition_norme_infinie",
+      "type": "definition",
+      "title": "Définition-théorème : Norme infinie d'une fonction bornée",
+      "content_latex": "Pour toute fonction bornée $f:E\\longrightarrow\\mathbb{C}$, on appelle norme infinie de $f$ sur $E$ et on note $||f||_{\\infty}$ le réel : $||f||_{\\infty}=\\sup_{x\\in E}|f(x)|$.\\par Pour toutes fonctions bornées $f,g$ et pour tout $\\lambda\\in\\mathbb{C}$ :\\par — $||f||_{\\infty}=0\\iff f=0$\\par — $||\\lambda f||_{\\infty}=|\\lambda|\\cdot||f||_{\\infty}$\\par — $||f+g||_{\\infty}\\le||f||_{\\infty}+||g||_{\\infty}$ (inégalité triangulaire).",
+      "proof_latex": "— $||f||_{\\infty}=0 \\iff \\forall x\\in E, |f(x)|=0 \\iff f=0$.\\par — $|f(x)+g(x)|\\le|f(x)|+|g(x)|\\le||f||_{\\infty}+||g||_{\\infty}$ pour tout $x\\in E$, donc par définition de la borne supérieure : $||f+g||_{\\infty}\\le||f||_{\\infty}+||g||_{\\infty}$.\\par — $|\\lambda f(x)|=|\\lambda|\\cdot|f(x)|\\le|\\lambda|\\cdot||f||_{\\infty}$ pour tout $x\\in E$, donc $||\\lambda f||_{\\infty}\\le|\\lambda|\\cdot||f||_{\\infty}$ avec égalité si $\\lambda=0$. Si $\\lambda\\ne 0$, $|f(x)|=\\frac{1}{|\\lambda|}|\\lambda f(x)|\\le\\frac{1}{|\\lambda|}||\\lambda f||_{\\infty}$, donc $||f||_{\\infty}\\le\\frac{1}{|\\lambda|}||\\lambda f||_{\\infty}$ d'où l'égalité finale."
+    },
+    {
+      "id": "limites_et_continuite__definition_cvs_cvu",
+      "type": "definition",
+      "title": "Définition : Convergence simple, convergence uniforme",
+      "content_latex": "Soient $(f_{n})$ une suite de fonctions de $E$ dans $\\mathbb{C}$ et $f:E\\longrightarrow\\mathbb{C}$ une fonction.\\par — **Convergence simple** ($f_{n}\\xrightarrow{CVS} f$) : $\\forall x\\in E, f_{n}(x)\\xrightarrow[n\\rightarrow+\\infty]{} f(x)$.\\par — **Convergence uniforme** ($f_{n}\\xrightarrow{CVU} f$) : $f_{n}-f$ est bornée sur $E$ pour tout $n$ et $||f_{n}-f||_{\\infty}\\xrightarrow[n\\rightarrow+\\infty]{} 0$.\\par Avec quantificateurs :\\par CVS : $\\forall x\\in E, \\forall\\epsilon>0, \\exists N_{x}\\in\\mathbb{N}, \\forall n\\ge N_{x}, |f_{n}(x)-f(x)|<\\epsilon$.\\par CVU : $\\forall\\epsilon>0, \\exists N\\in\\mathbb{N}, \\forall n\\ge N, \\forall x\\in E, |f_{n}(x)-f(x)|<\\epsilon$.",
+      "proof_latex": null
+    },
+    {
+      "id": "limites_et_continuite__theorem_cvu_implique_cvs",
+      "type": "theorem",
+      "title": "Théorème : CVU implique CVS",
+      "content_latex": "Soient $(f_{n})$ une suite de fonctions bornées de $E$ dans $\\mathbb{C}$ et $f:E\\longrightarrow\\mathbb{C}$ une fonction bornée. Si $f_{n}\\xrightarrow{CVU} f$ alors $f_{n}\\xrightarrow{CVS} f$.",
+      "proof_latex": "Pour tout $x\\in E$ et $n\\in\\mathbb{N}$ : $|f_{n}(x)-f(x)|\\le||f_{n}-f||_{\\infty}$, donc si $f_{n}\\xrightarrow{CVU} f$, alors pour tout $x\\in E$, $f_{n}(x)\\longrightarrow f(x)$ par encadrement, donc $f_{n}\\xrightarrow{CVS} f$."
+    },
+    {
+      "id": "limites_et_continuite__example_convergence_xn",
+      "type": "example",
+      "title": "Exemple : Convergence de $x\\mapsto x^{n}$ sur $[0,1]$",
+      "content_latex": "Pour tout $n\\in\\mathbb{N}$, notons $f_{n}$ la fonction $x\\mapsto x^{n}$ sur $[0,1]$. La suite $(f_{n})$ converge simplement vers $\\mathbb{I}_{\\{1\\}}$ mais pas uniformément.",
+      "proof_latex": "— Convergence simple : Si $x=1$, $f_{n}(x)=1\\rightarrow 1$. Si $x<1$, $f_{n}(x)=x^{n}\\rightarrow 0$. Donc $f_{n}\\xrightarrow{CVS} \\mathbb{I}_{\\{1\\}}$.\\par — Convergence uniforme : $||f_{n}-\\mathbb{I}_{\\{1\\}}||_{\\infty}=\\sup_{x\\in[0,1[}|x^{n}-0|=1$, donc la norme infinie ne tend pas vers $0$."
+    },
+    {
+      "id": "limites_et_continuite__example_convergence_n_alpha",
+      "type": "example",
+      "title": "Exemple : Convergence de $x\\mapsto n^{\\alpha} x e^{-nx}$",
+      "content_latex": "Soit $\\alpha\\in\\mathbb{R}$. La suite $f_{n}(x) = n^{\\alpha}x e^{-nx}$ sur $\\mathbb{R}_{+}$ converge simplement vers la fonction nulle. Elle converge uniformément si et seulement si $\\alpha<1$.",
+      "proof_latex": "— Convergence simple : Si $x=0$, $f_{n}(x)=0\\rightarrow 0$. Si $x>0$, $f_{n}(x)\\rightarrow 0$ par croissances comparées.\\par — Convergence uniforme : $f_{n}'(x)=n^{\\alpha}(1-nx)e^{-nx}$, donc $f_{n}$ atteint son maximum en $x=\\frac{1}{n}$, et $||f_{n}-0||_{\\infty}=f_{n}(\\frac{1}{n})=n^{\\alpha-1}e^{-1}$. La suite converge uniformément ssi $n^{\\alpha-1}e^{-1}\\rightarrow 0$, i.e. $\\alpha<1$."
+    },
+    {
+      "id": "limites_et_continuite__theorem_cvu_continuite",
+      "type": "theorem",
+      "title": "Théorème : Convergence uniforme et continuité",
+      "content_latex": "Soient $(f_{n})$ une suite de fonctions de $E$ dans $\\mathbb{C}$ et $f:E\\longrightarrow\\mathbb{C}$ une fonction. Si $f_{n}\\xrightarrow{CVU} f$ et si $f_{n}$ est continue pour tout $n\\in\\mathbb{N}$, alors $f$ est continue.",
+      "proof_latex": "Soit $a\\in E$. Soit $\\epsilon>0$. Pour tout $x\\in E$, $n\\in\\mathbb{N}$ : $|f(x)-f(a)|\\le|f(x)-f_{n}(x)|+|f_{n}(x)-f_{n}(a)|+|f_{n}(a)-f(a)|\\le 2||f_{n}-f||_{\\infty}+|f_{n}(x)-f_{n}(a)|$. Par CVU, il existe un $N\\in\\mathbb{N}$ tel que $||f_{N}-f||_{\\infty}<\\frac{\\epsilon}{4}$. Par continuité de $f_{N}$ en $a$, il existe $\\alpha>0$ tel que pour tout $x\\in E$, $|x-a|<\\alpha \\Rightarrow |f_{N}(x)-f_{N}(a)|<\\frac{\\epsilon}{2}$. Alors pour $|x-a|<\\alpha$, on a $|f(x)-f(a)|\\le 2\\frac{\\epsilon}{4}+\\frac{\\epsilon}{2}=\\epsilon$."
+    },
+    {
+      "id": "limites_et_continuite__warning_cvs_continuite",
+      "type": "warning",
+      "title": "Attention : La convergence simple ne préserve pas la continuité",
+      "content_latex": "La convergence simple ne préserve pas la continuité. Comme on l'a vu plus haut, les fonctions continues $x\\mapsto x^{n}$ convergent simplement sur $[0,1]$ vers la fonction $\\mathbb{I}_{\\{1\\}}$ qui n'est pas continue en $1$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

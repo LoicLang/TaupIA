@@ -1,0 +1,449 @@
+{
+  "chapter_official_id": "fonctions_de_deux_variables",
+  "chapter_name": "Fonctions de deux variables",
+  "source_document": "Cours - Fonctions de deux variables.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "fonctions_de_deux_variables__intro_identification",
+      "type": "remark",
+      "title": "Introduction : Identification de R² dans R³",
+      "content_latex": "Dans ce chapitre, $\\mathbb{R}^2$ et $\\mathbb{R}^3$ sont munis de leur structure euclidienne canonique. On identifiera $\\mathbb{R}^2$ au plan d'équation $z = 0$ de $\\mathbb{R}^3$, ce qui revient à identifier tout couple $(x, y)$ de $\\mathbb{R}^2$ au triplet $(x, y, 0)$ de $\\mathbb{R}^3$. On notera $(e_1, e_2)$ la base canonique de $\\mathbb{R}^2$ et $(e_1, e_2, e_3)$ celle de $\\mathbb{R}^3$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__graphe_fonction_2var",
+      "type": "remark",
+      "title": "Graphe d'une fonction de deux variables",
+      "content_latex": "Nous avons l'habitude de représenter toute fonction $f : \\mathbb{R} \\to \\mathbb{R}$ comme une courbe dans le plan $\\mathbb{R}^2$, précisément la courbe d'équation $y = f(x)$. Une fonction $f : \\mathbb{R}^2 \\to \\mathbb{R}$ sera quant à elle représentée comme la surface d'équation $z = f(x, y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_graphe_x2_sin3y",
+      "type": "example",
+      "title": "Exemple : Graphe de $(x, y) \\mapsto x^2 + \\sin(3y)$",
+      "content_latex": "Intéressons-nous par exemple à la fonction $(x, y) \\mapsto x^2 + \\sin(3y)$. Pour construire son graphe, on étudie souvent l'intersection de celui-ci avec une collection de plans parallèles qui balaient l'espace $\\mathbb{R}^3$ tout entier. Ainsi, pour tout $\\lambda \\in \\mathbb{R}$ :\\par — l'intersection de $\\mathcal{S}$ et du plan d'équation $x = \\lambda$ est la courbe d'équation $z = \\lambda^2 + \\sin(3y)$ dans ce plan,\\par — l'intersection de $\\mathcal{S}$ et du plan d'équation $y = \\lambda$ est la courbe d'équation $z = x^2 + \\sin(3\\lambda)$ dans ce plan,\\par — l'intersection de $\\mathcal{S}$ et du plan d'équation $z = \\lambda$ est la courbe d'équation $x^2 + \\sin(3y) = \\lambda$ dans ce plan et on l'appelle la ligne de niveau $\\lambda$ de $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_limite_point",
+      "type": "definition",
+      "title": "Définition : Limite (finie) en un point",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction, $a \\in \\overline{E}$ et $\\ell \\in \\mathbb{R}$. On dit que $f$ admet $\\ell$ pour limite en $a$ si :\\par $\\forall V_\\ell \\in \\mathcal{V}_\\mathbb{R}(\\ell), \\exists V_a \\in \\mathcal{V}_{\\mathbb{R}^2}(a), \\forall p \\in E, p \\in V_a \\Rightarrow f(p) \\in V_\\ell$\\par i.e. si :\\par $\\forall \\varepsilon > 0, \\exists \\alpha > 0, \\forall p \\in E, \\|p - a\\| < \\alpha \\Rightarrow |f(p) - \\ell| < \\varepsilon$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__proprietes_limites",
+      "type": "property",
+      "title": "Propriété : Résultats conservés sur les limites",
+      "content_latex": "La plupart des résultats qu'on a démontrés pour les fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$ sont conservés : unicité et notation $\\lim_{p \\to a} f(p)$, caractère localement borné, opérations (combinaison linéaire, produit, inverse, composition avec une fonction de $\\mathbb{R}$ dans $\\mathbb{R}$), interaction avec les inégalités larges/strictes, théorème d'encadrement... Les preuves sont immédiates, il suffit de remplacer les valeurs absolues dans l'ensemble de départ par des distances dans $\\mathbb{R}^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_limite_iterée",
+      "type": "warning",
+      "title": "Attention : Limite et limite itérée",
+      "content_latex": "Faire tendre $p = (x, y)$ vers $a = (x_a, y_a)$ ne revient pas à faire tendre $x$ vers $x_a$ puis $y$ vers $y_a$ ou le contraire. Le point $p$ peut se rapprocher de $a$ de bien des manières, il n'est pas obligé d'y aller en ligne droite selon $e_1 = (1, 0)$ ou $e_2 = (0, 1)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_limite_2xy",
+      "type": "example",
+      "title": "Exemple : Limite de $\\frac{2xy}{x^2 + y^2}$ en $(0, 0)$",
+      "content_latex": "Intéressons-nous par exemple à la fonction $(x, y) \\mapsto \\frac{2xy}{x^2 + y^2}$ sur $\\mathbb{R}^2 \\setminus \\{(0, 0)\\}$. Clairement :\\par $\\lim_{x \\to 0} \\lim_{y \\to 0} \\frac{2xy}{x^2 + y^2} = \\lim_{x \\to 0} 0 = 0$\\par et\\par $\\lim_{y \\to 0} \\lim_{x \\to 0} \\frac{2xy}{x^2 + y^2} = \\lim_{y \\to 0} 0 = 0$,\\par mais nous allons voir que $f$ n'a pas de limite en $(0, 0)$.",
+      "proof_latex": "Tout point $p = (x, y)$ de $\\mathbb{R}^2$ peut être écrit $(r\\cos\\theta, r\\sin\\theta)$ pour un certain couple $(r, \\theta) \\in \\mathbb{R}_+^* \\times \\mathbb{R}$ dit couple de coordonnées polaires de $p$. Par $2\\pi$-périodicité du cosinus et du sinus, un tel couple n'est jamais unique, attention ! Trois relations méritent d'être comprises :\\par $x = r\\cos\\theta, \\quad y = r\\sin\\theta \\quad \\text{et} \\quad r = \\sqrt{x^2 + y^2}$.\\par Le point $(0, 0)$ a la particularité d'admettre le couple $(0, \\theta)$ pour coordonnées polaires pour tout $\\theta \\in \\mathbb{R}$.\\par Mais revenons à notre exemple. Pour tout $(x, y) \\in \\mathbb{R}^2 \\setminus \\{(0, 0)\\}$ de coordonnées polaires $(r, \\theta)$ :\\par $f(x, y) = \\frac{2xy}{x^2 + y^2} = \\frac{2 \\cdot r\\cos\\theta \\cdot r\\sin\\theta}{r^2} = \\sin(2\\theta)$,\\par donc $f$ ne dépend que de la variable $\\theta$.\\par Par conséquent, si $(x, y)$ tend vers $(0, 0)$ en maintenant l'angle $\\theta$ constant, $f(x, y)$ tend vers $\\sin(2\\theta)$ pour ce $\\theta$ fixé. On obtient ainsi des limites différentes selon la manière dont on fait tendre $(x, y)$ vers $(0, 0)$, donc $f$ n'a pas de limite en $(0, 0)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_continuite",
+      "type": "definition",
+      "title": "Définition : Continuité en un point ou sur une partie",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ est continue en $a$ si $f(p) \\xrightarrow[p \\to a]{} f(a)$, i.e. si :\\par $\\forall \\varepsilon > 0, \\exists \\alpha > 0, \\forall p \\in E, \\|p - a\\| < \\alpha \\Rightarrow |f(p) - f(a)| < \\varepsilon$.\\par L'ensemble des fonctions sur $E$ et à valeurs dans $\\mathbb{R}$, i.e. continues en tout point de $E$, est noté $\\mathcal{C}(E, \\mathbb{R})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__propriete_continuite_operations",
+      "type": "property",
+      "title": "Propriété : Opérations sur les fonctions continues",
+      "content_latex": "Toute combinaison linéaire de fonctions continues est une fonction continue. Même chose avec le produit, l'inverse et la composition avec une fonction de $\\mathbb{R}$ dans $\\mathbb{R}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_continuite_partielle",
+      "type": "warning",
+      "title": "Attention : Continuité partielle vs continuité",
+      "content_latex": "Pour montrer qu'une fonction de DEUX variables $(x, y) \\mapsto f(x, y)$ est continue en $a = (x_a, y_a)$, il ne suffit pas de montrer que les fonctions d'UNE variable $x \\mapsto f(x, y_a)$ et $y \\mapsto f(x_a, y)$ sont continues respectivement en $x_a$ et $y_a$. De nouveau, $(x, y)$ peut s'approcher de $a$ de bien des manières, il n'est pas obligé de le faire en fixant $x$ ou $y$.\\par La fonction $(x, y) \\mapsto \\frac{2xy}{x^2 + y^2}$ de l'exemple précédent n'est pas prolongeable par continuité en $(0, 0)$, mais pourtant les fonctions $x \\mapsto f(x, 0)$ et $y \\mapsto f(0, y)$, identiquement nulles, le sont en $0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_fonction_polynomiale_continue",
+      "type": "example",
+      "title": "Exemple : Continuité des fonctions polynomiales",
+      "content_latex": "Les fonctions $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$ sont continues sur $\\mathbb{R}^2$. A fortiori, par produit et combinaison linéaire, toute fonction polynomiale de deux variables est continue sur $\\mathbb{R}^2$.",
+      "proof_latex": "Démontrons-le pour $(x, y) \\mapsto x$. Soient $a = (x_a, y_a) \\in \\mathbb{R}^2$ et $\\varepsilon > 0$. Pour tout $p = (x, y) \\in \\mathbb{R}^2$ :\\par $|f(p) - f(a)| = |x - x_a| \\leq \\sqrt{(x - x_a)^2 + (y - y_a)^2} = \\|p - a\\|$.\\par Posons donc $\\alpha = \\varepsilon$. Pour tout point $p \\in \\mathbb{R}^2$ : $\\|p - a\\| < \\alpha \\Rightarrow |f(p) - f(a)| < \\varepsilon$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_norme_continue",
+      "type": "example",
+      "title": "Exemple : Continuité de la norme",
+      "content_latex": "La norme $v \\mapsto \\|v\\|$ est continue sur $\\mathbb{R}^2$.",
+      "proof_latex": "Simple composition de la fonction polynomiale $(x, y) \\mapsto x^2 + y^2$ continue sur $\\mathbb{R}^2$ à valeurs dans $\\mathbb{R}_+$ et de la fonction $t \\mapsto \\sqrt{t}$ continue sur $\\mathbb{R}_+$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_produit_fonctions_continues",
+      "type": "example",
+      "title": "Exemple : Continuité de fonctions séparables",
+      "content_latex": "Soient $I$ et $J$ deux intervalles, $\\varphi \\in \\mathcal{C}(I, \\mathbb{R})$ et $\\psi \\in \\mathcal{C}(J, \\mathbb{R})$. Les deux fonctions $(x, y) \\mapsto \\varphi(x) + \\psi(y)$ et $(x, y) \\mapsto \\varphi(x)\\psi(y)$ sont continues sur $I \\times J$.",
+      "proof_latex": "$(x, y) \\mapsto x$ est continue sur $I \\times \\mathbb{R}$ et $x \\mapsto \\varphi(x)$ l'est sur $I$, donc $(x, y) \\mapsto \\varphi(x)$ est continue sur $I \\times J$ par composition. Même raisonnement pour $(x, y) \\mapsto \\psi(y)$. On conclut par somme et produit."
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_fonctions_elementaires",
+      "type": "warning",
+      "title": "Attention : Utilisation des fonctions élémentaires",
+      "content_latex": "Dans les exemples qui précèdent, on a soigneusement fait appel aux fonctions élémentaires $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$, même pour justifier la continuité d'une fonction aussi simple que $(x, y) \\mapsto \\varphi(x)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__intro_calcul_differentiel",
+      "type": "remark",
+      "title": "Introduction : Calcul différentiel",
+      "content_latex": "La théorie de la « dérivation » des fonctions en général, pas forcément de $\\mathbb{R}$ dans $\\mathbb{R}$, est appelée calcul différentiel. Je mets des guillemets parce que, comme nous allons le voir, il est beaucoup plus compliqué et subtil de « dériver » une fonction de plusieurs variables qu'une fonction d'une seule variable.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_derivee_directionnelle",
+      "type": "definition",
+      "title": "Définition : Dérivée directionnelle",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction, $a \\in \\Omega$ et $v \\in \\mathbb{R}^2$. On dit que $f$ est dérivable en $a$ dans la direction $v$ si la fonction $t \\mapsto f(a + tv)$ est dérivable en $0$, i.e. si la fonction $F : t \\mapsto \\frac{f(a + tv) - f(a)}{t}$ possède une limite finie en $0$.\\par Le cas échéant, on appelle dérivée de $f$ en $a$ dans la direction $v$ le réel $D_v f(a) = F'(0) = \\lim_{t \\to 0} \\frac{f(a + tv) - f(a)}{t}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_v_nul",
+      "type": "remark",
+      "title": "Remarque : Cas où v = (0, 0)",
+      "content_latex": "Si $v = (0, 0)$, la fonction $t \\mapsto f(a + tv) = f(a)$ est définie et constante sur $\\mathbb{R}$ tout entier, donc dérivable en $0$ avec $D_{(0,0)} f(a) = 0$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_ouvert_derivee_dir",
+      "type": "remark",
+      "title": "Remarque : Rôle de l'ouverture de $\\Omega$",
+      "content_latex": "Pour $v$ non nul, la définition précédente n'a de sens que parce que la fonction $t \\mapsto f(a + tv)$ est définie au voisinage de $0$. Cela découle du caractère ouvert de $\\Omega$, qui contient $B(a, r)$ pour un certain $r > 0$. Posons en effet $\\alpha = \\frac{r}{\\|v\\|}$. Pour tout $t \\in ]-\\alpha, \\alpha[$ : $\\|a + tv - a\\| = d(a, a + tv) = \\|tv\\| = |t| \\cdot \\|v\\| < \\alpha \\|v\\| = r$. La fonction $t \\mapsto f(a + tv)$ est ainsi définie sur $]-\\alpha, \\alpha[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__interpretation_geometrique_derivee_dir",
+      "type": "remark",
+      "title": "Interprétation géométrique de la dérivée directionnelle",
+      "content_latex": "Et maintenant, que représente géométriquement la dérivée de $f$ en $a$ dans la direction $v$ ?\\par 1) Considérez dans $\\mathbb{R}^3$ le graphe $\\mathcal{S}$ de $f$ : $\\mathcal{S} = \\{(x, y, z) \\in \\mathbb{R}^3 \\mid (x, y) \\in \\Omega \\text{ et } z = f(x, y)\\}$.\\par 2) Coupez-le sans ménagement par le plan « vertical » $\\mathcal{P}_{a,v}$ passant par $a$ dirigé par les deux vecteurs orthogonaux $v$ et $e_3$. En toute rigueur, $v$ appartient à $\\mathbb{R}^2$, mais nous avons identifié $\\mathbb{R}^2$ au plan d'équation $z = 0$ de $\\mathbb{R}^3$. L'intersection $\\mathcal{S} \\cap \\mathcal{P}_{a,v}$ est une courbe $\\mathcal{C}$ du plan $\\mathcal{P}_{a,v}$.\\par 3) Oubliez désormais le reste de l'espace et concentrez-vous sur $\\mathcal{C}$. Munissez $\\mathcal{P}_{a,v}$ du repère $(a, v, e_3)$. La courbe $\\mathcal{C}$ n'est alors rien de plus que le graphe de la fonction $t \\mapsto f(a + tv)$ et, s'il existe, $D_v f(a)$ est son nombre dérivé en $0$, i.e. la pente de sa tangente en $0$. Notez bien ici que $v$ n'est pas forcément unitaire, il faut en tenir compte quand on se représente la pente.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_derivees_partielles",
+      "type": "definition",
+      "title": "Définition : Dérivées partielles",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. S'il existe, le réel $D_{e_1} f(a)$ est appelé première dérivée partielle de $f$ en $a$ et noté $\\partial_1 f(a)$.\\par Même chose pour la notion de deuxième dérivée partielle. Le cas échéant, le réel $D_{e_2} f(a)$ est noté $\\partial_2 f(a)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_notation_derivees_partielles",
+      "type": "remark",
+      "title": "Remarque : Notation des dérivées partielles",
+      "content_latex": "Une fonction $f$ d'UNE SEULE variable possède UNE SEULE dérivée $f'$ quand elle est dérivable. Il arrive qu'on note $\\frac{df}{dx}$ cette dérivée, mais cela signifie qu'on a choisi une fois pour toutes de voir $f$ comme une fonction de la variable $x$. Après un tel choix, il n'est pas possible de noter $\\frac{df}{dt}$ la dérivée de $f$.\\par La situation est la même avec les fonctions de deux variables. Une fonction $f$ de DEUX variables possède DEUX dérivées partielles quand elle en possède. On peut les noter $\\partial_1 f$ et $\\partial_2 f$, mais il est courant qu'on choisisse de voir $f$ comme une fonction du couple $(x, y)$. Le cas échéant, $\\partial_1 f$ est notée $\\frac{\\partial f}{\\partial x}$ et $\\partial_2 f$ est notée $\\frac{\\partial f}{\\partial y}$. Dans certains contextes, on préférera voir $f$ comme une fonction du couple $(u, v)$, auquel cas ses dérivées partielles sont notées $\\frac{\\partial f}{\\partial u}$ et $\\frac{\\partial f}{\\partial v}$. Tous les choix sont permis, mais une fois qu'on a choisi une convention de notation, on s'y tient et on n'accorde pas plus de deux dérivées partielles à $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_notation_derivees_partielles",
+      "type": "warning",
+      "title": "Attention : Notation des dérivées partielles",
+      "content_latex": "Pour une fonction d'une seule variable, la notation $\\frac{df}{dx}$ s'écrit avec des « d » droits. Pour une fonction de deux variables, les notations $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ s'écrivent au contraire avec des « d » ronds. C'est comme ça...\\par Par ailleurs, quand on évalue $\\frac{\\partial f}{\\partial x}$ en $(x, y)$, le résultat se note $\\frac{\\partial f}{\\partial x}(x, y)$ ET NON PAS $\\frac{\\partial f(x, y)}{\\partial x}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__calcul_derivees_partielles",
+      "type": "method",
+      "title": "Méthode : Calcul des dérivées partielles",
+      "content_latex": "Le calcul concret des dérivées partielles est très facile. En effet, avec des notations évidentes :\\par $\\partial_1 f(a) = \\lim_{t \\to 0} \\frac{f(a + te_1) - f(a)}{t} = \\lim_{t \\to 0} \\frac{f(x_a + t, y_a) - f(x_a, y_a)}{t}$,\\par donc calculer $\\partial_1 f(a)$ revient à fixer $y$ à la valeur $y_a$ dans $f(x, y)$ et à dériver par rapport à $x$ au sens usuel. Pour la même raison, on obtient $\\partial_2 f$ en dérivant $f(x, y)$ par rapport à $y$ à $x$ fixé.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_derivees_partielles_exy2",
+      "type": "example",
+      "title": "Exemple : Dérivées partielles de $e^{xy^2}$",
+      "content_latex": "La fonction $(x, y) \\mapsto e^{xy^2}$ possède des dérivées partielles sur $\\mathbb{R}^2$ et pour tout $(x, y) \\in \\mathbb{R}^2$ :\\par $\\frac{\\partial f}{\\partial x}(x, y) = y^2 e^{xy^2}$ et $\\frac{\\partial f}{\\partial y}(x, y) = 2xy e^{xy^2}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_operations_derivees_partielles",
+      "type": "theorem",
+      "title": "Théorème : Opérations sur les dérivées partielles",
+      "content_latex": "• Combinaison linéaire, produit, inverse : Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f : \\Omega \\to \\mathbb{R}$ et $g : \\Omega \\to \\mathbb{R}$ deux fonctions. Si $f$ et $g$ possèdent des dérivées partielles sur $\\Omega$, il en va de même de toute combinaison linéaire de $f$ et $g$ et du produit $fg$, mais aussi de l'inverse $\\frac{1}{f}$ si $f$ ne s'annule pas. En outre, pour tous $i \\in \\{1, 2\\}$ et $\\lambda, \\mu \\in \\mathbb{R}$ :\\par $\\partial_i(\\lambda f + \\mu g) = \\lambda \\partial_i f + \\mu \\partial_i g$,\\par $\\partial_i(fg) = g \\partial_i f + f \\partial_i g$ et $\\partial_i\\left(\\frac{1}{f}\\right) = -\\frac{\\partial_i f}{f^2}$.\\par • Composition : Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $I$ un intervalle, $f : \\Omega \\to \\mathbb{R}$ et $\\varphi : I \\to \\mathbb{R}$ deux fonctions avec $f(\\Omega) \\subset I$. Si $f$ possède des dérivées partielles sur $\\Omega$ et si $\\varphi$ est dérivable sur $I$, $\\varphi \\circ f$ possède des dérivées partielles sur $\\Omega$ et pour tout $i \\in \\{1, 2\\}$ : $\\partial_i(\\varphi \\circ f) = \\varphi' \\circ f \\times \\partial_i f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_gradient",
+      "type": "definition",
+      "title": "Définition : Gradient",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f : \\Omega \\to \\mathbb{R}$ une fonction et $a \\in \\Omega$. Si $f$ possède des dérivées partielles en $a$, on appelle gradient de $f$ en $a$ le VECTEUR de $\\mathbb{R}^2$ :\\par $\\nabla f(a) = \\text{grad } f(a) = (\\partial_1 f(a), \\partial_2 f(a)) = \\partial_1 f(a) e_1 + \\partial_2 f(a) e_2$.\\par Le symbole $\\nabla$ se lit « nabla » !",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__operations_gradients",
+      "type": "property",
+      "title": "Propriété : Opérations sur les gradients",
+      "content_latex": "$\\nabla(\\lambda f + \\mu g) = \\lambda \\nabla f + \\mu \\nabla g$,\\par $\\nabla(fg) = g \\nabla f + f \\nabla g$,\\par $\\nabla\\left(\\frac{1}{f}\\right) = -\\frac{1}{f^2} \\nabla f$ et $\\nabla(\\varphi \\circ f) = \\varphi' \\circ f \\times \\nabla f$.\\par Par exemple, si les variables de $f$ sont notées $x$ et $y$ :\\par $\\nabla f(A) = \\frac{\\partial f}{\\partial x}(A) e_1 + \\frac{\\partial f}{\\partial y}(A) e_2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__section_fonctions_C1",
+      "type": "remark",
+      "title": "Section 4 : Fonctions de classe C¹",
+      "content_latex": "4.1 DÉFINITION ET PREMIÈRES PROPRIÉTÉS",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_fonction_C1",
+      "type": "definition",
+      "title": "Définition : Fonction de classe C¹",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f : \\Omega \\to \\mathbb{R}$ une fonction. On dit que $f$ est de classe $C^1$ sur $\\Omega$ si $f$ possède des dérivées partielles sur $\\Omega$ et si celles-ci sont continues sur $\\Omega$.\\par L'ensemble des fonctions de classe $C^1$ sur $\\Omega$ à valeurs dans $\\mathbb{R}$ est noté $C^1(\\Omega, \\mathbb{R})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__propriete_operations_C1",
+      "type": "property",
+      "title": "Propriété : Opérations sur les fonctions C¹",
+      "content_latex": "Toute combinaison linéaire et tout produit de fonctions de classe $C^1$ est bien sûr de classe $C^1$. L'inverse d'une fonction $C^1$ qui ne s'annule pas aussi. Enfin, pour tout ouvert $\\Omega$ de $\\mathbb{R}^2$ et tout intervalle $I$, la composée $\\varphi \\circ f$ d'une fonction $f \\in C^1(\\Omega, \\mathbb{R})$ avec $f(\\Omega) \\subset I$ et d'une fonction $\\varphi \\in C^1(I, \\mathbb{R})$ est une fonction de classe $C^1$ sur $\\Omega$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_polynomiale_C1",
+      "type": "example",
+      "title": "Exemple : Fonctions polynomiales de classe C¹",
+      "content_latex": "Les fonctions $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$ sont de classe $C^1$ sur $\\mathbb{R}^2$. A fortiori, par produit et combinaison linéaire, toute fonction polynomiale de deux variables est de classe $C^1$ sur $\\mathbb{R}^2$.",
+      "proof_latex": "Montrons-le pour $(x, y) \\mapsto x$. Pour tout $y \\in \\mathbb{R}$ (variable gelée), la fonction $x \\mapsto f(x, y) = x$ est dérivable sur $\\mathbb{R}$, donc $f$ possède une première dérivée partielle sur $\\mathbb{R}^2$ et $\\frac{\\partial f}{\\partial x}(x, y) = 1$ pour tout $(x, y) \\in \\mathbb{R}^2$.\\par De même, pour tout $x \\in \\mathbb{R}$ (variable gelée), la fonction $y \\mapsto f(x, y) = x$ est dérivable sur $\\mathbb{R}$, donc $f$ possède une deuxième dérivée partielle sur $\\mathbb{R}^2$ et $\\frac{\\partial f}{\\partial y}(x, y) = 0$ pour tout $(x, y) \\in \\mathbb{R}^2$. Finalement, $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ étant continues sur $\\mathbb{R}^2$ car constantes, $f$ est de classe $C^1$ sur $\\mathbb{R}^2$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_norme_C1",
+      "type": "example",
+      "title": "Exemple : La norme est de classe C¹ (sauf en 0)",
+      "content_latex": "La norme $v \\mapsto \\|v\\|$ est de classe $C^1$ sur $\\mathbb{R}^2 \\setminus \\{(0, 0)\\}$ — attention, pas en $(0, 0)$ !",
+      "proof_latex": "D'abord, $\\mathbb{R}^2 \\setminus \\{(0, 0)\\}$ est bien ouvert. Ensuite, la fonction polynomiale $(x, y) \\mapsto x^2 + y^2$ est de classe $C^1$ sur $\\mathbb{R}^2$ à valeurs dans $\\mathbb{R}_+^*$ et la fonction $t \\mapsto \\sqrt{t}$ est de classe $C^1$ sur $\\mathbb{R}_+^*$, donc par composition, $v \\mapsto \\|v\\|$ est de classe $C^1$ sur $\\mathbb{R}^2 \\setminus \\{(0, 0)\\}$.\\par Et en $(0, 0)$ ? Pour tout $t \\in \\mathbb{R}^*$ : $\\frac{\\|(0, 0) + te_1\\| - \\|(0, 0)\\|}{t} = \\frac{|t|}{t}$ et bien sûr, cette quantité n'a pas de limite quand $t$ tend vers $0$, donc $v \\mapsto \\|v\\|$ n'a pas de première dérivée partielle en $(0, 0)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_ex_lny_C1",
+      "type": "example",
+      "title": "Exemple : Fonction $e^{-x} \\ln y$ de classe C¹",
+      "content_latex": "La fonction $(x, y) \\mapsto e^{-x} \\ln y$ est de classe $C^1$ sur $\\mathbb{R} \\times \\mathbb{R}_+^*$.",
+      "proof_latex": "D'abord, $\\mathbb{R} \\times \\mathbb{R}_+^*$ est ouvert en tant que produit de deux intervalles ouverts. Ensuite, $(x, y) \\mapsto e^{-x}$ est de classe $C^1$ sur $\\mathbb{R} \\times \\mathbb{R}_+^*$ par composition via les fonctions $(x, y) \\mapsto x$ et $y \\mapsto e^{-y}$. De même, $(x, y) \\mapsto \\ln y$ est de classe $C^1$ sur $\\mathbb{R} \\times \\mathbb{R}_+^*$ et $x \\mapsto \\ln x$ l'est sur $\\mathbb{R}_+^*$. On conclut par produit."
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_fonctions_elementaires_C1",
+      "type": "warning",
+      "title": "Attention : Utilisation des fonctions élémentaires pour C¹",
+      "content_latex": "Dans les exemples qui précèdent, on a soigneusement fait appel aux fonctions élémentaires $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$, même pour justifier que la fonction $(x, y) \\mapsto e^{-x}$ est de classe $C^1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__section_DL1",
+      "type": "remark",
+      "title": "4.2 Existence de développements limités à l'ordre 1",
+      "content_latex": "La suite du chapitre repose en grande partie sur le résultat que voici dont la preuve est explicitement hors programme.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_existence_DL1_C1",
+      "type": "theorem",
+      "title": "Théorème : Existence de développements limités à l'ordre 1 pour les fonctions de classe C¹",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Alors $f$ possède un développement limité à l'ordre 1 au voisinage de $a$ :\\par $f(a + v) = f(a) + \\langle \\nabla f(a), v \\rangle + o(\\|v\\|)$ quand $v \\to (0, 0)$.\\par Si les variables de $f$ sont notées $x$ et $y$ et si $a = (x_a, y_a)$, il est équivalent d'affirmer que :\\par $f(p) = f(a) + \\langle \\nabla f(a), p - a \\rangle + o(\\|p - a\\|)$\\par ou encore :\\par $f(x_a + h, y_a + k) = f(a) + \\frac{\\partial f}{\\partial x}(a) h + \\frac{\\partial f}{\\partial y}(a) k + o(\\|(h, k)\\|)$.",
+      "proof_latex": "Quitte à remplacer $f$ par $(x, y) \\mapsto f(x_a + x, y_a + y)$, on peut supposer sans perte de généralité que $a = (0, 0)$.\\par Soit $\\varepsilon > 0$. Comme $\\Omega$ est ouvert, nous pouvons nous donner un réel $r > 0$ pour lequel $B(a, r) \\subset \\Omega$. En outre, les fonctions $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ étant continues en $(0, 0)$ par hypothèse, il existe des réels $\\alpha_x > 0$ et $\\alpha_y > 0$, que nous pouvons choisir inférieurs à $r$, pour lesquels pour tout $(h, k) \\in \\mathbb{R}^2$ :\\par $\\|(h, k)\\| < \\alpha_x \\Rightarrow \\left|\\frac{\\partial f}{\\partial x}(h, k) - \\frac{\\partial f}{\\partial x}(0, 0)\\right| < \\frac{\\varepsilon}{2}$ et $\\|(h, k)\\| < \\alpha_y \\Rightarrow \\left|\\frac{\\partial f}{\\partial y}(h, k) - \\frac{\\partial f}{\\partial y}(0, 0)\\right| < \\frac{\\varepsilon}{2}$.\\par Posons $\\alpha = \\min\\{\\alpha_x, \\alpha_y\\}$. Soit ensuite $v = (h, k) \\in \\mathbb{R}^2$ un vecteur pour lequel $\\|v\\| < \\alpha$.\\par $f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle = (f(h, k) - f(0, k)) + (f(0, k) - f(0, 0)) - \\frac{\\partial f}{\\partial x}(0, 0)h - \\frac{\\partial f}{\\partial y}(0, 0)k$\\par $= \\int_0^h \\frac{\\partial f}{\\partial x}(s, k) ds - \\frac{\\partial f}{\\partial x}(0, 0)h + \\int_0^k \\frac{\\partial f}{\\partial y}(0, t) dt - \\frac{\\partial f}{\\partial y}(0, 0)k$ d'après le théorème fondamental de l'analyse\\par Or pour tout $s$ compris entre $0$ et $h$ : $\\left|\\frac{\\partial f}{\\partial x}(s, k) - \\frac{\\partial f}{\\partial x}(0, 0)\\right| \\leq \\frac{\\varepsilon}{2}$ et pour tout $t$ compris entre $0$ et $k$ : $\\left|\\frac{\\partial f}{\\partial y}(0, t) - \\frac{\\partial f}{\\partial y}(0, 0)\\right| \\leq \\frac{\\varepsilon}{2}$ car $\\|(s, k)\\| \\leq \\|v\\| < \\alpha \\leq \\alpha_x$ et $\\|(0, t)\\| \\leq \\|v\\| < \\alpha \\leq \\alpha_y$.\\par donc : $\\left|f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle\\right| \\leq \\frac{\\varepsilon}{2}|h| + \\frac{\\varepsilon}{2}|k| \\leq \\varepsilon \\|v\\|$.\\par En résumé, nous avons trouvé un réel $\\alpha > 0$ pour lequel pour tout $v \\in \\mathbb{R}^2 \\setminus \\{(0, 0)\\}$ : $\\|v\\| < \\alpha \\Rightarrow \\frac{\\left|f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle\\right|}{\\|v\\|} \\leq \\varepsilon$. Comme voulu : $f(v) - f(0, 0) - \\langle \\nabla f(0, 0), v \\rangle = o(\\|v\\|)$ quand $v \\to (0, 0)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_continuite_C1",
+      "type": "theorem",
+      "title": "Théorème : Continuité d'une fonction de classe C¹",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$. Alors $f \\in \\mathcal{C}(\\Omega, \\mathbb{R})$.",
+      "proof_latex": "Pour tout $a \\in \\Omega$, par simple troncature du développement limité à l'ordre 1 de $f$ en $a$ : $f(p) \\xrightarrow[p \\to a]{} f(a)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_differentiabilite",
+      "type": "remark",
+      "title": "Remarque : Différentiabilité (hors programme)",
+      "content_latex": "Il peut sembler curieux qu'on dispose d'une notion de continuité et d'une notion de classe $C^1$, mais pas d'une notion intermédiaire de dérivabilité. Le chaînon manquant s'appelle la différentiabilité et ne figure pas au programme de MPSI, mais je lui consacrerai un petit paragraphe hors programme en fin de chapitre.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_plan_tangent",
+      "type": "definition",
+      "title": "Définition : Plan tangent",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a = (x_a, y_a) \\in \\Omega$. Le plan de $\\mathbb{R}^3$ d'équation :\\par $z = f(a) + \\frac{\\partial f}{\\partial x}(a)(x - x_a) + \\frac{\\partial f}{\\partial y}(a)(y - y_a)$\\par est appelé le plan tangent de $f$ en $a$.\\par Nous savons depuis longtemps qu'une courbe suffisamment régulière ressemble localement à une droite. Sans surprise, toute surface suffisamment régulière ressemble localement à un plan. Pour une fonction $\\phi$ d'une seule variable, l'équation de la tangente en $a$ s'exprimait naturellement en termes de développement limité à l'ordre 1 : $\\phi(x) = \\phi(a) + \\phi'(a)(x - a) + o(x - a)$. La situation est la même avec les fonctions de deux variables.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_plan_tangent_sin",
+      "type": "example",
+      "title": "Exemple : Plan tangent de $\\sin(x + 2y)$",
+      "content_latex": "La fonction $(x, y) \\mapsto \\sin(x + 2y)$ est de classe $C^1$ sur $\\mathbb{R}^2$ et son plan tangent en $(0, 0)$ a pour équation $z = x + 2y$.",
+      "proof_latex": "Polynomiale, la fonction $(x, y) \\mapsto x + 2y$ est de classe $C^1$ sur $\\mathbb{R}^2$ et la fonction $t \\mapsto \\sin t$ l'est sur $\\mathbb{R}$, donc $f : (x, y) \\mapsto \\sin(x + 2y)$ est de classe $C^1$ sur $\\mathbb{R}^2$ par composition.\\par Ensuite, pour tout $(x, y) \\in \\mathbb{R}^2$ : $\\frac{\\partial f}{\\partial x}(x, y) = \\cos(x + 2y)$ et $\\frac{\\partial f}{\\partial y}(x, y) = 2\\cos(x + 2y)$, donc le plan tangent de $f$ en $(0, 0)$ a donc pour équation $z = f(0, 0) + \\frac{\\partial f}{\\partial x}(0, 0)x + \\frac{\\partial f}{\\partial y}(0, 0)y = x + 2y$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__section_regle_chaine",
+      "type": "remark",
+      "title": "4.3 Règle de la chaîne",
+      "content_latex": "La maîtrise pratique du résultat qui suit est plus ou moins l'objectif majeur de ce chapitre. C'est très facile !",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_regle_chaine",
+      "type": "theorem",
+      "title": "Théorème : Règle de la chaîne",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $I$ un intervalle, $f \\in C^1(\\Omega, \\mathbb{R})$ et enfin $x, y \\in C^1(I, \\mathbb{R})$ deux fonctions pour lesquelles pour tout $t \\in I$ : $(x(t), y(t)) \\in \\Omega$.\\par La fonction $t \\mapsto F(t) = f(x(t), y(t))$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ :\\par $F'(t) = \\frac{d}{dt}f(x(t), y(t)) = x'(t)\\frac{\\partial f}{\\partial x}(x(t), y(t)) + y'(t)\\frac{\\partial f}{\\partial y}(x(t), y(t))$.\\par Dans cet énoncé, $f$ est perçue comme une fonction des variables $x$ et $y$, mais attention, ce $x$ et ce $y$ ne sont pas les fonctions $t \\mapsto x(t)$ et $t \\mapsto y(t)$ de l'énoncé, ce sont juste des noms de variables qui fixent la notation $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ des dérivées partielles.",
+      "proof_latex": "Notons $\\gamma$ la fonction $t \\mapsto (x(t), y(t))$, de sorte que $F = f \\circ \\gamma$. Soit $t \\in I$. Composons le développement limité de $f$ au voisinage de $\\gamma(t)$ à l'ordre 1 avec la limite $\\lim_{h \\to 0}(\\gamma(t + h) - \\gamma(t)) = (0, 0)$.\\par $F(t + h) = f(\\gamma(t + h)) = f(\\gamma(t) + (\\gamma(t + h) - \\gamma(t)))$\\par $= f(\\gamma(t)) + \\langle \\nabla f(\\gamma(t)), (\\gamma(t + h) - \\gamma(t)) \\rangle + o(\\|\\gamma(t + h) - \\gamma(t)\\|)$\\par $= f(\\gamma(t)) + \\frac{\\partial f}{\\partial x}(\\gamma(t))(x(t + h) - x(t)) + \\frac{\\partial f}{\\partial y}(\\gamma(t))(y(t + h) - y(t)) + o(\\sqrt{(x(t + h) - x(t))^2 + (y(t + h) - y(t))^2})$.\\par Or : $\\|\\gamma(t + h) - \\gamma(t)\\| = \\sqrt{x'(t)^2 + y'(t)^2}|h| + o(h)$, donc on peut remplacer le $o(\\|\\gamma(t + h) - \\gamma(t)\\|)$ par un $o(h)$ :\\par $F(t + h) = F(t) + \\frac{\\partial f}{\\partial x}(\\gamma(t))(hx'(t) + o(h)) + \\frac{\\partial f}{\\partial y}(\\gamma(t))(hy'(t) + o(h)) + o(h)$\\par $= F(t) + \\left(x'(t)\\frac{\\partial f}{\\partial x}(\\gamma(t)) + y'(t)\\frac{\\partial f}{\\partial y}(\\gamma(t))\\right)h + o(h)$.\\par Ce développement limité prouve que $F$ est dérivable en $t$ et que $F'(t) = x'(t)\\frac{\\partial f}{\\partial x}(\\gamma(t)) + y'(t)\\frac{\\partial f}{\\partial y}(\\gamma(t))$. Pour finir, l'expression de $F'$ ainsi obtenue est continue sur $I$, donc $F$ y est de classe $C^1$. La petite subtilité de l'affaire, c'est que $\\gamma$ est à valeurs dans $\\mathbb{R}^2$ et non pas $\\mathbb{R}$, mais ses composantes $x$ et $y$ sont continues toutes les deux."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_regle_chaine_f_t2_sint",
+      "type": "example",
+      "title": "Exemple : Règle de la chaîne avec $f(t^2, \\sin t)$",
+      "content_latex": "Soit $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$. La fonction $t \\mapsto F(t) = f(t^2, \\sin t)$ est de classe $C^1$ sur $\\mathbb{R}$ car $t \\mapsto t^2$ et $t \\mapsto \\sin t$ le sont sur $\\mathbb{R}$, et pour tout $t \\in \\mathbb{R}$ :\\par $F'(t) = 2t\\frac{\\partial f}{\\partial x}(t^2, \\sin t) + \\cos t \\frac{\\partial f}{\\partial y}(t^2, \\sin t)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_fonction_homogene",
+      "type": "example",
+      "title": "Exemple : Fonction homogène et équation aux dérivées partielles",
+      "content_latex": "Pour tout $\\alpha \\in \\mathbb{R}$ et toute fonction $f : \\mathbb{R}^2 \\to \\mathbb{R}$, on dit que $f$ est homogène de degré $\\alpha$ si pour tous $(x, y) \\in \\mathbb{R}^2$ et $\\lambda > 0$ : $f(\\lambda x, \\lambda y) = \\lambda^\\alpha f(x, y)$.\\par Fixons une fois pour toutes $\\alpha \\in \\mathbb{R}$ et $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$ homogène de degré $\\alpha$. Nous noterons par convention $x$ et $y$ les variables de $f$. Les dérivées partielles de $f$ sont donc les deux fonctions $\\partial_1 f = \\frac{\\partial f}{\\partial x}$ et $\\partial_2 f = \\frac{\\partial f}{\\partial y}$ et $f$ n'a pas d'autre dérivée partielle.\\par La relation de définition fait pourtant appel à trois variables $x$, $y$ et $\\lambda$ et on peut la dériver par rapport à chacune de ces variables. ATTENTION, on va dériver par rapport à $\\lambda$, mais la notation $\\frac{\\partial f}{\\partial \\lambda}$ n'a aucun sens !\\par • Dérivation par rapport à $x$ : $\\lambda\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) = \\lambda^\\alpha \\frac{\\partial f}{\\partial x}(x, y)$, i.e. $\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) = \\lambda^{\\alpha - 1}\\frac{\\partial f}{\\partial x}(x, y)$. Cette égalité vraie pour tous $(x, y) \\in \\mathbb{R}^2$ et $\\lambda > 0$ montre que $\\frac{\\partial f}{\\partial x}$ est homogène de degré $\\alpha - 1$.\\par • Dérivation par rapport à $y$ : Même calcul qu'à l'instant, $x$ et $y$ jouant des rôles symétriques : $\\frac{\\partial f}{\\partial y}(\\lambda x, \\lambda y) = \\lambda^{\\alpha - 1}\\frac{\\partial f}{\\partial y}(x, y)$, donc $\\frac{\\partial f}{\\partial y}$ est homogène de degré $\\alpha - 1$.\\par • Dérivation par rapport à $\\lambda$ : $x\\frac{\\partial f}{\\partial x}(\\lambda x, \\lambda y) + y\\frac{\\partial f}{\\partial y}(\\lambda x, \\lambda y) = \\alpha\\lambda^{\\alpha - 1}f(x, y)$, mais $\\frac{\\partial f}{\\partial x}$ et $\\frac{\\partial f}{\\partial y}$ sont homogènes de degré $\\alpha - 1$, donc on peut simplifier un peu : $x\\frac{\\partial f}{\\partial x} + y\\frac{\\partial f}{\\partial y} = \\alpha f$. Une telle relation qui lie $f$ à ses dérivées partielles est appelée une équation aux dérivées partielles. Les équations aux dérivées partielles sont aux fonctions de plusieurs variables ce que les équations différentielles sont aux fonctions d'une seule variable et la physique en est truffée.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_regle_chaine_v2",
+      "type": "theorem",
+      "title": "Théorème : Règle de la chaîne, dérivées directionnelles et gradient",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$.\\par (i) Règle de la chaîne deuxième version : Soient $I$ un intervalle et $\\gamma \\in C^1(I, \\mathbb{R}^2)$ à valeurs dans $\\Omega$. La fonction $f \\circ \\gamma$ est de classe $C^1$ sur $I$ et pour tout $t \\in I$ : $(f \\circ \\gamma)'(t) = \\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle$.\\par (ii) Dérivées directionnelles : La fonction $f$ possède une dérivée en tout point de $\\Omega$ dans toutes les directions. Plus précisément, pour tous $a \\in \\Omega$ et $v = (h, k) \\in \\mathbb{R}^2$ : $D_v f(a) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$.\\par (iii) Interprétation géométrique du gradient : Le gradient de $f$ est orthogonal aux lignes de niveau de $f$ et dirigé dans le sens des pentes croissantes.",
+      "proof_latex": "(i) Simple réécriture de la règle de la chaîne.\\par (ii) Comme $\\Omega$ est ouvert, la fonction $t \\mapsto F(t) = f(a + tv)$ est définie sur $]-\\alpha, \\alpha[$ pour un certain $\\alpha > 0$ et elle y est de classe $C^1$ d'après la règle de la chaîne avec $F'(0) = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$. Le résultat en découle car $F'(0) = D_v f(a)$ par définition des dérivées directionnelles.\\par (iii) Fixons $\\lambda \\in \\mathbb{R}$ et notons $\\mathcal{C}_\\lambda$ la courbe de niveau $\\lambda$ de $f$ : $\\mathcal{C}_\\lambda = \\{(x, y) \\in \\mathbb{R}^2 \\mid f(x, y) = \\lambda\\}$. Pour $\\mathcal{C}_\\lambda$ non vide. Faisons aussi l'hypothèse — pas vraie en toute généralité sous cette forme, mais passons — que $\\mathcal{C}_\\lambda$ peut être paramétrée par une courbe paramétrée $\\gamma = (x, y)$ de classe $C^1$ sur un intervalle $I$ dont la dérivée ne s'annule pas. Dans ces conditions, pour tout point $p \\in \\mathcal{C}_\\lambda \\Leftrightarrow \\exists t \\in I, p = \\gamma(t)$, donc $f(\\gamma(t)) = \\lambda$ pour tout $t \\in I$. En retour, d'après la règle de la chaîne : $\\langle \\nabla f(\\gamma(t)), \\gamma'(t) \\rangle = 0$. En d'autres termes, $\\nabla f(\\gamma(t))$ est orthogonal au vecteur $\\gamma'(t)$ qui dirige la tangente de $\\gamma$ en $t$. C'est cela qu'on veut dire quand on affirme que le gradient est orthogonal aux lignes de niveau."
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_gradient_pente",
+      "type": "remark",
+      "title": "Remarque : Interprétation du gradient comme pente",
+      "content_latex": "Pour une fonction $f$ d'une seule variable, vous savez depuis longtemps que le réel $f'(a)$ est la pente de la tangente de $f$ en $a$. Pour vous le faire comprendre, on vous a sans doute dit que « quand on avance de 1 vers la droite en abscisse, on monte de $f'(a)$ en ordonnée sur la tangente ». La situation est la même pour une fonction $f$ de deux variables. Au voisinage de $a$, le graphe de $f$ a l'allure de son plan tangent et $D_v f(a)$ n'est jamais que la pente de ce plan dans la direction $v$. L'assertion (ii) énoncé que quand on avance de $h$ dans la direction $e_1$ et de $k$ dans la direction $e_2$, on monte de $\\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k$ dans la direction $e_3$ sur le plan tangent.\\par L'assertion (ii) nous permet en retour d'interpréter géométriquement la règle de la chaîne. La relation $(f \\circ \\gamma)'(t) = D_{\\gamma'(t)} f(\\gamma(t))$ montre que $(f \\circ \\gamma)'(t)$ est une dérivée directionnelle de $f$, en l'occurrence la dérivée de $f$ en $\\gamma(t)$ dans la direction $\\gamma'(t)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_composition_R2_R2_R",
+      "type": "theorem",
+      "title": "Théorème : Composition d'une fonction de R² dans R² suivie d'une fonction de R² dans R",
+      "content_latex": "Soient $U$ et $\\Omega$ deux ouverts de $\\mathbb{R}^2$, $x, y \\in C^1(U, \\mathbb{R})$ et $f \\in C^1(\\Omega, \\mathbb{R})$. On suppose que $(x(u, v), y(u, v)) \\in \\Omega$ pour tout $(u, v) \\in U$ et on pose $F(u, v) = f(x(u, v), y(u, v))$. La fonction $F$ est de classe $C^1$ sur $U$ et pour tout $(u, v) \\in U$ :\\par $\\frac{\\partial F}{\\partial u}(u, v) = \\frac{\\partial x}{\\partial u}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial u}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$\\par et :\\par $\\frac{\\partial F}{\\partial v}(u, v) = \\frac{\\partial x}{\\partial v}(u, v)\\frac{\\partial f}{\\partial x}(x(u, v), y(u, v)) + \\frac{\\partial y}{\\partial v}(u, v)\\frac{\\partial f}{\\partial y}(x(u, v), y(u, v))$.\\par En résumé : $\\frac{\\partial F}{\\partial u} = \\frac{\\partial}{\\partial u}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial u}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial u}\\frac{\\partial f}{\\partial y}$ et $\\frac{\\partial F}{\\partial v} = \\frac{\\partial}{\\partial v}f(x(u, v), y(u, v)) = \\frac{\\partial x}{\\partial v}\\frac{\\partial f}{\\partial x} + \\frac{\\partial y}{\\partial v}\\frac{\\partial f}{\\partial y}$.\\par Dans cet énoncé, les fonctions $x$ et $y$ sont perçues comme des fonctions des variables $u$ et $v$ et $f$ comme une fonction de $x$ et $y$, mais attention, ce $x$ et ce $y$ sont juste des noms de variables et non pas les fonctions $(u, v) \\mapsto x(u, v)$ et $(u, v) \\mapsto y(u, v)$.",
+      "proof_latex": "La règle de la chaîne nous permet de dériver la fonction $u \\mapsto F(u, v)$ à $v$ fixé et la fonction $v \\mapsto F(u, v)$ à $u$ fixé. Il se trouve enfin que les expressions obtenues de $\\frac{\\partial F}{\\partial u}$ et $\\frac{\\partial F}{\\partial v}$ sont continues sur $U$, donc $F \\in C^1$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_composition_u2_v_uv_v2",
+      "type": "example",
+      "title": "Exemple : Composition avec $f(u^2 + v, uv - v^2)$",
+      "content_latex": "Soit $f \\in C^1(\\mathbb{R}^2, \\mathbb{R})$. On pose pour tout $(u, v) \\in \\mathbb{R}^2$ : $F(u, v) = f(u^2 + v, uv - v^2)$. La fonction $F$ est de classe $C^1$ sur $\\mathbb{R}^2$ car les fonctions $(u, v) \\mapsto u^2 + v$ et $(u, v) \\mapsto uv - v^2$ le sont et pour tout $(u, v) \\in \\mathbb{R}^2$ :\\par $\\frac{\\partial F}{\\partial u}(u, v) = 2u\\frac{\\partial f}{\\partial x}(u^2 + v, uv - v^2) + v\\frac{\\partial f}{\\partial y}(u^2 + v, uv - v^2)$\\par et $\\frac{\\partial F}{\\partial v}(u, v) = \\frac{\\partial f}{\\partial x}(u^2 + v, uv - v^2) + (u - 2v)\\frac{\\partial f}{\\partial y}(u^2 + v, uv - v^2)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__section_coordonnees_polaires",
+      "type": "remark",
+      "title": "Section : Passage en coordonnées polaires",
+      "content_latex": "Le passage d'un problème posé en termes de coordonnées cartésiennes à un problème posé en termes de coordonnées polaires est particulièrement courant. Rappelons donc que tout point $(x, y)$ de $\\mathbb{R}^2$ peut être écrit sous la forme $(r\\cos\\theta, r\\sin\\theta)$ pour un certain couple $(r, \\theta) \\in \\mathbb{R}_+ \\times \\mathbb{R}$. Trois relations à connaître :\\par $x = r\\cos\\theta, \\quad y = r\\sin\\theta \\quad \\text{et} \\quad r = \\sqrt{x^2 + y^2}$.\\par En réalité, on autorise souvent $r$ à être négatif quand on parle de coordonnées polaires. Ainsi, si $(r, \\theta)$ est un couple de coordonnées polaires de $(x, y)$ avec $r \\geq 0$ : $(-r, \\theta + \\pi)$ est un autre couple de coordonnées polaires de $(x, y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_version_polaire",
+      "type": "definition",
+      "title": "Définition : Version polaire d'une fonction",
+      "content_latex": "Notons à présent $x$ la fonction $(r, \\theta) \\mapsto r\\cos\\theta$ et $y$ la fonction $(r, \\theta) \\mapsto r\\sin\\theta$, toutes deux de classe $C^1$ sur $\\mathbb{R}^2$. La fonction $(r, \\theta) \\mapsto (x(r, \\theta), y(r, \\theta)) = (r\\cos\\theta, r\\sin\\theta)$ est alors de classe $C^1$ de $\\mathbb{R}^2$ dans $\\mathbb{R}^2$ et c'est grâce à elle qu'on passe d'une expression en coordonnées cartésiennes à une expression en coordonnées polaires.\\par Donnons-nous à présent une fonction $f \\in C^1$ de variables $x$ et $y$ sur un ouvert $\\Omega_{\\text{cart}}$ de $\\mathbb{R}^2$. Notons ensuite $\\Omega_{\\text{pol}}$ l'image réciproque de $\\Omega_{\\text{cart}}$ par $\\phi$ — on peut montrer que $\\Omega_{\\text{pol}}$ est un ouvert de $\\mathbb{R}^2$. Posons enfin $F(r, \\theta) = f(r\\cos\\theta, r\\sin\\theta)$ pour tout $(r, \\theta) \\in \\Omega_{\\text{pol}}$. La fonction $F$ ainsi définie est la version polaire de $f$.\\par Les physiciens donneraient le même nom aux deux fonctions car elles représentent pour eux le même phénomène physique — force, température, champ magnétique... — exprimé simplement de deux façons différentes. Pour nous autres matheux, $f$ et $F$ sont bel et bien deux fonctions différentes définies sur des ensembles différents — mais de même image.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_derivees_polaires",
+      "type": "theorem",
+      "title": "Théorème : Dérivées partielles en coordonnées polaires",
+      "content_latex": "La fonction $F$ est de classe $C^1$ sur $\\Omega_{\\text{pol}}$ et pour tous $(x, y) \\in \\Omega_{\\text{cart}}$ et $(r, \\theta) \\in \\Omega_{\\text{pol}}$ liés par la relation $(x, y) = (r\\cos\\theta, r\\sin\\theta)$ :\\par $\\frac{\\partial F}{\\partial r}(r, \\theta) = \\cos\\theta\\frac{\\partial f}{\\partial x}(r\\cos\\theta, r\\sin\\theta) + \\sin\\theta\\frac{\\partial f}{\\partial y}(r\\cos\\theta, r\\sin\\theta) = \\cos\\theta\\frac{\\partial f}{\\partial x}(x, y) + \\sin\\theta\\frac{\\partial f}{\\partial y}(x, y)$\\par donc : $r\\frac{\\partial F}{\\partial r}(r, \\theta) = x\\frac{\\partial f}{\\partial x}(x, y) + y\\frac{\\partial f}{\\partial y}(x, y)$ après multiplication par $r$.\\par De même :\\par $\\frac{\\partial F}{\\partial \\theta}(r, \\theta) = -r\\sin\\theta\\frac{\\partial f}{\\partial x}(r\\cos\\theta, r\\sin\\theta) + r\\cos\\theta\\frac{\\partial f}{\\partial y}(r\\cos\\theta, r\\sin\\theta)$, donc :\\par $\\frac{\\partial F}{\\partial \\theta}(r, \\theta) = -y\\frac{\\partial f}{\\partial x}(x, y) + x\\frac{\\partial f}{\\partial y}(x, y)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_equation_aux_derivees_partielles",
+      "type": "example",
+      "title": "Exemple : Résolution d'une équation aux dérivées partielles",
+      "content_latex": "On s'intéresse à l'équation aux dérivées partielles $y\\frac{\\partial f}{\\partial x} = x\\frac{\\partial f}{\\partial y}$ d'inconnue $f \\in C^1(\\Omega, \\mathbb{R})$ où $\\Omega = \\mathbb{R}^2 \\setminus \\{(0, 0)\\}$, avec la condition aux limites $f(x, 0) = e^{-x}$ pour tout $x > 0$. Ce type de condition joue le même rôle que les conditions initiales d'une équation différentielle.\\par • Analyse : Soit $f \\in C^1(\\Omega, \\mathbb{R})$. Posons $F(r, \\theta) = f(r\\cos\\theta, r\\sin\\theta)$ pour tout $(r, \\theta) \\in \\mathbb{R}_+^* \\times \\mathbb{R}$. La fonction $F$ ainsi définie est de classe $C^1$ sur $\\mathbb{R}_+^* \\times \\mathbb{R}$ et d'après les calculs qui précèdent : $\\frac{\\partial F}{\\partial \\theta}(r, \\theta) = -y\\frac{\\partial f}{\\partial x}(x, y) + x\\frac{\\partial f}{\\partial y}(x, y) = 0$.\\par Ainsi, POUR TOUT $r > 0$, la fonction $\\theta \\mapsto F(r, \\theta)$ est constante sur $\\mathbb{R}$, disons de valeur $\\phi(r)$ DÉPENDANTE DE $r$. Cela dit, $F$ est de classe $C^1$ en tant que fonction de deux variables, elle l'est donc aussi par rapport à $r$ quand on gèle la variable $\\theta$. Ainsi, $\\phi$ est de classe $C^1$ sur $\\mathbb{R}_+^*$ et $f(x, y) = \\phi(\\sqrt{x^2 + y^2})$ pour tout $(x, y) \\in \\Omega$, donc pour tout $x > 0$ : $\\phi(x) = \\phi(\\sqrt{x^2 + 0^2}) = f(x, 0) = e^{-x}$.\\par • Synthèse : Notons $f$ la fonction $(x, y) \\mapsto e^{-\\sqrt{x^2 + y^2}}$ sur $\\Omega$. La fonction polynomiale $(x, y) \\mapsto x^2 + y^2$ est de classe $C^1$ sur $\\mathbb{R}^2$ à valeurs dans $\\mathbb{R}_+^*$ et la fonction $t \\mapsto e^{-\\sqrt{t}}$ est de classe $C^1$ sur $\\mathbb{R}_+^*$, donc $f$ est de classe $C^1$ sur $\\Omega$ et $\\frac{\\partial f}{\\partial x}(x, y) = y\\frac{\\partial f}{\\partial y}(x, y)$ pour tout $(x, y) \\in \\Omega$.\\par Enfin, $f(x, 0) = e^{-\\sqrt{x^2 + 0^2}} = e^{-x}$ pour tout $x > 0$.\\par La fonction $(x, y) \\mapsto e^{-\\sqrt{x^2 + y^2}}$ est donc la seule solution du problème étudié, mais notez bien que sans condition aux limites, le problème aurait eu énormément de solutions — toutes les fonctions $(x, y) \\mapsto \\phi(\\sqrt{x^2 + y^2})$, $\\phi$ décrivant $C^1(\\mathbb{R}_+^*, \\mathbb{R})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_extremum_local",
+      "type": "definition",
+      "title": "Définition : Extremum local",
+      "content_latex": "Soient $E$ une partie de $\\mathbb{R}^2$, $f : E \\to \\mathbb{R}$ une fonction et $a \\in E$. On dit que $f$ possède un maximum local en $a$ si $f$ est majorée par $f(a)$ au voisinage de $a$, et un minimum local en $a$ si elle est minorée par $f(a)$ au voisinage de $a$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__theorem_extrema_C1",
+      "type": "theorem",
+      "title": "Théorème : Extrema locaux d'une fonction de classe C¹",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$, $f \\in C^1(\\Omega, \\mathbb{R})$ et $a \\in \\Omega$. Si $f$ possède un extremum local en $a$, alors $a$ est un point critique de $f$, autrement dit $\\nabla f(a) = (0, 0)$. A fortiori, le plan tangent de $f$ en $a$ est parallèle au plan abscisse et les dérivées directionnelles de $f$ en $a$ sont toutes nulles.",
+      "proof_latex": "Faisons l'hypothèse que $f$ a un maximum local en $a$. Pour tout $v \\in \\mathbb{R}^2$, la fonction d'une variable $t \\mapsto F(t) = f(a + tv)$ est de classe $C^1$ et majorée par $F(0) = f(a)$ au voisinage de $0$, donc possède un maximum local en $0$. Comme voulu : $D_v f(a) = F'(0) = 0$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__warning_reciproque_fausse_extrema",
+      "type": "warning",
+      "title": "Attention : Réciproque fausse pour les extrema locaux",
+      "content_latex": "RÉCIPROQUE FAUSSE ! La nullité du gradient ou de toutes les dérivées directionnelles n'est pas le signe d'un extremum local. Vous n'en serez pas surpris, la réciproque était déjà fausse pour les fonctions d'une seule variable. Par exemple, en notant $f$ la fonction $(x, y) \\mapsto x^3$ : $\\nabla f(0, 0) = (0, 0)$, donc pour tout $v = (h, k) \\in \\mathbb{R}^2$ : $D_{(0,0)} f(v) = \\langle \\nabla f(0, 0), v \\rangle = 0$, donc les dérivées directionnelles de $f$ en $(0, 0)$ sont toutes nulles, mais pourtant $f$ n'a pas d'extremum local en $(0, 0)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__methode_extrema_quadratique",
+      "type": "method",
+      "title": "Méthode : Détermination des extrema locaux",
+      "content_latex": "Mais comment détermine-t-on concrètement les extrema locaux d'une fonction de deux variables ? Nous nous contenterons d'exploiter nos connaissances sur les polynômes du second degré et de raisonner par analyse-synthèse.\\par Pour $a, b, c \\in \\mathbb{R}$ fixés avec $(a, c) \\neq (0, 0)$, le signe de la fonction $(h, k) \\mapsto \\phi(h, k) = ah^2 + bhk + ck^2$ est facile à déterminer. Si on note $P$ le polynôme $aX^2 + bX + c$, alors $\\phi(h, k) = k^2 P\\left(\\frac{h}{k}\\right)$ pour tous $h \\in \\mathbb{R}$ et $k \\in \\mathbb{R}^*$.\\par — Cas où $b^2 - 4ac \\leq 0$ : Les réels $a$ et $c$ sont de même signe et $P$ est de signe constant, celui de $a$ ou $c$ selon que $a$ ou $c$ est non nul, donc $\\phi$ est elle aussi de signe constant.\\par — Cas où $b^2 - 4ac > 0$ : Le polynôme $P$ prend à la fois des valeurs strictement positives et des valeurs strictement négatives, donc la fonction $\\phi$ aussi. Le signe de $\\phi(h, k)$ dépend du rapport $\\frac{h}{k}$, i.e. de l'angle que le vecteur $(h, k)$ forme avec le vecteur $e_1$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_minimum_local_xy",
+      "type": "example",
+      "title": "Exemple : Minimum local",
+      "content_latex": "La fonction $(x, y) \\mapsto f(x, y) = x^2 - 3x + xy + y^2$ possède un et un seul extremum local, en l'occurrence un minimum local en $(2, -1)$.",
+      "proof_latex": "Tout d'abord, $f$ est de classe $C^1$ sur $\\mathbb{R}^2$.\\par Analyse : Soit $(x, y) \\in \\mathbb{R}^2$. Si $f$ possède un extremum local en $(x, y)$ : $\\frac{\\partial f}{\\partial x}(x, y) = \\frac{\\partial f}{\\partial y}(x, y) = 0$, donc $2x + y = 3$ et $x + 2y = 0$, donc $x = 2$ et $y = -1$.\\par Synthèse : Le point $(2, -1)$ est-il bel et bien un extremum local de $f$ ? Pour trancher, nous devons comparer $f(2 + h, -1 + k)$ et $f(2, -1)$ pour $(h, k)$ choisi dans un voisinage de $(0, 0)$ — il vaut mieux se ramener au point $(0, 0)$, on y voit plus clair. Or pour tout $(h, k) \\in \\mathbb{R}^2$ :\\par $f(2 + h, -1 + k) - f(2, -1) = (2 + h)^2 - 3(2 + h) + (2 + h)(-1 + k) + (-1 + k)^2 + 3 = h^2 + hk + k^2 = \\left(h + \\frac{k}{2}\\right)^2 + \\frac{3k^2}{4} \\geq 0$,\\par donc $f$ possède un minimum local en $(2, -1)$. J'ai privilégié ici une mise sous forme canonique, bien pratique, mais on aurait pu s'intéresser au discriminant du polynôme $X^2 + X + 1$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_pas_extremum",
+      "type": "example",
+      "title": "Exemple : Pas d'extremum local",
+      "content_latex": "La fonction $(x, y) \\mapsto g(x, y) = x^2 - xy - \\frac{y^2}{2} + x + 2y$ ne possède aucun extremum local sur $\\mathbb{R}^2$.",
+      "proof_latex": "Tout d'abord, $g$ est de classe $C^1$ sur $\\mathbb{R}^2$.\\par • Analyse : Soit $(x, y) \\in \\mathbb{R}^2$. Si $g$ possède un extremum local en $(x, y)$ : $\\frac{\\partial g}{\\partial x}(x, y) = \\frac{\\partial g}{\\partial y}(x, y) = 0$, donc $2x - y = 1$ et $x + y = 2$, donc $x = 1$ et $y = 1$.\\par • Synthèse : Le point $(1, 1)$ est-il bel et bien un extremum local de $g$ ? Pour tout $(h, k) \\in \\mathbb{R}^2$ :\\par $g(1 + h, 1 + k) - g(1, 1) = (1 + h)^2 - (1 + h)(1 + k) - \\frac{(1 + k)^2}{2} + (1 + h) + 2(1 + k) - \\frac{5}{2} = h^2 - hk - \\frac{k^2}{2}$.\\par Le discriminant du polynôme $X^2 - X - \\frac{1}{2}$ étant strictement positif, cette expression n'a pas un signe constant au voisinage de $(0, 0)$, mais soyons précis. Pour tout $h \\in \\mathbb{R}^*$ : $g(1 + h, 1) - g(1, 1) = h^2 > 0$, donc $g$ n'est majorée par $g(1, 1)$ sur aucun voisinage de $(1, 1)$, et pour tout $k \\in \\mathbb{R}^*$ : $g(1, 1 + k) - g(1, 1) = -\\frac{k^2}{2} < 0$, donc $g$ n'est minorée par $g(1, 1)$ sur aucun voisinage de $(1, 1)$. Ainsi, $g$ n'a pas d'extremum local en $(1, 1)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__section_differentielle",
+      "type": "remark",
+      "title": "5 Fonction différentiable et différentielle",
+      "content_latex": "Vous avez rencontré plusieurs infiniment petits en physique, notés $dx$, $df$, $dT$, $dt$... mais la nature exacte de ces objets vous a sans doute paru mystérieuse. Comment les mathématiciens les définissent-ils formellement ? La notion de différentielle est hors programme en MPSI, vous la découvrirez l'année prochaine et je me contenterai de lever un coin du voile.\\par La différentielle est aux fonctions de deux variables ce que la dérivée est aux fonctions d'une seule variable. Et de même qu'on dispose d'un concept de dérivabilité pour les fonctions d'une seule variable, on définit d'un concept de différentiabilité pour les fonctions de deux variables. Mais rappelons d'abord qu'une fonction d'une seule variable est dérivable en un point si et seulement si elle y possède un développement limité à l'ordre 1.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_fonction_differentiable",
+      "type": "definition",
+      "title": "Définition : Fonction différentiable et différentielle",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f : \\Omega \\to \\mathbb{R}$ une fonction.\\par • En un point : Soit $a \\in \\Omega$. On dit que $f$ est différentiable en $a$ s'il existe une forme linéaire $\\phi \\in \\mathcal{L}(\\mathbb{R}^2, \\mathbb{R})$ pour laquelle :\\par $f(a + v) = f(a) + \\phi(v) + o(\\|v\\|)$ quand $v \\to (0, 0)$\\par ou encore :\\par $f(p) = f(a) + \\phi(p - a) + o(\\|p - a\\|)$.\\par Dans ces conditions, l'application $\\phi$ est unique, appelée la différentielle de $f$ en $a$ et notée $df_a$. Ainsi :\\par $f(a + v) = f(a) + df_a(v) + o(\\|v\\|)$ quand $v \\to (0, 0)$.\\par • Sur un ouvert : On dit que $f$ est différentiable sur $\\Omega$ si elle l'est en tout point de $\\Omega$. L'application $\\Omega \\to \\mathcal{L}(\\mathbb{R}^2, \\mathbb{R}), a \\mapsto df_a$ est appelée dans ce cas la différentielle de $f$ sur $\\Omega$ et notée $df$.\\par Le réel $df_a(v)$ est une approximation à l'ordre 1 de la variation de $f$ au point $a$ en ordonnée induite par une variation de vecteur $v$ en abscisse. En d'autres termes, quand on passe de $a$ à $a + v$, $f$ varie approximativement de $df_a(v)$. La différentielle $df$ elle-même est un objet relativement abstrait quand on le découvre. L'application $df$ associe à tout point de $\\Omega$ une forme linéaire de $\\mathbb{R}^2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "fonctions_de_deux_variables__example_differentielle_x",
+      "type": "example",
+      "title": "Exemple : Différentielle de $(x, y) \\mapsto x$",
+      "content_latex": "Les fonctions $(x, y) \\mapsto x$ et $(x, y) \\mapsto y$ sont différentiables sur $\\mathbb{R}^2$ et coïncident chacune avec sa différentielle. On les note respectivement $dx$ et $dy$.\\par Ce résultat n'est guère étonnant. Quand on passe de $a = (x_a, y_a)$ à $a + v = (x_a + h, y_a + k)$, la fonction $f : (x, y) \\mapsto x$ varie de $h = f(v)$. Donc comme annoncé, $f$ est différentiable en $a$ et $df_a = f$.",
+      "proof_latex": "La fonction $f$ a une propriété importante, elle est linéaire ! Soient $a = (x_a, y_a) \\in \\mathbb{R}^2$. Pour tout $v = (h, k) \\in \\mathbb{R}^2$ :\\par $f(a + v) = x_a + h = f(a) + f(v) = f(a) + f(v) + o(\\|v\\|)$ quand $v \\to (0, 0)$, donc comme annoncé, $f$ est différentiable en $a$ et $df_a = f$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__definition_differentielle_C1",
+      "type": "definition",
+      "title": "Définition : Différentielle d'une fonction de classe C¹",
+      "content_latex": "Soient $\\Omega$ un ouvert de $\\mathbb{R}^2$ et $f \\in C^1(\\Omega, \\mathbb{R})$. Alors $f$ est différentiable sur $\\Omega$ et pour tous $a \\in \\Omega$ et $v \\in \\mathbb{R}^2$ :\\par $df_a(v) = \\frac{\\partial f}{\\partial x}(a)dx(v) + \\frac{\\partial f}{\\partial y}(a)dy(v)$.\\par En résumé : $df_a = \\frac{\\partial f}{\\partial x}(a)dx + \\frac{\\partial f}{\\partial y}(a)dy$, et même : $df = \\frac{\\partial f}{\\partial x}dx + \\frac{\\partial f}{\\partial y}dy$.",
+      "proof_latex": "De classe $C^1$, $f$ possède un développement limité à l'ordre 1 en tout point $a \\in \\Omega$ :\\par $f(a + v) = f(a) + \\langle \\nabla f(a), v \\rangle + o(\\|v\\|)$ quand $v \\to (0, 0)$.\\par La différentiabilité de $f$ en $a$ découle ainsi de la linéarité du produit scalaire $v \\mapsto \\langle \\nabla f(a), v \\rangle$. Enfin, pour tout $v = (h, k) \\in \\mathbb{R}^2$ :\\par $df_a(v) = \\langle \\nabla f(a), v \\rangle = \\frac{\\partial f}{\\partial x}(a)h + \\frac{\\partial f}{\\partial y}(a)k = \\frac{\\partial f}{\\partial x}(a)dx(v) + \\frac{\\partial f}{\\partial y}(a)dy(v)$."
+    },
+    {
+      "id": "fonctions_de_deux_variables__remarque_physiciens_differentielle",
+      "type": "remark",
+      "title": "Remarque : Les physiciens et la différentielle",
+      "content_latex": "Et les physiciens dans tout ça ? Ils identifient généralement les fonctions qu'ils manipulent et leurs valeurs, et quand ils écrivent $df$, c'est de $df_a(v)$ qu'ils parlent. Quand on passe du point $a$ au point $a + v$, $f$ varie à l'ordre 1 de $df_a(v)$, mais les physiciens auront tendance à considérer que $f$ a varié de $df$.",
+      "proof_latex": null
+    }
+  ],
+  "exercises": []
+}

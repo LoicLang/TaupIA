@@ -1,0 +1,961 @@
+{
+  "programme_chapter_id": "TECH_ANA",
+  "programme_chapter_title": "Techniques fondamentales de calcul différentiel et intégral",
+  "semestre": 1,
+  "linked_course_chapters": [
+    "rappels_et_complements_sur_les_fonctions_reelles",
+    "techniques_elementaires_de_calcul_integral",
+    "equations_differentielles_lineaires"
+  ],
+  "questions": [
+    {
+      "id": "TECH_ANA__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Ensemble de définition d'une fonction.",
+      "programme_notion": "Ensemble de définition d'une fonction",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_maximum_minimum",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction et $a\\in E$.\\par — On dit que $f$ possède un maximum en $a$ si : $\\forall x\\in E, f(x)\\le f(a)$. Le réel $f(a)$ est alors appelé le maximum de $f$ et noté $\\max_{E}f$ ou $\\max_{x\\in E}f(x)$.\\par — On dit que $f$ possède un minimum en $a$ si : $\\forall x\\in E, f(x)\\ge f(a)$. Le réel $f(a)$ est alors appelé le minimum de $f$ et noté $\\min_{E}f$ ou $\\min_{x\\in E}f(x)$.\\par En résumé, un maximum est un majorant de la forme « $f$ de quelqu'un », i.e. un majorant qui est aussi une valeur de $f$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_002",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Représentation graphique, transformations x ↦ f(x+a), x ↦ f(ax).",
+      "programme_notion": "Représentation graphique, transformations x ↦ f(x+a), x ↦ f(ax)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_transformations_affines",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a,b\\in\\mathbb{R}$ et $\\lambda>0$. On munit le plan d'un repère orthonormal direct $(O,\\vec{i},\\vec{j})$.\\par • Symétries : Le graphe de la fonction $x\\mapsto-f(x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Ox)$. Le graphe de la fonction $x\\mapsto f(-x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Oy)$.\\par • Translations : Le graphe de la fonction $x\\mapsto f(x)+a$ s'obtient à partir de celui de $f$ par une translation de vecteur $a\\vec{j}$. Le graphe de la fonction $x\\mapsto f(x+a)$ s'obtient à partir de celui de $f$ par une translation de vecteur $-a\\vec{i}$.\\par • Contractions/dilatations : Le graphe de la fonction $x\\mapsto\\lambda f(x)$ s'obtient à partir de celui de $f$ par une dilatation verticale de rapport $\\lambda$ si $\\lambda\\ge1$ et une contraction verticale de rapport $\\lambda$ si $\\lambda<1$. Le graphe de la fonction $x\\mapsto f(\\lambda x)$ s'obtient à partir de celui de $f$ par une contraction horizontale de rapport $\\lambda$ si $\\lambda\\ge1$ et une dilatation horizontale de rapport $\\frac{1}{\\lambda}$ si $\\lambda<1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_003",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Parité, imparité, périodicité et interprétation géométrique.",
+      "programme_notion": "Parité, imparité, périodicité et interprétation géométrique",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__remark_etude_parite",
+      "answer_latex": "Pas besoin d'étudier une fonction $f:E\\longrightarrow\\mathbb{R}$ paire ou impaire sur $E$ tout entier, une étude sur $E\\cap\\mathbb{R}_{+}$ suffit.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_004",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Réduction du domaine d'étude.",
+      "programme_notion": "Réduction du domaine d'étude",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__method_etude_variations",
+      "answer_latex": "On montre beaucoup d'inégalités en mathématiques, et l'une des premières techniques qu'on apprend à ce sujet, c'est l'étude des variations ou du signe d'une fonction. FACTORISEZ VOS DÉRIVÉES LE PLUS POSSIBLE !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Somme, produit, composée de fonctions.",
+      "programme_notion": "Somme, produit, composée de fonctions",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_formules_addition_produit",
+      "answer_latex": "Pour tous $x,y\\in\\mathbb{R}$ :\\par $\\sin(x+y)=\\sin x\\cos y+\\cos x\\sin y$\\par $\\sin(x-y)=\\sin x\\cos y-\\cos x\\sin y$\\par $\\cos(x+y)=\\cos x\\cos y-\\sin x\\sin y$\\par $\\cos(x-y)=\\cos x\\cos y+\\sin x\\sin y$\\par $\\sin x\\sin y=\\frac{1}{2}(\\cos(x-y)-\\cos(x+y))$\\par $\\sin x\\cos y=\\frac{1}{2}(\\sin(x+y)+\\sin(x-y))$\\par $\\cos x\\cos y=\\frac{1}{2}(\\cos(x+y)+\\cos(x-y))$\\par Formules de duplication : $\\sin(2x)=2\\sin x\\cos x$, $\\cos(2x)=2\\cos^{2}x-1=1-2\\sin^{2}x$, $\\sin^{2}x=\\frac{1-\\cos(2x)}{2}$, $\\cos^{2}x=\\frac{1+\\cos(2x)}{2}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_006",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Monotonie (large et stricte).",
+      "programme_notion": "Monotonie (large et stricte)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_injectivite_stricte_monotonie",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. Si $f$ est strictement monotone, $f$ est injective.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_007",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions majorées, minorées, bornées.",
+      "programme_notion": "Fonctions majorées, minorées, bornées",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_fonctions_monotones",
+      "answer_latex": "(i) Addition : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes, $f+g$ l'est aussi. Si $f$ et $g$ sont décroissantes, $f+g$ l'est aussi.\\par (ii) Produit : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes POSITIVES, $fg$ est croissante. Si $f$ et $g$ sont décroissantes POSITIVES, $fg$ est décroissante.\\par (iii) Composition : Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont monotones de même sens de variation, $g\\circ f$ est croissante. Si $f$ et $g$ sont monotones de sens de variation opposés, $g\\circ f$ est décroissante.\\par (iv) Réciproque : Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $f$ est monotone, elle l'est strictement et $f^{-1}$ est strictement monotone de même sens de variation.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonctions majorées, minorées, bornées.",
+      "programme_notion": "Fonctions majorées, minorées, bornées",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_operations_fonctions_monotones",
+      "answer_latex": "(i) Addition : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes, $f+g$ l'est aussi. Si $f$ et $g$ sont décroissantes, $f+g$ l'est aussi.\\par (ii) Produit : Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:E\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont croissantes POSITIVES, $fg$ est croissante. Si $f$ et $g$ sont décroissantes POSITIVES, $fg$ est décroissante.\\par (iii) Composition : Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions. Si $f$ et $g$ sont monotones de même sens de variation, $g\\circ f$ est croissante. Si $f$ et $g$ sont monotones de sens de variation opposés, $g\\circ f$ est décroissante.\\par (iv) Réciproque : Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $f$ est monotone, elle l'est strictement et $f^{-1}$ est strictement monotone de même sens de variation.\n\n\\textbf{Démonstration.} (i) Dans le cas où $f$ et $g$ sont croissantes, soient $x,y\\in E$. Si $x<y$, alors par hypothèse $f(x)\\le f(y)$ et $g(x)\\le g(y)$ donc $f(x)+g(x)\\le f(y)+g(y)$ par somme.\\par (ii) Dans le cas où $f$ et $g$ sont décroissantes, soient $x,y\\in E$. Si $x<y$, alors par hypothèse $0\\le f(y)\\le f(x)$ et $0\\le g(y)\\le g(x)$, donc $f(y)g(y)\\le f(x)g(x)$ par produit d'inégalités POSITIVES.\\par (iii) Dans le cas où $f$ est croissante et $g$ décroissante, soient $x,y\\in E$. Si $x<y$, alors $f(x)\\le f(y)$ par croissance de $f$, puis $g(f(y))\\le g(f(x))$ par décroissance de $g$.\\par (iv) Dans le cas croissant : $\\forall x,y\\in E, x<y \\Rightarrow f(x)\\le f(y)$, $f$ est en fait strictement croissante, car si $f(x)=f(y)$ alors $x=y$ par injectivité. Montrons que $f^{-1}$ est strictement croissante. Soient $y,y'\\in F$ deux réels pour lesquels $y<y'$. Si jamais $f^{-1}(y)\\ge f^{-1}(y')$ alors $y=f(f^{-1}(y))\\ge f(f^{-1}(y'))=y'$ par croissance de $f$, contradiction.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée d'une fonction (notations f'(x), d/dx(f(x))).",
+      "programme_notion": "Dérivée d'une fonction (notations f'(x), d/dx(f(x)))",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_010",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Dérivée d'une fonction (notations f'(x), d/dx(f(x))).",
+      "programme_notion": "Dérivée d'une fonction (notations f'(x), d/dx(f(x)))",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.\n\n\\textbf{Démonstration.} Si pour un certain $K\\ge0$, il est vrai que $|f(x)|\\le K$ pour tout $x\\in E$, alors $-K\\le f(x)\\le K$ pour tout $x\\in E$, donc $f$ est minorée par $-K$ et majorée par $K$. Pour la réciproque, supposons $f$ minorée par $m$ et majorée par $M$ et posons $K=\\max\\{|m|,|M|\\}$. Pour tout $x\\in E$ : $-K\\le-|m|\\le m\\le f(x)\\le M\\le|M|\\le K$, donc $|f(x)|\\le K$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_011",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée d'une combinaison linéaire, d'un produit, d'un quotient, d'une composée.",
+      "programme_notion": "Dérivée d'une combinaison linéaire, d'un produit, d'un quotient, d'une composée",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_012",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Dérivée d'une combinaison linéaire, d'un produit, d'un quotient, d'une composée.",
+      "programme_notion": "Dérivée d'une combinaison linéaire, d'un produit, d'un quotient, d'une composée",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.\n\n\\textbf{Démonstration.} Si pour un certain $K\\ge0$, il est vrai que $|f(x)|\\le K$ pour tout $x\\in E$, alors $-K\\le f(x)\\le K$ pour tout $x\\in E$, donc $f$ est minorée par $-K$ et majorée par $K$. Pour la réciproque, supposons $f$ minorée par $m$ et majorée par $M$ et posons $K=\\max\\{|m|,|M|\\}$. Pour tout $x\\in E$ : $-K\\le-|m|\\le m\\le f(x)\\le M\\le|M|\\le K$, donc $|f(x)|\\le K$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_013",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Exemples simples de calculs de dérivées partielles.",
+      "programme_notion": "Exemples simples de calculs de dérivées partielles",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_derivees_successives",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. On pose $f^{(0)}=f$. Ensuite, pour tout $k\\in\\mathbb{N}^{*}$, si on a réussi à définir $f^{(k-1)}$ de proche en proche et si elle est dérivable sur $E$, on dit que $f$ est $k$ fois dérivable sur $E$ et on pose $f^{(k)}=(f^{(k-1)})'$. La fonction $f^{(k)}$ est alors appelée la dérivée $k^{\\text{ème}}$ de $f$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_014",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Caractérisation des fonctions constantes, croissantes, strictement croissantes sur un intervalle.",
+      "programme_notion": "Caractérisation des fonctions constantes, croissantes, strictement croissantes sur un intervalle",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_caracterisation_derivables",
+      "answer_latex": "Soient $I$ un INTERVALLE et $f\\in\\mathcal{D}(I,\\mathbb{R})$.\\par • Constance : $f$ est constante sur $I$ si et seulement si $f'$ est nulle sur $I$.\\par • Monotonie : $f$ est croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$.\\par • Monotonie stricte : $f$ est strictement croissante sur $I$ si et seulement si $f'$ est positive (ou nulle) sur $I$ et n'est identiquement nulle sur aucun intervalle $[a, b]$ inclus dans $I$ avec $a<b$. En particulier, si $f'$ est strictement positive sur $I$, $f$ est strictement croissante sur $I$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_015",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Tableau de variations, étude pratique d'une fonction.",
+      "programme_notion": "Tableau de variations, étude pratique d'une fonction",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__method_etude_variations",
+      "answer_latex": "On montre beaucoup d'inégalités en mathématiques, et l'une des premières techniques qu'on apprend à ce sujet, c'est l'étude des variations ou du signe d'une fonction. FACTORISEZ VOS DÉRIVÉES LE PLUS POSSIBLE !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Recherche d'extremums, démonstration d'inégalités.",
+      "programme_notion": "Recherche d'extremums, démonstration d'inégalités",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__method_points_fixes",
+      "answer_latex": "En pratique, le TVI et sa version strictement monotone sont très utiles quand on cherche des points fixes. Étudier les POINTS FIXES de $f$, c'est étudier les ZÉROS de $x\\mapsto f(x)-x$, i.e. résoudre l'équation $f(x)-x=0$ d'inconnue $x$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_017",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Représentation graphique et dérivée d'une fonction réciproque.",
+      "programme_notion": "Représentation graphique et dérivée d'une fonction réciproque",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_reciproque_impaire",
+      "answer_latex": "Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $E$ est symétrique par rapport à $0$ et si $f$ est impaire, $F$ est symétrique par rapport à $0$ et $f^{-1}$ est impaire.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_018",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Représentation graphique et dérivée d'une fonction réciproque.",
+      "programme_notion": "Représentation graphique et dérivée d'une fonction réciproque",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_reciproque_impaire",
+      "answer_latex": "Soit $f:E\\longrightarrow F$ une fonction bijective de $E$ sur $F$. Si $E$ est symétrique par rapport à $0$ et si $f$ est impaire, $F$ est symétrique par rapport à $0$ et $f^{-1}$ est impaire.\n\n\\textbf{Démonstration.} Soit $y\\in F$, disons $y=f(x)$ pour un certain $x\\in E$. Aussitôt, $-x\\in E$ car $E$ est symétrique par rapport à $0$, donc $-y=-f(x)=f(-x)\\in F$ par imparité de $f$. Conclusion : $F$ est symétrique par rapport à $0$. Ensuite $f^{-1}(-y)=f^{-1}(-f(x))=f^{-1}(f(-x))=-x=-f^{-1}(y)$, donc $f^{-1}$ est impaire.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_019",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction de classe C¹.",
+      "programme_notion": "Fonction de classe C¹",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_classe_ck",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par • Classe $\\mathcal{C}^{k}$ : Pour tout $k\\in\\mathbb{N}$, on dit que $f$ est de classe $\\mathcal{C}^{k}$ sur $E$ si $f$ est $k$ fois dérivable sur $E$ et si $f^{(k)}$ est continue sur $E$. L'ensemble des fonctions de classe $\\mathcal{C}^{k}$ sur $E$ est noté $\\mathcal{C}^{k}(E,\\mathbb{R})$.\\par • Classe $\\mathcal{C}^{\\infty}$ : On dit que $f$ est de classe $\\mathcal{C}^{\\infty}$ sur $E$ si $f$ est $k$ fois dérivable sur $E$ pour tout $k\\in\\mathbb{N}$. L'ensemble des fonctions de classe $\\mathcal{C}^{\\infty}$ sur $E$ est noté $\\mathcal{C}^{\\infty}(E,\\mathbb{R})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_020",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivées d'ordre supérieur.",
+      "programme_notion": "Dérivées d'ordre supérieur",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_derivees_successives",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. On pose $f^{(0)}=f$. Ensuite, pour tout $k\\in\\mathbb{N}^{*}$, si on a réussi à définir $f^{(k-1)}$ de proche en proche et si elle est dérivable sur $E$, on dit que $f$ est $k$ fois dérivable sur $E$ et on pose $f^{(k)}=(f^{(k-1)})'$. La fonction $f^{(k)}$ est alors appelée la dérivée $k^{\\text{ème}}$ de $f$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_021",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction exponentielle : dérivée, variations, représentation graphique.",
+      "programme_notion": "Fonction exponentielle : dérivée, variations, représentation graphique",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_exponentielle",
+      "answer_latex": "• Définition : La fonction logarithme est bijective de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$. On appelle fonction exponentielle et on note $\\exp$ sa réciproque, bijective de $\\mathbb{R}$ sur $\\mathbb{R}_{+}^{*}$. En particulier : $\\exp(1)=e$ et les graphes des fonctions $\\exp$ et $\\ln$ sont symétriques l'un de l'autre par rapport à la droite d'équation $y=x$. Pour tout $x\\in\\mathbb{R}$ : $\\ln(\\exp(x))=x$ et pour tout $x>0$ : $\\exp(\\ln x)=x$.\\par • Régularité : La fonction exponentielle $\\exp$ est de classe $\\mathcal{C}^{\\infty}$ et convexe sur $\\mathbb{R}$ et $\\exp'=\\exp$.\\par • Transformation des sommes en produits : Pour tous $x,y\\in\\mathbb{R}$ : $\\exp(x+y)=\\exp(x)\\exp(y)$ et $\\exp(-x)=\\frac{1}{\\exp(x)}$.\\par • Croissances comparées en $+\\infty$ : $\\frac{x}{\\exp(x)}\\longrightarrow_{x\\rightarrow+\\infty}0$.\\par • Comportement au voisinage de 0 : Le graphe de l'exponentielle est situé au-dessus sa tangente en 0 : $\\forall x\\in\\mathbb{R}$, $\\exp(x)\\ge 1+x$. En outre, $\\frac{\\exp(x)-1}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement $\\exp(x)-1\\approx x$ pour $x$ proche de 0.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_022",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonction exponentielle : dérivée, variations, représentation graphique.",
+      "programme_notion": "Fonction exponentielle : dérivée, variations, représentation graphique",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_exponentielle",
+      "answer_latex": "• Définition : La fonction logarithme est bijective de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$. On appelle fonction exponentielle et on note $\\exp$ sa réciproque, bijective de $\\mathbb{R}$ sur $\\mathbb{R}_{+}^{*}$. En particulier : $\\exp(1)=e$ et les graphes des fonctions $\\exp$ et $\\ln$ sont symétriques l'un de l'autre par rapport à la droite d'équation $y=x$. Pour tout $x\\in\\mathbb{R}$ : $\\ln(\\exp(x))=x$ et pour tout $x>0$ : $\\exp(\\ln x)=x$.\\par • Régularité : La fonction exponentielle $\\exp$ est de classe $\\mathcal{C}^{\\infty}$ et convexe sur $\\mathbb{R}$ et $\\exp'=\\exp$.\\par • Transformation des sommes en produits : Pour tous $x,y\\in\\mathbb{R}$ : $\\exp(x+y)=\\exp(x)\\exp(y)$ et $\\exp(-x)=\\frac{1}{\\exp(x)}$.\\par • Croissances comparées en $+\\infty$ : $\\frac{x}{\\exp(x)}\\longrightarrow_{x\\rightarrow+\\infty}0$.\\par • Comportement au voisinage de 0 : Le graphe de l'exponentielle est situé au-dessus sa tangente en 0 : $\\forall x\\in\\mathbb{R}$, $\\exp(x)\\ge 1+x$. En outre, $\\frac{\\exp(x)-1}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement $\\exp(x)-1\\approx x$ pour $x$ proche de 0.\n\n\\textbf{Démonstration.} Nous avons déjà tiré du TVI strictement monotone la bijectivité de $\\ln$ de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$. Cela justifie à la fois la définition de l'exponentielle et sa régularité. En effet, $\\ln$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ et SA DÉRIVÉE $x\\mapsto\\frac{1}{x}$ NE S'ANNULE PAS, donc d'après le théorème de dérivabilité d'une réciproque, $\\ln^{-1}=\\exp$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$ de dérivée $\\exp'=(\\ln^{-1})'=\\frac{1}{\\ln'\\circ\\ln^{-1}}=\\frac{1}{1/\\exp}=\\exp$. En particulier, $\\exp'$ est croissante sur $\\mathbb{R}$, donc $\\exp$ y est convexe, donc $\\exp(x)\\ge\\exp'(0)x+\\exp(0)=x+1$ pour tout $x\\in\\mathbb{R}$ autrement dit le graphe est au-dessus de la tangente en 0.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_023",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction logarithme népérien : dérivée, variations, représentation graphique.",
+      "programme_notion": "Fonction logarithme népérien : dérivée, variations, représentation graphique",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__method_etude_variations",
+      "answer_latex": "On montre beaucoup d'inégalités en mathématiques, et l'une des premières techniques qu'on apprend à ce sujet, c'est l'étude des variations ou du signe d'une fonction. FACTORISEZ VOS DÉRIVÉES LE PLUS POSSIBLE !",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_024",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions puissances x^α sur R*₊ (prolongées en 0 le cas échéant).",
+      "programme_notion": "Fonctions puissances x^α sur R*₊ (prolongées en 0 le cas échéant)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_etude_fonctions_puissances",
+      "answer_latex": "Soient $\\alpha, \\beta\\in\\mathbb{R}$.\\par (i) Régularité : La fonction $x\\mapsto x^{\\alpha}$ est définie et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ de dérivée $x\\mapsto \\alpha x^{\\alpha-1}$. Elle est concave si $\\alpha\\in[0,1]$ et convexe sinon.\\par (ii) Positions relatives : $\\alpha\\le\\beta\\Rightarrow x^{\\beta}\\le x^{\\alpha}$ pour tout $x\\in]0,1]$, et $\\alpha\\le\\beta\\Rightarrow x^{\\alpha}\\le x^{\\beta}$ pour tout $x\\in[1,+\\infty[$.\\par (iii) Prolongement par continuité en 0 : Pour $\\alpha>0$, on pose $0^{\\alpha}=0$. La fonction $x\\mapsto x^{\\alpha}$ ainsi prolongée est continue sur $\\mathbb{R}_{+}$ tout entier, y compris en 0.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_025",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Fonctions puissances x^α sur R*₊ (prolongées en 0 le cas échéant).",
+      "programme_notion": "Fonctions puissances x^α sur R*₊ (prolongées en 0 le cas échéant)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_etude_fonctions_puissances",
+      "answer_latex": "Soient $\\alpha, \\beta\\in\\mathbb{R}$.\\par (i) Régularité : La fonction $x\\mapsto x^{\\alpha}$ est définie et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ de dérivée $x\\mapsto \\alpha x^{\\alpha-1}$. Elle est concave si $\\alpha\\in[0,1]$ et convexe sinon.\\par (ii) Positions relatives : $\\alpha\\le\\beta\\Rightarrow x^{\\beta}\\le x^{\\alpha}$ pour tout $x\\in]0,1]$, et $\\alpha\\le\\beta\\Rightarrow x^{\\alpha}\\le x^{\\beta}$ pour tout $x\\in[1,+\\infty[$.\\par (iii) Prolongement par continuité en 0 : Pour $\\alpha>0$, on pose $0^{\\alpha}=0$. La fonction $x\\mapsto x^{\\alpha}$ ainsi prolongée est continue sur $\\mathbb{R}_{+}$ tout entier, y compris en 0.\n\n\\textbf{Démonstration.} (i) Pour tout $x>0$ : $\\frac{d}{dx}(x^{\\alpha})=\\frac{d}{dx}(e^{\\alpha \\ln x})=\\frac{\\alpha}{x}\\times e^{\\alpha \\ln x}=\\alpha x^{-1}x^{\\alpha}=\\alpha x^{\\alpha-1}$. A fortiori : $\\frac{d^{2}}{dx^{2}}(x^{\\alpha})=\\alpha(\\alpha-1)x^{\\alpha-2}$, donc la dérivée seconde est négative sur $\\mathbb{R}_{+}^{*}$ si $\\alpha\\in[0,1]$ et positive si $\\alpha\\in]-\\infty,0]\\cup[1,+\\infty[$.\\par (ii) Si $x\\in]0,1]$, alors $\\ln x\\le 0$, donc $\\beta \\ln x\\le \\alpha \\ln x$, donc $x^{\\beta}=e^{\\beta \\ln x}\\le e^{\\alpha \\ln x}=x^{\\alpha}$. Si $x\\in[1,+\\infty[$, alors $\\ln x\\ge 0$, donc $\\alpha \\ln x\\le \\beta \\ln x$, donc $x^{\\alpha}=e^{\\alpha \\ln x}\\le e^{\\beta \\ln x}=x^{\\beta}$.\\par (iii) Pour $\\alpha>0$ : $x^{\\alpha}=e^{\\alpha \\ln x}\\longrightarrow_{x\\rightarrow 0}0=0^{\\alpha}$, donc la fonction est continue en 0.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_026",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Logarithme décimal, logarithme en base 2.",
+      "programme_notion": "Logarithme décimal, logarithme en base 2",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_logarithme",
+      "answer_latex": "• Définition et régularité : La fonction logarithme $\\ln$ est définie, de classe $\\mathcal{C}^{\\infty}$ et concave sur $\\mathbb{R}_{+}^{*}$. Pour tout $x>0$ : $\\ln'(x)=\\frac{1}{x}$ et $\\ln(1)=0$.\\par • Transformation des produits en sommes : Pour tous $x,y>0$ : $\\ln(xy)=\\ln x+\\ln y$ et $\\ln\\frac{1}{x}=-\\ln x$.\\par • Constante de Néper : La fonction logarithme prend la valeur 1 en un unique réel $e$ appelé parfois la constante de Néper : $e\\approx 2,71828$.\\par • Croissances comparées en 0 et $+\\infty$ : $\\frac{\\ln x}{x}\\longrightarrow_{x\\rightarrow+\\infty}0$ et $x\\ln x\\longrightarrow_{x\\rightarrow0}0$.\\par • Comportement au voisinage de 1 : Le graphe du logarithme est situé sous sa tangente en 1 : $\\forall x>0, \\ln x\\le x-1$ et $\\forall x>-1, \\ln(1+x)\\le x$. En outre, $\\frac{\\ln x}{x-1}\\longrightarrow_{x\\rightarrow1}1$ et $\\frac{\\ln(1+x)}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement : $\\ln x\\approx x-1$ pour $x$ proche de 1 et $\\ln(1+x)\\approx x$ pour $x$ proche de 0.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_027",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Logarithme décimal, logarithme en base 2.",
+      "programme_notion": "Logarithme décimal, logarithme en base 2",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_fonction_logarithme",
+      "answer_latex": "• Définition et régularité : La fonction logarithme $\\ln$ est définie, de classe $\\mathcal{C}^{\\infty}$ et concave sur $\\mathbb{R}_{+}^{*}$. Pour tout $x>0$ : $\\ln'(x)=\\frac{1}{x}$ et $\\ln(1)=0$.\\par • Transformation des produits en sommes : Pour tous $x,y>0$ : $\\ln(xy)=\\ln x+\\ln y$ et $\\ln\\frac{1}{x}=-\\ln x$.\\par • Constante de Néper : La fonction logarithme prend la valeur 1 en un unique réel $e$ appelé parfois la constante de Néper : $e\\approx 2,71828$.\\par • Croissances comparées en 0 et $+\\infty$ : $\\frac{\\ln x}{x}\\longrightarrow_{x\\rightarrow+\\infty}0$ et $x\\ln x\\longrightarrow_{x\\rightarrow0}0$.\\par • Comportement au voisinage de 1 : Le graphe du logarithme est situé sous sa tangente en 1 : $\\forall x>0, \\ln x\\le x-1$ et $\\forall x>-1, \\ln(1+x)\\le x$. En outre, $\\frac{\\ln x}{x-1}\\longrightarrow_{x\\rightarrow1}1$ et $\\frac{\\ln(1+x)}{x}\\longrightarrow_{x\\rightarrow0}1$, i.e. intuitivement : $\\ln x\\approx x-1$ pour $x$ proche de 1 et $\\ln(1+x)\\approx x$ pour $x$ proche de 0.\n\n\\textbf{Démonstration.} • D'après le théorème fondamental du calcul intégral, toute fonction continue sur un intervalle y possède des primitives. La fonction inverse possède donc des primitives sur $\\mathbb{R}_{+}^{*}$ mais plus précisément une et une seule primitive qui envoie 1 sur 0 et c'est elle que nous noterons $\\ln$.\\par • Variations et signe : La fonction $\\ln$ est de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ car sa dérivée $x\\mapsto\\frac{1}{x}$ l'est, mais cette dérivée est aussi strictement positive, donc $\\ln$ est strictement croissante sur $\\mathbb{R}_{+}^{*}$. Comme $\\ln(1)=0$, $\\ln$ est strictement négative sur $]0, 1[$ et strictement positive sur $]1,+\\infty[$.\\par • Concavité et position par rapport à la tangente en 1 : Sa dérivée $x\\mapsto\\frac{1}{x}$ étant décroissante, $\\ln$ est concave sur $\\mathbb{R}_{+}^{*}$. Or sa tangente en 1 a pour équation $y=\\ln'(1)(x-1)+\\ln(1)=x-1$, donc $\\ln x\\le x-1$ pour tout $x>0$.\\par • Transformation des produits en sommes : Fixons $y>0$ et notons $\\varphi$ la fonction $x\\mapsto\\ln(xy)-\\ln x-\\ln y$ dérivable sur $\\mathbb{R}_{+}^{*}$. Pour tout $x>0$ : $\\varphi'(x)=\\frac{y}{xy}-\\frac{1}{x}=0$; donc $\\varphi$ est constante de valeur $\\varphi(1)=0$, donc $\\ln(xy)=\\ln x+\\ln y$ pour tout $x>0$.\\par • Croissances comparées : Pour tout $x\\ge1$ : $\\ln x=\\ln(\\sqrt{x})^{2}=2\\ln\\sqrt{x}\\le 2(\\sqrt{x}-1)\\le 2\\sqrt{x}$, donc $0\\le\\frac{\\ln x}{x}\\le\\frac{2}{\\sqrt{x}}$ et ainsi $\\frac{\\ln x}{x}\\longrightarrow_{x\\rightarrow+\\infty}0$ par encadrement. Ensuite, si on pose $t=\\frac{1}{x}$ : $x\\ln x=-x\\ln\\frac{1}{x}=-\\frac{\\ln t}{t}\\longrightarrow_{t\\rightarrow+\\infty}0$.\\par • Limites en 0 et $+\\infty$ : D'après le théorème de la limite monotone, toute fonction croissante sur $\\mathbb{R}_{+}^{*}$ possède une limite en $+\\infty$. Supposons par l'absurde que $l$ est un réel. Dans $\\ln(xy)=\\ln x+\\ln y$, fixons $x>0$ et faisons tendre $y$ vers $+\\infty$. Cela donne $l=\\ln x+l$, donc $\\ln x=0$ pour tout $x>0$, ce qui contredit la stricte croissance. Donc $l=+\\infty$. Par composition : $\\ln x=-\\ln\\frac{1}{x}\\longrightarrow_{x\\rightarrow0^{+}}-\\infty$.\\par • Définition de la constante de Néper : La fonction $\\ln$ est continue et strictement croissante sur $\\mathbb{R}_{+}^{*}$ de limites $-\\infty$ et $+\\infty$, donc bijective de $\\mathbb{R}_{+}^{*}$ sur $\\mathbb{R}$ d'après le TVI strictement monotone. 1 possède donc un et un seul antécédent, noté $e$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_028",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relations (xy)^α = x^α·y^α, x^{α+β} = x^α·x^β, (x^α)^β = x^{αβ}.",
+      "programme_notion": "Relations (xy)^α = x^α·y^α, x^{α+β} = x^α·x^β, (x^α)^β = x^{αβ}",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_algebriques_puissances",
+      "answer_latex": "(i) La nouvelle définition des puissances généralise bien l'ancienne.\\par (ii) Pour tous $x, x'>0$ et $y, y'\\in\\mathbb{R}$ : $\\ln(x^{y})=y \\ln x$, $x^{y+y'}=x^{y}x^{y'}$, $x^{yy'}=(x^{y})^{y'}$, $(xx')^{y}=x^{y}x'^{y}$ et $x^{-y}=\\frac{1}{x^{y}}=\\left(\\frac{1}{x}\\right)^{y}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_029",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Croissances comparées de ln, puissances, exp.",
+      "programme_notion": "Croissances comparées de ln, puissances, exp",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_puissances_racines",
+      "answer_latex": "Soit $x > 0$.\\par • Puissances quelconques : Pour tout $y\\in\\mathbb{R}$, on appelle $x$ puissance $y$ le réel $x^{y}=\\exp(y \\ln x)$.\\par • Racines $n^{\\text{èmes}}$ : Pour tout $n\\in\\mathbb{N}^{*}$, le réel $x^{\\frac{1}{n}}$ est appelé la racine $n^{\\text{ème}}$ de $x$ et noté $\\sqrt[n]{x}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_030",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalités exp(x) ≥ 1 + x, ln(1+x) ≤ x.",
+      "programme_notion": "Inégalités exp(x) ≥ 1 + x, ln(1+x) ≤ x",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_fonction_monotone",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par — On dit que $f$ est croissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)\\le f(y)$.\\par — On dit que $f$ est strictement croissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)<f(y)$.\\par — On dit que $f$ est décroissante si : $\\forall x,y\\in E, x<y\\Rightarrow f(x)\\ge f(y)$.\\par — On dit que $f$ est (resp. strictement) monotone si $f$ est (resp. strictement) croissante ou décroissante.\\par Une fonction croissante (resp. décroissante) est une fonction qui préserve (resp. renverse) les inégalités.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_031",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions circulaires réciproques Arcsin, Arccos, Arctan : dérivée, variations, graphe.",
+      "programme_notion": "Fonctions circulaires réciproques Arcsin, Arccos, Arctan : dérivée, variations, graphe",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_arccos_arcsin_arctan",
+      "answer_latex": "• Arccosinus : $\\cos|_{[0,\\pi]}$ est bijective de $[0,\\pi]$ sur $[-1,1]$ et sa réciproque arccosinus est notée $\\text{Arccos}$. Pour tout $x\\in[-1,1]$, $\\text{Arccos } x$ est l'unique réel $\\theta$ de $[0,\\pi]$ pour lequel $\\cos \\theta=x$.\\par • Arcsinus : $\\sin|_{[-\\frac{\\pi}{2},\\frac{\\pi}{2}]}$ est bijective de $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ sur $[-1,1]$ et sa réciproque arcsinus est notée $\\text{Arcsin}$. Pour tout $x\\in[-1,1]$, $\\text{Arcsin } x$ est l'unique réel $\\theta$ de $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ pour lequel $\\sin \\theta=x$.\\par • Arctangente : $\\tan|_{]-\\frac{\\pi}{2},\\frac{\\pi}{2}[}$ est bijective de $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ sur $\\mathbb{R}$ et sa réciproque arctangente est notée $\\text{Arctan}$. Pour tout $x\\in\\mathbb{R}$, $\\text{Arctan } x$ est l'unique réel $\\theta$ de $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ pour lequel $\\tan \\theta=x$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_032",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonctions hyperboliques sh, ch, th : dérivée, variations, graphe.",
+      "programme_notion": "Fonctions hyperboliques sh, ch, th : dérivée, variations, graphe",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_transformations_affines",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ une fonction, $a,b\\in\\mathbb{R}$ et $\\lambda>0$. On munit le plan d'un repère orthonormal direct $(O,\\vec{i},\\vec{j})$.\\par • Symétries : Le graphe de la fonction $x\\mapsto-f(x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Ox)$. Le graphe de la fonction $x\\mapsto f(-x)$ s'obtient à partir de celui de $f$ par une symétrie par rapport à $(Oy)$.\\par • Translations : Le graphe de la fonction $x\\mapsto f(x)+a$ s'obtient à partir de celui de $f$ par une translation de vecteur $a\\vec{j}$. Le graphe de la fonction $x\\mapsto f(x+a)$ s'obtient à partir de celui de $f$ par une translation de vecteur $-a\\vec{i}$.\\par • Contractions/dilatations : Le graphe de la fonction $x\\mapsto\\lambda f(x)$ s'obtient à partir de celui de $f$ par une dilatation verticale de rapport $\\lambda$ si $\\lambda\\ge1$ et une contraction verticale de rapport $\\lambda$ si $\\lambda<1$. Le graphe de la fonction $x\\mapsto f(\\lambda x)$ s'obtient à partir de celui de $f$ par une contraction horizontale de rapport $\\lambda$ si $\\lambda\\ge1$ et une dilatation horizontale de rapport $\\frac{1}{\\lambda}$ si $\\lambda<1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_033",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation ch²(x) - sh²(x) = 1.",
+      "programme_notion": "Relation ch²(x) - sh²(x) = 1",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_fonctions_reciproques_trigo",
+      "answer_latex": "• Une relation mixte : Pour tout $x\\in[-1,1]$ : $\\cos(\\text{Arcsin } x)=\\sin(\\text{Arccos } x)=\\sqrt{1-x^{2}}$.\\par • Arccosinus : $\\text{Arccos}$ est continue sur $[-1,1]$ et de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arccos}'(x)=-\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arcsinus : $\\text{Arcsin}$ est impaire et continue sur $[-1,1]$, de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arcsin}'(x)=\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arctangente : $\\text{Arctan}$ est impaire et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$. Pour tout $x\\in\\mathbb{R}$ : $\\text{Arctan}'(x)=\\frac{1}{1+x^{2}}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_034",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation ch²(x) - sh²(x) = 1.",
+      "programme_notion": "Relation ch²(x) - sh²(x) = 1",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_proprietes_fonctions_reciproques_trigo",
+      "answer_latex": "• Une relation mixte : Pour tout $x\\in[-1,1]$ : $\\cos(\\text{Arcsin } x)=\\sin(\\text{Arccos } x)=\\sqrt{1-x^{2}}$.\\par • Arccosinus : $\\text{Arccos}$ est continue sur $[-1,1]$ et de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arccos}'(x)=-\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arcsinus : $\\text{Arcsin}$ est impaire et continue sur $[-1,1]$, de classe $\\mathcal{C}^{\\infty}$ sur $]-1,1[$. Pour tout $x\\in]-1,1[$ : $\\text{Arcsin}'(x)=\\frac{1}{\\sqrt{1-x^{2}}}$.\\par • Arctangente : $\\text{Arctan}$ est impaire et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}$. Pour tout $x\\in\\mathbb{R}$ : $\\text{Arctan}'(x)=\\frac{1}{1+x^{2}}$.\n\n\\textbf{Démonstration.} $\\text{Arcsin}$ prend ses valeurs dans $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$, donc son cosinus est positif : $\\cos(\\text{Arcsin } x) = \\sqrt{1-\\sin^{2}(\\text{Arcsin } x)} = \\sqrt{1-x^{2}}$.\\par La fonction $\\sin$ est de classe $\\mathcal{C}^{\\infty}$ sur $]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ et sa dérivée $\\cos$ ne s'y annule pas. D'après le théorème de la bijection dérivable, $\\text{Arcsin}$ est dérivable sur $]-1,1[$ et $\\text{Arcsin}'(x) = \\frac{1}{\\sin'(\\text{Arcsin } x)} = \\frac{1}{\\cos(\\text{Arcsin } x)} = \\frac{1}{\\sqrt{1-x^{2}}}$.\\par Pour $\\text{Arctan}$ : $\\text{Arctan}'(x) = \\frac{1}{\\tan'(\\text{Arctan } x)} = \\frac{1}{1+\\tan^{2}(\\text{Arctan } x)} = \\frac{1}{1+x^{2}}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée d'une fonction à valeurs complexes.",
+      "programme_notion": "Dérivée d'une fonction à valeurs complexes",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_036",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Dérivée d'une fonction à valeurs complexes.",
+      "programme_notion": "Dérivée d'une fonction à valeurs complexes",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__property_caracterisation_bornee",
+      "answer_latex": "La proposition « $f$ est majorée et minorée » s'écrit : $\\exists m,M\\in\\mathbb{R}, \\forall x\\in E, m\\le f(x)\\le M$ et est équivalente à la proposition : $\\exists K\\ge0, \\forall x\\in E, |f(x)|\\le K$.\n\n\\textbf{Démonstration.} Si pour un certain $K\\ge0$, il est vrai que $|f(x)|\\le K$ pour tout $x\\in E$, alors $-K\\le f(x)\\le K$ pour tout $x\\in E$, donc $f$ est minorée par $-K$ et majorée par $K$. Pour la réciproque, supposons $f$ minorée par $m$ et majorée par $M$ et posons $K=\\max\\{|m|,|M|\\}$. Pour tout $x\\in E$ : $-K\\le-|m|\\le m\\le f(x)\\le M\\le|M|\\le K$, donc $|f(x)|\\le K$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_037",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée de combinaison linéaire, produit, quotient (cas complexe).",
+      "programme_notion": "Dérivée de combinaison linéaire, produit, quotient (cas complexe)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_formules_addition_produit",
+      "answer_latex": "Pour tous $x,y\\in\\mathbb{R}$ :\\par $\\sin(x+y)=\\sin x\\cos y+\\cos x\\sin y$\\par $\\sin(x-y)=\\sin x\\cos y-\\cos x\\sin y$\\par $\\cos(x+y)=\\cos x\\cos y-\\sin x\\sin y$\\par $\\cos(x-y)=\\cos x\\cos y+\\sin x\\sin y$\\par $\\sin x\\sin y=\\frac{1}{2}(\\cos(x-y)-\\cos(x+y))$\\par $\\sin x\\cos y=\\frac{1}{2}(\\sin(x+y)+\\sin(x-y))$\\par $\\cos x\\cos y=\\frac{1}{2}(\\cos(x+y)+\\cos(x-y))$\\par Formules de duplication : $\\sin(2x)=2\\sin x\\cos x$, $\\cos(2x)=2\\cos^{2}x-1=1-2\\sin^{2}x$, $\\sin^{2}x=\\frac{1-\\cos(2x)}{2}$, $\\cos^{2}x=\\frac{1+\\cos(2x)}{2}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_038",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivée de exp(φ) où φ est une fonction dérivable à valeurs complexes.",
+      "programme_notion": "Dérivée de exp(φ) où φ est une fonction dérivable à valeurs complexes",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__definition_derivable_tangente",
+      "answer_latex": "Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction.\\par • Dérivabilité : Pour tout $a\\in E$, on dit que $f$ est dérivable en $a$ si la fonction $x\\mapsto\\frac{f(x)-f(a)}{x-a}$ possède une limite finie en $a$, notée $f'(a)$ le cas échéant et appelée le nombre dérivé de $f$ en $a$. On dit que $f$ est dérivable sur $E$ si $f$ est dérivable en tout point de $E$. Le cas échéant, la fonction $x\\mapsto f'(x)$ est appelée la dérivée de $f$. L'ensemble des fonctions dérivables sur $E$ est noté $\\mathcal{D}(E,\\mathbb{R})$.\\par • Tangente : Pour tout $a\\in E$ en lequel $f$ est dérivable, la droite d'équation $y=f(a)+f'(a)(x-a)$ est appelée la tangente de $f$ en $a$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_039",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Primitives d'une fonction définie sur un intervalle à valeurs complexes.",
+      "programme_notion": "Primitives d'une fonction définie sur un intervalle à valeurs complexes",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_image_intervalle",
+      "answer_latex": "— Version image d'un intervalle du TVI : Pour toute fonction $f\\in\\mathcal{C}(E,\\mathbb{R})$ et tout intervalle $I$ inclus dans $E$, $f(I)$ est aussi un intervalle.\\par — En cas de monotonie : Soient $a,b\\in\\mathbb{R}$ deux réels pour lesquels $a<b$. Si $f$ est continue et croissante sur $[a, b]$, alors $f([a,b])=[f(a),f(b)]$. Si $f$ est continue et décroissante sur $[a, b]$, alors $f([a,b])=[f(b),f(a)]$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_040",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Lien entre intégrales et primitives.",
+      "programme_notion": "Lien entre intégrales et primitives",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_coordonnees_polaires",
+      "answer_latex": "Soit $M$ un point de coordonnées cartésiennes $(x,y)$ et de coordonnées polaires $(r,\\theta)$.\\par (i) $x=r\\cos\\theta$, $y=r\\sin\\theta$ et $r=\\sqrt{x^{2}+y^{2}}$.\\par (ii) $\\theta \\equiv \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x>0$, et $\\theta \\equiv \\pi + \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x<0$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_041",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Lien entre intégrales et primitives.",
+      "programme_notion": "Lien entre intégrales et primitives",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_coordonnees_polaires",
+      "answer_latex": "Soit $M$ un point de coordonnées cartésiennes $(x,y)$ et de coordonnées polaires $(r,\\theta)$.\\par (i) $x=r\\cos\\theta$, $y=r\\sin\\theta$ et $r=\\sqrt{x^{2}+y^{2}}$.\\par (ii) $\\theta \\equiv \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x>0$, et $\\theta \\equiv \\pi + \\text{Arctan}\\frac{y}{x} [2\\pi]$ si $x<0$.\n\n\\textbf{Démonstration.} Dans un repère orthonormal direct : $\\vec{OM} = x\\vec{i}+y\\vec{j} = r(\\cos\\theta\\vec{i}+\\sin\\theta\\vec{j})$ d'où les expressions de $x$ et $y$.\\par Pour (ii), si $x>0$, $\\theta-2k\\pi \\in ]-\\frac{\\pi}{2},\\frac{\\pi}{2}[$ pour un $k$, et $\\tan(\\theta-2k\\pi) = \\frac{r\\sin\\theta}{r\\cos\\theta} = \\frac{y}{x}$, donc $\\theta-2k\\pi = \\text{Arctan}\\frac{y}{x}$. Même logique avec $\\pi$ de décalage si $x<0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_042",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Description de l'ensemble des primitives connaissant l'une d'entre elles.",
+      "programme_notion": "Description de l'ensemble des primitives connaissant l'une d'entre elles",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+      "answer_latex": "Les fonctions usuelles et leurs primitives à connaître :\\par — $\\cos x \\longrightarrow \\sin x$\\par — $\\sin x \\longrightarrow -\\cos x$\\par — $\\tan x \\longrightarrow -\\ln|\\cos x|$\\par — $\\text{ch } x \\longrightarrow \\text{sh } x$\\par — $\\text{sh } x \\longrightarrow \\text{ch } x$\\par — $\\text{th } x \\longrightarrow \\ln(\\text{ch } x)$\\par — $e^{x} \\longrightarrow e^{x}$\\par — $\\ln x \\longrightarrow x\\ln x - x$\\par — $\\frac{1}{1+x^{2}} \\longrightarrow \\text{Arctan } x$\\par — $\\frac{1}{\\sqrt{1-x^{2}}} \\longrightarrow \\text{Arcsin } x$\\par — $\\frac{1}{x} \\longrightarrow \\ln|x|$\\par — $x^{\\alpha} (\\alpha\\ne-1) \\longrightarrow \\frac{x^{\\alpha+1}}{\\alpha+1}$",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_043",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Primitives de x ↦ e^{λx} pour λ ∈ C.",
+      "programme_notion": "Primitives de x ↦ e^{λx} pour λ ∈ C",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_044",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Primitives de x ↦ e^{λx} pour λ ∈ C.",
+      "programme_notion": "Primitives de x ↦ e^{λx} pour λ ∈ C",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.\n\n\\textbf{Démonstration.} Pour toute fonction $G$ :\\par $G$ est une primitive de $f \\iff G'=f=F' \\iff (G-F)'=0 \\iff G-F$ est constante \\iff \\exists\\lambda\\in\\mathbb{C}, G=F+\\lambda$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_045",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Primitives de x ↦ e^{ax}cos(bx) et x ↦ e^{ax}sin(bx).",
+      "programme_notion": "Primitives de x ↦ e^{ax}cos(bx) et x ↦ e^{ax}sin(bx)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__property_tableau_primitives_usuelles",
+      "answer_latex": "Les fonctions usuelles et leurs primitives à connaître :\\par — $\\cos x \\longrightarrow \\sin x$\\par — $\\sin x \\longrightarrow -\\cos x$\\par — $\\tan x \\longrightarrow -\\ln|\\cos x|$\\par — $\\text{ch } x \\longrightarrow \\text{sh } x$\\par — $\\text{sh } x \\longrightarrow \\text{ch } x$\\par — $\\text{th } x \\longrightarrow \\ln(\\text{ch } x)$\\par — $e^{x} \\longrightarrow e^{x}$\\par — $\\ln x \\longrightarrow x\\ln x - x$\\par — $\\frac{1}{1+x^{2}} \\longrightarrow \\text{Arctan } x$\\par — $\\frac{1}{\\sqrt{1-x^{2}}} \\longrightarrow \\text{Arcsin } x$\\par — $\\frac{1}{x} \\longrightarrow \\ln|x|$\\par — $x^{\\alpha} (\\alpha\\ne-1) \\longrightarrow \\frac{x^{\\alpha+1}}{\\alpha+1}$",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_046",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Primitives des fonctions usuelles (exp, ln, puissances, trigo, hyperboliques).",
+      "programme_notion": "Primitives des fonctions usuelles (exp, ln, puissances, trigo, hyperboliques)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_etude_fonctions_puissances",
+      "answer_latex": "Soient $\\alpha, \\beta\\in\\mathbb{R}$.\\par (i) Régularité : La fonction $x\\mapsto x^{\\alpha}$ est définie et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ de dérivée $x\\mapsto \\alpha x^{\\alpha-1}$. Elle est concave si $\\alpha\\in[0,1]$ et convexe sinon.\\par (ii) Positions relatives : $\\alpha\\le\\beta\\Rightarrow x^{\\beta}\\le x^{\\alpha}$ pour tout $x\\in]0,1]$, et $\\alpha\\le\\beta\\Rightarrow x^{\\alpha}\\le x^{\\beta}$ pour tout $x\\in[1,+\\infty[$.\\par (iii) Prolongement par continuité en 0 : Pour $\\alpha>0$, on pose $0^{\\alpha}=0$. La fonction $x\\mapsto x^{\\alpha}$ ainsi prolongée est continue sur $\\mathbb{R}_{+}$ tout entier, y compris en 0.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_047",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Primitives des fonctions usuelles (exp, ln, puissances, trigo, hyperboliques).",
+      "programme_notion": "Primitives des fonctions usuelles (exp, ln, puissances, trigo, hyperboliques)",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__theorem_etude_fonctions_puissances",
+      "answer_latex": "Soient $\\alpha, \\beta\\in\\mathbb{R}$.\\par (i) Régularité : La fonction $x\\mapsto x^{\\alpha}$ est définie et de classe $\\mathcal{C}^{\\infty}$ sur $\\mathbb{R}_{+}^{*}$ de dérivée $x\\mapsto \\alpha x^{\\alpha-1}$. Elle est concave si $\\alpha\\in[0,1]$ et convexe sinon.\\par (ii) Positions relatives : $\\alpha\\le\\beta\\Rightarrow x^{\\beta}\\le x^{\\alpha}$ pour tout $x\\in]0,1]$, et $\\alpha\\le\\beta\\Rightarrow x^{\\alpha}\\le x^{\\beta}$ pour tout $x\\in[1,+\\infty[$.\\par (iii) Prolongement par continuité en 0 : Pour $\\alpha>0$, on pose $0^{\\alpha}=0$. La fonction $x\\mapsto x^{\\alpha}$ ainsi prolongée est continue sur $\\mathbb{R}_{+}$ tout entier, y compris en 0.\n\n\\textbf{Démonstration.} (i) Pour tout $x>0$ : $\\frac{d}{dx}(x^{\\alpha})=\\frac{d}{dx}(e^{\\alpha \\ln x})=\\frac{\\alpha}{x}\\times e^{\\alpha \\ln x}=\\alpha x^{-1}x^{\\alpha}=\\alpha x^{\\alpha-1}$. A fortiori : $\\frac{d^{2}}{dx^{2}}(x^{\\alpha})=\\alpha(\\alpha-1)x^{\\alpha-2}$, donc la dérivée seconde est négative sur $\\mathbb{R}_{+}^{*}$ si $\\alpha\\in[0,1]$ et positive si $\\alpha\\in]-\\infty,0]\\cup[1,+\\infty[$.\\par (ii) Si $x\\in]0,1]$, alors $\\ln x\\le 0$, donc $\\beta \\ln x\\le \\alpha \\ln x$, donc $x^{\\beta}=e^{\\beta \\ln x}\\le e^{\\alpha \\ln x}=x^{\\alpha}$. Si $x\\in[1,+\\infty[$, alors $\\ln x\\ge 0$, donc $\\alpha \\ln x\\le \\beta \\ln x$, donc $x^{\\alpha}=e^{\\alpha \\ln x}\\le e^{\\beta \\ln x}=x^{\\beta}$.\\par (iii) Pour $\\alpha>0$ : $x^{\\alpha}=e^{\\alpha \\ln x}\\longrightarrow_{x\\rightarrow 0}0=0^{\\alpha}$, donc la fonction est continue en 0.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_048",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Primitives de 1/(1+x²), 1/√(1-x²).",
+      "programme_notion": "Primitives de 1/(1+x²), 1/√(1-x²)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_049",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Primitives de 1/(1+x²), 1/√(1-x²).",
+      "programme_notion": "Primitives de 1/(1+x²), 1/√(1-x²)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.\n\n\\textbf{Démonstration.} Pour toute fonction $G$ :\\par $G$ est une primitive de $f \\iff G'=f=F' \\iff (G-F)'=0 \\iff G-F$ est constante \\iff \\exists\\lambda\\in\\mathbb{C}, G=F+\\lambda$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_050",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Primitives de 1/(ax²+bx+c).",
+      "programme_notion": "Primitives de 1/(ax²+bx+c)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_051",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Primitives de 1/(ax²+bx+c).",
+      "programme_notion": "Primitives de 1/(ax²+bx+c)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.\n\n\\textbf{Démonstration.} Pour toute fonction $G$ :\\par $G$ est une primitive de $f \\iff G'=f=F' \\iff (G-F)'=0 \\iff G-F$ est constante \\iff \\exists\\lambda\\in\\mathbb{C}, G=F+\\lambda$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_052",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Reconnaissance des dérivées de fonctions composées.",
+      "programme_notion": "Reconnaissance des dérivées de fonctions composées",
+      "answer_node_id": "rappels_et_complements_sur_les_fonctions_reelles__remark_composees",
+      "answer_latex": "Soient $f:E\\longrightarrow\\mathbb{R}$ et $g:F\\longrightarrow\\mathbb{R}$ deux fonctions. La composée $g\\circ f$ n'est définie que si $f$ est à valeurs dans $F$, i.e. si $f(E)\\subset F$. Quand la fonction extérieure $g$ est définie sur $\\mathbb{R}$ tout entier, la condition $f(E)\\subset\\mathbb{R}$ est trivialement vraie et $g\\circ f$ est définie sans qu'aucun obstacle se soit présenté.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_053",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Intégration par parties (IPP).",
+      "programme_notion": "Intégration par parties (IPP)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+      "answer_latex": "Soient $u,v\\in\\mathcal{C}^{1}(I,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}u'(x)v(x)dx=[uv]_{a}^{b}-\\int_{a}^{b}u(x)v'(x)dx$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_054",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Intégration par parties (IPP).",
+      "programme_notion": "Intégration par parties (IPP)",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_integration_par_parties",
+      "answer_latex": "Soient $u,v\\in\\mathcal{C}^{1}(I,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}u'(x)v(x)dx=[uv]_{a}^{b}-\\int_{a}^{b}u(x)v'(x)dx$.\n\n\\textbf{Démonstration.} Comme $u$ et $v$ sont de classe $\\mathcal{C}^{1}$, les fonctions $(uv)'$, $u'v$ et $uv'$ sont continues, donc d'après le théorème fondamental du calcul intégral et par linéarité de l'intégrale :\\par $[uv]_{a}^{b}=\\int_{a}^{b}(uv)'(x)dx=\\int_{a}^{b}(u'(x)v(x)+u(x)v'(x))dx=\\int_{a}^{b}u'(x)v(x)dx+\\int_{a}^{b}u(x)v'(x)dx$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_055",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Changement de variable.",
+      "programme_notion": "Changement de variable",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+      "answer_latex": "Soient $\\varphi\\in\\mathcal{C}^{1}(I,\\mathbb{R})$ à valeurs dans $J$, $f\\in\\mathcal{C}(J,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}f(\\varphi(t))\\varphi'(t)dt=\\int_{\\varphi(a)}^{\\varphi(b)}f(x)dx$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_056",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Changement de variable.",
+      "programme_notion": "Changement de variable",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_changement_variable",
+      "answer_latex": "Soient $\\varphi\\in\\mathcal{C}^{1}(I,\\mathbb{R})$ à valeurs dans $J$, $f\\in\\mathcal{C}(J,\\mathbb{C})$ et $a,b\\in I$. $\\int_{a}^{b}f(\\varphi(t))\\varphi'(t)dt=\\int_{\\varphi(a)}^{\\varphi(b)}f(x)dx$.\n\n\\textbf{Démonstration.} Continue, $f$ possède une primitive $F$ de classe $\\mathcal{C}^{1}$, et comme $\\varphi$ est de classe $\\mathcal{C}^{1}$, la fonction $(F\\circ\\varphi)'=(f\\circ\\varphi)\\varphi'$ est continue. Par conséquent, d'après le théorème fondamental du calcul intégral : $\\int_{a}^{b}f(\\varphi(t))\\varphi'(t)dt=[F\\circ\\varphi]_{a}^{b}=F(\\varphi(b))-F(\\varphi(a))=[F]_{\\varphi(a)}^{\\varphi(b)}=\\int_{\\varphi(a)}^{\\varphi(b)}f(x)dx$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_057",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Équation différentielle linéaire du premier ordre y' + a(x)y = b(x).",
+      "programme_notion": "Équation différentielle linéaire du premier ordre y' + a(x)y = b(x)",
+      "answer_node_id": "equations_differentielles_lineaires__definition_equation_lineaire",
+      "answer_latex": "On étudiera les équations de la forme :\\par — $y' + a(x)y = f(x)$ (équations différentielles linéaires du premier ordre)\\par — $y^{(n)} + a_{n-1}y^{(n-1)} + \\ldots + a_1y' + a_0y = f(x)$ (équations différentielles linéaires à coefficients constants).\\par\\par Ces équations sont linéaires au sens où elles sont de la forme $T(y) = f$ avec $T$ linéaire et $f$ fixée.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_058",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Équation homogène associée, ensemble des solutions.",
+      "programme_notion": "Équation homogène associée, ensemble des solutions",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_059",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Équation homogène associée, ensemble des solutions.",
+      "programme_notion": "Équation homogène associée, ensemble des solutions",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.\n\n\\textbf{Démonstration.} Pour tout $y \\in C^1(I, \\mathbb{K})$ :\\par $y' + ay = 0 \\Leftrightarrow (ye^A)' = 0$ car $(ye^A)' = y'e^A + yA'e^A = (y' + ay)e^A$,\\par donc $ye^A$ est constante, i.e. $\\exists \\lambda \\in \\mathbb{K}, y = \\lambda e^{-A}$.\\par\\par Vous noterez en passant que nous avons bien fait de travailler sur un INTERVALLE $I$. Si $I$ était une partie quelconque de $\\mathbb{R}$, une dérivée $f'$ pourrait être identiquement nulle sur $I$ sans que la fonction $f$ soit constante sur $I$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_060",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Cas particulier où a est constante.",
+      "programme_notion": "Cas particulier où a est constante",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_061",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Cas particulier où a est constante.",
+      "programme_notion": "Cas particulier où a est constante",
+      "answer_node_id": "techniques_elementaires_de_calcul_integral__thm_primitives_unicite",
+      "answer_latex": "Soit $f:I\\longrightarrow\\mathbb{C}$ une fonction. On dit qu'une fonction $F:I\\longrightarrow\\mathbb{C}$ est UNE primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.\\par « Unicité » à constante additive près : Si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\\lambda$, $\\lambda$ décrivant $\\mathbb{C}$.\n\n\\textbf{Démonstration.} Pour toute fonction $G$ :\\par $G$ est une primitive de $f \\iff G'=f=F' \\iff (G-F)'=0 \\iff G-F$ est constante \\iff \\exists\\lambda\\in\\mathbb{C}, G=F+\\lambda$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_062",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Principe de superposition.",
+      "programme_notion": "Principe de superposition",
+      "answer_node_id": "equations_differentielles_lineaires__example_superposition",
+      "answer_latex": "On cherche les solutions réelles de l'équation $y' + y = 3e^{-x} + (6x + 5)e^{2x}$.\\par\\par Les solutions réelles de l'équation complète sont les fonctions $x \\longmapsto (3x + \\lambda)e^{-x} + (2x + 1)e^{2x}$, $\\lambda$ décrivant $\\mathbb{R}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_063",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Méthode de la variation de la constante.",
+      "programme_notion": "Méthode de la variation de la constante",
+      "answer_node_id": "equations_differentielles_lineaires__method_variation_constante",
+      "answer_latex": "Pour résoudre $y' + a(x)y = f(x)$ :\\par 1. Résoudre l'homogène $y' + a(x)y = 0$ $\\rightarrow$ $y_h = \\lambda e^{-A(x)}$.\\par 2. Chercher $y_p = \\lambda(x)e^{-A(x)}$ (variation de la constante).\\par 3. Injecter dans l'équation $\\rightarrow$ $\\lambda'(x) = f(x)e^{A(x)}$.\\par 4. Intégrer pour trouver $\\lambda(x)$.\\par 5. Solution générale : $y = y_p + y_h$.\\par\\par Sur une copie, vous n'êtes pas obligés de rédiger la méthode de la variation de la constante. Vous pouvez vous contenter de la mettre en œuvre au brouillon, puis vérifier sur votre copie que vous avez bien trouvé une solution particulière.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_064",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence et unicité de la solution d'un problème de Cauchy (ordre 1).",
+      "programme_notion": "Existence et unicité de la solution d'un problème de Cauchy (ordre 1)",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+      "answer_latex": "Soient $a, f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ est une droite affine. Si on note $y_{\\text{part}}$ une solution particulière de cette équation et $A$ une primitive de $a$ sur $I$, les solutions sur $I$ de l'équation complète sont les fonctions $y_{\\text{part}} + \\lambda e^{-A}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0 \\in \\mathbb{K}$, le système $\\begin{cases} y' + a(x)y = f(x) \\\\ y(x_0) = y_0 \\text{ (condition initiale)} \\end{cases}$ est appelé un problème de Cauchy et possède une et une seule solution sur $I$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_065",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence et unicité de la solution d'un problème de Cauchy (ordre 1).",
+      "programme_notion": "Existence et unicité de la solution d'un problème de Cauchy (ordre 1)",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+      "answer_latex": "Soient $a, f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ est une droite affine. Si on note $y_{\\text{part}}$ une solution particulière de cette équation et $A$ une primitive de $a$ sur $I$, les solutions sur $I$ de l'équation complète sont les fonctions $y_{\\text{part}} + \\lambda e^{-A}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0 \\in \\mathbb{K}$, le système $\\begin{cases} y' + a(x)y = f(x) \\\\ y(x_0) = y_0 \\text{ (condition initiale)} \\end{cases}$ est appelé un problème de Cauchy et possède une et une seule solution sur $I$.\n\n\\textbf{Démonstration.} Notons $A$ une primitive de $a$ sur $I$.\\par\\par Idée de la preuve : Les solutions de l'équation homogène sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$ dans lesquelles $\\lambda$ est une CONSTANTE. Pour résoudre l'équation complète, nous allons faire varier la constante, c'est-à-dire chercher les solutions sous la forme $x \\longmapsto \\lambda(x)e^{-A(x)}$ où $\\lambda$ est une FONCTION. Il s'avère ci-dessous que c'est une bonne idée.\\par\\par C'est parti. Soit $y \\in C^1(I, \\mathbb{K})$ quelconque. Notons $\\lambda$ la FONCTION $ye^A$, elle aussi de classe $C^1$. Ainsi $y = \\lambda e^{-A}$.\\par $y' + ay = f$ et $y(x_0) = y_0$\\par $\\Leftrightarrow (\\lambda'e^{-A} - \\lambda A'e^{-A}) + a\\lambda e^{-A} = f$ et $\\lambda(x_0)e^{-A(x_0)} = y_0$\\par $\\Leftrightarrow \\lambda'e^{-A} - a\\lambda e^{-A} + a\\lambda e^{-A} = f$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda' = fe^A$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda$ est l'unique primitive de $fe^A$ qui vaut $y_0e^{A(x_0)}$ en $x_0$.\\par\\par Ces équivalences prouvent l'existence et l'unicité d'une fonction $\\lambda$ répondant au problème car la fonction $fe^A$ est continue sur $I$, donc $y$ possède une et une seule primitive de valeur $y_0e^{A(x_0)}$ en $x_0$ d'après le théorème fondamental du calcul intégral. De nouveau, l'unicité exige que $I$ soit un intervalle. Plus explicitement, pour tout $x \\in I$ : $\\lambda(x) = y_0e^{A(x_0)} + \\int_{x_0}^x f(t)e^{A(t)}dt$, donc $y(x) = y_0e^{A(x_0)-A(x)} + \\int_{x_0}^x f(t)e^{A(t)-A(x)}dt$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_066",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Équation différentielle linéaire du second ordre à coefficients constants y'' + ay' + by = f(x).",
+      "programme_notion": "Équation différentielle linéaire du second ordre à coefficients constants y'' + ay' + by = f(x)",
+      "answer_node_id": "equations_differentielles_lineaires__definition_equation_lineaire",
+      "answer_latex": "On étudiera les équations de la forme :\\par — $y' + a(x)y = f(x)$ (équations différentielles linéaires du premier ordre)\\par — $y^{(n)} + a_{n-1}y^{(n-1)} + \\ldots + a_1y' + a_0y = f(x)$ (équations différentielles linéaires à coefficients constants).\\par\\par Ces équations sont linéaires au sens où elles sont de la forme $T(y) = f$ avec $T$ linéaire et $f$ fixée.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_067",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Équation caractéristique, ensemble des solutions de l'équation homogène.",
+      "programme_notion": "Équation caractéristique, ensemble des solutions de l'équation homogène",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_068",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Équation caractéristique, ensemble des solutions de l'équation homogène.",
+      "programme_notion": "Équation caractéristique, ensemble des solutions de l'équation homogène",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.\n\n\\textbf{Démonstration.} Pour tout $y \\in C^1(I, \\mathbb{K})$ :\\par $y' + ay = 0 \\Leftrightarrow (ye^A)' = 0$ car $(ye^A)' = y'e^A + yA'e^A = (y' + ay)e^A$,\\par donc $ye^A$ est constante, i.e. $\\exists \\lambda \\in \\mathbb{K}, y = \\lambda e^{-A}$.\\par\\par Vous noterez en passant que nous avons bien fait de travailler sur un INTERVALLE $I$. Si $I$ était une partie quelconque de $\\mathbb{R}$, une dérivée $f'$ pourrait être identiquement nulle sur $I$ sans que la fonction $f$ soit constante sur $I$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_069",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Solutions réelles si a, b réels.",
+      "programme_notion": "Solutions réelles si a, b réels",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_070",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Solutions réelles si a, b réels.",
+      "programme_notion": "Solutions réelles si a, b réels",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_homogene_premier_ordre",
+      "answer_latex": "Soit $a \\in C(I, \\mathbb{K})$. On note $A$ une primitive de $a$ sur $I$. Les solutions sur $I$ de l'équation homogène $y' + a(x)y = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par En d'autres termes, si on note $\\mathcal{S}$ l'ensemble des solutions de l'équation homogène $y' + a(x)y = 0$, alors $\\mathcal{S} = \\text{Vect}(e^{-A})$.\\par\\par Si la fonction $a$ est constante, les solutions de l'équation $y' + ay = 0$ sont les fonctions $x \\longmapsto \\lambda e^{-ax}$, $\\lambda$ décrivant $\\mathbb{K}$. En particulier, la fonction exponentielle est la seule fonction $y \\in D(\\mathbb{R}, \\mathbb{R})$ pour laquelle $y' = y$ et $y(0) = 1$.\n\n\\textbf{Démonstration.} Pour tout $y \\in C^1(I, \\mathbb{K})$ :\\par $y' + ay = 0 \\Leftrightarrow (ye^A)' = 0$ car $(ye^A)' = y'e^A + yA'e^A = (y' + ay)e^A$,\\par donc $ye^A$ est constante, i.e. $\\exists \\lambda \\in \\mathbb{K}, y = \\lambda e^{-A}$.\\par\\par Vous noterez en passant que nous avons bien fait de travailler sur un INTERVALLE $I$. Si $I$ était une partie quelconque de $\\mathbb{R}$, une dérivée $f'$ pourrait être identiquement nulle sur $I$ sans que la fonction $f$ soit constante sur $I$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_071",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Recherche de solution particulière : second membre polynôme, e^{λx}, cos(ωx), sin(ωx).",
+      "programme_notion": "Recherche de solution particulière : second membre polynôme, e^{λx}, cos(ωx), sin(ωx)",
+      "answer_node_id": "equations_differentielles_lineaires__method_second_membre_polynome_exp",
+      "answer_latex": "Pour un second membre $P(x)e^{ux}$, on cherche une solution particulière sous la forme $x \\longmapsto Q(x)e^{ux}$ avec $\\deg(Q) = \\deg(P) + m$ où $m$ est la multiplicité de $u$ dans le polynôme caractéristique de l'équation homogène.\\par\\par Pour les seconds membres de la forme $P(x)e^{kx}\\cos(ux)$ ou $P(x)e^{kx}\\sin(ux)$, on commence par chercher une solution complexe de l'équation avec second membre $P(x)e^{(k+iu)x}$, dont on calcule ensuite la partie réelle ou imaginaire.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_072",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Existence et unicité de la solution d'un problème de Cauchy (ordre 2).",
+      "programme_notion": "Existence et unicité de la solution d'un problème de Cauchy (ordre 2)",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+      "answer_latex": "Soient $a, f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ est une droite affine. Si on note $y_{\\text{part}}$ une solution particulière de cette équation et $A$ une primitive de $a$ sur $I$, les solutions sur $I$ de l'équation complète sont les fonctions $y_{\\text{part}} + \\lambda e^{-A}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0 \\in \\mathbb{K}$, le système $\\begin{cases} y' + a(x)y = f(x) \\\\ y(x_0) = y_0 \\text{ (condition initiale)} \\end{cases}$ est appelé un problème de Cauchy et possède une et une seule solution sur $I$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "TECH_ANA__qc_073",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Existence et unicité de la solution d'un problème de Cauchy (ordre 2).",
+      "programme_notion": "Existence et unicité de la solution d'un problème de Cauchy (ordre 2)",
+      "answer_node_id": "equations_differentielles_lineaires__theorem_equation_complete_premier_ordre",
+      "answer_latex": "Soient $a, f \\in C(I, \\mathbb{K})$.\\par\\par — Ensemble des solutions : L'ensemble des solutions de l'équation complète $y' + a(x)y = f(x)$ d'inconnue $y \\in C^1(I, \\mathbb{K})$ est une droite affine. Si on note $y_{\\text{part}}$ une solution particulière de cette équation et $A$ une primitive de $a$ sur $I$, les solutions sur $I$ de l'équation complète sont les fonctions $y_{\\text{part}} + \\lambda e^{-A}$, $\\lambda$ décrivant $\\mathbb{K}$.\\par\\par — Problème de Cauchy : Pour tous $x_0 \\in I$ et $y_0 \\in \\mathbb{K}$, le système $\\begin{cases} y' + a(x)y = f(x) \\\\ y(x_0) = y_0 \\text{ (condition initiale)} \\end{cases}$ est appelé un problème de Cauchy et possède une et une seule solution sur $I$.\n\n\\textbf{Démonstration.} Notons $A$ une primitive de $a$ sur $I$.\\par\\par Idée de la preuve : Les solutions de l'équation homogène sont les fonctions $x \\longmapsto \\lambda e^{-A(x)}$ dans lesquelles $\\lambda$ est une CONSTANTE. Pour résoudre l'équation complète, nous allons faire varier la constante, c'est-à-dire chercher les solutions sous la forme $x \\longmapsto \\lambda(x)e^{-A(x)}$ où $\\lambda$ est une FONCTION. Il s'avère ci-dessous que c'est une bonne idée.\\par\\par C'est parti. Soit $y \\in C^1(I, \\mathbb{K})$ quelconque. Notons $\\lambda$ la FONCTION $ye^A$, elle aussi de classe $C^1$. Ainsi $y = \\lambda e^{-A}$.\\par $y' + ay = f$ et $y(x_0) = y_0$\\par $\\Leftrightarrow (\\lambda'e^{-A} - \\lambda A'e^{-A}) + a\\lambda e^{-A} = f$ et $\\lambda(x_0)e^{-A(x_0)} = y_0$\\par $\\Leftrightarrow \\lambda'e^{-A} - a\\lambda e^{-A} + a\\lambda e^{-A} = f$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda' = fe^A$ et $\\lambda(x_0) = y_0e^{A(x_0)}$\\par $\\Leftrightarrow \\lambda$ est l'unique primitive de $fe^A$ qui vaut $y_0e^{A(x_0)}$ en $x_0$.\\par\\par Ces équivalences prouvent l'existence et l'unicité d'une fonction $\\lambda$ répondant au problème car la fonction $fe^A$ est continue sur $I$, donc $y$ possède une et une seule primitive de valeur $y_0e^{A(x_0)}$ en $x_0$ d'après le théorème fondamental du calcul intégral. De nouveau, l'unicité exige que $I$ soit un intervalle. Plus explicitement, pour tout $x \\in I$ : $\\lambda(x) = y_0e^{A(x_0)} + \\int_{x_0}^x f(t)e^{A(t)}dt$, donc $y(x) = y_0e^{A(x_0)-A(x)} + \\int_{x_0}^x f(t)e^{A(t)-A(x)}dt$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

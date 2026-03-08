@@ -2,7 +2,6 @@
 Endpoints kholle : start, answer, next-exercise, exercise/message, finish.
 """
 
-import json
 from pathlib import Path
 from typing import Optional
 
@@ -159,18 +158,16 @@ async def submit_answer(
     if q.get("id") and session.chapter_id:
         context = ks.get_structured_context(q["id"], session.chapter_id, max_chars=4000)
 
-    attendus = json.loads(q.get("attendus_json", "[]"))
-    erreurs = json.loads(q.get("erreurs_frequentes_json", "[]"))
-    relances = json.loads(q.get("relances_prof_json", "[]"))
+    # V3: answer_latex contient la reponse de reference complete
+    answer_latex = q.get("answer_latex", "")
+    expected = [answer_latex] if answer_latex else []
 
     try:
         result = ai_service.evaluate_answer(
             question=q["question_raw"],
-            expected=attendus,
+            expected=expected,
             student_answer=req.answer,
             rag_context=context,
-            common_errors=erreurs,
-            follow_up_questions=relances,
             conversation_history=session.conversation_history[:-1],
         )
     except Exception as e:
@@ -185,8 +182,7 @@ async def submit_answer(
         template = _load_prompt("evaluation")
         user_prompt = template.format(
             question=q["question_raw"],
-            expected_points="\n".join("- " + e for e in attendus),
-            common_errors="\n".join("- " + e for e in erreurs) or "Aucune erreur specifique.",
+            reference_answer=answer_latex or "Non disponible.",
             rag_context=context,
             student_answer=req.answer,
         )

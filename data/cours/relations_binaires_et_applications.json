@@ -1,0 +1,603 @@
+{
+  "chapter_official_id": "relations_binaires_et_applications",
+  "chapter_name": "RELATIONS BINAIRES ET APPLICATIONS",
+  "source_document": "Cours - Relations binaires et applications.pdf",
+  "knowledge_nodes": [
+    {
+      "id": "relations_binaires_et_applications__example_intro_relations",
+      "type": "example",
+      "title": "Exemple : Relations comme ensembles de couples",
+      "content_latex": "Par exemple, la relation d'infériorité stricte $<$ sur $[[1,3]]$ est l'ensemble $\\{(1,2),(1,3),(2,3)\\}$.\\par La relation de divisibilité $|$ sur $[[1,4]]$ est l'ensemble $\\{(1,1),(1,2),(1,3),(1,4),(2,2),(2,4),(3,3),(4,4)\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_relation_binaire",
+      "type": "definition",
+      "title": "Définition : Relation binaire",
+      "content_latex": "On appelle relation binaire sur $E$ toute partie de $E \\times E$. Pour une telle relation $\\mathcal{R}$, la proposition $(x,y) \\in \\mathcal{R}$ sera notée $x \\mathrel{\\mathcal{R}} y$ pour tous $x,y \\in E$ et lue « $x$ est en relation avec $y$ par $\\mathcal{R}$ ».",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_ordre_couple",
+      "type": "warning",
+      "title": "Attention : Ordre des éléments dans le couple",
+      "content_latex": "Parce que le couple $(x, y)$ n'est pas le couple $(y, x)$, la relation $x \\mathrel{\\mathcal{R}} y$ peut être vraie sans que la relation $y \\mathrel{\\mathcal{R}} x$ le soit.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_relations_classiques",
+      "type": "example",
+      "title": "Exemple : Relations binaires classiques",
+      "content_latex": "Vous connaissez déjà un certain nombre de relations binaires :\\par — la relation d'égalité $=$ sur $E$,\\par — les relations $<$ et $\\le$ sur $\\mathbb{R}$,\\par — la relation d'inclusion $\\subset$ sur $\\mathcal{P}(E)$,\\par — la relation $\\le$ sur l'ensemble $\\mathbb{R}^{\\mathbb{R}}$ des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$, définie par l'équivalence : $f \\le g \\iff \\forall x \\in \\mathbb{R}, f(x) \\le g(x)$,\\par — la relation de divisibilité $|$ sur $\\mathbb{Z}$, définie par : $a|b \\iff \\exists k \\in \\mathbb{Z}, b = ak$,\\par — pour tout $\\alpha \\in \\mathbb{R}$, la relation $\\equiv [\\alpha]$ de congruence modulo $\\alpha$ sur $\\mathbb{R}$, définie par : $x \\equiv y [\\alpha] \\iff \\exists k \\in \\mathbb{Z}, x = y + k\\alpha$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_proprietes_relations",
+      "type": "definition",
+      "title": "Définition : Propriétés des relations binaires",
+      "content_latex": "Soit $\\mathcal{R}$ une relation binaire sur $E$.\\par — Réflexivité : On dit que $\\mathcal{R}$ est réflexive si : $\\forall x \\in E, x \\mathrel{\\mathcal{R}} x$.\\par — Transitivité : On dit que $\\mathcal{R}$ est transitive si : $\\forall x, y, z \\in E, (x \\mathrel{\\mathcal{R}} y \\text{ et } y \\mathrel{\\mathcal{R}} z) \\Rightarrow x \\mathrel{\\mathcal{R}} z$.\\par — Symétrie : On dit que $\\mathcal{R}$ est symétrique si : $\\forall x, y \\in E, x \\mathrel{\\mathcal{R}} y \\Rightarrow y \\mathrel{\\mathcal{R}} x$.\\par — Antisymétrie : On dit que $\\mathcal{R}$ est antisymétrique si : $\\forall x, y \\in E, (x \\mathrel{\\mathcal{R}} y \\text{ et } y \\mathrel{\\mathcal{R}} x) \\Rightarrow x = y$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_proprietes_relations_classiques",
+      "type": "example",
+      "title": "Exemple : Propriétés des relations classiques",
+      "content_latex": "— La relation d'égalité $=$ sur $E$ est réflexive, transitive, symétrique et antisymétrique.\\par — Les relations $\\le$ sur $\\mathbb{R}$ et $\\mathbb{R}^{\\mathbb{R}}$ sont réflexives, transitives et antisymétriques. Elles ne sont pas symétriques.\\par — La relation $<$ sur $\\mathbb{R}$ est transitive et antisymétrique, mais elle n'est ni réflexive, ni symétrique.\\par — La relation « avoir le même signe » sur $\\mathbb{R}^*$ est réflexive, transitive et symétrique.\\par — La relation d'inclusion $\\subset$ sur $\\mathcal{P}(E)$ est réflexive, transitive et antisymétrique.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_divisibilite_proprietes",
+      "type": "example",
+      "title": "Exemple : Propriétés de la relation de divisibilité",
+      "content_latex": "La relation de divisibilité $|$ est réflexive et transitive sur $\\mathbb{Z}$ (donc aussi sur $\\mathbb{N}$). En revanche, elle est antisymétrique sur $\\mathbb{N}$, mais pas sur $\\mathbb{Z}$ car par exemple $-2 | 2$ et $2 | -2$ alors que $-2 \\ne 2$. Plus précisément, pour tous $a, b \\in \\mathbb{Z}$ : $(a|b \\text{ et } b|a) \\iff (a = b \\text{ ou } a = -b)$.",
+      "proof_latex": "— Réflexivité : Pour tout $a \\in \\mathbb{Z}, a | a$ car $a = a \\times 1$ avec $1 \\in \\mathbb{Z}$.\\par — Transitivité : Soient $a, b, c \\in \\mathbb{Z}$. Si $a|b$ et $b|c$, alors $b = ak$ et $c = bl$ pour certains $k, l \\in \\mathbb{Z}$, donc $c = a(kl)$ avec $kl \\in \\mathbb{Z}$, donc $a|c$.\\par — Antisymétrie : Soient $a, b \\in \\mathbb{Z}$. Si $|a| = |b|$, alors $a = b$ ou $a = -b$, donc en effet, $a|b$ et $b|a$. Réciproquement, faisons l'hypothèse que $a|b$ et $b|a$. Ainsi, $b = ak$ et $a = bl$ pour certains $k, l \\in \\mathbb{Z}$, donc $b = b(kl)$. Si $b = 0$, alors $a = bl = 0$ donc $|a| = 0 = |b|$. Si au contraire $b \\ne 0$, alors $kl = 1$, donc soit $k = l = 1$, soit $k = l = -1$ car $k$ et $l$ sont des entiers. Ainsi $a = \\pm b$, i.e. $|a| = |b|$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_relation_ordre",
+      "type": "definition",
+      "title": "Définition : Relation d'ordre, relation d'ordre totale",
+      "content_latex": "On appelle relation d'ordre sur $E$ toute relation binaire sur $E$ à la fois réflexive, transitive et antisymétrique. Les relations d'ordre sont généralement notées $\\le, \\preccurlyeq, \\subset...$. On dit qu'une relation d'ordre $\\le$ sur $E$ est totale si : $\\forall x, y \\in E$, $x \\le y$ ou $y \\le x$. Dans le cas contraire, on dit que $\\le$ est partielle.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_relations_ordre_classiques",
+      "type": "example",
+      "title": "Exemple : Relations d'ordre classiques",
+      "content_latex": "— La relation $\\le$ est une relation d'ordre totale sur $\\mathbb{R}$.\\par — La relation $\\le$ est une relation d'ordre partielle sur l'ensemble $\\mathbb{R}^{\\mathbb{R}}$ des fonctions de $\\mathbb{R}$ dans $\\mathbb{R}$. Par exemple, les fonctions cosinus et sinus ne sont pas comparables : $\\sin \\not\\le \\cos$ et $\\cos \\not\\le \\sin$.\\par — La relation d'inclusion $\\subset$ est une relation d'ordre sur $\\mathcal{P}(E)$ partielle dès que $E$ contient au moins deux éléments. En effet, pour tous $a$ et $b$ éléments DISTINCTS de $E$ : $\\{a\\} \\not\\subset \\{b\\}$ et $\\{b\\} \\not\\subset \\{a\\}$.\\par — La relation de divisibilité $|$ n'est pas une relation d'ordre sur $\\mathbb{Z}$, mais c'en est une sur $\\mathbb{N}$, partielle car 2 et 3 ne sont pas comparables : $2 \\nmid 3$ et $3 \\nmid 2$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_relation_stricte",
+      "type": "theorem",
+      "title": "Définition-théorème : Relation stricte associée à une relation d'ordre",
+      "content_latex": "Soit $\\le$ une relation d'ordre sur $E$. La relation $\\prec$ sur $E$ définie pour tous $x,y \\in E$ par l'équivalence : $x \\prec y \\iff (x \\le y \\text{ et } x \\ne y)$ est transitive et antisymétrique. On l'appelle la relation stricte associée à $\\le$.",
+      "proof_latex": "— Transitivité : Soient $x, y, z \\in E$. Supposons $x \\prec y$ et $y \\prec z$. En particulier $x \\le y$ et $y \\le z$ donc $x \\le z$ par transitivité de $\\le$. L'égalité $x = z$ est-elle possible ? Le cas échéant, $x \\le y$ et $y \\le x$, donc $x = y$ par antisymétrie de $\\le$, contradiction. Bref, $x \\le z$ et $x \\ne z$, i.e. $x \\prec z$.\\par — Antisymétrie : Soient $x, y \\in E$. Si $x \\prec y$ et $y \\prec x$, alors $x \\le y$ et $y \\le x$, donc $x = y$ par antisymétrie de $\\le$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_relation_stricte_R",
+      "type": "example",
+      "title": "Exemple : Relation stricte usuelle",
+      "content_latex": "Naturellement, la relation usuelle $<$ sur $\\mathbb{R}$ est la relation stricte de la relation $\\le$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_relation_equivalence",
+      "type": "definition",
+      "title": "Définition : Relation d'équivalence",
+      "content_latex": "On appelle relation d'équivalence sur $E$ toute relation binaire sur $E$ à la fois réflexive, transitive et symétrique. Les relations d'équivalence sont généralement notées $\\sim, \\equiv, \\mathcal{R}, \\dots$",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equivalence_signe_egalite",
+      "type": "example",
+      "title": "Exemple : Signe et égalité",
+      "content_latex": "La relation « avoir le même signe » sur $\\mathbb{R}^*$ est une relation d'équivalence, de même que la relation d'égalité $=$ sur $E$ pour tout ensemble $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equivalence_congruence",
+      "type": "example",
+      "title": "Exemple : Congruence",
+      "content_latex": "Pour tout $\\alpha \\in \\mathbb{R}$, la relation $\\equiv [\\alpha]$ de congruence modulo $\\alpha$ sur $\\mathbb{R}$ est une relation d'équivalence. De même, pour tout $n \\in \\mathbb{N}$, la relation $\\equiv [n]$ de congruence modulo $n$ sur $\\mathbb{Z}$ est une relation d'équivalence.",
+      "proof_latex": "— Réflexivité : Pour tout $x \\in \\mathbb{R}$, $x = x + 0 \\times \\alpha$ avec $0 \\in \\mathbb{Z}$, donc $x \\equiv x [\\alpha]$.\\par — Transitivité : Soient $x, y, z \\in \\mathbb{R}$. Si $x \\equiv y [\\alpha]$ et $y \\equiv z [\\alpha]$ alors $x = y + k\\alpha$ et $y = z + l\\alpha$ pour certains $k, l \\in \\mathbb{Z}$ donc $x = z + (k+l)\\alpha$ avec $k+l \\in \\mathbb{Z}$, donc $x \\equiv z [\\alpha]$.\\par — Symétrie : Soient $x, y \\in \\mathbb{R}$. Si $x \\equiv y [\\alpha]$ alors $x = y + k\\alpha$ pour un certain $k \\in \\mathbb{Z}$, donc $y = x + (-k)\\alpha$ avec $-k \\in \\mathbb{Z}$, donc $y \\equiv x [\\alpha]$."
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_classes_equivalence",
+      "type": "theorem",
+      "title": "Définition-théorème : Classes d'équivalence, ensemble quotient, ensemble de représentants",
+      "content_latex": "Soit $\\sim$ une relation d'équivalence sur $E$.\\par — Classes d'équivalence : Pour tout $x \\in E$, l'ensemble $cl(x) = \\{y \\in E | y \\sim x\\}$ est appelé la classe d'équivalence de $x$ (pour $\\sim$). Les classes d'équivalence de $\\sim$ forment une partition de $E$ et pour tous $x, y \\in E$ : $cl(x) = cl(y) \\iff x \\sim y$.\\par — Ensemble quotient : L'ensemble des classes d'équivalences de $\\sim$ est appelé l'ensemble quotient de $E$ par $\\sim$ et souvent noté $E/\\sim$.\\par — Ensemble de représentants des classes d'équivalence : On appelle ensemble de représentants des classes d'équivalence de $\\sim$ toute partie $R$ de $E$ qui contient un et un seul élément de chaque classe d'équivalence de $\\sim$. Le cas échéant : $E = \\bigcup_{x \\in E} cl(x) = \\bigcup_{x \\in R} cl(x)$ et $E/\\sim = \\{cl(x) | x \\in E\\} = \\{cl(x) | x \\in R\\}$.",
+      "proof_latex": "— Soient $x, y \\in E$. Montrons que : $cl(x) = cl(y) \\iff cl(x) \\cap cl(y) \\ne \\emptyset \\iff x \\sim y$. Si $cl(x) = cl(y)$, l'ensemble $cl(x) \\cap cl(y)$ contient $x$, donc est non vide. Si $cl(x) \\cap cl(y) \\ne \\emptyset$, alors en notant $z$ un élément de cette intersection, $z \\sim x$ et $z \\sim y$, donc $x \\sim y$ par symétrie et transitivité. Supposons que $x \\sim y$ et montrons que $cl(x) = cl(y)$. Par symétrie, il suffit de montrer que $cl(x) \\subset cl(y)$. Soit $z \\in cl(x)$. Ainsi $z \\sim x$, or par hypothèse $x \\sim y$, donc $z \\sim y$ par transitivité, i.e. $z \\in cl(y)$.\\par — Montrons maintenant que les classes d'équivalence de $\\sim$ forment une partition de $E$. Pour tout $x \\in E$, $x \\sim x$ par réflexivité, donc $cl(x)$ contient $x$, donc $cl(x)$ est non vide. Ensuite, $E \\subset \\bigcup_{x \\in E} cl(x)$ car $x \\in cl(x)$ pour tout $x \\in E$. L'inclusion réciproque étant évidente, $E = \\bigcup_{x \\in E} cl(x)$. Pour finir, soient $x, y \\in E$. Si $x \\sim y$ alors $cl(x) = cl(y)$ comme on l'a vu, et sinon $cl(x) \\cap cl(y) = \\emptyset$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_quotient_signe",
+      "type": "example",
+      "title": "Exemple : Quotient par le signe",
+      "content_latex": "Notons $\\mathcal{S}$ la relation d'équivalence « avoir le même signe » sur $\\mathbb{R}^*$. Tout réel non nul a soit le même signe que $1$, soit le même signe que $-1$, et bien sûr $1$ et $-1$ n'ont pas le même signe, donc $\\mathcal{S}$ possède deux classes d'équivalence, à savoir $\\mathbb{R}_+^*$ et $\\mathbb{R}_-^*$, et $\\{1, -1\\}$ en est un ensemble de représentants. Pour finir, $\\mathbb{R}^*/\\mathcal{S} = \\{\\mathbb{R}_+^*, \\mathbb{R}_-^*\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_quotient_Z_nZ",
+      "type": "example",
+      "title": "Exemple : Classes d'équivalence dans $\\mathbb{Z}$ modulo $n$",
+      "content_latex": "Soit $n \\in \\mathbb{N}^*$. On s'intéresse à la relation $\\equiv [n]$ de congruence modulo $n$ sur $\\mathbb{Z}$.\\par — Pour tout $x \\in \\mathbb{Z}$, la classe d'équivalence de $x$ pour $\\equiv [n]$ est l'ensemble : $\\{y \\in \\mathbb{Z} | y \\equiv x [n]\\} = \\{x + kn | k \\in \\mathbb{Z}\\}$, noté $x + n\\mathbb{Z}$. Concrètement : $x + n\\mathbb{Z} = \\{\\dots, x-n, x, x+n, \\dots\\}$, donc : $\\mathbb{Z}/\\equiv [n] = \\{x + n\\mathbb{Z} | x \\in \\mathbb{Z}\\}$.\\par — D'après le théorème de la division euclidienne : $\\forall x \\in \\mathbb{Z}, \\exists! (q,r) \\in \\mathbb{Z} \\times \\mathbb{Z}, x = nq + r$ et $r \\in [[0, n-1]]$. Tout entier relatif est congru modulo $n$ à un et un seul élément de $[[0, n-1]]$. Par conséquent, $[[0, n-1]]$ est un ensemble de représentants des classes d'équivalence de $\\equiv [n]$, donc $\\mathbb{Z}/\\equiv [n] = \\{n\\mathbb{Z}, n\\mathbb{Z}+1, \\dots, n\\mathbb{Z}+n-1\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_quotient_R_alphaZ",
+      "type": "example",
+      "title": "Exemple : Classes d'équivalence dans $\\mathbb{R}$ modulo $\\alpha$",
+      "content_latex": "Soit $\\alpha > 0$. On s'intéresse à la relation $\\equiv [\\alpha]$ de congruence modulo $\\alpha$ sur $\\mathbb{R}$.\\par — Pour tout $x \\in \\mathbb{R}$, la classe d'équivalence de $x$ pour $\\equiv [\\alpha]$ est l'ensemble : $\\{y \\in \\mathbb{R} | y \\equiv x [\\alpha]\\} = \\{x + k\\alpha | k \\in \\mathbb{Z}\\}$, noté $x + \\alpha\\mathbb{Z}$. Par conséquent : $\\mathbb{R}/\\equiv [\\alpha] = \\{x + \\alpha\\mathbb{Z} | x \\in \\mathbb{R}\\}$.\\par — Par définition de la partie entière : $\\forall x \\in \\mathbb{R}, \\exists! (k,\\varepsilon) \\in \\mathbb{Z} \\times [0, 1[, x = k + \\varepsilon$. Quitte à remplacer $x$ par $x/\\alpha$, puis après multiplication par $\\alpha$ : $\\forall x \\in \\mathbb{R}, \\exists! \\varepsilon \\in [0, \\alpha[, x \\equiv \\varepsilon [\\alpha]$. Tout réel est congru modulo $\\alpha$ à un unique élément de $[0, \\alpha[$, donc $[0, \\alpha[$ est un ensemble de représentants. Ainsi $\\mathbb{R}/\\equiv [\\alpha] = \\{x + \\alpha\\mathbb{Z} | x \\in [0, \\alpha[\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_application",
+      "type": "definition",
+      "title": "Définition : Application/fonction, image et antécédents",
+      "content_latex": "On appelle application (ou fonction) de $E$ dans $F$ toute partie $f$ de $E \\times F$ pour laquelle : $\\forall x \\in E, \\exists! y \\in F, (x,y) \\in f$. La proposition $(x,y) \\in f$ sera notée $y = f(x)$.\\par — Image/antécédents : Pour tous $x \\in E$ et $y \\in F$, si $y = f(x)$, on dit que $y$ est L'image de $x$ par $f$ et que $x$ est UN antécédent de $y$ par $f$.\\par — Ensemble de définition, ensemble d'arrivée, image : $E$ est appelé l'ensemble de définition (ou de départ) de $f$ et $F$ un ensemble d'arrivée de $f$. L'ensemble $f(E) = \\{y \\in F | \\exists x \\in E, y = f(x)\\} = \\{f(x) | x \\in E\\}$ est appelé l'image de $f$. Ses éléments sont appelés les valeurs de $f$.\\par — Expression « à valeurs dans... » : Soit $B$ une partie de $F$. On dit que $f$ est à valeurs dans $B$ si toute valeur de $f$ est élément de $B$, i.e. si : $\\forall x \\in E, f(x) \\in B$, ou encore si l'image de $f$ est incluse dans $B$ : $f(E) \\subset B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_image_plus_petite",
+      "type": "warning",
+      "title": "Attention : Taille de l'image",
+      "content_latex": "Attention! En général, l'image de $f$ est plus petite que $F$!",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_carre_cosinus",
+      "type": "example",
+      "title": "Exemple : Image des fonctions carré et cosinus",
+      "content_latex": "La fonction carré $x \\mapsto x^2$ est définie sur $\\mathbb{R}$ et à valeurs dans $\\mathbb{R}$, mais son image est (seulement) $\\mathbb{R}_+$. La fonction cosinus est définie sur $\\mathbb{R}$ et à valeurs dans $\\mathbb{R}$, mais son image est (seulement) $[-1,1]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_application_parties",
+      "type": "example",
+      "title": "Exemple : Application sur l'ensemble des parties",
+      "content_latex": "Soit $A$ une partie de $E$. L'application $f : X \\mapsto X \\cap A$ définie sur $\\mathcal{P}(E)$ est à valeurs dans $\\mathcal{P}(E)$, mais son image est (seulement) $\\mathcal{P}(A)$.",
+      "proof_latex": "Pour tout $X \\in \\mathcal{P}(E)$, $f(X) = X \\cap A$ est une partie de $A$, donc $f(\\mathcal{P}(E)) \\subset \\mathcal{P}(A)$. Inversement, pour tout $Y \\in \\mathcal{P}(A)$ : $Y = Y \\cap A = f(Y) \\in \\mathcal{P}(E)$, donc $\\mathcal{P}(A) \\subset f(\\mathcal{P}(E))$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_restriction_prolongement",
+      "type": "definition",
+      "title": "Définition : Restriction et prolongements",
+      "content_latex": "Soit $A$ une partie de $E$.\\par — Restriction : Soient $f: E \\longrightarrow F$ une application. On appelle restriction de $f$ à $A$, notée $f_{|A}$, l'application définie sur $A$ SEULEMENT par la relation $f_{|A}(x) = f(x)$ pour tout $x \\in A$.\\par — Prolongements : Soit $f: A \\longrightarrow F$ une application. On appelle prolongement de $f$ à $E$ toute application $g$ de $E$ dans $F$ pour laquelle $g_{|A} = f$, i.e. pour laquelle $f(x) = g(x)$ pour tout $x \\in A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_non_unicite_prolongement",
+      "type": "warning",
+      "title": "Attention : Non-unicité du prolongement",
+      "content_latex": "Attention! Toute application possède beaucoup de prolongements, on parle toujours d'un prolongement et non « du » prolongement.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_ensemble_applications",
+      "type": "definition",
+      "title": "Définition : Ensembles d'applications",
+      "content_latex": "L'ensemble des applications de $E$ dans $F$ est noté $F^E$ ou $\\mathcal{F}(E,F)$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_applications_ensembles_finis",
+      "type": "example",
+      "title": "Exemple : Applications entre deux ensembles finis",
+      "content_latex": "L'ensemble $\\{0, 1\\}^{\\{1,2\\}}$ des applications de $\\{1, 2\\}$ dans $\\{0, 1\\}$ est de cardinal $4$. Ses éléments sont les applications : $\\{1 \\mapsto 0, 2 \\mapsto 0\\}$, $\\{1 \\mapsto 0, 2 \\mapsto 1\\}$, $\\{1 \\mapsto 1, 2 \\mapsto 0\\}$ et $\\{1 \\mapsto 1, 2 \\mapsto 1\\}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_famille",
+      "type": "definition",
+      "title": "Définition : Famille",
+      "content_latex": "On appelle famille (d'éléments) de $E$ indexée par $I$ toute application de $I$ dans $E$. Cela dit, au lieu d'être notées comme des applications, les familles sont généralement notées sous la forme $(x_i)_{i \\in I}$. L'ensemble des familles de $E$ indexée par $I$ est ainsi l'ensemble $E^I$. Une famille $(x_1, \\dots, x_n)$ d'éléments de $E$ n'est rien de plus que l'application $i \\mapsto x_i$ de $[[1, n]]$ dans $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_suite_reelle",
+      "type": "example",
+      "title": "Exemple : Suite réelle",
+      "content_latex": "Une suite réelle $(u_n)_{n \\in \\mathbb{N}}$ n'est rien de plus qu'une fonction $n \\mapsto u_n$ de $\\mathbb{N}$ dans $\\mathbb{R}$. L'ensemble des suites réelles est donc l'ensemble $\\mathbb{R}^{\\mathbb{N}}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_famille_vide",
+      "type": "example",
+      "title": "Exemple : Famille vide",
+      "content_latex": "Une famille d'éléments de $E$ indexée par l'ensemble vide est une application de $\\emptyset$ dans $E$ et ça existe! Par définition d'une application, l'ensemble vide est une application de $\\emptyset$ dans $E$ et c'est la seule, appelée la famille vide de $E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_identite_composition",
+      "type": "theorem",
+      "title": "Définition-théorème : Identité, composition",
+      "content_latex": "— Identité : On appelle (application) identité de $E$, notée $Id_E$, l'application « qui ne fait rien » $x \\mapsto x$ de $E$ dans $E$.\\par — Composition : Soient $f: E \\longrightarrow F$ et $g: F \\longrightarrow G$ deux applications. On appelle composée de $f$ suivie de $g$ l'application $g \\circ f$ définie par la relation $g \\circ f(x) = g(f(x))$ pour tout $x \\in E$. La composition est associative, autrement dit : $h \\circ (g \\circ f) = (h \\circ g) \\circ f$. En outre, pour toute application $f: E \\longrightarrow F$ : $Id_F \\circ f = f \\circ Id_E = f$ (neutralité de l'identité).",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_composition_sens",
+      "type": "warning",
+      "title": "Attention : Propriétés de la composition",
+      "content_latex": "Attention! En général, la composition n'est possible que dans un seul sens, et quand elle est possible dans les deux, $f$ et $g$ n'ont aucune raison de commuter. Par exemple, si $f$ est la fonction $x \\mapsto x^2$ et $g$ la fonction $x \\mapsto x^2 + 1$, $g \\circ f$ est la fonction $x \\mapsto x^4 + 1$ et $f \\circ g$ la fonction $x \\mapsto x^4 + 2x^2 + 1$, donc $g \\circ f \\ne f \\circ g$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_composition_domaine",
+      "type": "example",
+      "title": "Exemple : Domaine de définition d'une composée",
+      "content_latex": "La fonction $x \\mapsto \\sqrt{1 - x^2}$ est définie sur $[-1,1]$.",
+      "proof_latex": "La fonction $x \\mapsto 1 - x^2$ est définie sur $\\mathbb{R}$ et la fonction $\\sqrt{\\cdot}$ l'est sur $\\mathbb{R}_+$, mais quand $x$ décrit $\\mathbb{R}$, $1 - x^2$ n'appartient pas forcément à $\\mathbb{R}_+$. Pour quels $x \\in \\mathbb{R}$ est-il vrai que $1 - x^2 \\ge 0$? Réponse : $x \\in [-1,1]$ car les racines du polynôme sont $-1$ et $1$ et son coefficient dominant est strictement négatif."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_iterees_point_fixe",
+      "type": "definition",
+      "title": "Définition : Itérées, point fixe, partie stable",
+      "content_latex": "Soit $f: E \\longrightarrow E$ une application.\\par — Itérées : On pose $f^0 = Id_E$ et pour tout $n \\in \\mathbb{N}$, $f^{n+1} = f \\circ f^n$. Les applications ainsi définies sont appelées les itérées de $f$.\\par — Point fixe : On appelle point fixe de $f$ tout élément $x \\in E$ pour lequel $f(x) = x$.\\par — Partie stable : Soit $A$ une partie de $E$. On dit que $A$ est stable par $f$ si $f(A) \\subset A$, i.e. si : $\\forall x \\in A, f(x) \\in A$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_parties_stables",
+      "type": "example",
+      "title": "Exemple : Parties stables",
+      "content_latex": "— L'intervalle $\\mathbb{R}_+^*$ est stable par la fonction inverse $x \\mapsto \\frac{1}{x}$ car pour tout $x > 0$ : $\\frac{1}{x} > 0$.\\par — L'intervalle $[0, 1]$ est stable par $x \\mapsto \\sqrt{1-x}$ car pour tout $x \\in [0, 1]$ : $0 \\le 1-x \\le 1$, donc $0 \\le \\sqrt{1-x} \\le 1$ par croissance de la fonction $\\sqrt{\\cdot}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_indicatrice",
+      "type": "theorem",
+      "title": "Définition-théorème : Indicatrice d'une partie",
+      "content_latex": "Soit $A$ une partie de $E$. Pour tout $x \\in E$, on pose : $\\mathbb{I}_A(x) = 1$ si $x \\in A$ et $\\mathbb{I}_A(x) = 0$ si $x \\in E \\setminus A$. La fonction $\\mathbb{I}_A$ ainsi définie de $E$ dans $\\{0, 1\\}$ est appelée l'indicatrice de $A$ (sur $E$). Il est facile de récupérer $A$ quand on connaît $\\mathbb{I}_A$ : $A = \\{x \\in E | \\mathbb{I}_A(x) = 1\\}$.\\par Propriétés :\\par (i) Inclusion : $A \\subset B \\iff \\mathbb{I}_A \\le \\mathbb{I}_B$.\\par (ii) Complémentaire : $\\mathbb{I}_{\\overline{A}} = 1 - \\mathbb{I}_A$.\\par (iii) Intersection : $\\mathbb{I}_{A \\cap B} = \\mathbb{I}_A \\mathbb{I}_B$.\\par (iv) Égalité : $A = B \\iff \\mathbb{I}_A = \\mathbb{I}_B$.\\par (v) Réunion : $\\mathbb{I}_{A \\cup B} = \\mathbb{I}_A + \\mathbb{I}_B - \\mathbb{I}_A \\mathbb{I}_B$.",
+      "proof_latex": "— Inclusion : Faisons l'hypothèse que $A \\subset B$ et montrons que $\\mathbb{I}_A \\le \\mathbb{I}_B$... Dans les deux cas, $\\mathbb{I}_A(x) \\le \\mathbb{I}_B(x)$. Réciproquement, faisons l'hypothèse que $\\mathbb{I}_A \\le \\mathbb{I}_B$ et montrons que $A \\subset B$... i.e. $x \\in B$.\\par — Complémentaire : Pour tout $x \\in A$ : $\\mathbb{I}_A(x) = 0 = 1 - 1 = 1 - \\mathbb{I}_A(x)$, et pour tout $x \\in E \\setminus A$ : $\\mathbb{I}_{\\overline{A}}(x) = 1 = 1 - 0 = 1 - \\mathbb{I}_A(x)$. Conclusion : $\\mathbb{I}_{\\overline{A}} = 1 - \\mathbb{I}_A$.\\par — Intersection : Pour tout $x \\in A \\cap B$ : $\\mathbb{I}_{A \\cap B}(x) = 1 = \\mathbb{I}_A(x)\\mathbb{I}_B(x)$, et pour tout $x \\in E \\setminus (A \\cap B), x \\notin A$ ou $x \\notin B$ donc $\\mathbb{I}_A(x) = 0$ ou $\\mathbb{I}_B(x) = 0$, donc $\\mathbb{I}_{A \\cap B}(x) = 0 = \\mathbb{I}_A(x)\\mathbb{I}_B(x)$. Conclusion : $\\mathbb{I}_{A \\cap B} = \\mathbb{I}_A\\mathbb{I}_B$.\\par — Réunion : $\\mathbb{I}_{A \\cup B} = 1 - \\mathbb{I}_{\\overline{A \\cup B}} = 1 - \\mathbb{I}_{\\overline{A} \\cap \\overline{B}} = 1 - \\mathbb{I}_{\\overline{A}}\\mathbb{I}_{\\overline{B}} = 1 - (1 - \\mathbb{I}_A)(1 - \\mathbb{I}_B) = \\mathbb{I}_A + \\mathbb{I}_B - \\mathbb{I}_A\\mathbb{I}_B$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_surjection",
+      "type": "definition",
+      "title": "Définition : Surjection",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application. On dit que $f$ est surjective de $E$ SUR $F$ ou que c'est une surjection de $E$ SUR $F$ si : $\\forall y\\in F,\\exists x\\in E,y=f(x)$, ce qui revient à dire que l'image de $f$ est égale à $F$ : $f(E)=F$, ou encore que tout élément de $F$ possède AU MOINS un antécédent dans $E$ par $f$. Toute application est surjective de son ensemble de définition SUR SON IMAGE.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_surjection_carre_cos",
+      "type": "example",
+      "title": "Exemple : Surjectivité de carré et cosinus",
+      "content_latex": "La fonction carré $x\\mapsto x^2$ est surjective de $\\mathbb{R}$ sur (son image) $\\mathbb{R}_+$. La fonction cosinus est surjective de $\\mathbb{R}$ sur (son image) $[-1,1]$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_surjection_somme",
+      "type": "example",
+      "title": "Exemple : Surjectivité d'une somme dans $\\mathbb{R}^2$",
+      "content_latex": "L'application $(x,y)\\mapsto x+y$ est surjective de $\\mathbb{R}^2$ sur $\\mathbb{R}$ car tout réel possède un antécédent par $f$.",
+      "proof_latex": "Par exemple, $z=f(z,0)$ pour tout $z\\in\\mathbb{R}$, mais $z$ a plein d'antécédents ici et on pourrait aussi dire que $z=f(z-1,1)$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_non_surjection_parties",
+      "type": "example",
+      "title": "Exemple : Non-surjectivité sur l'ensemble des parties",
+      "content_latex": "L'application $X\\mapsto X\\cup\\{0\\}$ n'est pas surjective de $\\mathcal{P}(\\mathbb{N})$ sur $\\mathcal{P}(\\mathbb{N})$ car par exemple, $\\emptyset$ n'a pas d'antécédent par $g$.",
+      "proof_latex": "Il n'existe en effet pas de partie $X$ de $\\mathbb{N}$ pour laquelle $\\emptyset=g(X)=X\\cup\\{0\\}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_surjectivite_composition",
+      "type": "theorem",
+      "title": "Théorème : Surjectivité et composition",
+      "content_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow G$ deux applications.\\par (i) Si $f$ et $g$ sont surjectives, $g\\circ f$ l'est aussi.\\par (ii) Si $g\\circ f$ est surjective, $g$ l'est aussi.",
+      "proof_latex": "(i) Soit $y\\in G$. Montrons que $y$ possède un antécédent par $g\\circ f$. Or $y=g(t)$ pour un certain $t\\in F$ par surjectivité de $g$, puis $t=f(x)$ pour un certain $x\\in E$ par surjectivité de $f$, donc $y=g(t)=g\\circ f(x)$.\\par (ii) Soit $y\\in G$. Montrons que $y$ possède un antécédent par $g$. Or $y=g\\circ f(t)$ pour un certain $t\\in E$ par surjectivité de $g\\circ f$, donc $y=g(x)$ si on pose $x=f(t)\\in F$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_injection",
+      "type": "definition",
+      "title": "Définition : Injection",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application. On dit que $f$ est injective sur $E$ ou que c'est une injection sur $E$ si : \\par $\\forall x,x^{\\prime}\\in E, f(x)=f(x^{\\prime})\\Rightarrow x=x^{\\prime}$, ce qui revient à dire que tout élément de $F$ possède AU PLUS un antécédent dans $E$ par $f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_injection_fraction",
+      "type": "example",
+      "title": "Exemple : Injectivité d'une fonction rationnelle",
+      "content_latex": "La fonction $x\\mapsto\\frac{x}{x-1}$ est injective sur $\\mathbb{R}\\setminus\\{1\\}$.",
+      "proof_latex": "Soient $x,x^{\\prime}\\in\\mathbb{R}\\setminus\\{1\\}$. Si $\\frac{x}{x-1}=\\frac{x^{\\prime}}{x^{\\prime}-1}$ alors $x(x^{\\prime}-1)=x^{\\prime}(x-1)$, donc $x=x^{\\prime}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_injection_carre",
+      "type": "example",
+      "title": "Exemple : Injectivité et fonction carré",
+      "content_latex": "La fonction carré $x\\mapsto x^2$ n'est pas injective sur $\\mathbb{R}$ car par exemple $(-1)^2=1^2$. Elle est en revanche injective sur $\\mathbb{R}_+$ car pour tous $x,x^{\\prime}\\in\\mathbb{R}_+$, si $x^2=x^{\\prime 2}$ alors $x=x^{\\prime}$ ou $x=-x^{\\prime}$, donc $x=x^{\\prime}$ par positivité.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_injection_somme_R2",
+      "type": "example",
+      "title": "Exemple : Applications dans $\\mathbb{R}^2$",
+      "content_latex": "L'application $(x,y)\\mapsto x+y$ n'est pas injective sur $\\mathbb{R}^2$ car par exemple $f(0,1)=1=f(1,0)$ mais l'application $g:(x,y)\\mapsto (x+y,x-y)$ l'est.",
+      "proof_latex": "Soient $(x,y),(x^{\\prime},y^{\\prime})\\in\\mathbb{R}^2$. Si $g(x,y)=g(x^{\\prime},y^{\\prime})$ alors $x+y=x^{\\prime}+y^{\\prime}$ et $x-y=x^{\\prime}-y^{\\prime}$ donc $x=x^{\\prime}$ par demi-somme et $y=y^{\\prime}$ par demi-différence, et enfin $(x,y)=(x^{\\prime},y^{\\prime})$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_injection_ensemble_parties",
+      "type": "example",
+      "title": "Exemple : Non-injectivité sur les parties de $\\mathbb{N}$",
+      "content_latex": "L'application $X\\mapsto X\\cup\\{0\\}$ n'est pas injective sur $\\mathcal{P}(\\mathbb{N})$ car par exemple $h(\\emptyset)=\\{0\\}=h(\\{0\\})$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_injectivite_composition",
+      "type": "theorem",
+      "title": "Théorème : Injectivité et composition",
+      "content_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow G$ deux applications.\\par (i) Si $f$ et $g$ sont injectives, $g\\circ f$ l'est aussi.\\par (ii) Si $g\\circ f$ est injective, $f$ l'est aussi.",
+      "proof_latex": "(i) Soient $x,x^{\\prime}\\in E$. Si $g\\circ f(x)=g\\circ f(x^{\\prime})$ alors $f(x)=f(x^{\\prime})$ par injectivité de $g$, puis $x=x^{\\prime}$ par injectivité de $f$.\\par (ii) Soient $x,x^{\\prime}\\in E$. Si $f(x)=f(x^{\\prime})$, alors $g(f(x))=g(f(x^{\\prime}))$ après composition par $g$, donc $x=x^{\\prime}$ par injectivité de $g\\circ f$."
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_injectivite_composition",
+      "type": "warning",
+      "title": "Attention : Injectivité de g dans la composition",
+      "content_latex": "Attention ! Dans l'assertion (ii), $g$ n'a aucune raison d'être injective. Pensez par exemple aux fonctions $f:x\\mapsto e^x$ et $g:x\\mapsto x^2$ de $\\mathbb{R}$ dans $\\mathbb{R}$. La fonction $g\\circ f:x\\mapsto e^{2x}$ est injective, mais $g$ ne l'est pas.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_injectivite_monotonie",
+      "type": "theorem",
+      "title": "Théorème : Injectivité et stricte monotonie",
+      "content_latex": "Pour une fois, $E$ est une partie de $\\mathbb{R}$. Soit $f:E\\longrightarrow\\mathbb{R}$ une fonction. Si $f$ est strictement monotone, $f$ est injective.",
+      "proof_latex": "Supposons $f$ strictement croissante et montrons que $f$ est injective. Soient $x,x^{\\prime}\\in E$ deux réels pour lesquels $f(x)=f(x^{\\prime})$. Si $x<x^{\\prime}$, alors $f(x)<f(x^{\\prime})$ par stricte croissance, et si $x>x^{\\prime}$ alors de même $f(x)>f(x^{\\prime})$. Bref, $x=x^{\\prime}$.\\par Si $f$ est strictement décroissante, alors $-f$ est strictement croissante, donc injective comme on vient de le voir, donc $f=(x\\mapsto -x)\\circ(-f)$ aussi par composition."
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_reciproque_monotonie",
+      "type": "warning",
+      "title": "Attention : Réciproque fausse pour l'injectivité et la monotonie",
+      "content_latex": "Attention ! La réciproque est fausse en général ! Sur la figure, $f$ est injective, mais pas du tout monotone. Et oui, elle n'est pas continue. Nous verrons plus tard qu'une fonction injective continue sur un intervalle y est toujours strictement monotone.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_reciproque",
+      "type": "definition",
+      "title": "Définition : Réciproque",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application. On appelle réciproque de $f$ sur $F$ toute application $g:F\\longrightarrow E$ pour laquelle $g\\circ f=Id_E$ et $f\\circ g=Id_F$. En termes simples, $g$ défait le travail effectué par $f$ et vice versa.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_reciproque_carre_racine",
+      "type": "example",
+      "title": "Exemple : Fonctions carré et racine carrée",
+      "content_latex": "Les fonctions $x\\mapsto x^2$ et $x\\mapsto \\sqrt{x}$ de $\\mathbb{R}_+$ dans $\\mathbb{R}_+$ sont réciproques l'une de l'autre car pour tout $x\\ge 0$ : $(\\sqrt{x})^2=x$ et $\\sqrt{x^2}=|x|=x$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_bijection",
+      "type": "theorem",
+      "title": "Définition-théorème : Bijection",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application. Les assertions suivantes sont équivalentes :\\par (i) Tout élément de $F$ possède UN ET UN SEUL antécédent dans $E$ par $f$ : $\\forall y\\in F,\\exists! x\\in E,y=f(x)$.\\par (ii) $f$ est injective sur $E$ et surjective de $E$ sur $F$.\\par (iii) $f$ possède une réciproque sur $F$.\\par Le cas échéant, on dit que $f$ est bijective de $E$ SUR $F$ ou que c'est une bijection de $E$ SUR $F$. En outre, $f$ ne possède alors qu'une seule réciproque, notée $f^{-1}$. Pour tous $x\\in E$ et $y\\in F$ : $y=f(x)\\iff x=f^{-1}(y)$.",
+      "proof_latex": "(iii) $\\Rightarrow$ (ii) Si $f$ possède une réciproque $g$ sur $F$, alors $g\\circ f=Id_E$ est injective sur $E$, donc $f$ l'est sur $E$, et $f\\circ g=Id_F$ est surjective de $F$ sur $F$, donc $f$ l'est de $E$ sur $F$.\\par (ii) $\\Rightarrow$ (i) Si $f$ est injective sur $E$ et surjective de $E$ sur $F$, tout élément de $F$ possède au moins un antécédent par $f$ par surjectivité et au plus un par injectivité, donc exactement un antécédent par $f$.\\par (i) $\\Rightarrow$ (iii) Si tout élément $y$ de $F$ possède un et un seul antécédent $x$ dans $E$ par $f$, nous pouvons sans ambiguïté noter $g(y)$ cet unique $x$ et définir ainsi une application $g$ de $F$ dans $E$. Pour tout $x\\in E$, $x$ est l'unique antécédent de $f(x)$ par $f$, donc $g(f(x))=x$. Ainsi $g\\circ f=Id_E$. Pour tout $y\\in F$, $g(y)$ est l'unique antécédent de $y$ par $f$, donc $f(g(y))=y$. Ainsi $f\\circ g=Id_F$. Conclusion : $g$ est une réciproque de $f$ sur $F$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_identite",
+      "type": "example",
+      "title": "Exemple : L'application identité",
+      "content_latex": "L'application $Id_E$ est bijective de $E$ sur $E$ de réciproque elle-même car $Id_E\\circ Id_E=Id_E$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_affine",
+      "type": "example",
+      "title": "Exemple : Fonction affine",
+      "content_latex": "Soient $a\\in\\mathbb{R}^*$ et $b\\in\\mathbb{R}$. La fonction $f:x\\mapsto ax+b$ est bijective de $\\mathbb{R}$ sur $\\mathbb{R}$ de réciproque $g:x\\mapsto \\frac{x-b}{a}$.",
+      "proof_latex": "Il suffit de montrer que les fonctions $f:x\\mapsto ax+b$ et $g:x\\mapsto \\frac{x-b}{a}$ de $\\mathbb{R}$ dans $\\mathbb{R}$ sont réciproques l'une de l'autre. Or pour tout $x\\in\\mathbb{R}$ : $g\\circ f(x)=\\frac{(ax+b)-b}{a}=x$ et $f\\circ g(x)=a\\times\\frac{x-b}{a}+b=x$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_involution",
+      "type": "example",
+      "title": "Exemple : Involution",
+      "content_latex": "Soit $f:E\\longrightarrow E$ une involution de $E$, i.e. une application pour laquelle $f\\circ f=Id_E$. Alors $f$ est une bijection et $f^{-1}=f$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_classes_equivalence",
+      "type": "example",
+      "title": "Exemple : Représentants et classes d'équivalence",
+      "content_latex": "Soient $\\sim$ une relation d'équivalence sur $E$ et $R$ un ensemble de représentants des classes d'équivalence de $\\sim$. L'application $x\\mapsto cl(x)$ est bijective de $R$ sur $E/\\sim$.",
+      "proof_latex": "Pour commencer, l'application est bien à valeurs dans $E/\\sim$. Ensuite, tout élément de $E/\\sim$, i.e. toute classe d'équivalence de $\\sim$, contient un et un seul élément de $R$ par définition de $R$. C'est tout !"
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_permutation",
+      "type": "definition",
+      "title": "Définition : Permutation, groupe symétrique",
+      "content_latex": "On appelle permutation de $E$ toute bijection de $E$ sur $E$. L'ensemble des permutations de $E$ est noté $\\mathfrak{S}_E$ et appelé le groupe symétrique de $E$. Si $E=[[1,n]]$ pour un certain $n\\in\\mathbb{N}^*$, $\\mathfrak{S}_E$ est plutôt noté $\\mathfrak{S}_n$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_groupe_symetrique",
+      "type": "example",
+      "title": "Exemple : Groupes symétriques $\\mathfrak{S}_2$ et $\\mathfrak{S}_3$",
+      "content_latex": "Le groupe symétrique $\\mathfrak{S}_2$ est de cardinal 2, il contient les applications $Id_{\\{1,2\\}}$ et $\\{1\\mapsto 2, 2\\mapsto 1\\}$. Le groupe symétrique $\\mathfrak{S}_3$ est quant à lui de cardinal 6.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_bijection_composition",
+      "type": "theorem",
+      "title": "Théorème : Bijectivité, réciproque et composition",
+      "content_latex": "Soient $f:E\\longrightarrow F$ et $g:F\\longrightarrow G$ deux applications.\\par (i) Si $f$ est bijective de $E$ sur $F$, $f^{-1}$ est bijective de $F$ sur $E$ et $(f^{-1})^{-1}=f$.\\par (ii) Si $f$ et $g$ sont bijectives, $g\\circ f$ l'est aussi et $(g\\circ f)^{-1}=f^{-1}\\circ g^{-1}$.",
+      "proof_latex": "(i) Les égalités $f^{-1}\\circ f=Id_E$ et $f\\circ f^{-1}=Id_F$ qui expriment la bijectivité de $f$ expriment pour la même raison la bijectivité de $f^{-1}$, et cela montre bien que $(f^{-1})^{-1}=f$.\\par (ii) Pour commencer : $(f^{-1}\\circ g^{-1})\\circ(g\\circ f)=f^{-1}\\circ(g^{-1}\\circ g)\\circ f=f^{-1}\\circ Id_F\\circ f=f^{-1}\\circ f=Id_E$ et de même $(g\\circ f)\\circ(f^{-1}\\circ g^{-1})=Id_G$, donc $g\\circ f$ est bijective de réciproque $f^{-1}\\circ g^{-1}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_ordre_inversion_composee",
+      "type": "warning",
+      "title": "Attention : Ordre de la composée inverse",
+      "content_latex": "Attention ! Gare à l'ordre ! C'est bien $(g\\circ f)^{-1}=f^{-1}\\circ g^{-1}$ et non pas $(g\\circ f)^{-1}=g^{-1}\\circ f^{-1}$. Si vous cachez un trésor dans un coffre ($f$), puis ce coffre sous terre ($g$), et si ensuite vous voulez récupérer votre trésor, vous devez d'abord déterrer le coffre ($g^{-1}$), puis l'ouvrir ($f^{-1}$) - i.e. appliquer la composée $f^{-1}\\circ g^{-1}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_f_g_f",
+      "type": "example",
+      "title": "Exemple : L'application $f \\circ g \\circ f$",
+      "content_latex": "Soient $E$ un ensemble et $f:E\\longrightarrow E$ et $g:E\\longrightarrow E$ deux applications. Si $f\\circ g\\circ f$ est bijective de $E$ sur $E$, alors $f$ et $g$ le sont aussi.",
+      "proof_latex": "Pour commencer, $f$ est injective car $(f\\circ g)\\circ f$ l'est et surjective car $f\\circ(g\\circ f)$ l'est, donc $f$ est bijective. Elle possède ainsi une réciproque $f^{-1}$ que nous pouvons exploiter pour « défaire » $f$. Or tout simplement $g=f^{-1}\\circ(f\\circ g\\circ f)\\circ f^{-1}$ avec $f^{-1}$ et $f\\circ g\\circ f$ bijectives, donc $g$ l'est aussi par composition."
+    },
+    {
+      "id": "relations_binaires_et_applications__method_montrer_bijection",
+      "type": "method",
+      "title": "Méthode : Comment montrer concrètement qu'une application est bijective ?",
+      "content_latex": "— Priorité 1 : Si on connaît spontanément une expression explicite de $f^{-1}$, on appelle $g$ la fonction en question et on vérifie simplement que $g\\circ f=Id_E$ et $f\\circ g=Id_F$. On obtient : Bijectivité + Réciproque.\\par — Priorité 2 : Si on ne connaît pas spontanément $f^{-1}$, on peut essayer d'en trouver une expression explicite via l'équivalence : $y=f(x)\\iff x=f^{-1}(y)$. On obtient : Bijectivité + Réciproque.\\par — Priorité 3 : Si on ne se sent pas capable de trouver une expression explicite de $f^{-1}$, on montre en deux temps que $f$ est à la fois injective et surjective. On obtient : Bijectivité seule.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_homographique",
+      "type": "example",
+      "title": "Exemple : Bijection d'une fonction rationnelle",
+      "content_latex": "La fonction $f:x\\mapsto \\frac{x-1}{x+1}$ est bijective de $\\mathbb{R}\\setminus\\{-1\\}$ sur $\\mathbb{R}\\setminus\\{1\\}$.",
+      "proof_latex": "Pour tous $x\\in\\mathbb{R}\\setminus\\{-1\\}$ et $y\\in\\mathbb{R}$ : $y=f(x) \\iff y=\\frac{x-1}{x+1} \\iff x(1-y)=1+y$. Si $y=1$, l'équation s'écrit $0=2$ et n'a pas de solution. L'image de $f$ est donc incluse dans $\\mathbb{R}\\setminus\\{1\\}$. Sous l'hypothèse $y\\ne 1$ : $y=f(x) \\iff x=\\frac{1+y}{1-y}$. On vient de montrer que $f$ est bijective de $\\mathbb{R}\\setminus\\{-1\\}$ sur $\\mathbb{R}\\setminus\\{1\\}$ de réciproque $y\\mapsto \\frac{1+y}{1-y}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_systeme",
+      "type": "example",
+      "title": "Exemple : Bijection d'un système somme-produit",
+      "content_latex": "L'application $g:(x,y)\\mapsto (x+y,xy)$ n'est pas injective sur $\\mathbb{R}^2$, mais elle est bijective de $E = \\{(x,y)\\in\\mathbb{R}^2|x\\le y\\}$ sur $\\Omega = \\{(a,b)\\in\\mathbb{R}^2|a^2-4b\\ge 0\\}$.",
+      "proof_latex": "Pour tous $(x,y),(a,b)\\in\\mathbb{R}^2$ : $(a,b)=g(x,y) \\iff (x+y=a \\text{ et } xy=b) \\iff (X-x)(X-y)=X^2-aX+b$. $x$ et $y$ sont les deux racines de $X^2-aX+b$. Le couple $(a,b)$ possède ainsi un antécédent si et seulement si le discriminant $a^2-4b$ est positif ou nul. Sous l'hypothèse $a^2-4b\\ge 0$ : $(a,b)=g(x,y) \\iff \\{x,y\\} = \\left\\{\\frac{a-\\sqrt{a^2-4b}}{2}, \\frac{a+\\sqrt{a^2-4b}}{2}\\right\\}$. Sous l'hypothèse additionnelle $(x,y)\\in E$ ($x\\le y$) : $(a,b)=g(x,y) \\iff (x,y)=\\left(\\frac{a-\\sqrt{a^2-4b}}{2}, \\frac{a+\\sqrt{a^2-4b}}{2}\\right)$, donc $g_{|E}$ est bijective de $E$ sur $\\Omega$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_image_directe_reciproque",
+      "type": "definition",
+      "title": "Définition : Image directe/réciproque d'une partie par une application",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application.\\par — Image directe : Pour toute partie $A$ de $E$, on appelle image (directe) de $A$ par $f$ l'ensemble des images par $f$ des éléments de $A$ : $f(A)=\\{y\\in F|\\exists a\\in A, y=f(a)\\}=\\{f(a)|a\\in A\\}$.\\par — Image réciproque : Pour toute partie $B$ de $F$, on appelle image réciproque de $B$ par $f$ l'ensemble des éléments de $E$ dont l'image par $f$ appartient à $B$ : $f^{\\leftarrow}(B)=\\{x\\in E|f(x)\\in B\\}$. L'équivalence suivante est vitale : pour tout $x\\in E$, $x\\in f^{\\leftarrow}(B)\\iff f(x)\\in B$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_image_exp",
+      "type": "example",
+      "title": "Exemple : Images par la fonction exponentielle",
+      "content_latex": "$exp(\\mathbb{R}_+)=[1,+\\infty[$, $exp(\\mathbb{R}_-^*)=]0,1[$. $exp^{\\leftarrow}(\\{3\\})=\\{x\\in\\mathbb{R}|e^x=3\\}=\\{\\ln 3\\}$. $exp^{\\leftarrow}(\\mathbb{R}_-)=\\emptyset$, $exp^{\\leftarrow}([1,2[)=[0,\\ln 2[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_image_carre",
+      "type": "example",
+      "title": "Exemple : Images par la fonction carré",
+      "content_latex": "En notant $f$ la fonction carré $x\\mapsto x^2$ sur $\\mathbb{R}$ : $f([1,2])=[1,4]$, $f^{\\leftarrow}([4,+\\infty[)=]-\\infty,-2]\\cup[2,+\\infty[$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_image_sinus",
+      "type": "example",
+      "title": "Exemple : Images par la fonction sinus",
+      "content_latex": "$\\sin^{\\leftarrow}(\\{-1\\})=\\{x\\in\\mathbb{R}|\\sin x=-1\\}=-\\frac{\\pi}{2}+2\\pi\\mathbb{Z}$. $\\sin^{\\leftarrow}([0,2])=[0,\\pi]+2\\pi\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_image_reste",
+      "type": "example",
+      "title": "Exemple : Image réciproque du reste modulo n",
+      "content_latex": "Soit $n\\in\\mathbb{N}^*$. En notant $g$ la fonction qui associe à tout entier relatif le reste de sa division euclidienne par $n$ : $g(\\mathbb{Z})=[[0,n-1]]$ et pour tout $r\\in[[0,n-1]]$ : $g^{\\leftarrow}(\\{r\\})=r+n\\mathbb{Z}$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_bijection_image_reciproque",
+      "type": "theorem",
+      "title": "Théorème : Bijectivité et image réciproque",
+      "content_latex": "Soit $f$ une bijection de $E$ sur $F$. Pour toute partie $B$ de $F$ : $f^{\\leftarrow}(B)=f^{-1}(B)$ où $f^{\\leftarrow}(B)$ est l'image RÉCIPROQUE de $B$ par $f$ et $f^{-1}(B)$ l'image DIRECTE de $B$ par $f^{-1}$.",
+      "proof_latex": "Pour tout $x\\in E$ : $x\\in f^{\\leftarrow}(B)\\iff f(x)\\in B\\iff \\exists b\\in B, f(x)=b\\iff x=f^{-1}(b)$ avec $b\\in B$."
+    },
+    {
+      "id": "relations_binaires_et_applications__warning_notation_f_moins_1",
+      "type": "warning",
+      "title": "Attention : Notation $f^{-1}(B)$",
+      "content_latex": "Nous noterons désormais toujours $f^{-1}(B)$ l'image réciproque de $B$ par $f$ et plus jamais $f^{\\leftarrow}(B)$. Si $f$ est bijective, l'image réciproque coïncide avec l'image directe par $f^{-1}$, donc pas de confusion possible. Si $f$ n'est pas bijective, il n'y a pas de réciproque $f^{-1}$, donc pas d'image directe par $f^{-1}$, donc pas de confusion possible. La notation $f^{-1}(B)$ désigne l'image réciproque de $B$ par $f$ et rien d'autre. La notation $f^{-1}(B)$ ne requiert pas la bijectivité de $f$ !",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_bijection_indicatrice",
+      "type": "example",
+      "title": "Exemple : Bijection avec l'indicatrice",
+      "content_latex": "L'application $\\varphi: A\\mapsto \\mathbb{I}_A$ est bijective de $\\mathcal{P}(E)$ sur $\\{0,1\\}^E$.",
+      "proof_latex": "Pour toute partie $A$ de $E$, il est facile de récupérer $A$ quand on connaît $\\mathbb{I}_A$ : $A=\\{x\\in E|\\mathbb{I}_A(x)=1\\}=\\mathbb{I}_A^{-1}(\\{1\\})$. Montrons que l'application $\\psi: f\\mapsto f^{-1}(\\{1\\})$ est la réciproque de $\\varphi$ sur $\\{0,1\\}^E$. Pour tout $A\\in\\mathcal{P}(E)$ : $\\psi\\circ\\varphi(A)=\\psi(\\mathbb{I}_A)=\\mathbb{I}_A^{-1}(\\{1\\})=A$. Soit $f\\in\\{0,1\\}^E$. Alors $\\varphi\\circ\\psi(f)=\\varphi(f^{-1}(\\{1\\}))=\\mathbb{I}_{f^{-1}(\\{1\\})}$, donc pour tout $x\\in E$ : $\\varphi\\circ\\psi(f)(x)=1$ si $x\\in f^{-1}(\\{1\\})$ (i.e. si $f(x)=1$) et $0$ sinon. Donc $\\varphi\\circ\\psi(f)=f$."
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_reunions_intersections_images",
+      "type": "theorem",
+      "title": "Théorème : Réunions/intersections d'images directes/réciproques",
+      "content_latex": "Soient $f:E\\longrightarrow F$ une application, $\\{A_i | i\\in I\\}$ un ensemble de parties de $E$ et $\\{B_j | j\\in J\\}$ un ensemble de parties de $F$.\\par (i) Images réciproques : $f^{-1}(\\bigcup_{j\\in J}B_j)=\\bigcup_{j\\in J}f^{-1}(B_j)$ et $f^{-1}(\\bigcap_{j\\in J}B_j)=\\bigcap_{j\\in J}f^{-1}(B_j)$.\\par (ii) Images directes : $f(\\bigcup_{i\\in I}A_i)=\\bigcup_{i\\in I}f(A_i)$, mais l'égalité $f(\\bigcap_{i\\in I}A_i)=\\bigcap_{i\\in I}f(A_i)$ n'est pas vraie en général. Elle l'est si $f$ est injective.",
+      "proof_latex": "(i) Pour tout $x\\in E$ : $x\\in f^{-1}(\\bigcup_{j\\in J}B_j)\\iff f(x)\\in\\bigcup_{j\\in J}B_j\\iff\\exists j\\in J, f(x)\\in B_j \\iff \\exists j\\in J, x\\in f^{-1}(B_j)\\iff x\\in\\bigcup_{j\\in J}f^{-1}(B_j)$.\\par (ii) Montrons que $f(\\bigcup_{i\\in I}A_i)=\\bigcup_{i\\in I}f(A_i)$. Soit $y\\in f(\\bigcup_{i\\in I}A_i)$. Alors $y=f(x)$ pour un certain $x\\in\\bigcup_{i\\in I}A_i$, donc $x\\in A_{i_0}$ pour un certain $i_0\\in I$ donc $y=f(x)\\in f(A_{i_0})\\subset\\bigcup_{i\\in I}f(A_i)$. Inversement, soit $y\\in\\bigcup_{i\\in I}f(A_i)$. Alors $y\\in f(A_{i_0})$ pour un certain $i_0\\in I$, donc $y=f(x)$ pour un certain $x\\in A_{i_0}$. En particulier $x\\in\\bigcup_{i\\in I}A_i$ donc $y=f(x)\\in f(\\bigcup_{i\\in I}A_i)$. Pour l'intersection, l'inclusion $f(\\bigcap_{i\\in I}A_i)\\subset\\bigcap_{i\\in I}f(A_i)$ est vraie sans injectivité. Sous l'hypothèse que $f$ est injective, soit $y\\in\\bigcap_{i\\in I}f(A_i)$. Alors $y\\in f(A_i)$ pour tout $i\\in I$, donc $y=f(x_i)$ pour un certain $x_i\\in A_i$. Par conséquent, $f(x_{i_1})=y=f(x_{i_2})$ pour tous $i_1, i_2\\in I$, donc $x_{i_1}=x_{i_2}$ par injectivité de $f$. Les $x_i$ sont ainsi tous égaux à un élément $x$, donc $x\\in\\bigcap_{i\\in I}A_i$ et $y=f(x)\\in f(\\bigcap_{i\\in I}A_i)$."
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_partition_depart",
+      "type": "theorem",
+      "title": "Théorème : Partition de l'ensemble de départ par une application",
+      "content_latex": "Soit $f:E\\longrightarrow F$ une application. La relation binaire définie par la relation $f(x)=f(x^{\\prime})$ pour tous $x,x^{\\prime}\\in E$ est une relation d'équivalence sur $E$ et ses classes d'équivalence sont les ensembles $f^{-1}(\\{y\\})$, $y$ décrivant $f(E)$. Par conséquent : $E=\\bigcup_{y\\in f(E)} f^{-1}(\\{y\\})$ (réunion disjointe).",
+      "proof_latex": "Notons $\\equiv$ la relation binaire de l'énoncé.\\par — Réflexivité : Pour tout $x\\in E$, $f(x)=f(x)$ donc $x\\equiv x$.\\par — Transitivité : Si $x\\equiv x^{\\prime}$ et $x^{\\prime}\\equiv x^{\\prime\\prime}$, alors $f(x)=f(x^{\\prime})=f(x^{\\prime\\prime})$ donc $f(x)=f(x^{\\prime\\prime})$, i.e. $x\\equiv x^{\\prime\\prime}$.\\par — Symétrie : Si $x\\equiv x^{\\prime}$ alors $f(x)=f(x^{\\prime})$ donc $f(x^{\\prime})=f(x)$, i.e. $x^{\\prime}\\equiv x$.\\par — Classes d'équivalence : Pour tout $x\\in E$, la classe d'équivalence de $x$ pour $\\equiv$ est l'ensemble $\\{x^{\\prime}\\in E|f(x^{\\prime})=f(x)\\}$, i.e. l'ensemble $f^{-1}(\\{y\\})$ si on pose $y=f(x)$."
+    },
+    {
+      "id": "relations_binaires_et_applications__definition_equipotence",
+      "type": "definition",
+      "title": "Définition : Équipotence",
+      "content_latex": "On dit que $F$ est équipotent à $E$ s'il existe une bijection de $E$ sur $F$.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_proprietes_equipotence",
+      "type": "theorem",
+      "title": "Théorème : Propriétés de la relation d'équipotence",
+      "content_latex": "La relation d'équipotence est une relation d'équivalence sur la classe des ensembles.",
+      "proof_latex": "Pour tout ensemble $E$, $Id_E$ est bijective de $E$ sur $E$ - réflexivité. Ensuite, la composée de deux bijections est une bijection - transitivité. Enfin, la réciproque d'une bijection est une bijection - symétrie."
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_cantor_bernstein",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Cantor-Bernstein",
+      "content_latex": "S'il existe une injection de $E$ dans $F$ et une injection de $F$ dans $E$, $E$ et $F$ sont équipotents.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_N_Nstar",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{N}$ et $\\mathbb{N}^*$",
+      "content_latex": "L'application $n\\mapsto n+1$ est bijective de $\\mathbb{N}$ sur $\\mathbb{N}^*$, donc $\\mathbb{N}$ et $\\mathbb{N}^*$ sont équipotents alors que l'un est inclus strictement dans l'autre !",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_R_intervalle",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{R}$ et $]0, 1[$",
+      "content_latex": "$\\mathbb{R}$ et $]0, 1[$ sont équipotents.",
+      "proof_latex": "On peut montrer que la fonction $x\\mapsto\\frac{x}{|x|+1}$ est bijective de $\\mathbb{R}$ sur $]-1,1[$. A fortiori, la fonction $x\\mapsto\\frac{1}{2}\\left(\\frac{x}{|x|+1}+1\\right)$ l'est de $\\mathbb{R}$ sur $]0, 1[$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_N_Z",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{N}$ et $\\mathbb{Z$",
+      "content_latex": "$\\mathbb{N}$ et $\\mathbb{Z}$ sont équipotents.",
+      "proof_latex": "L'application $f$ qui alterne les entiers positifs et négatifs ($0\\mapsto 0$, $1\\mapsto 1$, $2\\mapsto -1$, $3\\mapsto 2$, $4\\mapsto -2\\dots$) est bijective de $\\mathbb{N}$ sur $\\mathbb{Z}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_N_N2",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{N}$ et $\\mathbb{N}^2$",
+      "content_latex": "$\\mathbb{N}$ et $\\mathbb{N}^2$ sont équipotents.",
+      "proof_latex": "Montrons que l'application $(p,q)\\mapsto 2^p(2q+1)$ est bijective de $\\mathbb{N}^2$ sur $\\mathbb{N}^*$.\\par — Pour l'injectivité, soient $(p,q),(p^{\\prime},q^{\\prime})\\in\\mathbb{N}^2$ deux couples pour lesquels $2^p(2q+1)=2^{p^{\\prime}}(2q^{\\prime}+1)$. On peut supposer $p\\le p^{\\prime}$. Ainsi $2^{p^{\\prime}-p}(2q^{\\prime}+1)=2q+1$. Comme $2q+1$ est impair, on en déduit que $p=p^{\\prime}$, puis que $2q+1=2q^{\\prime}+1$ et enfin $(p,q)=(p^{\\prime},q^{\\prime})$.\\par — Pour la surjectivité, soit $y\\in\\mathbb{N}^*$. Dans la factorisation première de $y$, mettons de côté le nombre premier 2 et multiplions entre eux les autres diviseurs premiers. Cela permet d'écrire $y$ sous la forme $y=2^p(2q+1)$ pour certains $p,q\\in\\mathbb{N}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_N_Q",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{N}$ et $\\mathbb{Q}$",
+      "content_latex": "$\\mathbb{N}$ et $\\mathbb{Q}$ sont équipotents. Autrement dit, on peut numéroter les rationnels.",
+      "proof_latex": "L'application $Id_{\\mathbb{N}}$ est injective de $\\mathbb{N}$ dans $\\mathbb{Q}$, donc d'après le théorème de Cantor-Bernstein, il nous suffit d'exhiber une injection de $\\mathbb{Q}$ dans $\\mathbb{N}$. Tout rationnel $r$ possède une forme irréductible $\\frac{p}{q}$. L'application $u:r\\mapsto(p,q)$ est injective de $\\mathbb{Q}$ dans $\\mathbb{Z}\\times\\mathbb{N}^*$. Étant donnée une bijection $f$ de $\\mathbb{Z}$ sur $\\mathbb{N}$, l'application $v:(m,n)\\mapsto(f(m),n-1)$ est bijective de $\\mathbb{Z}\\times\\mathbb{N}^*$ sur $\\mathbb{N}^2$. Par composition, $v\\circ u$ est injective de $\\mathbb{Q}$ dans $\\mathbb{N}^2$. On obtient l'injection souhaitée en composant avec une bijection de $\\mathbb{N}^2$ sur $\\mathbb{N}$."
+    },
+    {
+      "id": "relations_binaires_et_applications__example_non_equipotence_R_Q",
+      "type": "example",
+      "title": "Exemple : Non-équipotence de $\\mathbb{R}$ et $\\mathbb{Q}$",
+      "content_latex": "$\\mathbb{R}$ et $\\mathbb{Q}$ ne sont pas équipotents. Il y a infiniment plus d'irrationnels que de rationnels.",
+      "proof_latex": "Parce que $\\mathbb{N}$ et $\\mathbb{Q}$ sont équipotents, il suffit de montrer que $\\mathbb{R}$ et $\\mathbb{N}$ ne le sont pas. Prouvons qu'aucune application $\\varphi:\\mathbb{N}\\longrightarrow\\mathbb{R}$ ne peut être surjective. En construisant par récurrence une suite d'intervalles emboîtés $I_n$ dont la longueur tend vers $0$ et qui ne contiennent pas $\\varphi(n)$, l'intersection de ces intervalles est un singleton $\\{l\\}$. Or pour tout $n$, $\\varphi(n)\\notin I_n$, donc $\\varphi(n)\\ne l$. Conclusion : $\\varphi$ ne prend pas la valeur $l$, donc n'est pas surjective !"
+    },
+    {
+      "id": "relations_binaires_et_applications__example_equipotence_R_R2_R3",
+      "type": "example",
+      "title": "Exemple : $\\mathbb{R}$, $\\mathbb{C}$ et l'espace",
+      "content_latex": "On peut montrer que $\\mathbb{R}$, $\\mathbb{C}/\\mathbb{R}^2$ et $\\mathbb{R}^3$ sont équipotents. Il y a donc autant de points sur une droite que dans notre espace à trois dimensions.",
+      "proof_latex": null
+    },
+    {
+      "id": "relations_binaires_et_applications__theorem_cantor",
+      "type": "theorem",
+      "title": "Théorème : Théorème de Cantor",
+      "content_latex": "Il n'existe pas de surjection de $E$ sur $\\mathcal{P}(E)$.",
+      "proof_latex": "Soit $\\varphi:E\\longrightarrow\\mathcal{P}(E)$ une application. On pose $A=\\{x\\in E|x\\notin\\varphi(x)\\}$. Pour tout $x\\in E$ : si $x\\in A$, alors $x\\notin\\varphi(x)$, donc $\\varphi(x)\\ne A$ ; si $x\\notin A$, alors $x\\in\\varphi(x)$, donc $\\varphi(x)\\ne A$. Ainsi, $A\\ne\\varphi(x)$ dans les deux cas, et ce pour tout $x\\in E$, donc $A$ n'a pas d'antécédent par $\\varphi$. Conclusion : $\\varphi$ n'est pas surjective de $E$ sur $\\mathcal{P}(E)$."
+    }
+  ],
+  "exercises": []
+}

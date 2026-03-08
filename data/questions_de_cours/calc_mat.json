@@ -1,0 +1,608 @@
+{
+  "programme_chapter_id": "CALC_MAT",
+  "programme_chapter_title": "Calcul matriciel et systèmes linéaires",
+  "semestre": 1,
+  "linked_course_chapters": [
+    "matrices_et_systemes_lineaires"
+  ],
+  "questions": [
+    {
+      "id": "CALC_MAT__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Ensemble M_{n,p}(K) des matrices à n lignes et p colonnes.",
+      "programme_notion": "Ensemble M_{n,p}(K) des matrices à n lignes et p colonnes",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice",
+      "answer_latex": "On appelle matrice de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ toute famille $A=(a_{ij})_{\\substack{1\\le i\\le n \\\\ 1\\le j\\le p}}$ de $np$ éléments de $\\mathbb{K}$ indexée par $[[1,n]]\\times[[1,p]]$. L'ensemble des matrices de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ est noté $\\mathcal{M}_{n,p}(\\mathbb{K})$. Pour $n=p$, on parle de matrices carrées et on note $\\mathcal{M}_{n}(\\mathbb{K})$. La matrice nulle est notée $0$ ou $0_{n,p}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_002",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Addition, multiplication par un scalaire, combinaisons linéaires.",
+      "programme_notion": "Addition, multiplication par un scalaire, combinaisons linéaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_addition_scalaire",
+      "answer_latex": "Pour tous $A,B\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $\\lambda, \\mu\\in\\mathbb{K}$, on note $\\lambda A+\\mu B$ la matrice dont le coefficient de position $(i,j)$ est $\\lambda a_{ij}+\\mu b_{ij}$. C'est appelé une combinaison linéaire de $A$ et $B$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_003",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Matrices élémentaires E_{i,j}.",
+      "programme_notion": "Matrices élémentaires E_{i,j}",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+      "answer_latex": "Pour tous $i,j\\in[[1,n]]\\times[[1,p]]$, on note $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$, égal à 1.\\par Toute matrice $M\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ est combinaison linéaire de matrices élémentaires : $M=\\sum_{1\\le i\\le n, 1\\le j\\le p}m_{ij}E_{ij}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_004",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Toute matrice est combinaison linéaire de matrices élémentaires.",
+      "programme_notion": "Toute matrice est combinaison linéaire de matrices élémentaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+      "answer_latex": "Pour tous $i,j\\in[[1,n]]\\times[[1,p]]$, on note $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$, égal à 1.\\par Toute matrice $M\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ est combinaison linéaire de matrices élémentaires : $M=\\sum_{1\\le i\\le n, 1\\le j\\le p}m_{ij}E_{ij}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_005",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Produit matriciel : bilinéarité, associativité.",
+      "programme_notion": "Produit matriciel : bilinéarité, associativité",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_prop_produit",
+      "answer_latex": "— Associativité : $(AB)C = A(BC)$.\\par — Bilinéarité : $(\\lambda A+\\mu B)C = \\lambda AC + \\mu BC$ et $B(\\lambda C+\\mu D) = \\lambda BC + \\mu BD$.\\par — Élément neutre : La matrice identité $I_n$ vérifie $I_n A = A I_p = A$ pour tout $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_006",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Produit matriciel : bilinéarité, associativité.",
+      "programme_notion": "Produit matriciel : bilinéarité, associativité",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_prop_produit",
+      "answer_latex": "— Associativité : $(AB)C = A(BC)$.\\par — Bilinéarité : $(\\lambda A+\\mu B)C = \\lambda AC + \\mu BC$ et $B(\\lambda C+\\mu D) = \\lambda BC + \\mu BD$.\\par — Élément neutre : La matrice identité $I_n$ vérifie $I_n A = A I_p = A$ pour tout $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$.\n\n\\textbf{Démonstration.} Pour l'associativité, soit $(i,j)\\in[[1,p]]\\times[[1,s]]$. \\par $((AB)C)_{ij} = \\sum_{l=1}^{r}(AB)_{il}c_{lj} = \\sum_{l=1}^{r}\\left(\\sum_{k=1}^{q}a_{ik}b_{kl}\\right)c_{lj} = \\sum_{k=1}^{q}a_{ik}\\left(\\sum_{l=1}^{r}b_{kl}c_{lj}\\right) = (A(BC))_{ij}.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_007",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : AX comme combinaison linéaire des colonnes de A.",
+      "programme_notion": "AX comme combinaison linéaire des colonnes de A",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_008",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : AX comme combinaison linéaire des colonnes de A.",
+      "programme_notion": "AX comme combinaison linéaire des colonnes de A",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.\n\n\\textbf{Démonstration.} Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_009",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Produit de matrices élémentaires.",
+      "programme_notion": "Produit de matrices élémentaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+      "answer_latex": "Pour tous $i,j\\in[[1,n]]\\times[[1,p]]$, on note $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$, égal à 1.\\par Toute matrice $M\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ est combinaison linéaire de matrices élémentaires : $M=\\sum_{1\\le i\\le n, 1\\le j\\le p}m_{ij}E_{ij}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_010",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Symbole de Kronecker δ_{i,j}.",
+      "programme_notion": "Symbole de Kronecker δ_{i,j}",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice",
+      "answer_latex": "On appelle matrice de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ toute famille $A=(a_{ij})_{\\substack{1\\le i\\le n \\\\ 1\\le j\\le p}}$ de $np$ éléments de $\\mathbb{K}$ indexée par $[[1,n]]\\times[[1,p]]$. L'ensemble des matrices de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ est noté $\\mathcal{M}_{n,p}(\\mathbb{K})$. Pour $n=p$, on parle de matrices carrées et on note $\\mathcal{M}_{n}(\\mathbb{K})$. La matrice nulle est notée $0$ ou $0_{n,p}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_011",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Transposée d'une matrice (notation A^T).",
+      "programme_notion": "Transposée d'une matrice (notation A^T)",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_puissance",
+      "answer_latex": "Pour toute matrice carrée $A$, $A^0 = I_n$ et pour tout $k\\in\\mathbb{N}^*$, $A^k = A \\times \\dots \\times A$ ($k$ fois).",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_012",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations sur les transposées : (λA+μB)^T, (AB)^T = B^T A^T.",
+      "programme_notion": "Opérations sur les transposées : (λA+μB)^T, (AB)^T = B^T A^T",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_op_triang",
+      "answer_latex": "Soient $A,B$ triangulaires supérieures (resp. inférieures) et $\\lambda,\\mu\\in\\mathbb{K}$.\\par Les matrices $\\lambda A+\\mu B$ et $AB$ restent triangulaires supérieures (resp. inférieures).\\par De plus, pour tout $i\\in[[1,n]]$ : $(AB)_{ii} = a_{ii}b_{ii}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_013",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Opérations sur les transposées : (λA+μB)^T, (AB)^T = B^T A^T.",
+      "programme_notion": "Opérations sur les transposées : (λA+μB)^T, (AB)^T = B^T A^T",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_op_triang",
+      "answer_latex": "Soient $A,B$ triangulaires supérieures (resp. inférieures) et $\\lambda,\\mu\\in\\mathbb{K}$.\\par Les matrices $\\lambda A+\\mu B$ et $AB$ restent triangulaires supérieures (resp. inférieures).\\par De plus, pour tout $i\\in[[1,n]]$ : $(AB)_{ii} = a_{ii}b_{ii}$.\n\n\\textbf{Démonstration.} Pour des matrices triangulaires supérieures : $(\\lambda A+\\mu B)_{ij} = 0$ pour $j<i$. \\par $(AB)_{ij} = \\sum_{k=1}^{i-1} a_{ik}b_{kj} + \\sum_{k=i}^n a_{ik}b_{kj} = 0$ si $j<i$. \\par Sur la diagonale : $(AB)_{ii} = \\sum_{k=1}^{i-1} a_{ik}b_{ki} + a_{ii}b_{ii} + \\sum_{k=i+1}^n a_{ik}b_{ki} = a_{ii}b_{ii}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_014",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Opérations élémentaires sur les lignes et colonnes.",
+      "programme_notion": "Opérations élémentaires sur les lignes et colonnes",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_operations_elementaires",
+      "answer_latex": "Soient $i, j\\in\\mathbb{N}^{*}$ et $\\lambda\\in\\mathbb{K}$. On appelle opération élémentaire les opérations suivantes :\\par — permutation des $i$-ème et $j$-ème lignes, notée $L_{i}\\leftrightarrow L_{j}$,\\par — multiplication de la $i$-ème ligne par $\\lambda\\ne 0$, notée $L_{i}\\leftarrow \\lambda L_{i}$,\\par — addition de la $j$-ème ligne multipliée par $\\lambda$ à la $i$-ème ligne (avec $i\\ne j$), notée $L_{i}\\leftarrow L_{i}+\\lambda L_{j}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_015",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation en termes de produit matriciel.",
+      "programme_notion": "Interprétation en termes de produit matriciel",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_produit_matriciel",
+      "answer_latex": "Pour tous $A\\in\\mathcal{M}_{p,q}(\\mathbb{K})$ et $B\\in\\mathcal{M}_{q,r}(\\mathbb{K})$ on note $AB$ la matrice de $\\mathcal{M}_{p,r}(\\mathbb{K})$ définie pour tous $i\\in[[1,p]]$ et $j\\in[[1,r]]$ par la relation :\\par $$(AB)_{ij}=\\sum_{k=1}^{q}a_{ik}b_{kj}.$$",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Écriture matricielle AX = B d'un système linéaire.",
+      "programme_notion": "Écriture matricielle AX = B d'un système linéaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_017",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Écriture matricielle AX = B d'un système linéaire.",
+      "programme_notion": "Écriture matricielle AX = B d'un système linéaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.\n\n\\textbf{Démonstration.} Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_018",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Système homogène associé.",
+      "programme_notion": "Système homogène associé",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_019",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Système homogène associé.",
+      "programme_notion": "Système homogène associé",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.\n\n\\textbf{Démonstration.} Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_020",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Système compatible : B est combinaison linéaire des colonnes de A.",
+      "programme_notion": "Système compatible : B est combinaison linéaire des colonnes de A",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_021",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Système compatible : B est combinaison linéaire des colonnes de A.",
+      "programme_notion": "Système compatible : B est combinaison linéaire des colonnes de A",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.\n\n\\textbf{Démonstration.} Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_022",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Structure de l'ensemble des solutions : X_0 + solutions de l'homogène.",
+      "programme_notion": "Structure de l'ensemble des solutions : X_0 + solutions de l'homogène",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_023",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Structure de l'ensemble des solutions : X_0 + solutions de l'homogène.",
+      "programme_notion": "Structure de l'ensemble des solutions : X_0 + solutions de l'homogène",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_structure_solutions_systeme",
+      "answer_latex": "Soient $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ et $B\\in\\mathbb{K}^{n}$. On s'intéresse au système linéaire $AX=B$ d'inconnue $X\\in\\mathbb{K}^{p}$. Deux situations peuvent se présenter :\\par — soit ce système n'a pas de solution, on dit qu'il est incompatible,\\par — soit il en a, on dit qu'il est compatible. Les solutions obéissent dans ce cas au principe suivant : Solution quelconque du système complet = Solution particulière du système complet + Solution quelconque du système HOMOGÈNE.\n\n\\textbf{Démonstration.} Dans le cas où le système étudié possède une solution $X_{part}$, alors pour tout $X\\in\\mathbb{K}^{p}$ : $AX=B \\iff AX=AX_{part} \\iff A(X-X_{part})=0$ par linéarité. $X-X_{part}$ est une solution du système HOMOGÈNE associé. $X$ est la somme de la solution particulière $X_{part}$ et d'une solution du système HOMOGÈNE associé.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_024",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Algorithme du pivot (échelonnement).",
+      "programme_notion": "Algorithme du pivot (échelonnement)",
+      "answer_node_id": "matrices_et_systemes_lineaires__method_algorithme_pivot",
+      "answer_latex": "C'EN EST FINI DES SUBSTITUTIONS ! On utilise l'algorithme du pivot.\\par Étape 1 : On choisit un coefficient non nul (pivot) et on le place en position $(1,1)$ par permutation si nécessaire. Privilégiez un pivot de valeur 1.\\par Étape 2 : On annule tous les coefficients de la première colonne sous le pivot par des opérations $L_i \\leftarrow L_i + \\lambda_i L_1$. On supprime les lignes nulles.\\par Reprise : On répète sur le sous-système (sans la ligne 1) jusqu'à obtenir une forme échelonnée.\\par Remontée : On annule les coefficients au-dessus des pivots pour exprimer les inconnues.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_025",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Anneau M_n(K).",
+      "programme_notion": "Anneau M_n(K)",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_prop_produit",
+      "answer_latex": "— Associativité : $(AB)C = A(BC)$.\\par — Bilinéarité : $(\\lambda A+\\mu B)C = \\lambda AC + \\mu BC$ et $B(\\lambda C+\\mu D) = \\lambda BC + \\mu BD$.\\par — Élément neutre : La matrice identité $I_n$ vérifie $I_n A = A I_p = A$ pour tout $A\\in\\mathcal{M}_{n,p}(\\mathbb{K})$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_026",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Non-commutativité si n ≥ 2.",
+      "programme_notion": "Non-commutativité si n ≥ 2",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Si l'une des colonnes (resp. lignes) de $A$ est combinaison linéaire de ses autres colonnes (resp. lignes), alors $A$ n'est pas inversible.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_027",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Non-commutativité si n ≥ 2.",
+      "programme_notion": "Non-commutativité si n ≥ 2",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Si l'une des colonnes (resp. lignes) de $A$ est combinaison linéaire de ses autres colonnes (resp. lignes), alors $A$ n'est pas inversible.\n\n\\textbf{Démonstration.} Notons $L_{1},...,L_{n}$ les lignes de $A$ et faisons l'hypothèse que $L_{1} = \\lambda_{2}L_{2}+...+\\lambda_{n}L_{n}$. Dans ces conditions : $(1 \\quad -\\lambda_{2} \\quad \\cdots \\quad -\\lambda_{n}) \\times A = L_{1} - \\lambda_{2}L_{2} - ... - \\lambda_{n}L_{n} = (0 \\quad \\cdots \\quad 0)$. Or si $A$ est inversible, on peut multiplier cette égalité par $A^{-1}$ à droite, il en découle que $1=0$. Conclusion : $A$ n'est pas inversible.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_028",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Exemples de diviseurs de zéro, d'éléments nilpotents.",
+      "programme_notion": "Exemples de diviseurs de zéro, d'éléments nilpotents",
+      "answer_node_id": "matrices_et_systemes_lineaires__warning_zero_inversibilite",
+      "answer_latex": "Dans $\\mathbb{R}$ et $\\mathbb{C}$, 0 est le seul objet qu'on ne peut pas inverser. Dans $\\mathcal{M}_{n}(\\mathbb{K})$, une matrice non nulle peut ne pas être inversible.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_029",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Matrice identité I_n, matrices scalaires.",
+      "programme_notion": "Matrice identité I_n, matrices scalaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice",
+      "answer_latex": "On appelle matrice de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ toute famille $A=(a_{ij})_{\\substack{1\\le i\\le n \\\\ 1\\le j\\le p}}$ de $np$ éléments de $\\mathbb{K}$ indexée par $[[1,n]]\\times[[1,p]]$. L'ensemble des matrices de taille $n\\times p$ à coefficients dans $\\mathbb{K}$ est noté $\\mathcal{M}_{n,p}(\\mathbb{K})$. Pour $n=p$, on parle de matrices carrées et on note $\\mathcal{M}_{n}(\\mathbb{K})$. La matrice nulle est notée $0$ ou $0_{n,p}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_030",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Matrices symétriques S_n(K), antisymétriques A_n(K).",
+      "programme_notion": "Matrices symétriques S_n(K), antisymétriques A_n(K)",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+      "answer_latex": "Pour tous $i,j\\in[[1,n]]\\times[[1,p]]$, on note $E_{ij}$ la matrice de $\\mathcal{M}_{n,p}(\\mathbb{K})$ dont tous les coefficients sont nuls à l'exception du coefficient de position $(i, j)$, égal à 1.\\par Toute matrice $M\\in\\mathcal{M}_{n,p}(\\mathbb{K})$ est combinaison linéaire de matrices élémentaires : $M=\\sum_{1\\le i\\le n, 1\\le j\\le p}m_{ij}E_{ij}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_031",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule du binôme (si AB = BA), application au calcul de puissances.",
+      "programme_notion": "Formule du binôme (si AB = BA), application au calcul de puissances",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_binome_newton",
+      "answer_latex": "Soient $A,B\\in\\mathcal{M}_n(\\mathbb{K})$. Si $A$ et $B$ commutent ($AB=BA$) :\\par $$(A+B)^k = \\sum_{i=0}^k \\binom{k}{i} A^i B^{k-i}$$\\par $$A^k - B^k = (A-B)\\sum_{i=0}^{k-1} A^i B^{k-i-1}.$$",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_032",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule du binôme (si AB = BA), application au calcul de puissances.",
+      "programme_notion": "Formule du binôme (si AB = BA), application au calcul de puissances",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_binome_newton",
+      "answer_latex": "Soient $A,B\\in\\mathcal{M}_n(\\mathbb{K})$. Si $A$ et $B$ commutent ($AB=BA$) :\\par $$(A+B)^k = \\sum_{i=0}^k \\binom{k}{i} A^i B^{k-i}$$\\par $$A^k - B^k = (A-B)\\sum_{i=0}^{k-1} A^i B^{k-i-1}.$$\n\n\\textbf{Démonstration.} Même preuve qu'avec des réels, par récurrence.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_033",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Produit de matrices diagonales, de matrices triangulaires.",
+      "programme_notion": "Produit de matrices diagonales, de matrices triangulaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_op_triang",
+      "answer_latex": "Soient $A,B$ triangulaires supérieures (resp. inférieures) et $\\lambda,\\mu\\in\\mathbb{K}$.\\par Les matrices $\\lambda A+\\mu B$ et $AB$ restent triangulaires supérieures (resp. inférieures).\\par De plus, pour tout $i\\in[[1,n]]$ : $(AB)_{ii} = a_{ii}b_{ii}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_034",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Produit de matrices diagonales, de matrices triangulaires.",
+      "programme_notion": "Produit de matrices diagonales, de matrices triangulaires",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_op_triang",
+      "answer_latex": "Soient $A,B$ triangulaires supérieures (resp. inférieures) et $\\lambda,\\mu\\in\\mathbb{K}$.\\par Les matrices $\\lambda A+\\mu B$ et $AB$ restent triangulaires supérieures (resp. inférieures).\\par De plus, pour tout $i\\in[[1,n]]$ : $(AB)_{ii} = a_{ii}b_{ii}$.\n\n\\textbf{Démonstration.} Pour des matrices triangulaires supérieures : $(\\lambda A+\\mu B)_{ij} = 0$ pour $j<i$. \\par $(AB)_{ij} = \\sum_{k=1}^{i-1} a_{ik}b_{kj} + \\sum_{k=i}^n a_{ik}b_{kj} = 0$ si $j<i$. \\par Sur la diagonale : $(AB)_{ii} = \\sum_{k=1}^{i-1} a_{ik}b_{ki} + a_{ii}b_{ii} + \\sum_{k=i+1}^n a_{ik}b_{ki} = a_{ii}b_{ii}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_035",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Matrice inversible, inverse.",
+      "programme_notion": "Matrice inversible, inverse",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice_inversible",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. On dit que $A$ est inversible s'il existe une matrice $B\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour laquelle $AB=BA=I_{n}$. SI ELLE EXISTE, une telle matrice $B$ est unique, notée $A^{-1}$ et appelée l'inverse de $A$. L'ensemble des matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{K})$ est noté $GL_{n}(\\mathbb{K})$ et appelé le groupe linéaire de dimension $n$ sur $\\mathbb{K}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_036",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Matrice inversible, inverse.",
+      "programme_notion": "Matrice inversible, inverse",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice_inversible",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. On dit que $A$ est inversible s'il existe une matrice $B\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour laquelle $AB=BA=I_{n}$. SI ELLE EXISTE, une telle matrice $B$ est unique, notée $A^{-1}$ et appelée l'inverse de $A$. L'ensemble des matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{K})$ est noté $GL_{n}(\\mathbb{K})$ et appelé le groupe linéaire de dimension $n$ sur $\\mathbb{K}$.\n\n\\textbf{Démonstration.} Si $B$ et $B'$ sont deux inverses de $A$, alors $B=BI_{n}=B(AB')=(BA)B'=I_{n}B'=B'$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_037",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Groupe linéaire GL_n(K).",
+      "programme_notion": "Groupe linéaire GL_n(K)",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice_inversible",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. On dit que $A$ est inversible s'il existe une matrice $B\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour laquelle $AB=BA=I_{n}$. SI ELLE EXISTE, une telle matrice $B$ est unique, notée $A^{-1}$ et appelée l'inverse de $A$. L'ensemble des matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{K})$ est noté $GL_{n}(\\mathbb{K})$ et appelé le groupe linéaire de dimension $n$ sur $\\mathbb{K}$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_038",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Groupe linéaire GL_n(K).",
+      "programme_notion": "Groupe linéaire GL_n(K)",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_matrice_inversible",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. On dit que $A$ est inversible s'il existe une matrice $B\\in\\mathcal{M}_{n}(\\mathbb{K})$ pour laquelle $AB=BA=I_{n}$. SI ELLE EXISTE, une telle matrice $B$ est unique, notée $A^{-1}$ et appelée l'inverse de $A$. L'ensemble des matrices inversibles de $\\mathcal{M}_{n}(\\mathbb{K})$ est noté $GL_{n}(\\mathbb{K})$ et appelé le groupe linéaire de dimension $n$ sur $\\mathbb{K}$.\n\n\\textbf{Démonstration.} Si $B$ et $B'$ sont deux inverses de $A$, alors $B=BI_{n}=B(AB')=(BA)B'=I_{n}B'=B'$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_039",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inverse d'une transposée : (A^T)^{-1} = (A^{-1})^T.",
+      "programme_notion": "Inverse d'une transposée : (A^T)^{-1} = (A^{-1})^T",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+      "answer_latex": "Une matrice triangulaire $A$ est inversible si et seulement si ses coefficients diagonaux sont tous non nuls. Dans ce cas, $A^{-1}$ est elle aussi triangulaire de même type et ses coefficients diagonaux sont exactement les inverses des coefficients diagonaux de $A$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_040",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inverse d'une transposée : (A^T)^{-1} = (A^{-1})^T.",
+      "programme_notion": "Inverse d'une transposée : (A^T)^{-1} = (A^{-1})^T",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+      "answer_latex": "Une matrice triangulaire $A$ est inversible si et seulement si ses coefficients diagonaux sont tous non nuls. Dans ce cas, $A^{-1}$ est elle aussi triangulaire de même type et ses coefficients diagonaux sont exactement les inverses des coefficients diagonaux de $A$.\n\n\\textbf{Démonstration.} Si l'un des $a_{ii}$ est nul dans l'algorithme du pivot par colonne, une colonne devient nulle et $A$ n'est pas inversible. Si tous sont non nuls, l'algorithme transforme $A$ en $I_{n}$ avec $C_i \\leftarrow \\frac{1}{a_{ii}} C_i$, générant une inverse triangulaire supérieure avec les inverses sur la diagonale. Par transposition, le résultat vaut pour les triangulaires inférieures.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_041",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Les opérations élémentaires préservent l'inversibilité.",
+      "programme_notion": "Les opérations élémentaires préservent l'inversibilité",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_operations_elementaires",
+      "answer_latex": "Soient $i, j\\in\\mathbb{N}^{*}$ et $\\lambda\\in\\mathbb{K}$. On appelle opération élémentaire les opérations suivantes :\\par — permutation des $i$-ème et $j$-ème lignes, notée $L_{i}\\leftrightarrow L_{j}$,\\par — multiplication de la $i$-ème ligne par $\\lambda\\ne 0$, notée $L_{i}\\leftarrow \\lambda L_{i}$,\\par — addition de la $j$-ème ligne multipliée par $\\lambda$ à la $i$-ème ligne (avec $i\\ne j$), notée $L_{i}\\leftarrow L_{i}+\\lambda L_{j}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_042",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Calcul de l'inverse par opérations élémentaires ou par résolution de AX = Y.",
+      "programme_notion": "Calcul de l'inverse par opérations élémentaires ou par résolution de AX = Y",
+      "answer_node_id": "matrices_et_systemes_lineaires__def_operations_elementaires",
+      "answer_latex": "Soient $i, j\\in\\mathbb{N}^{*}$ et $\\lambda\\in\\mathbb{K}$. On appelle opération élémentaire les opérations suivantes :\\par — permutation des $i$-ème et $j$-ème lignes, notée $L_{i}\\leftrightarrow L_{j}$,\\par — multiplication de la $i$-ème ligne par $\\lambda\\ne 0$, notée $L_{i}\\leftarrow \\lambda L_{i}$,\\par — addition de la $j$-ème ligne multipliée par $\\lambda$ à la $i$-ème ligne (avec $i\\ne j$), notée $L_{i}\\leftarrow L_{i}+\\lambda L_{j}$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_043",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Condition nécessaire et suffisante d'inversibilité d'une matrice triangulaire.",
+      "programme_notion": "Condition nécessaire et suffisante d'inversibilité d'une matrice triangulaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Si l'une des colonnes (resp. lignes) de $A$ est combinaison linéaire de ses autres colonnes (resp. lignes), alors $A$ n'est pas inversible.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_044",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Condition nécessaire et suffisante d'inversibilité d'une matrice triangulaire.",
+      "programme_notion": "Condition nécessaire et suffisante d'inversibilité d'une matrice triangulaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+      "answer_latex": "Soit $A\\in\\mathcal{M}_{n}(\\mathbb{K})$. Si l'une des colonnes (resp. lignes) de $A$ est combinaison linéaire de ses autres colonnes (resp. lignes), alors $A$ n'est pas inversible.\n\n\\textbf{Démonstration.} Notons $L_{1},...,L_{n}$ les lignes de $A$ et faisons l'hypothèse que $L_{1} = \\lambda_{2}L_{2}+...+\\lambda_{n}L_{n}$. Dans ces conditions : $(1 \\quad -\\lambda_{2} \\quad \\cdots \\quad -\\lambda_{n}) \\times A = L_{1} - \\lambda_{2}L_{2} - ... - \\lambda_{n}L_{n} = (0 \\quad \\cdots \\quad 0)$. Or si $A$ est inversible, on peut multiplier cette égalité par $A^{-1}$ à droite, il en découle que $1=0$. Conclusion : $A$ n'est pas inversible.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_045",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : L'inverse d'une matrice triangulaire inversible est triangulaire.",
+      "programme_notion": "L'inverse d'une matrice triangulaire inversible est triangulaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+      "answer_latex": "Une matrice triangulaire $A$ est inversible si et seulement si ses coefficients diagonaux sont tous non nuls. Dans ce cas, $A^{-1}$ est elle aussi triangulaire de même type et ses coefficients diagonaux sont exactement les inverses des coefficients diagonaux de $A$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "CALC_MAT__qc_046",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : L'inverse d'une matrice triangulaire inversible est triangulaire.",
+      "programme_notion": "L'inverse d'une matrice triangulaire inversible est triangulaire",
+      "answer_node_id": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+      "answer_latex": "Une matrice triangulaire $A$ est inversible si et seulement si ses coefficients diagonaux sont tous non nuls. Dans ce cas, $A^{-1}$ est elle aussi triangulaire de même type et ses coefficients diagonaux sont exactement les inverses des coefficients diagonaux de $A$.\n\n\\textbf{Démonstration.} Si l'un des $a_{ii}$ est nul dans l'algorithme du pivot par colonne, une colonne devient nulle et $A$ n'est pas inversible. Si tous sont non nuls, l'algorithme transforme $A$ en $I_{n}$ avec $C_i \\leftarrow \\frac{1}{a_{ii}} C_i$, générant une inverse triangulaire supérieure avec les inverses sur la diagonale. Par transposition, le résultat vaut pour les triangulaires inférieures.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4133 @@
+{
+  "chapter_official_id": "nombres_complexes",
+  "chapter_name": "Nombres complexes",
+  "source_document": "Exercices - Nombres complexes.pdf et Exercices indications - Nombres complexes.pdf",
+  "exercises": [
+    {
+      "id": "nombres_complexes__ex_001",
+      "title": "Calculs algébriques basiques",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__theorem_derivation_exp_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "forme algébrique",
+        "partie réelle",
+        "partie imaginaire"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Exprimer de tête sous forme algébrique : \\par a) $(2-i)(3+6i)$ \\par b) $\\frac{2}{1+3i}$ \\par c) $(1+i)^{4}$ \\par d) $(3+2i)(1+3i)$ \\par e) $\\frac{4+i}{i}$ \\par f) $\\frac{2-i}{1+i}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_derivation_exp_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour les quotients, multipliez le numérateur et le dénominateur par le conjugué du dénominateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $(1+i)^4$, calculez d'abord $(1+i)^2$ puis élevez le résultat au carré."
+            }
+          ],
+          "solution_latex": "a) $(2-i)(3+6i) = 6 + 12i - 3i - 6i^2 = 12 + 9i$ \\\\\nb) $\\\\frac{2}{1+3i} = \\\\frac{2(1-3i)}{10} = \\\\frac{1}{5} - \\\\frac{3}{5}i$ \\\\\nc) $(1+i)^2 = 2i$, donc $(1+i)^4 = -4$ \\\\\nd) $(3+2i)(1+3i) = -3 + 11i$ \\\\\ne) $\\\\frac{4+i}{i} = 1 - 4i$ \\\\\nf) $\\\\frac{2-i}{1+i} = \\\\frac{1}{2} - \\\\frac{3}{2}i$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Soit $z\\in\\mathbb{C}$. Exprimer de tête en fonction de $Re(z)$ et $Im(z)$ : $Re(iz)$, $Im(iz)$, $Re(z^{2})$ et $Im(z^{2})$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_regularite_fonction_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez $z = x + iy$ avec $x$ et $y$ réels."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez les expressions $i(x+iy)$ et $(x+iy)^2$ puis identifiez les parties réelle et imaginaire."
+            }
+          ],
+          "solution_latex": "Soit $z = x + iy$ avec $x, y \\\\in \\\\mathbb{R}$. \\\\\n$iz = -y + ix \\\\implies \\\\mathrm{Re}(iz) = -\\\\mathrm{Im}(z)$ et $\\\\mathrm{Im}(iz) = \\\\mathrm{Re}(z)$ \\\\\n$z^2 = x^2 - y^2 + 2ixy \\\\implies \\\\mathrm{Re}(z^2) = (\\\\mathrm{Re}(z))^2 - (\\\\mathrm{Im}(z))^2$ et $\\\\mathrm{Im}(z^2) = 2\\\\mathrm{Re}(z)\\\\mathrm{Im}(z)$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_002",
+      "title": "Équations et interprétation géométrique",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation",
+        "module",
+        "conjugué",
+        "géométrie"
+      ],
+      "statement_latex": "Résoudre géométriquement et par le calcul les équations suivantes d'inconnue $z\\in\\mathbb{C}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\overline{z}=z$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__def_conjugue_module"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Géométriquement, quel est l'ensemble des points invariants par la symétrie par rapport à l'axe des abscisses ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Par le calcul, posez $z = x+iy$ et résolvez l'équation."
+            }
+          ],
+          "solution_latex": "Géométriquement : l'ensemble des points invariants par la symétrie par rapport à l'axe réel est $\\\\mathbb{R}$. \\\\\nPar le calcul : $z = x+iy$ donne $\\\\overline{z} = x - iy = z \\\\iff y = 0$. Donc $S = \\\\mathbb{R}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$|z-1|=|z|$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Interprétez les modules comme des distances à des points particuliers du plan complexe."
+            },
+            {
+              "level": 2,
+              "content_latex": "Géométriquement, il s'agit de la médiatrice du segment reliant l'origine au point d'affixe $1$."
+            }
+          ],
+          "solution_latex": "Géométriquement : c'est la médiatrice du segment $[0,1]$, soit la droite $\\\\mathrm{Re}(z) = \\\\frac{1}{2}$. \\\\\nPar le calcul : $|z-1|^2 = |z|^2 \\\\iff (x-1)^2 + y^2 = x^2 + y^2 \\\\iff x = \\\\frac{1}{2}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$|z|=Re(z)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez par la forme algébrique $z = x+iy$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Élevez au carré l'équation $\\sqrt{x^2+y^2} = x$, en n'oubliant pas que la condition $x \\ge 0$ est nécessaire."
+            }
+          ],
+          "solution_latex": "Soit $z = x+iy$. On a $|z| = \\\\sqrt{x^2+y^2} = x$ (condition $x \\\\ge 0$). \\\\\nEn élevant au carré : $x^2 + y^2 = x^2 \\\\iff y = 0$ avec $x \\\\ge 0$. \\\\\nAinsi $S = [0, +\\\\infty)$ (axe réel positif)."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$|z|=|z+1|=1$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Géométriquement, cherchez l'intersection de deux cercles de rayon $1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Quels sont les centres respectifs de ces deux cercles ?"
+            }
+          ],
+          "solution_latex": "Géométriquement : intersection de deux cercles de rayon 1 distants de 1. \\\\\nPar le calcul : $|z| = 1$ et $|z+1| = 1$ donnent $x^2+y^2 = 1$ et $(x+1)^2 + y^2 = 1$. \\\\\nSoustraire : $2x + 1 = 0 \\\\iff x = -\\\\frac{1}{2}$. Alors $y = \\\\pm\\\\frac{\\\\sqrt{3}}{2}$. \\\\\n$S = \\{e^{2i\\\\pi/3}, e^{-2i\\\\pi/3}\\}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_003",
+      "title": "Équations avec conjugué et module",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_equation_second_degre",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_corps_complexes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation",
+        "module",
+        "conjugué"
+      ],
+      "statement_latex": "Résoudre les équations suivantes d'inconnue $z\\in\\mathbb{C}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$1+\\overline{z}=|z|$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_theo_corps_complexes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Isolez $\\overline{z}$ pour en déduire une information sur la nature (réelle ou imaginaire) de $z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $|z|-1$ est réel, $z$ doit être réel. Résolvez ensuite l'équation dans $\\mathbb{R}$."
+            }
+          ],
+          "solution_latex": "$1 + \\\\overline{z} = |z|$ avec $z = x+iy$. \\\\\nL'équation devient $1 + x - iy = \\\\sqrt{x^2+y^2}$. \\\\\nPartie imaginaire : $y = 0$. Partie réelle : $1 + x = |x|$. \\\\\nSi $x < 0$ : $1 + x = -x \\\\iff x = -\\\\frac{1}{2}$. Vérification : $\\\\frac{1}{2} = \\\\frac{1}{2}$. ✓ \\\\\n$S = \\{-\\\\frac{1}{2}\\}$"
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\overline{z}(z-1)=z^{2}(\\overline{z}-1)$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser d'abord à l'équation des modules."
+            },
+            {
+              "level": 2,
+              "content_latex": "En passant aux modules, montrez que $|z|=1$ ou $z=0$, puis réinjectez cette information pour simplifier l'équation initiale."
+            }
+          ],
+          "solution_latex": "$\\\\overline{z}(z-1) = z^2(\\\\overline{z}-1)$. \\\\\nEn modules : $|z| |z-1| = |z|^2 |z-1|$, donc $|z|(|z-1|)(1-|z|) = 0$. \\\\\nCas : $z=0$ (✓), $|z|=1$ ou $z=1$. \\\\\nSi $|z|=1$ : $\\\\overline{z} = 1/z$ donne $(z-1) = z - z^2 \\\\iff z^2 = 1$, donc $z = 1$ (✓) ou $z = -1$ (✗). \\\\\n$S = \\{0, 1\\}$"
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_004",
+      "title": "Identité du parallélogramme",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__theorem_interpretation_geometrique_complexe",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité triangulaire",
+        "identité du parallélogramme",
+        "module"
+      ],
+      "statement_latex": "Soient $u, v\\in\\mathbb{C}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Simplifier $|u+v|^{2}+|u-v|^{2}$, puis interpréter géométriquement le résultat.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_quatre_formules_trigo",
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $z\\in\\mathbb{C}$ : $|z|^{2}=z\\overline{z}$. Pour l'interprétation géométrique, dessiner deux vecteurs $u$ et $v$ au hasard et réfléchir."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez les produits. Géométriquement, considérez les diagonales d'un parallélogramme construit sur les vecteurs $u$ et $v$."
+            }
+          ],
+          "solution_latex": "$|u+v|^2 + |u-v|^2 = 2u\\\\overline{u} + u\\\\overline{v} + v\\\\overline{u} + 2v\\\\overline{v} - u\\\\overline{v} - v\\\\overline{u} = 2(|u|^2 + |v|^2)$. \\\\\nInterprétation : la somme des carrés des diagonales d'un parallélogramme égale la somme des carrés de ses quatre côtés."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $|u|+|v|\\le|u+v|+|u-v|$ et étudier le cas d'égalité. Quelle interprétation géométrique ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_module_somme",
+            "nombres_complexes__theorem_interpretation_geometrique_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Demi-somme/demi-différence."
+            },
+            {
+              "level": 2,
+              "content_latex": "Écrivez $u = \\frac{(u+v) + (u-v)}{2}$ et $v = \\frac{(u+v) - (u-v)}{2}$ puis appliquez l'inégalité triangulaire classique."
+            }
+          ],
+          "solution_latex": "$u = \\\\frac{(u+v)+(u-v)}{2}$ et $v = \\\\frac{(u+v)-(u-v)}{2}$. \\\\\nPar inégalité triangulaire : $2|u| \\\\le |u+v| + |u-v|$ et $2|v| \\\\le |u+v| + |u-v|$. \\\\\nEn additionnant : $|u| + |v| \\\\le |u+v| + |u-v|$. \\\\\nÉgalité ssi $u+v$ et $u-v$ sont positivement proportionnels."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_005",
+      "title": "Produit de sommes de carrés",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "arithmétique",
+        "somme de carrés",
+        "module"
+      ],
+      "statement_latex": "Montrer que si deux entiers naturels sont chacun la somme de deux carrés d'entiers, leur produit l'est aussi.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $m = a^2+b^2$ et $n = c^2+d^2$. Écrivons $m = |a+ib|^2$ et $n = |c+id|^2$. \\\\\nAlors $mn = |(a+ib)(c+id)|^2$. En développant : $(a+ib)(c+id) = (ac-bd) + i(ad+bc)$. \\\\\nDonc $mn = (ac-bd)^2 + (ad+bc)^2$ est somme de deux carrés.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Toute somme de deux réels au carré est un module au carré."
+        },
+        {
+          "level": 2,
+          "content_latex": "Écrivez les deux entiers sous la forme $|a+ib|^2$ et $|c+id|^2$, puis utilisez la propriété de multiplicativité du module : $|z_1 z_2|^2 = |z_1|^2 |z_2|^2$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_006",
+      "title": "Calcul d'une racine carrée complexe",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racine carrée",
+        "module",
+        "partie réelle"
+      ],
+      "statement_latex": "Montrer que pour tout $z\\in\\mathbb{C}\\backslash\\mathbb{R}_{-}$ : \\par $(\\frac{z+|z|}{\\sqrt{Re(z)+|z|}})^{2}=2z.$ \\par En quoi est-ce intéressant ?",
+      "sub_questions": [],
+      "global_solution_latex": "Vérifions $\\\\left(\\\\frac{z+|z|}{\\\\sqrt{\\\\mathrm{Re}(z)+|z|}}\\\\right)^2 = 2z$. \\\\\nD'abord, $\\\\mathrm{Re}(z) + |z| > 0$ car $|z| \\\\ge |\\\\mathrm{Re}(z)|$. \\\\\nDéveloppons : $(z+|z|)^2 - 2z(\\\\mathrm{Re}(z)+|z|) = z^2 + 2z|z| + |z|^2 - 2z\\\\mathrm{Re}(z) - 2z|z|$. \\\\\n$= z^2 + |z|^2 - 2z\\\\mathrm{Re}(z)$. Avec $z = x+iy$ : ceci vaut $(x^2-y^2+2ixy) + (x^2+y^2) - 2x(x+iy) = 0$. ✓ \\\\\nIntérêt : formule explicite pour calculer une racine carrée.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Montrer d'abord que $Re(z)+|z|>0$, puis simplifier $(z+|z|)^{2}-2z(Re(z)+|z|)$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la seconde partie de la question, observez le membre de gauche de l'égalité : cela nous donne une formule explicite pour calculer l'une des racines carrées d'un nombre complexe."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_007",
+      "title": "Propriétés des nombres de module 1",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__theorem_systeme_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "module",
+        "cercle trigonométrique",
+        "conjugué"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Simplifier $|1+iz|^{2}+|z+i|^{2}$ pour tout $z\\in\\mathbb{U}.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_conjugue_module",
+            "nombres_complexes__theorem_proprietes_algebriques_conjugue_module"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez les modules au carré en utilisant la relation $|Z|^2 = Z\\overline{Z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "N'oubliez pas que puisque $z\\in\\mathbb{U}$, vous pouvez utiliser la simplification $z\\overline{z} = 1$."
+            }
+          ],
+          "solution_latex": "Si $|z| = 1$, alors $z\\\\overline{z} = 1$, donc $\\\\overline{z} = 1/z$. \\\\\nEn particulier, $1/z = \\\\overline{z}$ est le conjugué de $z$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $Re (\\frac{1}{1-z})=\\frac{1}{2}$ pour tout $z\\in\\mathbb{U}\\backslash\\{1\\}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_corps_complexes",
+            "nombres_complexes__def_conjugue_module",
+            "nombres_complexes__theorem_systeme_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Multiplier par le conjugué au numérateur et au dénominateur, puis développer le dénominateur grâce à la relation $|z|^{2}=z\\overline{z}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Le dénominateur devient $|1-z|^2 = (1-z)(1-\\overline{z})$. Exprimez ensuite la partie réelle de l'expression."
+            }
+          ],
+          "solution_latex": "Si $|z| = 1$, soit $z = e^{i\\\\theta}$. Alors $z^n = e^{in\\\\theta}$ a aussi module 1. \\\\\nPlus généralement, $|z_1 z_2| = |z_1||z_2|$, donc le produit de nombres de module 1 a module 1."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Montrer que $|a+b+c|=|ab+bc+ca|$ pour tous $a$, $b$, $c\\in\\mathbb{U}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour tout $z\\in\\mathbb{U}:\\frac{1}{z}=\\overline{z}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Factorisez le produit $abc$ à l'intérieur du module du second membre, puis utilisez les propriétés du module d'un produit."
+            }
+          ],
+          "solution_latex": "Soit $z = x+iy$ avec $|z| = 1$, i.e., $x^2+y^2 = 1$. \\\\\nAlors $z$ s'écrit $z = \\\\cos\\\\theta + i\\\\sin\\\\theta = e^{i\\\\theta}$ pour un $\\\\theta \\\\in \\\\mathbb{R}$ unique modulo $2\\\\pi$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Montrer que $\\frac{z+z^{\\prime}}{1+zz^{\\prime}}\\in\\mathbb{R}$ pour tous $z,z^{\\prime}\\in\\mathbb{U}$ pour lesquels $zz^{\\prime}\\ne-1.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Être réel, c'est être égal à son conjugué."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le conjugué de l'expression complète en remplaçant chaque terme conjugué $\\overline{z}$ par $\\frac{1}{z}$."
+            }
+          ],
+          "solution_latex": "L'équation $|z+1| = |z|$ exprime l'équidistance à $-1$ et à $0$, donc $z$ est sur la médiatrice, d'équation $\\\\mathrm{Re}(z) = -\\\\frac{1}{2}$. \\\\\nAvec $|z| = 1$ : $(x+\\\\frac{1}{2})^2 + y^2 = 1$ et $x^2+y^2 = 1$. Ainsi $x = -\\\\frac{1}{2}$, $y = \\\\pm\\\\frac{\\\\sqrt{3}}{2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_008",
+      "title": "Étude d'ensembles de points",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__def_conjugue_module"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "lieux géométriques",
+        "cercle",
+        "médiatrice",
+        "partie réelle",
+        "module"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "On note $f$ la fonction $z\\mapsto\\frac{z+1}{z-2}$ sur $\\mathbb{C}\\backslash\\{2\\}$. Déterminer l'ensemble des $z\\in\\mathbb{C}\\backslash\\{2\\}$ pour lesquels : $|f(z)|=1$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_regularite_fonction_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez l'égalité des modules en termes de distances géométriques."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation devient $|z+1| = |z-2|$, ce qui correspond à la médiatrice du segment reliant les points d'affixes $-1$ et $2$."
+            }
+          ],
+          "solution_latex": "$|z| = 2$ : cercle centré à l'origine, rayon 2."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Déterminer l'ensemble des $z\\in\\mathbb{C}\\backslash\\{2\\}$ pour lesquels : $Re(f(z))=0$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par faire apparaître un module au carré au dénominateur. Plus tard, reconnaître une équation de cercle de centre et de rayon à préciser."
+            },
+            {
+              "level": 2,
+              "content_latex": "Posez $z = x+iy$, exprimez la partie réelle et annulez le numérateur pour obtenir l'équation cartésienne du cercle."
+            }
+          ],
+          "solution_latex": "$|z-1| = 1$ : cercle centré au point d'affixe 1, rayon 1."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "On note $g$ la fonction $z\\mapsto\\frac{2\\overline{z}-i}{z-2i}$ sur $\\mathbb{C}\\backslash\\{2i\\}$. Déterminer l'ensemble des $z\\in\\mathbb{C}\\backslash\\{2i\\}$ pour lesquels : $g(z)\\in\\mathbb{R}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_regularite_fonction_complexe",
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que dire de la partie imaginaire ? Commencer par faire apparaître un module au carré au dénominateur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Multipliez numérateur et dénominateur par $\\overline{z-2i}$, puis imposez que la partie imaginaire du numérateur soit nulle."
+            }
+          ],
+          "solution_latex": "$\\\\mathrm{Re}(z) = 1$ : droite verticale passant par le point $(1, 0)$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Déterminer l'ensemble des $z\\in\\mathbb{C}\\backslash\\{2i\\}$ pour lesquels : $|g(z)|=1$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_racines_niemes_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez l'égalité sous la forme $|2\\overline{z}-i|^2 = |z-2i|^2$ et développez en utilisant $|Z|^2 = Z\\overline{Z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regroupez les termes : vous devriez faire apparaître l'équation d'un cercle très familier."
+            }
+          ],
+          "solution_latex": "$|z| = \\\\mathrm{Im}(z)$. Soit $z = x+iy$. Alors $\\\\sqrt{x^2+y^2} = y$ (condition $y \\\\ge 0$). \\\\\nEn carré : $x^2 + y^2 = y^2 \\\\iff x = 0$. Avec $y \\\\ge 0$ : c'est le demi-axe imaginaire positif $\\{iy : y \\\\ge 0\\}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_009",
+      "title": "Automorphisme du disque unité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "bijection",
+        "module",
+        "cercle trigonométrique"
+      ],
+      "statement_latex": "Soit $a\\in\\mathbb{C}\\backslash\\mathbb{U}$. On note $f$ la fonction : \\par $z\\mapsto\\frac{z-a}{\\overline{a}z-1}.$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $f$ est définie sur $\\mathbb{U}$ et à valeurs dans $\\mathbb{U}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vérifiez d'abord par l'absurde que le dénominateur ne s'annule pas sur $\\mathbb{U}$. Ensuite, calculez $|f(z)|^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour simplifier $|f(z)|^2 = f(z)\\overline{f(z)}$, utilisez systématiquement l'hypothèse $z\\overline{z} = 1$ propre à l'ensemble $\\mathbb{U}$."
+            }
+          ],
+          "solution_latex": "Pour $|z| < 1$, l'application $f(z) = \\\\frac{z-a}{1-\\\\overline{a}z}$ avec $|a| < 1$ satisfait $|f(z)| < 1$. \\\\\nOn vérifie $|f(z)|^2 = \\\\frac{|z-a|^2}{|1-\\\\overline{a}z|^2}$. \\\\\nNumérateur : $|z-a|^2 = (1-|a|^2)|z|^2 + |a|^2(1-|z|^2)$. \\\\\nDénominateur : similaire, d'où le résultat."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $f$ est bijective de $\\mathbb{U}$ sur $\\mathbb{U}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Recherchez la bijection réciproque en résolvant l'équation $w = f(z)$ avec $w\\in\\mathbb{U}$ et $z\\in\\mathbb{U}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Isolez $z$ en fonction de $w$. Si l'expression obtenue est symétrique et bien définie, vous aurez prouvé la bijectivité."
+            }
+          ],
+          "solution_latex": "$f$ est une bijection du disque $\\{|z|<1\\}$ sur lui-même, et $f(a) = 0$, $f(0) = -a/(1-0) = -a$. \\\\\nC'est une isométrie pour une certaine métrique (métrique de Poincaré)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_010",
+      "title": "Produit circulaire de sommes",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "produit",
+        "conjugué",
+        "réel"
+      ],
+      "statement_latex": "Montrer que pour tous $z_{1},...,z_{n}\\in\\mathbb{C}^{*}$ de même module : \\par $\\frac{(z_{1}+z_{2})...(z_{n-1}+z_{n})(z_{n}+z_{1})}{z_{1}...z_{n}}\\in\\mathbb{R}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Produit des racines $n$-ièmes de l'unité : $\\\\prod_{k=0}^{n-1} e^{2i\\\\pi k/n} = e^{2i\\\\pi \\\\cdot n(n-1)/(2n)} = e^{i\\\\pi(n-1)} = (-1)^{n-1}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Être réel, c'est être égal à son conjugué."
+        },
+        {
+          "level": 2,
+          "content_latex": "Notons $R$ le module commun. Chaque complexe vérifie $z_k \\overline{z_k} = R^2$, donc $\\overline{z_k} = \\frac{R^2}{z_k}$. Appliquez cette relation en calculant le conjugué de la fraction entière."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_011",
+      "title": "Développements et factorisations",
+      "type": "computation",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "développement",
+        "factorisation",
+        "second degré"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Développer de tête $(z-1)(z-n)$ et $(z+1)(z-n)$ pour tous $z\\in\\mathbb{C}$ et $n\\in\\mathbb{N}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_equation_second_degre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la distributivité classique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifiez le coefficient en $z^2$, celui en $z$, et le terme constant pour ordonner votre polynôme."
+            }
+          ],
+          "solution_latex": "$(1+z+z^2)^3$ se développe en utilisant la formule du multinôme ou en remarquant les symétries. \\\\\nRésultat : $1 + 3z + 6z^2 + 7z^3 + 6z^4 + 3z^5 + z^6$ (coefficients symétriques)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Factoriser de tête pour tout $z\\in\\mathbb{C}$ : \\par a) $z^{2}-3z+2$ \\par b) $z^{2}-5z+6$ \\par c) $4z^{2}+4z+1$ \\par d) $z^{2}-4z-5$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Cherchez des racines évidentes ou reconnaissez une identité remarquable (notamment pour le c)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Rappelez-vous que la somme des racines vaut $-b/a$ et leur produit vaut $c/a$. Trouvez mentalement deux nombres vérifiant ces conditions."
+            }
+          ],
+          "solution_latex": "$z^3 - 1 = (z-1)(z^2+z+1)$. \\\\\nLes racines cubiques de l'unité sont $1, e^{2i\\\\pi/3}, e^{4i\\\\pi/3}$, d'où $z^3 - 1 = (z-1)(z-\\\\omega)(z-\\\\omega^2)$ avec $\\\\omega = e^{2i\\\\pi/3}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_012",
+      "title": "Équations du second degré à coefficients complexes",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation",
+        "second degré",
+        "discriminant"
+      ],
+      "statement_latex": "Résoudre les équations suivantes d'inconnue $z\\in\\mathbb{C}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$z^{2}+(4-3i)z-2-8i=0$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez le discriminant $\\Delta = b^2 - 4ac$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cherchez une racine carrée complexe $\\delta$ de $\\Delta$ en posant $\\delta = x+iy$."
+            }
+          ],
+          "solution_latex": "$z^2 - 2z + 2 = 0$. Discriminant : $\\\\Delta = 4 - 8 = -4 = (2i)^2$. \\\\\nSolutions : $z = \\\\frac{2 \\\\pm 2i}{2} = 1 \\\\pm i$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$z^{2}-5z+4+10i=0$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la méthode générale : calcul du discriminant puis recherche de ses racines carrées complexes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les solutions seront de la forme $\\frac{-b - \\delta}{2a}$ et $\\frac{-b + \\delta}{2a}$."
+            }
+          ],
+          "solution_latex": "$z^2 + (1-i)z + i = 0$. Discriminant : $\\\\Delta = (1-i)^2 - 4i = 1 - 2i - 1 - 4i = -6i$. \\\\\n$\\\\sqrt{-6i} = \\\\sqrt{6} \\\\cdot e^{-i\\\\pi/4} = \\\\sqrt{3}(1-i)$. Solutions : $z = \\\\frac{-(1-i) \\\\pm \\\\sqrt{3}(1-i)}{2} = \\\\frac{(1-i)(\\\\pm\\\\sqrt{3}-1)}{2}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$z^{2}+5z+7-i=0$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Même méthode, calculez le discriminant $\\Delta$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour trouver la racine carrée de $\\Delta$, identifiez le système composé des parties réelles, parties imaginaires et des modules."
+            }
+          ],
+          "solution_latex": "$z^2 + z + 1 = 0$. Discriminant : $\\\\Delta = 1 - 4 = -3$. \\\\\nSolutions : $z = \\\\frac{-1 \\\\pm i\\\\sqrt{3}}{2} = e^{\\\\pm 2i\\\\pi/3} = \\\\omega, \\\\overline{\\\\omega}$ (racines primitives cubiques de l'unité)."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$4z^{2}-16z+11-12i=0$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Vous pouvez diviser toute l'équation par 4 pour simplifier les coefficients, ou travailler directement avec."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le discriminant réduit si vous êtes à l'aise avec, sinon le discriminant classique fonctionnera très bien."
+            }
+          ],
+          "solution_latex": "$z^2 - 4z + 5 = 0$. Discriminant : $\\\\Delta = 16 - 20 = -4$. \\\\\nSolutions : $z = \\\\frac{4 \\\\pm 2i}{2} = 2 \\\\pm i$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$2z^{2}+(8-5i)z+(4-13i)=0$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Attention aux erreurs de signe lors du développement du discriminant $\\Delta = (8-5i)^2 - 4(2)(4-13i)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez le système pour trouver une racine $\\delta$ de $\\Delta$ avant de donner les solutions."
+            }
+          ],
+          "solution_latex": "$2z^2 + 2z + 1 = 0$. Discriminant : $\\\\Delta = 4 - 8 = -4$. \\\\\nSolutions : $z = \\\\frac{-2 \\\\pm 2i}{4} = \\\\frac{-1 \\\\pm i}{2}$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$(z^{2}-2z)\\cos^{2}\\varphi+1=0 \\quad (\\varphi\\in\\mathbb{R})$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Et si $\\cos^2 \\varphi=0$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Dans le cas où $\\cos^2 \\varphi \\neq 0$, calculez le discriminant (qui dépend de $\\varphi$) et pensez à utiliser des formules de trigonométrie pour le simplifier."
+            }
+          ],
+          "solution_latex": "$z^2 - 2iz - 1 = 0$. Discriminant : $\\\\Delta = -4 + 4 = 0$. \\\\\nSolution double : $z = i$ (racine avec multiplicité 2)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_013",
+      "title": "Systèmes de somme et produit",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "système",
+        "somme",
+        "produit",
+        "second degré"
+      ],
+      "statement_latex": "Résoudre les systèmes d'inconnue $(x,y)\\in\\mathbb{C}^{2}$ suivants :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\begin{cases}x+y=2 \\\\ xy=2\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Deux nombres dont on connaît la somme $S$ et le produit $P$ sont les solutions d'une équation du second degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez l'équation $Z^2 - SZ + P = 0$."
+            }
+          ],
+          "solution_latex": "$z_1 + z_2 = 3$ et $z_1 z_2 = 2$. \\\\\n$z_1, z_2$ sont racines de $t^2 - 3t + 2 = 0 = (t-1)(t-2)$. \\\\\nSolutions : $(z_1, z_2) = (1, 2)$ ou $(2, 1)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\begin{cases}x+y=3i \\\\ xy=-1-3i\\end{cases}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formez le polynôme $Z^2 - (3i)Z + (-1-3i) = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez son discriminant, déterminez une racine carrée de celui-ci et déduisez-en les deux valeurs possibles, qui correspondront aux paires $(x,y)$ (l'ordre compte pour le système)."
+            }
+          ],
+          "solution_latex": "$z_1 + z_2 = 1+i$ et $z_1 z_2 = -1+i$. \\\\\n$z_1, z_2$ sont racines de $t^2 - (1+i)t + (-1+i) = 0$. \\\\\n$\\\\Delta = (1+i)^2 - 4(-1+i) = 2i + 4 - 4i = 4 - 2i$. \\\\\n$\\\\sqrt{4-2i} = \\\\sqrt{2} \\\\cdot e^{-i\\\\pi/8}$ ou par résolution directe."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\begin{cases}x+y=1+i \\\\ xy=13i\\end{cases}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Toujours le même principe : cherchez les racines de $Z^2 - (1+i)Z + 13i = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faites très attention au calcul du discriminant complexe ici."
+            }
+          ],
+          "solution_latex": "$z_1 + z_2 = 2$ et $|z_1|^2 + |z_2|^2 = 5$. \\\\\nOn a $|z_1+z_2|^2 = |z_1|^2 + |z_2|^2 + 2\\\\mathrm{Re}(z_1\\\\overline{z_2}) = 4$, donc $\\\\mathrm{Re}(z_1\\\\overline{z_2}) = -\\\\frac{1}{2}$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\begin{cases}x+y=-a \\\\ xy=a^{2}\\end{cases} \\quad (a\\in\\mathbb{C})$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez $a$ comme une simple constante. L'équation associée est $Z^2 + aZ + a^2 = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez le discriminant en fonction de $a$. Vous ferez apparaître le nombre complexe $j$."
+            }
+          ],
+          "solution_latex": "$z_1 + z_2 + z_3 = 0$, $z_1 z_2 + z_2 z_3 + z_3 z_1 = 0$, $z_1 z_2 z_3 = 1$. \\\\\nLes $z_i$ sont racines de $t^3 - 1 = 0$, soit les racines cubiques de l'unité."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_014",
+      "title": "Formes trigonométriques",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_proprietes_exp_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "forme trigonométrique",
+        "module",
+        "argument",
+        "angle moitié"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer une forme trigonométrique des nombres suivants : \\par a) $1-\\sqrt{2}$ \\par b) $-5i$ \\par c) $2-i$ \\par d) $(-3+i\\sqrt{3})^{19}$ \\par e) $-\\frac{1+2i}{3+4i}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__def_theo_corps_complexes",
+            "nombres_complexes__def_exponentielle_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez d'abord le module. S'il est factorisé, l'expression restante entre parenthèses vous donne respectivement le cosinus et le sinus de l'argument."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour d) et e), exploitez les propriétés des modules et arguments avec les puissances et les quotients au lieu de tout développer."
+            }
+          ],
+          "solution_latex": "Mettre $z = 1+i$ sous forme exponentielle : $|z| = \\\\sqrt{2}$, $\\\\arg(z) = \\\\pi/4$. \\\\\n$z = \\\\sqrt{2} e^{i\\\\pi/4}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer la forme algébrique de $(1+i\\sqrt{3})^{1000}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_derivation_exp_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez d'abord par la forme exponentielle ou trigonométrique pour simplifier le calcul de la puissance."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez la formule de Moivre pour élever à la puissance 1000, réduisez l'argument modulo $2\\pi$, puis revenez à la forme algébrique."
+            }
+          ],
+          "solution_latex": "$z = -1 - i\\\\sqrt{3}$ : $|z| = 2$, $\\\\arg(z) = -2\\\\pi/3$ (ou $4\\\\pi/3$). \\\\\n$z = 2e^{-2i\\\\pi/3}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Déterminer un argument de $4-3i$ sous la forme d'un arccosinus et d'un arcsinus.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_derivation_exp_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculez le module de $4-3i$ et mettez-le en facteur."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifiez le cosinus et le sinus, puis utilisez les fonctions réciproques (Arccos et Arcsin) en veillant au quadrant dans lequel se situe le point."
+            }
+          ],
+          "solution_latex": "$z = \\\\frac{1-i}{\\\\sqrt{2}} = \\\\frac{1}{\\\\sqrt[4]{2}} e^{-i\\\\pi/4}$. Ou simplement : $|z| = 1$, $\\\\arg(z) = -\\\\pi/4$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Déterminer pour tout $\\theta\\in\\mathbb{R}$ une forme trigonométrique des nombres suivants : \\par a) $1+\\sin \\theta+i \\cos \\theta$ \\par b) $1+e^{i\\theta}+e^{2i\\theta}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_corps_complexes",
+            "nombres_complexes__theorem_derivation_exp_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La technique de l'angle moitié produit des formes PRESQUE trigonométriques. Attention au signe du cosinus ou du sinus devant l'exponentielle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la question a), vous pouvez vous ramener à une forme classique en utilisant les relations $\\cos(\\frac{\\pi}{2}-\\theta)$ et $\\sin(\\frac{\\pi}{2}-\\theta)$."
+            }
+          ],
+          "solution_latex": "$z = i$ : $|z| = 1$, $\\\\arg(z) = \\\\pi/2$. \\\\\n$z = e^{i\\\\pi/2}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_015",
+      "title": "Simplification avec partie réelle",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__prop_relation_fondamentale_module",
+        "nombres_complexes__def_inverse_complexe",
+        "nombres_complexes__def_theo_arguments_formes_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "partie réelle",
+        "conjugué",
+        "trigonométrie"
+      ],
+      "statement_latex": "Simplifier $Re(\\frac{1+r e^{i\\theta}}{1-r e^{i\\theta}})$ pour tous $r\\in[0,1[$ et $\\theta\\in\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Si $\\\\mathrm{Re}(z^2) = a$, alors $\\\\mathrm{Re}((x+iy)^2) = x^2 - y^2 = a$. \\\\\nAvec $x^2+y^2 = |z|^2 = r^2$, on obtient $x^2 = \\\\frac{r^2+a}{2}$ et $y^2 = \\\\frac{r^2-a}{2}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Dans un premier temps, faire apparaître un module au carré au dénominateur."
+        },
+        {
+          "level": 2,
+          "content_latex": "Multipliez le numérateur et le dénominateur par le conjugué complexe du dénominateur, c'est-à-dire $1-re^{-i\\theta}$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_016",
+      "title": "Puissances et nombres réels ou imaginaires purs",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "puissance",
+        "forme trigonométrique",
+        "formule de moivre",
+        "réel",
+        "imaginaire pur"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Déterminer tous les $n\\in\\mathbb{N}$ pour lesquels : \\par $(1+i)^{n}\\in\\mathbb{R}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrire $z$ sous forme trigonométrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Une fois sous forme exponentielle ou trigonométrique, utilisez la formule de Moivre. Un nombre complexe non nul est réel si et seulement si son argument est un multiple de $\\pi$."
+            }
+          ],
+          "solution_latex": "$(1+i)^4 = ((1+i)^2)^2 = (2i)^2 = -4$, qui est réel."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$(\\sqrt{3}+i)^{n}\\in i\\mathbb{R}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Passez également par la forme trigonométrique pour simplifier la puissance $n$-ième."
+            },
+            {
+              "level": 2,
+              "content_latex": "Un nombre complexe non nul est imaginaire pur si et seulement si son argument est de la forme $\\frac{\\pi}{2} + k\\pi$ avec $k \\in \\mathbb{Z}$."
+            }
+          ],
+          "solution_latex": "$(1+i)^3 = (1+i)(1+i)^2 = (1+i) \\\\cdot 2i = 2i - 2 = -2 + 2i$, qui n'est ni réel ni imaginaire pur."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_017",
+      "title": "Équations complexes du troisième degré",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation",
+        "forme exponentielle",
+        "partie réelle",
+        "partie imaginaire"
+      ],
+      "statement_latex": "Résoudre les équations suivantes d'inconnue $z\\in\\mathbb{C}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$Re(z^{3})=Im(z^{3})$ et représenter graphiquement l'ensemble de ses solutions.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z$ sous forme exponentielle $z = r e^{i\\theta}$ et utilisez la formule de Moivre."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation devient $\\cos(3\\theta) = \\sin(3\\theta)$ pour $r \\neq 0$. Déduisez-en les valeurs de $\\theta$ et concluez sur la nature géométrique de l'ensemble (une réunion de demi-droites)."
+            }
+          ],
+          "solution_latex": "$z^3 - 1 = 0 \\\\iff z^3 = 1$. \\\\\nLes trois racines cubiques de l'unité sont $1, e^{2i\\\\pi/3}, e^{-2i\\\\pi/3}$, i.e., $1, \\\\omega, \\\\omega^2$ avec $\\\\omega = \\\\frac{-1+i\\\\sqrt{3}}{2}$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$z^{3}=z+\\overline{z}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez que le membre de droite, $z+\\overline{z} = 2Re(z)$, est un nombre réel. Que peut-on en déduire pour $z^3$ ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $z^3 \\in \\mathbb{R}$, l'argument de $z$ est contraint. Cherchez les solutions sous forme trigonométrique ou passez prudemment à la forme algébrique."
+            }
+          ],
+          "solution_latex": "$z^3 + 1 = 0 \\\\iff z^3 = -1 = e^{i\\\\pi}$. \\\\\nSolutions : $e^{i\\\\pi/3}, e^{i\\\\pi}, e^{i5\\\\pi/3}$, i.e., $e^{i\\\\pi/3}, -1, e^{-i\\\\pi/3}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_018",
+      "title": "Argument et Arctangente",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "argument",
+        "arctangente",
+        "formules de duplication"
+      ],
+      "statement_latex": "Montrer que pour tout $z\\in\\mathbb{C}\\backslash\\mathbb{R}_{-}$ : \\par $arg(z)=2\\arctan\\frac{Im(z)}{Re(z)+|z|}.$",
+      "sub_questions": [],
+      "global_solution_latex": "Pour $z = x+iy$ avec $x > 0$, on a $\\\\arg(z) = \\\\arctan(y/x)$. \\\\\nPour $x < 0$, $\\\\arg(z) = \\\\arctan(y/x) + \\\\pi$ (ou $-\\\\pi$ selon la branche). \\\\\nFormule générale : $\\\\arg(z) = \\\\mathrm{Arg}(z) + 2\\\\pi\\\\mathbb{Z}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Écrire $z$ sous forme trigonométrique et exploiter les formules de duplication."
+        },
+        {
+          "level": 2,
+          "content_latex": "Posez $z = r(\\cos\\theta + i\\sin\\theta)$ avec $\\theta \\in ]-\\pi, \\pi[$. Exprimez $Re(z)+|z|$ à l'aide de $\\cos^2(\\theta/2)$ et $Im(z)$ avec $2\\sin(\\theta/2)\\cos(\\theta/2)$. Simplifiez le quotient à l'intérieur de l'$\\arctan$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_019",
+      "title": "Module de l'exponentielle complexe",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__prop_relation_fondamentale_module"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "exponentielle complexe",
+        "module",
+        "inégalité"
+      ],
+      "statement_latex": "Montrer que $|e^{z}|\\le e^{|z|}$ pour tout $z\\in\\mathbb{C}$ et étudier le cas d'égalité.",
+      "sub_questions": [],
+      "global_solution_latex": "$|e^{i\\\\theta}| = |\\\\cos\\\\theta + i\\\\sin\\\\theta| = \\\\sqrt{\\\\cos^2\\\\theta + \\\\sin^2\\\\theta} = 1$. \\\\\nPlus généralement, $|e^{a+ib}| = e^a$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Posez $z = x+iy$ avec $x,y \\in \\mathbb{R}$ et calculez le module du membre de gauche à partir de la définition de l'exponentielle complexe."
+        },
+        {
+          "level": 2,
+          "content_latex": "Vous obtenez $|e^z| = e^x$. Comparez alors $x$ à $|z| = \\sqrt{x^2+y^2}$ grâce à la croissance de la fonction exponentielle réelle. Pour l'égalité, cherchez quand $x = \\sqrt{x^2+y^2}$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_020",
+      "title": "Équations avec exponentielles",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "exponentielle complexe",
+        "équation",
+        "second degré"
+      ],
+      "statement_latex": "Résoudre les équations suivantes d'inconnue $z\\in\\mathbb{C}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) $e^{z}=1+i.$ \\par b) $e^{z}=-5-12i$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z = x+iy$. Rappelez-vous que $e^z = w$ s'écrit $e^x e^{iy} = |w| e^{i\\arg(w)}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Identifiez les modules : $e^x = |w|$, ce qui vous donne $x = \\ln(|w|)$. Identifiez ensuite les arguments : $y \\equiv \\arg(w) \\pmod{2\\pi}$."
+            }
+          ],
+          "solution_latex": "$e^z = i = e^{i\\\\pi/2}$ (mod $2\\\\pi i$). \\\\\n$z = i\\\\pi/2 + 2\\\\pi i k$ pour $k \\\\in \\\\mathbb{Z}$, i.e., $z = i\\\\pi(1/2 + 2k)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) $e^{z}+e^{-z}=1$ \\par b) $e^{z}+e^{-z}=2i.$ \\par c) $e^{z}+2e^{-z}=i.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Second degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour chaque équation, multipliez par $e^z$ de part et d'autre pour obtenir une équation polynomiale en l'inconnue $Z = e^z$. Calculez les racines complexes $Z_1$ et $Z_2$, puis résolvez $e^z = Z_1$ et $e^z = Z_2$."
+            }
+          ],
+          "solution_latex": "$e^{2z} = -1 = e^{i\\\\pi}$. \\\\\n$2z = i\\\\pi + 2\\\\pi i k = i\\\\pi(1+2k)$, d'où $z = i\\\\pi(1+2k)/2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_021",
+      "title": "Images directes et réciproques par l'exponentielle",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "exponentielle complexe",
+        "image directe",
+        "image réciproque",
+        "géométrie"
+      ],
+      "statement_latex": "Déterminer l'image directe par la fonction $z\\mapsto e^{z}$ du rectangle $[1,2]+i[0,\\pi]$ ainsi que l'image réciproque du disque de centre 0 et de rayon 1.",
+      "sub_questions": [],
+      "global_solution_latex": "L'image de la bande $\\{z : \\\\mathrm{Im}(z) \\\\in [0, 2\\\\pi)\\}$ par $\\\\exp$ est $\\\\mathbb{C}^* = \\\\mathbb{C} \\\\setminus \\{0\\}$. \\\\\nL'image d'une droite verticale $\\{x_0 + iy : y \\\\in \\\\mathbb{R}\\}$ est le cercle $\\{re^{i\\\\theta} : r = e^{x_0}, \\\\theta \\\\in \\\\mathbb{R}\\}$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Pour l'image directe, posez $z = x+iy$ avec $x \\in [1,2]$ et $y \\in [0,\\pi]$, puis étudiez séparément les contraintes sur le module $|e^z|$ et l'argument de $e^z$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Le module $e^x$ varie entre $e^1$ et $e^2$, et l'argument $y$ varie entre $0$ et $\\pi$. Géométriquement, cela correspond à un demi-anneau. Pour l'image réciproque, cherchez les $z$ tels que $|e^z| < 1$, c'est-à-dire $e^x < 1$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_022",
+      "title": "Point fixe de l'exponentielle complexe",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+        "nombres_complexes__theorem_limites_suites_complexes",
+        "nombres_complexes__theorem_expression_explicite_suite_complexe",
+        "nombres_complexes__theorem_regularite_fonction_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "exponentielle complexe",
+        "point fixe",
+        "analyse",
+        "tvi"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour un certain $\\alpha\\in]0,\\frac{\\pi}{2}[ : e^{\\frac{\\alpha}{\\tan \\alpha}}=\\frac{\\alpha}{\\sin \\alpha}.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "TVI basique !"
+            },
+            {
+              "level": 2,
+              "content_latex": "Étudiez la fonction $g(\\alpha) = e^{\\frac{\\alpha}{\\tan \\alpha}} - \\frac{\\alpha}{\\sin \\alpha}$ sur l'intervalle donné en analysant ses limites en $0$ et en $\\frac{\\pi}{2}$, puis appliquez le Théorème des Valeurs Intermédiaires."
+            }
+          ],
+          "solution_latex": "L'équation $e^z = z$ n'a pas de solution réelle (car $e^x > x$ pour $x \\\\in \\\\mathbb{R}$ petit). \\\\\nIl existe une solution complexe non réelle $z_0 \\\\approx 0.3181 + 1.3372i$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire que la fonction $z\\mapsto e^{z}$ possède un point fixe de la forme $x+i\\alpha$ avec $x\\in\\mathbb{R}.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+            "nombres_complexes__theorem_limites_suites_complexes",
+            "nombres_complexes__theorem_expression_explicite_suite_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez l'équation du point fixe $e^{x+i\\alpha} = x+i\\alpha$ et séparez-la en deux équations réelles en identifiant parties réelle et imaginaire."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le système obtenu est $e^x \\cos \\alpha = x$ et $e^x \\sin \\alpha = \\alpha$. Déduisez-en une expression de $e^x$ à partir de la deuxième équation, puis de $x$, et réinjectez dans la première pour retrouver la relation de la question 1)."
+            }
+          ],
+          "solution_latex": "Approximation par itération : $z_{n+1} = e^{z_n}$ avec $z_0 = 1$. \\\\\nLa suite converge lentement vers le point fixe."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_023",
+      "title": "Calculs de primitives par linéarisation",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__def_theo_arguments_formes_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "linéarisation",
+        "primitive",
+        "formules d'euler"
+      ],
+      "statement_latex": "Primitiver les expressions suivantes :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\cos^{2}(2x)\\sin x.$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Soit vous linéarisez l'expression avec les formules d'Euler, soit vous passez en polynôme de cosinus."
+            },
+            {
+              "level": 2,
+              "content_latex": "Sachant que $\\cos(2x) = 2\\cos^2 x - 1$, l'expression devient $(2\\cos^2 x - 1)^2 \\sin x$, ce qui est de la forme $-u^{\\prime} P(u)$ avec $u(x) = \\cos x$."
+            }
+          ],
+          "solution_latex": "$\\\\cos^2(\\\\theta) = \\\\frac{1 + \\\\cos(2\\\\theta)}{2}$. \\\\\nPrimitive : $\\\\int \\\\cos^2(\\\\theta)\\,d\\\\theta = \\\\frac{\\\\theta}{2} + \\\\frac{\\\\sin(2\\\\theta)}{4} + C$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\cos^{2}x \\sin^{4}x$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour un produit de puissances paires, la méthode la plus fiable est la linéarisation via les formules d'Euler."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $(\\frac{e^{ix}+e^{-ix}}{2})^2 (\\frac{e^{ix}-e^{-ix}}{2i})^4$ à l'aide de la formule du binôme de Newton, développez le tout, et regroupez les exponentielles conjuguées pour obtenir une somme de cosinus de multiples de $x$."
+            }
+          ],
+          "solution_latex": "$\\\\sin^3(\\\\theta) = \\\\frac{3\\\\sin(\\\\theta) - \\\\sin(3\\\\theta)}{4}$. \\\\\nPrimitive : $\\\\int \\\\sin^3(\\\\theta)\\,d\\\\theta = -\\\\frac{3\\\\cos(\\\\theta)}{4} + \\\\frac{\\\\cos(3\\\\theta)}{12} + C$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\cos(3x)\\sin^{3}(2x)$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Linéarisez l'expression avec les formules d'Euler."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez chaque terme par sa forme exponentielle, distribuez méthodiquement, puis associez chaque terme de la forme $e^{ikx}$ avec $e^{-ikx}$ pour reconstituer des cosinus ou des sinus."
+            }
+          ],
+          "solution_latex": "$\\\\cos(\\\\theta)\\\\sin(2\\\\theta) = \\\\frac{\\\\sin(3\\\\theta) - \\\\sin(\\\\theta)}{2}$. \\\\\nPrimitive : $\\\\int \\\\cos(\\\\theta)\\\\sin(2\\\\theta)\\,d\\\\theta = -\\\\frac{\\\\cos(3\\\\theta)}{6} + \\\\frac{\\\\cos(\\\\theta)}{2} + C$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_024",
+      "title": "Polynômes de Tchebychev et valeurs exactes",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "formule de moivre",
+        "valeurs remarquables",
+        "polynôme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Exprimer $\\cos(5x)$ en fonction de $\\cos x$ pour tout $x\\in\\mathbb{R}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_regularite_fonction_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la formule de Moivre en développant $(\\cos x + i\\sin x)^5$ avec la formule du binôme de Newton."
+            },
+            {
+              "level": 2,
+              "content_latex": "Prenez la partie réelle du développement obtenu et remplacez systématiquement chaque occurrence de $\\sin^2 x$ par $1 - \\cos^2 x$."
+            }
+          ],
+          "solution_latex": "Utiliser $\\\\cos(n\\\\theta) = \\\\mathrm{Re}(e^{in\\\\theta}) = \\\\mathrm{Re}((\\\\cos\\\\theta + i\\\\sin\\\\theta)^n)$. \\\\\nPour $n=3$ : $\\\\cos(3\\\\theta) = 4\\\\cos^3(\\\\theta) - 3\\\\cos(\\\\theta) = T_3(\\\\cos\\\\theta)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire $\\cos^{2}\\frac{\\pi}{10}$, $\\cos\\frac{\\pi}{5}$ puis $\\sin\\frac{\\pi}{5}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "D'abord, bien choisir $x$ dans le résultat de la question 1). Pour la suite, $\\cos^{2}\\frac{\\pi}{10}$ est-il plutôt proche de 0 ou plutôt proche de 1 ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Évaluez la formule trouvée en $x = \\frac{\\pi}{10}$. Vous obtenez $\\cos(\\frac{\\pi}{2}) = 0 = P(\\cos\\frac{\\pi}{10})$ où $P$ est votre polynôme. Divisez par $\\cos\\frac{\\pi}{10}$ (qui est non nul) pour obtenir une équation bicarrée."
+            }
+          ],
+          "solution_latex": "$\\\\cos(\\\\pi/5) = \\\\frac{1+\\\\sqrt{5}}{4}$ (nombre d'or). \\\\\nUtiliser le fait que $\\\\cos(5\\\\theta) = 16\\\\cos^5(\\\\theta) - 20\\\\cos^3(\\\\theta) + 5\\\\cos(\\\\theta)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_025",
+      "title": "Racines de l'unité et changement de variable",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines de l'unité",
+        "équation",
+        "changement de variable",
+        "valeurs remarquables"
+      ],
+      "statement_latex": "On note $(*)$ l'équation $z^{4}+z^{3}+z^{2}+z+1=0$ d'inconnue $z\\in\\mathbb{C}$",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Vérifier que pour tout $z\\in\\mathbb{C}$ solution de $(*)$ : \\par $x^{2}+x-1=0$ où $x=z+\\frac{1}{z}.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remarquez que $0$ n'est pas solution, ce qui autorise à diviser toute l'équation $(*)$ par $z^2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regroupez les termes symétriques : $(z^2 + \\frac{1}{z^2}) + (z + \\frac{1}{z}) + 1 = 0$, et exprimez la première parenthèse à l'aide de l'expression $x^2 = (z + \\frac{1}{z})^2$."
+            }
+          ],
+          "solution_latex": "Les racines $n$-ièmes de l'unité sont $e^{2i\\\\pi k/n}$ pour $k = 0, 1, \\\\ldots, n-1$. \\\\\nElles satisfont $z^n - 1 = 0$ et forment un groupe cyclique."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que $e^{\\frac{2i\\pi}{5}}$ est solution de $(*)$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme",
+            "nombres_complexes__theorem_interpretation_geometrique_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Observez le membre de gauche de l'équation $(*)$ : c'est la somme des termes consécutifs d'une suite géométrique de raison $z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $z \\neq 1$, l'équation s'écrit $\\frac{z^5-1}{z-1} = 0$. Calculez simplement la puissance cinquième de $e^{\\frac{2i\\pi}{5}}$ pour conclure."
+            }
+          ],
+          "solution_latex": "La somme $\\\\sum_{k=0}^{n-1} e^{2i\\\\pi k/n} = 0$ (somme d'une progression géométrique de raison $e^{2i\\\\pi/n} \\\\ne 1$)."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "En déduire une expression explicite de $\\cos \\frac{2\\pi}{5}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_expression_explicite_suite_reelle",
+            "nombres_complexes__theorem_expression_explicite_suite_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites le lien entre les deux questions précédentes en évaluant $x = z + \\frac{1}{z}$ pour la solution identifiée."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $z = e^{\\frac{2i\\pi}{5}}$, vous savez que $z + \\frac{1}{z} = 2\\cos(\\frac{2\\pi}{5})$. Cette quantité est donc solution de l'équation du second degré $x^2+x-1=0$. Choisissez la bonne racine en considérant le signe du cosinus."
+            }
+          ],
+          "solution_latex": "Le changement $z = e^{i\\\\theta}$ transforme $z^n = 1$ en $e^{in\\\\theta} = 1 \\\\iff n\\\\theta = 2\\\\pi k$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_026",
+      "title": "Identités trigonométriques et équation",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "trigonométrie",
+        "identité",
+        "équation",
+        "exponentielle complexe"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tous $x, y\\in\\mathbb{R}$ : \\par $\\sin^{2}x-\\sin^{2}y=\\sin(x+y)\\sin(x-y).$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez les formules d'addition pour développer le membre de droite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $\\sin(x+y)$ et $\\sin(x-y)$, puis multipliez les deux expressions. Transformez ensuite les $\\cos^2$ en $1-\\sin^2$ pour conclure."
+            }
+          ],
+          "solution_latex": "$\\\\cos(3\\\\theta) = 4\\\\cos^3(\\\\theta) - 3\\\\cos(\\\\theta)$. \\\\\nL'équation $\\\\cos(3\\\\theta) = \\\\cos(\\\\theta)$ donne $4\\\\cos^3(\\\\theta) - 4\\\\cos(\\\\theta) = 0$, d'où $\\\\cos(\\\\theta) = 0$ ou $\\\\cos^2(\\\\theta) = 1$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que pour tous $x, y\\in\\mathbb{R}$ : \\par $\\sin(x+y)=\\sin x+\\sin y-4 \\sin\\frac{x}{2}\\sin\\frac{y}{2}\\sin\\frac{x+y}{2}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Calculer de deux façons $Im((e^{ix}-1)(e^{iy}-1)).$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Première façon : développez le produit puis prenez la partie imaginaire. Deuxième façon : factorisez chaque parenthèse par l'angle moitié avant de développer, puis prenez la partie imaginaire."
+            }
+          ],
+          "solution_latex": "$\\\\sin(2\\\\theta) = 2\\\\sin(\\\\theta)\\\\cos(\\\\theta)$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Résoudre l'équation $\\sin(x+y)=\\sin x+\\sin y$ d'inconnue $(x,y)\\in\\mathbb{R}^{2}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez l'identité démontrée à la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation se réécrit $-4 \\sin\\frac{x}{2}\\sin\\frac{y}{2}\\sin\\frac{x+y}{2} = 0$. Un produit est nul si et seulement si l'un de ses facteurs est nul. Résolvez ensuite pour chaque cas."
+            }
+          ],
+          "solution_latex": "$\\\\sin(3\\\\theta) = 3\\\\sin(\\\\theta) - 4\\\\sin^3(\\\\theta)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_027",
+      "title": "Polynômes de Tchebychev",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__theorem_limites_fonctions_complexes",
+        "nombres_complexes__theorem_derivation_exp_complexe",
+        "nombres_complexes__theorem_caracterisation_fonctions_constantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme",
+        "trigonométrie",
+        "récurrence",
+        "formule de moivre"
+      ],
+      "statement_latex": "Si on note $C_{2}$ la fonction $x\\mapsto 2x^{2}-1$ et $S_{2}$ la fonction $x\\mapsto 2x$, alors pour tout $\\theta\\in\\mathbb{R}$ : \\par $\\cos(2\\theta)=C_{2}(\\cos \\theta)$ et $\\sin(2\\theta)=S_{2}(\\cos \\theta)\\sin \\theta$. \\par Montrer plus généralement que pour tout $n\\in\\mathbb{N}$, il existe deux fonctions polynomiales $C_{n}$ et $S_{n}$ pour lesquelles $\\cos(n\\theta)=C_{n}(\\cos \\theta)$ et $\\sin(n\\theta)=S_{n}(\\cos \\theta)\\sin \\theta$ pour tout $\\theta\\in\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Les polynômes de Tchebychev $T_n$ sont définis par $T_n(\\\\cos\\\\theta) = \\\\cos(n\\\\theta)$. \\\\\n$T_0(x) = 1$, $T_1(x) = x$, $T_2(x) = 2x^2 - 1$, $T_3(x) = 4x^3 - 3x$, etc. \\\\\nRécurrence : $T_{n+1}(x) = 2x T_n(x) - T_{n-1}(x)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Soit on raisonne par récurrence, soit on dé-linéarise si on veut obtenir une expression explicite de $C_{n}$ et $S_{n}$ mais c'est plus technique. Commencer par le cas $n=2.$"
+        },
+        {
+          "level": 2,
+          "content_latex": "Pour la récurrence, exprimez $\\cos((n+1)\\theta)$ et $\\sin((n+1)\\theta)$ en utilisant les formules d'addition et l'hypothèse de récurrence au rang $n$. Vous pourrez ainsi construire les polynômes $C_{n+1}$ et $S_{n+1}$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_028",
+      "title": "Sommes trigonométriques",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "trigonométrie",
+        "suite géométrique",
+        "binôme de newton"
+      ],
+      "statement_latex": "Simplifier pour tous $x, y\\in\\mathbb{R}$ et $n\\in\\mathbb{N}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sum_{k=0}^{n}\\sin(kx+y)$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez cette somme comme la partie imaginaire d'une somme d'exponentielles complexes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $\\sum_{k=0}^{n} e^{i(kx+y)} = e^{iy} \\sum_{k=0}^{n} (e^{ix})^k$. C'est une somme géométrique. Utilisez ensuite la technique de l'angle moitié pour simplifier le résultat avant d'en prendre la partie imaginaire."
+            }
+          ],
+          "solution_latex": "$\\\\sum_{k=0}^{n-1} \\\\cos(k\\\\theta) = \\\\mathrm{Re}\\\\left(\\\\sum_{k=0}^{n-1} e^{ik\\\\theta}\\\\right) = \\\\mathrm{Re}\\\\left(\\\\frac{1-e^{in\\\\theta}}{1-e^{i\\\\theta}}\\\\right) = \\\\frac{\\\\sin(n\\\\theta/2)}{\\\\sin(\\\\theta/2)} \\\\cos\\\\left(\\\\frac{(n-1)\\\\theta}{2}\\\\right)$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sum_{k=0}^{n}\\binom{n}{k}\\cos(kx)$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez cette somme comme la partie réelle d'une somme faisant intervenir la formule du binôme de Newton."
+            },
+            {
+              "level": 2,
+              "content_latex": "Calculez $\\sum_{k=0}^{n} \\binom{n}{k} e^{ikx} = \\sum_{k=0}^{n} \\binom{n}{k} (e^{ix})^k 1^{n-k}$. Appliquez le binôme, factorisez par l'angle moitié, élevez à la puissance $n$, puis prenez la partie réelle."
+            }
+          ],
+          "solution_latex": "$\\\\sum_{k=0}^{n-1} \\\\sin(k\\\\theta) = \\\\mathrm{Im}\\\\left(\\\\sum_{k=0}^{n-1} e^{ik\\\\theta}\\\\right) = \\\\frac{\\\\sin(n\\\\theta/2)}{\\\\sin(\\\\theta/2)} \\\\sin\\\\left(\\\\frac{(n-1)\\\\theta}{2}\\\\right)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_029",
+      "title": "Noyau de Dirichlet",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "trigonométrie",
+        "suite géométrique",
+        "angle moitié"
+      ],
+      "statement_latex": "Écrire $1+2\\sum_{k=1}^{n}\\cos(2kx)$ comme un quotient de sinus pour tous $n\\in\\mathbb{N}^{*}$ et $x\\in\\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Le noyau de Dirichlet est $D_n(\\\\theta) = \\\\sum_{k=-n}^{n} e^{ik\\\\theta} = \\\\frac{\\\\sin((n+1/2)\\\\theta)}{\\\\sin(\\\\theta/2)}$. \\\\\nPropriété : $D_n$ oscille rapidement en dehors d'un voisinage de 0.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Passez par les nombres complexes en remarquant que $\\cos(2kx)$ est la partie réelle de $e^{2ikx}$."
+        },
+        {
+          "level": 2,
+          "content_latex": "Calculez la somme géométrique $\\sum_{k=1}^{n} (e^{2ix})^k$. Factorisez numérateur et dénominateur par la technique de l'angle moitié, simplifiez, prenez la partie réelle, et ajoutez 1."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_030",
+      "title": "Divergence d'une série trigonométrique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_limites_suites_complexes",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_limites_fonctions_complexes",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inégalité",
+        "trigonométrie",
+        "limite",
+        "somme"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $|\\sin x|\\ge\\frac{1-\\cos(2x)}{2}$ pour tout $x\\in\\mathbb{R}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez $\\cos(2x)$ en fonction de $\\sin x$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En utilisant $\\cos(2x) = 1 - 2\\sin^2 x$, l'inégalité se ramène à étudier la position de $|\\sin x|$ par rapport à $\\sin^2 x$. Rappelez-vous que $|\\sin x| \\le 1$."
+            }
+          ],
+          "solution_latex": "La série $\\\\sum_{n \\\\ge 1} \\\\frac{\\\\cos(n\\\\theta)}{n}$ converge pour tout $\\\\theta \\\\notin 2\\\\pi\\\\mathbb{Z}$ (par Dirichlet). \\\\\nSa somme est $-\\\\ln(2\\\\sin(\\\\theta/2)) + C$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "En déduire $\\lim_{n\\rightarrow+\\infty}\\sum_{k=1}^{n}|\\sin k|.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_limites_suites_complexes",
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_limites_fonctions_complexes"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Minorez la somme $\\sum_{k=1}^{n}|\\sin k|$ en utilisant l'inégalité de la question 1)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous ferez apparaître la somme $\\sum_{k=1}^{n} \\cos(2k)$. Calculez cette somme en passant par l'exponentielle complexe. Montrez qu'elle est bornée, ce qui permettra de conclure sur la limite de l'ensemble de la minoration."
+            }
+          ],
+          "solution_latex": "La série $\\\\sum_{n \\\\ge 1} \\\\cos(n^2 \\\\theta)$ ne converge pour aucun $\\\\theta$ (pas assez de décroissance)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_031",
+      "title": "Série trigonométrique géométrique",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "limite",
+        "suite géométrique",
+        "partie imaginaire"
+      ],
+      "statement_latex": "Montrer que pour tous $\\omega\\in\\mathbb{R}$ et $x\\in]-1,1[$ : \\par $\\sum_{k=0}^{+\\infty}x^{k}\\sin(\\omega k)=\\frac{x\\sin\\omega}{1-2x\\cos\\omega+x^{2}}.$",
+      "sub_questions": [],
+      "global_solution_latex": "$\\\\sum_{n=0}^{\\\\infty} r^n e^{in\\\\theta} = \\\\frac{1}{1 - re^{i\\\\theta}}$ pour $r < 1$. \\\\\nEn prenant les parties réelle et imaginaire, on obtient les formules pour les séries trigonométriques géométriques.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Travailler avec une somme finie et l'écrire comme une partie imaginaire."
+        },
+        {
+          "level": 2,
+          "content_latex": "Calculez d'abord la somme partielle $\\sum_{k=0}^{n} (x e^{i\\omega})^k$, simplifiez cette somme géométrique de raison $q = x e^{i\\omega}$ (avec $|q| < 1$), puis passez à la limite quand $n \\to +\\infty$ avant de prendre la partie imaginaire."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_032",
+      "title": "Représentation d'ensembles géométriques",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_proprietes_exp_complexe",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "géométrie",
+        "cercle",
+        "demi-droite",
+        "argument"
+      ],
+      "statement_latex": "Représenter graphiquement les ensembles suivants dans lesquels $a\\in\\mathbb{C}$, $r>0$ et $\\theta\\in\\mathbb{R}$ sont fixés :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\{z\\in\\mathbb{C}|Re(z)Im(z)\\ge0\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Posez $z = x+iy$ et analysez la condition algébrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit $xy \\ge 0$ signifie que $x$ et $y$ sont de même signe. Géométriquement, cela correspond à la réunion du premier et du troisième quadrant du plan."
+            }
+          ],
+          "solution_latex": "$|z-a| = r$ : cercle de centre $a$, rayon $r$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\{a+r e^{it}|t\\in[0,\\pi]\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Reconnaissez l'équation paramétrique complexe d'un arc de cercle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit du demi-cercle supérieur, de centre d'affixe $a$ et de rayon $r$."
+            }
+          ],
+          "solution_latex": "$|z-a| < r$ : disque ouvert de centre $a$, rayon $r$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$\\{a+\\lambda e^{i\\theta}|\\lambda>0\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Fixez l'angle orienté $\\theta$ et faites varier le rayon $\\lambda$ sur les réels strictement positifs."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cela correspond à une demi-droite ouverte, d'origine le point d'affixe $a$ (exclu), dirigée par le vecteur d'angle polaire $\\theta$."
+            }
+          ],
+          "solution_latex": "$|z-a| = |z-b|$ : médiatrice du segment $[a,b]$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$\\{a+\\lambda e^{it}|\\lambda\\in[1,2],t\\in\\mathbb{R}\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Faites varier simultanément la distance au centre et l'angle de rotation complet."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est la région du plan comprise entre le cercle de centre $a$ et de rayon $1$, et celui de rayon $2$ : il s'agit d'une couronne circulaire fermée."
+            }
+          ],
+          "solution_latex": "$\\\\mathrm{Re}(z) = c$ : droite verticale $x = c$."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$\\{a+\\lambda e^{it}|\\lambda\\in]0,1[, t\\in]\\frac{\\pi}{6},\\frac{2\\pi}{3}[\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Combinez les conditions restreintes sur la distance et sur l'angle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit d'un secteur de disque ouvert de centre $a$ et de rayon $1$, strictement délimité par les angles $\\frac{\\pi}{6}$ et $\\frac{2\\pi}{3}$."
+            }
+          ],
+          "solution_latex": "$\\\\mathrm{Im}(z) = d$ : droite horizontale $y = d$."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$\\{z\\in\\mathbb{C}^{*}|arg(z)\\equiv\\theta[2\\pi]\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "C'est l'ensemble de tous les points (sauf l'origine) dont le vecteur position forme un angle $\\theta$ donné avec l'axe réel."
+            },
+            {
+              "level": 2,
+              "content_latex": "Cela décrit une demi-droite ouverte issue de l'origine."
+            }
+          ],
+          "solution_latex": "$|z-a|^2 + |z-b|^2 = k$ : cercle (identité du parallélogramme)."
+        },
+        {
+          "label": "7)",
+          "statement_latex": "$\\{z\\in\\mathbb{C}^{*}|3 arg(z)\\equiv\\theta[2\\pi]\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Divisez la congruence par $3$ en veillant au modulo."
+            },
+            {
+              "level": 2,
+              "content_latex": "On obtient $\\arg(z) \\equiv \\frac{\\theta}{3} [\\frac{2\\pi}{3}]$. L'ensemble est donc la réunion de trois demi-droites ouvertes issues de l'origine, séparées de $\\frac{2\\pi}{3}$."
+            }
+          ],
+          "solution_latex": "$|z-a| + |z-b| = c$ (avec $c > |a-b|$) : ellipse de foyers $a$ et $b$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_033",
+      "title": "Conditions géométriques et affixes",
+      "type": "application",
+      "difficulty": 3,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "géométrie",
+        "alignement",
+        "orthogonalité",
+        "cocyclité"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Soient A, B et M trois points d'affixes respectifs $a$, $b$ et $z$ avec $z\\ne a$. À quelle condition nécessaire et suffisante sur le rapport $\\frac{z-b}{z-a}$ : \\par les vecteurs $\\vec{MA}$ et $\\vec{MB}$ sont-ils colinéaires de même sens ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pensez à l'interprétation géométrique de l'argument du rapport complexe."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'argument de $\\frac{z-b}{z-a}$ correspond à l'angle orienté $(\\vec{MA}, \\vec{MB})$. Pour que les vecteurs soient colinéaires de même sens, cet angle doit être congru à $0$ modulo $2\\pi$. Le rapport doit donc être un réel strictement positif."
+            }
+          ],
+          "solution_latex": "Les points de coordonnées proportionnelles au segment $[a,b]$ sont paramétrés par $z(t) = (1-t)a + tb$ pour $t \\\\in [0,1]$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "les points A, B et M sont-ils alignés ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez l'alignement par la colinéarité (quel que soit le sens) des vecteurs $\\vec{MA}$ et $\\vec{MB}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'angle orienté doit être congru à $0$ modulo $\\pi$. Le rapport complexe doit donc simplement être un nombre réel."
+            }
+          ],
+          "solution_latex": "La droite passant par $a$ et $b$ est $\\{a + \\\\lambda(b-a) : \\\\lambda \\\\in \\\\mathbb{R}\\}$."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "les droites (MA) et (MB) sont-elles orthogonales ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez l'orthogonalité en termes d'angle géométrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'angle doit être congru à $\\frac{\\pi}{2}$ modulo $\\pi$. Le rapport doit par conséquent être un imaginaire pur non nul."
+            }
+          ],
+          "solution_latex": "Le triangle de sommets $a, b, c$ a pour aire $\\\\frac{1}{2}|\\\\mathrm{Im}((b-a)\\\\overline{(c-a)})|$."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "À quelle condition nécessaire et suffisante sur $z$ : \\par les points $1$, $z$ et $z^{2}$ sont-ils alignés ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez le critère d'alignement trouvé à la question 1) b) avec les trois affixes proposés."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le quotient $\\frac{z^2-1}{z-1}$ (pour $z \\neq 1$) doit être réel. Factorisez le numérateur et simplifiez pour obtenir une condition élémentaire sur $z$."
+            }
+          ],
+          "solution_latex": "Pour que trois points d'affixes $z_1, z_2, z_3$ soient alignés, il faut $\\\\mathrm{Im}\\\\left(\\\\frac{z_2-z_1}{z_3-z_1}\\\\right) = 0$, i.e., $\\\\frac{z_2-z_1}{z_3-z_1} \\\\in \\\\mathbb{R}$."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "le triangle de sommets $z$, $z^{2}$ et $z^{3}$ est-il rectangle en $z$ ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_quatre_formules_trigo"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la caractérisation de l'orthogonalité de la question 1) c)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le rapport $\\frac{z^3-z}{z^2-z}$ doit être imaginaire pur. Pour $z \\notin \\{0, 1\\}$, simplifiez cette fraction pour trouver le lieu géométrique correspondant à $z$."
+            }
+          ],
+          "solution_latex": "Pour que quatre points forment un rectangle, les diagonales doivent se couper en leur milieu et être de même longueur."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "les vecteurs d'affixes $z$ et $\\overline{z}$ sont-ils orthogonaux ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Considérez la nature algébrique du rapport $\\frac{\\overline{z}}{z}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Ce rapport doit être un imaginaire pur. Posez $z=x+iy$ et exploitez la condition sur la partie réelle pour identifier l'ensemble des points (les bissectrices)."
+            }
+          ],
+          "solution_latex": "Pour qu'un triangle soit rectangle, deux côtés doivent être perpendiculaires, ce qui se traduit par $\\\\mathrm{Re}\\\\left(\\\\frac{z_2-z_1}{z_3-z_1}\\\\right) = 0$."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "les points $z$, $\\frac{1}{z}$ et $z-1$ sont-ils situés sur un même cercle de centre $0$ ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Traduisez algébriquement l'appartenance à un cercle de centre l'origine."
+            },
+            {
+              "level": 2,
+              "content_latex": "Leurs modules doivent être égaux : $|z| = |\\frac{1}{z}| = |z-1|$. Résolvez d'abord $|z| = |\\frac{1}{z}|$ pour contraindre le module de $z$."
+            }
+          ],
+          "solution_latex": "L'argument $\\\\arg\\\\left(\\\\frac{z_2-z_1}{z_3-z_1}\\\\right)$ donne l'angle orienté."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Soit $z\\in\\mathbb{C}^{*}$. À quelle condition nécessaire et suffisante $z$ et ses deux racines carrées forment-ils un triangle rectangle en $z$ ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Noter par exemple $w$ et $-w$ les deux racines carrées de $z$, puis caractériser par équivalence le fait que le triangle de sommets $z$, $w$ et $-w$ est rectangle en $z$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduisez l'orthogonalité par le fait que le rapport $\\frac{-w-z}{w-z}$ est un imaginaire pur. Remplacez $z$ par $w^2$, simplifiez par $w$ (puisque $w \\neq 0$), et concluez sur le module de $w$ puis de $z$."
+            }
+          ],
+          "solution_latex": "Un triangle est équilatéral ssi $z_1 + \\\\omega z_2 + \\\\omega^2 z_3 = 0$ avec $\\\\omega = e^{2i\\\\pi/3}$, ou de manière équivalente, ses sommets sont les images les uns des autres par rotation de $120°$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_034",
+      "title": "Transformations géométriques élémentaires",
+      "type": "application",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__theorem_expression_explicite_suite_complexe",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_regularite_fonction_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "translation",
+        "rotation",
+        "homothétie",
+        "similitude"
+      ],
+      "statement_latex": "Caractériser géométriquement une fonction de $\\mathbb{C}$ dans $\\mathbb{C}$, c'est déterminer si c'est une translation, une symétrie, une rotation, une homothétie, plus généralement une similitude, et préciser ses invariants (vecteur, centre, rapport...).",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Caractériser géométriquement : $z\\mapsto iz+1$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_conjugue_module"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La fonction est de la forme $z \\mapsto az+b$ avec $a=i$. Déterminez d'abord son unique point fixe."
+            },
+            {
+              "level": 2,
+              "content_latex": "Comme $|a|=1$ et $a \\neq 1$, il s'agit d'une rotation. Son angle est $\\arg(i) = \\frac{\\pi}{2}$ et son centre est l'affixe $\\omega$ vérifiant $\\omega = i\\omega+1$."
+            }
+          ],
+          "solution_latex": "Translation $z \\\\mapsto z + a$ : déplace d'un vecteur d'affixe $a$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Caractériser géométriquement : $z\\mapsto 3z-2$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ici le coefficient directeur est $a=3$, qui est un réel différent de $1$."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est donc une homothétie de rapport $3$. Cherchez son centre en résolvant l'équation d'invariance $z = 3z-2$."
+            }
+          ],
+          "solution_latex": "Rotation $z \\\\mapsto e^{i\\\\theta} z$ : rotation d'angle $\\\\theta$ autour de l'origine."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "Caractériser géométriquement : $z\\mapsto z+3-5i$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La transformation est de la forme canonique $z \\mapsto z+b$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Il s'agit tout simplement d'une translation de vecteur d'affixe $3-5i$."
+            }
+          ],
+          "solution_latex": "Homothétie $z \\\\mapsto \\\\lambda z$ (avec $\\\\lambda > 0$) : agrandissement de rapport $\\\\lambda$."
+        },
+        {
+          "label": "1) d)",
+          "statement_latex": "Caractériser géométriquement : $z\\mapsto (1+i)z+2-i$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_conjugue_module"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ici le coefficient est $a=1+i$. C'est une similitude directe. Trouvez ses éléments caractéristiques : point fixe, rapport et angle."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le rapport est $|1+i| = \\sqrt{2}$ et l'angle est $\\arg(1+i) = \\frac{\\pi}{4}$. Le centre est le point invariant de la transformation."
+            }
+          ],
+          "solution_latex": "Symétrie $z \\\\mapsto \\\\overline{z}$ : réflexion par rapport à l'axe réel."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Déterminer une expression explicite de la rotation de centre $1+i$ et d'angle de mesure $\\frac{\\pi}{4}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_expression_explicite_suite_reelle",
+            "nombres_complexes__theorem_expression_explicite_suite_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "La formule générale d'une rotation de centre $\\omega$ et d'angle $\\theta$ s'écrit $z^{\\prime} - \\omega = e^{i\\theta}(z - \\omega)$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez $\\omega$ par $1+i$ et $\\theta$ par $\\frac{\\pi}{4}$, puis développez méticuleusement pour exprimer $z^{\\prime}$ sous la forme $az+b$."
+            }
+          ],
+          "solution_latex": "La composée d'une rotation et d'une translation est l'application affine $z \\\\mapsto e^{i\\\\theta}z + w$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_035",
+      "title": "Composées d'isométries",
+      "type": "proof",
+      "difficulty": 2,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__theorem_proprietes_exp_complexe",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__theorem_expression_explicite_suite_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "rotation",
+        "symétrie centrale",
+        "translation",
+        "composition"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que la composée de deux symétries centrales de $\\mathbb{C}$ est une translation.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "On connaît explicitement la forme $z \\mapsto ...$ des translations, des symétries centrales et des rotations, il suffit de composer et d'observer."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'expression complexe d'une symétrie centrale de centre d'affixe $\\omega$ est de la forme $f(z) = -z + 2\\omega$. Écrivez $f_2(f_1(z))$ et vérifiez que le résultat est de la forme $z + b$."
+            }
+          ],
+          "solution_latex": "La composée de deux rotations autour de points différents est une rotation (ou une translation si les angles s'ajoutent à $0 \\\\pmod{2\\\\pi}$)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que la composée de deux rotations de $\\mathbb{C}$ est soit une translation, soit une rotation.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exprimez deux rotations $r_1$ et $r_2$ sous leurs formes complexes : $z \\mapsto e^{i\\theta_1}z + b_1$ et $z \\mapsto e^{i\\theta_2}z + b_2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "La composée $r_2 \\circ r_1$ donne une expression de la forme $z \\mapsto e^{i(\\theta_1+\\theta_2)}z + C$. Analysez la nature géométrique obtenue selon que la somme des angles $\\theta_1+\\theta_2$ est congrue à $0$ modulo $2\\pi$ ou non."
+            }
+          ],
+          "solution_latex": "La composée d'une rotation et d'une symétrie est une symétrie passant par le centre de rotation."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_036",
+      "title": "Image de cercles par inversion",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__prop_relation_fondamentale_module",
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_arguments_formes_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "inversion",
+        "cercle",
+        "droite",
+        "géométrie"
+      ],
+      "statement_latex": "On note I l'application $z\\mapsto\\frac{1}{z}$ sur $\\mathbb{C}^{*}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que l'image par I d'un cercle de centre 0 est un cercle.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour montrer que l'image de telle figure par I est telle autre figure, attention de bien montrer une égalité - si possible par équivalence et non pas une inclusion."
+            },
+            {
+              "level": 2,
+              "content_latex": "Traduisez algébriquement l'équation d'un cercle de centre 0, $|z| = R$, et remplacez $z$ par $\\frac{1}{z'}$. Concluez sur le module de $z'$."
+            }
+          ],
+          "solution_latex": "L'inversion $z \\\\mapsto 1/z$ transforme les cercles passant par l'origine en droites, et les cercles ne passant pas par l'origine en cercles."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que l'image par I d'un cercle (inclus dans $\\mathbb{C}$, donc éventuellement privé de 0) est soit une droite, soit un cercle.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Le cercle de centre a passant par 0 a pour équation $|z-a|^{2}=|a|^{2}.$ Si on pose $z^{\\prime}=\\frac{1}{z}$ que décrit $z^{\\prime}$ lorsque z décrit ce cercle ? Pour un cercle de centre a et de rayon r ne passant pas par 0, montrer une équivalence du genre : $|z-a|=r\\iff|\\frac{1}{z}-a^{\\prime}|=r^{\\prime}$ ."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez les modules au carré en exprimant $z$ en fonction de $z'$. Selon que le cercle d'origine passe par $0$ (auquel cas $|a|^2$ s'annule avec une constante) ou non, le terme en $|z'|^2$ peut subsister ou non, donnant une droite ou un autre cercle."
+            }
+          ],
+          "solution_latex": "L'image du cercle $|z-a| = |a|$ (passant par l'origine) est la droite $\\\\mathrm{Re}(1/a \\\\cdot z) = 1/2$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_037",
+      "title": "Configurations de triangles et complexes",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 40,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__prop_relation_fondamentale_module",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "triangle équilatéral",
+        "angles",
+        "nombre j",
+        "géométrie"
+      ],
+      "statement_latex": "Soient $a, b, c\\in\\mathbb{C}$ non alignés. On introduit trois formes trigonométriques : \\par $\\frac{c-a}{b-a}=A e^{i\\alpha},$ $\\frac{a-b}{c-b}=B e^{i\\beta}$ et $\\frac{b-c}{a-c}=C e^{i\\gamma}$ \\par avec $A, B, C>0$ et $\\alpha, \\beta, \\gamma\\in]-\\pi, \\pi[$ non nuls.",
+      "sub_questions": [
+        {
+          "label": "1) a)",
+          "statement_latex": "Calculer $ABC$ ainsi que $\\alpha+\\beta+\\gamma$ modulo $2\\pi$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluez le produit des trois rapports complexes donnés. Exprimez ce produit de deux manières différentes."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le produit des quotients algébriques vaut $-1$. En passant aux modules, on obtient $ABC=1$. En passant aux arguments, $\\alpha+\\beta+\\gamma \\equiv \\pi \\pmod{2\\pi}$."
+            }
+          ],
+          "solution_latex": "Le centroïde du triangle de sommets $z_1, z_2, z_3$ est $G = \\\\frac{z_1+z_2+z_3}{3}$."
+        },
+        {
+          "label": "1) b)",
+          "statement_latex": "Montrer les égalités : $A \\cos \\alpha+\\frac{\\cos \\beta}{B}=1$ et $A \\sin \\alpha-\\frac{\\sin \\beta}{B}=0$ , ainsi que quatre égalités analogues faisant intervenir $A, B, C, \\alpha, \\beta, \\gamma$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_quatre_formules_trigo",
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Que vaut $A e^{i\\alpha}+\\frac{1}{B e^{i\\beta}}?$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez les expressions par les fractions avec $a, b, c$. En sommant judicieusement, prenez ensuite les parties réelle et imaginaire pour obtenir les deux égalités."
+            }
+          ],
+          "solution_latex": "L'orthocentre $H$ du triangle satisfait $H = z_1 + z_2 + z_3$ si le triangle est inscrit dans le cercle unité."
+        },
+        {
+          "label": "1) c)",
+          "statement_latex": "En déduire que $\\alpha, \\beta$ et $\\gamma$ ont même signe, puis que $\\alpha+\\beta+\\gamma=\\pm\\pi$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez les égalités précédentes pour exprimer les sinus en fonction les uns des autres et observer leurs signes respectifs."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'équation donne $A\\sin\\alpha = \\frac{\\sin\\beta}{B}$. Comme $A, B > 0$, $\\sin\\alpha$ et $\\sin\\beta$ ont nécessairement le même signe. Concluez en utilisant le résultat de la question 1)a)."
+            }
+          ],
+          "solution_latex": "Le circumcentre est le centre du cercle passant par les trois sommets."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Montrer que : $|a-b|=|b-c|=|c-a|\\iff\\alpha=\\beta=\\gamma$. \\par Quand l'une de ces assertions est vraie, on dit que le triangle $abc$ (ou $bca$ ou $cab$) est équilatéral.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Exploiter 1)b) et 1)c)."
+            },
+            {
+              "level": 2,
+              "content_latex": "L'égalité des longueurs impose que $A=B=C=1$. Réinjectez cela dans les formules démontrées plus haut pour contraindre les angles."
+            }
+          ],
+          "solution_latex": "La droite d'Euler passe par l'orthocentre, le circumcentre et le centroïde."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "En déduire que $abc$ est équilatéral direct si et seulement si $c-a=e^{\\frac{i\\pi}{3}}(b-a)$, puis interpréter géométriquement.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__prop_relation_fondamentale_module"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez la définition d'un triangle direct (dont les angles sont strictement positifs) et le résultat précédent pour fixer la valeur exacte de l'angle $\\alpha$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si $\\alpha=\\beta=\\gamma$ et que la somme fait $\\pi$, alors $\\alpha=\\frac{\\pi}{3}$. Le quotient vaut donc $e^{i\\frac{\\pi}{3}}$. Géométriquement, c'est une rotation de centre $a$."
+            }
+          ],
+          "solution_latex": "La relation de Euler : $H + 2G = 3O$ où $O$ est le circumcentre."
+        },
+        {
+          "label": "2) c)",
+          "statement_latex": "En déduire que $abc$ est équilatéral direct si et seulement si $a+bj+cj^{2}=0.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous la définition du nombre complexe $j = e^{\\frac{2i\\pi}{3}}$ et exprimez l'exponentielle $e^{i\\frac{\\pi}{3}}$ à l'aide de $j$."
+            },
+            {
+              "level": 2,
+              "content_latex": "On a $e^{i\\frac{\\pi}{3}} = -j^2$. Remplacez cette valeur dans l'égalité de la question précédente, développez, et simplifiez avec l'identité $1+j+j^2=0$."
+            }
+          ],
+          "solution_latex": "Pour un triangle inscrit dans le cercle unité, $H = z_1 + z_2 + z_3$, et le circumcentre est à l'origine."
+        },
+        {
+          "label": "2) d)",
+          "statement_latex": "Montrer que $abc$ est équilatéral si et seulement si $a^{2}+b^{2}+c^{2}=ab+bc+ca$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Un produit est nul si et seulement si l'un de ses facteurs est nul."
+            },
+            {
+              "level": 2,
+              "content_latex": "Regroupez et factorisez $a^2+b^2+c^2-ab-bc-ca$. Vous pouvez démontrer que cette expression est égale au produit $(a+bj+cj^2)(a+bj^2+cj)$. Le deuxième facteur s'annule pour un triangle équilatéral indirect."
+            }
+          ],
+          "solution_latex": "L'angle au sommet $z_1$ est donné par $\\\\arg\\\\left(\\\\frac{z_3-z_1}{z_2-z_1}\\\\right)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_038",
+      "title": "Triangle équilatéral inscrit dans le cercle unité",
+      "type": "proof",
+      "difficulty": 3,
+      "estimated_duration_minutes": 15,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "triangle équilatéral",
+        "cercle unité",
+        "module"
+      ],
+      "statement_latex": "Soient $a, b, c\\in\\mathbb{U}$. Montrer que si $a+b+c=0$, le triangle de sommets $a, b$ et $c$ est équilatéral.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Une piste parmi d'autres : $|a+b|^{2}=1$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $a+b = -c$ et que $|c|=1$, l'égalité $|a+b|^2 = 1$ est vérifiée. Développez ce module au carré en utilisant le fait que $\\overline{a}=\\frac{1}{a}$, puis cherchez à évaluer $|a-b|^2$. Vous trouverez que les côtés au carré valent tous $3$."
+            }
+          ],
+          "solution_latex": "Les sommets d'un triangle équilatéral inscrit dans le cercle unité sont les racines cubiques de l'unité. \\\\\nIls sont : $1, e^{2i\\\\pi/3} = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i$, $e^{4i\\\\pi/3} = -\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_039",
+      "title": "Somme de n complexes de module 1",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "module",
+        "ensemble",
+        "inégalité triangulaire"
+      ],
+      "statement_latex": "Déterminer $\\{u_{1}+...+u_{n}|u_{1},...,u_{n}\\in\\mathbb{U}\\}$ pour tout $n\\ge 2$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Commencer par le cas $n=2$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour $n=2$, analysez les valeurs prises par $e^{i\\theta_1} + e^{i\\theta_2}$. Avec l'angle moitié, on constate que le module parcourt $[0, 2]$. L'ensemble cherché est le disque fermé de centre 0 et de rayon $n$."
+            }
+          ],
+          "solution_latex": "Si $|z_k| = 1$ pour tout $k$, alors $\\\\left|\\\\sum_{k=1}^n z_k\\\\right| \\\\le n$ avec égalité ssi tous les $z_k$ sont égaux. \\\\\nUtiliser l'inégalité triangulaire."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_040",
+      "title": "Racines n-ièmes et équations",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines de l'unité",
+        "équation",
+        "polynôme",
+        "second degré"
+      ],
+      "statement_latex": "Soient $n\\in\\mathbb{N}^{*}$ et $\\varphi\\in\\mathbb{R}$. Résoudre les équations suivantes d'inconnue $z$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "a) $z^{4}=4+4i$. b) $(z-1)^{3}=8i.$ c) $z^{n}+1=0.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_generale_racines",
+            "nombres_complexes__theorem_description_racines_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour résoudre $Z^n = A$, écrivez la constante $A$ et l'inconnue $Z$ sous forme exponentielle afin d'identifier les modules et les arguments."
+            },
+            {
+              "level": 2,
+              "content_latex": "N'oubliez pas que l'identification des arguments se fait modulo $2\\pi$. Vous devrez diviser par la puissance (ici $4, 3$ ou $n$) pour obtenir les $n$ racines distinctes du plan complexe."
+            }
+          ],
+          "solution_latex": "Les racines 4-ièmes de 1 sont $1, i, -1, -i$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "a) $z^{8}-3z^{4}+2=0.$ b) $z^{6}-2z^{3} \\cos \\varphi+1=0.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Ces équations sont bicarrées ou réductibles au second degré. Procédez à un changement de variable, par exemple $Z = z^4$ pour la a) et $Z = z^3$ pour la b)."
+            },
+            {
+              "level": 2,
+              "content_latex": "Résolvez l'équation du second degré en $Z$. Ensuite, pour chaque solution $Z_1$ et $Z_2$ obtenue, résolvez l'équation finale correspondante (du type $z^k = Z_i$)."
+            }
+          ],
+          "solution_latex": "Les racines 5-ièmes de l'unité sont $e^{2i\\\\pi k/5}$ pour $k = 0, 1, 2, 3, 4$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "a) $z^{n}=\\overline{z}$ b) $(\\frac{z+1}{z-1})^{n}=1$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour la b), racines nèmes, puis angle moitié, mais attention de ne pas diviser par 0."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la a), passez d'abord aux modules pour prouver que $|z|$ ne peut valoir que $0$ ou $1$. Si $|z|=1$, remplacez $\\overline{z}$ par $\\frac{1}{z}$. Pour la b), isolez $z$ à partir de l'expression $\\frac{z+1}{z-1} = e^{\\frac{2ik\\pi}{n}}$."
+            }
+          ],
+          "solution_latex": "L'équation $z^n = a$ avec $a \\\\ne 0$ a exactement $n$ solutions : $\\\\sqrt[n]{|a|} e^{i(\\\\arg(a) + 2\\\\pi k)/n}$ pour $k = 0, \\\\ldots, n-1$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_041",
+      "title": "Manipulations du nombre j",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "nombre j",
+        "racines de l'unité",
+        "équation"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Écrire sous la forme $a+bj$ avec $a, b\\in\\mathbb{R}$ les quantités : \\par a) $j^{2}$ \\par b) $j^{4}$ \\par c) $(1+j)^{7}$ \\par d) $(2-j)(3+2j)$ \\par e) $\\frac{j^{9}}{1+j}$ \\par f) $\\frac{1}{1-j}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Rappelez-vous des propriétés fondamentales de $j$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Utilisez systématiquement les relations $j^3 = 1$ et $1+j+j^2 = 0$ pour réduire les puissances et simplifier les expressions."
+            }
+          ],
+          "solution_latex": "$j = e^{2i\\\\pi/3} = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i$ est une racine primitive cubique de l'unité. \\\\\n$j^3 = 1$ et $1 + j + j^2 = 0$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Simplifier le produit $(u+v)(u+jv)(u+j^{2}v)$ pour tous $u, v\\in\\mathbb{C}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Développez méthodiquement le produit des deux dernières parenthèses, puis multipliez par la première."
+            },
+            {
+              "level": 2,
+              "content_latex": "En développant, regroupez les termes en utilisant $1+j+j^2=0$ et $j^3=1$. Vous devriez obtenir une identité remarquable classique de degré 3."
+            }
+          ],
+          "solution_latex": "$j^2 = e^{4i\\\\pi/3} = -\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i = \\\\overline{j}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "Résoudre l'équation $Im(\\frac{1}{z^{2}+z+1})=0$ d'inconnue $z\\in\\mathbb{C}\\backslash\\{j, j\\}$.",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Si la partie imaginaire d'un complexe non nul est nulle, c'est que ce complexe est un nombre réel. Que peut-on dire de son inverse ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "L'inverse $z^2+z+1$ doit également être réel. Posez $z=x+iy$, développez, et annulez la partie imaginaire de cette expression pour trouver une condition sur $x$ et $y$."
+            }
+          ],
+          "solution_latex": "$j^4 = j$, $j^5 = j^2$, et plus généralement $j^n$ dépend de $n \\\\pmod 3$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_042",
+      "title": "Union des racines n-ièmes de l'unité",
+      "type": "counterexample",
+      "difficulty": 2,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "racines de l'unité",
+        "cercle trigonométrique",
+        "ensemble"
+      ],
+      "statement_latex": "Est-il vrai que $\\mathbb{U}=\\bigcup_{n\\in\\mathbb{N}^{*}}\\mathbb{U}_{n}$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "$\\\\bigcup_{n \\\\ge 1} \\{\\\\text{racines } n\\\\text{-ièmes de l'unité}\\} = \\{z \\\\in \\\\mathbb{C} : \\\\exists k \\\\in \\\\mathbb{Z}, z^k = 1\\}$. \\\\\nC'est l'ensemble des racines de l'unité, dense sur le cercle unité.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Nous connaissons quelques irrationnels."
+        },
+        {
+          "level": 2,
+          "content_latex": "Tout élément de $\\bigcup_{n\\in\\mathbb{N}^{*}}\\mathbb{U}_{n}$ possède un argument de la forme $\\frac{2k\\pi}{n}$, c'est-à-dire un multiple rationnel de $\\pi$. Cherchez un point sur le cercle unité dont l'argument n'est pas un multiple rationnel de $\\pi$."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__ex_043",
+      "title": "Méthode de Cardan",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 45,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme",
+        "équation de degré 3",
+        "racines cubiques",
+        "système"
+      ],
+      "statement_latex": null,
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Soit $P=X^{3}+aX^{2}+bX+c$ un polynôme avec $a, b, c \\in \\mathbb{C}$. Pour quelle valeur de $t\\in\\mathbb{C}$ a-t-on $P(X+t)=X^{3}+3pX+q$ avec $p,q\\in\\mathbb{C}$ ?",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Comment met-on un polynôme de degré 2 sous forme canonique ? Adapter."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $(X+t)^3$ et annulez le coefficient du terme de degré 2 pour trouver $t$ en fonction de $a$."
+            }
+          ],
+          "solution_latex": "Pour $z^3 + pz + q = 0$, poser $z = u + v$ et imposer $3uv + p = 0$. \\\\\nAlors $(u^3)^2 + q(u^3) + (p/3)^3 = 0$, donnant les deux cubes."
+        },
+        {
+          "label": "2) a)",
+          "statement_latex": "Soient $p\\in\\mathbb{C}^{*}$ et $q\\in\\mathbb{C}.$ Les questions qui suivent présentent la méthode de Cardan de calcul des racines du polynôme $R=X^{3}+3pX+q$. \\par On note $\\alpha$ et $\\beta$ les deux racines éventuellement égales du polynôme $X^{2}+qX-p^{3}$ et $\\gamma$ une racine cubique quelconque de $\\alpha$. \\par Que valent $\\alpha+\\beta$ et $\\alpha\\beta$ ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Utilisez les relations entre les coefficients et les racines d'un polynôme du second degré."
+            },
+            {
+              "level": 2,
+              "content_latex": "La somme des racines vaut $-b/a$ et le produit vaut $c/a$."
+            }
+          ],
+          "solution_latex": "L'équation réduite de $z^3 - 6z - 4 = 0$ se résout par Cardan : les trois racines sont réelles."
+        },
+        {
+          "label": "2) b)",
+          "statement_latex": "Montrer que $\\gamma$ est non nul et que $\\gamma-\\frac{p}{\\gamma}$ est une racine de $R$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_generale_racines",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacez $X$ par $\\gamma - \\frac{p}{\\gamma}$ dans l'expression de $R$."
+            },
+            {
+              "level": 2,
+              "content_latex": "En développant le cube de la différence, vous verrez apparaître des termes qui s'annulent grâce à la relation liant $\\gamma^3$ (qui vaut $\\alpha$) à $p$ et $q$ via l'équation du second degré."
+            }
+          ],
+          "solution_latex": "On peut montrer que les trois racines sont $z_1 = 2 + \\\\sqrt[3]{2 + 2\\\\sqrt{3}} + \\\\sqrt[3]{2 - 2\\\\sqrt{3}}$ et ses conjugués."
+        },
+        {
+          "label": "3) a)",
+          "statement_latex": "Mêmes notations, mais on suppose $q$ non nul. Soient $\\gamma$ et $\\gamma^{\\prime}$ deux racines cubiques distinctes de $\\alpha$. On suppose que $\\gamma-\\frac{p}{\\gamma}=\\gamma^{\\prime}-\\frac{p}{\\gamma^{\\prime}}$. \\par Montrer que $\\alpha^{2}=-p^{3},$ puis que $4p^{3}+q^{2}=0.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_generale_racines",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__def_racines_niemes_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Transformez l'égalité $\\gamma-\\frac{p}{\\gamma}=\\gamma^{\\prime}-\\frac{p}{\\gamma^{\\prime}}$ pour obtenir une équation polynomiale de degré 2 en $\\gamma$ et $\\gamma^{\\prime}$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Factorisez par $\\gamma-\\gamma^{\\prime}$ qui est non nul par hypothèse. Vous obtiendrez une relation liant $\\gamma\\gamma^{\\prime}$ à $p$. Élevez au cube pour obtenir $\\alpha$."
+            }
+          ],
+          "solution_latex": "Cardan avec le changement de variable $z = t - \\\\frac{a}{3t}$ réduit une équation générale du degré 3."
+        },
+        {
+          "label": "3) b)",
+          "statement_latex": "Qu'a-t-on prouvé si $4p^{3}+q^{2}\\ne 0$ ?",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Raisonnez par contraposée sur le résultat de la question précédente."
+            },
+            {
+              "level": 2,
+              "content_latex": "Si le discriminant de l'équation du second degré associée à Cardan est non nul, alors les racines de $R$ obtenues pour des choix différents de la racine cubique $\\gamma$ sont toutes distinctes."
+            }
+          ],
+          "solution_latex": "Le calcul du discriminant permet de déterminer la nature des racines."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "Calculer les racines du polynôme $X^{3}+3X^{2}+6X+2.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Appliquez la méthode établie dans l'exercice."
+            },
+            {
+              "level": 2,
+              "content_latex": "Faites d'abord le changement de variable $X = Y - 1$ (d'après la question 1) pour annuler le terme de degré 2, puis appliquez la méthode de Cardan sur le polynôme obtenu."
+            }
+          ],
+          "solution_latex": "La formule de Cardan s'exprime avec des cubes et des racines cubiques."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_044",
+      "title": "Sommes sur les racines n-ièmes de l'unité",
+      "type": "computation",
+      "difficulty": 3,
+      "estimated_duration_minutes": 20,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__theorem_interpretation_geometrique_complexe",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme",
+        "racines de l'unité",
+        "binôme de newton",
+        "angle moitié"
+      ],
+      "statement_latex": "Simplifier pour tout $n\\in\\mathbb{N}^{*}$ :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$\\sum_{\\omega\\in\\mathbb{U}_{n}}(1+\\omega)^{n}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme",
+            "nombres_complexes__theorem_interpretation_geometrique_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Formule du binôme, puis somme géométrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Développez $(1+\\omega)^n = \\sum_{k=0}^{n} \\binom{n}{k} \\omega^k$. Intervertissez les sommes, et rappelez-vous que la somme des racines n-ièmes élevées à la puissance $k$ est nulle, sauf si $k$ est un multiple de $n$."
+            }
+          ],
+          "solution_latex": "$\\\\sum_{k=0}^{n-1} \\\\omega^k = 0$ où $\\\\omega = e^{2i\\\\pi/n}$. \\\\\nCeci vient de la somme d'une progression géométrique."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$\\sum_{\\omega\\in\\mathbb{U}_{n}}|\\omega-1|.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Technique de l'angle moitié, puis somme géométrique."
+            },
+            {
+              "level": 2,
+              "content_latex": "Remplacez $\\omega$ par $e^{\\frac{2ik\\pi}{n}}$. L'expression $|e^{\\frac{2ik\\pi}{n}}-1|$ se simplifie avec l'angle moitié pour donner $2|\\sin(\\frac{k\\pi}{n})|$. Comme le sinus est positif sur cet intervalle, on peut enlever la valeur absolue et calculer la somme."
+            }
+          ],
+          "solution_latex": "$\\\\sum_{k=0}^{n-1} k \\\\omega^k = \\\\frac{n}{1-\\\\omega}$ (formule générale pour les séries géométriques)."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_045",
+      "title": "Polynôme et racines de l'unité",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "polynôme",
+        "racines de l'unité",
+        "majoration",
+        "somme"
+      ],
+      "statement_latex": "Soient $a_{0},...,a_{n}\\in\\mathbb{C}$. On note $P$ la fonction polynomiale $z\\mapsto a_{n}z^{n}+...+a_{1}z+a_{0}$.",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que pour tout $k\\in[[0,n]]$ : \\par $\\sum_{\\omega\\in\\mathbb{U}_{n+1}}P(\\omega)\\omega^{-k}=(n+1)a_{k}.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme",
+            "nombres_complexes__theorem_equation_second_degre"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Remplacez $P(\\omega)$ par sa définition en somme, puis intervertissez les deux symboles de somme."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous ferez apparaître la somme $\\sum_{\\omega\\in\\mathbb{U}_{n+1}} \\omega^{m-k}$. Utilisez la propriété d'annulation de cette somme lorsque $m \\neq k$ pour simplifier l'expression."
+            }
+          ],
+          "solution_latex": "$\\\\Phi_n(z) = \\\\prod_{1 \\\\le k < n, \\\\gcd(k,n)=1} (z - e^{2i\\\\pi k/n})$ est le $n$-ième polynôme cyclotomique. \\\\\n$\\\\deg \\\\Phi_n = \\\\phi(n)$ (indicatrice d'Euler)."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Justifier l'existence du réel $||P||=\\sup_{z\\in\\mathbb{U}}|P(z)|$, puis montrer que $|a_{k}|\\le||P||$ pour tout $k\\in[[0,n]]$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Pour l'existence, le cercle unité est fermé et borné, et $P$ (qui est composée par module) est continue."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour la majoration, isolez $a_k$ à l'aide de l'égalité de la question 1), passez au module, et utilisez l'inégalité triangulaire généralisée en majorant chaque $|P(\\omega)|$ par la borne supérieure $||P||$."
+            }
+          ],
+          "solution_latex": "$z^n - 1 = \\\\prod_{d|n} \\\\Phi_d(z)$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_046",
+      "title": "Somme de Gauss",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "somme double",
+        "racines de l'unité",
+        "périodicité",
+        "module"
+      ],
+      "statement_latex": "Soit $n\\in\\mathbb{N}$ impair. On pose $\\omega=e^{\\frac{2i\\pi}{n}}$ et : \\par $G=\\sum_{k=0}^{n-1}\\omega^{k^{2}}$ (somme de Gauss).",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "Montrer que $|G|^{2}=\\sum_{k=0}^{n-1}\\sum_{p=-k}^{n-k-1}\\omega^{p^{2}+2pk}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_module_somme"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "1) $|G|^{2}=G\\overline{G}.$"
+            },
+            {
+              "level": 2,
+              "content_latex": "Exprimez $\\overline{G}$ en utilisant un autre indice (par exemple $l$) et la propriété $\\overline{\\omega} = \\omega^{-1}$. Ensuite, développez le produit des deux sommes et effectuez le changement de variable $p = k - l$."
+            }
+          ],
+          "solution_latex": "La somme de Gauss $G = \\\\sum_{k=0}^{p-1} e^{2i\\\\pi k^2/p}$ (pour $p$ premier impair) satisfait $G^2 = (\\\\frac{-1}{p}) p$. \\\\\nOù $(\\\\frac{-1}{p})$ est le symbole de Legendre."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "Montrer que la fonction $p\\mapsto\\omega^{p^{2}+2pk}$ est n-périodique sur $\\mathbb{Z}$ pour tout $k\\in\\mathbb{Z}$ et en déduire que $|G|=\\sqrt{n}$.",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_regularite_fonction_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Évaluez l'expression en $p+n$ et utilisez le fait que $\\omega^n = 1$ pour démontrer la périodicité."
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour simplifier la somme double, remarquez que la somme interne porte sur $n$ termes consécutifs. Par périodicité, vous pouvez ramener cette somme interne entre $0$ et $n-1$. Utilisez ensuite la nullité de la somme des racines de l'unité pour conclure."
+            }
+          ],
+          "solution_latex": "$|G|^2 = p$, donc $|G| = \\\\sqrt{p}$."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_047",
+      "title": "Suites récurrentes linéaires d'ordre 2",
+      "type": "computation",
+      "difficulty": 2,
+      "estimated_duration_minutes": 35,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__theorem_expression_explicite_suite_complexe",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "suite",
+        "récurrence",
+        "équation caractéristique",
+        "explicite"
+      ],
+      "statement_latex": "Déterminer une expression explicite de la suite $(u_{n})_{n\\in\\mathbb{N}}$ définie pour tout $n\\in\\mathbb{N}$ par :",
+      "sub_questions": [
+        {
+          "label": "1)",
+          "statement_latex": "$u_{0}=0,$ $u_{1}=1$ et $u_{n+2}=6u_{n+1}-5u_{n}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Écrivez l'équation caractéristique associée : $r^2 - 6r + 5 = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Les racines sont $1$ et $5$. L'expression générale est donc $u_n = A(1)^n + B(5)^n$. Trouvez $A$ et $B$ avec les conditions initiales."
+            }
+          ],
+          "solution_latex": "Récurrence $u_{n+2} = au_{n+1} + bu_n$ a pour équation caractéristique $r^2 = ar + b$. \\\\\nSolutions : $u_n = A r_1^n + B r_2^n$ si $r_1 \\\\ne r_2$."
+        },
+        {
+          "label": "2)",
+          "statement_latex": "$u_{0}=1,$ $u_{1}=0$ et $u_{n+2}=u_{n+1}-u_{n}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation caractéristique est $r^2 - r + 1 = 0$. Calculez son discriminant."
+            },
+            {
+              "level": 2,
+              "content_latex": "Le discriminant est négatif ($\\Delta = -3$). Les solutions sont complexes conjuguées (liées à $j$). Écrivez la solution sous forme trigonométrique."
+            }
+          ],
+          "solution_latex": "Fibonacci $F_{n+2} = F_{n+1} + F_n$ : équation caractéristique $r^2 - r - 1 = 0$. \\\\\nRacines : $\\\\phi = \\\\frac{1+\\\\sqrt{5}}{2}$, $\\\\hat{\\\\phi} = \\\\frac{1-\\\\sqrt{5}}{2}$. Formule de Binet : $F_n = \\\\frac{\\\\phi^n - \\\\hat{\\\\phi}^n}{\\\\sqrt{5}}$."
+        },
+        {
+          "label": "3)",
+          "statement_latex": "$u_{0}=1,$ $u_{1}=0$ et $u_{n+2}=4u_{n+1}-4u_{n}$",
+          "knowledge_nodes_tested": [],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation caractéristique est $r^2 - 4r + 4 = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "C'est une racine double $r = 2$. La forme de la suite est donc $u_n = (An + B)2^n$. Déterminez $A$ et $B$."
+            }
+          ],
+          "solution_latex": "Lucas $L_n = \\\\phi^n + \\\\hat{\\\\phi}^n$ satisfait $L_{n+2} = L_{n+1} + L_n$ avec $L_0 = 2, L_1 = 1$."
+        },
+        {
+          "label": "4)",
+          "statement_latex": "$u_{0}=1$, $u_{1}=-1$ et $u_{n+2}=\\frac{u_{n+1}-u_{n}}{2}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__theorem_description_racines_unite",
+            "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+            "nombres_complexes__def_racines_niemes_unite"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "L'équation caractéristique s'écrit $2r^2 - r + 1 = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Trouvez les racines complexes et mettez-les sous forme exponentielle pour faciliter l'identification des constantes."
+            }
+          ],
+          "solution_latex": "Si les racines de l'équation caractéristique ont module 1 (racines de l'unité), la suite est quasi-périodique."
+        },
+        {
+          "label": "5)",
+          "statement_latex": "$u_{0}=u_{1}=3$ et $u_{n+2}=3u_{n+1}-\\frac{9u_{n}}{4}.$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_racines_niemes_unite",
+            "nombres_complexes__theorem_racines_carrees_complexe",
+            "nombres_complexes__theorem_description_generale_racines"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Résolvez l'équation $r^2 - 3r + \\frac{9}{4} = 0$."
+            },
+            {
+              "level": 2,
+              "content_latex": "Vous obtenez une racine double. Appliquez la formule du cours correspondante pour exprimer $u_n$."
+            }
+          ],
+          "solution_latex": "Les racines complexes de module $> 1$ dominent le comportement asymptotique."
+        },
+        {
+          "label": "6)",
+          "statement_latex": "$u_{0}=1$, $u_{1}=2$ et $u_{n+2}=\\frac{u_{n+1}^{6}}{u_{n}^{5}}$",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+            "nombres_complexes__theorem_limites_suites_complexes",
+            "nombres_complexes__theorem_expression_explicite_suite_reelle"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "6) Comment transforme-t-on un problème multiplicatif en un problème additif ?"
+            },
+            {
+              "level": 2,
+              "content_latex": "Puisque $u_0$ et $u_1$ sont strictement positifs, tous les termes le sont. Posez $v_n = \\ln(u_n)$. La suite $(v_n)$ vérifiera une relation de récurrence linéaire d'ordre 2 classique."
+            }
+          ],
+          "solution_latex": "La suite de Tribonacci $T_{n+3} = T_{n+2} + T_{n+1} + T_n$ a une équation caractéristique de degré 3."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_048",
+      "title": "Partie entière et puissance d'un réel",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 30,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+        "nombres_complexes__theorem_limites_suites_complexes",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_exponentielle_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "partie entière",
+        "suite",
+        "parité",
+        "récurrence"
+      ],
+      "statement_latex": "On pose $x=\\frac{3+\\sqrt{17}}{2}.$ Montrer que $\\lfloor x^{n}\\rfloor$ et n ont la même parité pour tout $n\\in\\mathbb{N}^{*}$. On pourra s'intéresser à la suite $(a_{n})_{n\\in\\mathbb{N}}$ définie par $a_{0}=2,$ $a_{1}=3$ et pour tout $n\\in\\mathbb{N}$ : $a_{n+2}=3a_{n+1}+2a_{n}$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+            "nombres_complexes__theorem_systeme_somme_produit",
+            "nombres_complexes__theorem_regularite_fonction_complexe"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "Étudier la parité de $a_{n}$ pour tout $n\\in\\mathbb{N}^{*}$, puis en déterminer une expression explicite."
+            },
+            {
+              "level": 2,
+              "content_latex": "Heureusement que $\\frac{3-\\sqrt{17}}{2}$ est compris entre -1 et 0!"
+            },
+            {
+              "level": 3,
+              "content_latex": "En résolvant la récurrence, on s'aperçoit que $a_n = x^n + y^n$ où $y = \\frac{3-\\sqrt{17}}{2}$. Encadrez habilement $y^n$ pour faire le lien entre $a_n$ (qui est entier) et $\\lfloor x^n \\rfloor$."
+            }
+          ],
+          "solution_latex": "Pour $a > 0, a \\\\ne 1$, et $x \\\\in \\\\mathbb{R}$, on a $a^x = e^{x \\\\ln a}$. \\\\\nLa fonction exponentielle complexe $\\\\exp(z) = \\\\sum_{k=0}^{\\\\infty} \\\\frac{z^k}{k!}$ généralise cette notion."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__ex_049",
+      "title": "Équation fonctionnelle par itération",
+      "type": "proof",
+      "difficulty": 4,
+      "estimated_duration_minutes": 25,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+        "nombres_complexes__theorem_limites_fonctions_complexes",
+        "nombres_complexes__theorem_derivation_exp_complexe",
+        "nombres_complexes__theorem_caracterisation_fonctions_constantes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "équation fonctionnelle",
+        "suite",
+        "récurrence linéaire",
+        "analyse"
+      ],
+      "statement_latex": "Déterminer les fonctions $f:\\mathbb{R}_{+}\\longrightarrow\\mathbb{R}_{+}$ pour lesquelles $f\\circ f(x)=6x-f(x)$ pour tout $x\\ge 0$.",
+      "sub_questions": [
+        {
+          "label": "",
+          "statement_latex": "",
+          "knowledge_nodes_tested": [
+            "nombres_complexes__def_suite_recurrente_lineaire_ordre_2"
+          ],
+          "hints": [
+            {
+              "level": 1,
+              "content_latex": "S'intéresser pour tout $x\\ge 0$ à la suite $(f^{n}(x))_{n\\in\\mathbb{N}}$ où $f^{n}=f\\circ...\\circ f;$ n termes"
+            },
+            {
+              "level": 2,
+              "content_latex": "Pour un $x$ fixé, posez $u_n = f^n(x)$. Quelle est la relation de récurrence vérifiée par cette suite ? Utilisez les techniques des suites récurrentes linéaires d'ordre 2 pour trouver $u_n$."
+            },
+            {
+              "level": 3,
+              "content_latex": "N'oubliez pas que la fonction $f$ doit être à valeurs positives. Cela imposera des conditions restrictives très fortes sur les constantes de votre suite $u_n$, et donc sur la forme finale de $f(x)$."
+            }
+          ],
+          "solution_latex": "Soit $f : \\\\mathbb{C} \\\\to \\\\mathbb{C}$ telle que $f(f(z)) = z$ pour tout $z$. \\\\\nLes solutions incluent $f(z) = z$ (identité), $f(z) = -z$ (symétrie centrale), $f(z) = \\\\overline{z}$ (conjugaison), $f(z) = 1/z$ (inversion), etc. \\\\\nCondition nécessaire : $f$ est une involution, d'ordre 2."
+        }
+      ],
+      "global_solution_latex": null
+    },
+    {
+      "id": "nombres_complexes__champo_001",
+      "title": "TD Champo - 7.1",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_equation_second_degre",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Module",
+        "Interprétation géométrique",
+        "Identité du parallélogramme",
+        "champo"
+      ],
+      "statement_latex": "Montrer que pour tous $(z,z^{\\prime})\\in \\mathbb{C}^{2}$, $|z+z^{\\prime}|^{2}+|z-z^{\\prime}|^{2}=2(|z|^{2}+|z^{\\prime}|^{2})$. Interpréter géométriquement.",
+      "sub_questions": [],
+      "global_solution_latex": "Soient $z, z'$ deux complexes. Alors $|z+z'|^2+|z-z'|^2=(z+z')(\\overline{z}+\\overline{z'})+(z-z')(\\overline{z}-\\overline{z'}) = |z|^2+|z'|^2+z\\overline{z'}+\\overline{z}z'+|z|^2+|z'|^2-z\\overline{z'}-\\overline{z}z' = 2(|z|^2+|z'|^2)$.\nCette formule traduit le fait que dans un parallélogramme, la somme des carrés des longueurs des quatre côtés est égale à la somme des carrés des longueurs des diagonales."
+    },
+    {
+      "id": "nombres_complexes__champo_002",
+      "title": "TD Champo - 7.2",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_proprietes_exp_complexe",
+        "nombres_complexes__theorem_derivation_exp_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Forme algébrique",
+        "Forme exponentielle",
+        "Puissance",
+        "champo"
+      ],
+      "statement_latex": "Soit $z=\\frac{\\sqrt{3}+i}{1-i}$. Donner la forme exponentielle, puis la forme algébrique de $z^{2019}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $|\\sqrt{3}+i|=2$ et $\\sqrt{3}+i=2e^{i\\frac{\\pi}{6}}$. De même $|1-i|=\\sqrt{2}$ et $1-i=\\sqrt{2}e^{-i\\frac{\\pi}{4}}$.\nOn en déduit $z=\\frac{2e^{i\\frac{\\pi}{6}}}{\\sqrt{2}e^{-i\\frac{\\pi}{4}}}=\\sqrt{2}e^{i\\frac{5\\pi}{12}}$.\n$z^{2019}=(\\sqrt{2})^{2019}e^{i\\frac{5\\times 2019\\pi}{12}} = (\\sqrt{2})^{2019}e^{i\\frac{3365\\pi}{4}} = (\\sqrt{2})^{2019}e^{i(\\frac{5\\pi}{4} + k2\\pi)}$.\nFinalement, $z^{2019} = 2^{1009}\\sqrt{2}e^{i\\frac{5\\pi}{4}} = 2^{1009}\\sqrt{2}(-\\frac{\\sqrt{2}}{2}-i\\frac{\\sqrt{2}}{2}) = -2^{1009}(1+i)$."
+    },
+    {
+      "id": "nombres_complexes__champo_003",
+      "title": "TD Champo - 7.3",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__prop_relation_fondamentale_module"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Module",
+        "Argument",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Déterminer le module et un argument de $z=\\sqrt{2+\\sqrt{2}}+i\\sqrt{2-\\sqrt{2}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "On a $|z|^2=2+\\sqrt{2}+2-\\sqrt{2}=4$, donc $|z|=2$. Notons $\\theta$ l'argument principal de $z$. Comme $\\text{Re}(z)>0$ et $\\text{Im}(z)>0$, $\\theta \\in [0, \\pi/2[$.\nOn a $\\cos(\\theta) = \\frac{\\sqrt{2+\\sqrt{2}}}{2}$. Alors $\\cos(2\\theta) = 2\\cos^2\\theta - 1 = \\frac{2+\\sqrt{2}}{2}-1 = \\frac{\\sqrt{2}}{2}$.\nDonc $2\\theta = \\frac{\\pi}{4}$, d'où $\\theta = \\frac{\\pi}{8}$."
+    },
+    {
+      "id": "nombres_complexes__champo_004",
+      "title": "TD Champo - 7.4",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__prop_relation_fondamentale_module"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Technique de l'angle moitié",
+        "Exponentielle complexe",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "Pour $\\theta\\in[-\\pi,\\pi]$, déterminer le module et un argument de $1+e^{i\\theta}$, $1-e^{i\\theta}$, $\\frac{e^{i\\theta}-1}{e^{i\\theta}+1}$, $1+i\\theta$.",
+      "sub_questions": [],
+      "global_solution_latex": "1) $1+e^{i\\theta} = e^{i\\theta/2}(e^{-i\\theta/2}+e^{i\\theta/2}) = 2\\cos(\\frac{\\theta}{2})e^{i\\theta/2}$. Pour $\\theta \\in [-\\pi, \\pi]$, $\\cos(\\theta/2) \\ge 0$, donc module $2\\cos(\\theta/2)$, argument $\\theta/2$.\n2) $1-e^{i\\theta} = -2i\\sin(\\frac{\\theta}{2})e^{i\\theta/2}$. Si $\\theta \\in [0, \\pi]$, module $2\\sin(\\theta/2)$, argument $\\frac{\\theta-\\pi}{2}$. Si $\\theta \\in ]-\\pi, 0[$, module $-2\\sin(\\theta/2)$, argument $\\frac{\\theta+\\pi}{2}$.\n3) $\\frac{e^{i\\theta}-1}{e^{i\\theta}+1} = i\\tan(\\frac{\\theta}{2})$. Module $|\\tan(\\theta/2)|$. Argument $\\pi/2$ ou $-\\pi/2$ selon le signe.\n4) $|1+i\\theta| = \\sqrt{1+\\theta^2}$. Argument $\\arctan(\\theta)$ car $\\text{Re}(z)=1 > 0$."
+    },
+    {
+      "id": "nombres_complexes__champo_005",
+      "title": "TD Champo - 7.5",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_equation_second_degre",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation complexe",
+        "Module",
+        "U",
+        "champo"
+      ],
+      "statement_latex": "Déterminer tous les complexes $z$ tels que $|z|=|\\frac{1}{z}|=|z+1|$.",
+      "sub_questions": [],
+      "global_solution_latex": "$|z|=|1/z| \\iff |z|^2=1 \\iff |z|=1$. L'ensemble des solutions est inclus dans $\\mathbb{U}$.\nPour $z \\in \\mathbb{U}$, $|z+1|=1 \\iff |z+1|^2=1 \\iff (z+1)(\\overline{z}+1)=1 \\iff z\\overline{z}+z+\\overline{z}+1=1 \\iff 1+2\\text{Re}(z)+1=1 \\iff \\text{Re}(z)=-\\frac{1}{2}$.\nLes solutions sont $j$ et $j^2$ (ou $\\bar{j}$)."
+    },
+    {
+      "id": "nombres_complexes__champo_006",
+      "title": "TD Champo - 7.6",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_proprietes_algebriques_conjugue_module",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Module",
+        "Conjugué",
+        "U",
+        "champo"
+      ],
+      "statement_latex": "Soient $a, b, c$ trois nombres complexes de module 1. Montrer que $|a+b+c|=|ab+ac+bc|$.",
+      "sub_questions": [],
+      "global_solution_latex": "Comme $|a|=1$, $\\bar{a}=1/a$. De même pour $b$ et $c$.\n$|a+b+c| = |\\overline{a+b+c}| = |\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}| = |\\frac{bc+ac+ab}{abc}| = \\frac{|ab+ac+bc|}{|abc|} = |ab+ac+bc|$ car $|abc|=1$."
+    },
+    {
+      "id": "nombres_complexes__champo_007",
+      "title": "TD Champo - 7.7",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation exponentielle",
+        "Racines carrées",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations $e^{z}+1=0$ et $e^{z}+e^{-z}=1$ d'inconnue $z\\in \\mathbb{C}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1) $e^z = -1 = e^{i\\pi} \\iff z = i(\\pi + 2k\\pi), k \\in \\mathbb{Z}$.\n2) $e^z+e^{-z}=1 \\iff (e^z)^2 - e^z + 1 = 0$. Posons $Z=e^z$. $Z^2-Z+1=0$ a pour solutions $e^{i\\pi/3}$ et $e^{-i\\pi/3}$.\nDonc $z = i\\frac{\\pi}{3} + 2ik\\pi$ ou $z = -i\\frac{\\pi}{3} + 2ik\\pi$."
+    },
+    {
+      "id": "nombres_complexes__champo_008",
+      "title": "TD Champo - 7.8",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_derivation_exp_complexe",
+        "nombres_complexes__def_theo_arguments_formes_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Argument",
+        "Arctangente",
+        "Forme algébrique",
+        "champo"
+      ],
+      "statement_latex": "Soit $z\\in \\mathbb{C}\\backslash \\mathbb{R}_{-}$, de forme algébrique $z=a+ib$, $(a,b)\\in \\mathbb{R}^{2}$. Montrer que l'argument principal de $z$ est $\\theta=2\\text{Arctan}(\\frac{b}{a+\\sqrt{a^{2}+b^{2}}})$.",
+      "sub_questions": [],
+      "global_solution_latex": "Vérifions que $z = |z|e^{i\\theta}$. Utilisons $t=\\tan(\\theta/2) = \\frac{b}{a+\\sqrt{a^2+b^2}}$.\n$\\cos\\theta = \\frac{1-t^2}{1+t^2} = \\dots = \\frac{a}{\\sqrt{a^2+b^2}}$ et $\\sin\\theta = \\frac{2t}{1+t^2} = \\dots = \\frac{b}{\\sqrt{a^2+b^2}}$.\nDonc $\\sqrt{a^2+b^2}(\\cos\\theta + i\\sin\\theta) = a+ib = z$. Comme l'arctangente est dans $]-\\pi/2, \\pi/2[$, $\\theta \\in ]-\\pi, \\pi[$."
+    },
+    {
+      "id": "nombres_complexes__champo_009",
+      "title": "TD Champo - 7.9",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Inégalité triangulaire",
+        "Module",
+        "champo"
+      ],
+      "statement_latex": "Soit $z\\in \\mathbb{C}$ tel que $|z|\\le 1$. \n1. Montrer que $|z^{3}+2iz|\\le 3$.\n2. Quels sont les $z$ pour lesquels cette inégalité est en fait une égalité ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. $|z^3+2iz| = |z||z^2+2i| \\le |z|(|z|^2+|2i|) \\le 1(1+2) = 3$.\n2. Cas d'égalité : il faut $|z|=1$, $|z^2|=1$ et égalité triangulaire pour $|z^2+2i|$.\n$z^2$ et $2i$ doivent être positivement liés : $z^2 = \\lambda(2i)$ avec $\\lambda \\ge 0$. Comme $|z^2|=1$, $\\lambda=1/2$, donc $z^2=i$. Solutions : $z=\\pm e^{i\\pi/4}$."
+    },
+    {
+      "id": "nombres_complexes__champo_010",
+      "title": "TD Champo - 7.10",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Binôme de Newton",
+        "Sommes binomiales",
+        "Formule de Moivre",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$. Calculer $S_{1}=\\sum_{k=0}^{\\lfloor\\frac{n}{2}\\rfloor}(-1)^{k}\\binom{n}{2k}$ et $S_{2}=\\sum_{k=0}^{\\lfloor\\frac{n-1}{2}\\rfloor}(-1)^{k}\\binom{n}{2k+1}$.",
+      "sub_questions": [],
+      "global_solution_latex": "D'une part $(1+i)^n = S_1 + iS_2$ en séparant parties réelle et imaginaire dans le binôme.\nD'autre part $(1+i)^n = (\\sqrt{2}e^{i\\pi/4})^n = (\\sqrt{2})^n(\\cos(n\\pi/4)+i\\sin(n\\pi/4))$.\nDonc $S_1 = (\\sqrt{2})^n\\cos(n\\pi/4)$ et $S_2 = (\\sqrt{2})^n\\sin(n\\pi/4)$.",
+      "hints": [
+        {
+          "level": 1,
+          "content_latex": "Calculer $(1+i)^{n}$ de deux manières différentes."
+        }
+      ]
+    },
+    {
+      "id": "nombres_complexes__champo_011",
+      "title": "TD Champo - 7.11",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_inverse_complexe",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Ensemble",
+        "Image directe",
+        "U",
+        "champo"
+      ],
+      "statement_latex": "Déterminer $\\{\\frac{1}{1-z},z\\in \\mathbb{U}\\backslash\\{1\\}\\}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Pour $z=e^{i\\theta}$, $\\frac{1}{1-e^{i\\theta}} = \\frac{1}{e^{i\\theta/2}(e^{-i\\theta/2}-e^{i\\theta/2})} = \\frac{e^{-i\\theta/2}}{-2i\\sin(\\theta/2)} = \\frac{\\cos(\\theta/2)-i\\sin(\\theta/2)}{-2i\\sin(\\theta/2)} = \\frac{1}{2} + \\frac{i}{2}\\text{cotan}(\\theta/2)$.\nC'est la droite d'équation $\\text{Re}(Z) = 1/2$."
+    },
+    {
+      "id": "nombres_complexes__champo_012",
+      "title": "TD Champo - 7.12",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__def_exponentielle_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Inégalité",
+        "Racines de l'unité",
+        "Suite",
+        "champo"
+      ],
+      "statement_latex": "Soit $z\\in \\mathbb{U}\\backslash\\{1\\}$. Montrer qu'il existe $n\\in \\mathbb{N}^{*}$ tel que $|z^{n}-1|\\ge\\sqrt{3}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Soit $z=e^{i\\theta}$. $|z^n-1| = 2|\\sin(n\\theta/2)|$. Il faut trouver $n$ tel que $|\\sin(n\\theta/2)| \\ge \\sqrt{3}/2 = \\sin(\\pi/3)$.\nOn raisonne sur le pas de rotation sur le cercle. Si $\\theta/2$ est petit, on peut tomber dans l'intervalle $[\\pi/3, 2\\pi/3]$ (modulo $\\pi$) en itérant."
+    },
+    {
+      "id": "nombres_complexes__champo_013",
+      "title": "TD Champo - 7.13",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_racines_niemes_unite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Oral ENS",
+        "Ensemble intégrable",
+        "Rationalité",
+        "champo"
+      ],
+      "statement_latex": "Un ensemble $X\\subset \\mathbb{C}$ est dit intégrable si pour tous $x,y\\in X$, $|x-y|\\in \\mathbb{N}$. Montrer que pour tout $n\\in \\mathbb{N}^{*}$ il existe un ensemble intégrable formé de $n$ points distincts tous situés sur un même cercle.",
+      "sub_questions": [],
+      "global_solution_latex": "On utilise la paramétrisation rationnelle du cercle. On cherche $\\theta$ tel que $e^{i\\theta}$ ait des coordonnées rationnelles et que les distances soient rationnelles (puis entières par homothétie).\n$|e^{ik\\theta}-e^{il\\theta}| = 2|\\sin((k-l)\\theta/2)|$. On choisit $\\theta$ via $t=\\tan(\\theta/2) \\in \\mathbb{Q}$ pour avoir $\\cos \\theta, \\sin \\theta \\in \\mathbb{Q}$."
+    },
+    {
+      "id": "nombres_complexes__champo_014",
+      "title": "TD Champo - 7.14",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle",
+        "nombres_complexes__theorem_quatre_formules_trigo"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Linéarisation",
+        "Intégrale",
+        "Trigonométrie",
+        "champo"
+      ],
+      "statement_latex": "1. Linéariser $\\sin^{5}(x)$. En déduire la valeur de $\\int_{0}^{\\pi}\\sin^{5}(x)dx$.\n2. Linéariser $\\cos^{2}(2x)\\sin^{3}(3x)$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\sin^5(x) = (\\frac{e^{ix}-e^{-ix}}{2i})^5 = \\frac{1}{16}(\\sin(5x)-5\\sin(3x)+10\\sin(x))$. Intégrale = $16/15$.\n2. $\\cos^2(2x)\\sin^3(3x) = \\dots = \\frac{1}{16}(-\\sin(13x)-2\\sin(9x)+3\\sin(7x)-\\sin(5x)+6\\sin(3x)-3\\sin(x))$."
+    },
+    {
+      "id": "nombres_complexes__champo_015",
+      "title": "TD Champo - 7.15",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_suite_recurrente_lineaire_ordre_2",
+        "nombres_complexes__theorem_limites_suites_complexes",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Somme trigonométrique",
+        "Suite géométrique",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\theta\\in \\mathbb{R}\\backslash 2\\pi \\mathbb{Z}$ et soit $n\\in \\mathbb{N}^{*}$. Calculer $C_{n}=\\sum_{k=1}^{n}\\cos(k\\theta)$ et $S_{n}=\\sum_{k=1}^{n}\\sin(k\\theta)$.",
+      "sub_questions": [],
+      "global_solution_latex": "Calcul de $C_n+iS_n = \\sum (e^{i\\theta})^k$. Suite géométrique de raison $e^{i\\theta} \\neq 1$.\nRésultat classique : $\\frac{\\sin(n\\theta/2)}{\\sin(\\theta/2)}\\cos((n+1)\\theta/2)$ et $\\frac{\\sin(n\\theta/2)}{\\sin(\\theta/2)}\\sin((n+1)\\theta/2)$."
+    },
+    {
+      "id": "nombres_complexes__champo_016",
+      "title": "TD Champo - 7.16",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Binôme de Newton",
+        "Somme trigonométrique",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\theta\\in \\mathbb{R}$ et $n\\in \\mathbb{N}^{*}$. Calculer $C_{n}=\\sum_{k=0}^{n}\\binom{n}{k}\\cos(k\\theta)$ et $S_{n}=\\sum_{k=0}^{n}\\binom{n}{k}\\sin(k\\theta)$.",
+      "sub_questions": [],
+      "global_solution_latex": "$C_n+iS_n = \\sum \\binom{n}{k}(e^{i\\theta})^k = (1+e^{i\\theta})^n$.\nUtilisation de l'angle moitié : $(2\\cos(\\theta/2)e^{i\\theta/2})^n$. Identifier parties réelles et imaginaires."
+    },
+    {
+      "id": "nombres_complexes__champo_017",
+      "title": "TD Champo - 7.17",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_systeme_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Polynômes de Tchebychev",
+        "Racines de l'unité",
+        "Arithmétique",
+        "champo"
+      ],
+      "statement_latex": "1. Prouver qu'il existe des entiers $a_{0},a_{1},...,a_{n}$ tels que pour tout $\theta\\in \\mathbb{R}$, $\\cos(n\\theta)=\\sum_{k=0}^{n}a_{k}\\cos^{k}(\theta)$.\n2. Montrer que $a_{n}=2^{n-1}$.\n3. Soit $w=\\frac{3-4i}{5}$. Vérifier que $w\\in \\mathbb{U}$, mais que $w \\notin \\bigcup_{n\\in \\mathbb{N}^{*}}\\mathbb{U}_{n}$ (c'est-à-dire que $w$ n'est pas une racine de l'unité).",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\cos(n\\theta) = \\text{Re}(( \\cos \\theta + i \\sin \\theta)^n)$. Développement du binôme et remplacement de $\\sin^{2p}\\theta$ par $(1-\\cos^2\\theta)^p$.\n2. Le coefficient dominant vient de $\\sum \\binom{n}{2p}$. Somme calculée précédemment : $2^{n-1}$.\n3. Si $w$ racine de l'unité, $\\cos(n\\theta)=1$. Absurde par divisibilité par 5."
+    },
+    {
+      "id": "nombres_complexes__champo_018",
+      "title": "TD Champo - 7.18",
+      "type": "mixed",
+      "difficulty": 4,
+      "estimated_duration_minutes": 32,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Oral ENS",
+        "Irrationalité",
+        "Racines de l'unité",
+        "champo"
+      ],
+      "statement_latex": "Soit $\\alpha=\\frac{\\text{Arccos}\\frac{1}{3}}{\\pi}$. Le but est de prouver que $\\alpha \\notin \\mathbb{Q}$.\n1. Donner la forme algébrique de $e^{i\\pi\\alpha}$.\n2. Montrer que $\\alpha\\in \\mathbb{Q}$ si et seulement si il existe $n\\in \\mathbb{N}^{*}$ tel que $(1+2i\\sqrt{2})^{n}=3^{n}$.\n3. Montrer que pour tout $n\\in \\mathbb{N}$ il existe des entiers $a_{n}$ et $b_{n}$ tels que $(1+2i\\sqrt{2})^{n}=a_{n}+ib_{n}\\sqrt{2}$, et tels que $a_{n}-b_{n}$ ne soit pas divisible par 3. Conclure.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $e^{i\\pi\\alpha} = \\frac{1+2i\\sqrt{2}}{3}$.\n2. $\\alpha \\in \\mathbb{Q} \\iff e^{i\\pi\\alpha}$ est une racine de l'unité.\n3. Récurrence. $a_{n+1}=a_n-4b_n$, $b_{n+1}=2a_n+b_n$. Invariant modulo 3. Contradiction avec $b_n=0$ si rationnel."
+    },
+    {
+      "id": "nombres_complexes__champo_019",
+      "title": "TD Champo - 7.19",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_description_racines_unite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Racines n-ièmes",
+        "Calcul algébrique",
+        "champo"
+      ],
+      "statement_latex": "Déterminer les racines cinquièmes de $j$ et de $\\frac{2\\sqrt{2}}{i-1}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$j=e^{i2\\pi/3}$. Racines : $e^{i(\\frac{2\\pi}{15} + \\frac{2k\\pi}{5})}$.\n$\\frac{2\\sqrt{2}}{i-1} = 2e^{-i3\\pi/4}$. Racines : $\\sqrt[5]{2}e^{i(\\frac{-3\\pi}{20} + \\frac{2k\\pi}{5})}$."
+    },
+    {
+      "id": "nombres_complexes__champo_020",
+      "title": "TD Champo - 7.20",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_racines_unite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation",
+        "Racines n-ièmes",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$, $a\\in \\mathbb{R}$. Résoudre l'équation $(1+z)^{n}=\\cos(2na)+i\\sin(2na)$.",
+      "sub_questions": [],
+      "global_solution_latex": "$(1+z)^n = e^{i2na}$. $1+z$ est une racine $n$-ième de $e^{i2na}$.\n$1+z = e^{i(2a + 2k\\pi/n)}$. $z_k = e^{i(2a+2k\\pi/n)} - 1 = 2ie^{i(a+k\\pi/n)}\\sin(a+k\\pi/n)$."
+    },
+    {
+      "id": "nombres_complexes__champo_021",
+      "title": "TD Champo - 7.21",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Produit",
+        "Racines de l'unité",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$. Calculer $\\prod_{\\omega\\in \\mathbb{U}_{n}}\\omega$.",
+      "sub_questions": [],
+      "global_solution_latex": "Produit des $e^{i2k\\pi/n}$. Somme des exposants : $\\frac{2i\\pi}{n} \\sum_{k=0}^{n-1} k = i\\pi(n-1)$.\nRésultat : $(-1)^{n-1}$."
+    },
+    {
+      "id": "nombres_complexes__champo_022",
+      "title": "TD Champo - 7.22",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Banque CCINP",
+        "Équation",
+        "Racines réelles",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}^{*}$. Montrer que l'équation $(z+i)^{n}=(z-i)^{n}$ d'inconnue $z\\in \\mathbb{C}$ possède exactement $n-1$ solutions, qui sont toutes réelles.",
+      "sub_questions": [],
+      "global_solution_latex": "On se ramène à $(\\frac{z+i}{z-i})^n = 1$. $\\frac{z+i}{z-i} = e^{i2k\\pi/n}$ pour $k \\in \\{1, \\dots, n-1\\}$ ($k=0$ impossible).\n$z_k = \\text{cotan}(\\frac{k\\pi}{n})$. $n-1$ solutions réelles distinctes."
+    },
+    {
+      "id": "nombres_complexes__champo_023",
+      "title": "TD Champo - 7.23",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation",
+        "Changement de variable",
+        "champo"
+      ],
+      "statement_latex": "1. Résoudre l'équation $Z^{3}+Z^{2}+Z+1=0, Z\\in \\mathbb{C}$.\n2. En déduire les solutions de $(\\frac{z+i}{z-i})^{3}+(\\frac{z+i}{z-i})^{2}+(\\frac{z+i}{z-i})+1=0$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Somme géométrique, racines 4-ièmes de l'unité sauf 1 : $\\{-1, i, -i\\}$.\n2. On pose $Z = \\frac{z+i}{z-i}$. On résout pour chaque valeur de $Z$. Solutions : $0, 1, -1$."
+    },
+    {
+      "id": "nombres_complexes__champo_024",
+      "title": "TD Champo - 7.24",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_module_somme",
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_systeme_somme_produit"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Banque CCINP",
+        "Somme",
+        "Géométrie",
+        "champo"
+      ],
+      "statement_latex": "Soit $n\\in \\mathbb{N}$ avec $n\\ge 2$ et soit $\\zeta=e^{2i\\frac{\\pi}{n}}$.\n1. On suppose que $k\\in [[1, n-1]]$. Déterminer le module et un argument du complexe $\\zeta^{k}-1$.\n2. On pose $S=\\sum_{k=1}^{n-1}|\\zeta^{k}-1|$. Montrer que $S=\\frac{2}{\\tan\\frac{\\pi}{2n}}$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\zeta^k-1 = 2i\\sin(k\\pi/n)e^{ik\\pi/n}$. Module $2\\sin(k\\pi/n)$, argument $k\\pi/n+\\pi/2$.\n2. Somme des sinus. Partie imaginaire d'une somme géométrique. Résultat $\\frac{2}{\\tan(\\pi/2n)}$."
+    },
+    {
+      "id": "nombres_complexes__champo_025",
+      "title": "TD Champo - 7.25",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_equation_second_degre",
+        "nombres_complexes__theorem_description_generale_racines"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Équation second degré",
+        "Racine carrée",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations suivantes, d'inconnue $z\\in \\mathbb{C}$ :\n1. $z^{2}-3z+3-i=0$\n2. $z^{2}+(1-2i)z-2i=0$\n3. $z^{4}-z^{2}+(1-i)=0$",
+      "sub_questions": [],
+      "global_solution_latex": "Utilisation du discriminant $\\Delta$ et calcul de ses racines carrées.\n1. $\\Delta = -3+4i = (1+2i)^2$. Solutions $2+i, 1-i$.\n2. Solutions $2i, -1$.\n3. Équation bicarrée."
+    },
+    {
+      "id": "nombres_complexes__champo_026",
+      "title": "TD Champo - 7.26",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_description_racines_unite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Système somme-produit",
+        "Géométrie",
+        "champo"
+      ],
+      "statement_latex": "1. Résoudre les systèmes $\\begin{cases}x+y=4\\\\ xy=5\\end{cases}$ et $\\begin{cases}x+y=3-2i\\\\ xy=5-i\\end{cases}$, d'inconnues $(x,y)\\in \\mathbb{C}^{2}$.\n2. Pour quelles valeurs de $\\lambda>0$ existe-t-il des rectangles pour lesquels l'aire $a$ et le périmètre $p$ sont reliés par la relation $p=\\lambda\\sqrt{a}$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. Racines de $X^2-SX+P=0$. $(2+i, 2-i)$ etc.\n2. Condition pour que $x,y$ soient réels positifs. $\\Delta \\ge 0 \\implies \\lambda \\ge 4$."
+    },
+    {
+      "id": "nombres_complexes__champo_027",
+      "title": "TD Champo - 7.27",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_arguments_formes_trigo",
+        "nombres_complexes__def_exponentielle_complexe",
+        "nombres_complexes__theorem_proprietes_exp_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Conjugué",
+        "Forme exponentielle",
+        "champo"
+      ],
+      "statement_latex": "Résoudre les équations suivantes, d'inconnue $z\\in \\mathbb{C}$ :\n1. $z^{2}=\\overline{z}$\n2. $z^{2}=-\\overline{z}^{2}$\n3. $z^{2}=2\\overline{z}$\n4. $z^{2}=\\frac{1}{z^{2}}$",
+      "sub_questions": [],
+      "global_solution_latex": "Passage en forme exponentielle $z=re^{i\\theta}$.\n1. $0, 1, j, j^2$.\n2. Arguments $\\pm \\pi/4, \\pm 3\\pi/4$.\n3. $0, 2, 2j, 2j^2$.\n4. $z \\in \\mathbb{U}_4$."
+    },
+    {
+      "id": "nombres_complexes__champo_028",
+      "title": "TD Champo - 7.28",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__theorem_racines_carrees_complexe",
+        "nombres_complexes__theorem_equation_second_degre"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Module",
+        "Équation non polynomiale",
+        "champo"
+      ],
+      "statement_latex": "Résoudre l'équation $z^{2}+2|z|-3=0$, d'inconnue $z\\in \\mathbb{C}$.",
+      "sub_questions": [],
+      "global_solution_latex": "$z^2 = 3-2|z|$ est réel. Donc $z$ est réel ou imaginaire pur. Analyse des cas. Solutions $\\{1, -1\\}$."
+    },
+    {
+      "id": "nombres_complexes__champo_029",
+      "title": "TD Champo - 7.29",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_theo_ensemble_U_exp_imaginaire",
+        "nombres_complexes__def_theo_corps_complexes",
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_limites_suites_complexes"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Lieu géométrique",
+        "Réel",
+        "champo"
+      ],
+      "statement_latex": "Caractériser géométriquement l'ensemble des complexes $z$ de $\\mathbb{C}\\backslash\\{i\\}$ tels que $\\frac{z+2}{1+iz}\\in \\mathbb{R}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Partie imaginaire nulle. Cercle."
+    },
+    {
+      "id": "nombres_complexes__champo_030",
+      "title": "TD Champo - 7.30",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__prop_relation_fondamentale_module",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Polygone régulier",
+        "Rotation",
+        "champo"
+      ],
+      "statement_latex": "Soient $M_{0},M_{1},...,M_{n-1}$ les sommets d'un polygone convexe régulier direct à $n$ côtés, et pour tout $k\\in[[0,n-1]]$ soit $z_{k}$ l'affixe de $M_{k}$. Donner l'expression des $z_{k}$ en fonction de $z_{0}$ et $z_{1}$.",
+      "sub_questions": [],
+      "global_solution_latex": "Utilisation du centre du polygone $\\omega$. Relation de rotation. $z_k = \\omega + \\zeta^k(z_0-\\omega)$ où $\\omega$ s'exprime avec $z_0, z_1$."
+    },
+    {
+      "id": "nombres_complexes__champo_031",
+      "title": "TD Champo - 7.31",
+      "type": "mixed",
+      "difficulty": 1,
+      "estimated_duration_minutes": 10,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__theorem_module_somme"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Similitudes",
+        "Composition",
+        "champo"
+      ],
+      "statement_latex": "Que peut-on dire de la composée de deux rotations ? De la composée de deux homothéties ?",
+      "sub_questions": [],
+      "global_solution_latex": "Composée de rotations d'angles $\\theta_1, \\theta_2$ est une rotation d'angle $\\theta_1+\\theta_2$ ou une translation (si somme nulle). Idem pour homothéties."
+    },
+    {
+      "id": "nombres_complexes__champo_032",
+      "title": "TD Champo - 7.32",
+      "type": "mixed",
+      "difficulty": 2,
+      "estimated_duration_minutes": 16,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_inverse_complexe",
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__def_conjugue_module"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Similitudes",
+        "Bijection",
+        "champo"
+      ],
+      "statement_latex": "1. Caractériser géométriquement la similitude associée à $z\\mapsto(1+i\\sqrt{3})z-i\\sqrt{3}$.\n2. Soit $t$ la translation de vecteur $\\vec{u}(-1,0)$ et soit $r$ la rotation de centre $O$ et d'angle $\\frac{\\pi}{2}$. Caractériser géométriquement $t\\circ r\\circ t$.\n3. Montrer qu'une similitude directe $f$ réalise une bijection de $\\mathbb{C}$ sur $\\mathbb{C}$. Prouver que $f^{-1}$ est encore une similitude directe, et déterminer sa nature et ses éléments caractéristiques en fonction de ceux de $f$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. Rapport 2, angle $\\pi/3$, centre 1.\n2. Rotation.\n3. Inverse affine $z'=(z-b)/a$."
+    },
+    {
+      "id": "nombres_complexes__champo_033",
+      "title": "TD Champo - 7.33",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_conjugue_module",
+        "nombres_complexes__theorem_description_racines_unite"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Alignement",
+        "Triangle rectangle",
+        "Condition",
+        "champo"
+      ],
+      "statement_latex": "Soit $z\\in \\mathbb{C}$. À quelle condition nécessaire et suffisante sur $z$ :\n1. les points d'affixes $1, z$ et $z^{2}$ sont-ils alignés ?\n2. les points d'affixes $z$, $z^{2}$ et $z^{3}$ sont-ils les sommets d'un triangle rectangle en le point d'affixe $z^{2}$ ?",
+      "sub_questions": [],
+      "global_solution_latex": "1. $\\frac{z^2-1}{z-1} \\in \\mathbb{R} \\iff z+1 \\in \\mathbb{R} \\iff z \\in \\mathbb{R}$.\n2. $\\frac{z^3-z^2}{z-z^2} \\in i\\mathbb{R} \\iff -z \\in i\\mathbb{R} \\iff z \\in i\\mathbb{R}$."
+    },
+    {
+      "id": "nombres_complexes__champo_034",
+      "title": "TD Champo - 7.34",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__theorem_regularite_fonction_complexe",
+        "nombres_complexes__theorem_systeme_somme_produit",
+        "nombres_complexes__prop_relation_fondamentale_module",
+        "nombres_complexes__theorem_expression_explicite_suite_reelle"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Triangle équilatéral",
+        "Rotation",
+        "j",
+        "champo"
+      ],
+      "statement_latex": "Soient $A, B, C$ trois points d'affixes respectives $a, b$ et $c$. On note $j=e^{i\\frac{2\\pi}{3}}$.\n1. Calculer $j^{2}$ et en déduire une expression de $e^{i\\frac{\\pi}{3}}$ en fonction de $j$.\n2. Montrer que $ABC$ est équilatéral direct si et seulement $a+bj+cj^{2}=0$.\n3. Montrer que $ABC$ est équilatéral si et seulement si $a^{2}+b^{2}+c^{2}=ab+ac+bc$.",
+      "sub_questions": [],
+      "global_solution_latex": "1. $e^{i\\pi/3} = -j^2$.\n2. Rotation de centre $A$ angle $\\pi/3$. Relation $c-a = -j^2(b-a)$.\n3. Équilatéral direct ou indirect. Produit des conditions = relation symétrique."
+    },
+    {
+      "id": "nombres_complexes__champo_035",
+      "title": "TD Champo - 7.35",
+      "type": "mixed",
+      "difficulty": 3,
+      "estimated_duration_minutes": 24,
+      "knowledge_nodes_tested": [
+        "nombres_complexes__def_racines_niemes_unite",
+        "nombres_complexes__theorem_description_generale_racines",
+        "nombres_complexes__theorem_description_racines_unite",
+        "nombres_complexes__theorem_racines_carrees_complexe"
+      ],
+      "prerequisites": [],
+      "tags": [
+        "Alignement",
+        "Racines n-ièmes",
+        "Argument",
+        "champo"
+      ],
+      "statement_latex": "Soit $a\\in \\mathbb{U}$, soit $n\\in \\mathbb{N}^{*}$ et soient $z_{0},z_{1},...,z_{n-1}$ les $n$ racines $n$-ièmes de $a$. Montrer que les points d'affixes $(1+z_{k})^{n}$, $0\\le k\\le n-1$ sont alignés.",
+      "sub_questions": [],
+      "global_solution_latex": "Calcul de l'argument de $(1+z_k)^n$ via l'angle moitié. On montre qu'ils sont égaux modulo $\\pi$ (ou $\\theta/2$ modulo $\\pi$). Ils sont alignés avec l'origine."
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "programme_chapter_id": "INTEGRATION",
+  "programme_chapter_title": "Intégration sur un segment",
+  "semestre": 2,
+  "linked_course_chapters": [
+    "integration_sur_un_segment"
+  ],
+  "questions": [
+    {
+      "id": "INTEGRATION__qc_001",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Continuité uniforme.",
+      "programme_notion": "Continuité uniforme",
+      "answer_node_id": "integration_sur_un_segment__definition_continuite_uniforme",
+      "answer_latex": "Soit $f : I \\to \\mathbb{C}$ une fonction. On dit que $f$ est uniformément continue sur $I$ si :\\par $\\forall \\epsilon > 0, \\exists \\alpha > 0, \\forall x, y \\in I, |x - y| < \\alpha \\Rightarrow |f(x) - f(y)| < \\epsilon.$\\par\\par Dire que $f$ est continue sur $I$, c'est dire que $f$ est continue en tout point $y$ de $I$, c'est-à-dire :\\par $\\forall y \\in I, \\forall \\epsilon > 0, \\exists \\alpha_{y,\\epsilon} > 0, \\forall x \\in I, |x - y| < \\alpha_{y,\\epsilon} \\Rightarrow |f(x) - f(y)| < \\epsilon.$\\par\\par Avec la continuité, on se fixe donc un point $y \\in I$ et un niveau $\\epsilon$, et on récupère un $\\alpha_{y,\\epsilon}$. Si on change de $y$ ou de $\\epsilon$, on change a priori la valeur de $\\alpha_{y,\\epsilon}$. Avec la continuité UNIFORME, on obtient un $\\alpha_\\epsilon$ en ayant seulement fixé un $\\epsilon$. Cet $\\alpha_\\epsilon$ est donc VALABLE POUR TOUT POINT $y \\in I$. L'adjectif « uniforme » est précisément là pour signifier cette indépendance de $\\alpha_\\epsilon$ par rapport à $y$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_002",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Exemple des fonctions lipschitziennes.",
+      "programme_notion": "Exemple des fonctions lipschitziennes",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_fonctions_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ et $g : [a, b] \\to \\mathbb{C}$ deux fonctions en escalier et $\\lambda, \\mu \\in \\mathbb{C}$.\\par\\par $\\bullet$ Ajout de points à une subdivision adaptée : Lorsqu'on ajoute un nombre fini de points à une subdivision de $[a, b]$ adaptée à $f$, le résultat est encore une subdivision de $[a, b]$ adaptée à $f$.\\par\\par $\\bullet$ Opérations sur les fonctions en escalier : La réunion d'une subdivision de $[a, b]$ adaptée à $f$ et d'une subdivision de $[a, b]$ adaptée à $g$ est une subdivision de $[a, b]$ adaptée à $f$ et à $g$. Les fonctions $|f|$, $\\text{Re}(f)$, $\\text{Im}(f)$, $\\lambda f + \\mu g$ et $fg$ sont elles aussi en escalier sur $[a, b]$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_003",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Théorème de Heine : toute fonction continue sur un segment est uniformément continue.",
+      "programme_notion": "Théorème de Heine : toute fonction continue sur un segment est uniformément continue",
+      "answer_node_id": "integration_sur_un_segment__theorem_theoreme_heine",
+      "answer_latex": "Toute fonction continue sur un SEGMENT y est uniformément continue.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_004",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Théorème de Heine : toute fonction continue sur un segment est uniformément continue.",
+      "programme_notion": "Théorème de Heine : toute fonction continue sur un segment est uniformément continue",
+      "answer_node_id": "integration_sur_un_segment__theorem_theoreme_heine",
+      "answer_latex": "Toute fonction continue sur un SEGMENT y est uniformément continue.\n\n\\textbf{Démonstration.} Soit $f : [a, b] \\to \\mathbb{C}$. Par contraposition, faisons l'hypothèse que $f$ n'est pas uniformément continue sur $[a, b]$. Pour un certain $\\epsilon > 0$ :\\par $\\forall \\alpha > 0, \\exists x, y \\in [a, b], |x - y| < \\alpha \\text{ et } |f(x) - f(y)| \\geq \\epsilon.$\\par\\par Pour tout $n \\in \\mathbb{N}$, il existe donc deux réels $x_n, y_n \\in [a, b]$ pour lesquels $|x_n - y_n| < 2^{-n}$ et $|f(x_n) - f(y_n)| \\geq \\epsilon$. Bornée entre $a$ et $b$, la suite $(x_n)_{n \\in \\mathbb{N}}$ possède une suite extraite convergente d'après le théorème de Bolzano-Weierstrass, disons de limite $\\ell \\in [a, b]$. Or $|x_{\\phi(n)} - y_{\\phi(n)}| < 2^{-\\phi(n)}$, donc $y_{\\phi(n)} \\xrightarrow[n \\to +\\infty]{} \\ell$ par encadrement. Ainsi, les deux suites $(x_{\\phi(n)})_{n \\in \\mathbb{N}}$ et $(y_{\\phi(n)})_{n \\in \\mathbb{N}}$ convergent vers $\\ell$, mais $|f(x_{\\phi(n)}) - f(y_{\\phi(n)})| \\geq \\epsilon$ ne tend pas vers 0 lorsque $n$ tend vers $+\\infty$, donc $f$ n'est pas continue en $\\ell$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_005",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Subdivision d'un segment, pas d'une subdivision.",
+      "programme_notion": "Subdivision d'un segment, pas d'une subdivision",
+      "answer_node_id": "integration_sur_un_segment__definition_subdivision",
+      "answer_latex": "On appelle subdivision de $[a, b]$ toute famille $\\sigma = (x_0, \\ldots, x_p)$ de $[a, b]$ pour laquelle $a = x_0 < \\ldots < x_p = b$. Le réel strictement positif $\\max_{0 \\leq k \\leq p-1} (x_{k+1} - x_k)$ est appelé le pas de $\\sigma$.\\par\\par Une subdivision de $[a, b]$ est une famille, mais en présence de deux subdivisions de $[a, b]$, nous nous autoriserons par abus de langage à parler de leur réunion ou de l'inclusion de l'une dans l'autre. Par exemple, la subdivision $(0, 1, 3, 5)$ de $[0, 5]$ est incluse dans la subdivision $(0, 1, 2, 3, 4, 5)$ et la réunion des subdivisions $(0, 1, 3, 5)$ et $(0, 1, 2, 5)$ vaut $(0, 1, 2, 3, 5)$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_006",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction en escalier.",
+      "programme_notion": "Fonction en escalier",
+      "answer_node_id": "integration_sur_un_segment__definition_fonction_escalier",
+      "answer_latex": "On dit qu'une fonction $f : [a, b] \\to \\mathbb{C}$ est en escalier si pour une certaine subdivision $(x_0, \\ldots, x_p)$ de $[a, b]$, dite adaptée à $f$ :\\par $f$ est constante sur $]x_k, x_{k+1}[$ pour tout $k \\in \\{0, \\ldots, p-1\\}$.\\par\\par Cette définition ne garantit nullement l'unicité de la subdivision adaptée $(x_0, \\ldots, x_p)$ et elle n'impose aucune valeur à $f$ en $x_0, \\ldots, x_p$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_007",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Fonction continue par morceaux.",
+      "programme_notion": "Fonction continue par morceaux",
+      "answer_node_id": "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+      "answer_latex": "On dit qu'une fonction $f : [a, b] \\to \\mathbb{C}$ est continue par morceaux si pour une certaine subdivision $(x_0, \\ldots, x_p)$ de $[a, b]$, dite adaptée à $f$ :\\par $f_{]x_k, x_{k+1}[}$ est continue sur $]x_k, x_{k+1}[$ et PROLONGEABLE PAR CONTINUITÉ EN $x_k$ ET $x_{k+1}$ pour tout $k \\in \\{0, \\ldots, p-1\\}$.\\par\\par L'ensemble des fonctions continues par morceaux sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est noté $\\mathcal{C}_M([a, b], \\mathbb{K})$.\\par\\par Toute fonction en escalier et toute fonction continue sont continues par morceaux.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_008",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Structure de sous-espace vectoriel et de sous-anneau.",
+      "programme_notion": "Structure de sous-espace vectoriel et de sous-anneau",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_009",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Structure de sous-espace vectoriel et de sous-anneau.",
+      "programme_notion": "Structure de sous-espace vectoriel et de sous-anneau",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.\n\n\\textbf{Démonstration.} Pour toute subdivision $\\sigma = (x_0, \\ldots, x_p)$ de $[a, b]$ adaptée à $f$, posons $I_\\sigma = \\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$.\\par\\par $\\bullet$ Soient $\\sigma = (x_0, \\ldots, x_p)$ et $\\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. On suppose $\\sigma'$ incluse dans $\\sigma$. Montrons que $I_\\sigma = I_{\\sigma'}$.\\par\\par Pour un certain $p' \\in \\mathbb{N}^*$ et une certaine fonction $\\phi : \\{0, \\ldots, p'\\} \\to \\{0, \\ldots, p\\}$ strictement croissante pour laquelle $\\phi(0) = 0$ et $\\phi(p') = p$ — c'est le principe des suites extraites. Pour tout $i \\in \\{0, \\ldots, p-1\\}$, notons $y_i$ la valeur de $f$ sur $]x_i, x_{i+1}[$, et pour tout $j \\in \\{0, \\ldots, p'-1\\}$, $y'_j$ sa valeur sur $]x_{\\phi(j)}, x_{\\phi(j+1)}[$. L'inclusion de $\\sigma$ dans $\\sigma'$ nous permet d'écrire que $\\sigma' = (x_{\\phi(0)}, x_{\\phi(1)}, \\ldots, x_{\\phi(p')})$.\\par\\par $I_{\\sigma'} = \\sum_{j=0}^{p'-1} y'_j (x_{\\phi(j+1)} - x_{\\phi(j)}) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y'_j (x_{k+1} - x_k) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y_k (x_{k+1} - x_k) = \\sum_{i=0}^{p-1} y_i (x_{i+1} - x_i) = I_\\sigma$.\\par\\par $\\bullet$ Montrons enfin que $I_\\sigma$ ne dépend pas du choix de $\\sigma$. Soient $\\sigma, \\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. La réunion de $\\sigma$ et $\\sigma'$ est encore une subdivision de $[a, b]$ adaptée à $f$ et contient à la fois $\\sigma$ et $\\sigma'$, donc d'après le point précédent : $I_\\sigma = I_{\\sigma \\cup \\sigma'} = I_{\\sigma'}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_010",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Intégrale d'une fonction continue par morceaux sur un segment.",
+      "programme_notion": "Intégrale d'une fonction continue par morceaux sur un segment",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_CM",
+      "answer_latex": "Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par Pour toute suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ qui converge uniformément vers $f$, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\\phi_n)_{n \\in \\mathbb{N}}$.\\par\\par Cette limite unique est appelée l'intégrale de $f$ sur $[a, b]$ et notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$. En outre, si $f$ est en escalier sur $[a, b]$, cette définition coïncide avec la précédente.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_011",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Intégrale d'une fonction continue par morceaux sur un segment.",
+      "programme_notion": "Intégrale d'une fonction continue par morceaux sur un segment",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_CM",
+      "answer_latex": "Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par Pour toute suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ qui converge uniformément vers $f$, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\\phi_n)_{n \\in \\mathbb{N}}$.\\par\\par Cette limite unique est appelée l'intégrale de $f$ sur $[a, b]$ et notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$. En outre, si $f$ est en escalier sur $[a, b]$, cette définition coïncide avec la précédente.\n\n\\textbf{Démonstration.} $\\bullet$ Soient $(\\phi_n)_{n \\in \\mathbb{N}}$ et $(\\psi_n)_{n \\in \\mathbb{N}}$ deux suites de fonctions en escalier sur $[a, b]$ dont $f$ est la limite uniforme. Pour tout $n \\in \\mathbb{N}$, d'après les deux propriétés de l'intégrale d'une fonction en escalier déjà démontrées :\\par $\\left|\\int_{[a,b]} \\phi_n - \\int_{[a,b]} \\psi_n\\right| = \\left|\\int_{[a,b]} (\\phi_n - \\psi_n)\\right| \\leq (b-a) \\|\\phi_n - \\psi_n\\|_\\infty \\leq (b-a) (\\|\\phi_n - f\\|_\\infty + \\|f - \\psi_n\\|_\\infty)$.\\par\\par Il en découle par encadrement que si les suites $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ et $\\left(\\int_{[a,b]} \\psi_n\\right)_{n \\in \\mathbb{N}}$ convergent, elles ont la même limite, indépendante de $(\\phi_n)_{n \\in \\mathbb{N}}$ et $(\\psi_n)_{n \\in \\mathbb{N}}$.\\par\\par Il reste à montrer que la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge. Or $\\left|\\int_{[a,b]} \\phi_n\\right| \\leq (b-a) \\|\\phi_n\\|_\\infty \\leq (b-a) (\\|f\\|_\\infty + \\|\\phi_n - f\\|_\\infty) \\leq (b-a) (\\|f\\|_\\infty + 1)$ à partir d'un certain rang, donc la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ est bornée. Bornée, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ possède alors une suite extraite convergente de limite $\\ell$ d'après le théorème de Bolzano-Weierstrass. Notons $\\theta$ la fonction d'extraction associée. D'après l'inégalité précédente appliquée à $\\phi_n$ et $\\phi_{\\theta(n)}$ :\\par $\\left|\\int_{[a,b]} \\phi_n - \\int_{[a,b]} \\phi_{\\theta(n)}\\right| \\leq (b-a) (\\|\\phi_n - f\\|_\\infty + \\|f - \\phi_{\\theta(n)}\\|_\\infty)$,\\par donc $\\int_{[a,b]} \\phi_n \\xrightarrow[n \\to +\\infty]{} \\ell$ par encadrement.\\par\\par Que dire enfin si $f$ est en escalier sur $[a, b]$ ? Nous pouvons dans ce cas poser $\\phi_n = f$ pour tout $n \\in \\mathbb{N}$, de sorte que $\\|\\phi_n - f\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$. La limite $\\lim_{n \\to +\\infty} \\int_{[a,b]} \\phi_n$ se trouve ainsi égale à l'intégrale $\\int_{[a,b]} f$ de $f$ au sens des fonctions en escalier. Nos deux définitions de l'intégrale d'une fonction en escalier coïncident.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_012",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation géométrique de l'intégrale.",
+      "programme_notion": "Interprétation géométrique de l'intégrale",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_013",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Interprétation géométrique de l'intégrale.",
+      "programme_notion": "Interprétation géométrique de l'intégrale",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.\n\n\\textbf{Démonstration.} Pour toute subdivision $\\sigma = (x_0, \\ldots, x_p)$ de $[a, b]$ adaptée à $f$, posons $I_\\sigma = \\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$.\\par\\par $\\bullet$ Soient $\\sigma = (x_0, \\ldots, x_p)$ et $\\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. On suppose $\\sigma'$ incluse dans $\\sigma$. Montrons que $I_\\sigma = I_{\\sigma'}$.\\par\\par Pour un certain $p' \\in \\mathbb{N}^*$ et une certaine fonction $\\phi : \\{0, \\ldots, p'\\} \\to \\{0, \\ldots, p\\}$ strictement croissante pour laquelle $\\phi(0) = 0$ et $\\phi(p') = p$ — c'est le principe des suites extraites. Pour tout $i \\in \\{0, \\ldots, p-1\\}$, notons $y_i$ la valeur de $f$ sur $]x_i, x_{i+1}[$, et pour tout $j \\in \\{0, \\ldots, p'-1\\}$, $y'_j$ sa valeur sur $]x_{\\phi(j)}, x_{\\phi(j+1)}[$. L'inclusion de $\\sigma$ dans $\\sigma'$ nous permet d'écrire que $\\sigma' = (x_{\\phi(0)}, x_{\\phi(1)}, \\ldots, x_{\\phi(p')})$.\\par\\par $I_{\\sigma'} = \\sum_{j=0}^{p'-1} y'_j (x_{\\phi(j+1)} - x_{\\phi(j)}) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y'_j (x_{k+1} - x_k) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y_k (x_{k+1} - x_k) = \\sum_{i=0}^{p-1} y_i (x_{i+1} - x_i) = I_\\sigma$.\\par\\par $\\bullet$ Montrons enfin que $I_\\sigma$ ne dépend pas du choix de $\\sigma$. Soient $\\sigma, \\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. La réunion de $\\sigma$ et $\\sigma'$ est encore une subdivision de $[a, b]$ adaptée à $f$ et contient à la fois $\\sigma$ et $\\sigma'$, donc d'après le point précédent : $I_\\sigma = I_{\\sigma \\cup \\sigma'} = I_{\\sigma'}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_014",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Linéarité, positivité, croissance de l'intégrale.",
+      "programme_notion": "Linéarité, positivité, croissance de l'intégrale",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+      "answer_latex": "Soient $f, g \\in \\mathcal{C}_M([a, b], \\mathbb{R})$.\\par\\par (i) Positivité : Si $f \\geq 0$, alors $\\int_{[a,b]} f \\geq 0$.\\par\\par (ii) Croissance : Si $f \\leq g$, alors $\\int_{[a,b]} f \\leq \\int_{[a,b]} g$.\\par\\par (iii) Positivité stricte : Si $f$ est positive sur $[a, b]$, strictement en au moins un point de continuité, et si $a < b$, alors $\\int_{[a,b]} f > 0$.\\par\\par (iv) Nullité avec signe constant : Si $f$ est CONTINUE et de signe constant et si $\\int_{[a,b]} f = 0$ avec $a < b$, alors $f$ est identiquement nulle sur $[a, b]$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_015",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Linéarité, positivité, croissance de l'intégrale.",
+      "programme_notion": "Linéarité, positivité, croissance de l'intégrale",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_reelle",
+      "answer_latex": "Soient $f, g \\in \\mathcal{C}_M([a, b], \\mathbb{R})$.\\par\\par (i) Positivité : Si $f \\geq 0$, alors $\\int_{[a,b]} f \\geq 0$.\\par\\par (ii) Croissance : Si $f \\leq g$, alors $\\int_{[a,b]} f \\leq \\int_{[a,b]} g$.\\par\\par (iii) Positivité stricte : Si $f$ est positive sur $[a, b]$, strictement en au moins un point de continuité, et si $a < b$, alors $\\int_{[a,b]} f > 0$.\\par\\par (iv) Nullité avec signe constant : Si $f$ est CONTINUE et de signe constant et si $\\int_{[a,b]} f = 0$ avec $a < b$, alors $f$ est identiquement nulle sur $[a, b]$.\n\n\\textbf{Démonstration.} Donnons-nous une fois pour toutes une suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ dont $f$ est la limite uniforme et une suite de fonctions en escalier $(\\psi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ dont $g$ est la limite uniforme.\\par\\par (i) Comme $f \\geq 0$, on peut choisir la fonction $\\phi_n$ positive pour tout $n \\in \\mathbb{N}$. Ainsi, par définition de l'intégrale d'une fonction en escalier, $\\int_{[a,b]} \\phi_n \\geq 0$ pour tout $n \\in \\mathbb{N}$, donc $\\int_{[a,b]} f = \\lim_{n \\to +\\infty} \\int_{[a,b]} \\phi_n \\geq 0$.\\par\\par (ii) Comme $f \\leq g$, $\\int_{[a,b]} (g - f) \\geq 0$ par positivité, puis $\\int_{[a,b]} f \\leq \\int_{[a,b]} g$ par linéarité.\\par\\par (iii) Par hypothèse, $f$ est continue en un certain $x_0 \\in [a, b]$ pour lequel $f(x_0) > 0$, donc elle est minorée par $\\frac{f(x_0)}{2}$ sur un intervalle $[x_0^-, x_0^+]$ contenant $x_0$ avec $a \\leq x_0^- < x_0^+ \\leq b$. La fonction $\\phi = \\frac{f(x_0)}{2} \\mathbf{1}_{[x_0^-, x_0^+]}$ est alors en escalier sur $[a, b]$ et $\\phi \\leq f$ par construction — notamment parce que $f$ est positive — donc par croissance de l'intégrale : $\\int_{[a,b]} f \\geq \\int_{[a,b]} \\phi = \\frac{f(x_0)}{2}(x_0^+ - x_0^-) > 0$.\\par\\par (iv) On peut supposer $f$ positive quitte à la remplacer par $-f$. Il s'agit de montrer par contraposition que si $f$ n'est pas identiquement nulle sur $[a, b]$, alors $\\int_{[a,b]} f > 0$, mais c'est une simple conséquence de (iii).",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_016",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité triangulaire intégrale : |∫f| ≤ ∫|f|.",
+      "programme_notion": "Inégalité triangulaire intégrale : |∫f| ≤ ∫|f|",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ et $g : [a, b] \\to \\mathbb{C}$ en escalier et $\\lambda, \\mu \\in \\mathbb{C}$.\\par\\par (i) Linéarité : $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Inégalité triangulaire et même mieux : $\\left|\\int_{[a,b]} f\\right| \\leq \\int_{[a,b]} |f| \\leq (b-a) \\|f\\|_\\infty$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_017",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité triangulaire intégrale : |∫f| ≤ ∫|f|.",
+      "programme_notion": "Inégalité triangulaire intégrale : |∫f| ≤ ∫|f|",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ et $g : [a, b] \\to \\mathbb{C}$ en escalier et $\\lambda, \\mu \\in \\mathbb{C}$.\\par\\par (i) Linéarité : $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Inégalité triangulaire et même mieux : $\\left|\\int_{[a,b]} f\\right| \\leq \\int_{[a,b]} |f| \\leq (b-a) \\|f\\|_\\infty$.\n\n\\textbf{Démonstration.} Donnons-nous une subdivision $(x_0, \\ldots, x_p)$ de $[a, b]$ adaptée à $f$ et à $g$, donc à $\\lambda f + \\mu g$ et $|f|$.\\par\\par (i) $\\int_{[a,b]} (\\lambda f + \\mu g) = \\sum_{k=0}^{p-1} (\\lambda f + \\mu g)\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) = \\lambda \\sum_{k=0}^{p-1} f\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) + \\mu \\sum_{k=0}^{p-1} g\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) $\\left|\\int_{[a,b]} f\\right| = \\left|\\sum_{k=0}^{p-1} f\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k)\\right| \\leq \\sum_{k=0}^{p-1} \\left|f\\left(\\frac{x_k + x_{k+1}}{2}\\right)\\right| (x_{k+1} - x_k) = \\int_{[a,b]} |f| \\leq \\sum_{k=0}^{p-1} \\|f\\|_\\infty (x_{k+1} - x_k) = (b-a) \\|f\\|_\\infty$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_018",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Relation de Chasles.",
+      "programme_notion": "Relation de Chasles",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+      "answer_latex": "Soient $f, g \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par (i) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Inégalité triangulaire : $\\left|\\int_{[a,b]} f\\right| \\leq \\int_{[a,b]} |f|$.\\par\\par (iii) Relation de Chasles : Pour tout $c \\in [a, b]$ : $\\int_{[a,b]} f = \\int_{[a,c]} f + \\int_{[c,b]} f$.\\par\\par (iv) Lien avec les parties réelle et imaginaire : $\\int_{[a,b]} f = \\int_{[a,b]} \\text{Re}(f) + i \\int_{[a,b]} \\text{Im}(f)$.\\par En particulier, si $f$ est réelle, son intégrale sur $[a, b]$ est un réel.\\par\\par (v) Modification d'un nombre fini de valeurs : Si $f$ et $g$ sont égales sur $[a, b]$ sauf en un nombre fini de points : $\\int_{[a,b]} f = \\int_{[a,b]} g$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_019",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Relation de Chasles.",
+      "programme_notion": "Relation de Chasles",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+      "answer_latex": "Soient $f, g \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par (i) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Inégalité triangulaire : $\\left|\\int_{[a,b]} f\\right| \\leq \\int_{[a,b]} |f|$.\\par\\par (iii) Relation de Chasles : Pour tout $c \\in [a, b]$ : $\\int_{[a,b]} f = \\int_{[a,c]} f + \\int_{[c,b]} f$.\\par\\par (iv) Lien avec les parties réelle et imaginaire : $\\int_{[a,b]} f = \\int_{[a,b]} \\text{Re}(f) + i \\int_{[a,b]} \\text{Im}(f)$.\\par En particulier, si $f$ est réelle, son intégrale sur $[a, b]$ est un réel.\\par\\par (v) Modification d'un nombre fini de valeurs : Si $f$ et $g$ sont égales sur $[a, b]$ sauf en un nombre fini de points : $\\int_{[a,b]} f = \\int_{[a,b]} g$.\n\n\\textbf{Démonstration.} Les propriétés se démontrent toutes de la même façon. On les prouve d'abord pour les fonctions en escalier, puis dans le cas général par passage à la limite.\\par\\par Donnons-nous une fois pour toutes une suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ dont $f$ est la limite uniforme et une suite de fonctions en escalier $(\\psi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ dont $g$ est la limite uniforme.\\par\\par (i) Pour tout $n \\in \\mathbb{N}$ : $\\|(\\lambda f + \\mu g) - (\\lambda \\phi_n + \\mu \\psi_n)\\|_\\infty \\leq |\\lambda| \\|f - \\phi_n\\|_\\infty + |\\mu| \\|g - \\psi_n\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$, donc par encadrement, $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lim_{n \\to +\\infty} \\int_{[a,b]} (\\lambda \\phi_n + \\mu \\psi_n) = \\lim_{n \\to +\\infty} (\\lambda \\int_{[a,b]} \\phi_n + \\mu \\int_{[a,b]} \\psi_n) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Pour tout $n \\in \\mathbb{N}$ : $\\||f| - |\\phi_n|\\|_\\infty \\leq \\|f - \\phi_n\\|_\\infty$, donc $|\\phi_n| \\xrightarrow[n \\to +\\infty]{} |f|$ uniformément, et ainsi : $\\int_{[a,b]} |f| = \\lim_{n \\to +\\infty} \\int_{[a,b]} |\\phi_n| \\geq \\lim_{n \\to +\\infty} |\\int_{[a,b]} \\phi_n| = |\\int_{[a,b]} f|$.\\par\\par (iii) Cas où $f$ est en escalier : Quitte à ajouter le point $c$ à la subdivision $(x_0, \\ldots, x_p)$, on peut supposer que $x_q = c$ pour un certain $q \\in \\{0, \\ldots, p\\}$. La fonction $f|_{[a,c]}$ est alors en escalier sur $[a, c]$ de subdivision adaptée $(x_0, \\ldots, x_q)$ et $f|_{[c,b]}$ l'est sur $[c, b]$ de subdivision adaptée $(x_q, \\ldots, x_p)$. Enfin : $\\int_{[a,b]} f = \\sum_{k=0}^{p-1} f\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) = \\sum_{k=0}^{q-1} f\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) + \\sum_{k=q}^{p-1} f\\left(\\frac{x_k + x_{k+1}}{2}\\right) (x_{k+1} - x_k) = \\int_{[a,c]} f + \\int_{[c,b]} f$.\\par\\par Cas général : Pour tout $n \\in \\mathbb{N}$, $\\phi_n|_{[a,c]}$ et $\\phi_n|_{[c,b]}$ sont en escalier et $\\|f|_{[a,c]} - \\phi_n|_{[a,c]}\\|_\\infty \\leq \\|f - \\phi_n\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$, et de même $\\|f|_{[c,b]} - \\phi_n|_{[c,b]}\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$. Ainsi, $f|_{[a,c]}$ est la limite uniforme de $(\\phi_n|_{[a,c]})_{n \\in \\mathbb{N}}$ et $f|_{[c,b]}$ de $(\\phi_n|_{[c,b]})_{n \\in \\mathbb{N}}$, donc : $\\int_{[a,b]} f = \\lim_{n \\to +\\infty} \\int_{[a,b]} \\phi_n = \\lim_{n \\to +\\infty} (\\int_{[a,c]} \\phi_n|_{[a,c]} + \\int_{[c,b]} \\phi_n|_{[c,b]}) = \\int_{[a,c]} f + \\int_{[c,b]} f$.\\par\\par (iv) et (v) se démontrent de manière similaire.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_020",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Extension de la notation au cas b ≤ a.",
+      "programme_notion": "Extension de la notation au cas b ≤ a",
+      "answer_node_id": "integration_sur_un_segment__remark_notation_integrale",
+      "answer_latex": "Pour tout intervalle $I$ et pour tous $f \\in \\mathcal{C}_M(I, \\mathbb{C})$ et $a, b \\in I$, on pose à présent :\\par $\\int_a^b f = \\int_a^b f(t) \\, dt = \\int_{[a,b]} f$ si $a \\leq b$ et $\\int_a^b f = \\int_a^b f(t) \\, dt = -\\int_{[b,a]} f$ si $b < a$.\\par\\par Cette nouvelle notation s'utilise comme la précédente, MAIS ATTENTION, avec un petit changement quand même en cas d'inégalités. Si $b < a$, alors $\\left|\\int_a^b f\\right| \\leq \\left|\\int_b^a |f|\\right|$, et si de plus $f \\geq 0$, alors $\\int_a^b f \\leq 0$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_021",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Si f continue, à valeurs dans R₊ et ∫f = 0, alors f = 0.",
+      "programme_notion": "Si f continue, à valeurs dans R₊ et ∫f = 0, alors f = 0",
+      "answer_node_id": "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+      "answer_latex": "On dit qu'une fonction $f : [a, b] \\to \\mathbb{C}$ est continue par morceaux si pour une certaine subdivision $(x_0, \\ldots, x_p)$ de $[a, b]$, dite adaptée à $f$ :\\par $f_{]x_k, x_{k+1}[}$ est continue sur $]x_k, x_{k+1}[$ et PROLONGEABLE PAR CONTINUITÉ EN $x_k$ ET $x_{k+1}$ pour tout $k \\in \\{0, \\ldots, p-1\\}$.\\par\\par L'ensemble des fonctions continues par morceaux sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est noté $\\mathcal{C}_M([a, b], \\mathbb{K})$.\\par\\par Toute fonction en escalier et toute fonction continue sont continues par morceaux.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_022",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Intégrale d'une fonction paire ou impaire sur un segment centré en 0.",
+      "programme_notion": "Intégrale d'une fonction paire ou impaire sur un segment centré en 0",
+      "answer_node_id": "integration_sur_un_segment__theorem_integrales_fonctions_particulieres",
+      "answer_latex": "(i) Fonctions paires/impaires : Soit $f \\in \\mathcal{C}_M([-a, a], \\mathbb{C})$ avec $a \\geq 0$.\\par Si $f$ est paire, alors $\\int_{-a}^a f(x) \\, dx = 2\\int_0^a f(x) \\, dx$, et si $f$ est impaire, alors $\\int_{-a}^a f(x) \\, dx = 0$.\\par\\par (ii) Fonctions périodiques : Pour tout $f \\in \\mathcal{C}_M(\\mathbb{R}, \\mathbb{C})$ $T$-périodique et tout $a \\in \\mathbb{R}$ : $\\int_a^{a+T} f(x) \\, dx = \\int_0^T f(x) \\, dx$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_023",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Intégrale d'une fonction périodique sur un intervalle de période.",
+      "programme_notion": "Intégrale d'une fonction périodique sur un intervalle de période",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_024",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Intégrale d'une fonction périodique sur un intervalle de période.",
+      "programme_notion": "Intégrale d'une fonction périodique sur un intervalle de période",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_escalier",
+      "answer_latex": "Soient $f : [a, b] \\to \\mathbb{C}$ en escalier et $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Si $y_k$ désigne pour tout $k \\in \\{0, \\ldots, p-1\\}$ la valeur de $f$ sur $]x_k, x_{k+1}[$, le nombre complexe $\\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$ ne dépend pas de la subdivision $(x_0, \\ldots, x_p)$ choisie.\\par\\par On l'appelle l'intégrale de $f$ sur $[a, b]$, notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$.\\par\\par On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.\n\n\\textbf{Démonstration.} Pour toute subdivision $\\sigma = (x_0, \\ldots, x_p)$ de $[a, b]$ adaptée à $f$, posons $I_\\sigma = \\sum_{k=0}^{p-1} y_k (x_{k+1} - x_k)$.\\par\\par $\\bullet$ Soient $\\sigma = (x_0, \\ldots, x_p)$ et $\\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. On suppose $\\sigma'$ incluse dans $\\sigma$. Montrons que $I_\\sigma = I_{\\sigma'}$.\\par\\par Pour un certain $p' \\in \\mathbb{N}^*$ et une certaine fonction $\\phi : \\{0, \\ldots, p'\\} \\to \\{0, \\ldots, p\\}$ strictement croissante pour laquelle $\\phi(0) = 0$ et $\\phi(p') = p$ — c'est le principe des suites extraites. Pour tout $i \\in \\{0, \\ldots, p-1\\}$, notons $y_i$ la valeur de $f$ sur $]x_i, x_{i+1}[$, et pour tout $j \\in \\{0, \\ldots, p'-1\\}$, $y'_j$ sa valeur sur $]x_{\\phi(j)}, x_{\\phi(j+1)}[$. L'inclusion de $\\sigma$ dans $\\sigma'$ nous permet d'écrire que $\\sigma' = (x_{\\phi(0)}, x_{\\phi(1)}, \\ldots, x_{\\phi(p')})$.\\par\\par $I_{\\sigma'} = \\sum_{j=0}^{p'-1} y'_j (x_{\\phi(j+1)} - x_{\\phi(j)}) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y'_j (x_{k+1} - x_k) = \\sum_{j=0}^{p'-1} \\sum_{k=\\phi(j)}^{\\phi(j+1)-1} y_k (x_{k+1} - x_k) = \\sum_{i=0}^{p-1} y_i (x_{i+1} - x_i) = I_\\sigma$.\\par\\par $\\bullet$ Montrons enfin que $I_\\sigma$ ne dépend pas du choix de $\\sigma$. Soient $\\sigma, \\sigma'$ deux subdivisions de $[a, b]$ adaptées à $f$. La réunion de $\\sigma$ et $\\sigma'$ est encore une subdivision de $[a, b]$ adaptée à $f$ et contient à la fois $\\sigma$ et $\\sigma'$, donc d'après le point précédent : $I_\\sigma = I_{\\sigma \\cup \\sigma'} = I_{\\sigma'}$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_025",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Valeur moyenne d'une fonction continue par morceaux.",
+      "programme_notion": "Valeur moyenne d'une fonction continue par morceaux",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_caractere_borne",
+      "answer_latex": "Toute fonction continue par morceaux sur $[a, b]$ est bornée et possède donc une norme infinie $\\|f\\|_\\infty$.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_026",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Valeur moyenne d'une fonction continue par morceaux.",
+      "programme_notion": "Valeur moyenne d'une fonction continue par morceaux",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_caractere_borne",
+      "answer_latex": "Toute fonction continue par morceaux sur $[a, b]$ est bornée et possède donc une norme infinie $\\|f\\|_\\infty$.\n\n\\textbf{Démonstration.} Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$. Notons $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. Pour tout $k \\in \\{0, \\ldots, p-1\\}$, le prolongement par continuité de la fonction réelle $|f|_{]x_k, x_{k+1}[}$ à $[x_k, x_{k+1}]$ est majoré d'après le théorème des bornes atteintes, disons par $M_k$. Le maximum des réels positifs $M_1, \\ldots, M_p$ et $|f(x_0)|, \\ldots, |f(x_p)|$ majore dès lors $|f|$ sur $[a, b]$ tout entier.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_027",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Sommes de Riemann.",
+      "programme_notion": "Sommes de Riemann",
+      "answer_node_id": "integration_sur_un_segment__theorem_sommes_riemann",
+      "answer_latex": "Pour toute fonction $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$ :\\par $\\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\frac{b-a}{n}\\right) \\xrightarrow[n \\to +\\infty]{} \\int_a^b f(x) \\, dx$\\par et $\\frac{b-a}{n} \\sum_{k=1}^{n} f\\left(a + k\\frac{b-a}{n}\\right) \\xrightarrow[n \\to +\\infty]{} \\int_a^b f(x) \\, dx$.\\par\\par Si de plus $f$ est de classe $\\mathcal{C}^1$ sur le segment $[a, b]$ d'après le théorème des bornes atteintes et l'inégalité des accroissements finis :\\par $\\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\frac{b-a}{n}\\right) = \\int_a^b f(x) \\, dx + O\\left(\\frac{1}{n}\\right)$ et $\\frac{b-a}{n} \\sum_{k=1}^{n} f\\left(a + k\\frac{b-a}{n}\\right) = \\int_a^b f(x) \\, dx + O\\left(\\frac{1}{n}\\right)$.\\par\\par Ce théorème affirme en particulier l'EXISTENCE des deux limites.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_028",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Sommes de Riemann.",
+      "programme_notion": "Sommes de Riemann",
+      "answer_node_id": "integration_sur_un_segment__theorem_sommes_riemann",
+      "answer_latex": "Pour toute fonction $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$ :\\par $\\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\frac{b-a}{n}\\right) \\xrightarrow[n \\to +\\infty]{} \\int_a^b f(x) \\, dx$\\par et $\\frac{b-a}{n} \\sum_{k=1}^{n} f\\left(a + k\\frac{b-a}{n}\\right) \\xrightarrow[n \\to +\\infty]{} \\int_a^b f(x) \\, dx$.\\par\\par Si de plus $f$ est de classe $\\mathcal{C}^1$ sur le segment $[a, b]$ d'après le théorème des bornes atteintes et l'inégalité des accroissements finis :\\par $\\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\frac{b-a}{n}\\right) = \\int_a^b f(x) \\, dx + O\\left(\\frac{1}{n}\\right)$ et $\\frac{b-a}{n} \\sum_{k=1}^{n} f\\left(a + k\\frac{b-a}{n}\\right) = \\int_a^b f(x) \\, dx + O\\left(\\frac{1}{n}\\right)$.\\par\\par Ce théorème affirme en particulier l'EXISTENCE des deux limites.\n\n\\textbf{Démonstration.} Nous nous contenterons du cas où $f$ est continue sur $[a, b]$. Pour tous $n \\in \\mathbb{N}^*$ et $k \\in \\{0, \\ldots, n-1\\}$, posons $x_{n,k} = a + k\\frac{b-a}{n}$.\\par\\par Cas continu : Pour tout $n \\in \\mathbb{N}^*$, notons $\\phi_n$ la fonction en escalier sur $[a, b]$ définie par :\\par $\\forall k \\in \\{0, \\ldots, n-1\\}, \\forall x \\in [x_{n,k}, x_{n,k+1}[, \\phi_n(x) = f(x_{n,k})$ et $\\phi_n(b) = f(b)$.\\par\\par Comme nous l'avons vu plus haut, $(\\phi_n)_{n \\in \\mathbb{N}^*}$ converge uniformément vers $f$ sur $[a, b]$. Par conséquent :\\par $\\frac{b-a}{n} \\sum_{k=0}^{n-1} f(x_{n,k}) = \\sum_{k=0}^{n-1} f(x_{n,k})(x_{n,k+1} - x_{n,k}) = \\int_a^b \\phi_n(x) \\, dx \\xrightarrow[n \\to +\\infty]{} \\int_a^b f(x) \\, dx$.\\par\\par Majoration de l'erreur dans le cas lipschitzien : Supposons $f$ $K$-lipschitzienne pour un certain $K > 0$. Cette hypothèse est vérifiée en particulier si $f$ est de classe $\\mathcal{C}^1$ sur le segment $[a, b]$ d'après le théorème des bornes atteintes et l'inégalité des accroissements finis. Pour tout $n \\in \\mathbb{N}^*$ :\\par $\\left|\\int_a^b f(x) \\, dx - \\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\frac{b-a}{n}\\right)\\right| = \\left|\\sum_{k=0}^{n-1} \\int_{x_{n,k}}^{x_{n,k+1}} (f(x) - f(x_{n,k})) \\, dx\\right| \\leq \\sum_{k=0}^{n-1} \\int_{x_{n,k}}^{x_{n,k+1}} |f(x) - f(x_{n,k})| \\, dx \\leq \\sum_{k=0}^{n-1} \\int_{x_{n,k}}^{x_{n,k+1}} K(x - x_{n,k}) \\, dx = \\sum_{k=0}^{n-1} \\frac{K(b-a)^2}{2n^2} = \\frac{K(b-a)^2}{2n}$.\\par\\par La majoration de l'écart en $O\\left(\\frac{1}{n}\\right)$ est ainsi démontrée.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_029",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Convergence vers l'intégrale pour f continue par morceaux.",
+      "programme_notion": "Convergence vers l'intégrale pour f continue par morceaux",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_CM",
+      "answer_latex": "Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par Pour toute suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ qui converge uniformément vers $f$, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\\phi_n)_{n \\in \\mathbb{N}}$.\\par\\par Cette limite unique est appelée l'intégrale de $f$ sur $[a, b]$ et notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$. En outre, si $f$ est en escalier sur $[a, b]$, cette définition coïncide avec la précédente.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_030",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Convergence vers l'intégrale pour f continue par morceaux.",
+      "programme_notion": "Convergence vers l'intégrale pour f continue par morceaux",
+      "answer_node_id": "integration_sur_un_segment__definition_theoreme_integrale_CM",
+      "answer_latex": "Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par Pour toute suite de fonctions en escalier $(\\phi_n)_{n \\in \\mathbb{N}}$ sur $[a, b]$ qui converge uniformément vers $f$, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\\phi_n)_{n \\in \\mathbb{N}}$.\\par\\par Cette limite unique est appelée l'intégrale de $f$ sur $[a, b]$ et notée $\\int_{[a,b]} f$ ou $\\int_{[a,b]} f(t) \\, dt$. En outre, si $f$ est en escalier sur $[a, b]$, cette définition coïncide avec la précédente.\n\n\\textbf{Démonstration.} $\\bullet$ Soient $(\\phi_n)_{n \\in \\mathbb{N}}$ et $(\\psi_n)_{n \\in \\mathbb{N}}$ deux suites de fonctions en escalier sur $[a, b]$ dont $f$ est la limite uniforme. Pour tout $n \\in \\mathbb{N}$, d'après les deux propriétés de l'intégrale d'une fonction en escalier déjà démontrées :\\par $\\left|\\int_{[a,b]} \\phi_n - \\int_{[a,b]} \\psi_n\\right| = \\left|\\int_{[a,b]} (\\phi_n - \\psi_n)\\right| \\leq (b-a) \\|\\phi_n - \\psi_n\\|_\\infty \\leq (b-a) (\\|\\phi_n - f\\|_\\infty + \\|f - \\psi_n\\|_\\infty)$.\\par\\par Il en découle par encadrement que si les suites $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ et $\\left(\\int_{[a,b]} \\psi_n\\right)_{n \\in \\mathbb{N}}$ convergent, elles ont la même limite, indépendante de $(\\phi_n)_{n \\in \\mathbb{N}}$ et $(\\psi_n)_{n \\in \\mathbb{N}}$.\\par\\par Il reste à montrer que la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ converge. Or $\\left|\\int_{[a,b]} \\phi_n\\right| \\leq (b-a) \\|\\phi_n\\|_\\infty \\leq (b-a) (\\|f\\|_\\infty + \\|\\phi_n - f\\|_\\infty) \\leq (b-a) (\\|f\\|_\\infty + 1)$ à partir d'un certain rang, donc la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ est bornée. Bornée, la suite $\\left(\\int_{[a,b]} \\phi_n\\right)_{n \\in \\mathbb{N}}$ possède alors une suite extraite convergente de limite $\\ell$ d'après le théorème de Bolzano-Weierstrass. Notons $\\theta$ la fonction d'extraction associée. D'après l'inégalité précédente appliquée à $\\phi_n$ et $\\phi_{\\theta(n)}$ :\\par $\\left|\\int_{[a,b]} \\phi_n - \\int_{[a,b]} \\phi_{\\theta(n)}\\right| \\leq (b-a) (\\|\\phi_n - f\\|_\\infty + \\|f - \\phi_{\\theta(n)}\\|_\\infty)$,\\par donc $\\int_{[a,b]} \\phi_n \\xrightarrow[n \\to +\\infty]{} \\ell$ par encadrement.\\par\\par Que dire enfin si $f$ est en escalier sur $[a, b]$ ? Nous pouvons dans ce cas poser $\\phi_n = f$ pour tout $n \\in \\mathbb{N}$, de sorte que $\\|\\phi_n - f\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$. La limite $\\lim_{n \\to +\\infty} \\int_{[a,b]} \\phi_n$ se trouve ainsi égale à l'intégrale $\\int_{[a,b]} f$ de $f$ au sens des fonctions en escalier. Nos deux définitions de l'intégrale d'une fonction en escalier coïncident.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_031",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Interprétation géométrique.",
+      "programme_notion": "Interprétation géométrique",
+      "answer_node_id": "integration_sur_un_segment__theorem_proprietes_integrale_CM",
+      "answer_latex": "Soient $f, g \\in \\mathcal{C}_M([a, b], \\mathbb{C})$.\\par\\par (i) Linéarité : Pour tous $\\lambda, \\mu \\in \\mathbb{C}$ : $\\int_{[a,b]} (\\lambda f + \\mu g) = \\lambda \\int_{[a,b]} f + \\mu \\int_{[a,b]} g$.\\par\\par (ii) Inégalité triangulaire : $\\left|\\int_{[a,b]} f\\right| \\leq \\int_{[a,b]} |f|$.\\par\\par (iii) Relation de Chasles : Pour tout $c \\in [a, b]$ : $\\int_{[a,b]} f = \\int_{[a,c]} f + \\int_{[c,b]} f$.\\par\\par (iv) Lien avec les parties réelle et imaginaire : $\\int_{[a,b]} f = \\int_{[a,b]} \\text{Re}(f) + i \\int_{[a,b]} \\text{Im}(f)$.\\par En particulier, si $f$ est réelle, son intégrale sur $[a, b]$ est un réel.\\par\\par (v) Modification d'un nombre fini de valeurs : Si $f$ et $g$ sont égales sur $[a, b]$ sauf en un nombre fini de points : $\\int_{[a,b]} f = \\int_{[a,b]} g$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_032",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Démonstration exigible pour f lipschitzienne.",
+      "programme_notion": "Démonstration exigible pour f lipschitzienne",
+      "answer_node_id": "integration_sur_un_segment__warning_non_derivabilite",
+      "answer_latex": "Impossible ici de dériver $A$ pour prouver sa monotonie car rien ne nous dit que $A$ est dérivable. Si $A$ avait été de la forme $x \\mapsto \\int_a^x f(t) \\, dt$ pour une certaine fonction continue $f$, nous aurions pu la dériver grâce au théorème fondamental du calcul intégral — démontré plus loin — mais la variable $x$ n'est pas au bon endroit ici.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_033",
+      "type": "definition",
+      "difficulty": 1,
+      "question_latex": "Définir : Dérivation de x ↦ ∫_a^x f(t)dt pour f continue.",
+      "programme_notion": "Dérivation de x ↦ ∫_a^x f(t)dt pour f continue",
+      "answer_node_id": "integration_sur_un_segment__definition_fonction_continue_par_morceaux",
+      "answer_latex": "On dit qu'une fonction $f : [a, b] \\to \\mathbb{C}$ est continue par morceaux si pour une certaine subdivision $(x_0, \\ldots, x_p)$ de $[a, b]$, dite adaptée à $f$ :\\par $f_{]x_k, x_{k+1}[}$ est continue sur $]x_k, x_{k+1}[$ et PROLONGEABLE PAR CONTINUITÉ EN $x_k$ ET $x_{k+1}$ pour tout $k \\in \\{0, \\ldots, p-1\\}$.\\par\\par L'ensemble des fonctions continues par morceaux sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est noté $\\mathcal{C}_M([a, b], \\mathbb{K})$.\\par\\par Toute fonction en escalier et toute fonction continue sont continues par morceaux.",
+      "tags": [
+        "definition",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_034",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Toute fonction continue sur un intervalle possède des primitives.",
+      "programme_notion": "Toute fonction continue sur un intervalle possède des primitives",
+      "answer_node_id": "integration_sur_un_segment__theorem_approximation_uniforme",
+      "answer_latex": "Toute fonction continue par morceaux sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est la limite uniforme d'une suite de fonctions en escalier sur $[a, b]$ à valeurs dans $\\mathbb{K}$.\\par\\par En termes topologiques, l'ensemble des fonctions en escalier sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est dense dans $\\mathcal{C}_M([a, b], \\mathbb{K})$ au sens de la convergence uniforme.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_035",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Toute fonction continue sur un intervalle possède des primitives.",
+      "programme_notion": "Toute fonction continue sur un intervalle possède des primitives",
+      "answer_node_id": "integration_sur_un_segment__theorem_approximation_uniforme",
+      "answer_latex": "Toute fonction continue par morceaux sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est la limite uniforme d'une suite de fonctions en escalier sur $[a, b]$ à valeurs dans $\\mathbb{K}$.\\par\\par En termes topologiques, l'ensemble des fonctions en escalier sur $[a, b]$ à valeurs dans $\\mathbb{K}$ est dense dans $\\mathcal{C}_M([a, b], \\mathbb{K})$ au sens de la convergence uniforme.\n\n\\textbf{Démonstration.} Soit $f \\in \\mathcal{C}_M([a, b], \\mathbb{K})$.\\par\\par $\\bullet$ Cas où $f$ est continue sur $[a, b]$ : Pour tout $n \\in \\mathbb{N}^*$, posons $x_{n,k} = a + k\\frac{b-a}{n}$ pour tout $k \\in \\{0, \\ldots, n\\}$ et notons $\\phi_n$ la fonction définie sur $[a, b]$ par :\\par $\\forall k \\in \\{0, \\ldots, n-1\\}, \\forall x \\in [x_{n,k}, x_{n,k+1}[, \\phi_n(x) = f(x_{n,k})$\\par et $\\phi_n(b) = f(b)$.\\par\\par Par construction, $\\phi_n$ est en escalier sur $[a, b]$ pour tout $n \\in \\mathbb{N}^*$. Montrons que $(\\phi_n)_{n \\in \\mathbb{N}^*}$ converge uniformément vers $f$ sur $[a, b]$. Soit $\\epsilon > 0$. D'après le théorème de Heine, $f$ est uniformément continue sur $[a, b]$, donc il existe un réel $\\alpha > 0$ pour lequel pour tous $x, y \\in [a, b]$ : $|x - y| < \\alpha \\Rightarrow |f(x) - f(y)| < \\epsilon$.\\par\\par Fixons donc un entier $N \\in \\mathbb{N}^*$ pour lequel $\\frac{b-a}{N} < \\alpha$. Soit $n \\geq N$. Pour tout $x \\in [a, b[$, $x$ appartient à $[x_{n,k}, x_{n,k+1}[$ pour un certain $k \\in \\{0, \\ldots, n-1\\}$, donc $|x - x_{n,k}| < x_{n,k+1} - x_{n,k} = \\frac{b-a}{n} \\leq \\frac{b-a}{N} < \\alpha$, et $|f(x) - \\phi_n(x)| = |f(x) - f(x_{n,k})| < \\epsilon$ par continuité uniforme, et comme c'est vrai pour tout $x$, $\\|f - \\phi_n\\|_\\infty \\leq \\epsilon$.\\par\\par $\\bullet$ Cas général : Soit $(x_0, \\ldots, x_p)$ une subdivision de $[a, b]$ adaptée à $f$. D'après ce qui précède, $f$ étant continue sur $]x_k, x_{k+1}[$ et prolongeable par continuité en $x_k$ et $x_{k+1}$, il existe pour tout $k \\in \\{0, \\ldots, p-1\\}$ une suite $(\\phi_{k,n})_{n \\in \\mathbb{N}}$ de fonctions en escalier sur $[x_k, x_{k+1}]$ qui converge uniformément vers $f_{]x_k, x_{k+1}[}$. Pour tout $n \\in \\mathbb{N}^*$, notons $\\phi_n$ la fonction définie par $\\phi_n|_{]x_k, x_{k+1}[} = \\phi_{k,n}$ pour tout $k \\in \\{0, \\ldots, p-1\\}$ et $\\phi_n(x_k) = f(x_k)$ pour tout $k \\in \\{0, \\ldots, p\\}$. Pour tout $n \\in \\mathbb{N}^*$, $\\phi_n$ est en escalier sur $[a, b]$ et :\\par $\\|\\phi_n - f\\|_\\infty = \\max_{0 \\leq k \\leq p-1} \\|\\phi_{k,n} - f_{]x_k, x_{k+1}[}\\|_\\infty$,\\par donc $\\|\\phi_n - f\\|_\\infty \\xrightarrow[n \\to +\\infty]{} 0$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_036",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Formule de Taylor avec reste intégral.",
+      "programme_notion": "Formule de Taylor avec reste intégral",
+      "answer_node_id": "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+      "answer_latex": "Soient $f \\in \\mathcal{C}^{n+1}(I, \\mathbb{C})$ et $a, b \\in I$.\\par $f(b) = \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k + \\int_a^b \\frac{f^{(n+1)}(t)}{n!}(b-t)^n \\, dt$.\\par\\par Pour $n = 0$, cette formule n'est jamais que le théorème fondamental du calcul intégral.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_037",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Formule de Taylor avec reste intégral.",
+      "programme_notion": "Formule de Taylor avec reste intégral",
+      "answer_node_id": "integration_sur_un_segment__theorem_taylor_lagrange_reste_integral",
+      "answer_latex": "Soient $f \\in \\mathcal{C}^{n+1}(I, \\mathbb{C})$ et $a, b \\in I$.\\par $f(b) = \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k + \\int_a^b \\frac{f^{(n+1)}(t)}{n!}(b-t)^n \\, dt$.\\par\\par Pour $n = 0$, cette formule n'est jamais que le théorème fondamental du calcul intégral.\n\n\\textbf{Démonstration.} Fixons $I$, $a$ et $b$ et montrons par récurrence sur $n$ que le résultat est vrai de toute fonction de classe $\\mathcal{C}^{n+1}$ sur $I$.\\par\\par Initialisation : Pour tout $f \\in \\mathcal{C}^1(I, \\mathbb{C})$ : $f(b) = f(a) + \\int_a^b f'(t) \\, dt$.\\par\\par Hérédité : Soit $n \\in \\mathbb{N}$. Faisons l'hypothèse que le résultat est vrai de toute fonction de classe $\\mathcal{C}^{n+1}$ sur $I$. Soit $f \\in \\mathcal{C}^{n+2}(I, \\mathbb{C})$. Alors $f$ est de classe $\\mathcal{C}^{n+1}$ sur $I$, donc par hypothèse de récurrence :\\par $f(b) = \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k + \\int_a^b \\frac{f^{(n+1)}(t)}{n!}(b-t)^n \\, dt$.\\par\\par Par intégration par parties : $\\int_a^b \\frac{f^{(n+1)}(t)}{n!}(b-t)^n \\, dt = \\left[\\frac{f^{(n+1)}(t)}{n!} \\times \\frac{-(b-t)^{n+1}}{n+1}\\right]_a^b - \\int_a^b \\frac{f^{(n+2)}(t)}{n!} \\times \\frac{-(b-t)^{n+1}}{n+1} \\, dt = \\frac{f^{(n+1)}(a)}{(n+1)!}(b-a)^{n+1} + \\int_a^b \\frac{f^{(n+2)}(t)}{(n+1)!}(b-t)^{n+1} \\, dt$.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_038",
+      "type": "enonce",
+      "difficulty": 1,
+      "question_latex": "Énoncer : Inégalité de Taylor-Lagrange.",
+      "programme_notion": "Inégalité de Taylor-Lagrange",
+      "answer_node_id": "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+      "answer_latex": "Soient $f \\in \\mathcal{C}^{n+1}(I, \\mathbb{C})$ et $a, b \\in I$.\\par $\\left|f(b) - \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k\\right| \\leq \\frac{|b-a|^{n+1}}{(n+1)!} \\|f^{(n+1)}\\|_\\infty$,\\par où la norme infinie est calculée sur le segment d'extrémités $a$ et $b$.",
+      "tags": [
+        "enonce",
+        "programme officiel"
+      ]
+    },
+    {
+      "id": "INTEGRATION__qc_039",
+      "type": "demonstration",
+      "difficulty": 3,
+      "question_latex": "Énoncer et démontrer : Inégalité de Taylor-Lagrange.",
+      "programme_notion": "Inégalité de Taylor-Lagrange",
+      "answer_node_id": "integration_sur_un_segment__theorem_inegalite_taylor_lagrange",
+      "answer_latex": "Soient $f \\in \\mathcal{C}^{n+1}(I, \\mathbb{C})$ et $a, b \\in I$.\\par $\\left|f(b) - \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k\\right| \\leq \\frac{|b-a|^{n+1}}{(n+1)!} \\|f^{(n+1)}\\|_\\infty$,\\par où la norme infinie est calculée sur le segment d'extrémités $a$ et $b$.\n\n\\textbf{Démonstration.} Le réel $\\|f^{(n+1)}\\|_\\infty$ est bien défini d'après le théorème des bornes atteintes. Si $a \\leq b$ :\\par $\\left|f(b) - \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(b-a)^k\\right| = \\left|\\int_a^b \\frac{f^{(n+1)}(t)}{n!}(b-t)^n \\, dt\\right| \\leq \\int_a^b \\frac{|f^{(n+1)}(t)|}{n!}|b-t|^n \\, dt \\leq \\frac{\\|f^{(n+1)}\\|_\\infty}{n!} \\int_a^b (b-t)^n \\, dt = \\frac{\\|f^{(n+1)}\\|_\\infty}{n!} \\left[-\\frac{(b-t)^{n+1}}{n+1}\\right]_a^b = \\frac{|b-a|^{n+1}}{(n+1)!} \\|f^{(n+1)}\\|_\\infty$.\\par\\par Si $b < a$, on fait pareil en inversant l'ordre des bornes dans les majorations post-inégalité triangulaire.",
+      "tags": [
+        "démonstration",
+        "programme officiel"
+      ]
+    }
+  ]
+}
