@@ -11,10 +11,42 @@ interface LatexRendererProps {
 }
 
 const BARE_LATEX_BLOCK =
-  /\\(?:begin\{|left|right|frac|sum|prod|int|lim|sqrt|mathbb|mathcal|operatorname|overline|underline|vec|cdots|ldots|mapsto|longrightarrow|rightarrow|infty|times|leq|geq|neq|forall|exists|det|sin|cos|tan|ln|exp)\b/;
+  /\\(?:begin\{|left|right|frac|sum|prod|int|lim|sqrt|mathbb|mathcal|mathscr|operatorname|overline|underline|vec|cdots|ldots|mapsto|longrightarrow|rightarrow|infty|times|leq|geq|neq|forall|exists|det|sin|cos|tan|ln|exp|partial|zeta|gamma|alpha|beta|theta|phi|psi|omega|subset|cup|cap|in)\b/;
 const STRONG_MATH_MARKER = /\\[a-zA-Z]+|[_^{}]/;
+const EXISTING_MATH_SEGMENT = /(\$\$[\s\S]*?\$\$|\$[\s\S]*?\$)/g;
+const WEAK_MATH_TOKEN = /^[A-Za-z0-9()[\]{}[\],.+\-*/=<>|':]+$/;
+const FRENCH_STOPWORDS = new Set([
+  "a",
+  "au",
+  "aux",
+  "avec",
+  "car",
+  "ce",
+  "cette",
+  "dans",
+  "de",
+  "des",
+  "du",
+  "en",
+  "et",
+  "la",
+  "le",
+  "les",
+  "ou",
+  "par",
+  "pour",
+  "resp",
+  "si",
+  "sur",
+  "tout",
+  "toute",
+  "toutes",
+  "tous",
+  "une",
+  "un",
+]);
 
-function isMathLikeToken(token: string): boolean {
+function isStrongMathToken(token: string): boolean {
   const stripped = token
     .replace(/^[“"']+/, "")
     .replace(/[.,;:!?]+$/, "")
@@ -27,20 +59,55 @@ function isMathLikeToken(token: string): boolean {
   return STRONG_MATH_MARKER.test(stripped);
 }
 
-function splitTrailingPunctuation(token: string): [string, string] {
-  const match = token.match(/^(.*?)([.,;:!?]+)$/);
-  if (!match) {
-    return [token, ""];
+function isWeakMathToken(token: string): boolean {
+  const stripped = token
+    .replace(/^[“"']+/, "")
+    .replace(/[.,;:!?]+$/, "")
+    .trim();
+
+  if (!stripped || STRONG_MATH_MARKER.test(stripped)) {
+    return false;
   }
-  return [match[1], match[2]];
+
+  if (/[À-ÖØ-öø-ÿ]/.test(stripped) || /[A-Za-z]'[A-Za-z]/.test(stripped)) {
+    return false;
+  }
+
+  if (FRENCH_STOPWORDS.has(stripped.toLowerCase()) || /^[A-Za-z]{3,}$/.test(stripped)) {
+    return false;
+  }
+
+  return WEAK_MATH_TOKEN.test(stripped);
 }
 
-function wrapInlineLatexRuns(paragraph: string): string {
-  if (!paragraph || paragraph.includes("$")) {
-    return paragraph;
+function splitTrailingPunctuation(token: string): [string, string] {
+  let core = token;
+  let trailing = "";
+
+  while (/[.,;:!?]$/.test(core)) {
+    trailing = core.slice(-1) + trailing;
+    core = core.slice(0, -1);
   }
 
-  const parts = paragraph.split(/(\s+)/);
+  const opens = (core.match(/\(/g) ?? []).length;
+  const closes = (core.match(/\)/g) ?? []).length;
+  while (core.endsWith(")")) {
+    if (closes <= opens) {
+      break;
+    }
+    trailing = core.slice(-1) + trailing;
+    core = core.slice(0, -1);
+  }
+
+  return [core, trailing];
+}
+
+function wrapInlineLatexRunsInPlainText(segment: string): string {
+  if (!segment || !STRONG_MATH_MARKER.test(segment)) {
+    return segment;
+  }
+
+  const parts = segment.split(/(\s+)/);
   const result: string[] = [];
   let mathBuffer: string[] = [];
 
@@ -67,7 +134,19 @@ function wrapInlineLatexRuns(paragraph: string): string {
     result.push(`${leadingWhitespace}$${core}$${trailingPunctuation}${trailingWhitespace}`);
   };
 
-  for (const part of parts) {
+  const nextNonSpaceToken = (startIndex: number): string | null => {
+    for (let i = startIndex; i < parts.length; i += 1) {
+      const candidate = parts[i];
+      if (!candidate || /^\s+$/.test(candidate)) {
+        continue;
+      }
+      return candidate;
+    }
+    return null;
+  };
+
+  for (let index = 0; index < parts.length; index += 1) {
+    const part = parts[index];
     if (!part) {
       continue;
     }
@@ -81,7 +160,12 @@ function wrapInlineLatexRuns(paragraph: string): string {
       continue;
     }
 
-    if (isMathLikeToken(part)) {
+    const strongMath = isStrongMathToken(part);
+    const weakMath = isWeakMathToken(part);
+    const nextToken = nextNonSpaceToken(index + 1);
+    const nextIsStrongMath = nextToken ? isStrongMathToken(nextToken) : false;
+
+    if (strongMath || (weakMath && (mathBuffer.length > 0 || nextIsStrongMath))) {
       mathBuffer.push(part);
       continue;
     }
@@ -92,6 +176,22 @@ function wrapInlineLatexRuns(paragraph: string): string {
 
   flushMathBuffer();
   return result.join("");
+}
+
+function wrapInlineLatexRuns(paragraph: string): string {
+  if (!paragraph) {
+    return paragraph;
+  }
+
+  return paragraph
+    .split(EXISTING_MATH_SEGMENT)
+    .map((segment) => {
+      if (!segment || segment.startsWith("$")) {
+        return segment;
+      }
+      return wrapInlineLatexRunsInPlainText(segment);
+    })
+    .join("");
 }
 
 function wrapBareLatexParagraphs(content: string): string {
