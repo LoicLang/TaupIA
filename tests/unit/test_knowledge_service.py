@@ -125,7 +125,7 @@ class TestKnowledgeService:
         """Each course chapter should have its own curated questions."""
         assert set(service._questions_by_course_chapter) == set(service._course_chapters)
         for course_id, questions in service._questions_by_course_chapter.items():
-            assert len(questions) == 4, f"{course_id} should expose exactly 4 curated questions"
+            assert len(questions) >= 6, f"{course_id} should expose at least 6 curated questions"
             for question in questions:
                 assert question["id"].startswith(f"{course_id}__")
 
@@ -146,7 +146,7 @@ class TestKnowledgeService:
                 concepts = service.get_concepts_for_question(question["id"])
                 assert concepts, f"{question['id']} has no structured concept context"
 
-        assert total == 116
+        assert total == 176
         assert exact_links >= 90
 
     def test_get_chapters_sorted(self, service):
@@ -401,7 +401,7 @@ class TestKnowledgeService:
         assert "questions_cours" in stats
         assert "exercices" in stats
         assert "concepts" in stats
-        assert stats["questions_cours"]["count"] == 116
+        assert stats["questions_cours"]["count"] == 176
         assert stats["exercices"]["count"] > 0
 
     def test_get_programme_for_chapter(self, service):

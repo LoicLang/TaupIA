@@ -213,8 +213,98 @@ function wrapBareLatexParagraphs(content: string): string {
     .join("\n\n");
 }
 
+function extractBraceContent(text: string, startIndex: number): [string, number] | null {
+  if (text[startIndex] !== "{") {
+    return null;
+  }
+  let depth = 0;
+  for (let i = startIndex; i < text.length; i += 1) {
+    if (text[i] === "{") {
+      depth += 1;
+    } else if (text[i] === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        return [text.slice(startIndex + 1, i), i + 1];
+      }
+    }
+  }
+  return null;
+}
+
+function getMathSegmentRanges(text: string): Array<[number, number]> {
+  const ranges: Array<[number, number]> = [];
+  for (const match of text.matchAll(EXISTING_MATH_SEGMENT)) {
+    if (match.index === undefined) {
+      continue;
+    }
+    ranges.push([match.index, match.index + match[0].length]);
+  }
+  return ranges;
+}
+
+function isInsideMathSegment(index: number, ranges: Array<[number, number]>): boolean {
+  return ranges.some(([start, end]) => index >= start && index < end);
+}
+
+function convertTextCommand(
+  text: string,
+  command: string,
+  wrapperStart: string,
+  wrapperEnd: string = wrapperStart,
+): string {
+  const pattern = new RegExp(`\\\\${command}\\{`, "g");
+  const mathRanges = getMathSegmentRanges(text);
+  let result = "";
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (isInsideMathSegment(match.index, mathRanges)) {
+      continue;
+    }
+
+    const braceStart = match.index + match[0].length - 1;
+    const extracted = extractBraceContent(text, braceStart);
+    if (!extracted) {
+      continue;
+    }
+    const [inner, endIndex] = extracted;
+    result += text.slice(lastIndex, match.index) + `${wrapperStart}${inner}${wrapperEnd}`;
+    lastIndex = endIndex;
+    pattern.lastIndex = endIndex;
+  }
+
+  result += text.slice(lastIndex);
+  return result;
+}
+
+function convertLaTeXFormattingToMarkdown(content: string): string {
+  let result = content;
+
+  // Convert text-formatting commands outside math mode.
+  result = convertTextCommand(result, "textbf", "**");
+  result = convertTextCommand(result, "textit", "*");
+  result = convertTextCommand(result, "emph", "*");
+  result = convertTextCommand(result, "text", "");
+
+  // Convert \begin{itemize}...\end{itemize} → Markdown lists
+  result = result.replace(/\\begin\{itemize\}/g, "");
+  result = result.replace(/\\end\{itemize\}/g, "");
+  result = result.replace(/\\begin\{enumerate\}/g, "");
+  result = result.replace(/\\end\{enumerate\}/g, "");
+  result = result.replace(/\\item\s*/g, "\n- ");
+
+  // Strip \noindent
+  result = result.replace(/\\noindent\s*/g, "");
+
+  return result;
+}
+
 function normalizeLatexContent(content: string): string {
   let normalized = content.trim().replace(/\r\n?/g, "\n");
+
+  // Convert LaTeX formatting commands to Markdown BEFORE auto-wrapping
+  normalized = convertLaTeXFormattingToMarkdown(normalized);
 
   normalized = normalized.replace(/\\(?=[À-ÖØ-öø-ÿ])/g, "");
   normalized = normalized.replace(/\\par\b/g, "\n\n");

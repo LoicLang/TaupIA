@@ -125,7 +125,7 @@
               "content_latex": "Exprimez $th(x+y)$ sous la forme $\\frac{sh(x+y)}{ch(x+y)}$, développez à l'aide des formules d'addition pour $sh$ et $ch$, puis divisez numérateur et dénominateur par $ch(x)ch(y)$."
             }
           ],
-          "solution_latex": "Rappelons que $\\mathrm{th}(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}} = \\frac{\\sinh(x)}{\\cosh(x)}$. Soient $x, y \\in \\mathbb{R}$. En utilisant les formules d'addition : $\\sinh(x+y) = \\sinh(x)\\cosh(y) + \\cosh(x)\\sinh(y)$ et $\\cosh(x+y) = \\cosh(x)\\cosh(y) + \\sinh(x)\\sinh(y)$, on obtient :\\\\par\n$$\\mathrm{th}(x+y) = \\frac{\\sinh(x+y)}{\\cosh(x+y)} = \\frac{\\sinh(x)\\cosh(y) + \\cosh(x)\\sinh(y)}{\\cosh(x)\\cosh(y) + \\sinh(x)\\sinh(y)}$$\\\\par\nEn divisant numérateur et dénominateur par $\\cosh(x)\\cosh(y)$ :\\\\par\n$$\\mathrm{th}(x+y) = \\frac{\\mathrm{th}(x) + \\mathrm{th}(y)}{1 + \\mathrm{th}(x) \\cdot \\mathrm{th}(y)}$$"
+          "solution_latex": "Rappelons que $\\mathrm{th}(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}} = \\frac{\\sinh(x)}{\\cosh(x)}$. Soient $x, y \\in \\mathbb{R}$. En utilisant les formules d'addition : $\\sinh(x+y) = \\sinh(x)\\cosh(y) + \\cosh(x)\\sinh(y)$ et $\\cosh(x+y) = \\cosh(x)\\cosh(y) + \\sinh(x)\\sinh(y)$, on obtient :\\par\n$$\\mathrm{th}(x+y) = \\frac{\\sinh(x+y)}{\\cosh(x+y)} = \\frac{\\sinh(x)\\cosh(y) + \\cosh(x)\\sinh(y)}{\\cosh(x)\\cosh(y) + \\sinh(x)\\sinh(y)}$$\\par\nEn divisant numérateur et dénominateur par $\\cosh(x)\\cosh(y)$ :\\par\n$$\\mathrm{th}(x+y) = \\frac{\\mathrm{th}(x) + \\mathrm{th}(y)}{1 + \\mathrm{th}(x) \\cdot \\mathrm{th}(y)}$$"
         },
         {
           "label": "2) b)",
@@ -145,7 +145,7 @@
               "content_latex": "Utilisez la fonction tangente hyperbolique ($th$) étudiée en 2)a), qui est une bijection de $\\mathbb{R}$ sur $]-1,1[$. Quelle est sa bijection réciproque (Argth) pour appliquer la formule du transport de structure ?"
             }
           ],
-          "solution_latex": "Montrons que $(\\;]-1,1[, \\oplus\\;)$ est un groupe commutatif.\\\\par\\\\par\n\\\\textbf{Magma} : Soient $x,y \\in \\;]-1,1[$. On a $|xy| < 1$, donc $1+xy > 0$ et $x \\oplus y = \\frac{x+y}{1+xy}$ est bien défini. Montrons que $|x \\oplus y| < 1$. Supposons $0 < x, y < 1$. Alors $x + y < 2$ et $1 + xy > 1$, donc $x \\oplus y < 2$. Mieux : $x + y < 1 + xy \\Leftrightarrow xy - x - y + 1 > 0 \\Leftrightarrow (1-x)(1-y) > 0$, ce qui est vrai. Donc $x \\oplus y < 1$. De même si $-1 < x, y < 0$. Les autres cas se traitent pareillement. Donc $\\oplus$ est une loi interne.\\\\par\\\\par\n\\\\textbf{Associativité} : $(x \\oplus y) \\oplus z = \\frac{x+y+z+xyz}{1+xy+xz+yz} = x \\oplus (y \\oplus z)$ (par vérification directe).\\\\par\\\\par\n\\\\textbf{Commutativité} : $x \\oplus y = \\frac{x+y}{1+xy} = \\frac{y+x}{1+yx} = y \\oplus x$.\\\\par\\\\par\n\\\\textbf{Élément neutre} : $x \\oplus 0 = \\frac{x+0}{1+0} = x$, donc $e = 0$.\\\\par\\\\par\n\\\\textbf{Inverses} : Pour $x \\in \\;]-1,1[$, on a $x \\oplus (-x) = \\frac{x-x}{1-x^2} = 0$. Donc $x^{-1} = -x \\in \\;]-1,1[$.\\\\par\\\\par\nDonc $(\\;]-1,1[, \\oplus\\;)$ est un groupe abélien. La bijection $\\varphi(x) = \\mathrm{argth}(x): (\\;]-1,1[, \\oplus\\;) \\to (\\mathbb{R}, +)$ est un isomorphisme."
+          "solution_latex": "Montrons que $(\\;]-1,1[, \\oplus\\;)$ est un groupe commutatif.\\par\\par\n\\textbf{Magma} : Soient $x,y \\in \\;]-1,1[$. On a $|xy| < 1$, donc $1+xy > 0$ et $x \\oplus y = \\frac{x+y}{1+xy}$ est bien défini. Montrons que $|x \\oplus y| < 1$. Supposons $0 < x, y < 1$. Alors $x + y < 2$ et $1 + xy > 1$, donc $x \\oplus y < 2$. Mieux : $x + y < 1 + xy \\Leftrightarrow xy - x - y + 1 > 0 \\Leftrightarrow (1-x)(1-y) > 0$, ce qui est vrai. Donc $x \\oplus y < 1$. De même si $-1 < x, y < 0$. Les autres cas se traitent pareillement. Donc $\\oplus$ est une loi interne.\\par\\par\n\\textbf{Associativité} : $(x \\oplus y) \\oplus z = \\frac{x+y+z+xyz}{1+xy+xz+yz} = x \\oplus (y \\oplus z)$ (par vérification directe).\\par\\par\n\\textbf{Commutativité} : $x \\oplus y = \\frac{x+y}{1+xy} = \\frac{y+x}{1+yx} = y \\oplus x$.\\par\\par\n\\textbf{Élément neutre} : $x \\oplus 0 = \\frac{x+0}{1+0} = x$, donc $e = 0$.\\par\\par\n\\textbf{Inverses} : Pour $x \\in \\;]-1,1[$, on a $x \\oplus (-x) = \\frac{x-x}{1-x^2} = 0$. Donc $x^{-1} = -x \\in \\;]-1,1[$.\\par\\par\nDonc $(\\;]-1,1[, \\oplus\\;)$ est un groupe abélien. La bijection $\\varphi(x) = \\mathrm{argth}(x): (\\;]-1,1[, \\oplus\\;) \\to (\\mathbb{R}, +)$ est un isomorphisme."
         }
       ],
       "global_solution_latex": null
@@ -171,7 +171,7 @@
       ],
       "statement_latex": "Soient $G$ un groupe fini et $H$ et $K$ deux sous-groupes de $G$ d'ordres premiers entre eux. Montrer que $H\\cap K=\\{1_{G}\\}$.",
       "sub_questions": [],
-      "global_solution_latex": "Soient $H$ et $K$ deux sous-groupes de $G$ d'ordres premiers $p$ et $q$ respectivement, où $G$ est fini.\\\\par\\\\par\n\\\\textbf{Cas 1} : $p \\neq q$. Soit $x \\in H \\cap K$. L'ordre de $x$ divise à la fois $p$ et $q$, donc divise $\\gcd(p,q) = 1$. Ainsi $\\text{ord}(x) = 1$, d'où $x = 1_G$. Donc $H \\cap K = \\{1_G\\}$.\\\\par\\\\par\n\\\\textbf{Cas 2} : $p = q$. Alors $H$ et $K$ sont tous deux cycliques d'ordre $p$. Soit $\\ell = |H \\cap K|$. On a $\\ell \\mid p$, donc $\\ell \\in \\{1, p\\}$. Si $\\ell = p$, alors $|H| = |H \\cap K| = p$ implique $H \\subseteq K$ (car $H$ et $H \\cap K$ sont tous deux d'ordre $p$). De même $K \\subseteq H$, donc $H = K$. Sinon $\\ell = 1$, d'où $H \\cap K = \\{1_G\\}$.",
+      "global_solution_latex": "Soient $H$ et $K$ deux sous-groupes de $G$ d'ordres premiers $p$ et $q$ respectivement, où $G$ est fini.\\par\\par\n\\textbf{Cas 1} : $p \\neq q$. Soit $x \\in H \\cap K$. L'ordre de $x$ divise à la fois $p$ et $q$, donc divise $\\gcd(p,q) = 1$. Ainsi $\\text{ord}(x) = 1$, d'où $x = 1_G$. Donc $H \\cap K = \\{1_G\\}$.\\par\\par\n\\textbf{Cas 2} : $p = q$. Alors $H$ et $K$ sont tous deux cycliques d'ordre $p$. Soit $\\ell = |H \\cap K|$. On a $\\ell \\mid p$, donc $\\ell \\in \\{1, p\\}$. Si $\\ell = p$, alors $|H| = |H \\cap K| = p$ implique $H \\subseteq K$ (car $H$ et $H \\cap K$ sont tous deux d'ordre $p$). De même $K \\subseteq H$, donc $H = K$. Sinon $\\ell = 1$, d'où $H \\cap K = \\{1_G\\}$.",
       "hints": [
         {
           "level": 1,
@@ -222,7 +222,7 @@
               "content_latex": "Pour la stabilité par passage à l'inverse : si $g\\in C_G(x)$, on a $gx = xg$. Multipliez cette égalité à gauche et à droite par $g^{-1}$ pour conclure."
             }
           ],
-          "solution_latex": "Le centralisateur $C_G(x) = \\{g \\in G : gx = xg\\}$ est un sous-groupe de $G$.\\\\par\\\\par\n\\\\textbf{Élément neutre} : $1_G x = x 1_G$ toujours, donc $1_G \\in C_G(x)$.\\\\par\\\\par\n\\\\textbf{Stabilité} : Si $g, h \\in C_G(x)$, alors $gx = xg$ et $hx = xh$. On a $(gh)x = g(hx) = g(xh) = (gx)h = (xg)h = x(gh)$. Donc $gh \\in C_G(x)$.\\\\par\\\\par\n\\\\textbf{Inverses} : Si $gx = xg$, alors multipliant par $g^{-1}$ à gauche et à droite : $x = g^{-1}xg$, soit $g^{-1}x = xg^{-1}$. Donc $g^{-1} \\in C_G(x)$.\\\\par\\\\par\nAinsi $C_G(x)$ est un sous-groupe de $G$."
+          "solution_latex": "Le centralisateur $C_G(x) = \\{g \\in G : gx = xg\\}$ est un sous-groupe de $G$.\\par\\par\n\\textbf{Élément neutre} : $1_G x = x 1_G$ toujours, donc $1_G \\in C_G(x)$.\\par\\par\n\\textbf{Stabilité} : Si $g, h \\in C_G(x)$, alors $gx = xg$ et $hx = xh$. On a $(gh)x = g(hx) = g(xh) = (gx)h = (xg)h = x(gh)$. Donc $gh \\in C_G(x)$.\\par\\par\n\\textbf{Inverses} : Si $gx = xg$, alors multipliant par $g^{-1}$ à gauche et à droite : $x = g^{-1}xg$, soit $g^{-1}x = xg^{-1}$. Donc $g^{-1} \\in C_G(x)$.\\par\\par\nAinsi $C_G(x)$ est un sous-groupe de $G$."
         },
         {
           "label": "1) b)",
@@ -242,7 +242,7 @@
               "content_latex": "Puisque l'intersection d'une famille de sous-groupes est toujours un sous-groupe, le résultat découle directement de la question précédente."
             }
           ],
-          "solution_latex": "Le centre $Z(G) = \\{z \\in G : \\forall g \\in G, zg = gz\\}$ est un sous-groupe normal de $G$.\\\\par\\\\par\n\\\\textbf{Sous-groupe} : $1_G$ commute avec tout élément. Si $x, y \\in Z(G)$, alors $(xy)g = x(yg) = x(gy) = (xg)y = (gx)y = g(xy)$ pour tout $g$, donc $xy \\in Z(G)$. Si $x \\in Z(G)$, alors $x^{-1}g = (g x^{-1})^{-1} = (g x^{-1})^{-1}$; or $gx = xg$ implique $g^{-1}x^{-1} = x^{-1}g^{-1}$, donc $x^{-1} \\in Z(G)$.\\\\par\\\\par\n\\\\textbf{Normalité} : Pour tout $z \\in Z(G)$ et $g \\in G$, on a $gzg^{-1} = z(gg^{-1}) = z \\in Z(G)$."
+          "solution_latex": "Le centre $Z(G) = \\{z \\in G : \\forall g \\in G, zg = gz\\}$ est un sous-groupe normal de $G$.\\par\\par\n\\textbf{Sous-groupe} : $1_G$ commute avec tout élément. Si $x, y \\in Z(G)$, alors $(xy)g = x(yg) = x(gy) = (xg)y = (gx)y = g(xy)$ pour tout $g$, donc $xy \\in Z(G)$. Si $x \\in Z(G)$, alors $x^{-1}g = (g x^{-1})^{-1} = (g x^{-1})^{-1}$; or $gx = xg$ implique $g^{-1}x^{-1} = x^{-1}g^{-1}$, donc $x^{-1} \\in Z(G)$.\\par\\par\n\\textbf{Normalité} : Pour tout $z \\in Z(G)$ et $g \\in G$, on a $gzg^{-1} = z(gg^{-1}) = z \\in Z(G)$."
         },
         {
           "label": "1) c)",
@@ -262,7 +262,7 @@
               "content_latex": "On a $(z, z')(g, g') = (gz, g'z')$ si et seulement si $z \\in Z(G)$ et $z' \\in Z(G')$. Concluez sous forme de produit cartésien."
             }
           ],
-          "solution_latex": "On a $Z(G \\times G') = Z(G) \\times Z(G')$.\\\\par\\\\par\nEn effet, $(g,g') \\in Z(G \\times G')$ ssi $(g,g')$ commute avec tout élément de $G \\times G'$, ssi pour tous $h \\in G, h' \\in G'$ on a $(g,g')(h,h') = (h,h')(g,g')$, ssi $gh = hg$ et $g'h' = h'g'$ pour tous $h, h'$, ssi $g \\in Z(G)$ et $g' \\in Z(G')$."
+          "solution_latex": "On a $Z(G \\times G') = Z(G) \\times Z(G')$.\\par\\par\nEn effet, $(g,g') \\in Z(G \\times G')$ ssi $(g,g')$ commute avec tout élément de $G \\times G'$, ssi pour tous $h \\in G, h' \\in G'$ on a $(g,g')(h,h') = (h,h')(g,g')$, ssi $gh = hg$ et $g'h' = h'g'$ pour tous $h, h'$, ssi $g \\in Z(G)$ et $g' \\in Z(G')$."
         },
         {
           "label": "2) a)",
@@ -282,7 +282,7 @@
               "content_latex": "Pour la symétrie, multipliez par $g^{-1}$ et $g$. Pour la transitivité, si $y = gxg^{-1}$ et $z = hyh^{-1}$, remplacez $y$ par son expression dans celle de $z$ et observez l'élément $(hg)$."
             }
           ],
-          "solution_latex": "La relation \"$y$ est conjugué à $x$\" est une relation d'équivalence sur $G$.\\\\par\\\\par\n\\\\textbf{Réflexivité} : $x = 1_G \\cdot x \\cdot 1_G^{-1}$, donc tout élément est conjugué à lui-même.\\\\par\\\\par\n\\\\textbf{Symétrie} : Si $y = gxg^{-1}$, alors $x = g^{-1}yg = g^{-1}y(g^{-1})^{-1}$, donc $x$ est conjugué à $y$.\\\\par\\\\par\n\\\\textbf{Transitivité} : Si $y = gxg^{-1}$ et $z = hyh^{-1}$, alors $z = h(gxg^{-1})h^{-1} = (hg)x(hg)^{-1}$, donc $z$ est conjugué à $x$.\\\\par\\\\par\nLes classes d'équivalence s'appellent classes de conjugaison."
+          "solution_latex": "La relation \"$y$ est conjugué à $x$\" est une relation d'équivalence sur $G$.\\par\\par\n\\textbf{Réflexivité} : $x = 1_G \\cdot x \\cdot 1_G^{-1}$, donc tout élément est conjugué à lui-même.\\par\\par\n\\textbf{Symétrie} : Si $y = gxg^{-1}$, alors $x = g^{-1}yg = g^{-1}y(g^{-1})^{-1}$, donc $x$ est conjugué à $y$.\\par\\par\n\\textbf{Transitivité} : Si $y = gxg^{-1}$ et $z = hyh^{-1}$, alors $z = h(gxg^{-1})h^{-1} = (hg)x(hg)^{-1}$, donc $z$ est conjugué à $x$.\\par\\par\nLes classes d'équivalence s'appellent classes de conjugaison."
         },
         {
           "label": "2) b)",
@@ -302,7 +302,7 @@
               "content_latex": "Deux éléments $g$ et $h$ donnent le même conjugué si et seulement si $gxg^{-1} = hxh^{-1}$, ce qui équivaut à $h^{-1}g \\in C_G(x)$. Il y a donc une bijection entre l'ensemble des conjugués de $x$ et l'ensemble des classes à gauche modulo $C_G(x)$."
             }
           ],
-          "solution_latex": "Soit $x \\in G$. Considérons l'application $\\varphi: G \\to G$ définie par $\\varphi(g) = gxg^{-1}$. La classe de conjugaison de $x$ est l'image de $\\varphi$.\\\\par\\\\par\nOn a $\\varphi(g) = \\varphi(h)$ ssi $gxg^{-1} = hxh^{-1}$ ssi $h^{-1}gx = xh^{-1}g$ ssi $(h^{-1}g)x = x(h^{-1}g)$ ssi $h^{-1}g \\in C_G(x)$. Les fibres de $\\varphi$ sont donc les classes à gauche de $C_G(x)$ dans $G$.\\\\par\\\\par\nPar le théorème de Lagrange, $G$ se partitionne en $\\frac{|G|}{|C_G(x)|}$ classes à gauche de $C_G(x)$. Donc la classe de conjugaison de $x$ a cardinal $[G : C_G(x)] = \\frac{|G|}{|C_G(x)|}$. Ce cardinal divise $|G|$."
+          "solution_latex": "Soit $x \\in G$. Considérons l'application $\\varphi: G \\to G$ définie par $\\varphi(g) = gxg^{-1}$. La classe de conjugaison de $x$ est l'image de $\\varphi$.\\par\\par\nOn a $\\varphi(g) = \\varphi(h)$ ssi $gxg^{-1} = hxh^{-1}$ ssi $h^{-1}gx = xh^{-1}g$ ssi $(h^{-1}g)x = x(h^{-1}g)$ ssi $h^{-1}g \\in C_G(x)$. Les fibres de $\\varphi$ sont donc les classes à gauche de $C_G(x)$ dans $G$.\\par\\par\nPar le théorème de Lagrange, $G$ se partitionne en $\\frac{|G|}{|C_G(x)|}$ classes à gauche de $C_G(x)$. Donc la classe de conjugaison de $x$ a cardinal $[G : C_G(x)] = \\frac{|G|}{|C_G(x)|}$. Ce cardinal divise $|G|$."
         },
         {
           "label": "2) c)",
@@ -322,7 +322,7 @@
               "content_latex": "Écrivez l'équation aux classes : $|G| = |Z(G)| + \\sum |\\mathcal{O}_i|$, où les $\\mathcal{O}_i$ sont les classes de conjugaison de cardinal strictement supérieur à 1. Montrez que $p$ divise $|G|$ et $p$ divise $|\\mathcal{O}_i|$, ce qui force $p$ à diviser $|Z(G)|$."
             }
           ],
-          "solution_latex": "Supposons $|G| = p^n$ pour un nombre premier $p$ et $n \\in \\mathbb{N}^*$. Montrons que $Z(G) \\neq \\{1_G\\}$.\\\\par\\\\par\nPartitionnons $G$ en classes de conjugaison : $G = Z(G) \\sqcup C_1 \\sqcup \\cdots \\sqcup C_k$ où les $C_i$ sont les classes non triviales (d'éléments non centraux). Pour $x_i \\in C_i$, on a $|C_i| = \\frac{|G|}{|C_G(x_i)|}$ où $1 < |C_G(x_i)| < |G|$ puisque $x_i \\notin Z(G)$. Donc $p \\mid |C_i|$.\\\\par\\\\par\nAinsi $p^n = |G| = |Z(G)| + \\sum_{i=1}^k |C_i|$. Modulo $p$, on a $0 \\equiv |Z(G)| \\pmod{p}$ (car $p \\mid \\sum |C_i|$), d'où $p \\mid |Z(G)|$. Puisque $1_G \\in Z(G)$, on a $|Z(G)| \\ge p > 1$, donc $Z(G) \\neq \\{1_G\\}$."
+          "solution_latex": "Supposons $|G| = p^n$ pour un nombre premier $p$ et $n \\in \\mathbb{N}^*$. Montrons que $Z(G) \\neq \\{1_G\\}$.\\par\\par\nPartitionnons $G$ en classes de conjugaison : $G = Z(G) \\sqcup C_1 \\sqcup \\cdots \\sqcup C_k$ où les $C_i$ sont les classes non triviales (d'éléments non centraux). Pour $x_i \\in C_i$, on a $|C_i| = \\frac{|G|}{|C_G(x_i)|}$ où $1 < |C_G(x_i)| < |G|$ puisque $x_i \\notin Z(G)$. Donc $p \\mid |C_i|$.\\par\\par\nAinsi $p^n = |G| = |Z(G)| + \\sum_{i=1}^k |C_i|$. Modulo $p$, on a $0 \\equiv |Z(G)| \\pmod{p}$ (car $p \\mid \\sum |C_i|$), d'où $p \\mid |Z(G)|$. Puisque $1_G \\in Z(G)$, on a $|Z(G)| \\ge p > 1$, donc $Z(G) \\neq \\{1_G\\}$."
         },
         {
           "label": "2) d)",
@@ -342,7 +342,7 @@
               "content_latex": "Si $G$ n'est pas commutatif, alors $Z(G) \\subsetneq G$. Puisque $p$ divise $|Z(G)|$ (d'après 2c), $|Z(G)| = p$. Montrez que le sous-groupe proposé aurait un ordre strictement supérieur à $p$, ce qui contredit le théorème de Lagrange (qui imposerait que cet ordre soit $p^2$ et donc que tout commute)."
             }
           ],
-          "solution_latex": "Supposons $|G| = p^2$ pour un nombre premier $p$. Montrons que $G$ est abélien.\\\\par\\\\par\nPar 2), $Z(G) \\neq \\{1_G\\}$, donc $|Z(G)| \\in \\{p, p^2\\}$ (les diviseurs de $p^2$).\\\\par\\\\par\n\\\\textbf{Cas 1} : $|Z(G)| = p^2 = |G|$. Alors $G = Z(G)$, donc $G$ est abélien.\\\\par\\\\par\n\\\\textbf{Cas 2} : $|Z(G)| = p$. Soit $a \\in G \\setminus Z(G)$ (qui existe). Le sous-groupe $\\langle a \\rangle$ a ordre $p$ ou $p^2$. S'il a ordre $p^2$, alors $G = \\langle a \\rangle$ est cyclique donc abélien.\\\\par\\\\par\nS'il a ordre $p$, considérons $H = \\langle a \\rangle Z(G)$. On a $|H| = \\frac{|\\langle a \\rangle| |Z(G)|}{|\\langle a \\rangle \\cap Z(G)|} = \\frac{p \\cdot p}{|\\langle a \\rangle \\cap Z(G)|}$. Puisque $a \\notin Z(G)$, on a $a \\notin C_G(a)$ n'est pas applicable; en fait $|\\langle a \\rangle \\cap Z(G)| = 1$ (sinon $a$ serait central). Donc $|H| = p^2 = |G|$, d'où $H = G$.\\\\par\\\\par\nOr pour tous $g \\in \\langle a \\rangle$ et $z \\in Z(G)$, on a $gz = zg$ (car $z$ est central). Donc tout élément de $G = \\langle a \\rangle \\cdot Z(G)$ s'écrit comme produit d'un élément de $\\langle a \\rangle$ (qui commutent entre eux) et d'un élément du centre (qui commute avec tout). Donc $G$ est abélien."
+          "solution_latex": "Supposons $|G| = p^2$ pour un nombre premier $p$. Montrons que $G$ est abélien.\\par\\par\nPar 2), $Z(G) \\neq \\{1_G\\}$, donc $|Z(G)| \\in \\{p, p^2\\}$ (les diviseurs de $p^2$).\\par\\par\n\\textbf{Cas 1} : $|Z(G)| = p^2 = |G|$. Alors $G = Z(G)$, donc $G$ est abélien.\\par\\par\n\\textbf{Cas 2} : $|Z(G)| = p$. Soit $a \\in G \\setminus Z(G)$ (qui existe). Le sous-groupe $\\langle a \\rangle$ a ordre $p$ ou $p^2$. S'il a ordre $p^2$, alors $G = \\langle a \\rangle$ est cyclique donc abélien.\\par\\par\nS'il a ordre $p$, considérons $H = \\langle a \\rangle Z(G)$. On a $|H| = \\frac{|\\langle a \\rangle| |Z(G)|}{|\\langle a \\rangle \\cap Z(G)|} = \\frac{p \\cdot p}{|\\langle a \\rangle \\cap Z(G)|}$. Puisque $a \\notin Z(G)$, on a $a \\notin C_G(a)$ n'est pas applicable; en fait $|\\langle a \\rangle \\cap Z(G)| = 1$ (sinon $a$ serait central). Donc $|H| = p^2 = |G|$, d'où $H = G$.\\par\\par\nOr pour tous $g \\in \\langle a \\rangle$ et $z \\in Z(G)$, on a $gz = zg$ (car $z$ est central). Donc tout élément de $G = \\langle a \\rangle \\cdot Z(G)$ s'écrit comme produit d'un élément de $\\langle a \\rangle$ (qui commutent entre eux) et d'un élément du centre (qui commute avec tout). Donc $G$ est abélien."
         }
       ],
       "global_solution_latex": null
@@ -386,7 +386,7 @@
               "content_latex": "Prenez par exemple $2\\mathbb{Z}$ et $3\\mathbb{Z}$. Montrez que leur réunion contient 2 et 3, mais que la somme $2+3=5$ n'est pas dans la réunion."
             }
           ],
-          "solution_latex": "Considérons $H = \\mathbb{Z}$ et $K = \\pi \\mathbb{Z}$ comme sous-groupes du groupe additif $(\\mathbb{R}, +)$.\\\\par\\\\par\nOn a $1 \\in H$ et $\\pi \\in K$, donc $1, \\pi \\in H \\cup K$. Cependant, $1 + \\pi \\notin \\mathbb{Z}$ car $\\pi$ est irrationnel. Et $1 + \\pi \\notin \\pi\\mathbb{Z}$ car sinon $1 = \\pi(m-1)$ pour un entier $m$, ce qui contredirait l'indépendance linéaire de $1$ et $\\pi$ sur $\\mathbb{Q}$. Donc $1 + \\pi \\notin H \\cup K$, ce qui montre que $H \\cup K$ n'est pas stable par addition, donc ce n'est pas un sous-groupe."
+          "solution_latex": "Considérons $H = \\mathbb{Z}$ et $K = \\pi \\mathbb{Z}$ comme sous-groupes du groupe additif $(\\mathbb{R}, +)$.\\par\\par\nOn a $1 \\in H$ et $\\pi \\in K$, donc $1, \\pi \\in H \\cup K$. Cependant, $1 + \\pi \\notin \\mathbb{Z}$ car $\\pi$ est irrationnel. Et $1 + \\pi \\notin \\pi\\mathbb{Z}$ car sinon $1 = \\pi(m-1)$ pour un entier $m$, ce qui contredirait l'indépendance linéaire de $1$ et $\\pi$ sur $\\mathbb{Q}$. Donc $1 + \\pi \\notin H \\cup K$, ce qui montre que $H \\cup K$ n'est pas stable par addition, donc ce n'est pas un sous-groupe."
         },
         {
           "label": "2) a)",
@@ -406,7 +406,7 @@
               "content_latex": "Si $z^n = 1$ et $z'^m = 1$, quelle puissance commune annule à la fois $z$ et $z'$ ? Pensez au produit $nm$."
             }
           ],
-          "solution_latex": "L'ensemble $\\bigcup_{n \\in \\mathbb{N}^*} \\mathbb{U}_n$ est l'ensemble des racines de l'unité dans $\\mathbb{C}^*$. Montrons que c'est un sous-groupe.\\\\par\\\\par\n\\\\textbf{Élément neutre} : $1 \\in \\mathbb{U}_1$.\\\\par\\\\par\n\\\\textbf{Stabilité} : Si $x \\in \\mathbb{U}_m$ et $y \\in \\mathbb{U}_n$, alors $x^m = 1$ et $y^n = 1$, donc $(xy)^{mn} = x^{mn}y^{mn} = (x^m)^n(y^n)^m = 1$. Ainsi $xy \\in \\mathbb{U}_{mn}$.\\\\par\\\\par\n\\\\textbf{Inverses} : Si $x \\in \\mathbb{U}_n$, alors $x^n = 1$, donc $(x^{-1})^n = (x^n)^{-1} = 1$, d'où $x^{-1} \\in \\mathbb{U}_n$.\\\\par\\\\par\nDonc c'est un sous-groupe de $\\mathbb{C}^*$."
+          "solution_latex": "L'ensemble $\\bigcup_{n \\in \\mathbb{N}^*} \\mathbb{U}_n$ est l'ensemble des racines de l'unité dans $\\mathbb{C}^*$. Montrons que c'est un sous-groupe.\\par\\par\n\\textbf{Élément neutre} : $1 \\in \\mathbb{U}_1$.\\par\\par\n\\textbf{Stabilité} : Si $x \\in \\mathbb{U}_m$ et $y \\in \\mathbb{U}_n$, alors $x^m = 1$ et $y^n = 1$, donc $(xy)^{mn} = x^{mn}y^{mn} = (x^m)^n(y^n)^m = 1$. Ainsi $xy \\in \\mathbb{U}_{mn}$.\\par\\par\n\\textbf{Inverses} : Si $x \\in \\mathbb{U}_n$, alors $x^n = 1$, donc $(x^{-1})^n = (x^n)^{-1} = 1$, d'où $x^{-1} \\in \\mathbb{U}_n$.\\par\\par\nDonc c'est un sous-groupe de $\\mathbb{C}^*$."
         },
         {
           "label": "2) b)",
@@ -426,7 +426,7 @@
               "content_latex": "Évaluez $(e^{\\frac{2i\\pi}{m}})^n = 1$ pour en déduire que $\\frac{n}{m}$ doit être un entier. La condition est donc que $m$ divise $n$."
             }
           ],
-          "solution_latex": "On a $\\mathbb{U}_m \\cap \\mathbb{U}_n = \\mathbb{U}_{\\gcd(m,n)}$.\\\\par\\\\par\nEn effet, $z \\in \\mathbb{U}_m \\cap \\mathbb{U}_n$ signifie $z^m = 1$ et $z^n = 1$. Par l'identité de Bézout, il existe $u, v \\in \\mathbb{Z}$ tels que $\\gcd(m,n) = um + vn$. Donc $z^{\\gcd(m,n)} = z^{um+vn} = (z^m)^u (z^n)^v = 1$, d'où $z \\in \\mathbb{U}_{\\gcd(m,n)}$. Réciproquement, si $z^{\\gcd(m,n)} = 1$, alors puisque $\\gcd(m,n)$ divise $m$ et $n$, on a $z^m = 1$ et $z^n = 1$.\\\\par\\\\par\nEn particulier, $\\mathbb{U}_m \\cup \\mathbb{U}_n$ n'est pas un sous-groupe en général (sauf si l'un divise l'autre)."
+          "solution_latex": "On a $\\mathbb{U}_m \\cap \\mathbb{U}_n = \\mathbb{U}_{\\gcd(m,n)}$.\\par\\par\nEn effet, $z \\in \\mathbb{U}_m \\cap \\mathbb{U}_n$ signifie $z^m = 1$ et $z^n = 1$. Par l'identité de Bézout, il existe $u, v \\in \\mathbb{Z}$ tels que $\\gcd(m,n) = um + vn$. Donc $z^{\\gcd(m,n)} = z^{um+vn} = (z^m)^u (z^n)^v = 1$, d'où $z \\in \\mathbb{U}_{\\gcd(m,n)}$. Réciproquement, si $z^{\\gcd(m,n)} = 1$, alors puisque $\\gcd(m,n)$ divise $m$ et $n$, on a $z^m = 1$ et $z^n = 1$.\\par\\par\nEn particulier, $\\mathbb{U}_m \\cup \\mathbb{U}_n$ n'est pas un sous-groupe en général (sauf si l'un divise l'autre)."
         },
         {
           "label": "3)",
@@ -446,7 +446,7 @@
               "content_latex": "Puisque la suite est croissante, si on pose $N = \\max(p,q)$, alors $x$ et $y$ appartiennent tous les deux à $H_N$. Concluez en utilisant le fait que $H_N$ est un sous-groupe."
             }
           ],
-          "solution_latex": "Montrons que $H = \\bigcup_{n \\in \\mathbb{N}} H_n$ est un sous-groupe de $G$.\\\\par\\\\par\n\\\\textbf{Élément neutre} : $1_G \\in H_0 \\subseteq H$.\\\\par\\\\par\n\\\\textbf{Stabilité} : Soient $x, y \\in H$. Alors $\\exists m, n$ tels que $x \\in H_m, y \\in H_n$. Sans perte de généralité $m \\le n$ (par croissance), donc $H_m \\subseteq H_n$. Ainsi $x, y \\in H_n$ qui est un sous-groupe, donc $xy \\in H_n \\subseteq H$.\\\\par\\\\par\n\\\\textbf{Inverses} : Si $x \\in H$, alors $\\exists n$ tel que $x \\in H_n$. Puisque $H_n$ est un sous-groupe, $x^{-1} \\in H_n \\subseteq H$.\\\\par\\\\par\nDonc $H$ est un sous-groupe."
+          "solution_latex": "Montrons que $H = \\bigcup_{n \\in \\mathbb{N}} H_n$ est un sous-groupe de $G$.\\par\\par\n\\textbf{Élément neutre} : $1_G \\in H_0 \\subseteq H$.\\par\\par\n\\textbf{Stabilité} : Soient $x, y \\in H$. Alors $\\exists m, n$ tels que $x \\in H_m, y \\in H_n$. Sans perte de généralité $m \\le n$ (par croissance), donc $H_m \\subseteq H_n$. Ainsi $x, y \\in H_n$ qui est un sous-groupe, donc $xy \\in H_n \\subseteq H$.\\par\\par\n\\textbf{Inverses} : Si $x \\in H$, alors $\\exists n$ tel que $x \\in H_n$. Puisque $H_n$ est un sous-groupe, $x^{-1} \\in H_n \\subseteq H$.\\par\\par\nDonc $H$ est un sous-groupe."
         },
         {
           "label": "4)",
@@ -466,7 +466,7 @@
               "content_latex": "Raisonnez par l'absurde. Prenez $x \\in H \\setminus K$ et $y \\in K \\setminus H$. Regardez le produit $xy$. S'il est dans $H$, montrez que $y$ devrait être dans $H$. S'il est dans $K$, montrez que $x$ devrait être dans $K$."
             }
           ],
-          "solution_latex": "On va montrer que $H \\cup K$ est un sous-groupe ssi $H \\subseteq K$ ou $K \\subseteq H$.\\\\par\\\\par\n$(\\Rightarrow)$ Supposons $H \\cup K$ est un sous-groupe. Si ni $H \\subseteq K$ ni $K \\subseteq H$, alors il existe $a \\in H \\setminus K$ et $b \\in K \\setminus H$. Puisque $H \\cup K$ est un sous-groupe, $ab \\in H \\cup K$. Si $ab \\in H$, alors $b = a^{-1}(ab) \\in H$ (stabilité de $H$), contredisant $b \\notin H$. Si $ab \\in K$, alors $a = (ab)b^{-1} \\in K$, contredisant $a \\notin K$. Contradiction.\\\\par\\\\par\n$(\\Leftarrow)$ Si $H \\subseteq K$, alors $H \\cup K = K$, qui est un sous-groupe. De même si $K \\subseteq H$."
+          "solution_latex": "On va montrer que $H \\cup K$ est un sous-groupe ssi $H \\subseteq K$ ou $K \\subseteq H$.\\par\\par\n$(\\Rightarrow)$ Supposons $H \\cup K$ est un sous-groupe. Si ni $H \\subseteq K$ ni $K \\subseteq H$, alors il existe $a \\in H \\setminus K$ et $b \\in K \\setminus H$. Puisque $H \\cup K$ est un sous-groupe, $ab \\in H \\cup K$. Si $ab \\in H$, alors $b = a^{-1}(ab) \\in H$ (stabilité de $H$), contredisant $b \\notin H$. Si $ab \\in K$, alors $a = (ab)b^{-1} \\in K$, contredisant $a \\notin K$. Contradiction.\\par\\par\n$(\\Leftarrow)$ Si $H \\subseteq K$, alors $H \\cup K = K$, qui est un sous-groupe. De même si $K \\subseteq H$."
         }
       ],
       "global_solution_latex": null
@@ -510,7 +510,7 @@
               "content_latex": "Pour l'injectivité : si $gx = gy$, multipliez par $g^{-1}$. Puisque $G$ est fini, toute application injective de $G$ dans $G$ est bijective."
             }
           ],
-          "solution_latex": "L'application $\\phi: G \\to G$ définie par $\\phi(x) = gx$ est une bijection.\\\\par\\\\par\n\\\\textbf{Injectivité} : Si $gx = gy$, alors en multipliant par $g^{-1}$ à gauche : $x = y$.\\\\par\\\\par\n\\\\textbf{Surjectivité} : Pour tout $z \\in G$, on a $z = g(g^{-1}z) = \\phi(g^{-1}z)$.\\\\par\\\\par\nDonc $\\phi$ est bijective et le multiensemble $\\{gx : x \\in G\\}$ égale $G$. Puisque $G$ est fini et abélien, le produit est bien défini."
+          "solution_latex": "L'application $\\phi: G \\to G$ définie par $\\phi(x) = gx$ est une bijection.\\par\\par\n\\textbf{Injectivité} : Si $gx = gy$, alors en multipliant par $g^{-1}$ à gauche : $x = y$.\\par\\par\n\\textbf{Surjectivité} : Pour tout $z \\in G$, on a $z = g(g^{-1}z) = \\phi(g^{-1}z)$.\\par\\par\nDonc $\\phi$ est bijective et le multiensemble $\\{gx : x \\in G\\}$ égale $G$. Puisque $G$ est fini et abélien, le produit est bien défini."
         },
         {
           "label": "1) b)",
@@ -530,7 +530,7 @@
               "content_latex": "Puisque $x \\mapsto gx$ est une bijection, $\\prod_{x\\in G}(gx) = \\prod_{y\\in G}y$. D'autre part, comme $G$ est commutatif, $\\prod_{x\\in G}(gx) = g^{|G|} \\prod_{x\\in G}x$. Simplifiez l'égalité obtenue."
             }
           ],
-          "solution_latex": "Le produit $\\prod_{x \\in G}(gx)$ est bien défini car $G$ est fini, et on peut réorganiser les termes puisque $G$ est abélien. Par la question 1a), $\\{gx : x \\in G\\} = G$, donc\\\\par\n$$\\prod_{x \\in G}(gx) = \\prod_{y \\in G} y$$\\\\par\n(les deux produits contiennent les mêmes éléments). Puisque $G$ est abélien, \\\\par\n$$\\prod_{x \\in G}(gx) = \\prod_{x \\in G} g \\cdot \\prod_{x \\in G} x = g^{|G|} \\prod_{x \\in G} x$$\\\\par\nDonc $g^{|G|} \\prod_{x \\in G} x = \\prod_{x \\in G} x$. Chaque élément $x \\in G$ a un inverse $x^{-1}$ qui figure aussi dans le produit (en l'associant d'avec $x$ pour obtenir $1_G$). Donc le produit est inversible, et en multipliant par son inverse :\\\\par\n$$g^{|G|} = 1_G$$\\\\par\nC'est le théorème de Lagrange pour les groupes abéliens finis."
+          "solution_latex": "Le produit $\\prod_{x \\in G}(gx)$ est bien défini car $G$ est fini, et on peut réorganiser les termes puisque $G$ est abélien. Par la question 1a), $\\{gx : x \\in G\\} = G$, donc\\par\n$$\\prod_{x \\in G}(gx) = \\prod_{y \\in G} y$$\\par\n(les deux produits contiennent les mêmes éléments). Puisque $G$ est abélien, \\par\n$$\\prod_{x \\in G}(gx) = \\prod_{x \\in G} g \\cdot \\prod_{x \\in G} x = g^{|G|} \\prod_{x \\in G} x$$\\par\nDonc $g^{|G|} \\prod_{x \\in G} x = \\prod_{x \\in G} x$. Chaque élément $x \\in G$ a un inverse $x^{-1}$ qui figure aussi dans le produit (en l'associant d'avec $x$ pour obtenir $1_G$). Donc le produit est inversible, et en multipliant par son inverse :\\par\n$$g^{|G|} = 1_G$$\\par\nC'est le théorème de Lagrange pour les groupes abéliens finis."
         },
         {
           "label": "2)",
@@ -550,7 +550,7 @@
               "content_latex": "Si $H$ est un sous-groupe fini d'ordre $n$, le théorème de Lagrange implique que pour tout $z \\in H$, $z^n = 1$. Donc $H \\subset \\mathbb{U}_n$. Utilisez le cardinal pour conclure."
             }
           ],
-          "solution_latex": "Les sous-groupes finis de $(\\mathbb{C}^*, \\cdot)$ sont exactement les $\\mathbb{U}_n$ pour $n \\in \\mathbb{N}^*$.\\\\par\\\\par\n\\\\textbf{Sens} $\\subseteq$ : Soit $H$ un sous-groupe fini de $\\mathbb{C}^*$. Pour tout $z \\in H$, par la question 1b), $z^{|H|} = 1$. Donc $H \\subseteq \\mathbb{U}_{|H|}$. Puisque $H$ a exactement $|H|$ éléments et $\\mathbb{U}_{|H|}$ en a également $|H|$ (les $|H|$ racines $|H|$-ièmes de l'unité), et $H \\subseteq \\mathbb{U}_{|H|}$, on conclut que $H = \\mathbb{U}_{|H|}$.\\\\par\\\\par\n\\\\textbf{Sens} $\\supseteq$ : Chaque $\\mathbb{U}_n$ est un sous-groupe cyclique fini de $\\mathbb{C}^*$."
+          "solution_latex": "Les sous-groupes finis de $(\\mathbb{C}^*, \\cdot)$ sont exactement les $\\mathbb{U}_n$ pour $n \\in \\mathbb{N}^*$.\\par\\par\n\\textbf{Sens} $\\subseteq$ : Soit $H$ un sous-groupe fini de $\\mathbb{C}^*$. Pour tout $z \\in H$, par la question 1b), $z^{|H|} = 1$. Donc $H \\subseteq \\mathbb{U}_{|H|}$. Puisque $H$ a exactement $|H|$ éléments et $\\mathbb{U}_{|H|}$ en a également $|H|$ (les $|H|$ racines $|H|$-ièmes de l'unité), et $H \\subseteq \\mathbb{U}_{|H|}$, on conclut que $H = \\mathbb{U}_{|H|}$.\\par\\par\n\\textbf{Sens} $\\supseteq$ : Chaque $\\mathbb{U}_n$ est un sous-groupe cyclique fini de $\\mathbb{C}^*$."
         },
         {
           "label": "3) a)",
@@ -570,7 +570,7 @@
               "content_latex": "Montrez que la suite $(\\mathbb{U}_{p^k})$ est croissante pour l'inclusion, car $z^{p^k} = 1 \\implies z^{p^{k+1}} = (z^{p^k})^p = 1^p = 1$."
             }
           ],
-          "solution_latex": "Posons $G = \\bigcup_{k \\in \\mathbb{N}^*} \\mathbb{U}_{p^k}$ où $p$ est premier. C'est l'ensemble des racines de l'unité dont l'ordre est une puissance de $p$.\\\\par\\\\par\nMontrons que $G$ est un groupe. Soit $x, y \\in G$. Alors $\\exists j, k$ tels que $x^{p^j} = 1$ et $y^{p^k} = 1$. Posons $m = \\max(j, k)$. Alors $(xy)^{p^m} = x^{p^m}y^{p^m} = 1$ (car $p^j \\le p^m$), donc $xy \\in \\mathbb{U}_{p^m} \\subseteq G$. Si $x^{p^j} = 1$, alors $(x^{-1})^{p^j} = 1$, donc $x^{-1} \\in \\mathbb{U}_{p^j} \\subseteq G$. Enfin $1 \\in \\mathbb{U}_{p^1}$. Donc $G$ est un groupe."
+          "solution_latex": "Posons $G = \\bigcup_{k \\in \\mathbb{N}^*} \\mathbb{U}_{p^k}$ où $p$ est premier. C'est l'ensemble des racines de l'unité dont l'ordre est une puissance de $p$.\\par\\par\nMontrons que $G$ est un groupe. Soit $x, y \\in G$. Alors $\\exists j, k$ tels que $x^{p^j} = 1$ et $y^{p^k} = 1$. Posons $m = \\max(j, k)$. Alors $(xy)^{p^m} = x^{p^m}y^{p^m} = 1$ (car $p^j \\le p^m$), donc $xy \\in \\mathbb{U}_{p^m} \\subseteq G$. Si $x^{p^j} = 1$, alors $(x^{-1})^{p^j} = 1$, donc $x^{-1} \\in \\mathbb{U}_{p^j} \\subseteq G$. Enfin $1 \\in \\mathbb{U}_{p^1}$. Donc $G$ est un groupe."
         },
         {
           "label": "3) b)",
@@ -590,7 +590,7 @@
               "content_latex": "Puisque $a$ est premier avec $p$, il est premier avec $p^k$. Il existe donc des entiers $u$ et $v$ tels que $au + p^kv = 1$. Élevez $e^{\\frac{2ia\\pi}{p^{k}}}$ à la puissance $u$ et observez le résultat."
             }
           ],
-          "solution_latex": "Soient $a \\in \\mathbb{Z}$ premier à $p$ et $k \\in \\mathbb{N}^*$. Montrons que tout élément $x \\in \\mathbb{U}_{p^k}$ se relève dans $\\mathbb{U}_{p^{k+1}}$ par l'application $f: z \\mapsto z^p$.\\\\par\\\\par\nSoit $x = e^{2\\pi i m/p^k}$ pour un $m \\in \\{0, \\ldots, p^k-1\\}$. On cherche $y = e^{2\\pi i n/p^{k+1}}$ tel que $y^p = x$. On a $e^{2\\pi i np/p^{k+1}} = e^{2\\pi i m/p^k}$, donc $\\frac{np}{p^{k+1}} \\equiv \\frac{m}{p^k} \\pmod{1}$, soit $\\frac{n}{p^k} \\equiv \\frac{m}{p^k} \\pmod{1}$, d'où $n \\equiv m \\pmod{p^k}$. On peut donc choisir $n = m$, donnant $y = e^{2\\pi i m/p^{k+1}} \\in \\mathbb{U}_{p^{k+1}}$ avec $f(y) = y^p = e^{2\\pi i mp/p^{k+1}} = e^{2\\pi i m/p^k} = x$. Donc tout élément de $\\mathbb{U}_{p^k}$ a un antécédent dans $\\mathbb{U}_{p^{k+1}}$."
+          "solution_latex": "Soient $a \\in \\mathbb{Z}$ premier à $p$ et $k \\in \\mathbb{N}^*$. Montrons que tout élément $x \\in \\mathbb{U}_{p^k}$ se relève dans $\\mathbb{U}_{p^{k+1}}$ par l'application $f: z \\mapsto z^p$.\\par\\par\nSoit $x = e^{2\\pi i m/p^k}$ pour un $m \\in \\{0, \\ldots, p^k-1\\}$. On cherche $y = e^{2\\pi i n/p^{k+1}}$ tel que $y^p = x$. On a $e^{2\\pi i np/p^{k+1}} = e^{2\\pi i m/p^k}$, donc $\\frac{np}{p^{k+1}} \\equiv \\frac{m}{p^k} \\pmod{1}$, soit $\\frac{n}{p^k} \\equiv \\frac{m}{p^k} \\pmod{1}$, d'où $n \\equiv m \\pmod{p^k}$. On peut donc choisir $n = m$, donnant $y = e^{2\\pi i m/p^{k+1}} \\in \\mathbb{U}_{p^{k+1}}$ avec $f(y) = y^p = e^{2\\pi i mp/p^{k+1}} = e^{2\\pi i m/p^k} = x$. Donc tout élément de $\\mathbb{U}_{p^k}$ a un antécédent dans $\\mathbb{U}_{p^{k+1}}$."
         },
         {
           "label": "3) c)",
@@ -654,7 +654,7 @@
               "content_latex": "Développez $(xy)^2 = 1_G$. Vous obtenez $xyxy = 1_G$. Multipliez à gauche par $x$ et à droite par $y$, et utilisez le fait que $x^2 = 1_G$ et $y^2 = 1_G$."
             }
           ],
-          "solution_latex": "Soit $(G, *)$ un groupe dans lequel tous les éléments satisfont $x^2 = 1_G$ (i.e. $G$ est d'exposant $2$). Montrons que $G$ est commutatif.\\\\par\\\\par\nSoient $x, y \\in G$. Considérons le produit $(xy)^2 = 1_G$. On a $xyxy = 1_G$. Multiplions à gauche par $x^{-1} = x$ : $yxy = x$. Multiplions à droite par $y^{-1} = y$ : $yxyx \\cdot y = xy$, soit $yx = xy$.\\\\par\\\\par\nDonc $G$ est abélien."
+          "solution_latex": "Soit $(G, *)$ un groupe dans lequel tous les éléments satisfont $x^2 = 1_G$ (i.e. $G$ est d'exposant $2$). Montrons que $G$ est commutatif.\\par\\par\nSoient $x, y \\in G$. Considérons le produit $(xy)^2 = 1_G$. On a $xyxy = 1_G$. Multiplions à gauche par $x^{-1} = x$ : $yxy = x$. Multiplions à droite par $y^{-1} = y$ : $yxyx \\cdot y = xy$, soit $yx = xy$.\\par\\par\nDonc $G$ est abélien."
         },
         {
           "label": "2) a)",
@@ -674,7 +674,7 @@
               "content_latex": "Développez l'égalité $(xy)^3 = x^3y^3$ sous la forme $xyxyxy = xxxyyy$. Simplifiez par $x$ à gauche et par $y$ à droite pour obtenir $(yx)^2 = x^2y^2$. Utilisez ensuite d'autres symétries pour relier les cubes aux carrés."
             }
           ],
-          "solution_latex": "Soit $(G, *)$ un groupe dans lequel $x^3 = 1_G$ pour tout $x \\in G$ (i.e. $G$ est d'exposant divisant $3$). Montrons que $G$ est commutatif.\\\\par\\\\par\nSoient $x, y \\in G$. On a $x^3 = y^3 = 1_G$, donc $x^{-1} = x^2$ et $y^{-1} = y^2$. Considérons l'élément $xyx^{-1}y^{-1} = xyx^2y^2$. On veut montrer que c'est $1_G$. On a $(xyx^{-1}y^{-1})^3 = 1_G$ puisque tout élément au cube vaut $1_G$. Mais cela ne suffit pas...\\\\par\\\\par\nAutre approche : Dans un groupe où tout élément au cube est neutre, tous les éléments ont ordre divisant $3$. Donc les ordres possibles sont $1$ et $3$. Un groupe abélien fini dont les éléments ont ordre divisant $3$ est un produit de groupes cycliques d'ordre divisant $3$, donc est abélien. Mais $G$ n'est a priori pas connu comme abélien...\\\\par\\\\par\nCorrectement : Soient $x, y \\in G$ avec $x^3 = y^3 = 1_G$. Calculons $(xy)^3 = x y x y x y = 1_G$. Donc $xyxyx = y^{-1} = y^2$. De même $(yx)^3 = 1_G$ donne $yxyxy = x^2$. Considérons commutateur $c = xyx^{-1}y^{-1} = xyx^2 y^2$. On a $c^3 = 1_G$. En analysant la structure, on montre que $xyx^{-1}y^{-1} = 1_G$, donc $xy = yx$."
+          "solution_latex": "Soit $(G, *)$ un groupe dans lequel $x^3 = 1_G$ pour tout $x \\in G$ (i.e. $G$ est d'exposant divisant $3$). Montrons que $G$ est commutatif.\\par\\par\nSoient $x, y \\in G$. On a $x^3 = y^3 = 1_G$, donc $x^{-1} = x^2$ et $y^{-1} = y^2$. Considérons l'élément $xyx^{-1}y^{-1} = xyx^2y^2$. On veut montrer que c'est $1_G$. On a $(xyx^{-1}y^{-1})^3 = 1_G$ puisque tout élément au cube vaut $1_G$. Mais cela ne suffit pas...\\par\\par\nAutre approche : Dans un groupe où tout élément au cube est neutre, tous les éléments ont ordre divisant $3$. Donc les ordres possibles sont $1$ et $3$. Un groupe abélien fini dont les éléments ont ordre divisant $3$ est un produit de groupes cycliques d'ordre divisant $3$, donc est abélien. Mais $G$ n'est a priori pas connu comme abélien...\\par\\par\nCorrectement : Soient $x, y \\in G$ avec $x^3 = y^3 = 1_G$. Calculons $(xy)^3 = x y x y x y = 1_G$. Donc $xyxyx = y^{-1} = y^2$. De même $(yx)^3 = 1_G$ donne $yxyxy = x^2$. Considérons commutateur $c = xyx^{-1}y^{-1} = xyx^2 y^2$. On a $c^3 = 1_G$. En analysant la structure, on montre que $xyx^{-1}y^{-1} = 1_G$, donc $xy = yx$."
         },
         {
           "label": "2) b)",
@@ -694,7 +694,7 @@
               "content_latex": "Si $z \\in G$, alors $z = y^3$ pour un certain $y$. Ainsi, d'après a), $x^2(y^3) = (y^3)x^2$, donc $x^2$ commute avec $z$."
             }
           ],
-          "solution_latex": "Soit $(G, *)$ un groupe dans lequel $(xy)^2 = x^2 y^2$ pour tous $x, y \\in G$. Montrons que $G$ est abélien.\\\\par\\\\par\nSoient $x, y \\in G$. On a $(xy)^2 = xyxy$ et $x^2y^2 = xxyy$. Donc $xyxy = xxyy$. En multipliant à gauche par $x^{-1}$ : $yxy = xyy$. En multipliant à droite par $y^{-1}$ : $yxy y^{-1} = xy$, soit $yx = xy$.\\\\par\\\\par\nDonc $G$ est abélien."
+          "solution_latex": "Soit $(G, *)$ un groupe dans lequel $(xy)^2 = x^2 y^2$ pour tous $x, y \\in G$. Montrons que $G$ est abélien.\\par\\par\nSoient $x, y \\in G$. On a $(xy)^2 = xyxy$ et $x^2y^2 = xxyy$. Donc $xyxy = xxyy$. En multipliant à gauche par $x^{-1}$ : $yxy = xyy$. En multipliant à droite par $y^{-1}$ : $yxy y^{-1} = xy$, soit $yx = xy$.\\par\\par\nDonc $G$ est abélien."
         },
         {
           "label": "2) c)",
@@ -740,7 +740,7 @@
       ],
       "statement_latex": "Soient $G$ un groupe fini et $A$ et $B$ deux parties de $G$ pour lesquelles $|A|+|B|>|G|$. On pose :\\par $B^{-1}=\\{b^{-1}|b\\in B\\}$ et $AB=\\{ab|a\\in A,b\\in B\\}$.\\par Montrer que $A\\cap gB^{-1}$ est non vide pour tout $g\\in G$ en déduire que $G=AB$.",
       "sub_questions": [],
-      "global_solution_latex": "Soient $A, B$ deux parties d'un groupe $G$ fini. On pose $AB = \\{ab : a \\in A, b \\in B\\}$.\\\\par\\\\par\nOn a $|AB| \\ge \\frac{|A| |B|}{|A \\cap B|}$ en général, mais la borne habituelle est $|AB| \\cdot |A \\cap B| \\ge |A| \\cdot |B|$ (égalité si $AB = BA$).\\\\par\\\\par\nEn effet, soit $\\sim$ la relation définie par $a \\sim b$ ssi $ab = ab' = ba'$ pour certains $a', b'$, reliée à la position dans le produit. Le nombre de paires $(a, b) \\in A \\times B$ produisant un élément de $AB$ est $|A| |B|$. Chaque élément $z \\in AB$ provient d'au least $|A \\cap B|$ paires (celles de la forme $(a, a^{-1}z)$ où $a \\in A$ et $a^{-1}z \\in B$, si cette intersection est non-vide). Donc $|AB| \\le \\frac{|A| |B|}{|A \\cap B|}$ ou $|AB| \\cdot |A \\cap B| \\ge |A| \\cdot |B|$.",
+      "global_solution_latex": "Soient $A, B$ deux parties d'un groupe $G$ fini. On pose $AB = \\{ab : a \\in A, b \\in B\\}$.\\par\\par\nOn a $|AB| \\ge \\frac{|A| |B|}{|A \\cap B|}$ en général, mais la borne habituelle est $|AB| \\cdot |A \\cap B| \\ge |A| \\cdot |B|$ (égalité si $AB = BA$).\\par\\par\nEn effet, soit $\\sim$ la relation définie par $a \\sim b$ ssi $ab = ab' = ba'$ pour certains $a', b'$, reliée à la position dans le produit. Le nombre de paires $(a, b) \\in A \\times B$ produisant un élément de $AB$ est $|A| |B|$. Chaque élément $z \\in AB$ provient d'au least $|A \\cap B|$ paires (celles de la forme $(a, a^{-1}z)$ où $a \\in A$ et $a^{-1}z \\in B$, si cette intersection est non-vide). Donc $|AB| \\le \\frac{|A| |B|}{|A \\cap B|}$ ou $|AB| \\cdot |A \\cap B| \\ge |A| \\cdot |B|$.",
       "hints": [
         {
           "level": 1,
@@ -795,7 +795,7 @@
               "content_latex": "Vérifiez que $(-1)^{n+m} = (-1)^n \\times (-1)^m$. Pour le noyau, cherchez les entiers $n$ tels que $(-1)^n = 1$."
             }
           ],
-          "solution_latex": "Soient $(G, *)$ et $(H, \\circ)$ deux groupes. Un morphisme de groupes est une application $f: G \\to H$ vérifiant $f(x*y) = f(x) \\circ f(y)$ pour tous $x, y \\in G$.\\\\par\\\\par\nPropriétés fondamentales :\\\\par\n- $f(1_G) = 1_H$ : En effet, $f(1_G) = f(1_G * 1_G) = f(1_G) \\circ f(1_G)$, donc en multipliant à gauche par $f(1_G)^{-1}$, on obtient $1_H = f(1_G)$.\\\\par\n- $f(x^{-1}) = f(x)^{-1}$ : On a $1_H = f(1_G) = f(x * x^{-1}) = f(x) \\circ f(x^{-1})$, donc $f(x^{-1}) = f(x)^{-1}$.\\\\par\n- Le noyau $\\\\ker(f) = \\{x \\in G : f(x) = 1_H\\}$ est un sous-groupe normal de $G$.\\\\par\n- L'image $\\\\mathrm{Im}(f) = \\{f(x) : x \\in G\\}$ est un sous-groupe de $H$."
+          "solution_latex": "Soient $(G, *)$ et $(H, \\circ)$ deux groupes. Un morphisme de groupes est une application $f: G \\to H$ vérifiant $f(x*y) = f(x) \\circ f(y)$ pour tous $x, y \\in G$.\\par\\par\nPropriétés fondamentales :\\par\n- $f(1_G) = 1_H$ : En effet, $f(1_G) = f(1_G * 1_G) = f(1_G) \\circ f(1_G)$, donc en multipliant à gauche par $f(1_G)^{-1}$, on obtient $1_H = f(1_G)$.\\par\n- $f(x^{-1}) = f(x)^{-1}$ : On a $1_H = f(1_G) = f(x * x^{-1}) = f(x) \\circ f(x^{-1})$, donc $f(x^{-1}) = f(x)^{-1}$.\\par\n- Le noyau $\\ker(f) = \\{x \\in G : f(x) = 1_H\\}$ est un sous-groupe normal de $G$.\\par\n- L'image $\\mathrm{Im}(f) = \\{f(x) : x \\in G\\}$ est un sous-groupe de $H$."
         },
         {
           "label": "2)",
@@ -815,7 +815,7 @@
               "content_latex": "Vérifiez que $\\frac{z z'}{|z z'|} = \\frac{z}{|z|} \\times \\frac{z'}{|z'|}$. Quel est l'ensemble des points d'image ? C'est le cercle unité $\\mathbb{U}$."
             }
           ],
-          "solution_latex": "Quelques exemples de morphismes de groupes :\\\\par\n1. Morphisme trivial : $f: G \\to H$ défini par $f(x) = 1_H$ pour tout $x$. Vérifie $f(xy) = 1_H = 1_H \\circ 1_H = f(x) \\circ f(y)$.\\\\par\n2. Inclusion : Si $H$ est un sous-groupe de $G$, l'inclusion $i: H \\\\hookrightarrow G$ définie par $i(x) = x$ est un morphisme.\\\\par\n3. Quotient : Si $N$ est normal dans $G$, l'application canonique $\\pi: G \\to G/N$ définie par $\\pi(g) = gN$ est un morphisme.\\\\par\n4. Déterminant : $\\\\det: GL_n(\\\\mathbb{R}) \\to (\\\\mathbb{R}^*, \\\\cdot)$ est un morphisme car $\\\\det(AB) = \\\\det(A) \\\\det(B)$.\\\\par\n5. Signature : $\\\\sigma: S_n \\to \\\\{\\\\pm 1\\\\}$ qui envoie une permutation sur sa signature est un morphisme."
+          "solution_latex": "Quelques exemples de morphismes de groupes :\\par\n1. Morphisme trivial : $f: G \\to H$ défini par $f(x) = 1_H$ pour tout $x$. Vérifie $f(xy) = 1_H = 1_H \\circ 1_H = f(x) \\circ f(y)$.\\par\n2. Inclusion : Si $H$ est un sous-groupe de $G$, l'inclusion $i: H \\hookrightarrow G$ définie par $i(x) = x$ est un morphisme.\\par\n3. Quotient : Si $N$ est normal dans $G$, l'application canonique $\\pi: G \\to G/N$ définie par $\\pi(g) = gN$ est un morphisme.\\par\n4. Déterminant : $\\det: GL_n(\\mathbb{R}) \\to (\\mathbb{R}^*, \\cdot)$ est un morphisme car $\\det(AB) = \\det(A) \\det(B)$.\\par\n5. Signature : $\\sigma: S_n \\to \\\\{\\\\pm 1\\\\}$ qui envoie une permutation sur sa signature est un morphisme."
         },
         {
           "label": "3)",
@@ -835,7 +835,7 @@
               "content_latex": "Vérifiez que $(r r') (u u') = (r u) (r' u')$. Pour l'image, reconnaissez la forme polaire d'un nombre complexe non nul."
             }
           ],
-          "solution_latex": "Soit $f: G \\to H$ un morphisme de groupes. Montrons que $\\\\ker(f)$ est un sous-groupe normal de $G$.\\\\par\\\\par\n\\\\textbf{Sous-groupe} : $1_G \\\\in \\\\ker(f)$ car $f(1_G) = 1_H$. Si $x, y \\\\in \\\\ker(f)$, alors $f(xy) = f(x)f(y) = 1_H \\\\circ 1_H = 1_H$, donc $xy \\\\in \\\\ker(f)$. Si $x \\\\in \\\\ker(f)$, alors $f(x^{-1}) = f(x)^{-1} = 1_H^{-1} = 1_H$, donc $x^{-1} \\\\in \\\\ker(f)$.\\\\par\\\\par\n\\\\textbf{Normalité} : Soit $x \\\\in \\\\ker(f)$ et $g \\\\in G$. On a $f(gxg^{-1}) = f(g)f(x)f(g^{-1}) = f(g) \\\\circ 1_H \\\\circ f(g)^{-1} = 1_H$, donc $gxg^{-1} \\\\in \\\\ker(f)$. Donc $\\\\ker(f)$ est normal."
+          "solution_latex": "Soit $f: G \\to H$ un morphisme de groupes. Montrons que $\\ker(f)$ est un sous-groupe normal de $G$.\\par\\par\n\\textbf{Sous-groupe} : $1_G \\in \\ker(f)$ car $f(1_G) = 1_H$. Si $x, y \\in \\ker(f)$, alors $f(xy) = f(x)f(y) = 1_H \\circ 1_H = 1_H$, donc $xy \\in \\ker(f)$. Si $x \\in \\ker(f)$, alors $f(x^{-1}) = f(x)^{-1} = 1_H^{-1} = 1_H$, donc $x^{-1} \\in \\ker(f)$.\\par\\par\n\\textbf{Normalité} : Soit $x \\in \\ker(f)$ et $g \\in G$. On a $f(gxg^{-1}) = f(g)f(x)f(g^{-1}) = f(g) \\circ 1_H \\circ f(g)^{-1} = 1_H$, donc $gxg^{-1} \\in \\ker(f)$. Donc $\\ker(f)$ est normal."
         },
         {
           "label": "4)",
@@ -855,7 +855,7 @@
               "content_latex": "On a $\\det(AB) = \\det(A)\\det(B)$. Le groupe d'arrivée est $\\mathbb{C}^*$. Le noyau est l'ensemble des matrices de déterminant 1."
             }
           ],
-          "solution_latex": "Soit $f: G \\to H$ un morphisme de groupes. Montrons que $f$ est injective ssi $\\\\ker(f) = \\{1_G\\}$.\\\\par\\\\par\n$(\\Rightarrow)$ Si $f$ est injective, soit $x \\\\in \\\\ker(f)$. Alors $f(x) = 1_H = f(1_G)$. Par injectivité, $x = 1_G$. Donc $\\\\ker(f) = \\{1_G\\}$.\\\\par\\\\par\n$(\\Leftarrow)$ Supposons $\\\\ker(f) = \\{1_G\\}$. Soient $x, y \\\\in G$ avec $f(x) = f(y)$. Alors $1_H = f(x) / f(y) = f(x)f(y)^{-1} = f(xy^{-1})$, donc $xy^{-1} \\\\in \\\\ker(f) = \\{1_G\\}$, d'où $xy^{-1} = 1_G$ et $x = y$. Donc $f$ est injective."
+          "solution_latex": "Soit $f: G \\to H$ un morphisme de groupes. Montrons que $f$ est injective ssi $\\ker(f) = \\{1_G\\}$.\\par\\par\n$(\\Rightarrow)$ Si $f$ est injective, soit $x \\in \\ker(f)$. Alors $f(x) = 1_H = f(1_G)$. Par injectivité, $x = 1_G$. Donc $\\ker(f) = \\{1_G\\}$.\\par\\par\n$(\\Leftarrow)$ Supposons $\\ker(f) = \\{1_G\\}$. Soient $x, y \\in G$ avec $f(x) = f(y)$. Alors $1_H = f(x) / f(y) = f(x)f(y)^{-1} = f(xy^{-1})$, donc $xy^{-1} \\in \\ker(f) = \\{1_G\\}$, d'où $xy^{-1} = 1_G$ et $x = y$. Donc $f$ est injective."
         }
       ],
       "global_solution_latex": null
@@ -900,7 +900,7 @@
               "content_latex": "Calculez le produit $y_1 y_2 = f(x_1)f(x_2) = f(x_1 x_2)$. Utilisez ensuite l'hypothèse de commutativité dans $G$ pour échanger $x_1$ et $x_2$."
             }
           ],
-          "solution_latex": "Montrons que si $G$ est commutatif, alors $\\mathrm{Im}(f)$ l'est aussi.\\\\par\\\\par\nSoient $y_1, y_2 \\in \\mathrm{Im}(f)$. Il existe $x_1, x_2 \\in G$ tels que $f(x_1) = y_1$ et $f(x_2) = y_2$. Puisque $f$ est un morphisme et $G$ est commutatif, \\\\par\n$$y_1 \\circ y_2 = f(x_1) \\circ f(x_2) = f(x_1 * x_2) = f(x_2 * x_1) = f(x_2) \\circ f(x_1) = y_2 \\circ y_1$$\\\\par\nDonc $\\mathrm{Im}(f)$ est commutatif."
+          "solution_latex": "Montrons que si $G$ est commutatif, alors $\\mathrm{Im}(f)$ l'est aussi.\\par\\par\nSoient $y_1, y_2 \\in \\mathrm{Im}(f)$. Il existe $x_1, x_2 \\in G$ tels que $f(x_1) = y_1$ et $f(x_2) = y_2$. Puisque $f$ est un morphisme et $G$ est commutatif, \\par\n$$y_1 \\circ y_2 = f(x_1) \\circ f(x_2) = f(x_1 * x_2) = f(x_2 * x_1) = f(x_2) \\circ f(x_1) = y_2 \\circ y_1$$\\par\nDonc $\\mathrm{Im}(f)$ est commutatif."
         },
         {
           "label": "2)",
@@ -920,7 +920,7 @@
               "content_latex": "On a $f(x)f(y) = f(y)f(x)$ car ces images appartiennent à $B^{\\prime}$ qui est commutatif. Regroupez à l'aide du morphisme, puis utilisez l'injectivité pour conclure que $xy = yx$."
             }
           ],
-          "solution_latex": "Montrons que si $f$ est injectif et $B'$ est un sous-groupe commutatif de $G'$, alors $f^{-1}(B')$ est commutatif.\\\\par\\\\par\nSoient $x, y \\in f^{-1}(B')$. Alors $f(x), f(y) \\in B'$. Puisque $B'$ est commutatif, \\\\par\n$$f(xy) = f(x) f(y) = f(y) f(x) = f(yx)$$\\\\par\nPuisque $f$ est injective, $xy = yx$. Donc $f^{-1}(B')$ est commutatif."
+          "solution_latex": "Montrons que si $f$ est injectif et $B'$ est un sous-groupe commutatif de $G'$, alors $f^{-1}(B')$ est commutatif.\\par\\par\nSoient $x, y \\in f^{-1}(B')$. Alors $f(x), f(y) \\in B'$. Puisque $B'$ est commutatif, \\par\n$$f(xy) = f(x) f(y) = f(y) f(x) = f(yx)$$\\par\nPuisque $f$ est injective, $xy = yx$. Donc $f^{-1}(B')$ est commutatif."
         },
         {
           "label": "3)",
@@ -940,7 +940,7 @@
               "content_latex": "Pour cette première inclusion, utilisez la surjectivité de $f$ pour écrire $g^{\\prime} = f(g)$. Pour la seconde inclusion, appliquez le même raisonnement à l'isomorphisme réciproque $f^{-1}$."
             }
           ],
-          "solution_latex": "Montrons que si $f$ est un isomorphisme, alors $f(Z(G)) = Z(G')$.\\\\par\\\\par\nSoit $x \\in Z(G)$. Pour tout $g \\in G$, $xg = gx$. Appliquant $f$ : $f(xg) = f(gx)$, soit $f(x)f(g) = f(g)f(x)$. Donc $f(x)$ commute avec tout élément de $f(G) = G'$ (car $f$ est surjectif). Ainsi $f(Z(G)) \\subseteq Z(G')$.\\\\par\\\\par\nRéciproquement, soit $y \\in Z(G')$. Puisque $f$ est un isomorphisme, $\\exists ! x \\in G$ tel que $f(x) = y$. Pour tout $g \\in G$, $f(x)f(g) = f(g)f(x)$ implique $f(xg) = f(gx)$ (car $f$ est morphisme), donc $xg = gx$ par injectivité de $f$. Ainsi $x \\in Z(G)$, d'où $y = f(x) \\in f(Z(G))$. Donc $Z(G') \\subseteq f(Z(G))$.\\\\par\\\\par\nPar double inclusion, $f(Z(G)) = Z(G')$."
+          "solution_latex": "Montrons que si $f$ est un isomorphisme, alors $f(Z(G)) = Z(G')$.\\par\\par\nSoit $x \\in Z(G)$. Pour tout $g \\in G$, $xg = gx$. Appliquant $f$ : $f(xg) = f(gx)$, soit $f(x)f(g) = f(g)f(x)$. Donc $f(x)$ commute avec tout élément de $f(G) = G'$ (car $f$ est surjectif). Ainsi $f(Z(G)) \\subseteq Z(G')$.\\par\\par\nRéciproquement, soit $y \\in Z(G')$. Puisque $f$ est un isomorphisme, $\\exists ! x \\in G$ tel que $f(x) = y$. Pour tout $g \\in G$, $f(x)f(g) = f(g)f(x)$ implique $f(xg) = f(gx)$ (car $f$ est morphisme), donc $xg = gx$ par injectivité de $f$. Ainsi $x \\in Z(G)$, d'où $y = f(x) \\in f(Z(G))$. Donc $Z(G') \\subseteq f(Z(G))$.\\par\\par\nPar double inclusion, $f(Z(G)) = Z(G')$."
         }
       ],
       "global_solution_latex": null
@@ -967,7 +967,7 @@
       ],
       "statement_latex": "Soient $G$ et $G^{\\prime}$ deux groupes et $f$ un morphisme de groupes de $G$ dans $G^{\\prime}$.\\par Montrer que si $G$ est fini, alors $|G|=|\\ker f|\\cdot|\\mathrm{Im} f|$. En particulier, $|\\mathrm{Im} f|$ divise $|G|$.",
       "sub_questions": [],
-      "global_solution_latex": "Soient $G$ et $G'$ deux groupes et $f: G \\to G'$ un morphisme de groupes. Supposons $G$ fini. Montrons que $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$.\\\\par\\\\par\nConsidérons les classes à gauche de $\\ker(f)$ dans $G$. Elles partitionnent $G$ en $\\frac{|G|}{|\\ker(f)|}$ classes. Deux éléments $x, y \\in G$ sont dans la même classe ssi $x^{-1}y \\in \\ker(f)$ ssi $f(x) = f(y)$. Donc les classes à gauche correspondent bijectivement aux éléments de $\\mathrm{Im}(f)$.\\\\par\\\\par\nAinsi le nombre de classes est $\\frac{|G|}{|\\ker(f)|} = |\\mathrm{Im}(f)|$, d'où $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$.",
+      "global_solution_latex": "Soient $G$ et $G'$ deux groupes et $f: G \\to G'$ un morphisme de groupes. Supposons $G$ fini. Montrons que $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$.\\par\\par\nConsidérons les classes à gauche de $\\ker(f)$ dans $G$. Elles partitionnent $G$ en $\\frac{|G|}{|\\ker(f)|}$ classes. Deux éléments $x, y \\in G$ sont dans la même classe ssi $x^{-1}y \\in \\ker(f)$ ssi $f(x) = f(y)$. Donc les classes à gauche correspondent bijectivement aux éléments de $\\mathrm{Im}(f)$.\\par\\par\nAinsi le nombre de classes est $\\frac{|G|}{|\\ker(f)|} = |\\mathrm{Im}(f)|$, d'où $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$.",
       "hints": [
         {
           "level": 1,
@@ -1023,7 +1023,7 @@
               "content_latex": "Pour prouver que c'est une bijection, trouvez son application réciproque en remarquant que l'opération inverse de conjuguer par $g$ est de conjuguer par $g^{-1}$."
             }
           ],
-          "solution_latex": "Montrons que $\\sigma_g: x \\mapsto gxg^{-1}$ est un automorphisme de $G$.\\\\par\\\\par\n\\\\textbf{Morphisme} : $\\sigma_g(xy) = g(xy)g^{-1} = (gxg^{-1})(gyg^{-1}) = \\sigma_g(x)\\sigma_g(y)$.\\\\par\\\\par\n\\\\textbf{Bijectivité} : $\\sigma_g \\circ \\sigma_{g^{-1}}(x) = \\sigma_g(g^{-1}xg) = g(g^{-1}xg)g^{-1} = x$, donc $\\sigma_g$ est bijective d'inverse $\\sigma_{g^{-1}}$.\\\\par\\\\par\nDonc $\\sigma_g$ est un automorphisme de $G$, appelé automorphisme intérieur."
+          "solution_latex": "Montrons que $\\sigma_g: x \\mapsto gxg^{-1}$ est un automorphisme de $G$.\\par\\par\n\\textbf{Morphisme} : $\\sigma_g(xy) = g(xy)g^{-1} = (gxg^{-1})(gyg^{-1}) = \\sigma_g(x)\\sigma_g(y)$.\\par\\par\n\\textbf{Bijectivité} : $\\sigma_g \\circ \\sigma_{g^{-1}}(x) = \\sigma_g(g^{-1}xg) = g(g^{-1}xg)g^{-1} = x$, donc $\\sigma_g$ est bijective d'inverse $\\sigma_{g^{-1}}$.\\par\\par\nDonc $\\sigma_g$ est un automorphisme de $G$, appelé automorphisme intérieur."
         },
         {
           "label": "1) b)",
@@ -1043,7 +1043,7 @@
               "content_latex": "Le noyau est constitué des $g \\in G$ tels que $\\sigma_g = \\mathrm{Id}_G$, c'est-à-dire $gxg^{-1} = x$ pour tout $x$. À quel sous-groupe usuel cela correspond-il ?"
             }
           ],
-          "solution_latex": "Montrons que $\\Phi: g \\mapsto \\sigma_g$ est un morphisme de groupes de $G$ dans $\\mathrm{Aut}(G)$.\\\\par\\\\par\n\\\\textbf{Morphisme} : Pour tous $g, h \\in G$ et $x \\in G$,\\\\par\n$$\\Phi(gh)(x) = \\sigma_{gh}(x) = (gh)x(gh)^{-1} = g(hxh^{-1})g^{-1} = \\sigma_g(\\sigma_h(x)) = \\Phi(g)(\\Phi(h)(x))$$\\\\par\nDonc $\\Phi(gh) = \\Phi(g) \\circ \\Phi(h)$, et $\\Phi$ est un morphisme.\\\\par\\\\par\n\\\\textbf{Noyau} : $\\ker(\\Phi) = \\{g \\in G : \\sigma_g = \\mathrm{id}\\} = \\{g \\in G : gx = xg \\text{ pour tout } x \\in G\\} = Z(G)$."
+          "solution_latex": "Montrons que $\\Phi: g \\mapsto \\sigma_g$ est un morphisme de groupes de $G$ dans $\\mathrm{Aut}(G)$.\\par\\par\n\\textbf{Morphisme} : Pour tous $g, h \\in G$ et $x \\in G$,\\par\n$$\\Phi(gh)(x) = \\sigma_{gh}(x) = (gh)x(gh)^{-1} = g(hxh^{-1})g^{-1} = \\sigma_g(\\sigma_h(x)) = \\Phi(g)(\\Phi(h)(x))$$\\par\nDonc $\\Phi(gh) = \\Phi(g) \\circ \\Phi(h)$, et $\\Phi$ est un morphisme.\\par\\par\n\\textbf{Noyau} : $\\ker(\\Phi) = \\{g \\in G : \\sigma_g = \\mathrm{id}\\} = \\{g \\in G : gx = xg \\text{ pour tout } x \\in G\\} = Z(G)$."
         },
         {
           "label": "2) a)",
@@ -1063,7 +1063,7 @@
               "content_latex": "La fonction $\\mu_{g^{-1}}$ (multiplication à gauche par $g^{-1}$) compose avec $\\mu_g$ pour donner l'identité. C'est donc une bijection de $G$ sur $G$."
             }
           ],
-          "solution_latex": "Montrons que $\\mu_g: x \\mapsto gx$ est une permutation de $G$.\\\\par\\\\par\nComme montré dans l'exercice 007, l'application $\\mu_g$ est injective (car si $gx = gy$ alors $x = y$) et surjective (car pour tout $z \\in G$, $z = g(g^{-1}z) = \\mu_g(g^{-1}z)$). Donc $\\mu_g \\in S_G$."
+          "solution_latex": "Montrons que $\\mu_g: x \\mapsto gx$ est une permutation de $G$.\\par\\par\nComme montré dans l'exercice 007, l'application $\\mu_g$ est injective (car si $gx = gy$ alors $x = y$) et surjective (car pour tout $z \\in G$, $z = g(g^{-1}z) = \\mu_g(g^{-1}z)$). Donc $\\mu_g \\in S_G$."
         },
         {
           "label": "2) b)",
@@ -1083,7 +1083,7 @@
               "content_latex": "Pour l'injectivité, cherchez le noyau : si $\\mu_g = \\mathrm{Id}_G$, que donne $\\mu_g(1_G)$ ?"
             }
           ],
-          "solution_latex": "Montrons que $\\Psi: g \\mapsto \\mu_g$ est un morphisme de groupes injectif de $G$ dans $S_G$ (théorème de Cayley).\\\\par\\\\par\n\\\\textbf{Morphisme} : Pour tous $g, h \\in G$,\\\\par\n$$\\Psi(gh)(x) = \\mu_{gh}(x) = (gh)x = g(hx) = \\mu_g(\\mu_h(x)) = (\\Psi(g) \\circ \\Psi(h))(x)$$\\\\par\nDonc $\\Psi(gh) = \\Psi(g) \\circ \\Psi(h)$.\\\\par\\\\par\n\\\\textbf{Injectivité} : $\\ker(\\Psi) = \\{g : \\mu_g = \\mathrm{id}\\} = \\{g : gx = x \\text{ pour tout } x\\} = \\{1_G\\}$. Donc $\\Psi$ est injective.\\\\par\\\\par\nAinsi tout groupe $G$ est isomorphe à un sous-groupe du groupe symétrique $S_G$."
+          "solution_latex": "Montrons que $\\Psi: g \\mapsto \\mu_g$ est un morphisme de groupes injectif de $G$ dans $S_G$ (théorème de Cayley).\\par\\par\n\\textbf{Morphisme} : Pour tous $g, h \\in G$,\\par\n$$\\Psi(gh)(x) = \\mu_{gh}(x) = (gh)x = g(hx) = \\mu_g(\\mu_h(x)) = (\\Psi(g) \\circ \\Psi(h))(x)$$\\par\nDonc $\\Psi(gh) = \\Psi(g) \\circ \\Psi(h)$.\\par\\par\n\\textbf{Injectivité} : $\\ker(\\Psi) = \\{g : \\mu_g = \\mathrm{id}\\} = \\{g : gx = x \\text{ pour tout } x\\} = \\{1_G\\}$. Donc $\\Psi$ est injective.\\par\\par\nAinsi tout groupe $G$ est isomorphe à un sous-groupe du groupe symétrique $S_G$."
         }
       ],
       "global_solution_latex": null
@@ -1127,7 +1127,7 @@
               "content_latex": "La fonction exponentielle est un isomorphisme de $(\\mathbb{R}, +)$ dans $(\\mathbb{R}_+^*, \\times)$. Sa réciproque est le logarithme népérien."
             }
           ],
-          "solution_latex": "Montrons que tout morphisme surjectif de groupes finis de même ordre est un isomorphisme.\\\\par\\\\par\nSoit $f: G \\to G'$ un morphisme surjectif entre groupes finis avec $|G| = |G'|$. Par l'exercice 012, $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$. Puisque $f$ est surjectif, $\\mathrm{Im}(f) = G'$, donc $|G| = |\\ker(f)| \\cdot |G'|$. Puisque $|G| = |G'|$, on obtient $|\\ker(f)| = 1$, d'où $\\ker(f) = \\{1_G\\}$. Donc $f$ est injective. Étant injective et surjective, $f$ est bijective, donc un isomorphisme."
+          "solution_latex": "Montrons que tout morphisme surjectif de groupes finis de même ordre est un isomorphisme.\\par\\par\nSoit $f: G \\to G'$ un morphisme surjectif entre groupes finis avec $|G| = |G'|$. Par l'exercice 012, $|G| = |\\ker(f)| \\cdot |\\mathrm{Im}(f)|$. Puisque $f$ est surjectif, $\\mathrm{Im}(f) = G'$, donc $|G| = |\\ker(f)| \\cdot |G'|$. Puisque $|G| = |G'|$, on obtient $|\\ker(f)| = 1$, d'où $\\ker(f) = \\{1_G\\}$. Donc $f$ est injective. Étant injective et surjective, $f$ est bijective, donc un isomorphisme."
         },
         {
           "label": "2)",
@@ -1147,7 +1147,7 @@
               "content_latex": "Si $f$ est surjectif, il existe un antécédent $x$ tel que $f(x) = 2$. En utilisant l'indication, cela signifie que $f(x/2)^2 = 2$. Un tel $f(x/2)$ peut-il appartenir à $\\mathbb{Q}_{+}^{*}$ ?"
             }
           ],
-          "solution_latex": "Montrons que tout morphisme injectif de groupes finis de même ordre est un isomorphisme.\\\\par\\\\par\nSoit $f: G \\to G'$ un morphisme injectif entre groupes finis avec $|G| = |G'|$. Par injectivité, $|\\mathrm{Im}(f)| = |G|$. Puisque $|G| = |G'|$ et $\\mathrm{Im}(f) \\subseteq G'$, on a $\\mathrm{Im}(f) = G'$. Donc $f$ est surjectif, et étant injective et surjective, $f$ est un isomorphisme."
+          "solution_latex": "Montrons que tout morphisme injectif de groupes finis de même ordre est un isomorphisme.\\par\\par\nSoit $f: G \\to G'$ un morphisme injectif entre groupes finis avec $|G| = |G'|$. Par injectivité, $|\\mathrm{Im}(f)| = |G|$. Puisque $|G| = |G'|$ et $\\mathrm{Im}(f) \\subseteq G'$, on a $\\mathrm{Im}(f) = G'$. Donc $f$ est surjectif, et étant injective et surjective, $f$ est un isomorphisme."
         },
         {
           "label": "3)",
@@ -1167,7 +1167,7 @@
               "content_latex": "Cela signifie que pour tout rationnel $x$, l'image $f(x)$ doit admettre des racines $n$-ièmes dans $\\mathbb{Q}_{+}^{*}$ pour n'importe quel $n$. Quel est le seul rationnel positif qui vérifie cette propriété ?"
             }
           ],
-          "solution_latex": "Montrons le théorème d'isomorphisme : si $f: G \\to G'$ est un morphisme de groupes et $N$ un sous-groupe normal de $G$ contenu dans $\\ker(f)$, alors il existe un unique morphisme $\\tilde{f}: G/N \\to G'$ tel que $\\tilde{f} \\circ \\pi = f$, où $\\pi: G \\to G/N$ est la projection canonique.\\\\par\\\\par\n\\\\textbf{Unicité et existence} : On doit avoir $\\tilde{f}(gN) = f(g)$. Cette application est bien définie car si $gN = hN$, alors $h^{-1}g \\in N \\subseteq \\ker(f)$, donc $f(g) = f(h)$. C'est un morphisme car $\\tilde{f}(gN \\cdot hN) = \\tilde{f}(ghN) = f(gh) = f(g)f(h) = \\tilde{f}(gN)\\tilde{f}(hN)$.\\\\par\\\\par\nLa propriété $\\tilde{f} \\circ \\pi = f$ est vérifiée par construction."
+          "solution_latex": "Montrons le théorème d'isomorphisme : si $f: G \\to G'$ est un morphisme de groupes et $N$ un sous-groupe normal de $G$ contenu dans $\\ker(f)$, alors il existe un unique morphisme $\\tilde{f}: G/N \\to G'$ tel que $\\tilde{f} \\circ \\pi = f$, où $\\pi: G \\to G/N$ est la projection canonique.\\par\\par\n\\textbf{Unicité et existence} : On doit avoir $\\tilde{f}(gN) = f(g)$. Cette application est bien définie car si $gN = hN$, alors $h^{-1}g \\in N \\subseteq \\ker(f)$, donc $f(g) = f(h)$. C'est un morphisme car $\\tilde{f}(gN \\cdot hN) = \\tilde{f}(ghN) = f(gh) = f(g)f(h) = \\tilde{f}(gN)\\tilde{f}(hN)$.\\par\\par\nLa propriété $\\tilde{f} \\circ \\pi = f$ est vérifiée par construction."
         }
       ],
       "global_solution_latex": null
@@ -1212,7 +1212,7 @@
               "content_latex": "Un élément $z$ est dans le noyau si et seulement si $z^n = 1$ et $z^m = 1$. L'ordre de cet élément doit donc diviser à la fois $n$ et $m$, et par suite, diviser leur PGCD."
             }
           ],
-          "solution_latex": "Montrons que la relation d'équivalence définie par le noyau est celle des congruences à gauche.\\\\par\\\\par\nSoit $f: G \\to G'$ un morphisme et $N = \\ker(f)$. On a $f(x) = f(y)$ ssi $f(x)^{-1}f(y) = 1_{G'}$ ssi $f(x^{-1}y) = 1_{G'}$ ssi $x^{-1}y \\in N$ ssi $y \\in xN$ ssi $x$ et $y$ sont dans la même classe à gauche de $N$."
+          "solution_latex": "Montrons que la relation d'équivalence définie par le noyau est celle des congruences à gauche.\\par\\par\nSoit $f: G \\to G'$ un morphisme et $N = \\ker(f)$. On a $f(x) = f(y)$ ssi $f(x)^{-1}f(y) = 1_{G'}$ ssi $f(x^{-1}y) = 1_{G'}$ ssi $x^{-1}y \\in N$ ssi $y \\in xN$ ssi $x$ et $y$ sont dans la même classe à gauche de $N$."
         },
         {
           "label": "2)",
@@ -1232,7 +1232,7 @@
               "content_latex": "Puisque les cardinaux sont égaux, l'application $f$ est bijective si et seulement si elle est injective. L'injectivité équivaut à un noyau trivial. Utilisez le résultat de la question 1 pour conclure sur $m$ et $n$."
             }
           ],
-          "solution_latex": "Montrons que $G/N$ est un groupe et que $\\pi: G \\to G/N$ est un morphisme surjectif.\\\\par\\\\par\n\\\\textbf{Groupe} : La loi sur $G/N$ est définie par $(gN)(hN) = (gh)N$, bien définie car si $gN = g'N$ et $hN = h'N$, alors $g = g'n$ et $h = h'n'$ pour $n, n' \\in N$. Donc $(g'n)(h'n') = g'h'(h'^{-1}nh')n' \\in g'h'N$ (car $N$ est normal). Cette loi est associative, a pour neutre $1_G N = N$, et $g^{-1}N$ est l'inverse de $gN$.\\\\par\\\\par\n\\\\textbf{Morphisme} : $\\pi(gh) = (gh)N = (gN)(hN) = \\pi(g)\\pi(h)$.\\\\par\\\\par\n\\\\textbf{Surjectivité} : Tout élément de $G/N$ est de la forme $gN = \\pi(g)$."
+          "solution_latex": "Montrons que $G/N$ est un groupe et que $\\pi: G \\to G/N$ est un morphisme surjectif.\\par\\par\n\\textbf{Groupe} : La loi sur $G/N$ est définie par $(gN)(hN) = (gh)N$, bien définie car si $gN = g'N$ et $hN = h'N$, alors $g = g'n$ et $h = h'n'$ pour $n, n' \\in N$. Donc $(g'n)(h'n') = g'h'(h'^{-1}nh')n' \\in g'h'N$ (car $N$ est normal). Cette loi est associative, a pour neutre $1_G N = N$, et $g^{-1}N$ est l'inverse de $gN$.\\par\\par\n\\textbf{Morphisme} : $\\pi(gh) = (gh)N = (gN)(hN) = \\pi(g)\\pi(h)$.\\par\\par\n\\textbf{Surjectivité} : Tout élément de $G/N$ est de la forme $gN = \\pi(g)$."
         }
       ],
       "global_solution_latex": null
@@ -1340,7 +1340,7 @@
               "content_latex": "Commencez par l'image de 1. Par $(1~4~6)$ il va sur 4, puis $(2~5)$ ne fait rien, $(2~5~4)$ l'envoie sur 2, $(1~3~7)$ ne fait rien, et $(2~4~6~5)$ l'envoie sur 4. Donc au final $1 \\mapsto 4$. Continuez avec l'image de 4 pour fermer le premier cycle."
             }
           ],
-          "solution_latex": "Montrons que le groupe dérivé $D(G) = [G, G]$ (engendré par les commutateurs $[x,y] = xyx^{-1}y^{-1}$) est normal dans $G$.\\\\par\\\\par\nPour $g \\in G$ et $c = [x, y] = xyx^{-1}y^{-1} \\in D(G)$, on a $gcg^{-1} = g(xyx^{-1}y^{-1})g^{-1} = (gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1} = [gxg^{-1}, gyg^{-1}] \\in D(G)$. Donc $gD(G)g^{-1} \\subseteq D(G)$. Ainsi $D(G)$ est normal."
+          "solution_latex": "Montrons que le groupe dérivé $D(G) = [G, G]$ (engendré par les commutateurs $[x,y] = xyx^{-1}y^{-1}$) est normal dans $G$.\\par\\par\nPour $g \\in G$ et $c = [x, y] = xyx^{-1}y^{-1} \\in D(G)$, on a $gcg^{-1} = g(xyx^{-1}y^{-1})g^{-1} = (gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1} = [gxg^{-1}, gyg^{-1}] \\in D(G)$. Donc $gD(G)g^{-1} \\subseteq D(G)$. Ainsi $D(G)$ est normal."
         },
         {
           "label": "2)",
@@ -1360,7 +1360,7 @@
               "content_latex": "Une fois la décomposition de $\\sigma$ obtenue, l'inverse $\\sigma^{-1}$ s'obtient simplement en renversant l'ordre des éléments à l'intérieur de chaque cycle."
             }
           ],
-          "solution_latex": "Montrons que $G/D(G)$ est le plus grand quotient commutatif de $G$.\\\\par\\\\par\nSoit $\\pi: G \\to G/D(G)$ la projection canonique. Pour tous $g, h \\in G$, \\\\par\n$$\\pi(g)\\pi(h) = (gD(G))(hD(G)) = (gh)D(G) = g h D(G)$$\\\\par\net $$\\\\pi(h)\\\\pi(g) = (hD(G))(gD(G)) = (hg)D(G)) = hg D(G)$$\\\\par\nPuisque $[g,h] = ghg^{-1}h^{-1} \\in D(G)$, on a $gh D(G) = hg D(G)$, donc $\\pi(g)\\pi(h) = \\pi(h)\\pi(g)$. Ainsi $G/D(G)$ est commutatif.\\\\par\\\\par\nSi $f: G \\to H$ est un morphisme dans un groupe commutatif $H$, alors $D(G) \\subseteq \\ker(f)$, donc $f$ se factorise par $G/D(G)$."
+          "solution_latex": "Montrons que $G/D(G)$ est le plus grand quotient commutatif de $G$.\\par\\par\nSoit $\\pi: G \\to G/D(G)$ la projection canonique. Pour tous $g, h \\in G$, \\par\n$$\\pi(g)\\pi(h) = (gD(G))(hD(G)) = (gh)D(G) = g h D(G)$$\\par\net $$\\pi(h)\\pi(g) = (hD(G))(gD(G)) = (hg)D(G)) = hg D(G)$$\\par\nPuisque $[g,h] = ghg^{-1}h^{-1} \\in D(G)$, on a $gh D(G) = hg D(G)$, donc $\\pi(g)\\pi(h) = \\pi(h)\\pi(g)$. Ainsi $G/D(G)$ est commutatif.\\par\\par\nSi $f: G \\to H$ est un morphisme dans un groupe commutatif $H$, alors $D(G) \\subseteq \\ker(f)$, donc $f$ se factorise par $G/D(G)$."
         }
       ],
       "global_solution_latex": null
@@ -1469,7 +1469,7 @@
               "content_latex": "Vous devriez obtenir le $p$-cycle $(x_1~x_2~\\dots~x_p)$. Pour la vérification de la conjugaison, évaluez le membre de gauche sur un élément $\\sigma(x_i)$, puis sur un élément $\\sigma(y)$ où $y \\notin \\{x_1,\\dots,x_p\\}$."
             }
           ],
-          "solution_latex": "Montrons que l'ordre de $xy$ divise $\\mathrm{lcm}(|x|, |y|)$ quand $x$ et $y$ commutent.\\\\par\\\\par\nSi $xy$ commute avec $x$ et $y$ (automatique si $G$ est abélien), alors $(xy)^{\\mathrm{lcm}(|x|,|y|)} = x^{\\mathrm{lcm}(|x|,|y|)} y^{\\mathrm{lcm}(|x|,|y|)} = 1_G \\cdot 1_G = 1_G$ (car $|x|$ divise $\\mathrm{lcm}(|x|,|y|)$ et de même pour $|y|$). Donc l'ordre de $xy$ divise $\\mathrm{lcm}(|x|,|y|)$."
+          "solution_latex": "Montrons que l'ordre de $xy$ divise $\\mathrm{lcm}(|x|, |y|)$ quand $x$ et $y$ commutent.\\par\\par\nSi $xy$ commute avec $x$ et $y$ (automatique si $G$ est abélien), alors $(xy)^{\\mathrm{lcm}(|x|,|y|)} = x^{\\mathrm{lcm}(|x|,|y|)} y^{\\mathrm{lcm}(|x|,|y|)} = 1_G \\cdot 1_G = 1_G$ (car $|x|$ divise $\\mathrm{lcm}(|x|,|y|)$ et de même pour $|y|$). Donc l'ordre de $xy$ divise $\\mathrm{lcm}(|x|,|y|)$."
         },
         {
           "label": "1) b)",
@@ -1489,7 +1489,7 @@
               "content_latex": "Pour n'importe quel $p$-cycle $(x_1~x_2~\\dots~x_p)$, construisez une permutation $\\sigma$ qui envoie $1$ sur $x_1$, $2$ sur $x_2$, etc., jusqu'à $p$ sur $x_p$. Complétez $\\sigma$ arbitrairement sur les autres éléments."
             }
           ],
-          "solution_latex": "Montrons que $|xy| = \\mathrm{lcm}(|x|, |y|)$ si et seulement si $\\gcd(|x|, |y|) = 1$.\\\\par\\\\par\n\\\\textbf{Cas général} : Pour commutant $x, y$, l'ordre de $xy$ est $\\frac{|x||y|}{\\gcd(|x|,|y|)} = \\mathrm{lcm}(|x|,|y|) / \\gcd(|x|,|y|) \\cdot \\gcd(|x|,|y|) = \\mathrm{lcm}(|x|, |y|)$ si $\\gcd(|x|,|y|) = 1$.\\\\par\\\\par\n\\\\textbf{Cas spécifique} : Supposons $G$ abélien fini. Alors $xy$ a ordre $\\frac{|x||y|}{\\gcd(|x|,|y|)}$. Ceci égale $\\mathrm{lcm}(|x|,|y|)$ ssi $\\gcd(|x|,|y|) = 1$."
+          "solution_latex": "Montrons que $|xy| = \\mathrm{lcm}(|x|, |y|)$ si et seulement si $\\gcd(|x|, |y|) = 1$.\\par\\par\n\\textbf{Cas général} : Pour commutant $x, y$, l'ordre de $xy$ est $\\frac{|x||y|}{\\gcd(|x|,|y|)} = \\mathrm{lcm}(|x|,|y|) / \\gcd(|x|,|y|) \\cdot \\gcd(|x|,|y|) = \\mathrm{lcm}(|x|, |y|)$ si $\\gcd(|x|,|y|) = 1$.\\par\\par\n\\textbf{Cas spécifique} : Supposons $G$ abélien fini. Alors $xy$ a ordre $\\frac{|x||y|}{\\gcd(|x|,|y|)}$. Ceci égale $\\mathrm{lcm}(|x|,|y|)$ ssi $\\gcd(|x|,|y|) = 1$."
         },
         {
           "label": "2)",
@@ -1509,7 +1509,7 @@
               "content_latex": "Si $\\sigma \\in Z(S_n)$, alors $\\sigma(i~j)\\sigma^{-1} = (i~j)$ ce qui donne $(\\sigma(i)~\\sigma(j)) = (i~j)$. Si $n \\ge 3$, choisissez judicieusement $i$ et $j$ pour montrer que $\\sigma(k) = k$ pour tout $k$."
             }
           ],
-          "solution_latex": "Le produit de deux groupes cycliques $\\mathbb{Z}/m\\mathbb{Z}$ et $\\mathbb{Z}/n\\mathbb{Z}$ est cyclique ssi $\\gcd(m,n) = 1$.\\\\par\\\\par\n\\\\textbf{Preuve} : $\\mathbb{Z}/m\\mathbb{Z} \\times \\mathbb{Z}/n\\mathbb{Z}$ est engendré par $(1,1)$ d'ordre $\\mathrm{lcm}(m,n)$. Le groupe entier a ordre $mn$. Donc c'est cyclique ssi $\\mathrm{lcm}(m,n) = mn$, ce qui équivaut à $\\gcd(m,n) = 1$."
+          "solution_latex": "Le produit de deux groupes cycliques $\\mathbb{Z}/m\\mathbb{Z}$ et $\\mathbb{Z}/n\\mathbb{Z}$ est cyclique ssi $\\gcd(m,n) = 1$.\\par\\par\n\\textbf{Preuve} : $\\mathbb{Z}/m\\mathbb{Z} \\times \\mathbb{Z}/n\\mathbb{Z}$ est engendré par $(1,1)$ d'ordre $\\mathrm{lcm}(m,n)$. Le groupe entier a ordre $mn$. Donc c'est cyclique ssi $\\mathrm{lcm}(m,n) = mn$, ce qui équivaut à $\\gcd(m,n) = 1$."
         },
         {
           "label": "3) a)",
@@ -1529,7 +1529,7 @@
               "content_latex": "Puisque tout cycle peut se décomposer en produit de transpositions (voir la question 1a), concluez."
             }
           ],
-          "solution_latex": "Montrons que tout groupe cyclique fini est isomorphe à un produit de groupes cycliques de puissances premières.\\\\par\\\\par\nSoit $G = \\langle g \\rangle$ d'ordre $n$. Décomposons $n = p_1^{a_1} \\cdots p_k^{a_k}$. On a $G \\cong \\mathbb{Z}/n\\mathbb{Z} \\cong \\mathbb{Z}/p_1^{a_1}\\mathbb{Z} \\times \\cdots \\times \\mathbb{Z}/p_k^{a_k}\\mathbb{Z}$ (par le théorème des restes chinois, car les $p_i^{a_i}$ sont mutuellement premiers)."
+          "solution_latex": "Montrons que tout groupe cyclique fini est isomorphe à un produit de groupes cycliques de puissances premières.\\par\\par\nSoit $G = \\langle g \\rangle$ d'ordre $n$. Décomposons $n = p_1^{a_1} \\cdots p_k^{a_k}$. On a $G \\cong \\mathbb{Z}/n\\mathbb{Z} \\cong \\mathbb{Z}/p_1^{a_1}\\mathbb{Z} \\times \\cdots \\times \\mathbb{Z}/p_k^{a_k}\\mathbb{Z}$ (par le théorème des restes chinois, car les $p_i^{a_i}$ sont mutuellement premiers)."
         },
         {
           "label": "3) b)",
@@ -1549,7 +1549,7 @@
               "content_latex": "Calculez le produit $(1~i)(1~j)(1~i)$ et observez le résultat."
             }
           ],
-          "solution_latex": "Montrons que cette décomposition est unique à isomorphisme près.\\\\par\\\\par\nSupposons deux décompositions du même groupe en produits de groupes cycliques de puissances premières. Alors pour chaque premier $p$, le sous-groupe $p$-Sylow (qui est le produit des facteurs correspondant à $p$) est uniquement déterminé à conjugaison près. Puisque les facteurs sont au centre, cette décomposition est unique."
+          "solution_latex": "Montrons que cette décomposition est unique à isomorphisme près.\\par\\par\nSupposons deux décompositions du même groupe en produits de groupes cycliques de puissances premières. Alors pour chaque premier $p$, le sous-groupe $p$-Sylow (qui est le produit des facteurs correspondant à $p$) est uniquement déterminé à conjugaison près. Puisque les facteurs sont au centre, cette décomposition est unique."
         },
         {
           "label": "4) a)",
@@ -1609,7 +1609,7 @@
               "content_latex": "Procédez par récurrence sur la distance $|j-i|$. Notez que $(i~j+1) = (j~j+1)(i~j)(j~j+1)$."
             }
           ],
-          "solution_latex": "Montrons que dans un groupe abélien $G$, l'ensemble des éléments de torsion forme un sous-groupe $T(G)$.\\\\par\\\\par\n$T(G) = \\{g \\in G : |g| < \\infty\\}$. Si $x, y \\in T(G)$, alors $|x| = m, |y| = n$ sont finis. L'ordre de $xy$ divise $\\mathrm{lcm}(m,n)$ qui est fini, donc $xy \\in T(G)$. Si $x \\in T(G)$, alors $|x^{-1}| = |x|$ est fini, donc $x^{-1} \\in T(G)$. Ainsi $T(G)$ est un sous-groupe."
+          "solution_latex": "Montrons que dans un groupe abélien $G$, l'ensemble des éléments de torsion forme un sous-groupe $T(G)$.\\par\\par\n$T(G) = \\{g \\in G : |g| < \\infty\\}$. Si $x, y \\in T(G)$, alors $|x| = m, |y| = n$ sont finis. L'ordre de $xy$ divise $\\mathrm{lcm}(m,n)$ qui est fini, donc $xy \\in T(G)$. Si $x \\in T(G)$, alors $|x^{-1}| = |x|$ est fini, donc $x^{-1} \\in T(G)$. Ainsi $T(G)$ est un sous-groupe."
         },
         {
           "label": "5) b)",
@@ -1629,7 +1629,7 @@
               "content_latex": "Calculez $c(1~2)c^{-1}$, puis $c^2(1~2)c^{-2}$, etc. Vous générez ainsi toutes les transpositions de la forme $(i~i+1)$. Concluez avec 5)a)."
             }
           ],
-          "solution_latex": "Le quotient $G/T(G)$ est sans torsion, i.e. aucun élément non trivial n'a ordre fini.\\\\par\\\\par\nSi $gT(G)$ a ordre fini $n$, alors $g^n \\in T(G)$, donc $|g^n|$ est fini, disons $|g^n| = m$. Alors $g^{nm}$ a ordre fini. Pour tout $k$, $g^k \\in T(G)$ ou ... En fait, si $(gT(G))^n = T(G)$, alors $g^n T(G) = T(G)$, donc $g^n \\in T(G)$."
+          "solution_latex": "Le quotient $G/T(G)$ est sans torsion, i.e. aucun élément non trivial n'a ordre fini.\\par\\par\nSi $gT(G)$ a ordre fini $n$, alors $g^n \\in T(G)$, donc $|g^n|$ est fini, disons $|g^n| = m$. Alors $g^{nm}$ a ordre fini. Pour tout $k$, $g^k \\in T(G)$ ou ... En fait, si $(gT(G))^n = T(G)$, alors $g^n T(G) = T(G)$, donc $g^n \\in T(G)$."
         }
       ],
       "global_solution_latex": null
@@ -1870,7 +1870,7 @@
               "content_latex": "Vérifiez que la matrice identité est dans $A$, que la différence de deux matrices de $A$ reste dans $A$, et surtout que le produit de deux matrices de la forme $\\left(\\begin{smallmatrix}a&b\\\\0&a\\end{smallmatrix}\\right)$ et $\\left(\\begin{smallmatrix}c&d\\\\0&c\\end{smallmatrix}\\right)$ a bien la même structure (termes diagonaux égaux, sous la diagonale nul)."
             }
           ],
-          "solution_latex": "Montrons les théorèmes de Sylow : Soit $G$ un groupe fini d'ordre $n = p^a m$ où $p$ est premier et $\\gcd(p,m) = 1$.\\\\par\\\\par\n\\\\textbf{Théorème 1} : Il existe un sous-groupe de $G$ d'ordre $p^a$ (un $p$-groupe de Sylow).\\\\par\\\\par\n\\\\textbf{Preuve} : Par induction et analyse de l'action par conjugaison."
+          "solution_latex": "Montrons les théorèmes de Sylow : Soit $G$ un groupe fini d'ordre $n = p^a m$ où $p$ est premier et $\\gcd(p,m) = 1$.\\par\\par\n\\textbf{Théorème 1} : Il existe un sous-groupe de $G$ d'ordre $p^a$ (un $p$-groupe de Sylow).\\par\\par\n\\textbf{Preuve} : Par induction et analyse de l'action par conjugaison."
         },
         {
           "label": "2)",
@@ -1890,7 +1890,7 @@
               "content_latex": "Le déterminant de la matrice est $a^2$. Donc $a^2 = 1$, ce qui implique $a = \\pm 1$. Que peut valoir $b$ pour que l'inverse soit encore à coefficients entiers ?"
             }
           ],
-          "solution_latex": "\\\\textbf{Théorème 2} : Tout deux $p$-groupes de Sylow de $G$ sont conjugués.\\\\par\\\\par\n\\\\textbf{Théorème 3} : Le nombre de $p$-groupes de Sylow divise $n$ et est congru à $1$ modulo $p$.\\\\par\\\\par\nCes résultats sont fondamentaux pour l'analyse des groupes finis."
+          "solution_latex": "\\textbf{Théorème 2} : Tout deux $p$-groupes de Sylow de $G$ sont conjugués.\\par\\par\n\\textbf{Théorème 3} : Le nombre de $p$-groupes de Sylow divise $n$ et est congru à $1$ modulo $p$.\\par\\par\nCes résultats sont fondamentaux pour l'analyse des groupes finis."
         }
       ],
       "global_solution_latex": null
