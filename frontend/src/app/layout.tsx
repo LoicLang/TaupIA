@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import ClerkWrapper from "@/components/shared/ClerkWrapper";
 import AuthProvider from "@/components/shared/AuthProvider";
+import "katex/dist/katex.min.css";
 import "./globals.css";
 
 const inter = Inter({
