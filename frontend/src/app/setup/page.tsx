@@ -7,7 +7,6 @@ import {
   Terminal,
   BookOpen,
   GraduationCap,
-  Cpu,
   ListChecks,
   Loader2,
 } from "lucide-react";
@@ -51,6 +50,28 @@ function GlowOrbs() {
   );
 }
 
+function formatChapterTitle(title: string): string {
+  const trimmed = title.trim();
+  if (!trimmed) {
+    return trimmed;
+  }
+
+  const lettersOnly = trimmed.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ]/g, "");
+  const isMostlyUppercase =
+    lettersOnly.length > 0 && lettersOnly === lettersOnly.toUpperCase();
+
+  if (!isMostlyUppercase) {
+    return trimmed;
+  }
+
+  return trimmed
+    .toLowerCase()
+    .replace(/\b([a-zà-öø-ÿ])/g, (match) => match.toUpperCase())
+    .replace(/\bR\b/g, "R")
+    .replace(/\bC\b/g, "C")
+    .replace(/\bN\b/g, "N");
+}
+
 // --- Main Page ---
 
 export default function SetupPage() {
@@ -58,8 +79,6 @@ export default function SetupPage() {
 
   // Data from API
   const [chapters, setChapters] = useState<Chapter[]>([]);
-  const [llmProviders, setLlmProviders] = useState<string[]>([]);
-  const [ocrProviders, setOcrProviders] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -81,8 +100,6 @@ export default function SetupPage() {
           getOcrProviders(),
         ]);
         setChapters(ch);
-        setLlmProviders(llm);
-        setOcrProviders(ocr);
 
         if (ch.length > 0) setChapterId(ch[0].id);
         // Defaults: deepseek pour LLM, kimi pour OCR (fallback au premier dispo)
@@ -192,7 +209,7 @@ export default function SetupPage() {
                           value={ch.id}
                           className="bg-[#0f0f0f] text-white"
                         >
-                          {ch.title} ({ch.question_count} questions)
+                          {formatChapterTitle(ch.title)}
                         </option>
                       ))}
                     </select>
@@ -251,64 +268,6 @@ export default function SetupPage() {
                       >
                         Exercice seul
                       </button>
-                    </div>
-                  </div>
-
-                  {/* Providers */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2 text-left">
-                      <label className="text-xs sm:text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
-                        <Cpu className="w-3.5 h-3.5 sm:w-3 sm:h-3" />
-                        Provider IA
-                      </label>
-                      {llmProviders.length > 1 ? (
-                        <select
-                          value={aiProvider}
-                          onChange={(e) => setAiProvider(e.target.value)}
-                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
-                        >
-                          {llmProviders.map((p) => (
-                            <option
-                              key={p}
-                              value={p}
-                              className="bg-[#0f0f0f] text-white"
-                            >
-                              {p}
-                            </option>
-                          ))}
-                        </select>
-                      ) : (
-                        <div className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70">
-                          {aiProvider || "indisponible"}
-                        </div>
-                      )}
-                    </div>
-                    <div className="space-y-2 text-left">
-                      <label className="text-xs sm:text-[11px] font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
-                        <Cpu className="w-3.5 h-3.5 sm:w-3 sm:h-3" />
-                        Provider OCR
-                      </label>
-                      {ocrProviders.length > 1 ? (
-                        <select
-                          value={ocrProvider}
-                          onChange={(e) => setOcrProvider(e.target.value)}
-                          className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 appearance-none cursor-pointer"
-                        >
-                          {ocrProviders.map((p) => (
-                            <option
-                              key={p}
-                              value={p}
-                              className="bg-[#0f0f0f] text-white"
-                            >
-                              {p}
-                            </option>
-                          ))}
-                        </select>
-                      ) : (
-                        <div className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white/70">
-                          {ocrProvider || "indisponible"}
-                        </div>
-                      )}
                     </div>
                   </div>
 
