@@ -11,6 +11,7 @@ from application import ai_service
 from application.settings import get_settings
 from application.container import Container
 from services.knowledge_service import KnowledgeService
+from core.tools.executor import ToolExecutor
 from backend.auth import get_current_user_optional
 from backend.provider_policy import effective_llm_provider, effective_ocr_provider
 from backend.session_store import SessionState
@@ -38,6 +39,11 @@ _PROMPTS_DIR = Path(__file__).parent.parent.parent / "prompts"
 
 def _load_prompt(name: str) -> str:
     return (_PROMPTS_DIR / f"{name}.txt").read_text(encoding="utf-8")
+
+
+def _get_tool_executor(ks: KnowledgeService) -> ToolExecutor:
+    """Create a tool executor bound to the knowledge service."""
+    return ToolExecutor(ks)
 
 
 # =========================================================================
@@ -136,7 +142,7 @@ async def submit_answer(
     session: SessionState = Depends(get_session),
     ks: KnowledgeService = Depends(get_knowledge_service),
 ):
-    """Soumet une reponse a la question en cours et recoit l'evaluation."""
+    """Soumet une reponse a la question en cours et recoit l'evaluation via agent."""
     if session.phase != "question_cours":
         raise HTTPException(status_code=400, detail="Pas en phase question")
 
@@ -153,74 +159,74 @@ async def submit_answer(
         "content": req.answer,
     })
 
-    # Construire le contexte via le knowledge graph
-    context = ""
-    if q.get("id") and session.chapter_id:
-        context = ks.get_structured_context(q["id"], session.chapter_id, max_chars=4000)
-
-    # V3: answer_latex contient la reponse de reference complete
+    # Build agent system prompt with evaluation context
+    system_prompt = _load_prompt("kholleur_system")
     answer_latex = q.get("answer_latex", "")
-    expected = [answer_latex] if answer_latex else []
+
+    # Inject evaluation instructions into the agent prompt
+    eval_context = f"""
+## Contexte de cette evaluation
+Question posee : {q["question_raw"]}
+Reponse de reference : {answer_latex or "Non disponible."}
+
+## Instructions
+Evalue la reponse de l'etudiant. Tu peux utiliser tes outils pour verifier les definitions
+et theoremes exacts. A la fin de ta reponse, indique sur des lignes separees :
+SCORE: X/100
+COMPLET: OUI/NON
+MANQUE: liste des points manquants (ou "rien")
+"""
+    full_system_prompt = system_prompt + "\n\n" + eval_context
+
+    # Create tool executor
+    tool_executor = _get_tool_executor(ks)
 
     try:
-        result = ai_service.evaluate_answer(
-            question=q["question_raw"],
-            expected=expected,
-            student_answer=req.answer,
-            rag_context=context,
+        response_text = ai_service.agent_respond(
+            user_message=req.answer,
+            system_prompt=full_system_prompt,
+            tool_executor=tool_executor.execute,
             conversation_history=session.conversation_history[:-1],
+            temperature=0.7,
         )
     except Exception as e:
-        # Retirer la reponse user si erreur
         session.conversation_history.pop()
         raise HTTPException(status_code=500, detail=f"Erreur LLM: {e}")
 
-    # Debug prompts
-    debug_data = None
-    try:
-        system_prompt = _load_prompt("kholleur_system")
-        template = _load_prompt("evaluation")
-        user_prompt = template.format(
-            question=q["question_raw"],
-            reference_answer=answer_latex or "Non disponible.",
-            rag_context=context,
-            student_answer=req.answer,
-        )
-        debug_data = {
-            "system_prompt": system_prompt,
-            "user_prompt": user_prompt,
-        }
-    except Exception:
-        pass
-
-    session.debug_prompt_data = debug_data
-
-    feedback = result.get("feedback", "")
-    if not feedback or not feedback.strip():
+    if not response_text or not response_text.strip():
         session.conversation_history.pop()
         raise HTTPException(status_code=500, detail="Aucune reponse generee par le LLM")
 
-    # Ajouter le feedback a l'historique
+    # Parse the evaluation from the agent's response
+    from infrastructure.llm.base import BaseLLMProvider
+    result = BaseLLMProvider._parse_evaluation_response(None, response_text)
+
+    feedback = result.feedback
     session.conversation_history.append({
         "role": "assistant",
         "content": feedback,
     })
 
-    # Stocker le score
-    score = result.get("score", 0)
+    score = result.score.value
     session.scores.append(score)
 
-    # Validation : is_complete AND score >= 75
-    is_complete = result.get("is_complete", False)
+    is_complete = result.is_complete
     question_validated = is_complete and score >= 75
     if question_validated:
         session.question_validated = True
+
+    # Debug data
+    debug_data = {
+        "system_prompt": full_system_prompt,
+        "mode": "agent",
+    }
+    session.debug_prompt_data = debug_data
 
     return AnswerResponse(
         feedback=feedback,
         is_complete=is_complete,
         score=score,
-        missing_points=result.get("missing_points", []),
+        missing_points=result.missing_points,
         question_validated=session.question_validated,
         conversation_history=session.conversation_history,
         debug_prompt_data=debug_data,
@@ -305,7 +311,7 @@ async def exercise_message(
     session: SessionState = Depends(get_session),
     ks: KnowledgeService = Depends(get_knowledge_service),
 ):
-    """Envoie un message pendant la phase exercice (guidage socratique)."""
+    """Envoie un message pendant la phase exercice (guidage socratique via agent)."""
     if session.phase != "exercice":
         raise HTTPException(status_code=400, detail="Pas en phase exercice")
 
@@ -322,19 +328,36 @@ async def exercise_message(
         "content": req.message,
     })
 
+    # Build agent system prompt with exercise context
+    system_prompt = _load_prompt("kholleur_system")
+    exercise_context = f"""
+## Contexte de cet exercice
+Enonce : {ex.get("enonce", "")}
+
+## Indices disponibles (a distiller progressivement, NE PAS tout donner)
+{ex.get("indications", "Aucun indice specifique.")}
+
+## Solution de reference (NE JAMAIS donner directement)
+{ex.get("correction", "Non disponible.")}
+
+## Instructions
+Guide l'etudiant sans donner la solution. Tu peux utiliser tes outils pour
+consulter les definitions et theoremes pertinents quand l'etudiant est bloque.
+Pose des questions pour le faire reflechir. Si l'etudiant est bloque,
+cherche les prerequis du concept concerne pour identifier ce qui lui manque.
+"""
+    full_system_prompt = system_prompt + "\n\n" + exercise_context
+
+    # Create tool executor
+    tool_executor = _get_tool_executor(ks)
+
     try:
-        context = ks.get_exercise_structured_context(
-            exercise_id=ex["id"],
-            chapter_id=ex.get("chapter_id") or session.chapter_id or "",
-            max_chars=4000,
-        )
-        guidance = ai_service.guide_exercise(
-            exercise_statement=ex.get("enonce", ""),
-            student_message=req.message,
-            context=context,
-            hints=ex.get("indications", ""),
-            solution=ex.get("correction", ""),
+        guidance = ai_service.agent_respond(
+            user_message=req.message,
+            system_prompt=full_system_prompt,
+            tool_executor=tool_executor.execute,
             conversation_history=session.conversation_history[:-1],
+            temperature=0.8,
         )
     except Exception as e:
         session.conversation_history.pop()

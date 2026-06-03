@@ -4,10 +4,12 @@ Claude LLM Provider implementation.
 Implements the LLMProvider protocol for Anthropic's Claude models.
 """
 
+import json
 from typing import Optional, Any
 
 import anthropic
 
+from core.entities.agent import AgentResponse, ToolCall
 from infrastructure.llm.base import BaseLLMProvider
 
 
@@ -94,3 +96,109 @@ class ClaudeLLMProvider(BaseLLMProvider):
             raise Exception("Claude n'a pas généré de réponse.")
 
         return response.content[0].text
+
+    def _call_api_with_tools(
+        self,
+        messages: list[dict],
+        system_prompt: str,
+        tools: list[dict],
+        temperature: float = 0.7,
+    ) -> AgentResponse:
+        """Make a Claude API call with tool definitions."""
+        client = self._get_client()
+
+        # Convert OpenAI tool format to Claude tool format
+        claude_tools = []
+        for tool in tools:
+            func = tool.get("function", {})
+            claude_tools.append({
+                "name": func["name"],
+                "description": func.get("description", ""),
+                "input_schema": func.get("parameters", {"type": "object", "properties": {}}),
+            })
+
+        # Convert messages to Claude format
+        formatted_messages = []
+        for msg in messages:
+            role = msg["role"]
+            if role == "assistant" and "tool_calls" in msg:
+                # Assistant message with tool use
+                content = []
+                if msg.get("content"):
+                    content.append({"type": "text", "text": msg["content"]})
+                for tc in msg["tool_calls"]:
+                    func = tc.get("function", {})
+                    args = func.get("arguments", "{}")
+                    if isinstance(args, str):
+                        args = json.loads(args)
+                    content.append({
+                        "type": "tool_use",
+                        "id": tc["id"],
+                        "name": func["name"],
+                        "input": args,
+                    })
+                formatted_messages.append({"role": "assistant", "content": content})
+            elif role == "tool":
+                # Tool result — Claude expects these in a user message
+                tool_result = {
+                    "type": "tool_result",
+                    "tool_use_id": msg.get("tool_call_id", ""),
+                    "content": msg.get("content", ""),
+                }
+                # Merge consecutive tool results into one user message
+                if formatted_messages and formatted_messages[-1].get("role") == "user":
+                    last = formatted_messages[-1]
+                    if isinstance(last["content"], list):
+                        last["content"].append(tool_result)
+                    else:
+                        formatted_messages[-1] = {
+                            "role": "user",
+                            "content": [tool_result],
+                        }
+                else:
+                    formatted_messages.append({
+                        "role": "user",
+                        "content": [tool_result],
+                    })
+            else:
+                formatted_messages.append({
+                    "role": role,
+                    "content": msg.get("content", ""),
+                })
+
+        response = client.messages.create(
+            model=self._model_name,
+            max_tokens=self._max_output_tokens,
+            temperature=temperature,
+            system=[
+                {
+                    "type": "text",
+                    "text": system_prompt,
+                    "cache_control": {"type": "ephemeral"},
+                }
+            ],
+            messages=formatted_messages,
+            tools=claude_tools,
+        )
+
+        # Parse response
+        text_parts = []
+        tool_calls = []
+
+        for block in response.content:
+            if block.type == "text":
+                text_parts.append(block.text)
+            elif block.type == "tool_use":
+                tool_calls.append(ToolCall(
+                    id=block.id,
+                    name=block.name,
+                    arguments=block.input if isinstance(block.input, dict) else {},
+                ))
+
+        stop = "tool_use" if response.stop_reason == "tool_use" else "end_turn"
+
+        return AgentResponse(
+            text="\n".join(text_parts) if text_parts else None,
+            tool_calls=tool_calls,
+            stop_reason=stop,
+        )

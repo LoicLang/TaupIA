@@ -9,6 +9,7 @@ from typing import Optional, Callable
 
 from core.entities import EvaluationResult
 from core.interfaces import LLMProvider
+from core.tools.definitions import get_tool_definitions
 from application.container import get_container
 
 
@@ -137,4 +138,39 @@ def chat(
         user_message=user_message,
         context=context,
         conversation_history=conversation_history,
+    )
+
+
+def agent_respond(
+    user_message: str,
+    system_prompt: str,
+    tool_executor: Callable[[str, dict], str],
+    conversation_history: Optional[list[dict]] = None,
+    temperature: float = 0.7,
+) -> str:
+    """
+    Run an agent turn with knowledge graph tool calling.
+
+    The agent dynamically queries the knowledge graph as needed,
+    then produces a response to the student.
+
+    Args:
+        user_message: Student's message
+        system_prompt: System prompt (kholleur + tool instructions)
+        tool_executor: Function to execute tool calls
+        conversation_history: Previous messages
+        temperature: Sampling temperature
+
+    Returns:
+        Agent's text response
+    """
+    provider = get_provider()
+    tools = get_tool_definitions()
+    return provider.run_agent_turn(
+        user_message=user_message,
+        system_prompt=system_prompt,
+        tools=tools,
+        tool_executor=tool_executor,
+        conversation_history=conversation_history,
+        temperature=temperature,
     )

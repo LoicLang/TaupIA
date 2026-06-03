@@ -3,6 +3,7 @@
 from .question import Question, Exercise, Chapter
 from .evaluation import EvaluationResult, Score
 from .conversation import Message, ConversationHistory
+from .agent import ToolCall, ToolResult, AgentResponse
 
 __all__ = [
     "Question",
@@ -12,4 +13,7 @@ __all__ = [
     "Score",
     "Message",
     "ConversationHistory",
+    "ToolCall",
+    "ToolResult",
+    "AgentResponse",
 ]

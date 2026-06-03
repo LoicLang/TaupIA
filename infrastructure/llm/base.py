@@ -1,16 +1,19 @@
 """
-Base LLM Provider with shared retry logic.
+Base LLM Provider with shared retry logic and agent loop.
 
 This module provides common functionality for all LLM providers,
-including retry logic with exponential backoff and response parsing.
+including retry logic with exponential backoff, response parsing,
+and tool-calling agent loop.
 """
 
+import json
 import time
 from abc import ABC, abstractmethod
 from typing import Optional, Callable, Any
 from pathlib import Path
 
 from core.entities import EvaluationResult, Score
+from core.entities.agent import AgentResponse, ToolCall, ToolResult
 
 
 class BaseLLMProvider(ABC):
@@ -76,6 +79,128 @@ class BaseLLMProvider(ABC):
             Text response from the model
         """
         ...
+
+    def _call_api_with_tools(
+        self,
+        messages: list[dict],
+        system_prompt: str,
+        tools: list[dict],
+        temperature: float = 0.7,
+    ) -> AgentResponse:
+        """
+        Make an API call with tool definitions.
+
+        Subclasses should override this to enable agent mode.
+        Default implementation raises NotImplementedError.
+
+        Args:
+            messages: Conversation messages (may include tool results)
+            system_prompt: System prompt
+            tools: Tool definitions (OpenAI format)
+            temperature: Sampling temperature
+
+        Returns:
+            AgentResponse with text and/or tool calls
+        """
+        raise NotImplementedError(
+            f"{self.name} does not support tool calling. "
+            "Override _call_api_with_tools() to enable agent mode."
+        )
+
+    def run_agent_turn(
+        self,
+        user_message: str,
+        system_prompt: str,
+        tools: list[dict],
+        tool_executor: Callable[[str, dict], str],
+        conversation_history: Optional[list[dict]] = None,
+        max_iterations: int = 5,
+        temperature: float = 0.7,
+    ) -> str:
+        """
+        Run an agent turn: call LLM, execute tool calls, repeat until text response.
+
+        Args:
+            user_message: The user's message
+            system_prompt: System prompt for the agent
+            tools: Tool definitions
+            tool_executor: Function(tool_name, arguments) -> JSON string
+            conversation_history: Previous conversation
+            max_iterations: Max tool-call rounds to prevent runaway
+            temperature: Sampling temperature
+
+        Returns:
+            Final text response from the agent
+        """
+        messages = self._truncate_history(conversation_history, max_chars=6000, max_messages=30)
+        messages.append({"role": "user", "content": user_message})
+
+        for iteration in range(max_iterations):
+            try:
+                response = self._call_api_with_tools(
+                    messages=messages,
+                    system_prompt=system_prompt,
+                    tools=tools,
+                    temperature=temperature,
+                )
+            except NotImplementedError:
+                # Fallback: provider doesn't support tools, use plain text
+                return self._call_with_retry(
+                    lambda: self._call_api(messages, system_prompt, temperature)
+                )
+
+            if not response.has_tool_calls:
+                return response.text or ""
+
+            # Add assistant message with tool calls to history
+            assistant_msg = self._format_tool_calls_message(response)
+            messages.append(assistant_msg)
+
+            # Execute each tool call and add results
+            for tool_call in response.tool_calls:
+                print(f"[{self.name}] Tool call: {tool_call.name}({json.dumps(tool_call.arguments, ensure_ascii=False)[:100]})")
+                result_str = tool_executor(tool_call.name, tool_call.arguments)
+                tool_result_msg = self._format_tool_result_message(tool_call, result_str)
+                messages.append(tool_result_msg)
+
+        # Max iterations reached, make one final call without tools
+        return self._call_with_retry(
+            lambda: self._call_api(messages, system_prompt, temperature)
+        )
+
+    def _format_tool_calls_message(self, response: AgentResponse) -> dict:
+        """Format an assistant message containing tool calls.
+
+        Default implementation for OpenAI-compatible format.
+        Override in provider subclasses if needed.
+        """
+        return {
+            "role": "assistant",
+            "content": response.text or "",
+            "tool_calls": [
+                {
+                    "id": tc.id,
+                    "type": "function",
+                    "function": {
+                        "name": tc.name,
+                        "arguments": json.dumps(tc.arguments, ensure_ascii=False),
+                    },
+                }
+                for tc in response.tool_calls
+            ],
+        }
+
+    def _format_tool_result_message(self, tool_call: ToolCall, result: str) -> dict:
+        """Format a tool result message.
+
+        Default implementation for OpenAI-compatible format.
+        Override in provider subclasses if needed.
+        """
+        return {
+            "role": "tool",
+            "tool_call_id": tool_call.id,
+            "content": result,
+        }
 
     def _get_client(self) -> Any:
         """Get or initialize the API client."""

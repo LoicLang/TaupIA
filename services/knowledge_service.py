@@ -323,6 +323,56 @@ class KnowledgeService:
     # API publique
     # =========================================================================
 
+    def search_concepts(
+        self,
+        query: str,
+        chapter_id: Optional[str] = None,
+        max_results: int = 5,
+    ) -> list[dict]:
+        """Recherche fuzzy de concepts par mot-cle dans les titres et contenus."""
+        query_lower = query.lower()
+        query_terms = query_lower.split()
+        scored: list[tuple[float, dict]] = []
+
+        if chapter_id:
+            nodes = self._course_nodes_by_chapter.get(chapter_id, [])
+        else:
+            nodes = list(self._course_nodes_by_id.values())
+
+        for node in nodes:
+            title = (node.get("title") or "").lower()
+            content = (node.get("content_latex") or "").lower()
+            node_type = node.get("type", "")
+
+            # Score: exact substring in title is best, then terms in title, then content
+            score = 0.0
+            if query_lower in title:
+                score += 10.0
+            else:
+                for term in query_terms:
+                    if term in title:
+                        score += 3.0
+                    elif term in content:
+                        score += 1.0
+
+            if score > 0:
+                scored.append((score, node))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        results = []
+        for _score, node in scored[:max_results]:
+            chapter = self._concept_to_chapter.get(node["id"], "")
+            results.append({
+                "id": node["id"],
+                "type": node.get("type", "unknown"),
+                "title": node.get("title", ""),
+                "chapter_id": chapter,
+                "content_preview": (node.get("content_latex") or "")[:200],
+            })
+
+        return results
+
     def get_chapters(self) -> list[dict]:
         """Retourne la liste des 29 chapitres cours avec stats."""
         result = []

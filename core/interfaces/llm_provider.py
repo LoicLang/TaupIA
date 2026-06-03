@@ -1,6 +1,6 @@
 """LLM Provider interface."""
 
-from typing import Protocol, Optional
+from typing import Protocol, Optional, Callable
 from core.entities import EvaluationResult, Message
 
 
@@ -83,5 +83,35 @@ class LLMProvider(Protocol):
 
         Returns:
             Assistant response
+        """
+        ...
+
+    def run_agent_turn(
+        self,
+        user_message: str,
+        system_prompt: str,
+        tools: list[dict],
+        tool_executor: Callable[[str, dict], str],
+        conversation_history: Optional[list[dict]] = None,
+        max_iterations: int = 5,
+        temperature: float = 0.7,
+    ) -> str:
+        """
+        Run an agent turn with tool calling.
+
+        The agent calls the LLM, executes any tool calls, and repeats
+        until the LLM produces a final text response.
+
+        Args:
+            user_message: User's message
+            system_prompt: System prompt for the agent
+            tools: Tool definitions (OpenAI format)
+            tool_executor: Function(tool_name, arguments) -> JSON string
+            conversation_history: Previous conversation
+            max_iterations: Max tool-call rounds
+            temperature: Sampling temperature
+
+        Returns:
+            Final text response from the agent
         """
         ...

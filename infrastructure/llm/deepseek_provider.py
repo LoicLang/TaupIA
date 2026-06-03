@@ -4,8 +4,10 @@ DeepSeek LLM Provider implementation.
 Implements the LLMProvider protocol for DeepSeek via OpenAI-compatible API.
 """
 
+import json
 from typing import Optional, Any
 
+from core.entities.agent import AgentResponse, ToolCall
 from infrastructure.llm.base import BaseLLMProvider
 
 
@@ -89,3 +91,65 @@ class DeepSeekLLMProvider(BaseLLMProvider):
             raise Exception("DeepSeek n'a pas genere de reponse.")
 
         return response.choices[0].message.content
+
+    def _call_api_with_tools(
+        self,
+        messages: list[dict],
+        system_prompt: str,
+        tools: list[dict],
+        temperature: float = 0.7,
+    ) -> AgentResponse:
+        """Make a DeepSeek API call with tool definitions."""
+        client = self._get_client()
+
+        formatted_messages = [{"role": "system", "content": system_prompt}]
+        for msg in messages:
+            role = msg["role"]
+            if role == "tool":
+                formatted_messages.append({
+                    "role": "tool",
+                    "tool_call_id": msg.get("tool_call_id", ""),
+                    "content": msg.get("content", ""),
+                })
+            elif role == "assistant" and "tool_calls" in msg:
+                formatted_messages.append({
+                    "role": "assistant",
+                    "content": msg.get("content") or "",
+                    "tool_calls": msg["tool_calls"],
+                })
+            else:
+                formatted_messages.append({
+                    "role": role,
+                    "content": msg.get("content", ""),
+                })
+
+        response = client.chat.completions.create(
+            model=self._model_name,
+            messages=formatted_messages,
+            max_completion_tokens=self._max_output_tokens,
+            temperature=temperature,
+            tools=tools,
+            tool_choice="auto",
+        )
+
+        choice = response.choices[0]
+        message = choice.message
+
+        tool_calls = []
+        if message.tool_calls:
+            for tc in message.tool_calls:
+                try:
+                    args = json.loads(tc.function.arguments)
+                except (json.JSONDecodeError, TypeError):
+                    args = {}
+                tool_calls.append(ToolCall(
+                    id=tc.id,
+                    name=tc.function.name,
+                    arguments=args,
+                ))
+
+        return AgentResponse(
+            text=message.content,
+            tool_calls=tool_calls,
+            stop_reason="tool_use" if tool_calls else "end_turn",
+        )
