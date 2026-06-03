@@ -23,20 +23,20 @@ It challenges you, makes you reason, and gives structured feedback — it never 
 
 ## Why I built it
 
-I tutor maths, up to _prépa_ level. When ChatGPT reached my students, I watched it get used the
-worst possible way: as an **answer machine**. Stuck on a problem? Paste it, copy the solution,
-move on. The reasoning — the one thing that actually builds a mathematician — got skipped
-entirely. AI was an extraordinary lever, pointed backwards.
+I give private maths lessons, up to _prépa_ level. When ChatGPT landed in my students' hands, I
+watched them use it the worst possible way — as an **answer machine**. Stuck on a problem? Paste
+it, copy the solution, move on. The reasoning — the one thing that actually builds a
+mathematician — skipped entirely. An extraordinary lever, pointed backwards.
 
-TaupIA is that lever turned the right way round: the same models, used to **make a student
-reason instead of doing the reasoning for them**. It's an examiner that never gives you the
-answer — it challenges you, asks _"what do you notice in the statement?"_, and guides with
-questions, exactly like a real khôlle. Demanding, patient, available any time.
+TaupIA is that lever turned the right way round: the same models, used to **make the student
+reason instead of reasoning for them**. An examiner that never gives you the answer — it
+challenges you, asks _"what do you notice in the statement?"_, and guides with questions, like a
+real khôlle. Demanding, patient, there whenever you need it.
 
-That's also a conviction about where AI belongs in education: not replacing teachers, not
-spoon-feeding, but making a **demanding, controllable first level of support** reachable by far
-more students than the ones who can already afford private tutoring. Augment the human; don't
-short-circuit them.
+And it's a conviction about where AI belongs in education. Not replacing teachers. Not
+spoon-feeding. But making a **demanding, governable first level of support** reachable by far more
+students than the few who can already afford a private tutor. Augment people; don't short-circuit
+them.
 
 ## See it work
 
@@ -96,8 +96,8 @@ concepts), `BELONGS_TO`, `APPLIES_METHOD`, and `REQUIRES` (prerequisite chains).
 
 ## The build
 
-TaupIA grew from a weekend RAG script into an agent over a curated knowledge graph. The decisions
-worth defending — each one written up as an [ADR](docs/adr):
+TaupIA started as a quick RAG script and grew into an agent over a curated knowledge graph.
+Here's how it got there, and why — each decision written up as an [ADR](docs/adr):
 
 **RAG → knowledge graph.** It started as plain RAG over course PDFs (ChromaDB + embeddings). That's
 probabilistic where an examiner must be exact: you grade against _the_ definition, not the
