@@ -72,20 +72,40 @@ stamps — it consistently distinguished "used in the *proof*" from "needed for 
 *statement*", and "downstream consequence" from "upstream prerequisite". Even the
 lowest-confidence kept edges held up on expert review.
 
+## Scaled run — 6 core chapters
+
+The pilot was extended to a tightly interconnected core (linear algebra + real
+sequences), giving **462 verified edges across 6 chapters**:
+
+| Chapter | Concepts | Proposed → kept |
+|---------|---------:|----------------:|
+| applications_lineaires | 53 | 212 → 174 |
+| espaces_vectoriels | 57 | 130 → 109 |
+| matrices_et_systemes_lineaires | 29 | 58 → 47 |
+| determinants | 25 | 45 → 29 |
+| representation_matricielle_applications_lineaires | 25 | 56 → 40 |
+| suites_reelles | 46 | 86 → 63 |
+
+Refutation rates range 16–36% (determinants highest), and **zero** edges were
+dropped by the structural guardrails. The edges chain across chapters, which is the
+whole point — e.g. *rank theorem → linear map → vector space → group*, or
+*rank theorem → finite-dimensional space → dimension → basis*. That is remediation:
+"you're stuck here because a notion several steps upstream isn't solid".
+
 ## Cost and optimisation
 
 The pilot was deliberately unoptimised: 106 sub-agents (one extract + one verify
-per concept) ≈ 2.5M tokens for one chapter. Two levers cut this ~4–6× without
-touching quality:
+per concept) ≈ 2.5M tokens for one chapter (~47k/concept). Two levers cut this
+**~4.4× (measured)** without a quality regression:
 
-- **Batch** ~8–10 concepts per agent, loading the chapter catalogue once instead
-  of per concept.
-- **Right model per step:** Claude **Haiku** for extraction (easy selection),
-  a stronger tier only for the precision-critical verification.
+- **Batch** ~12 concepts per agent, loading the chapter catalogue once.
+- **Right model per step:** Claude **Haiku** for extraction (easy grounded
+  selection), **Sonnet** only for the precision-critical verification.
 
-Enrichment is a **one-time offline batch**; the committed overlay is then free at
-runtime. Scope for the showcase is a **core subset (~6 interconnected chapters)** —
-enough to prove the capability and demo remediation; the rest is "run the script".
+The 6-chapter run (182 concepts) cost **1.9M tokens (~10.6k/concept)**. Enrichment
+is a **one-time offline batch**; the committed overlay is then free at runtime.
+Scope is a **core subset** — enough to prove the capability and demo remediation;
+the rest is "run the script".
 
 ## Running it
 

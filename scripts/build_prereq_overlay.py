@@ -11,8 +11,9 @@ adversarial verification, then enforces structural guardrails:
   - no duplicate edges
   - the resulting concept->concept graph stays acyclic (DAG)
 
-Writes data/derived/concept_prerequisites_<chapter>.json — the overlay the runtime
-loads behind a flag — plus a stats report and a human-validation sample.
+Writes one data/derived/concept_prerequisites_<chapter>.json per chapter. Handles
+both a single-chapter output ({chapter, results}) and a multi-chapter output
+({chaptersResults: [{chapter, results}, ...]}).
 
 Usage:
     python scripts/build_prereq_overlay.py <workflow_output.json>
@@ -41,24 +42,23 @@ def load_concepts() -> dict[str, dict]:
     }
 
 
-def extract_results(blob) -> list[dict]:
-    """Find the per-concept results list inside whatever JSON shape we were given."""
-    if isinstance(blob, list):
-        return blob
-    if isinstance(blob, dict):
-        if "results" in blob:
-            return blob["results"]
-        if "result" in blob and isinstance(blob["result"], dict):
-            return blob["result"].get("results", [])
-    raise SystemExit("Could not locate a 'results' list in the input JSON.")
+def chapter_groups(blob) -> list[dict]:
+    """Normalise the workflow output into a list of {chapter, results}."""
+    root = blob.get("result", blob) if isinstance(blob, dict) else blob
+    if isinstance(root, dict) and "chaptersResults" in root:
+        return root["chaptersResults"]
+    if isinstance(root, dict) and "results" in root:
+        return [{"chapter": root.get("chapter", "unknown"), "results": root["results"]}]
+    if isinstance(root, list):
+        return [{"chapter": "unknown", "results": root}]
+    raise SystemExit("Could not locate chapter results in the input JSON.")
 
 
 def creates_cycle(edges: list[tuple[str, str]], new: tuple[str, str]) -> bool:
-    """Would adding `new` (src->dst, meaning src REQUIRES dst) create a cycle?"""
+    """Would adding `new` (src->dst, src REQUIRES dst) create a cycle?"""
     adj: dict[str, list[str]] = {}
     for s, d in edges + [new]:
         adj.setdefault(s, []).append(d)
-    # DFS from new[1] trying to reach new[0]
     target, stack, seen = new[0], [new[1]], set()
     while stack:
         node = stack.pop()
@@ -71,30 +71,25 @@ def creates_cycle(edges: list[tuple[str, str]], new: tuple[str, str]) -> bool:
     return False
 
 
-def main():
-    if len(sys.argv) < 2:
-        raise SystemExit("usage: python scripts/build_prereq_overlay.py <workflow_output.json>")
-    with open(sys.argv[1], encoding="utf-8") as f:
-        results = extract_results(json.load(f))
-
-    concepts = load_concepts()
-
+def process(chapter: str, results: list[dict], concepts: dict[str, dict]) -> dict:
     proposed = survived = 0
     edges: list[dict] = []
     edge_pairs: list[tuple[str, str]] = []
+    refuted: list[tuple[str, str, str]] = []
     dropped = {"unknown_id": 0, "self_loop": 0, "order": 0, "cycle": 0, "dup": 0}
     seen_pairs: set[tuple[str, str]] = set()
 
-    for r in results:
+    for r in results or []:
         cid = r.get("concept_id")
         ex = {p["prereq_id"]: p for p in (r.get("extraction", {}) or {}).get("prerequisites", [])}
         verdicts = (r.get("verification", {}) or {}).get("verdicts", [])
         proposed += len(ex)
         for v in verdicts:
+            pid = v["prereq_id"]
             if not v.get("survives"):
+                refuted.append((cid, pid, v.get("reason", "")))
                 continue
             survived += 1
-            pid = v["prereq_id"]
             pair = (cid, pid)
             if cid not in concepts or pid not in concepts:
                 dropped["unknown_id"] += 1; continue
@@ -110,9 +105,7 @@ def main():
             seen_pairs.add(pair)
             edge_pairs.append(pair)
             edges.append({
-                "source": cid,
-                "target": pid,
-                "type": "REQUIRES",
+                "source": cid, "target": pid, "type": "REQUIRES",
                 "properties": {
                     "confidence": ex.get(pid, {}).get("confidence"),
                     "source_method": "llm_grounded_verified",
@@ -122,27 +115,58 @@ def main():
                 },
             })
 
-    out = {
-        "schema": "concept_prerequisites_overlay/v1",
-        "n_edges": len(edges),
-        "edges": edges,
-    }
-    os.makedirs(DERIVED, exist_ok=True)
-    out_path = os.path.join(DERIVED, "concept_prerequisites_applications_lineaires.json")
+    out_path = os.path.join(DERIVED, f"concept_prerequisites_{chapter}.json")
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=1)
+        json.dump({"schema": "concept_prerequisites_overlay/v1", "n_edges": len(edges), "edges": edges},
+                  f, ensure_ascii=False, indent=1)
+    _write_validation_doc(chapter, edges, refuted, proposed, concepts)
+    print(f"[{chapter}] proposed={proposed} survived={survived} kept={len(edges)} dropped={dropped} -> {os.path.basename(out_path)}")
+    return {"chapter": chapter, "proposed": proposed, "survived": survived, "kept": len(edges)}
 
-    print(f"proposed edges (extraction): {proposed}")
-    print(f"survived adversarial verify: {survived}")
-    print(f"kept after guardrails:       {len(edges)}")
-    print(f"dropped: {dropped}")
-    print(f"written: {out_path}")
-    print()
-    print("=== VALIDATION SAMPLE (concept  REQUIRES  prereq) ===")
-    for e in edges[:25]:
-        s, t = concepts[e["source"]], concepts[e["target"]]
-        cross = "" if s["chapter_id"] == t["chapter_id"] else f"  [<-{t['chapter_id']}]"
-        print(f"  {s['title'][:46]:46} REQUIRES  {t['title'][:42]}{cross}  (c={e['properties']['confidence']})")
+
+def _write_validation_doc(chapter, edges, refuted, proposed, concepts):
+    """Emit a human-reviewable markdown: kept edges (precision) + refuted edges (recall)."""
+    def title(i): return concepts.get(i, {}).get("title", i)
+    def chap(i): return concepts.get(i, {}).get("chapter_id", "")
+    def order(i): return concepts.get(i, {}).get("order", 0)
+
+    kept_by_src: dict[str, list[dict]] = {}
+    for e in edges:
+        kept_by_src.setdefault(e["source"], []).append(e)
+    refuted_by_src: dict[str, list[tuple[str, str]]] = {}
+    for c, p, why in refuted:
+        refuted_by_src.setdefault(c, []).append((p, why))
+
+    md = [f"# Validation des prérequis — {chapter}", "",
+          f"**{len(edges)} arêtes retenues** (proposées {proposed}, réfutées {len(refuted)}). "
+          "`[<-chapitre]` = prérequis amont d'un autre chapitre.", "",
+          "## Arêtes RETENUES (vérifier la précision)"]
+    for s in sorted(kept_by_src, key=order):
+        md.append(f"\n### {title(s)}")
+        for e in sorted(kept_by_src[s], key=lambda x: -(x["properties"]["confidence"] or 0)):
+            cross = "" if chap(e["target"]) == chapter else f"  [<-{chap(e['target'])}]"
+            md.append(f"- **{title(e['target'])}**{cross} · conf {e['properties']['confidence']}")
+            md.append(f"      {e['properties']['extract_reason']}")
+    md.append("\n## Arêtes RÉFUTÉES (vérifier si le filtre est trop strict)")
+    for s in refuted_by_src:
+        md.append(f"\n### {title(s)}")
+        for p, why in refuted_by_src[s]:
+            md.append(f"- ~~{title(p)}~~ — {why}")
+
+    with open(os.path.join(DERIVED, f"validation_{chapter}.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(md))
+
+
+def main():
+    if len(sys.argv) < 2:
+        raise SystemExit("usage: python scripts/build_prereq_overlay.py <workflow_output.json>")
+    with open(sys.argv[1], encoding="utf-8") as f:
+        blob = json.load(f)
+    concepts = load_concepts()
+    os.makedirs(DERIVED, exist_ok=True)
+    totals = [process(g["chapter"], g.get("results", []), concepts) for g in chapter_groups(blob)]
+    if len(totals) > 1:
+        print(f"TOTAL kept: {sum(t['kept'] for t in totals)} edges across {len(totals)} chapters")
 
 
 if __name__ == "__main__":

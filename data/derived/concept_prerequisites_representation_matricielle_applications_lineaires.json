@@ -1,0 +1,486 @@
+{
+ "schema": "concept_prerequisites_overlay/v1",
+ "n_edges": 40,
+ "edges": [
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "target": "applications_lineaires__definition_application_lineaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Notion fondamentale: définir ce qu'est une application linéaire u ∈ L(E,F)",
+    "verify_reason": "L'énoncé pose explicitement u ∈ L(E,F), ce qui suppose de savoir ce qu'est une application linéaire. Sans cette définition, le membre u ∈ L(E,F) est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de base: comprendre qu'est-ce qu'une matrice et ses coefficients",
+    "verify_reason": "La définition construit explicitement Mat_{B,C}(u) comme une matrice de taille n×p. L'énoncé fait référence à 'la matrice de la famille u(B) dans la base C', ce qui est exactement la notion de matrice (famille indexée de coefficients). Sans savoir ce qu'est une matrice, l'objet construit est indéfinissable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise Mat(u) et ses bases associées",
+    "verify_reason": "L'énoncé utilise Mat_{Bp,Bn}(Ã) explicitement : sans la définition de la matrice d'une application linéaire dans des bases données, la notation et la conclusion sont inintelligibles.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_matrice_base_canonique_app_associee",
+   "target": "applications_lineaires__definition_theoreme_application_canonique",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Notion d'application linéaire canoniquement associée à une matrice A",
+    "verify_reason": "L'énoncé nomme explicitement 'l'application linéaire canoniquement associée à A' (notée Ã). Sans cette définition, l'objet Ã est inconnu et la phrase n'a pas de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé établit l'égalité rg(u) = rg(Mat(u))",
+    "verify_reason": "L'énoncé écrit rg(u) = rg(Mat_{B,C}(u)) : Mat_{B,C}(u) est la notion définie dans def_matrice_app_lin, indispensable pour comprendre la relation.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+   "target": "applications_lineaires__definition_rang",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Notion de rang d'une application linéaire u",
+    "verify_reason": "L'énoncé utilise rg(u) (rang d'une application linéaire). Sans la définition du rang d'une application linéaire, le membre gauche de l'égalité est inconnu.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+   "target": "applications_lineaires__definition_rang_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Notion de rang d'une matrice",
+    "verify_reason": "L'énoncé utilise rg(Mat_{B,C}(u)) (rang d'une matrice). Sans la définition du rang d'une matrice, le membre droit est inconnu. Les deux notions de rang sont distinctes et toutes deux présentes dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_calcul_matriciel_image",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Utilise Mat(u) et ses coordonnées",
+    "verify_reason": "L'énoncé utilise Mat_{B,C}(u), défini dans def_matrice_app_lin. Sans cette définition, la notation est inintelligible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_calcul_matriciel_image",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé: Mat(u(x)) = Mat(u) × Mat(x) utilise la multiplication matricielle",
+    "verify_reason": "L'énoncé est une égalité matricielle avec le symbole ×, explicitement un produit matriciel entre Mat(u) et Mat(x). Sans la définition du produit matriciel, la relation n'a aucun sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_dictionnaire_vectoriel_matriciel",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé porte sur l'isomorphisme u ↦ Mat(u)",
+    "verify_reason": "L'énoncé est centré sur l'application u ↦ Mat_{B,C}(u) définie dans def_matrice_app_lin ; sans cette définition, l'application dont on parle est inconnue.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_dictionnaire_vectoriel_matriciel",
+   "target": "applications_lineaires__definition_isomorphisme",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle d'isomorphisme de L(E,F) sur M(n,p)(K)",
+    "verify_reason": "Le point (i) affirme que u ↦ Mat(u) est un isomorphisme de L(E,F) sur M_{n,p}(K). Le mot 'isomorphisme' est le prédicat central de l'énoncé ; sans sa définition, l'énoncé est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_dictionnaire_vectoriel_matriciel",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.8,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Point (ii) utilise le produit matriciel pour exprimer composition",
+    "verify_reason": "Le point (ii) énonce Mat(v∘u) = Mat(v) × Mat(u), ce qui utilise explicitement le produit matriciel (×). Sans sa définition, le membre droit est inintelligible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_vandermonde",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition basique: comprendre la notation matricielle (x_i^(j-1))",
+    "verify_reason": "L'énoncé présente explicitement la matrice de Vandermonde comme (x_i^{j-1})_{1≤i,j≤n}, c'est-à-dire une famille indexée de coefficients — la définition même d'une matrice. Sans savoir ce qu'est une matrice et sa notation par coefficients, l'objet central de l'énoncé n'est pas défini.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_vandermonde",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Critère d'inversibilité: matrice de Vandermonde inversible ssi scalaires distincts",
+    "verify_reason": "L'énoncé a pour conclusion que la matrice est inversible (ou non). Sans la définition de la matrice inversible, le prédicat de la conclusion est inconnu.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrice_passage",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition utilise P = Mat(Id_E) dans les bases B' et B",
+    "verify_reason": "La matrice de passage est définie par P = Mat_{B',B}(Id_E), ce qui utilise directement la notation Mat définie dans def_matrice_app_lin. Sans cette définition, l'objet P n'est pas définissable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrice_passage",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Propriété (i): matrice de passage est inversible",
+    "verify_reason": "La propriété (i) de la définition énonce que P est inversible d'inverse P_{B'}^B. Le mot 'inversible' est explicitement dans l'énoncé de la définition, donc la notion est indispensable pour comprendre ce qui est affirmé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_changement_base_vecteur",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_passage",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise P = P_B^(B') matrice de passage",
+    "verify_reason": "L'énoncé pose P = P_B^{B'} (matrice de passage) et la relation X = PX'. Sans la définition de la matrice de passage, P est un objet inconnu.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_changement_base_vecteur",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.85,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Relation X = PX' est une multiplication matricielle",
+    "verify_reason": "La relation X = PX' est un produit matriciel (P est une matrice n×n et X' un vecteur colonne). Sans la définition du produit matriciel, cette égalité n'a pas de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_changement_base_app_lin",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_passage",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise P = P_B^(B') et Q = P_C^(C')",
+    "verify_reason": "L'énoncé pose explicitement P = P_B^{B'} et Q = P_C^{C'} (matrices de passage). Ces objets sont définis dans def_matrice_passage.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_changement_base_app_lin",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Formule A' = Q^(-1)AP utilise multiplicaton et inversion matricielle",
+    "verify_reason": "La formule A' = Q^{-1}AP contient deux produits matriciels. Sans la définition du produit matriciel, cette formule est inintelligible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+   "target": "representation_matricielle_applications_lineaires__thm_rang_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.85,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Le paramètre r du théorème est le rang de u",
+    "verify_reason": "L'énoncé mentionne 'de rang r' et que Mat = J_r où r est ce rang. Pour comprendre que r désigne bien le rang de u (et non de Mat(u) dans des bases particulières), il faut savoir que rg(u) = rg(Mat(u)), ce qui est l'objet de thm_rang_matrice_app_lin. Sans cela, le paramètre r et son lien avec u sont ambigus.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition requiert P ∈ GL_p et Q ∈ GL_n (matrices inversibles)",
+    "verify_reason": "La définition mentionne explicitement P ∈ GL_p(K) et Q ∈ GL_n(K), i.e. des matrices inversibles. Sans la définition de matrice inversible et du groupe linéaire GL_n, la condition sur P et Q est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+   "target": "representation_matricielle_applications_lineaires__def_matrices_equivalentes",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Defines matrix equivalence",
+    "verify_reason": "L'énoncé dit 'sont équivalentes' — la notion d'équivalence doit être définie pour que l'énoncé ait un sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_caracterisation_equivalence",
+   "target": "representation_matricielle_applications_lineaires__thm_changement_base_Jr",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Establishes J_r canonical form",
+    "verify_reason": "L'énoncé affirme explicitement 'toute matrice de rang r est équivalente à J_r', ce qui suppose que J_r et son existence soient établis.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_matrices_semblables",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Matrix multiplication",
+    "verify_reason": "L'énoncé écrit B = P^{-1}AP, qui est un produit de matrices ; la définition du produit matriciel est indispensable pour lire cet énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+   "target": "representation_matricielle_applications_lineaires__def_matrices_semblables",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of similarity",
+    "verify_reason": "L'énoncé parle de 'matrices semblables' — la définition de la similitude est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_proprietes_similitude",
+   "target": "matrices_et_systemes_lineaires__thm_trace",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Trace definition and properties",
+    "verify_reason": "L'énoncé affirme 'même trace' — la notion de trace doit être définie pour que le mot ait un sens dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_trace_endomorphisme",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Matrices of endomorphisms",
+    "verify_reason": "La définition dit 'la trace de la matrice Mat_B(u)' — elle fait explicitement référence à la matrice d'un endomorphisme, dont la définition est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Matrix definition",
+    "verify_reason": "L'énoncé porte sur A ∈ M_n(K), notion de matrice carrée — la définition d'une matrice est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.8,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Parallel definition for endomorphisms",
+    "verify_reason": "L'énoncé définit explicitement les valeurs propres de A comme 'valeur propre de l'endomorphisme canoniquement associé' — la définition pour les endomorphismes est nécessaire pour lire cet énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_elements_propres_similitude",
+   "target": "representation_matricielle_applications_lineaires__def_matrices_semblables",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Similar matrices",
+    "verify_reason": "L'énoncé parle de matrices 'semblables' — la définition de la similitude est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_elements_propres_similitude",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Eigenvalues and eigenspaces",
+    "verify_reason": "L'énoncé porte sur sp(A), sp(B) et E_lambda(A), E_lambda(B) — la définition des éléments propres d'une matrice est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_vp_polynomes_annulateurs",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Eigenvalues of endomorphisms",
+    "verify_reason": "L'énoncé mentionne x ∈ E_lambda(u) et 'toute valeur propre de u' — la définition des éléments propres d'un endomorphisme est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_non_vacuite_spectre_C",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Spectrum defined as eigenvalue set",
+    "verify_reason": "L'énoncé affirme sp(u) ≠ ∅ — la définition du spectre (ensemble des valeurs propres) est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_finitude_spectre_liberte",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Eigenspaces definition",
+    "verify_reason": "L'énoncé parle du spectre de u, des sous-espaces propres et de vecteurs propres — tous définis dans def_elements_propres_endo, indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__def_diagonalisable",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Eigenvalues and eigenvectors",
+    "verify_reason": "La définition dit 'base constituée de vecteurs propres de u' — la notion de vecteur propre est explicitement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_condition_suffisante_diag",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Eigenvalues and eigenspaces of matrices",
+    "verify_reason": "L'énoncé parle de 'n valeurs propres distinctes' — la définition des valeurs propres d'une matrice est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+   "target": "representation_matricielle_applications_lineaires__def_diagonalisable",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définit la notion de diagonalisabilité qui est l'équivalent (i) du théorème",
+    "verify_reason": "L'assertion (i) est littéralement 'u est diagonalisable' : sans cette définition, l'énoncé du théorème est illisible dès sa première ligne.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définit les sous-espaces propres E_λ(u) qui apparaissent explicitement dans la caractérisation (ii)",
+    "verify_reason": "Les notations E_λ(u) et sp(u) apparaissent explicitement dans (ii) et (iv) ; elles sont indéfinies sans ce prérequis, rendant l'énoncé incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "representation_matricielle_applications_lineaires__thm_caracterisations_diag",
+   "target": "applications_lineaires__definition_theoreme_polynomes_annulateurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définit formellement les polynômes annulateurs, notion fondamentale pour les équivalences (iii) et (iv)",
+    "verify_reason": "Les assertions (iii) et (iv) utilisent explicitement 'polynôme annulateur' et 'annule u' ; sans cette définition, ces assertions sont inintelligibles.",
+    "generated": true
+   }
+  }
+ ]
+}

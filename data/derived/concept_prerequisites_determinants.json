@@ -1,0 +1,354 @@
+{
+ "schema": "concept_prerequisites_overlay/v1",
+ "n_edges": 29,
+ "edges": [
+  {
+   "source": "determinants__definition_forme_multilineaire_alternee",
+   "target": "determinants__definition_application_multilineaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Forme n-linéaire est un cas spécial d'application n-linéaire; la définition de forme alternée suppose déjà compris ce qu'est une application multilinéaire",
+    "verify_reason": "L'énoncé définit f comme une 'forme n-linéaire' puis ajoute la condition alternée. Comprendre l'énoncé nécessite de savoir ce qu'est une forme n-linéaire, notion définie dans definition_application_multilineaire.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_proprietes_formes_multilineaires_alternees",
+   "target": "determinants__definition_forme_multilineaire_alternee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce les propriétés d'une forme qui doit déjà être alternée par définition",
+    "verify_reason": "L'énoncé porte explicitement sur 'une forme n-linéaire alternée' — sans savoir ce qu'est une forme alternée, on ne peut pas comprendre l'objet sur lequel portent les propriétés (i), (ii), (iii).",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_engendrement_transpositions",
+   "target": "groupes_et_anneaux__definition_theoreme_groupe_symetrique",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Les transpositions sont les générateurs fondamentaux du groupe symétrique S_n",
+    "verify_reason": "L'énoncé parle de S_n, de 'permutation de [[1,n]]' et de 'transpositions' — ce sont exactement les éléments définis dans definition_theoreme_groupe_symetrique. Sans cette définition, les termes de l'énoncé sont incompréhensibles.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__definition_theoreme_signature",
+   "target": "determinants__theorem_engendrement_transpositions",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "La signature d'une permutation est définie via sa décomposition unique en transpositions",
+    "verify_reason": "L'énoncé définit la signature comme l'unique morphisme de S_n dans {±1} donnant -1 à toute transposition. L'existence et l'unicité de ce morphisme reposent sur le fait que les transpositions engendrent S_n — sans ce théorème d'engendrement, l'unicité affirmée dans l'énoncé ne peut pas être comprise ni justifiée.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_signature_cycle",
+   "target": "determinants__definition_theoreme_signature",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Applique la définition générale de signature au cas particulier des cycles",
+    "verify_reason": "L'énoncé dit 'la signature d'un p-cycle est (-1)^{p-1}' — le terme 'signature' est exactement défini dans definition_theoreme_signature. Sans cette définition, le mot 'signature' dans l'énoncé est vide de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_effet_permutation_forme_multilineaire",
+   "target": "determinants__definition_forme_multilineaire_alternee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce comment une permutation agit sur une forme multilinéaire alternée",
+    "verify_reason": "L'énoncé porte sur 'une forme n-linéaire alternée f' — la définition de cet objet est indispensable pour comprendre l'hypothèse du théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_effet_permutation_forme_multilineaire",
+   "target": "determinants__definition_theoreme_signature",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "L'effet est multiplié par la signature de la permutation; c'est le résultat central",
+    "verify_reason": "La conclusion de l'énoncé est f(x_{σ(1)},...) = ε(σ) f(x_1,...) où ε(σ) est la signature — sans la définition de ε, le membre droit de l'égalité est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_forme_multilineaire_multiple_determinant",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce que toute forme alternée est un multiple de cet déterminant-ci dans une base fixée",
+    "verify_reason": "L'énoncé affirme f = f(B) det_B — le symbole det_B est défini dans definition_theoreme_determinant_famille_vecteurs. Sans cette définition, det_B est opaque et l'énoncé incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_determinants_dimensions_2_3",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Applique la définition générale du déterminant aux cas concrets dim 2 et 3",
+    "verify_reason": "L'énoncé donne la formule explicite de det_B en dim 2 et 3, en utilisant la notation det_B(...) introduite dans definition_theoreme_determinant_famille_vecteurs. Sans cette définition, le symbole det_B et la notation déterminant ne sont pas établis.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_proprietes_determinant_famille_vecteurs",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce les propriétés du déterminant qui vient d'être défini",
+    "verify_reason": "L'énoncé utilise det_B(X), det_B(B'), det_B'(X) tout au long — la définition de det_B est indispensable pour comprendre l'objet des propriétés (i) et (ii).",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__definition_theoreme_orientation",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "L'orientation est basée sur le signe du déterminant d'une base",
+    "verify_reason": "L'énoncé définit l'orientation via 'det_B(B') > 0' — le symbole det_B est défini dans definition_theoreme_determinant_famille_vecteurs. Sans cette définition, la condition de même orientation est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__definition_determinant_matrice_carree",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Determinant of matrices is defined as determinant of column family",
+    "verify_reason": "L'énoncé définit littéralement det(A) comme 'le déterminant de la famille de ses colonnes dans la base canonique', ce qui présuppose que la notion de déterminant d'une famille de vecteurs est déjà définie. Sans cette définition préalable, l'énoncé est circulaire et incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_lien_determinants",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "States the link between matrix determinant and family determinant",
+    "verify_reason": "L'énoncé du théorème mentionne explicitement det(Mat_B(X)), ce qui requiert la notion de déterminant d'une matrice pour en comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_lien_determinants",
+   "target": "determinants__definition_theoreme_determinant_famille_vecteurs",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Provides definition of determinant for family of vectors",
+    "verify_reason": "L'énoncé mentionne explicitement det_B(X), le déterminant d'une famille de vecteurs dans une base, qui est l'objet central du théorème. Sans cette définition, l'énoncé est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_premieres_proprietes_determinant_matrice",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Defines determinant of matrix needed for its properties",
+    "verify_reason": "L'énoncé parle explicitement de det(A), det(AB), det(A^{-1}) etc. La définition du déterminant matriciel est indispensable pour comprendre l'objet même du théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_determinant_matrice_triangulaire_blocs",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Applies to square matrices and their determinants",
+    "verify_reason": "L'énoncé exprime une égalité entre déterminants de matrices carrées (det(A_1)...det(A_r)). La notion de déterminant de matrice carrée est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_determinant_operations_elementaires",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Describes behavior of determinant under operations",
+    "verify_reason": "L'énoncé parle de l'effet d'opérations élémentaires sur les déterminants. Sans la notion de déterminant de matrice, l'énoncé est vide de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__definition_mineurs_cofacteurs_comatrice",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Minors and cofactors are determinants of submatrices",
+    "verify_reason": "L'énoncé définit les mineurs comme 'le déterminant de la matrice extraite'. La notion de déterminant d'une matrice carrée est explicitement requise dans la définition même des mineurs.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_developpement_ligne_colonne",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Provides formula for computing determinant via expansion",
+    "verify_reason": "L'énoncé exprime une formule de calcul de det(A) — la notion de déterminant de matrice est au cœur même de l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_developpement_ligne_colonne",
+   "target": "determinants__definition_mineurs_cofacteurs_comatrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Uses definition of minors and cofactors in expansion formula",
+    "verify_reason": "L'énoncé utilise explicitement la notation Delta_{ij}(A) (mineurs) dans la formule de développement. Sans la définition des mineurs/cofacteurs, la formule est illisible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_formule_inversion",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Describes inverse in terms of determinant and cofactors",
+    "verify_reason": "L'énoncé fait apparaître det(A) dans la formule A^{-1} = (1/det(A)) com(A)^T. La notion de déterminant de matrice est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_formule_inversion",
+   "target": "determinants__definition_mineurs_cofacteurs_comatrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Uses cofactor matrix in inverse formula",
+    "verify_reason": "L'énoncé utilise explicitement com(A) (comatrice). Sans la définition de la comatrice, l'énoncé ne peut pas être compris.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_polynome_caracteristique",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Characteristic polynomial is defined as det(A - λI)",
+    "verify_reason": "Le polynôme caractéristique est défini par χ_A(X) = det(XI_n - A). La notation det s'applique à une matrice carrée; la définition du déterminant matriciel est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__definition_theoreme_determinant_endomorphisme",
+   "target": "determinants__definition_determinant_matrice_carree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Determinant of endomorphism extends matrix determinant via matrix representation",
+    "verify_reason": "L'énoncé définit det(u) via det(Mat_B(u)), qui est explicitement le déterminant d'une matrice. Sans la notion de déterminant matriciel, l'énoncé est incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_determinant_endomorphisme_canonique",
+   "target": "determinants__definition_theoreme_determinant_endomorphisme",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Establishes that determinant of endomorphism is well-defined",
+    "verify_reason": "L'énoncé parle de det(Ã), le déterminant d'un endomorphisme. La définition de cette notion est indispensable pour comprendre l'énoncé — sans elle, 'det(Ã)' est indéfini.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_proprietes_determinant_endomorphisme",
+   "target": "determinants__definition_theoreme_determinant_endomorphisme",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Requires definition of determinant of endomorphisms",
+    "verify_reason": "L'énoncé utilise det(u) et det(v) pour des endomorphismes. La définition du déterminant d'un endomorphisme est indispensable pour comprendre l'objet de toutes les propriétés énoncées.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_polynome_caracteristique_endomorphisme",
+   "target": "determinants__theorem_polynome_caracteristique",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Le théorème pour matrices précède directement la définition pour endomorphismes; l'énoncé introduit le polynôme caractéristique de u en le définissant comme celui de sa matrice",
+    "verify_reason": "L'énoncé définit χ_u comme étant χ_{Mat_B(u)}, c'est-à-dire le polynôme caractéristique de la matrice de u dans une base. Sans connaître la notion de polynôme caractéristique d'une matrice, la définition en (i) est directement incompréhensible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_polynome_caracteristique_endomorphisme",
+   "target": "representation_matricielle_applications_lineaires__def_matrice_app_lin",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.92,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Notion préalable: tout endomorphisme est représenté par une matrice dans une base donnée, fondamental pour définir le polynôme caractéristique",
+    "verify_reason": "L'énoncé utilise explicitement la notation Mat_B(u) en (i). La définition de la matrice d'une application linéaire est indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "determinants__theorem_polynome_caracteristique_endomorphisme",
+   "target": "representation_matricielle_applications_lineaires__def_elements_propres_endo",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.88,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "L'énoncé affirme que les racines du polynôme caractéristique sont exactement les valeurs propres de u, preuve-clé du théorème",
+    "verify_reason": "L'énoncé de la partie (iii) mentionne explicitement 'les valeurs propres de u'. Sans la définition des éléments propres d'un endomorphisme, cette partie de l'énoncé est illisible.",
+    "generated": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,570 @@
+{
+ "schema": "concept_prerequisites_overlay/v1",
+ "n_edges": 47,
+ "edges": [
+  {
+   "source": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Must know what a matrix is before operating on matrices (addition and scalar multiplication)",
+    "verify_reason": "L'énoncé manipule des éléments de M_{n,p}(K) et fait référence au coefficient (i,j) a_{ij} — impossible à comprendre sans la définition d'une matrice et de sa notation indicielle.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Elementary matrices are matrices with specific structure; need to understand matrix definition",
+    "verify_reason": "L'énoncé définit E_{ij} comme matrice de M_{n,p}(K) avec des coefficients — requiert impérativement la définition de matrice et la notation M_{n,p}(K).",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_matrices_elementaires",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Statement shows any matrix as linear combination of elementary matrices - requires understanding linear combinations",
+    "verify_reason": "L'énoncé affirme explicitement que toute matrice M est 'combinaison linéaire' de matrices élémentaires via la somme \\sum m_{ij} E_{ij} — le terme 'combinaison linéaire' est défini dans def_addition_scalaire.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Product operation only makes sense after understanding matrix definition and indexing",
+    "verify_reason": "L'énoncé utilise A ∈ M_{p,q}(K), B ∈ M_{q,r}(K), AB ∈ M_{p,r}(K) et les coefficients (AB)_{ij} — impossible sans la définition de matrice et sa notation indicielle.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_produit_lignes_colonnes",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem characterizes result of matrix product via rows and columns - cannot state without product definition",
+    "verify_reason": "Le théorème caractérise le résultat du produit AB via ses colonnes (AB = (AC_1(B)…AC_r(B))) — le symbole AB et la notion de produit matriciel sont indispensables à l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_produit_lignes_colonnes",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Statement uses row/column terminology requiring matrix definition",
+    "verify_reason": "L'énoncé utilise A ∈ M_{n,p}(K), la j-ème colonne, la i-ème ligne — ces notions nécessitent la définition de matrice et son indexation.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_prop_produit",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem states properties of product - cannot understand without product definition",
+    "verify_reason": "Le théorème énonce des propriétés de AB (associativité, bilinéarité, élément neutre) — le produit matriciel AB doit être défini pour que l'énoncé ait un sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_prop_produit",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Bilinearity property involves scalar multiplication and addition operations",
+    "verify_reason": "La bilinéarité est exprimée explicitement sous la forme (λA+μB)C = λAC+μBC avec des combinaisons linéaires de matrices — requiert la définition de λA+μB sur des matrices.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_puissance",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Matrix power A^k is defined via repeated matrix multiplication",
+    "verify_reason": "A^k est défini comme A × … × A k fois, et A^0 = I_n — le symbole × est le produit matriciel, indispensable à l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_puissance",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.85,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Identity matrix I_n referenced in definition - need to understand matrices",
+    "verify_reason": "L'énoncé parle de 'matrice carrée' et réfère à I_n — requiert la définition de matrice carrée (n=p) introduite dans def_matrice.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_nilpotente",
+   "target": "matrices_et_systemes_lineaires__def_puissance",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Nilpotent defined as A^p = 0 for some p - directly requires understanding powers",
+    "verify_reason": "La définition repose entièrement sur A^p = 0 pour un certain p ∈ N* — la notation A^p est celle de la puissance matricielle, requise directement.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_nilpotente",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.8,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Statement references square matrices M_n - need matrix definition",
+    "verify_reason": "L'énoncé spécifie A ∈ M_n(K) (matrice carrée) et 0 désigne la matrice nulle — les deux notations sont introduites dans def_matrice.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_binome_newton",
+   "target": "matrices_et_systemes_lineaires__def_puissance",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Binomial formula uses A^k and B^k notation",
+    "verify_reason": "La formule utilise A^i, B^{k-i}, A^k, B^k — la notation de puissance matricielle est indispensable à l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_binome_newton",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Formula involves (A+B) and sums of terms - need addition/combination operations",
+    "verify_reason": "L'énoncé utilise (A+B)^k et A-B — l'addition et la soustraction de matrices (cas μ=-1 de la combinaison linéaire) sont requises pour donner un sens à ces expressions.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_binome_newton",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Commutativity condition AB=BA and products appear throughout",
+    "verify_reason": "La condition AB=BA (commutativité) et les produits A^i B^{k-i} font référence explicitement au produit matriciel dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_produit_blocs",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem shows block matrix product works like scalar product - requires knowing matrix product",
+    "verify_reason": "Le théorème montre comment calculer un produit de matrices par blocs — AA', CB', etc. sont des produits matriciels; la définition du produit est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_transposee",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Transpose swaps rows and columns - need to understand matrix structure and indexing",
+    "verify_reason": "L'énoncé définit A^⊤ comme la matrice de M_{p,n}(K) dont le coefficient (i,j) est a_{ji} — requiert la définition de matrice, de M_{n,p}(K) et de la notation indicielle.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_prop_transpo",
+   "target": "matrices_et_systemes_lineaires__def_transposee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem characterizes properties of transpose operation - cannot state without transpose definition",
+    "verify_reason": "Chaque propriété (linéarité, involutivité, effet sur un produit) utilise la notation A^⊤ — la définition de la transposée est nécessaire pour énoncer le théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_prop_transpo",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Linearity property states (lambda*A + mu*B)^T = ... - requires understanding linear combinations",
+    "verify_reason": "La linéarité est (λA+μB)^⊤ = λA^⊤+μB^⊤ — la combinaison linéaire λA+μB de matrices apparaît explicitement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_prop_transpo",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.92,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Statement includes (AB)^T = B^T A^T involving matrix product",
+    "verify_reason": "La propriété (AB)^⊤ = B^⊤A^⊤ utilise explicitement le produit matriciel AB dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_sym_antisym",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Requires understanding what a square matrix is",
+    "verify_reason": "L'énoncé dit 'Une matrice carrée A' — la notion de matrice carrée est définie dans def_matrice (M_n(K)), indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_sym_antisym",
+   "target": "matrices_et_systemes_lineaires__def_transposee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition uses A^T = A (symmetric) and A^T = -A (antisymmetric)",
+    "verify_reason": "L'énoncé définit symmétrique par A^T = A et antisymétrique par A^T = -A — la notation A^T est exactement ce que définit def_transposee, sans quoi l'énoncé est illisible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_diag_triang",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Requires understanding matrix structure, coefficients, diagonal positions",
+    "verify_reason": "L'énoncé parle de 'coefficients non diagonaux', 'a_{ij}=0 pour j<i', 'forme λI_n' — toutes ces notions (coefficients, indices, structure) sont définies dans def_matrice.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_triang",
+   "target": "matrices_et_systemes_lineaires__def_diag_triang",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Statement defines and works with triangular matrices",
+    "verify_reason": "L'énoncé commence par 'Soient A,B triangulaires supérieures (resp. inférieures)' et conclut que λA+μB et AB restent triangulaires — sans savoir ce qu'est triangulaire, l'énoncé est vide de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_triang",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem involves scalar multiplication and addition (λA + μB)",
+    "verify_reason": "L'énoncé mentionne explicitement 'λA+μB' — cette notation est définie dans def_addition_scalaire, indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_triang",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem claims AB remains triangular - must know matrix product",
+    "verify_reason": "L'énoncé affirme que 'AB reste triangulaire' et donne (AB)_{ii} = a_{ii}b_{ii} — la notation AB est le produit matriciel défini dans def_produit_matriciel.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_trace",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Trace is sum of diagonal elements - requires understanding diagonal",
+    "verify_reason": "L'énoncé définit la trace comme 'somme des éléments diagonaux' d'une matrice A ∈ M_n(K) — la notion d'éléments diagonaux et la notation M_n(K) proviennent directement de def_matrice.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_trace",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Linearity property: tr(λA + μB) = λtr(A) + μtr(B)",
+    "verify_reason": "L'énoncé énonce explicitement tr(λA+μB) = λtr(A)+μtr(B) — la notation λA+μB requiert def_addition_scalaire pour être comprise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_trace",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Trace properties involve relationships with matrix product",
+    "verify_reason": "L'énoncé inclut explicitement tr(AB) = tr(BA) pour A ∈ M_{n,p} et B ∈ M_{p,n} — la notation AB nécessite de connaître le produit matriciel.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_notation_vect",
+   "target": "matrices_et_systemes_lineaires__def_addition_scalaire",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Vect notation requires understanding linear combinations (scalars + vectors)",
+    "verify_reason": "L'énoncé définit Vect(X1,...,Xr) = {λ1X1+...+λrXr | λ1,...,λr ∈ K} — la notion de combinaison linéaire λX avec scalaires et addition de vecteurs est indispensable pour lire la définition.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__method_algorithme_pivot",
+   "target": "matrices_et_systemes_lineaires__def_operations_elementaires",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Pivot algorithm uses elementary row operations (L_i <-> L_j, etc.)",
+    "verify_reason": "L'énoncé utilise explicitement les notations Li ← Li+λiL1, et la procédure repose entièrement sur les opérations élémentaires définies dans def_operations_elementaires.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition applies to square matrices in M_n(K)",
+    "verify_reason": "L'énoncé dit 'Soit A ∈ M_n(K)' (matrice carrée) et 'il existe B ∈ M_n(K)' — la notation M_n(K) et la notion de matrice carrée viennent de def_matrice.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Invertibility requires AB = BA = I_n (matrix product and identity)",
+    "verify_reason": "L'énoncé définit l'inversibilité par AB = BA = I_n — la notation AB est le produit matriciel défini dans def_produit_matriciel, indispensable pour lire la condition.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__def_systeme_cramer",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Cramer system requires invertible matrix (A ∈ GL_n(K))",
+    "verify_reason": "L'énoncé dit explicitement 'sa matrice est inversible' et utilise 'A ∈ GL_n(K)' et 'A^{-1}B' — def_matrice_inversible est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_cond_non_inversibilite",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem states condition for non-invertibility",
+    "verify_reason": "L'énoncé conclut 'alors A n'est pas inversible' — sans savoir ce qu'est l'inversibilité (def_matrice_inversible), la conclusion est vide de sens.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_caract_inv_systeme",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Theorem characterizes when A is invertible",
+    "verify_reason": "L'énoncé est 'A est inversible si et seulement si...' — le concept d'inversibilité est central, def_matrice_inversible est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_det_taille_2",
+   "target": "matrices_et_systemes_lineaires__def_matrice",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour comprendre la notion de matrice 2x2 dont on définit le déterminant",
+    "verify_reason": "L'énoncé porte explicitement sur une matrice 2x2 de la forme (a c / b d) ∈ M_2(K). La notion de matrice carrée et la notation M_2(K) (utilisée en partie ii pour M,N ∈ M_2(K)) sont indispensables pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_det_taille_2",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Nécessaire pour comprendre l'énoncé (ii) sur l'effet du déterminant sur le produit det(MN)=det(M)det(N)",
+    "verify_reason": "La partie (ii) énonce det(MN) = det(M)det(N) pour M,N ∈ M_2(K). Le symbole MN désigne le produit matriciel ; sans sa définition, l'expression MN est illisible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_det_taille_2",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.85,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Important pour le contexte de l'énoncé (i) sur l'inversibilité iff déterminant non nul",
+    "verify_reason": "La partie (i) énonce que la matrice est inversible ssi ad-bc ≠ 0 et donne la formule de l'inverse A⁻¹. Le mot 'inversible' et la notation A⁻¹ renvoient directement à cette définition.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_cramer_2x2",
+   "target": "matrices_et_systemes_lineaires__thm_det_taille_2",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Pivot du théorème: les formules de Cramer utilisent explicitement les déterminants 2x2 au numérateur et dénominateur",
+    "verify_reason": "L'énoncé utilise explicitement la notation |...| (déterminant 2x2) au numérateur et au dénominateur des formules de Cramer ; la condition d'application est |a b / a' b'| ≠ 0. La définition et la notation du déterminant 2x2 sont indispensables.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable: énoncé porte sur GL_n(K), l'ensemble des matrices inversibles",
+    "verify_reason": "L'énoncé commence par 'Soient A, B ∈ GL_n(K)' et parle d'inversibilité, de A⁻¹, (AB)⁻¹, etc. GL_n(K) et la notation A⁻¹ sont définis dans def_matrice_inversible ; indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+   "target": "matrices_et_systemes_lineaires__def_produit_matriciel",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour comprendre (ii) sur (AB)⁻¹=B⁻¹A⁻¹ et la composition de produits",
+    "verify_reason": "La partie (ii) porte sur AB et (AB)⁻¹ = B⁻¹A⁻¹ ; AB désigne le produit matriciel. Sans cette définition, l'expression AB dans l'énoncé est opaque.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+   "target": "matrices_et_systemes_lineaires__def_transposee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour la partie (iii) sur (A^T)⁻¹=(A⁻¹)^T",
+    "verify_reason": "La partie (iii) énonce que A^⊤ est inversible et (A^⊤)⁻¹ = (A⁻¹)^⊤. La notation A^⊤ est définie dans def_transposee ; indispensable pour lire cet item.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_op_matrices_inv",
+   "target": "matrices_et_systemes_lineaires__def_puissance",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour la partie (ii) sur A^k et (A^k)⁻¹=(A⁻¹)^k",
+    "verify_reason": "La partie (ii) énonce que pour tout k ∈ Z, A^k est inversible et (A^k)⁻¹ = (A⁻¹)^k. La notation A^k (puissance entière d'une matrice) est définie dans def_puissance ; indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+   "target": "matrices_et_systemes_lineaires__def_diag_triang",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour définir les matrices triangulaires dont on étudie l'inversibilité",
+    "verify_reason": "L'énoncé parle de 'matrice triangulaire', de 'coefficients diagonaux', de 'triangulaire de même type' — tous ces termes sont définis dans def_diag_triang. Indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_inv_triangulaire",
+   "target": "matrices_et_systemes_lineaires__def_matrice_inversible",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour le contexte global du théorème sur l'inversibilité",
+    "verify_reason": "L'énoncé porte sur l'inversibilité d'une matrice triangulaire et mentionne A⁻¹. La notion d'inversibilité et la notation A⁻¹ proviennent de def_matrice_inversible ; indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "matrices_et_systemes_lineaires__thm_systeme_triangulaire",
+   "target": "matrices_et_systemes_lineaires__def_diag_triang",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Indispensable pour définir ce qu'est un système triangulaire",
+    "verify_reason": "L'énoncé parle de 'système triangulaire' et de 'coefficients diagonaux non nuls' — termes définis dans def_diag_triang (matrice triangulaire, coefficients diagonaux). Indispensable.",
+    "generated": true
+   }
+  }
+ ]
+}

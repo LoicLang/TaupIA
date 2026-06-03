@@ -1,0 +1,762 @@
+{
+ "schema": "concept_prerequisites_overlay/v1",
+ "n_edges": 63,
+ "edges": [
+  {
+   "source": "suites_reelles__def_plus_grand_petit_element",
+   "target": "suites_reelles__def_majorants_minorants_borne",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Max/min est défini comme majorant/minorant qui appartient à A",
+    "verify_reason": "L'énoncé définit le max comme 'tout élément de A qui majore A' — le mot 'majore' est emprunté directement à la définition des majorants. Sans cette définition, l'énoncé est inintelligible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_unicite_plus_grand_petit_element",
+   "target": "suites_reelles__def_plus_grand_petit_element",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Le théorème prouve l'unicité du max/min qu'on vient de définir",
+    "verify_reason": "L'énoncé parle explicitement du 'plus grand (resp. petit) élément' — notion définie dans def_plus_grand_petit_element. Sans cette définition, l'objet du théorème n'existe pas.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_proprietes_N",
+   "target": "suites_reelles__def_plus_grand_petit_element",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de plus petit/grand éléments, leur existence",
+    "verify_reason": "L'énoncé affirme explicitement qu'une partie possède 'un plus petit élément' et 'un plus grand élément' — termes définis dans def_plus_grand_petit_element. La notion est directement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_borne_sup_inf",
+   "target": "suites_reelles__def_majorants_minorants_borne",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Borne sup/inf définie sur l'ensemble des majorants/minorants",
+    "verify_reason": "L'énoncé définit la borne sup comme 'le plus petit majorant de A' — le mot 'majorant' est tiré directement de def_majorants_minorants_borne. Prérequis indéniable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_borne_sup_inf",
+   "target": "suites_reelles__def_plus_grand_petit_element",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Borne sup = plus petit élément de l'ensemble des majorants",
+    "verify_reason": "L'énoncé définit la borne sup comme 'le plus petit majorant' — 'plus petit' renvoie exactement à la notion de plus petit élément définie dans def_plus_grand_petit_element. Sans cette définition, 'le plus petit majorant' est circulaire.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_max_min_implique_sup_inf",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Le théorème établit le lien entre max/min et sup/inf",
+    "verify_reason": "L'énoncé affirme que 'sup A = max A' — le symbol sup est défini dans def_borne_sup_inf. Sans cette définition, l'énoncé est inintelligible.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_operations_bornes_sup",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé les propriétés de sup/inf qu'on vient de définir",
+    "verify_reason": "L'énoncé utilise directement 'sup A', 'sup B', 'sup(A∪B)', etc. — la notion de borne supérieure est l'objet central de l'énoncé, définie dans def_borne_sup_inf.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_prop_borne_sup_inf",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce la propriété caractérisante de sup/inf",
+    "verify_reason": "L'énoncé affirme que toute partie non vide majorée de R 'possède une borne supérieure' — ce terme est défini dans def_borne_sup_inf. Prérequis direct et indéniable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_prop_borne_sup_R_barre",
+   "target": "suites_reelles__def_droite_achevee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énonce les propriétés dans R barre, l'ensemble qu'on vient de définir",
+    "verify_reason": "L'énoncé parle de 'borne supérieure DANS R barre' et de parties de R barre — R barre est l'ensemble défini dans def_droite_achevee. Sans cette définition, l'objet du théorème n'existe pas.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_prop_borne_sup_R_barre",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "S'appuie sur la définition de sup/inf en R",
+    "verify_reason": "L'énoncé utilise 'borne supérieure dans R barre' et 'borne supérieure dans R' — la notion de borne supérieure est définie dans def_borne_sup_inf. Prérequis direct.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_intervalle",
+   "target": "suites_reelles__def_droite_achevee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Intervalle est défini sur la droite achevée R barre",
+    "verify_reason": "L'énoncé définit l'intervalle comme une partie de R barre (avec la notation [x,y] ⊂ I pour x,y ∈ I) — R barre est explicitement l'ensemble de référence, défini dans def_droite_achevee.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_carac_intervalles",
+   "target": "suites_reelles__def_intervalle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Théorème caractérise les intervalles qu'on vient de définir",
+    "verify_reason": "L'énoncé caractérise 'les intervalles de R barre' — la notion d'intervalle est définie dans def_intervalle. Sans cette définition, l'objet du théorème n'est pas défini.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_densite_Q",
+   "target": "suites_reelles__def_intervalle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of interval required to state the theorem",
+    "verify_reason": "L'énoncé dit 'Tout intervalle qui n'est ni l'ensemble vide ni un singleton contient...' — le mot 'intervalle' apparaît directement dans l'énoncé, la définition est indéniablement nécessaire pour comprendre de quoi on parle.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_prop_voisinages",
+   "target": "suites_reelles__def_voisinage",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of neighborhood is essential to state this theorem",
+    "verify_reason": "L'énoncé porte entièrement sur les 'voisinages de a' et 'voisinages disjoints' — le terme 'voisinage' est central et omniprésent dans l'énoncé, la définition est indéniablement requise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_suite_monotone_majoree",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of sequence required",
+    "verify_reason": "L'énoncé commence par 'Soit (u_n)_{n∈ℕ} une suite réelle' — la définition de suite réelle est explicitement requise pour énoncer de quoi il s'agit.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_suite_monotone_majoree",
+   "target": "suites_reelles__def_majorants_minorants_borne",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of majorants/minorrants needed",
+    "verify_reason": "L'énoncé utilise directement '∃M∈ℝ, ∀n∈ℕ, u_n ≤ M' (majorée) et 'bornée si à la fois majorée et minorée', reprenant exactement la terminologie de def_majorants_minorants_borne. Le concept est explicitement invoqué dans la définition.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__method_montrer_monotonie",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of sequence is base",
+    "verify_reason": "L'énoncé commence par 'Pour montrer qu'une suite (u_n)_{n∈ℕ} est monotone' — la notion de suite est directement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__method_montrer_monotonie",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of monotone sequence needed",
+    "verify_reason": "L'énoncé vise à montrer qu'une suite 'est monotone' (croissante/décroissante), terme défini dans def_suite_monotone_majoree. Sans cette définition, 'monotone' n'a pas de sens formel.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_suites_arithmetiques_geometriques",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of sequence is essential",
+    "verify_reason": "L'énoncé commence par 'Soient (u_n)_{n∈ℕ} une suite réelle' — la définition de suite réelle est directement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_thm_suites_arithmetico_geometriques",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of sequence is base",
+    "verify_reason": "L'énoncé commence par 'Soient (u_n)_{n∈ℕ} une suite réelle' — la définition de suite réelle est directement requise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_limite_suite",
+   "target": "suites_reelles__def_voisinage",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of neighborhood is central to epsilon-delta definition",
+    "verify_reason": "La définition générale utilise explicitement '∀V_l ∈ V(l), ∃N∈ℕ, ∀n≥N, u_n∈V_l' — le concept de voisinage est au cœur de la définition générale de la limite.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_limite_suite",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of sequence is essential",
+    "verify_reason": "L'énoncé commence par 'Soient (u_n)_{n∈ℕ} une suite réelle' — la définition de suite est directement requise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_unicite_limite",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limit definition needed to state uniqueness",
+    "verify_reason": "L'énoncé parle de 'Si (u_n) possède une limite, celle-ci est unique' — la notion de limite est centrale et indéniablement requise pour énoncer ce théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_convergence_divergence",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limit concept is central to define convergence",
+    "verify_reason": "L'énoncé dit 'converge si elle possède une limite FINIE' — la notion de limite est directement dans la définition de convergence.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_convergence_borne",
+   "target": "suites_reelles__def_convergence_divergence",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of convergence needed to state theorem",
+    "verify_reason": "L'énoncé dit 'Toute suite convergente est bornée' — le terme 'convergente' est central, def_convergence_divergence est requise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_convergence_borne",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Definition of bounded sequence needed",
+    "verify_reason": "L'énoncé dit 'est bornée' — le terme 'bornée' est défini dans def_suite_monotone_majoree (bornée = à la fois majorée et minorée). Sans cette définition, 'bornée' dans l'énoncé n'a pas de sens formel.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_operations_limites",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition d'une limite (concept fondamental de cet énoncé)",
+    "verify_reason": "L'énoncé parle de 'règles sur les limites' : la notion de limite d'une suite est indispensable pour comprendre ce dont parle le théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_composition_limite_fonction",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite (concept fondamental)",
+    "verify_reason": "L'énoncé pose 'u_n → l' (limite d'une suite) comme hypothèse centrale : la définition de limite de suite est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_suite_extraite_valeur_adherence",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition d'une suite (concept fondamental)",
+    "verify_reason": "La définition commence par 'Soit (u_n) une suite réelle' et construit des suites extraites à partir de celle-ci : la notion de suite réelle est fondamentale pour l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_suite_extraite_valeur_adherence",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite (pour valeur d'adhérence convergente)",
+    "verify_reason": "La valeur d'adhérence est définie comme 'toute limite d'une suite extraite convergente' : la notion de limite de suite est explicitement dans la définition.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_minoration_fonction_extraction",
+   "target": "suites_reelles__def_suite_extraite_valeur_adherence",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de fonction d'extraction",
+    "verify_reason": "L'énoncé porte sur 'une fonction d'extraction φ' : la définition de fonction d'extraction (contenue dans def_suite_extraite_valeur_adherence) est indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limites_suites_extraites",
+   "target": "suites_reelles__def_suite_extraite_valeur_adherence",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de suite extraite",
+    "verify_reason": "L'énoncé parle de 'suites extraites' et de 'valeurs d'adhérence' : la définition de ces notions est indispensable pour lire le théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limites_suites_extraites",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de limite",
+    "verify_reason": "L'énoncé utilise 'admet l pour limite' et 'converge' à plusieurs reprises : la définition de limite est nécessaire pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__method_montrer_divergence_extraites",
+   "target": "suites_reelles__thm_limites_suites_extraites",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limites de suites extraites (réciproque)",
+    "verify_reason": "La méthode est la réciproque directe du théorème des limites de suites extraites (si convergente → toutes extraites convergent vers la même limite). L'énoncé de la méthode se comprend en référence directe à ce théorème.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__method_montrer_divergence_extraites",
+   "target": "suites_reelles__def_suite_extraite_valeur_adherence",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de suite extraite",
+    "verify_reason": "La méthode parle de 'deux suites extraites n'ayant pas la même limite' : la définition de suite extraite est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limites_inegalites_strictes",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de limite (pour l'énoncé)",
+    "verify_reason": "L'énoncé pose 'suite possédant une limite l' comme hypothèse centrale : la définition de limite est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_passage_limite_inegalite_large",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de limite",
+    "verify_reason": "L'énoncé parle de 'lim u_n ≤ lim v_n' et de suites 'possédant une limite finie' : la notion de limite est centrale.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_encadrement_minoration_majoration",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite",
+    "verify_reason": "L'énoncé utilise 'm_n → l', 'M_n → l', 'u_n → l', 'u_n → +∞' : la notion de limite est omniprésente et indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_produit_suite_bornee_nulle",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.99,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Suite bornée (définition)",
+    "verify_reason": "L'énoncé stipule '(u_n) est bornée' : la définition formelle de suite bornée (contenue dans def_suite_monotone_majoree) est explicitement requise pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_produit_suite_bornee_nulle",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite",
+    "verify_reason": "L'énoncé pose 'ε_n → 0' et conclut 'ε_n u_n → 0' : la notion de limite est centrale.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_suites_geometriques_limites",
+   "target": "suites_reelles__thm_suites_arithmetiques_geometriques",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition suites géométriques",
+    "verify_reason": "L'énoncé porte sur 'x^n' qui est le terme général d'une suite géométrique de raison x. La définition de suite géométrique (u_n = q^n u_0) est nécessaire pour comprendre que l'énoncé parle bien de suites géométriques.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_suites_geometriques_limites",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.9,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite",
+    "verify_reason": "L'énoncé utilise 'lim x^n = +∞', 'lim x^n = 1', 'lim x^n = 0', 'pas de limite' : la notion de limite est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_croissance_comparee_exp_fact",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.98,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Limite d'une suite",
+    "verify_reason": "L'énoncé utilise 'x^n / n! → 0' : la notion de limite est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_croissance_comparee_exp_fact",
+   "target": "calculs_algebriques_dans_R__definition_factorielle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.85,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition de factorielle",
+    "verify_reason": "L'énoncé contient explicitement 'n!' dans la fraction x^n/n! : la définition de la factorielle est indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limite_monotone",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de suites monotones et majorées/minorées",
+    "verify_reason": "L'énoncé parle explicitement de suites monotones (croissantes/décroissantes) et de suites majorées — ces termes sont définis dans ce prérequis.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limite_monotone",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise la notion de limite",
+    "verify_reason": "L'énoncé utilise directement la notion de limite (u_n → +∞, convergence) et la notation lim.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limite_monotone",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise sup et inf explicitement",
+    "verify_reason": "L'énoncé contient explicitement sup_ℝ̄{u_n | n∈ℕ} — la notion de borne supérieure est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limite_monotone",
+   "target": "suites_reelles__def_droite_achevee",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise sup dans la droite achevée",
+    "verify_reason": "Le sup est pris dans ℝ̄ (notation sup_{ℝ̄}) ; pour comprendre cet énoncé il faut savoir ce qu'est la droite achevée ℝ̄ et pourquoi le sup y est toujours défini.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_suites_adjacentes",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé repose sur croissance/décroissance des suites",
+    "verify_reason": "L'énoncé définit les suites adjacentes via 'l'une croissante, l'autre décroissante' — ces notions sont directement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_suites_adjacentes",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de convergence et de limite commune",
+    "verify_reason": "L'énoncé parle de convergence, de limite commune l, et de u_n - v_n → 0 — la notion de limite est centrale.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__def_petit_o_equivalent",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Définition basée sur les limites (u_n/v_n -> 0 ou -> 1)",
+    "verify_reason": "La définition repose entièrement sur u_n/v_n → 0 ou → 1 — la notion de limite d'une suite est indispensable pour comprendre l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_liens_petits_o_limites_equivalents",
+   "target": "suites_reelles__def_petit_o_equivalent",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé établit liens entre les petits o et limites finies",
+    "verify_reason": "L'énoncé établit des équivalences entre u_n → l et l'écriture u_n = l + o(1), et entre u_n ~ v_n et u_n = v_n + o(v_n) — les notations o et ~ sont au cœur de l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_liens_petits_o_limites_equivalents",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de limites finies",
+    "verify_reason": "L'énoncé parle explicitement de limites finies (u_n → l avec l ∈ ℝ) et de u_n → 0 — la définition de limite est indispensable.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_developpement_asymptotique_harmonique",
+   "target": "suites_reelles__def_petit_o_equivalent",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise la notation o(1)",
+    "verify_reason": "L'énoncé contient explicitement o(1) dans ∑1/k = ln n + γ + o(1) — la notation o est dans l'énoncé même.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_developpement_asymptotique_harmonique",
+   "target": "calculs_algebriques_dans_R__definition_notation_somme",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé contient une somme",
+    "verify_reason": "L'énoncé contient la notation ∑_{k=1}^{n} 1/k — la notation de somme est indispensable pour lire l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_existence_suites_recurrentes",
+   "target": "suites_reelles__def_suite_reelle",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé concerne l'existence de suites",
+    "verify_reason": "L'énoncé affirme l'existence et l'unicité d'une suite (u_n) vérifiant u_0=a et u_{n+1}=f(u_n) — la définition de ce qu'est une suite est nécessaire pour comprendre l'objet construit.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_monotonie_suite_recurrente",
+   "target": "suites_reelles__def_suite_monotone_majoree",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de monotonie",
+    "verify_reason": "L'énoncé conclut que la suite est croissante, décroissante ou monotone — ces notions sont définies dans ce prérequis et apparaissent dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_limite_suite_recurrente_convergente",
+   "target": "suites_reelles__def_convergence_divergence",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de convergence des suites récurrentes",
+    "verify_reason": "L'énoncé commence par 'Si (u_n) converge vers l' — la notion de convergence est explicitement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_cesaro",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de convergence de la suite et de la moyenne",
+    "verify_reason": "L'énoncé parle de u_n → l et de (1/n)∑u_k → l — la notion de limite est centrale dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_cesaro",
+   "target": "calculs_algebriques_dans_R__definition_notation_somme",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé contient une somme",
+    "verify_reason": "L'énoncé contient ∑_{k=1}^{n} u_k — la notation de somme est présente dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_carac_seq_borne",
+   "target": "suites_reelles__def_borne_sup_inf",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé caractérise sup et inf via les suites",
+    "verify_reason": "L'énoncé caractérise sup A — la définition de la borne supérieure est indispensable pour comprendre ce qu'on caractérise.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_carac_seq_borne",
+   "target": "suites_reelles__def_majorants_minorants_borne",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 0.95,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé parle de majorants",
+    "verify_reason": "L'énoncé utilise 'M majore A' comme condition — la notion de majorant est explicitement dans l'énoncé.",
+    "generated": true
+   }
+  },
+  {
+   "source": "suites_reelles__thm_carac_seq_borne",
+   "target": "suites_reelles__def_limite_suite",
+   "type": "REQUIRES",
+   "properties": {
+    "confidence": 1,
+    "source_method": "llm_grounded_verified",
+    "extract_reason": "Énoncé utilise notion de limite de séquence",
+    "verify_reason": "L'énoncé caractérise sup via 'M est la limite d'une suite d'éléments de A' et 'suite de limite +∞' — la notion de limite est dans l'énoncé.",
+    "generated": true
+   }
+  }
+ ]
+}
