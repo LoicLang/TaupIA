@@ -5,7 +5,7 @@
 # TaupIA
 
 **An AI oral-exam examiner for French _prépa_ maths students.**
-It challenges you, makes you reason, and gives structured feedback — it never lectures.
+It challenges you, makes you reason, and gives structured feedback — it never hands over the answer.
 
 [![tests](https://github.com/LoicLang/kholleur-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/LoicLang/kholleur-ai/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-4f46e5.svg)](LICENSE)
@@ -16,63 +16,60 @@ It challenges you, makes you reason, and gives structured feedback — it never 
 </div>
 
 > **khôlle** (n.f.) — a weekly oral exam in French preparatory classes (_classes préparatoires_).
-> A student is given a question or a problem at the blackboard and reasons out loud while an
-> examiner probes their understanding. TaupIA simulates that examiner.
+> A student reasons out loud at the blackboard while an examiner probes their understanding.
+> TaupIA simulates that examiner.
 
 ---
 
-## The problem
+## Why I built it
 
-I tutor maths, up to _prépa_ level. The single most useful thing I do for a student is **not**
-explaining the course again — it's sitting across from them and asking _"why?"_ until the
-reasoning holds. That kind of demanding, patient, one-on-one questioning is what makes the
-difference before an exam.
+I tutor maths, up to _prépa_ level. When ChatGPT reached my students, I watched it get used the
+worst possible way: as an **answer machine**. Stuck on a problem? Paste it, copy the solution,
+move on. The reasoning — the one thing that actually builds a mathematician — got skipped
+entirely. AI was an extraordinary lever, pointed backwards.
 
-It's also the part that doesn't scale. A khôlle is 20 minutes of one examiner's full attention.
-Most students get one or two a week, if any. The students who get more — through private
-tutoring — are usually the ones who can already afford it.
+TaupIA is that lever turned the right way round: the same models, used to **make a student
+reason instead of doing the reasoning for them**. It's an examiner that never gives you the
+answer — it challenges you, asks _"what do you notice in the statement?"_, and guides with
+questions, exactly like a real khôlle. Demanding, patient, available any time.
 
-## What TaupIA does
+That's also a conviction about where AI belongs in education: not replacing teachers, not
+spoon-feeding, but making a **demanding, controllable first level of support** reachable by far
+more students than the ones who can already afford private tutoring. Augment the human; don't
+short-circuit them.
 
-TaupIA gives a student an examiner that is **available any time, infinitely patient, and
-demanding in the right way**:
+## See it work
 
-1. **Pick a chapter** (21 official MPSI chapters) and a format — full khôlle (course question
-   → exercise) or exercise-only.
-2. **Answer a course question** by typing, or by **photographing handwritten work** (OCR).
-3. **Get Socratic feedback.** TaupIA never hands you the method. It asks what you noticed in
-   the statement, what the hypotheses are, where the reasoning breaks — and only nudges once
-   you're genuinely stuck.
-4. **Move on to a matched exercise** that practises the same concepts, found by walking the
-   knowledge graph.
+These are **real, unscripted exchanges** with the live app (captured by
+[`frontend/scripts/screenshots.mjs`](frontend/scripts/screenshots.mjs)).
+
+<p align="center">
+  <img src="assets/screenshots/exercise-socratic.png" width="49%" alt="The examiner refuses to give the answer and scaffolds with questions" />
+  <img src="assets/screenshots/question-feedback.png" width="49%" alt="Demanding evaluation with a Socratic follow-up" />
+</p>
+
+> **Left:** the student asks _"I'm stuck, just give me the answer"_ — the examiner refuses
+> (_"that wouldn't help you progress"_) and scaffolds with a precise question.
+> **Right:** a demanding, honest evaluation (50/100) followed by a guiding question, not a lecture.
+
+<p align="center">
+  <img src="assets/screenshots/deviation.png" width="49%" alt="The student steers the session and the agent switches the exercise" />
+</p>
+
+> The student stays in control: ask for a harder exercise and the agent **switches it on the
+> fly** (an agent _action_, not a fixed flow). [Live demo →](https://taupia.vercel.app)
+
+## What it does
+
+1. **Pick a chapter** (29 MPSI chapters) and a format — full khôlle (course question → exercise)
+   or exercise-only.
+2. **Answer** by typing, or by **photographing handwritten work** (OCR).
+3. **Get Socratic feedback.** TaupIA never hands you the method; it probes until the reasoning
+   holds, and only nudges once you're genuinely stuck.
+4. **Move to a matched exercise** practising the same concepts, found by walking the knowledge graph.
 
 The examiner is grounded in the **official MPSI programme** and an exact course knowledge base,
 so it evaluates against the real definitions and theorems — not its own approximation of them.
-
-## Why this matters
-
-I believe AI is going to reshape education, and that the prize isn't a flashier model — it's
-**access**. A good first level of tutoring (a tutor, a coach, someone to think a problem through
-with) has always been gated by money, time, and network. Done well, AI can lower that gate:
-a tutor that's always there, never impatient, and adaptable to each student.
-
-Not by replacing teachers. Not by giving away answers. By making a useful, demanding,
-**controllable** first level of support reachable by far more students than today.
-
-TaupIA is a first, honest step in that direction: a working product, in production, that takes
-a real pedagogical stance (challenge, don't spoon-feed) and is built so that stance can be
-iterated on.
-
-## Screenshots
-
-> **Live demo:** [taupia.vercel.app](https://taupia.vercel.app) — _currently invitation-only
-> (Clerk waitlist). Run it locally (below) to try it without auth._
-
-<!-- Drop captures into assets/screenshots/ and uncomment:
-![Setup](assets/screenshots/setup.png)
-![Question phase](assets/screenshots/question.png)
-![Socratic feedback](assets/screenshots/feedback.png)
--->
 
 ## How it works
 
@@ -88,57 +85,50 @@ flowchart LR
     KS --> DATA[("Knowledge graph (JSON)<br/>4,705 nodes · ~12.9k edges")]
 ```
 
-A turn works like this:
+The **kholleur is an agent**: it's given the Socratic system prompt and a set of **tools** over
+the knowledge graph, and decides on its own to look up the exact definition it's grading against,
+check a theorem, find the prerequisites a stuck student is missing, pull a matching exercise, or
+— with deviation enabled — switch the exercise the student asked to change.
 
-1. The student's answer (typed or OCR'd) reaches the FastAPI backend.
-2. The **kholleur agent** runs: the LLM is given the Socratic system prompt and a set of
-   **tools** over the knowledge graph. It can decide, on its own, to look up the exact
-   definition it's evaluating against, check a theorem statement, find the prerequisites a
-   stuck student is missing, or pull a matching exercise — then it answers.
-3. Evaluation comes back as structured feedback (score, completeness, missing points), and the
-   session advances.
+The graph is the backbone: **4,705 nodes** (29 chapters, 1,902 concepts, 1,536 exercises, 1,238
+khôlle questions) connected by **~12,900 edges** — `TESTS` (which questions/exercises test which
+concepts), `BELONGS_TO`, `APPLIES_METHOD`, and `REQUIRES` (prerequisite chains).
 
-The knowledge graph is the backbone: **4,705 nodes** (29 course chapters, 1,902 concepts, 1,536
-exercises, 1,238 khôlle questions) connected by **~12,900 edges** — `TESTS` (which questions and
-exercises test which concepts), `BELONGS_TO`, `APPLIES_METHOD`, and `REQUIRES` (explicit
-prerequisite chains).
+## The build
 
-## Design decisions
+TaupIA grew from a weekend RAG script into an agent over a curated knowledge graph. The decisions
+worth defending — each one written up as an [ADR](docs/adr):
 
-These are the choices I'd actually defend in an interview.
+**RAG → knowledge graph.** It started as plain RAG over course PDFs (ChromaDB + embeddings). That's
+probabilistic where an examiner must be exact: you grade against _the_ definition, not the
+nearest paragraph. So the data layer became a **deterministic graph** — questions link to the
+exact concepts they test, exercises are matched by concept intersection.
 
-**Knowledge graph over RAG.** TaupIA started as a plain RAG pipeline over course PDFs (ChromaDB
-+ embeddings). It worked, but it was probabilistic where it needed to be exact: an examiner
-must evaluate against _the_ definition, not the semantically-nearest paragraph. So I rebuilt the
-data layer as a structured graph (see the commit `Refonte architecture: ChromaDB → Knowledge
-Graph`). Lookups are now **deterministic** — a question links to the exact concepts it tests via
-`TESTS` edges, and exercises are matched by concept intersection through graph traversal. The
-long-term bet is bigger: a richer graph that encodes the _teaching path_ (prerequisites,
-method dependencies) and can be overlaid with a per-student mastery layer to personalise what
-comes next.
+**The examiner is an agent, not a prompt.** Instead of stuffing a fixed context window, the LLM
+gets tools (`lire_definition`, `lire_theoreme`, `trouver_prerequis`, `chercher_exercice`, …) and
+a loop (`run_agent_turn`) with a max-iteration cap and a graceful fallback for providers without
+tool support. Verified working end-to-end on a non-Claude provider.
 
-**The examiner is an agent, not a prompt.** Rather than stuffing a pre-built context window and
-hoping, the LLM is given **tools** (`chercher_concepts`, `lire_definition`, `lire_theoreme`,
-`trouver_prerequis`, `chercher_exercice`, `lire_programme`, `choisir_question`) and a loop
-(`run_agent_turn`). It queries the graph only when it needs to. The loop has a max-iteration cap
-and a graceful fallback to plain text for providers without tool support.
+**A real prerequisite graph — generated, not guessed** ([ADR 0001](docs/adr/0001-concept-prerequisite-enrichment.md)).
+The graph had _zero_ concept→concept prerequisites, so remediation was dead code. Pure heuristics
+would be plausible-but-unreliable; a naive LLM hallucinates non-existent nodes. So the enrichment
+pipeline **grounds** the LLM in real candidate concepts, has it _select_ prerequisites, then runs
+an **independent adversarial verifier** that tries to refute each edge — only survivors are kept,
+with deterministic guardrails (DAG, ordering) on top. Result: **462 verified edges across 6 core
+chapters**, generated for ~1.9M tokens, ~4.4× cheaper after batching + tiering models. The agent
+can now walk _rank theorem → linear map → vector space → group_ to find what a student is really
+missing.
 
-**Provider-agnostic LLM layer.** A `LLMProvider` `Protocol` plus a `BaseLLMProvider` (template
-method: shared retry/backoff, history truncation, prompt loading) sits in front of four
-concrete providers — **Claude, Gemini, DeepSeek, Kimi**. Tool definitions use one
-OpenAI-compatible schema that all four consume. This wasn't gold-plating: choosing the default
-LLM, and the OCR model that actually reads messy handwritten maths, took real experimentation on
-my own students' work — having providers be swappable made that cheap.
+**Steerable + personalised** ([ADR 0002](docs/adr/0002-agent-navigation-and-mastery.md)). Action
+tools let the student change exercise on demand (the agent records an _intention_ the backend
+applies, keeping the domain layer decoupled). A per-concept **mastery** profile, updated from each
+score, reweights remediation toward the gap that is _both_ required _and_ weakly mastered.
 
-**Externalised prompts.** Every system prompt lives in `prompts/*.txt`, decoupled from code. The
-pedagogy — how patient to be, how strict the evaluation rubric is, how aggressively to enforce
-LaTeX — can be refined and redeployed without a code change. For an education product, the
-prompt _is_ the product, and it should be iterable.
-
-**In-memory JSON over a vector DB.** The whole knowledge base is ~2 MB loaded into RAM at
-startup. For a fixed MPSI curriculum (4,705 nodes), a vector database would be slower, opaque,
-and operational overhead for nothing. Zero latency, deterministic, human-readable. Pragmatism
-over hype.
+**Cross-cutting:** a provider-agnostic `LLMProvider` Protocol (Claude / Gemini / DeepSeek / Kimi,
+one tool schema for all four — born from real experimentation on my students' handwriting);
+**externalised prompts** (`prompts/*.txt`) so the pedagogy is iterable without a redeploy; and
+**in-memory JSON over a vector DB** — for a fixed 4,705-node curriculum, vectors would be slower,
+opaque overhead. Pragmatism over hype.
 
 ## Tech stack
 
@@ -152,65 +142,64 @@ over hype.
 | Auth | Clerk (PyJWT verification, conditional) |
 | Deploy | Railway (backend) · Vercel (frontend) |
 
-The codebase follows a clean / hexagonal layering: `core/` (domain entities and interfaces, zero
-external dependencies) → `infrastructure/` (LLM and OCR adapters) → `application/` (DI container,
-facade) → `backend/` (FastAPI) and `frontend/` (Next.js).
+Clean / hexagonal layering: `core/` (domain, zero external deps) → `infrastructure/` (LLM & OCR
+adapters) → `application/` (DI container, facade) → `backend/` (FastAPI) and `frontend/` (Next.js).
 
 ## Getting started
 
-**Prerequisites:** Python 3.12, Node.js 20+, and at least one LLM API key.
+**Prerequisites:** Python 3.12, Node.js 20+, at least one LLM API key.
 
 ```bash
 # 1. Backend
 python3.12 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env          # then add at least one LLM API key
+cp .env.example .env          # add at least one LLM API key
 uvicorn backend.main:app --reload   # http://localhost:8000
 
-# 2. Frontend (in a second terminal)
-cd frontend
-npm install
-npm run dev                   # http://localhost:3000
+# 2. Frontend (second terminal)
+cd frontend && npm install && npm run dev   # http://localhost:3000
 ```
 
-Auth is **disabled locally** when no Clerk key is set, so you can use it straight away. The
-backend reads its configuration from `.env` (see `.env.example` for every variable).
+Auth is **disabled locally** when no Clerk key is set. Set `ALLOW_DEVIATION=true` to enable the
+agent's exercise-switching and mastery features (off in production).
 
 ## Running the tests
 
 ```bash
-python -m pytest tests/unit/ -v
+python -m pytest tests/unit/ -v        # 78 tests, no API key needed (providers mocked)
 ```
 
-The suite (69 tests) covers the knowledge-service graph traversal and data loading, the LLM
-provider base (retry, truncation, evaluation parsing), the agent tool-use loop, the domain
-entities, and the DI container. No API key is required — providers are mocked.
+Coverage: graph traversal & data loading, the concept-prerequisite overlay, the LLM provider base
+(retry, truncation, evaluation parsing), the agent tool-use loop, navigation/mastery, entities,
+and the DI container.
 
 ## Project layout
 
 ```
-core/            # Domain: entities, interfaces (Protocols), agent tool entities — no deps
-infrastructure/  # LLM + OCR provider adapters (base class + concrete providers)
+core/            # Domain: entities, interfaces (Protocols), agent tools — no deps
+infrastructure/  # LLM + OCR provider adapters
 application/      # Settings, DI container, AI service facade
 services/         # KnowledgeService: in-memory graph + traversal
 backend/          # FastAPI app, routes, auth, session store
 frontend/         # Next.js 16 app (setup → question → exercise → results)
 prompts/          # Externalised system prompts (.txt)
-data/             # Knowledge graph + curriculum JSON
-tools/ scripts/   # One-off data-generation / migration utilities
+data/             # Knowledge graph, curriculum JSON, derived prerequisite overlays
+scripts/          # Enrichment pipeline + screenshot tooling
+docs/adr/         # Architecture decision records
 tests/unit/       # Tests
 ```
 
-## Status & limitations
+## Status — production vs this branch
 
-- **MVP, in production**, with few users by design — it's been pushed end-to-end (Railway +
-  Vercel + Clerk) but not marketed.
-- Live demo is **invitation-only** (Clerk waitlist); run locally for unrestricted access.
-- Content is **MPSI maths only** (first-year _prépa_); the interface and pedagogy are in French.
-- The graph's `APPLIES_METHOD` edges are populated but not yet used in queries — they're the
-  foundation for method-aware practice ("show me problems that drill induction").
-- Next steps: a per-student mastery layer over the graph for real personalisation, and
-  broadening beyond MPSI.
+- The **deployed MVP** ([taupia.vercel.app](https://taupia.vercel.app), Railway + Vercel + Clerk)
+  proves the product end-to-end. It's invitation-only (Clerk waitlist) and unmarketed by design —
+  run it locally for unrestricted access.
+- The **agentic evolution** in this README (examiner-as-agent, the generated prerequisite graph,
+  deviation, mastery) lives on the `chore/public-showcase-cleanup` branch **behind feature flags
+  and is not yet in production** — shipping it is a deliberate next step, not a silent deploy.
+- Content is **MPSI maths only**; the interface and pedagogy are in French.
+- Next: enrich the remaining chapters, durable per-user mastery (cross-session personalisation),
+  and broadening beyond MPSI.
 
 ## License
 
