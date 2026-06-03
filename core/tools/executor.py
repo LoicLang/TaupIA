@@ -90,12 +90,41 @@ class ToolExecutor:
         concept_id: str | None = None,
         chapter_id: str | None = None,
     ) -> dict[str, Any]:
-        """Find prerequisites for a concept or chapter."""
-        prerequisites: list[dict] = []
+        """Find prerequisites — concept-level when the graph is enriched, else chapter-level."""
+        # Prefer enriched concept->concept prerequisites (grounded + adversarially verified).
+        if concept_id:
+            concept_prereqs = self._ks.get_concept_prerequisites(concept_id)
+            if concept_prereqs:
+                return {
+                    "prerequisites": [
+                        {
+                            "id": p["id"],
+                            "type": p["type"],
+                            "title": p["title"],
+                            "content_latex": p["content_latex"],
+                            "confidence": p["confidence"],
+                        }
+                        for p in concept_prereqs
+                    ],
+                    "source": "concept_graph",
+                }
 
+        # Fallback: coarse chapter-level prerequisites.
+        prerequisites: list[dict] = []
+        seen: set[str] = set()
+        chapters_to_check: list[str] = []
         if chapter_id:
-            prereq_chapter_ids = self._ks._chapter_prerequisites.get(chapter_id, [])
-            for prereq_id in prereq_chapter_ids:
+            chapters_to_check.append(chapter_id)
+        if concept_id:
+            concept_chapter = self._ks._concept_to_chapter.get(concept_id)
+            if concept_chapter:
+                chapters_to_check.append(concept_chapter)
+
+        for chapter in chapters_to_check:
+            for prereq_id in self._ks._chapter_prerequisites.get(chapter, []):
+                if prereq_id in seen:
+                    continue
+                seen.add(prereq_id)
                 chapter_info = self._ks._course_chapters.get(prereq_id, {})
                 prerequisites.append({
                     "id": prereq_id,
@@ -103,36 +132,10 @@ class ToolExecutor:
                     "title": chapter_info.get("title", prereq_id),
                 })
 
-        if concept_id:
-            # Find which chapter the concept belongs to, then get chapter prereqs
-            concept_chapter = self._ks._concept_to_chapter.get(concept_id)
-            if concept_chapter:
-                prereq_chapter_ids = self._ks._chapter_prerequisites.get(concept_chapter, [])
-                for prereq_id in prereq_chapter_ids:
-                    chapter_info = self._ks._course_chapters.get(prereq_id, {})
-                    if not any(p["id"] == prereq_id for p in prerequisites):
-                        prerequisites.append({
-                            "id": prereq_id,
-                            "type": "chapter",
-                            "title": chapter_info.get("title", prereq_id),
-                        })
-
-            # Also find concepts linked by REQUIRES edges in the graph
-            for edge in self._ks._graph_edges:
-                if edge["source"] == concept_id and edge["type"] == "REQUIRES":
-                    target_node = self._ks._course_nodes_by_id.get(edge["target"])
-                    if target_node:
-                        prerequisites.append({
-                            "id": edge["target"],
-                            "type": target_node.get("type", "concept"),
-                            "title": target_node.get("title", edge["target"]),
-                            "content_latex": target_node.get("content_latex", ""),
-                        })
-
         if not prerequisites:
             return {"prerequisites": [], "message": "Aucun prerequis trouve."}
 
-        return {"prerequisites": prerequisites}
+        return {"prerequisites": prerequisites, "source": "chapter_fallback"}
 
     def _tool_chercher_exercice(
         self,

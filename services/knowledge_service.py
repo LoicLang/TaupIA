@@ -66,10 +66,12 @@ class KnowledgeService:
         ),
     )
 
-    def __init__(self, base_dir: Optional[Path] = None):
+    def __init__(self, base_dir: Optional[Path] = None, enriched_graph: bool = True):
         if base_dir is None:
             base_dir = Path(__file__).parent.parent
         self._base_dir = base_dir
+        # Load offline concept->concept prerequisite overlays when enabled.
+        self.enriched_graph = enriched_graph
 
         # Normalisation des exercise chapter IDs vers les IDs cours (reference)
         # Corrige les mismatches entre exercices/ et cours/
@@ -86,6 +88,7 @@ class KnowledgeService:
         self._load_exo_json()
         self._load_questions_de_cours()
         self._build_indices()
+        self._load_concept_prerequisites()
 
     # =========================================================================
     # Chargement des donnees
@@ -252,6 +255,59 @@ class KnowledgeService:
 
             elif etype == "REQUIRES":
                 self._chapter_prerequisites.setdefault(src, []).append(tgt)
+
+    def _load_concept_prerequisites(self):
+        """Load offline concept->concept prerequisite overlays.
+
+        These edges (data/derived/concept_prerequisites_*.json) are produced by the
+        enrichment pipeline (grounded LLM extraction + adversarial verification) and
+        kept SEPARATE from the source graph. Each carries a confidence and a reason.
+        Disabled by passing enriched_graph=False; absent files are a no-op.
+        """
+        self._concept_prerequisites: dict[str, list[dict]] = {}
+        if not self.enriched_graph:
+            return
+        derived_dir = self._base_dir / "data" / "derived"
+        if not derived_dir.is_dir():
+            return
+        for path in sorted(derived_dir.glob("concept_prerequisites_*.json")):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    overlay = json.load(f)
+            except (json.JSONDecodeError, OSError):
+                continue
+            for edge in overlay.get("edges", []):
+                if edge.get("type") != "REQUIRES":
+                    continue
+                props = edge.get("properties", {}) or {}
+                self._concept_prerequisites.setdefault(edge["source"], []).append({
+                    "id": edge["target"],
+                    "confidence": props.get("confidence"),
+                    "reason": props.get("extract_reason") or props.get("verify_reason", ""),
+                })
+        for src in self._concept_prerequisites:
+            self._concept_prerequisites[src].sort(key=lambda e: e["confidence"] or 0, reverse=True)
+
+    def get_concept_prerequisites(self, concept_id: str) -> list[dict]:
+        """Direct concept-level prerequisites of a concept, resolved with title/type/content.
+
+        Returns [] when the concept has no enriched prerequisites, so callers can fall
+        back to the coarse chapter-level prerequisites.
+        """
+        resolved = []
+        for entry in self._concept_prerequisites.get(concept_id, []):
+            pid = entry["id"]
+            node = self._course_nodes_by_id.get(pid, {})
+            gprops = self._graph_nodes.get(pid, {}).get("properties", {})
+            resolved.append({
+                "id": pid,
+                "type": node.get("type") or gprops.get("type", "concept"),
+                "title": node.get("title") or gprops.get("title", pid),
+                "content_latex": node.get("content_latex", ""),
+                "confidence": entry["confidence"],
+                "reason": entry["reason"],
+            })
+        return resolved
 
     def _normalize_text_artifacts(self, text: str) -> str:
         normalized = text.replace("\r\n", "\n").replace("\r", "\n")
