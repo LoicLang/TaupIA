@@ -358,7 +358,9 @@ cherche les prerequis du concept concerne pour identifier ce qui lui manque.
         exercise_context += (
             "\n## Navigation\n"
             "Si l'etudiant demande un autre exercice (plus dur, plus facile, autre theme), "
-            "appelle l'outil changer_exercice. Tu peux consulter_profil_maitrise pour cibler ses faiblesses."
+            "appelle DIRECTEMENT l'outil changer_exercice avec la difficulte appropriee, SANS poser "
+            "de question prealable ni demander de precision. Annonce ensuite brievement le nouvel "
+            "exercice. Tu peux consulter_profil_maitrise pour cibler ses faiblesses."
         )
     full_system_prompt = system_prompt + "\n\n" + exercise_context
 
