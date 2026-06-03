@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Terminal, Send, Camera, Loader2, Cpu, Flag, AlertTriangle, SkipForward } from "lucide-react";
+import { Terminal, Send, Camera, Loader2, Cpu, Flag, AlertTriangle, SkipForward, ChevronsUp, ChevronsDown, Shuffle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { exerciseMessage, transcribeImage } from "@/lib/api";
 import LatexRenderer from "@/components/shared/LatexRenderer";
@@ -13,7 +13,14 @@ interface ExercisePhaseProps {
   ocrProvider: string;
   onFinish: () => void;
   onSkip: () => void;
+  onExerciseChange?: (exercise: Exercise) => void;
 }
+
+const DEVIATIONS = [
+  { label: "Plus facile", icon: ChevronsDown, msg: "Cet exercice est trop difficile pour moi, donne-m'en un plus facile." },
+  { label: "Plus difficile", icon: ChevronsUp, msg: "Cet exercice est trop facile, donne-m'en un plus difficile." },
+  { label: "Autre exercice", icon: Shuffle, msg: "Donne-moi un autre exercice sur le même thème." },
+];
 
 export default function ExercisePhase({
   sessionId,
@@ -21,6 +28,7 @@ export default function ExercisePhase({
   ocrProvider,
   onFinish,
   onSkip,
+  onExerciseChange,
 }: ExercisePhaseProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -42,24 +50,38 @@ export default function ExercisePhase({
     setError(null);
   }, [exercise.id]);
 
-  async function handleSubmit() {
-    if (!input.trim() || loading) return;
-    const msg = input.trim();
-    setInput("");
+  async function sendMessage(text: string) {
+    const msg = text.trim();
+    if (!msg || loading) return;
     setLoading(true);
-
     setError(null);
     setMessages((prev) => [...prev, { role: "user", content: msg }]);
 
     try {
       const res = await exerciseMessage(sessionId, { message: msg });
+      // The agent may switch the exercise (deviation): the parent remounts us with it.
+      if (res.exercise && onExerciseChange) {
+        onExerciseChange(res.exercise);
+        return;
+      }
       setMessages(res.conversation_history);
     } catch (e) {
       setMessages((prev) => prev.slice(0, -1));
       setError(e instanceof Error ? e.message : "Erreur lors de l'envoi");
-      setInput(msg); // Restore input so user can retry
+      throw e;
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleSubmit() {
+    const msg = input.trim();
+    if (!msg || loading) return;
+    setInput("");
+    try {
+      await sendMessage(msg);
+    } catch {
+      setInput(msg); // Restore input so user can retry
     }
   }
 
@@ -113,6 +135,22 @@ export default function ExercisePhase({
             />
           </div>
         </div>
+      </div>
+
+      {/* Deviation toolbar — ask the agent to adapt the exercise on the fly */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="text-[10px] font-mono text-white/25 mr-0.5">// adapter</span>
+        {DEVIATIONS.map((d) => (
+          <button
+            key={d.label}
+            onClick={() => sendMessage(d.msg).catch(() => {})}
+            disabled={loading}
+            className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs sm:text-[11px] font-medium text-purple-300/70 border border-purple-500/20 bg-purple-500/[0.04] hover:bg-purple-500/10 hover:text-purple-200 transition-all disabled:opacity-40 min-h-[40px] sm:min-h-0"
+          >
+            <d.icon className="w-3.5 h-3.5" />
+            {d.label}
+          </button>
+        ))}
       </div>
 
       {/* Chat History */}

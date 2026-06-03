@@ -92,6 +92,8 @@ export interface AnswerResponse {
 export interface ExerciseMessageResponse {
   guidance: string;
   conversation_history: ChatMessage[];
+  // Set when the agent switched the exercise mid-conversation (deviation).
+  exercise?: Exercise | null;
 }
 
 export interface NextExerciseResponse {

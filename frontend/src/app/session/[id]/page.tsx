@@ -255,6 +255,10 @@ export default function SessionPage() {
               ocrProvider={session.ocr_provider}
               onFinish={handleFinish}
               onSkip={handleSkip}
+              onExerciseChange={(ex) => {
+                setExercise(ex);
+                setSession((prev) => (prev ? { ...prev, conversation_history: [] } : prev));
+              }}
             />
           )}
 
