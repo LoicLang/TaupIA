@@ -194,12 +194,30 @@ tests/unit/       # Tests
 - The **deployed MVP** ([taupia.vercel.app](https://taupia.vercel.app), Railway + Vercel + Clerk)
   proves the product end-to-end. It's invitation-only (Clerk waitlist) and unmarketed by design —
   run it locally for unrestricted access.
-- The **agentic evolution** in this README (examiner-as-agent, the generated prerequisite graph,
-  deviation, mastery) lives on the `chore/public-showcase-cleanup` branch **behind feature flags
-  and is not yet in production** — shipping it is a deliberate next step, not a silent deploy.
+- This repository's default branch (`develop`) is the **agentic evolution** described above —
+  examiner-as-agent, the generated prerequisite graph, deviation, mastery — **behind feature
+  flags and not yet deployed**. `main` is the branch that ships to production; promoting `develop`
+  is a deliberate step, not a silent deploy.
 - Content is **MPSI maths only**; the interface and pedagogy are in French.
-- Next: enrich the remaining chapters, durable per-user mastery (cross-session personalisation),
-  and broadening beyond MPSI.
+
+## Roadmap
+
+The graph + per-student mastery is one asset that can be rendered two very different ways.
+
+**For _prépa_ (MPSI) — a mastery dashboard + adaptive coach.** Today mastery is an in-session
+signal; the next step is to surface it. A visual map of the curriculum graph showing each
+student's **strengths and weak spots** (the mastery overlay), and an **adaptive coach** that takes
+that map as context — deciding what to drill next, when to step back to a shaky prerequisite, when
+to push harder. The graph stops being plumbing and becomes the student's view of where they stand.
+
+**For collège / lycée — the graph as a kingdom to conquer.** Younger students don't want a
+dashboard, they want a quest. Each concept is a territory; prerequisites are the roads you secure
+before advancing; mastering a chapter unlocks the next region. **Gamifying the curriculum graph**
+turns "revise your maths" into "expand your map" — progression, not pressure.
+
+Same backbone, two products: an analytical cockpit for the exam-driven student, a game world for
+the younger learner. Plus the nearer-term work: enrich the remaining chapters and make mastery
+durable per user (cross-session personalisation).
 
 ## License
 
