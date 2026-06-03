@@ -210,6 +210,12 @@ MANQUE: liste des points manquants (ou "rien")
     score = result.score.value
     session.scores.append(score)
 
+    # Update the per-concept mastery profile from this score (TESTS edges).
+    if q:
+        concept_ids = [c["id"] for c in ks.get_concepts_for_question(q["id"])]
+        if concept_ids:
+            session.update_mastery(concept_ids, score)
+
     is_complete = result.is_complete
     question_validated = is_complete and score >= 75
     if question_validated:
@@ -319,6 +325,8 @@ async def exercise_message(
     if not ex:
         raise HTTPException(status_code=400, detail="Aucun exercice en cours")
 
+    allow_deviation = get_settings().allow_deviation
+
     # Configurer le provider getter
     ai_service.set_provider_getter(lambda: session.ai_provider)
 
@@ -346,10 +354,28 @@ consulter les definitions et theoremes pertinents quand l'etudiant est bloque.
 Pose des questions pour le faire reflechir. Si l'etudiant est bloque,
 cherche les prerequis du concept concerne pour identifier ce qui lui manque.
 """
+    if allow_deviation:
+        exercise_context += (
+            "\n## Navigation\n"
+            "Si l'etudiant demande un autre exercice (plus dur, plus facile, autre theme), "
+            "appelle l'outil changer_exercice. Tu peux consulter_profil_maitrise pour cibler ses faiblesses."
+        )
     full_system_prompt = system_prompt + "\n\n" + exercise_context
 
-    # Create tool executor
-    tool_executor = _get_tool_executor(ks)
+    # Create tool executor (mastery + session context enable deviation when allowed)
+    tool_executor = ToolExecutor(
+        ks,
+        mastery=session.mastery if allow_deviation else None,
+        session_context=(
+            {
+                "chapter_id": session.chapter_id,
+                "difficulty": session.difficulty,
+                "done_exercises": session.done_exercises,
+            }
+            if allow_deviation
+            else None
+        ),
+    )
 
     try:
         guidance = ai_service.agent_respond(
@@ -358,6 +384,7 @@ cherche les prerequis du concept concerne pour identifier ce qui lui manque.
             tool_executor=tool_executor.execute,
             conversation_history=session.conversation_history[:-1],
             temperature=0.8,
+            include_actions=allow_deviation,
         )
     except Exception as e:
         session.conversation_history.pop()
@@ -368,9 +395,21 @@ cherche les prerequis du concept concerne pour identifier ce qui lui manque.
         "content": guidance,
     })
 
+    # Apply any navigation intention the agent recorded (deviation).
+    new_exercise = None
+    if allow_deviation:
+        for intent in tool_executor.intents:
+            if intent.get("action") == "set_exercise":
+                new_ex = intent["exercise"]
+                session.current_exercise = new_ex
+                if new_ex["id"] not in session.done_exercises:
+                    session.done_exercises.append(new_ex["id"])
+                new_exercise = new_ex
+
     return ExerciseMessageResponse(
         guidance=guidance,
         conversation_history=session.conversation_history,
+        exercise=new_exercise,
     )
 
 

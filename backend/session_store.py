@@ -29,6 +29,8 @@ class SessionState:
     asked_questions: list[str] = field(default_factory=list)
     done_exercises: list[str] = field(default_factory=list)
     scores: list[int] = field(default_factory=list)
+    # Per-concept mastery profile: concept_id -> {"score": float 0..1, "seen": int}
+    mastery: dict[str, dict] = field(default_factory=dict)
     debug_prompt_data: Optional[dict] = None
     created_at: datetime = field(default_factory=datetime.utcnow)
     last_activity: datetime = field(default_factory=datetime.utcnow)
@@ -36,6 +38,18 @@ class SessionState:
     def touch(self):
         """Met a jour le timestamp d'activite."""
         self.last_activity = datetime.utcnow()
+
+    def update_mastery(self, concept_ids: list[str], score_0_100: int):
+        """Blend a question/exercise score into the mastery of the concepts it tested.
+
+        Uses an exponential moving average so recent performance weighs more, while
+        keeping a memory of past attempts.
+        """
+        s = max(0.0, min(1.0, score_0_100 / 100.0))
+        for cid in concept_ids:
+            entry = self.mastery.setdefault(cid, {"score": None, "seen": 0})
+            entry["score"] = s if entry["score"] is None else 0.6 * entry["score"] + 0.4 * s
+            entry["seen"] += 1
 
     def to_dict(self) -> dict:
         """Serialise l'etat pour la reponse API."""

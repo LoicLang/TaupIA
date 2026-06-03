@@ -147,6 +147,7 @@ def agent_respond(
     tool_executor: Callable[[str, dict], str],
     conversation_history: Optional[list[dict]] = None,
     temperature: float = 0.7,
+    include_actions: bool = False,
 ) -> str:
     """
     Run an agent turn with knowledge graph tool calling.
@@ -165,7 +166,7 @@ def agent_respond(
         Agent's text response
     """
     provider = get_provider()
-    tools = get_tool_definitions()
+    tools = get_tool_definitions(include_actions=include_actions)
     return provider.run_agent_turn(
         user_message=user_message,
         system_prompt=system_prompt,

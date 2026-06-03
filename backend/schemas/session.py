@@ -54,6 +54,8 @@ class ExerciseMessageRequest(BaseModel):
 class ExerciseMessageResponse(BaseModel):
     guidance: str
     conversation_history: list[dict]
+    # Set when the agent switched the exercise mid-conversation (deviation).
+    exercise: Optional[dict] = None
 
 
 class NextExerciseResponse(BaseModel):

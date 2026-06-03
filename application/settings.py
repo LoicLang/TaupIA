@@ -57,6 +57,10 @@ class Settings(BaseSettings):
         default="", alias="PROVIDER_OVERRIDE_EMAILS"
     )
 
+    # Showcase feature flag: let the agent navigate (change exercise on demand) and
+    # use the student mastery profile. Off in production.
+    allow_deviation: bool = Field(default=False, alias="ALLOW_DEVIATION")
+
     # Paths (computed from BASE_DIR)
     @property
     def base_dir(self) -> Path:

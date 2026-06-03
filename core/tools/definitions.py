@@ -185,6 +185,57 @@ TOOL_DEFINITIONS: list[dict] = [
 ]
 
 
-def get_tool_definitions() -> list[dict]:
-    """Return the full list of tool definitions."""
+# Action tools: let the agent change the session state (deviation) and read the
+# student's mastery profile. Off by default; enabled behind the allow_deviation flag.
+ACTION_TOOL_DEFINITIONS: list[dict] = [
+    {
+        "type": "function",
+        "function": {
+            "name": "changer_exercice",
+            "description": (
+                "Change l'exercice en cours a la demande de l'etudiant (ou quand c'est "
+                "pedagogiquement pertinent). Selectionne un nouvel exercice selon des criteres "
+                "optionnels et le rend actif. Utilise cet outil quand l'etudiant demande un autre "
+                "exercice, plus dur, plus facile, ou sur un autre theme."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "chapter_id": {
+                        "type": "string",
+                        "description": "ID du chapitre (optionnel, defaut: chapitre courant)",
+                    },
+                    "difficulty": {
+                        "type": "integer",
+                        "description": "Niveau de difficulte souhaite 1-5 (optionnel)",
+                    },
+                    "concept_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Concepts a tester (optionnel)",
+                    },
+                },
+                "required": [],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "consulter_profil_maitrise",
+            "description": (
+                "Consulte le profil de maitrise de l'etudiant : les concepts qu'il maitrise le "
+                "moins bien d'apres ses reponses precedentes. Utilise cet outil pour cibler la "
+                "remediation ou choisir un exercice adapte a ses faiblesses."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+]
+
+
+def get_tool_definitions(include_actions: bool = False) -> list[dict]:
+    """Return tool definitions; include navigation/mastery actions when requested."""
+    if include_actions:
+        return TOOL_DEFINITIONS + ACTION_TOOL_DEFINITIONS
     return TOOL_DEFINITIONS

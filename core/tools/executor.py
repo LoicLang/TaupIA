@@ -12,10 +12,25 @@ from services.knowledge_service import KnowledgeService
 
 
 class ToolExecutor:
-    """Executes tool calls against the knowledge graph."""
+    """Executes tool calls against the knowledge graph.
 
-    def __init__(self, knowledge_service: KnowledgeService):
+    Optionally carries a read-only student `mastery` profile (concept_id ->
+    {"score": float 0..1, "seen": int}) used to weight remediation, and a
+    `session_context` (chapter_id / difficulty / done_exercises) used by action
+    tools. Action tools never mutate session state directly; they record an
+    intention in `self.intents` for the caller to apply.
+    """
+
+    def __init__(
+        self,
+        knowledge_service: KnowledgeService,
+        mastery: dict | None = None,
+        session_context: dict | None = None,
+    ):
         self._ks = knowledge_service
+        self._mastery = mastery or {}
+        self._ctx = session_context or {}
+        self.intents: list[dict] = []
 
     def execute(self, tool_name: str, arguments: dict) -> str:
         """
@@ -91,23 +106,28 @@ class ToolExecutor:
         chapter_id: str | None = None,
     ) -> dict[str, Any]:
         """Find prerequisites — concept-level when the graph is enriched, else chapter-level."""
-        # Prefer enriched concept->concept prerequisites (grounded + adversarially verified).
+        # Prefer enriched concept->concept prerequisites (grounded + adversarially verified),
+        # weighted by the student's mastery so the most decision-relevant gap surfaces first.
         if concept_id:
             concept_prereqs = self._ks.get_concept_prerequisites(concept_id)
             if concept_prereqs:
-                return {
-                    "prerequisites": [
-                        {
-                            "id": p["id"],
-                            "type": p["type"],
-                            "title": p["title"],
-                            "content_latex": p["content_latex"],
-                            "confidence": p["confidence"],
-                        }
-                        for p in concept_prereqs
-                    ],
-                    "source": "concept_graph",
-                }
+                items = []
+                for p in concept_prereqs:
+                    mastery = self._mastery.get(p["id"], {}).get("score")
+                    conf = p["confidence"] or 0.0
+                    # Unknown mastery -> treated as not yet acquired (priority = confidence).
+                    priority = conf * (1 - (mastery if mastery is not None else 0.0))
+                    items.append({
+                        "id": p["id"],
+                        "type": p["type"],
+                        "title": p["title"],
+                        "content_latex": p["content_latex"],
+                        "confidence": p["confidence"],
+                        "mastery": mastery,
+                        "priority": round(priority, 3),
+                    })
+                items.sort(key=lambda x: x["priority"], reverse=True)
+                return {"prerequisites": items, "source": "concept_graph"}
 
         # Fallback: coarse chapter-level prerequisites.
         prerequisites: list[dict] = []
@@ -211,3 +231,53 @@ class ToolExecutor:
             },
             "tested_concepts": concept_summaries,
         }
+
+    # -----------------------------------------------------------------
+    # Action tools (record intentions; the caller applies them to session)
+    # -----------------------------------------------------------------
+
+    def _tool_changer_exercice(
+        self,
+        chapter_id: str | None = None,
+        difficulty: int | None = None,
+        concept_ids: list[str] | None = None,
+    ) -> dict[str, Any]:
+        """Pick a new exercise on demand and record a 'set_exercise' intention."""
+        chapter_id = chapter_id or self._ctx.get("chapter_id")
+        difficulty = difficulty or self._ctx.get("difficulty", 3)
+        exclude_ids = self._ctx.get("done_exercises", [])
+
+        if concept_ids:
+            exercise = self._ks.get_exercise_for_concepts(
+                concept_ids=concept_ids, difficulty=difficulty, chapter_id=chapter_id,
+            )
+        else:
+            exercise = self._ks.get_exercise_by_difficulty(
+                chapter_id=chapter_id, difficulty=difficulty, exclude_ids=exclude_ids,
+            )
+
+        if not exercise:
+            return {"found": False, "message": "Aucun exercice trouve pour ces criteres."}
+
+        self.intents.append({"action": "set_exercise", "exercise": exercise})
+        return {
+            "found": True,
+            "exercise": {
+                "id": exercise["id"],
+                "difficulty": exercise.get("difficulty"),
+                "enonce": exercise.get("enonce", ""),
+            },
+        }
+
+    def _tool_consulter_profil_maitrise(self) -> dict[str, Any]:
+        """Return the student's weakest concepts from the mastery profile."""
+        if not self._mastery:
+            return {"mastery": [], "message": "Aucune donnee de maitrise pour l'instant."}
+        weak = sorted(
+            (
+                {"concept_id": cid, "score": m.get("score"), "seen": m.get("seen", 0)}
+                for cid, m in self._mastery.items()
+            ),
+            key=lambda x: x["score"] if x["score"] is not None else 1.0,
+        )
+        return {"mastery": weak[:10], "n_tracked": len(self._mastery)}
