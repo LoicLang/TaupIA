@@ -7,7 +7,7 @@
 **An AI oral-exam examiner for French _prépa_ maths students.**
 It challenges you, makes you reason, and gives structured feedback — it never hands over the answer.
 
-[![tests](https://github.com/LoicLang/kholleur-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/LoicLang/kholleur-ai/actions/workflows/tests.yml)
+[![tests](https://github.com/LoicLang/TaupIA/actions/workflows/tests.yml/badge.svg)](https://github.com/LoicLang/TaupIA/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-4f46e5.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB.svg)](.python-version)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-000000.svg)](frontend)
